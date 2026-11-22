@@ -1,0 +1,197 @@
+host: D:\a\_temp\mxbfacts\run-menu-crash\mxbikes.exe
+GL: Mesa | llvmpipe (LLVM 23.1.5, 256 bits) | 4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+== host import table check (before plugins)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+loaded plugins\mxb_damage.dlo (mod id 'mxbikes')
+loaded victim.dlo (mod id 'victim')
+Startup(plugins\mxb_damage.dlo) -> 0
+Startup(victim.dlo) -> -1
+== host import table check (after Startup)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+DrawInit(plugins\mxb_damage.dlo) -> 0, 96 sprites, 0 fonts
+  sprite mxb_damage\ui\g032.tga
+  sprite mxb_damage\ui\g033.tga
+  sprite mxb_damage\ui\g034.tga
+  sprite mxb_damage\ui\g035.tga
+  sprite mxb_damage\ui\g036.tga
+  sprite mxb_damage\ui\g037.tga
+  sprite mxb_damage\ui\g038.tga
+  sprite mxb_damage\ui\g039.tga
+  sprite mxb_damage\ui\g040.tga
+  sprite mxb_damage\ui\g041.tga
+  sprite mxb_damage\ui\g042.tga
+  sprite mxb_damage\ui\g043.tga
+  sprite mxb_damage\ui\g044.tga
+  sprite mxb_damage\ui\g045.tga
+  sprite mxb_damage\ui\g046.tga
+  sprite mxb_damage\ui\g047.tga
+  sprite mxb_damage\ui\g048.tga
+  sprite mxb_damage\ui\g049.tga
+  sprite mxb_damage\ui\g050.tga
+  sprite mxb_damage\ui\g051.tga
+  sprite mxb_damage\ui\g052.tga
+  sprite mxb_damage\ui\g053.tga
+  sprite mxb_damage\ui\g054.tga
+  sprite mxb_damage\ui\g055.tga
+  sprite mxb_damage\ui\g056.tga
+  sprite mxb_damage\ui\g057.tga
+  sprite mxb_damage\ui\g058.tga
+  sprite mxb_damage\ui\g059.tga
+  sprite mxb_damage\ui\g060.tga
+  sprite mxb_damage\ui\g061.tga
+  sprite mxb_damage\ui\g062.tga
+  sprite mxb_damage\ui\g063.tga
+  sprite mxb_damage\ui\g064.tga
+  sprite mxb_damage\ui\g065.tga
+  sprite mxb_damage\ui\g066.tga
+  sprite mxb_damage\ui\g067.tga
+  sprite mxb_damage\ui\g068.tga
+  sprite mxb_damage\ui\g069.tga
+  sprite mxb_damage\ui\g070.tga
+  sprite mxb_damage\ui\g071.tga
+  sprite mxb_damage\ui\g072.tga
+  sprite mxb_damage\ui\g073.tga
+  sprite mxb_damage\ui\g074.tga
+  sprite mxb_damage\ui\g075.tga
+  sprite mxb_damage\ui\g076.tga
+  sprite mxb_damage\ui\g077.tga
+  sprite mxb_damage\ui\g078.tga
+  sprite mxb_damage\ui\g079.tga
+  sprite mxb_damage\ui\g080.tga
+  sprite mxb_damage\ui\g081.tga
+  sprite mxb_damage\ui\g082.tga
+  sprite mxb_damage\ui\g083.tga
+  sprite mxb_damage\ui\g084.tga
+  sprite mxb_damage\ui\g085.tga
+  sprite mxb_damage\ui\g086.tga
+  sprite mxb_damage\ui\g087.tga
+  sprite mxb_damage\ui\g088.tga
+  sprite mxb_damage\ui\g089.tga
+  sprite mxb_damage\ui\g090.tga
+  sprite mxb_damage\ui\g091.tga
+  sprite mxb_damage\ui\g092.tga
+  sprite mxb_damage\ui\g093.tga
+  sprite mxb_damage\ui\g094.tga
+  sprite mxb_damage\ui\g095.tga
+  sprite mxb_damage\ui\g096.tga
+  sprite mxb_damage\ui\g097.tga
+  sprite mxb_damage\ui\g098.tga
+  sprite mxb_damage\ui\g099.tga
+  sprite mxb_damage\ui\g100.tga
+  sprite mxb_damage\ui\g101.tga
+  sprite mxb_damage\ui\g102.tga
+  sprite mxb_damage\ui\g103.tga
+  sprite mxb_damage\ui\g104.tga
+  sprite mxb_damage\ui\g105.tga
+  sprite mxb_damage\ui\g106.tga
+  sprite mxb_damage\ui\g107.tga
+  sprite mxb_damage\ui\g108.tga
+  sprite mxb_damage\ui\g109.tga
+  sprite mxb_damage\ui\g110.tga
+  sprite mxb_damage\ui\g111.tga
+  sprite mxb_damage\ui\g112.tga
+  sprite mxb_damage\ui\g113.tga
+  sprite mxb_damage\ui\g114.tga
+  sprite mxb_damage\ui\g115.tga
+  sprite mxb_damage\ui\g116.tga
+  sprite mxb_damage\ui\g117.tga
+  sprite mxb_damage\ui\g118.tga
+  sprite mxb_damage\ui\g119.tga
+  sprite mxb_damage\ui\g120.tga
+  sprite mxb_damage\ui\g121.tga
+  sprite mxb_damage\ui\g122.tga
+  sprite mxb_damage\ui\g123.tga
+  sprite mxb_damage\ui\g124.tga
+  sprite mxb_damage\ui\g125.tga
+  sprite mxb_damage\ui\g126.tga
+  sprite mxb_damage\ui\pointer.tga
+Draw(plugins\mxb_damage.dlo): 0 quads, 0 strings
+Draw(plugins\mxb_damage.dlo): 168 quads, 0 strings
+Draw(plugins\mxb_damage.dlo): 0 quads, 0 strings
+Draw(plugins\mxb_damage.dlo): 156 quads, 0 strings
+Draw(plugins\mxb_damage.dlo): 324 quads, 0 strings
+Draw(plugins\mxb_damage.dlo): 349 quads, 0 strings
+Draw(plugins\mxb_damage.dlo): 193 quads, 0 strings
+direct HUD draw saw viewport 0,0 1280x720, draw FBO 0
+frames 1200, avg 15.99 ms, worst 162.74 ms
+== host import table check (after frames)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     REDIRECTED to mxb_damage.dlo
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements REDIRECTED to mxb_damage.dlo  (global from wglGetProcAddress)
+== bystander plugin (victim.dlo) import table
+  import glOrtho    untouched
+  import glBegin    untouched
+  import glViewport untouched
+== bystander plugin (victim.dlo) pointer table
+  glOrtho          untouched
+  glFrustum        untouched
+  glLoadIdentity   untouched
+  glDrawElements   untouched
+  glViewport       untouched
+  glScissor        untouched
+  glReadPixels     untouched
+  glBegin          untouched
+FreeLibrary victim.dlo
+FreeLibrary plugins\mxb_damage.dlo
+== host import table check (after unload)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+host: clean exit
+exit=0

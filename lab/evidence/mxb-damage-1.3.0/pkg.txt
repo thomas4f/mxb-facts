@@ -1,0 +1,5 @@
+$ mxbd_pkg.py mxb_damage_1.3.0.pkg > $W/pkg.txt; grep '^file=' mxb_damage_manifest.txt | sed 's/^file=//' | sort | diff - <(sort $W/pkg.txt) && echo 'every file in the package is the one the manifest names (path, size, SHA-256), and none is missing'; sha256sum mxb_damage_1.3.0.pkg; grep package_sha256 mxb_damage_manifest.txt
+every file in the package is the one the manifest names (path, size, SHA-256), and none is missing
+1c66705ce5a5e469c1ded584d3e869161d0253a72c10481f4bc815e04baaa1d6  mxb_damage_1.3.0.pkg
+package_sha256=1c66705ce5a5e469c1ded584d3e869161d0253a72c10481f4bc815e04baaa1d6
+(exit 0)

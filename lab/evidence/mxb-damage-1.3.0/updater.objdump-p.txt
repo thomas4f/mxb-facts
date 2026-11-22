@@ -1,0 +1,189 @@
+$ objdump -p mxb_damage/mxb_damage_updater.exe | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+mxb_damage/mxb_damage_updater.exe:     file format pei-x86-64
+
+Characteristics 0x22
+	executable
+	large address aware
+
+Time/Date		Sun Nov 15 19:36:58 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	44
+SizeOfCode		0000000000073c00
+SizeOfInitializedData	0000000000025a00
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	0000000000049bb4
+BaseOfCode		0000000000001000
+ImageBase		0000000140000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		0009d000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00008160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+					TERMINAL_SERVICE_AWARE
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 0000000000000000 00000000 Export Directory [.edata (or where ever we found it)]
+Entry 1 0000000000091de4 00000050 Import Directory [parts of .idata]
+Entry 2 0000000000000000 00000000 Resource Directory [.rsrc]
+Entry 3 0000000000096000 00004c20 Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 000000000009c000 0000081c Base Relocation Directory [.reloc]
+Entry 6 0000000000088460 0000001c Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 0000000000000000 00000000 Thread Storage Directory [.tls]
+Entry a 0000000000088320 00000140 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 0000000000075000 00000360 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x140091de4
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 00091de4	00092148 00000000 00000000 00092266 00075310
+
+	DLL Name: bcrypt.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00075310  <none>  0002  BCryptCloseAlgorithmProvider
+	00075318  <none>  000e  BCryptDestroyHash
+	00075320  <none>  001d  BCryptFinishHash
+	00075328  <none>  0025  BCryptHashData
+	00075330  <none>  0006  BCryptCreateHash
+	00075338  <none>  003b  BCryptVerifySignature
+	00075340  <none>  000f  BCryptDestroyKey
+	00075348  <none>  0027  BCryptImportKeyPair
+	00075350  <none>  0029  BCryptOpenAlgorithmProvider
+
+ 00091df8	00092130 00000000 00000000 0009229c 000752f8
+
+	DLL Name: SHELL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000752f8  <none>  0139  SHFileOperationW
+	00075300  <none>  0009  CommandLineToArgvW
+
+ 00091e0c	00091e38 00000000 00000000 000925f2 00075000
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00075000  <none>  065f  WriteConsoleW
+	00075008  <none>  0556  SetEndOfFile
+	00075010  <none>  0383  HeapReAlloc
+	00075018  <none>  0385  HeapSize
+	00075020  <none>  0308  GetStringTypeW
+	00075028  <none>  0593  SetStdHandle
+	00075030  <none>  02e4  GetProcessHeap
+	00075038  <none>  01d3  FreeEnvironmentStringsW
+	00075040  <none>  0262  GetEnvironmentStringsW
+	00075048  <none>  0200  GetCommandLineW
+	00075050  <none>  0264  GetEnvironmentVariableW
+	00075058  <none>  00d4  CreateDirectoryW
+	00075060  <none>  00e6  CreateFileW
+	00075068  <none>  0136  DeleteFileW
+	00075070  <none>  01c8  FlushFileBuffers
+	00075078  <none>  0253  GetDiskFreeSpaceExW
+	00075080  <none>  0270  GetFileAttributesW
+	00075088  <none>  0278  GetFileSizeEx
+	00075090  <none>  04a9  ReadFile
+	00075098  <none>  0660  WriteFile
+	000750a0  <none>  009d  CloseHandle
+	000750a8  <none>  028d  GetLastError
+	000750b0  <none>  04e6  ReleaseMutex
+	000750b8  <none>  0625  WaitForSingleObject
+	000750c0  <none>  00f6  CreateMutexW
+	000750c8  <none>  05c8  Sleep
+	000750d0  <none>  0186  ExitProcess
+	000750d8  <none>  043f  OpenProcess
+	000750e0  <none>  028e  GetLocalTime
+	000750e8  <none>  02da  GetPrivateProfileStringW
+	000750f0  <none>  0666  WritePrivateProfileStringW
+	000750f8  <none>  00c5  CopyFileW
+	00075100  <none>  041b  MoveFileExA
+	00075108  <none>  041c  MoveFileExW
+	00075110  <none>  0423  MultiByteToWideChar
+	00075118  <none>  064c  WideCharToMultiByte
+	00075120  <none>  0509  RtlCaptureContext
+	00075128  <none>  0511  RtlLookupFunctionEntry
+	00075130  <none>  0518  RtlVirtualUnwind
+	00075138  <none>  03b0  IsDebuggerPresent
+	00075140  <none>  05fb  UnhandledExceptionFilter
+	00075148  <none>  05b8  SetUnhandledExceptionFilter
+	00075150  <none>  0301  GetStartupInfoW
+	00075158  <none>  03b8  IsProcessorFeaturePresent
+	00075160  <none>  02a5  GetModuleHandleW
+	00075168  <none>  0241  GetCurrentProcess
+	00075170  <none>  05d8  TerminateProcess
+	00075178  <none>  0481  QueryPerformanceCounter
+	00075180  <none>  0242  GetCurrentProcessId
+	00075188  <none>  0246  GetCurrentThreadId
+	00075190  <none>  031a  GetSystemTimeAsFileTime
+	00075198  <none>  039a  InitializeSListHead
+	000751a0  <none>  01ff  GetCommandLineA
+	000751a8  <none>  0513  RtlPcToFileHeader
+	000751b0  <none>  0498  RaiseException
+	000751b8  <none>  0517  RtlUnwindEx
+	000751c0  <none>  0516  RtlUnwind
+	000751c8  <none>  0578  SetLastError
+	000751d0  <none>  0153  EncodePointer
+	000751d8  <none>  0157  EnterCriticalSection
+	000751e0  <none>  03f0  LeaveCriticalSection
+	000751e8  <none>  012f  DeleteCriticalSection
+	000751f0  <none>  0396  InitializeCriticalSectionAndSpinCount
+	000751f8  <none>  05ea  TlsAlloc
+	00075200  <none>  05ec  TlsGetValue
+	00075208  <none>  05ee  TlsSetValue
+	00075210  <none>  05eb  TlsFree
+	00075218  <none>  01d4  FreeLibrary
+	00075220  <none>  02dd  GetProcAddress
+	00075228  <none>  03f6  LoadLibraryExW
+	00075230  <none>  02a4  GetModuleHandleExW
+	00075238  <none>  02a1  GetModuleFileNameW
+	00075240  <none>  0303  GetStdHandle
+	00075248  <none>  037c  HeapAlloc
+	00075250  <none>  0380  HeapFree
+	00075258  <none>  01c2  FlsAlloc
+	00075260  <none>  01c4  FlsGetValue
+	00075268  <none>  01c6  FlsSetValue
+	00075270  <none>  01c3  FlsFree
+	00075278  <none>  0397  InitializeCriticalSectionEx
+	00075280  <none>  061a  VirtualProtect
+	00075288  <none>  03e4  LCMapStringW
+	00075290  <none>  027a  GetFileType
+	00075298  <none>  0229  GetConsoleOutputCP
+	000752a0  <none>  0225  GetConsoleMode
+	000752a8  <none>  0569  SetFilePointerEx
+	000752b0  <none>  04a6  ReadConsoleW
+	000752b8  <none>  019d  FindClose
+	000752c0  <none>  01a3  FindFirstFileExW
+	000752c8  <none>  01b4  FindNextFileW
+	000752d0  <none>  03be  IsValidCodePage
+	000752d8  <none>  01db  GetACP
+	000752e0  <none>  02c6  GetOEMCP
+	000752e8  <none>  01ea  GetCPInfo
+
+ 00091e20	00000000 00000000 00000000 00000000 00000000
+
+(exit 0)

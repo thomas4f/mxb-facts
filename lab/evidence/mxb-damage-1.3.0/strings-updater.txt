@@ -1,0 +1,28 @@
+$ { strings -n 6 mxb_damage/mxb_damage_updater.exe; strings -el -n 6 mxb_damage/mxb_damage_updater.exe; } | grep -nE 'signature|staged|rollback|ROLLBACK|waiting for MX Bikes|gamefx|GameFX|disabled-by|renamed|deleted|--analyze|--plugins|--data|--pid|usage:|part finder|works together'
+803:GameFX64
+1042:usage: <recording dir> <bike id> <out ini> [--png <file>] [--report <file>] [--python] [--model <tag>]
+1044:mxb_damage part finder %s
+1077:waiting for MX Bikes (process %lu) to close
+1080:nothing staged
+1081:the staged release's signature is not valid
+1082:the staged manifest: 
+1084:the staged package: 
+1098:: ROLLBACK INCOMPLETE, see updater.log
+1101:: ROLLBACK INCOMPLETE
+1494:gamefx64.dlo
+1495:gamefx.dlo
+1496:gamefx_x64.dlo
+1497:gamefx-x64.dlo
+1511:\rollback
+1517:not GameFX's file name, left alone:
+1518:works together with MXB Damage (1.3), left as it is:
+1520:.disabled-by-mxb_damage
+1521:.disabled-by-mxb_damage.
+1522:turned off (renamed):
+1523:could not be renamed, uninstalled (deleted):
+1524:could not be renamed nor deleted - still on:
+1525:--analyze
+1526:--gamefx-off
+1527:--plugins
+1528:--data
+(exit 0)

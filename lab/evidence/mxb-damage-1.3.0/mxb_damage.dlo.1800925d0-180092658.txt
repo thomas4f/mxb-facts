@@ -1,0 +1,40 @@
+$ objdump -d 'mxb_damage.dlo' | awk -v a=1800925d0 -v b=180092658 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   1800925d0:	48 83 ec 28          	sub    $0x28,%rsp
+   1800925d4:	80 79 14 00          	cmpb   $0x0,0x14(%rcx)
+   1800925d8:	4c 8b c1             	mov    %rcx,%r8
+   1800925db:	0f 84 06 03 00 00    	je     0x1800928e7
+   1800925e1:	8b 49 10             	mov    0x10(%rcx),%ecx
+   1800925e4:	48 89 5c 24 40       	mov    %rbx,0x40(%rsp)
+   1800925e9:	83 f9 03             	cmp    $0x3,%ecx
+   1800925ec:	75 07                	jne    0x1800925f5
+   1800925ee:	ba 01 00 00 00       	mov    $0x1,%edx
+   1800925f3:	eb 1c                	jmp    0x180092611
+   1800925f5:	83 f9 04             	cmp    $0x4,%ecx
+   1800925f8:	75 07                	jne    0x180092601
+   1800925fa:	ba 02 00 00 00       	mov    $0x2,%edx
+   1800925ff:	eb 10                	jmp    0x180092611
+   180092601:	8d 41 fb             	lea    -0x5(%rcx),%eax
+   180092604:	f7 d8                	neg    %eax
+   180092606:	1b d2                	sbb    %edx,%edx
+   180092608:	83 f9 05             	cmp    $0x5,%ecx
+   18009260b:	0f 85 9f 00 00 00    	jne    0x1800926b0
+   180092611:	39 15 09 2f 0b 00    	cmp    %edx,0xb2f09(%rip)        # 0x180145520
+   180092617:	75 14                	jne    0x18009262d
+   180092619:	48 8b 5c 24 40       	mov    0x40(%rsp),%rbx
+   18009261e:	c7 05 f8 2e 0b 00 ff 	movl   $0xffffffff,0xb2ef8(%rip)        # 0x180145520
+   180092625:	ff ff ff 
+   180092628:	48 83 c4 28          	add    $0x28,%rsp
+   18009262c:	c3                   	ret
+   18009262d:	48 89 7c 24 20       	mov    %rdi,0x20(%rsp)
+   180092632:	33 db                	xor    %ebx,%ebx
+   180092634:	48 8d 3d 45 62 0d 00 	lea    0xd6245(%rip),%rdi        # 0x180168880
+   18009263b:	89 15 df 2e 0b 00    	mov    %edx,0xb2edf(%rip)        # 0x180145520
+   180092641:	8b cb                	mov    %ebx,%ecx
+   180092643:	e8 18 e5 ff ff       	call   0x180090b60
+   180092648:	ff c3                	inc    %ebx
+   18009264a:	88 07                	mov    %al,(%rdi)
+   18009264c:	48 8d 7f 01          	lea    0x1(%rdi),%rdi
+   180092650:	81 fb 00 01 00 00    	cmp    $0x100,%ebx
+   180092656:	7c e9                	jl     0x180092641
+   180092658:	48 8b 7c 24 20       	mov    0x20(%rsp),%rdi
+(exit 0)

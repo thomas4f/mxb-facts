@@ -1,0 +1,24 @@
+$ objdump -d 'mxb_damage.dlo' | awk -v a=18008ffb8 -v b=180090011 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18008ffb8:	44 38 25 6f 77 0b 00 	cmp    %r12b,0xb776f(%rip)        # 0x18014772e
+   18008ffbf:	74 27                	je     0x18008ffe8
+   18008ffc1:	f3 0f 10 05 ab 88 0d 	movss  0xd88ab(%rip),%xmm0        # 0x180168874
+   18008ffc8:	00 
+   18008ffc9:	f3 0f 11 05 2f 55 0b 	movss  %xmm0,0xb552f(%rip)        # 0x180145500
+   18008ffd0:	00 
+   18008ffd1:	f3 0f 10 0d a7 8a 0d 	movss  0xd8aa7(%rip),%xmm1        # 0x180168a80
+   18008ffd8:	00 
+   18008ffd9:	f3 0f 11 0d 23 55 0b 	movss  %xmm1,0xb5523(%rip)        # 0x180145504
+   18008ffe0:	00 
+   18008ffe1:	c6 05 44 77 0b 00 01 	movb   $0x1,0xb7744(%rip)        # 0x18014772c
+   18008ffe8:	40 84 f6             	test   %sil,%sil
+   18008ffeb:	74 32                	je     0x18009001f
+   18008ffed:	44 38 25 3a 77 0b 00 	cmp    %r12b,0xb773a(%rip)        # 0x18014772e
+   18008fff4:	74 0c                	je     0x180090002
+   18008fff6:	44 38 25 94 89 0d 00 	cmp    %r12b,0xd8994(%rip)        # 0x180168991
+   18008fffd:	0f 95 c0             	setne  %al
+   180090000:	eb 0f                	jmp    0x180090011
+   180090002:	b9 11 00 00 00       	mov    $0x11,%ecx
+   180090007:	ff 15 1b 06 08 00    	call   *0x8061b(%rip)        # 0x180110628
+   18009000d:	66 c1 e8 0f          	shr    $0xf,%ax
+   180090011:	84 c0                	test   %al,%al
+(exit 0)

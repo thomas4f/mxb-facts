@@ -1,0 +1,21 @@
+$ objdump -h 'MXB-Damage-Setup.exe'
+
+MXB-Damage-Setup.exe:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00046d48  0000000140001000  0000000140001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        00017610  0000000140048000  0000000140048000  00047200  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .data         00001400  0000000140060000  0000000140060000  0005ea00  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .pdata        00002ef8  0000000140063000  0000000140063000  0005fe00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .fptable      00000100  0000000140066000  0000000140066000  00062e00  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .rsrc         000011a0  0000000140067000  0000000140067000  00063000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 .reloc        000008c8  0000000140069000  0000000140069000  00064200  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)

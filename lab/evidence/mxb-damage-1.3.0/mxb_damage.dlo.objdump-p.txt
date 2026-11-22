@@ -1,0 +1,478 @@
+$ objdump -p 'mxb_damage.dlo' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+mxb_damage.dlo:     file format pei-x86-64
+
+Characteristics 0x2022
+	executable
+	large address aware
+	DLL
+
+Time/Date		Sun Nov 15 19:36:37 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	44
+SizeOfCode		000000000010ea00
+SizeOfInitializedData	0000000000067800
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	00000000000de208
+BaseOfCode		0000000000001000
+ImageBase		0000000180000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		0017a000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00000160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 0000000000142b10 000006d0 Export Directory [.edata (or where ever we found it)]
+Entry 1 00000000001431e0 0000008c Import Directory [parts of .idata]
+Entry 2 0000000000000000 00000000 Resource Directory [.rsrc]
+Entry 3 000000000016e000 000097e0 Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 0000000000179000 00000b5c Base Relocation Directory [.reloc]
+Entry 6 000000000012fd10 0000001c Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 000000000012ff00 00000028 Thread Storage Directory [.tls]
+Entry a 000000000012fbd0 00000140 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 0000000000110000 00000740 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x1801431e0
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 001431e0	00143720 00000000 00000000 00143cbc 001104b0
+
+	DLL Name: OPENGL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	001104b0  <none>  015f  wglGetCurrentDC
+	001104b8  <none>  0163  wglGetProcAddress
+	001104c0  <none>  0007  glAlphaFunc
+	001104c8  <none>  000b  glBindTexture
+	001104d0  <none>  0037  glColorMask
+	001104d8  <none>  0042  glDeleteTextures
+	001104e0  <none>  0043  glDepthFunc
+	001104e8  <none>  0044  glDepthMask
+	001104f0  <none>  0045  glDepthRange
+	001104f8  <none>  0046  glDisable
+	00110500  <none>  0047  glDisableClientState
+	00110508  <none>  004f  glEnable
+	00110510  <none>  0050  glEnableClientState
+	00110518  <none>  0069  glGenTextures
+	00110520  <none>  006d  glGetError
+	00110528  <none>  006e  glGetFloatv
+	00110530  <none>  006f  glGetIntegerv
+	00110538  <none>  007a  glGetPointerv
+	00110540  <none>  007c  glGetString
+	00110548  <none>  0082  glGetTexImage
+	00110550  <none>  0084  glGetTexLevelParameteriv
+	00110558  <none>  0085  glGetTexParameterfv
+	00110560  <none>  0086  glGetTexParameteriv
+	00110568  <none>  0096  glIsEnabled
+	00110570  <none>  0135  glTexParameterf
+	00110578  <none>  0098  glIsTexture
+	00110580  <none>  009e  glLightfv
+	00110588  <none>  00a6  glLoadMatrixf
+	00110590  <none>  00b5  glMatrixMode
+	00110598  <none>  00b7  glMultMatrixf
+	001105a0  <none>  00c3  glNormalPointer
+	001105a8  <none>  00ca  glPixelStorei
+	001105b0  <none>  00d2  glPopAttrib
+	001105b8  <none>  00d3  glPopClientAttrib
+	001105c0  <none>  00d4  glPopMatrix
+	001105c8  <none>  00d7  glPushAttrib
+	001105d0  <none>  0156  glViewport
+	001105d8  <none>  0155  glVertexPointer
+	001105e0  <none>  013a  glTexSubImage2D
+	001105e8  <none>  0137  glTexParameteri
+	001105f0  <none>  015e  wglGetCurrentContext
+	001105f8  <none>  0134  glTexImage2D
+	00110600  <none>  0128  glTexCoordPointer
+	00110608  <none>  00f4  glReadPixels
+	00110610  <none>  00d9  glPushMatrix
+	00110618  <none>  00d8  glPushClientAttrib
+
+ 001431f4	00143898 00000000 00000000 00143d9c 00110628
+
+	DLL Name: USER32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00110628  <none>  0128  GetAsyncKeyState
+	00110630  <none>  0288  MapVirtualKeyA
+	00110638  <none>  0162  GetForegroundWindow
+	00110640  <none>  0406  WindowFromDC
+	00110648  <none>  013a  GetClientRect
+	00110650  <none>  03ac  ShowCursor
+	00110658  <none>  033f  SetCursor
+	00110660  <none>  014a  GetCursorPos
+	00110668  <none>  031e  ScreenToClient
+	00110670  <none>  0206  GetWindowThreadProcessId
+	00110678  <none>  0264  LoadCursorA
+	00110680  <none>  0149  GetCursorInfo
+
+ 00143208	00143270 00000000 00000000 00143e90 00110000
+
+	DLL Name: GDI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00110000  <none>  022a  GdiFlush
+	00110008  <none>  0331  Polygon
+	00110010  <none>  03be  TextOutW
+	00110018  <none>  0037  CreateDIBSection
+	00110020  <none>  02ef  GetTextMetricsW
+	00110028  <none>  03ab  SetTextColor
+	00110030  <none>  0384  SetBkMode
+	00110038  <none>  037c  SelectObject
+	00110040  <none>  027a  GetCharABCWidthsW
+	00110048  <none>  0195  DeleteObject
+	00110050  <none>  0192  DeleteDC
+	00110058  <none>  005a  CreateSolidBrush
+	00110060  <none>  004f  CreatePen
+	00110068  <none>  0044  CreateFontW
+	00110070  <none>  0031  CreateCompatibleDC
+
+ 0014321c	00143900 00000000 00000000 00143f7a 00110690
+
+	DLL Name: WINHTTP.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00110690  <none>  0018  WinHttpCrackUrl
+	00110698  <none>  0031  WinHttpOpen
+	001106a0  <none>  0008  WinHttpCloseHandle
+	001106a8  <none>  0009  WinHttpConnect
+	001106b0  <none>  003e  WinHttpReadData
+	001106b8  <none>  004b  WinHttpSetOption
+	001106c0  <none>  004f  WinHttpSetTimeouts
+	001106c8  <none>  0032  WinHttpOpenRequest
+	001106d0  <none>  0048  WinHttpSendRequest
+	001106d8  <none>  0042  WinHttpReceiveResponse
+	001106e0  <none>  003b  WinHttpQueryHeaders
+
+ 00143230	00143960 00000000 00000000 00144054 001106f0
+
+	DLL Name: bcrypt.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	001106f0  <none>  0029  BCryptOpenAlgorithmProvider
+	001106f8  <none>  0002  BCryptCloseAlgorithmProvider
+	00110700  <none>  0027  BCryptImportKeyPair
+	00110708  <none>  000f  BCryptDestroyKey
+	00110710  <none>  003b  BCryptVerifySignature
+	00110718  <none>  0006  BCryptCreateHash
+	00110720  <none>  0025  BCryptHashData
+	00110728  <none>  001d  BCryptFinishHash
+	00110730  <none>  000e  BCryptDestroyHash
+
+ 00143244	001432f0 00000000 00000000 001447c8 00110080
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00110080  <none>  03be  IsValidCodePage
+	00110088  <none>  01a3  FindFirstFileExW
+	00110090  <none>  03e4  LCMapStringW
+	00110098  <none>  01c3  FlsFree
+	001100a0  <none>  01c6  FlsSetValue
+	001100a8  <none>  01c4  FlsGetValue
+	001100b0  <none>  01c2  FlsAlloc
+	001100b8  <none>  04a6  ReadConsoleW
+	001100c0  <none>  0225  GetConsoleMode
+	001100c8  <none>  0229  GetConsoleOutputCP
+	001100d0  <none>  027a  GetFileType
+	001100d8  <none>  0303  GetStdHandle
+	001100e0  <none>  01db  GetACP
+	001100e8  <none>  0380  HeapFree
+	001100f0  <none>  0186  ExitProcess
+	001100f8  <none>  01d5  FreeLibraryAndExitThread
+	00110100  <none>  0187  ExitThread
+	00110108  <none>  03f6  LoadLibraryExW
+	00110110  <none>  01d4  FreeLibrary
+	00110118  <none>  05eb  TlsFree
+	00110120  <none>  05ee  TlsSetValue
+	00110128  <none>  05ec  TlsGetValue
+	00110130  <none>  05ea  TlsAlloc
+	00110138  <none>  0396  InitializeCriticalSectionAndSpinCount
+	00110140  <none>  0153  EncodePointer
+	00110148  <none>  0578  SetLastError
+	00110150  <none>  039e  InterlockedFlushSList
+	00110158  <none>  0517  RtlUnwindEx
+	00110160  <none>  0498  RaiseException
+	00110168  <none>  0513  RtlPcToFileHeader
+	00110170  <none>  039a  InitializeSListHead
+	00110178  <none>  0301  GetStartupInfoW
+	00110180  <none>  03b0  IsDebuggerPresent
+	00110188  <none>  02c6  GetOEMCP
+	00110190  <none>  01ea  GetCPInfo
+	00110198  <none>  01ff  GetCommandLineA
+	001101a0  <none>  0200  GetCommandLineW
+	001101a8  <none>  0262  GetEnvironmentStringsW
+	001101b0  <none>  01d3  FreeEnvironmentStringsW
+	001101b8  <none>  02e4  GetProcessHeap
+	001101c0  <none>  0308  GetStringTypeW
+	001101c8  <none>  0593  SetStdHandle
+	001101d0  <none>  0385  HeapSize
+	001101d8  <none>  0383  HeapReAlloc
+	001101e0  <none>  065f  WriteConsoleW
+	001101e8  <none>  037c  HeapAlloc
+	001101f0  <none>  0245  GetCurrentThread
+	001101f8  <none>  03b8  IsProcessorFeaturePresent
+	00110200  <none>  0241  GetCurrentProcess
+	00110208  <none>  05b8  SetUnhandledExceptionFilter
+	00110210  <none>  05fb  UnhandledExceptionFilter
+	00110218  <none>  0518  RtlVirtualUnwind
+	00110220  <none>  0511  RtlLookupFunctionEntry
+	00110228  <none>  0509  RtlCaptureContext
+	00110230  <none>  02a5  GetModuleHandleW
+	00110238  <none>  031a  GetSystemTimeAsFileTime
+	00110240  <none>  00cf  CreateDirectoryA
+	00110248  <none>  00d4  CreateDirectoryW
+	00110250  <none>  00e6  CreateFileW
+	00110258  <none>  0133  DeleteFileA
+	00110260  <none>  0136  DeleteFileW
+	00110268  <none>  019d  FindClose
+	00110270  <none>  01a1  FindFirstFileA
+	00110278  <none>  01a8  FindFirstFileW
+	00110280  <none>  01b2  FindNextFileA
+	00110288  <none>  01b4  FindNextFileW
+	00110290  <none>  01c8  FlushFileBuffers
+	00110298  <none>  0253  GetDiskFreeSpaceExW
+	001102a0  <none>  026b  GetFileAttributesA
+	001102a8  <none>  0270  GetFileAttributesW
+	001102b0  <none>  026c  GetFileAttributesExA
+	001102b8  <none>  0278  GetFileSizeEx
+	001102c0  <none>  02fe  GetShortPathNameW
+	001102c8  <none>  04a9  ReadFile
+	001102d0  <none>  04f0  RemoveDirectoryA
+	001102d8  <none>  0556  SetEndOfFile
+	001102e0  <none>  0569  SetFilePointerEx
+	001102e8  <none>  0660  WriteFile
+	001102f0  <none>  044a  OutputDebugStringA
+	001102f8  <none>  009d  CloseHandle
+	00110300  <none>  028d  GetLastError
+	00110308  <none>  0481  QueryPerformanceCounter
+	00110310  <none>  0482  QueryPerformanceFrequency
+	00110318  <none>  0395  InitializeCriticalSection
+	00110320  <none>  0157  EnterCriticalSection
+	00110328  <none>  03f0  LeaveCriticalSection
+	00110330  <none>  012f  DeleteCriticalSection
+	00110338  <none>  0625  WaitForSingleObject
+	00110340  <none>  05c8  Sleep
+	00110348  <none>  0242  GetCurrentProcessId
+	00110350  <none>  05d8  TerminateProcess
+	00110358  <none>  0267  GetExitCodeProcess
+	00110360  <none>  010f  CreateThread
+	00110368  <none>  0246  GetCurrentThreadId
+	00110370  <none>  05a7  SetThreadPriority
+	00110378  <none>  00fd  CreateProcessA
+	00110380  <none>  0102  CreateProcessW
+	00110388  <none>  028e  GetLocalTime
+	00110390  <none>  033d  GetTickCount64
+	00110398  <none>  061a  VirtualProtect
+	001103a0  <none>  061c  VirtualQuery
+	001103a8  <none>  02a0  GetModuleFileNameA
+	001103b0  <none>  02a1  GetModuleFileNameW
+	001103b8  <none>  02a2  GetModuleHandleA
+	001103c0  <none>  02a3  GetModuleHandleExA
+	001103c8  <none>  02a4  GetModuleHandleExW
+	001103d0  <none>  02dd  GetProcAddress
+	001103d8  <none>  03f4  LoadLibraryA
+	001103e0  <none>  02d3  GetPrivateProfileIntA
+	001103e8  <none>  02d9  GetPrivateProfileStringA
+	001103f0  <none>  02da  GetPrivateProfileStringW
+	001103f8  <none>  0665  WritePrivateProfileStringA
+	00110400  <none>  0666  WritePrivateProfileStringW
+	00110408  <none>  02d5  GetPrivateProfileSectionA
+	00110410  <none>  02d6  GetPrivateProfileSectionNamesA
+	00110418  <none>  041a  MoveFileA
+	00110420  <none>  041b  MoveFileExA
+	00110428  <none>  041c  MoveFileExW
+	00110430  <none>  0192  FileTimeToSystemTime
+	00110438  <none>  0423  MultiByteToWideChar
+	00110440  <none>  064c  WideCharToMultiByte
+	00110448  <none>  0118  CreateToolhelp32Snapshot
+	00110450  <none>  0416  Module32First
+	00110458  <none>  0418  Module32Next
+	00110460  <none>  0626  WaitForSingleObjectEx
+	00110468  <none>  0268  GetExitCodeThread
+	00110470  <none>  04ea  ReleaseSRWLockExclusive
+	00110478  <none>  0000  AcquireSRWLockExclusive
+	00110480  <none>  05f2  TryAcquireSRWLockExclusive
+	00110488  <none>  062e  WakeConditionVariable
+	00110490  <none>  062d  WakeAllConditionVariable
+	00110498  <none>  05ca  SleepConditionVariableSRW
+	001104a0  <none>  0397  InitializeCriticalSectionEx
+
+ 00143258	00000000 00000000 00000000 00000000 00000000
+
+There is an export table in .rdata at 0x180142b10
+
+The Export Tables (interpreted .rdata section contents)
+
+Export Flags 			0
+Time/Date stamp 		ffffffff
+Major/Minor 			0/0
+Name 				0000000000142dc2 mxb_damage.dlo
+Ordinal Base 			1
+Number in:
+	Export Address Table 		00000041
+	[Name Pointer/Ordinal] Table	00000041
+Table Addresses
+	Export Address Table 		0000000000142b38
+	Name Pointer Table 		0000000000142c3c
+	Ordinal Table 			0000000000142d40
+
+Export Address Table -- Ordinal Base 1
+	          Ordinal  Address  Type
+	[   0] +base[   1] 000cc830 Export RVA
+	[   1] +base[   2] 000cd3f0 Export RVA
+	[   2] +base[   3] 000cd480 Export RVA
+	[   3] +base[   4] 000cd4c0 Export RVA
+	[   4] +base[   5] 000cde30 Export RVA
+	[   5] +base[   6] 000cde40 Export RVA
+	[   6] +base[   7] 000cde50 Export RVA
+	[   7] +base[   8] 000cde60 Export RVA
+	[   8] +base[   9] 000ce560 Export RVA
+	[   9] +base[  10] 000ce770 Export RVA
+	[  10] +base[  11] 000ce8a0 Export RVA
+	[  11] +base[  12] 000ce9b0 Export RVA
+	[  12] +base[  13] 000d07e0 Export RVA
+	[  13] +base[  14] 000d08e0 Export RVA
+	[  14] +base[  15] 000d1820 Export RVA
+	[  15] +base[  16] 000d1840 Export RVA
+	[  16] +base[  17] 000d1850 Export RVA
+	[  17] +base[  18] 000d1df0 Export RVA
+	[  18] +base[  19] 000d1e30 Export RVA
+	[  19] +base[  20] 000d2220 Export RVA
+	[  20] +base[  21] 000d2230 Export RVA
+	[  21] +base[  22] 000d3010 Export RVA
+	[  22] +base[  23] 000d3060 Export RVA
+	[  23] +base[  24] 000d3110 Export RVA
+	[  24] +base[  25] 000d31a0 Export RVA
+	[  25] +base[  26] 000d3200 Export RVA
+	[  26] +base[  27] 000d3250 Export RVA
+	[  27] +base[  28] 000d32f0 Export RVA
+	[  28] +base[  29] 000d3330 Export RVA
+	[  29] +base[  30] 000d35b0 Export RVA
+	[  30] +base[  31] 000d4460 Export RVA
+	[  31] +base[  32] 000d44c0 Export RVA
+	[  32] +base[  33] 000d46a0 Export RVA
+	[  33] +base[  34] 000d4ac0 Export RVA
+	[  34] +base[  35] 000d4b00 Export RVA
+	[  35] +base[  36] 000d4d60 Export RVA
+	[  36] +base[  37] 000d5250 Export RVA
+	[  37] +base[  38] 000d5260 Export RVA
+	[  38] +base[  39] 000d5330 Export RVA
+	[  39] +base[  40] 000d5470 Export RVA
+	[  40] +base[  41] 000d56a0 Export RVA
+	[  41] +base[  42] 000d57f0 Export RVA
+	[  42] +base[  43] 000d5880 Export RVA
+	[  43] +base[  44] 000d5890 Export RVA
+	[  44] +base[  45] 000d5af0 Export RVA
+	[  45] +base[  46] 000d5c90 Export RVA
+	[  46] +base[  47] 000d5fe0 Export RVA
+	[  47] +base[  48] 000d74a0 Export RVA
+	[  48] +base[  49] 000d75b0 Export RVA
+	[  49] +base[  50] 000d75c0 Export RVA
+	[  50] +base[  51] 000d7600 Export RVA
+	[  51] +base[  52] 000d7bd0 Export RVA
+	[  52] +base[  53] 000d7fa0 Export RVA
+	[  53] +base[  54] 000d8070 Export RVA
+	[  54] +base[  55] 000d8100 Export RVA
+	[  55] +base[  56] 000d8270 Export RVA
+	[  56] +base[  57] 000d85e0 Export RVA
+	[  57] +base[  58] 000d8630 Export RVA
+	[  58] +base[  59] 000d86f0 Export RVA
+	[  59] +base[  60] 000d8b80 Export RVA
+	[  60] +base[  61] 000d8bc0 Export RVA
+	[  61] +base[  62] 000d8c00 Export RVA
+	[  62] +base[  63] 000d8c20 Export RVA
+	[  63] +base[  64] 000d9ef0 Export RVA
+	[  64] +base[  65] 000da0b0 Export RVA
+
+[Ordinal/Name Pointer] Table -- Ordinal Base 1
+	          Ordinal   Hint Name
+	[   0] +base[   1]  0000 Draw
+	[   1] +base[   2]  0001 DrawInit
+	[   2] +base[   3]  0002 EventDeinit
+	[   3] +base[   4]  0003 EventInit
+	[   4] +base[   5]  0004 GetInterfaceVersion
+	[   5] +base[   6]  0005 GetModDataVersion
+	[   6] +base[   7]  0006 GetModID
+	[   7] +base[   8]  0007 MXBD_TestAssembly
+	[   8] +base[   9]  0008 MXBD_TestAuto
+	[   9] +base[  10]  0009 MXBD_TestBarRoll
+	[  10] +base[  11]  000a MXBD_TestBreak
+	[  11] +base[  12]  000b MXBD_TestDebris
+	[  12] +base[  13]  000c MXBD_TestDeform
+	[  13] +base[  14]  000d MXBD_TestDeformStats
+	[  14] +base[  15]  000e MXBD_TestDirtCache
+	[  15] +base[  16]  000f MXBD_TestDrawCalls
+	[  16] +base[  17]  0010 MXBD_TestDrop
+	[  17] +base[  18]  0011 MXBD_TestFlags
+	[  18] +base[  19]  0012 MXBD_TestGamefx
+	[  19] +base[  20]  0013 MXBD_TestLoadDelay
+	[  20] +base[  21]  0014 MXBD_TestMark
+	[  21] +base[  22]  0015 MXBD_TestMenuAction
+	[  22] +base[  23]  0016 MXBD_TestMenuFrame
+	[  23] +base[  24]  0017 MXBD_TestMenuInput
+	[  24] +base[  25]  0018 MXBD_TestMenuNote
+	[  25] +base[  26]  0019 MXBD_TestMenuPage
+	[  26] +base[  27]  001a MXBD_TestMenuPanel
+	[  27] +base[  28]  001b MXBD_TestMenuPanelSet
+	[  28] +base[  29]  001c MXBD_TestMenuSnowLines
+	[  29] +base[  30]  001d MXBD_TestMenuState
+	[  30] +base[  31]  001e MXBD_TestMenuStep
+	[  31] +base[  32]  001f MXBD_TestMenuWindow
+	[  32] +base[  33]  0020 MXBD_TestNotice
+	[  33] +base[  34]  0021 MXBD_TestPadInput
+	[  34] +base[  35]  0022 MXBD_TestPadRule
+	[  35] +base[  36]  0023 MXBD_TestPartMask
+	[  36] +base[  37]  0024 MXBD_TestPartsState
+	[  37] +base[  38]  0025 MXBD_TestRidingDirt
+	[  38] +base[  39]  0026 MXBD_TestRidingPart
+	[  39] +base[  40]  0027 MXBD_TestSetNotice
+	[  40] +base[  41]  0028 MXBD_TestSetting
+	[  41] +base[  42]  0029 MXBD_TestShow
+	[  42] +base[  43]  002a MXBD_TestSnow
+	[  43] +base[  44]  002b MXBD_TestSplitOwners
+	[  44] +base[  45]  002c MXBD_TestSplitPartTris
+	[  45] +base[  46]  002d MXBD_TestStaleCopies
+	[  46] +base[  47]  002e MXBD_TestState
+	[  47] +base[  48]  002f MXBD_TestUpdate
+	[  48] +base[  49]  0030 MXBD_TestWeather
+	[  49] +base[  50]  0031 MXBD_TestWhiteout
+	[  50] +base[  51]  0032 OverhaulHookFor
+	[  51] +base[  52]  0033 RaceAddEntry
+	[  52] +base[  53]  0034 RaceClassification
+	[  53] +base[  54]  0035 RaceDeinit
+	[  54] +base[  55]  0036 RaceRemoveEntry
+	[  55] +base[  56]  0037 RaceTrackPosition
+	[  56] +base[  57]  0038 RaceVehicleData
+	[  57] +base[  58]  0039 RunDeinit
+	[  58] +base[  59]  003a RunInit
+	[  59] +base[  60]  003b RunLap
+	[  60] +base[  61]  003c RunStart
+	[  61] +base[  62]  003d RunStop
+	[  62] +base[  63]  003e RunTelemetry
+	[  63] +base[  64]  003f Shutdown
+	[  64] +base[  65]  0040 Startup
+
+(exit 0)

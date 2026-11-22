@@ -1,0 +1,59 @@
+$ { strings -n 6 MXB-Damage-Setup.exe; strings -el -n 6 MXB-Damage-Setup.exe; } | grep -nE 'conflicts|Recycle Bin|Remove|remove|Steam|libraryfolders|disabled-by|GameFX|Camera64|Overhaul|Whiteout|works together|left as it is|--gamefx-off|signed|signature|Verifying|\.log'
+85:GameFX64H9
+86:Camera64H9
+87:OverhaulI+
+515:GameFX64
+516:Camera64
+517:Overhaul64
+518:Whiteout
+594:) is installed - it works together with MXB Damage, left as it is
+602:conflicts: 
+604:conflicts: the Recycle Bin answered 
+606: (to the Recycle Bin)
+607:conflicts: removed 
+608: (deleted: the Recycle Bin did not take it)
+609:conflicts: could NOT remove 
+610:conflicts: removed the empty folder 
+611:conflicts: none (no second copy of MXB Damage; GameFX64, Camera64 and Overhaul64 work together with it)
+613:not asked: --remove-conflicts yes removes them
+627:download refused: the release's signature is not valid
+634:Remove
+635:Cancel (not removed, install goes on)
+637:conflicts:   
+674:identifier removed
+1023:RemoveDirectoryW
+1216:C:\Program Files (x86)\Steam\steamapps\common\MX Bikes
+1230:plugins\gamefx.log
+1231:gplugins\overhaul\gamefx.log
+1232:plugins\camera.log
+1233:plugins\overhaul\camera.log
+1246:SteamPath
+1247:Software\Valve\Steam
+1249:SOFTWARE\WOW6432Node\Valve\Steam
+1250:\steamapps\libraryfolders.vdf
+1269:MXB-Damage-Setup.log
+1270:\setup.log
+1272:.disabled-by-mxb_damage
+1279:Do you want to remove 
+1286: with MXB Damage (run this setup again to remove 
+1288: is still installed - it conflicts
+1290: moved to the Recycle Bin).
+1291: removed (
+1294: could not be removed (see setup.log): delete it yourself, or press Retry.
+1309:They did not pass the security check (not signed by the plugin's author, or not for this computer): 
+1311:Verifying...
+1312: is missing or not the one that was signed. Nothing was installed.
+1320:It did not pass the security check (not signed by the plugin's author). Nothing was installed.
+1325:The package is not the one the release was signed for. Nothing was installed; press Retry.
+1338:Your previous installation is untouched. Details are in setup.log. Press Retry.
+1349: with MXB Damage (you'll be asked to remove 
+1351: found: it conflicts
+1360:Remove
+1362:Remove Second Copy?
+1363:Remove Incompatible Plugins?
+1366: --remove-conflicts yes
+1367: --remove-conflicts no
+1382:--remove-conflicts
+1384:--list-conflicts
+1388:The plugin has been installed successfully. GameFX64 and Camera64 were removed (14 files moved to the Recycle Bin).
+(exit 0)

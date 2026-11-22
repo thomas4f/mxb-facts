@@ -1,0 +1,8 @@
+$ objdump -p MXB-Damage-Setup.exe mxb_damage.dlo mxb_damage/mxb_damage_updater.exe | grep -E 'file format|Security Directory'
+MXB-Damage-Setup.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+mxb_damage.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+mxb_damage/mxb_damage_updater.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

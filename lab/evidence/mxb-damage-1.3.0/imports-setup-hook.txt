@@ -1,0 +1,6 @@
+$ iat.py MXB-Damage-Setup.exe | grep -E 'SetWindowsHookExW|RegGetValueW|ShellExecuteW|SHFileOperationW'
+0x140048400  SHELL32.dll!SHFileOperationW
+0x140048408  SHELL32.dll!ShellExecuteW
+0x140048000  ADVAPI32.dll!RegGetValueW
+0x140048430  USER32.dll!SetWindowsHookExW
+(exit 0)

@@ -1,0 +1,2 @@
+$ { iat.py mxb_damage.dlo; iat.py mxb_damage/mxb_damage_updater.exe; iat.py MXB-Damage-Setup.exe; } | grep -E 'SendInput|keybd_event|mouse_event|WriteProcessMemory|CreateRemoteThread|RegSetValue|RegCreateKey|ws2_32|WS2_32|WSOCK|CreateFileMapping|AddVectoredExceptionHandler|WinHttpWebSocket'
+(exit 1)

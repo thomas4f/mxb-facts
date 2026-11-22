@@ -1,0 +1,6 @@
+$ { strings -n 6 mxb_damage.dlo mxb_damage/mxb_damage_updater.exe MXB-Damage-Setup.exe mxb_damage/README.txt; strings -el -n 6 mxb_damage.dlo mxb_damage/mxb_damage_updater.exe MXB-Damage-Setup.exe mxb_damage/README.txt; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+6307:rhttps://github.com/FroxyMXB/MXB-Damage-Plugin/releases/latest/download/
+6308:https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v
+6601:https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/latest/download/
+6602:https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v
+(exit 0)

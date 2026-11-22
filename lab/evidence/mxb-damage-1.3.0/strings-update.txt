@@ -1,0 +1,31 @@
+$ { strings -n 6 mxb_damage.dlo; strings -el -n 6 mxb_damage.dlo; } | grep -nE 'github|update:|updater|manifest|signature|refused'
+1700:mxb_damage/mxb_damage_updater.exe
+1703:mxbd_manifest
+1717:not a manifest of this plugin
+2287:the staged release's signature is not valid
+2289:mxb_damage_manifest.txt
+2291:mxb_damage_manifest.sig
+2294:update: check failed: %s
+2295:the newest release's signature is not valid: not installed
+2296:update: the release's signature is NOT valid - refused
+2298:update: the release's manifest is refused: %s
+2309:update: download of v%s stopped: %s
+2312:update: downloaded package refused: %s
+2314:update: v%s downloaded and checked; it installs when MX Bikes closes
+2322:update: last install %s: %s %s
+2324:update: staged update not started: %s
+2325:update: cannot start the updater of v%s
+2326:update: v%s installs now that MX Bikes closes (updater started)
+2327:update: the updater did not start (error %lu)
+2452:\mxb_damage_updater.exe
+2453:the part finder (mxb_damage_updater.exe) is missing
+2492:Try: 1. Re-Recognize Bike. 2. Restart MX Bikes. 3. If it keeps failing, reinstall the plugin (the part finder, mxb_damage_updater.exe, must be in plugins\mxb_damage).
+2721:damage: crash #%u: %u hit(s) judged, %u reached a part; %u piece placement(s) of other bikes refused so far, %u old one(s) left out
+2764:hits judged=%u reached=%u refused=%u stale=%u serial=%u
+2856:connection refused
+3482:rhttps://github.com/FroxyMXB/MXB-Damage-Plugin/releases/latest/download/
+3483:https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v
+3485:mxb_damage_manifest.txt
+3486:mxb_damage_manifest.sig
+3490:\mxbd_updater.exe
+(exit 0)

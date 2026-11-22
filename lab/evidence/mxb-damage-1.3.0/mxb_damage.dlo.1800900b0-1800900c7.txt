@@ -1,0 +1,8 @@
+$ objdump -d 'mxb_damage.dlo' | awk -v a=1800900b0 -v b=1800900c7 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   1800900b6:	10 00 00 
+   1800900b9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   1800900c0:	40 84 f6             	test   %sil,%sil
+   1800900c3:	74 49                	je     0x18009010e
+   1800900c5:	8b cf                	mov    %edi,%ecx
+   1800900c7:	e8 94 0a 00 00       	call   0x180090b60
+(exit 0)

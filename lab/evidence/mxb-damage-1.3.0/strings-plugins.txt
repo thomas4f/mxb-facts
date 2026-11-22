@@ -1,0 +1,29 @@
+$ { strings -n 6 mxb_damage.dlo; strings -el -n 6 mxb_damage.dlo; } | grep -nE 'gamefx|camera64|overhaul64|whiteout|conflicts:|plugins:|second copy|--gamefx-off'
+1664:overhaul64.dlo
+1675:gamefx64.dlo
+1677:gamefx.dlo
+1678:gamefx_x64.dlo
+1679:gamefx-x64.dlo
+1680:camera64.dlo
+1733:whiteout64.dlo
+1734:%s\..\whiteout64.dlo
+1857:whiteout\settings.ini
+2567:plugins: %s (%s) %s since the last start (%s -> %s): the draw chain is checked once on track
+2568:plugins: %s (%s) removed since the last start
+2569:plugins: %s installed - works together with the damage mod (the draw hooks are shared: each hooks on top of the other, see the "hooks:" lines)
+2570:conflicts: %s (%s) is loaded in the game but not in %s
+2571:conflicts: checked at this start - no GameFX, Helmet Camera (camera64.dlo) or Overhaul (overhaul64.dlo) in the plugins folder
+2573:conflicts: %s installed (%s in %s)%s - it conflicts with the damage mod; not changed by the plugin (the setup removes it, after asking); the menu and a card on track say so
+2576:conflicts: %s
+2578:plugins: a second copy of this plugin is in the plugins folder: %s (both run: delete it, or run MXB-Damage-Setup.exe, which removes it)
+2579:conflicts: a card on track said %s is installed
+2581: is a second copy (both run)
+2583:plugins: a card on track said %s is a second copy
+3467:gamefx64.dlo
+3468:gamefx.dlo
+3469:gamefx_x64.dlo
+3470:gamefx-x64.dlo
+3471:camera64.dlo
+3472:overhaul64.dlo
+3473:whiteout64.dlo
+(exit 0)

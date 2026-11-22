@@ -17,6 +17,7 @@ from page import (
     BADGES, COMMIT, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
     money_html, prm, share_page, tagrow, tool, tpl)
 CARDS=[  # (card file, page anchor), alphabetical
+    ('mxb-damage-1.3.0.yaml', 'mxb-damage'),
 ]
 # The dropdowns of the hand-started workflows (GitHub can only offer a fixed list), written like the rules tables. Both offer
 # the tools in registry/tools.json, never the cards: a new card then never changes a workflow file, which the "Analyse a

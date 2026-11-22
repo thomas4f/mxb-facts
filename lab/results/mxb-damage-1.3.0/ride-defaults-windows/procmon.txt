@@ -1,0 +1,565 @@
+    2  mxb_damage_updater.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles  SUCCESS
+    2  mxb_damage_updater.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.ini.tmp  SUCCESS
+    2  mxb_damage_updater.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.txt.tmp  SUCCESS
+    1  mxb_damage_updater.exe  Process Exit    SUCCESS
+    1  mxb_damage_updater.exe  Process Start    SUCCESS
+    1  mxb_damage_updater.exe  SetRenameInformationFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.ini.tmp  SUCCESS
+    1  mxb_damage_updater.exe  SetRenameInformationFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.txt.tmp  SUCCESS
+    5  mxb_damage_updater.exe  WriteFile  D:\$LogFile  SUCCESS
+    1  mxb_damage_updater.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.ini.tmp  SUCCESS
+    1  mxb_damage_updater.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.txt.tmp  SUCCESS
+    2  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches\{AFBF9F1A-8EE8-4C77-AF34-C647E37CA0D9}.1.ver0x0000000000000000.db  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache  SUCCESS
+    5  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\bikes  SUCCESS
+   12  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\bikes\350xf.ini  SUCCESS
+    4  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\boots  SUCCESS
+    6  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\boots\default.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default  SUCCESS
+   10  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default.ini  SUCCESS
+    8  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default\goggles.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx  SUCCESS
+   10  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\gloves.ini  SUCCESS
+   20  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\suit.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\101lyoue  SUCCESS
+    2  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\2nffpgcf  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\2qvze0qp  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\4om21m8w  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\6fjmjidl  SUCCESS
+    3  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\7eqypues  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\anjmo5a1  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\cm22yfuk  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\el9ovvg9  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\fhg6k8ip  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\h0p06mgs  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\tq68gtjy  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\u0e0pda9  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\u5uk2d5d  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\yy2ndl6x  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\yyi5859z  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\bikes  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\misc  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\misc\fonts  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\misc\pitboard  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\animations  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\boots  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\fonts  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\helmetcams  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\helmets  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\protections  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders\default_mx  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders\default_mx\gloves  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders\default_mx\paints  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\enduro  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\motocross  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\supercross  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\supermoto  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tyres  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile  SUCCESS
+   41  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\e3dlog.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\bikes  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\bikes\350xf  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\bikes\recorded.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\log_20261122_210349.txt  SUCCESS
+    4  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\menu_state.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\parts  NAME COLLISION
+    2  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.ini  NAME NOT FOUND
+    2  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.state.tmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1034.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1142.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1143.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1148.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1149.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1170.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1171.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1184.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1185.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1192.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1193.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1200.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1201.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1208.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1209.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1222.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1223.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1224.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1225.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1228.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1229.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1230.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1231.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\done.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\draws.csv  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\info.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_231_1024x1024.dds  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_237_2048x2048.dds  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_245_512x512.dds  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_247_512x512.dds  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_249_512x1024.dds  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_259_1024x1024.dds  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\font.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g032.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g033.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g034.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g035.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g036.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g037.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g038.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g039.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g040.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g041.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g042.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g043.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g044.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g045.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g046.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g047.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g048.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g049.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g050.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g051.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g052.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g053.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g054.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g055.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g056.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g057.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g058.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g059.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g060.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g061.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g062.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g063.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g064.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g065.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g066.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g067.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g068.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g069.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g070.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g071.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g072.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g073.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g074.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g075.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g076.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g077.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g078.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g079.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g080.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g081.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g082.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g083.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g084.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g085.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g086.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g087.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g088.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g089.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g090.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g091.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g092.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g093.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g094.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g095.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g096.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g097.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g098.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g099.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g100.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g101.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g102.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g103.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g104.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g105.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g106.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g107.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g108.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g109.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g110.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g111.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g112.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g113.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g114.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g115.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g116.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g117.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g118.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g119.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g120.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g121.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g122.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g123.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g124.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g125.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g126.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\pointer.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\update  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\update\installed.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\update\state.ini  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\write_test.tmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-ride-defaults\sllog.txt  SUCCESS
+    2  mxbikes.exe  DeviceIoControl  C:\Users  FAST IO DISALLOWED
+    2  mxbikes.exe  DeviceIoControl  C:\Users  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\desktop.ini  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\desktop.ini  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  INVALID PARAMETER
+    4  mxbikes.exe  FileSystemControl  C:\Users  NOT REPARSE POINT
+    2  mxbikes.exe  FileSystemControl  C:\Users\runneradmin  NOT REPARSE POINT
+    2  mxbikes.exe  FileSystemControl  C:\Users\runneradmin\Documents  NOT REPARSE POINT
+    2  mxbikes.exe  FileSystemControl  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\mxb_damage_updater.exe  INVALID DEVICE REQUEST
+    1  mxbikes.exe  FlushBuffersFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\update\installed.txt  SUCCESS
+    1  mxbikes.exe  Process Create  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\mxb_damage_updater.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    4  mxbikes.exe  RegCreateKey  HKCR\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}\Instance  SUCCESS
+    1  mxbikes.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Id  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\MostRecentStart  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Name  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Version  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC1C75  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\realgame\run-ride-defaults\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetDispositionInformationEx  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\write_test.tmp  SUCCESS
+    3  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\menu_state.ini  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\update\state.ini  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.state.tmp  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmbpeip.v4egf3kkwuwefhtg55ylypxlpe.gx.internal.cloudapp.net:64627 -> lb-140-82-113-4-iad.github.com:https  SUCCESS
+   12  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\bikes\350xf.ini  SUCCESS
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\boots\default.ini  SUCCESS
+   10  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default.ini  SUCCESS
+    8  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default\goggles.ini  SUCCESS
+   10  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\gloves.ini  SUCCESS
+   20  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\suit.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\101lyoue  FAST IO DISALLOWED
+    7  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\101lyoue  SUCCESS
+    4  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\2nffpgcf  FAST IO DISALLOWED
+   11  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\2nffpgcf  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\2qvze0qp  FAST IO DISALLOWED
+   11  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\2qvze0qp  SUCCESS
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\4om21m8w  FAST IO DISALLOWED
+   60  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\4om21m8w  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\6fjmjidl  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\6fjmjidl  SUCCESS
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\7eqypues  FAST IO DISALLOWED
+   26  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\7eqypues  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\anjmo5a1  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\anjmo5a1  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\cm22yfuk  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\cm22yfuk  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\el9ovvg9  FAST IO DISALLOWED
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\el9ovvg9  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\fhg6k8ip  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\fhg6k8ip  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\h0p06mgs  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\h0p06mgs  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\tq68gtjy  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\tq68gtjy  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\u0e0pda9  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\u0e0pda9  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\u5uk2d5d  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\u5uk2d5d  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\yy2ndl6x  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\yy2ndl6x  SUCCESS
+    2  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\yyi5859z  FAST IO DISALLOWED
+   11  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\yyi5859z  SUCCESS
+   41  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\e3dlog.txt  FAST IO DISALLOWED
+   13  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\e3dlog.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\bikes\recorded.txt  SUCCESS
+    9  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\log_20261122_210349.txt  FAST IO DISALLOWED
+   87  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\log_20261122_210349.txt  SUCCESS
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\menu_state.ini  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\menu_state.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.state.tmp  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1034.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1034.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1142.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1143.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1148.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1149.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1170.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1171.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1184.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1184.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1185.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1185.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1192.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1192.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1193.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1200.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1200.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1201.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1208.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1208.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1209.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1209.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1222.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1222.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1223.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1223.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1224.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1224.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1225.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1225.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1228.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1228.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1229.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1229.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1230.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1230.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1231.bin  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\buffer_1231.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\done.txt  SUCCESS
+   23  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\draws.csv  FAST IO DISALLOWED
+  154  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\draws.csv  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\info.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_231_1024x1024.dds  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_231_1024x1024.dds  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_237_2048x2048.dds  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_237_2048x2048.dds  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_245_512x512.dds  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_245_512x512.dds  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_247_512x512.dds  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_247_512x512.dds  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_249_512x1024.dds  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_249_512x1024.dds  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_259_1024x1024.dds  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack\texture_259_1024x1024.dds  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\font.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g032.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g032.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g033.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g033.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g034.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g034.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g035.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g035.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g036.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g036.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g037.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g037.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g038.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g038.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g039.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g039.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g040.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g040.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g041.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g041.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g042.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g042.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g043.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g043.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g044.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g044.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g045.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g045.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g046.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g046.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g047.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g047.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g048.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g048.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g049.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g049.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g050.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g050.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g051.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g051.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g052.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g052.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g053.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g053.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g054.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g054.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g055.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g055.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g056.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g056.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g057.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g057.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g058.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g058.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g059.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g059.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g060.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g060.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g061.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g061.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g062.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g062.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g063.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g063.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g064.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g064.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g065.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g065.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g066.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g066.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g067.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g067.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g068.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g068.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g069.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g069.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g070.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g070.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g071.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g071.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g072.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g072.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g073.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g073.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g074.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g074.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g075.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g075.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g076.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g076.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g077.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g077.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g078.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g078.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g079.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g079.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g080.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g080.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g081.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g081.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g082.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g082.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g083.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g083.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g084.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g084.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g085.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g085.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g086.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g086.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g087.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g087.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g088.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g088.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g089.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g089.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g090.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g090.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g091.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g091.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g092.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g092.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g093.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g093.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g094.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g094.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g095.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g095.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g096.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g096.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g097.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g097.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g098.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g098.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g099.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g099.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g100.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g100.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g101.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g101.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g102.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g102.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g103.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g103.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g104.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g104.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g105.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g105.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g106.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g106.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g107.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g107.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g108.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g108.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g109.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g109.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g110.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g110.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g111.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g111.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g112.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g112.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g113.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g113.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g114.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g114.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g115.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g115.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g116.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g116.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g117.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g117.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g118.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g118.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g119.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g119.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g120.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g120.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g121.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g121.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g122.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g122.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g123.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g123.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g124.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g124.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g125.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g125.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g126.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\g126.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\pointer.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\ui\pointer.tga  SUCCESS
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\update\installed.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\update\state.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\sllog.txt  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-ride-defaults\sllog.txt  SUCCESS
