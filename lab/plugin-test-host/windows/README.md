@@ -9,10 +9,12 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 
 1. Claude's short first pass reads the release's licence and readme and writes **the plan** (below). It plans no runs
    when the licence forbids analysis (rule 6). `tools/check_plan.py` checks the plan before anything runs.
-2. A Linux job builds `mxbikes.exe`, `gpbikes.exe` and `victim.dlo` from `../src/` with `../src/build.sh`.
+2. A Linux job builds `mxbikes.exe`, `gpbikes.exe` and `victim.dlo` from `../src/` with `../src/build.sh`, and another
+   downloads the release files (`tools/fetch_release.py`: a plain https link or a MEGA file link), checks each against
+   the plan's SHA-256 and hands them on with a `release.json` listing them.
 3. The Windows job runs the plan's real-game runs (`../../real-game/windows/run.ps1`, with the bare demo as the
    baseline), then its cases and apps with `run.ps1`. It downloads Process Monitor and Mesa's software OpenGL (llvmpipe, the renderer the Wine
-   lab uses), and the release files, each checked against the plan's SHA-256. Then, for each run, it:
+   lab uses), takes the release files from the job above (`-Release`), each checked again against its SHA-256. Then, for each run, it:
    - makes a fresh run folder with the host, `victim.dlo`, the Mesa DLLs, the game's `plugins` folder (a folder named
      `plugins` in a release file, else the folder that holds its `.dlo` files) and the unpacked release under `release\`;
    - adds a firewall rule that blocks every program in the run folder from the internet, and logs dropped connections;
@@ -33,7 +35,9 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 ```
 
 - `game`: `mxbikes` or `gpbikes` (a GP Bikes plugin runs in `gpbikes.exe`).
-- `files`: the files players download, by direct URL and SHA-256 (at most 5).
+- `files`: the files players download, by URL and SHA-256 (at most 5): a direct https link, or a MEGA file link
+  (`https://mega.nz/file/<id>#<key>`) as the tool's page gives it. Each is saved under its name (a MEGA file under its
+  own), with characters other than letters, digits, spaces and `._+()-` replaced by `_`; `rel\<that name>\` holds it unpacked.
 - `realgame`: a run of the plugins in the real game per sensible way to use them: ride for `ride` seconds (10 to 300)
   and press each key (xdotool's names, as `games.json` uses them) at its second. The bare demo runs first as `baseline`,
   a name no run may take. At most 4.

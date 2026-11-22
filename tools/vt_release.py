@@ -1,10 +1,10 @@
 """VirusTotal lookups for a release before it is analysed, for the "Analyse a tool" workflow. Nothing is uploaded.
 
 Usage:
-  python3 -I tools/vt_release.py hash <plan.json> <hashes.json>     (no key: download, unpack, hash)
+  python3 -I tools/vt_release.py hash <release folder> <hashes.json>  (no key: unpack and hash)
   python3 -I tools/vt_release.py lookup <hashes.json> <lookups.json>  (VT_API_KEY: hash lookups only)
 
-"hash" downloads the files the plan names (https only, each checked against its SHA-256), unpacks every archive in them
+"hash" takes the release files tools/fetch_release.py downloaded (each checked again against its SHA-256), unpacks every archive in them
 with 7-Zip (zip, 7z, NSIS and MSI installers and the like; up to three levels deep) and writes the SHA-256 of every file
 found, with where it was found. Nothing is run: unpacking only reads the archives. "lookup" looks up those hashes with
 tools/vt_lookup.py and writes the results by hash, for the analysis to quote on P1 and for the pull request to write to
@@ -20,7 +20,6 @@ import re
 import subprocess
 import sys
 import time
-import urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))  # vt_lookup.py sits beside this file
 import vt_lookup  # noqa: E402
@@ -53,10 +52,8 @@ def unpack(path, into):
     return r.returncode == 0 and os.path.isdir(into) and bool(os.listdir(into))
 
 
-def hash_release(plan_path, out_path):
-    plan = json.load(open(plan_path))
-    work = os.path.join(os.path.dirname(os.path.abspath(out_path)), 'vt-release')
-    os.makedirs(work, exist_ok=True)
+def hash_release(folder, out_path):
+    """The SHA-256 of every release file tools/fetch_release.py saved in <folder>, and of every file unpacked from them."""
     found, total = {}, 0
 
     def walk(path, where, depth):
@@ -68,31 +65,23 @@ def hash_release(plan_path, out_path):
                     continue
                 total += os.path.getsize(p)
                 assert total <= MAX_BYTES, 'the release unpacks to more than %d bytes' % MAX_BYTES
-                rel = where + '/' + os.path.relpath(p, path).replace(os.sep, '/')
-                add(p, rel, depth)
+                add(p, where + '/' + os.path.relpath(p, path).replace(os.sep, '/'), depth)
 
     def add(p, where, depth):
         h = sha256(p)
         if h not in found:
             found[h] = {'name': where, 'depth': depth, 'program': where.lower().endswith(PROGRAMS)}
         if depth < MAX_DEPTH:
-            into = p + '.unpacked'
+            into = os.path.join(work, '%d.unpacked' % len(os.listdir(work)))
             if unpack(p, into):
                 walk(into, where, depth + 1)
 
-    for i, f in enumerate(plan.get('files', [])):
-        url, want = f['url'], f['sha256'].lower()
-        assert url.startswith('https://'), 'only https downloads: ' + url
-        name = os.path.basename(url.split('?')[0]) or 'file%d' % i
-        p = os.path.join(work, '%d-%s' % (i, name))
-        with urllib.request.urlopen(url, timeout=120) as r, open(p, 'wb') as out:
-            while True:
-                block = r.read(1 << 20)
-                if not block:
-                    break
-                out.write(block)
-        assert sha256(p) == want, name + " doesn't match its SHA-256 in the plan"
-        add(p, name, 0)
+    work = os.path.join(os.path.dirname(os.path.abspath(out_path)), 'vt-unpacked')
+    os.makedirs(work, exist_ok=True)
+    for f in json.load(open(os.path.join(folder, 'release.json'))):
+        p = os.path.join(folder, os.path.basename(f['name']))
+        assert sha256(p) == f['sha256'], f['name'] + " doesn't match its SHA-256"
+        add(p, os.path.basename(f['name']), 0)
     with open(out_path, 'w', encoding='utf-8', newline='\n') as f:
         json.dump(found, f, indent=1)
         f.write('\n')

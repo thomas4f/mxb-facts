@@ -37,7 +37,7 @@ How the pieces connect and how the main jobs run: [`docs/DEVELOPING.md`](docs/DE
 | `prompts/analyse-tool.md` | The prompt every analysis starts from, with the model and effort we use |
 | `authors/` | The check authors drop into their own repository (`mxb-facts-check/SKILL.md`), shown on the "For authors" page |
 | `site/` | `build.py` (checks the cards and builds the site) with `rules.py` (the rules and scores), `cards.py` (card checks) and `page.py` (the HTML), and `shell.html` |
-| `tools/` | Link checker, corrections check, issue labels, VirusTotal hash lookup, mods-site and release fetchers, the runner for the "Analyse a tool" workflow, unpackers for PyInstaller and Tauri apps |
+| `tools/` | Link checker, corrections check, issue labels, VirusTotal hash lookup, mods-site and release fetchers, the runner and release downloader for the "Analyse a tool" workflow, unpackers for PyInstaller and Tauri apps |
 | `registry/` | Every tool covered or queued, its mods-site page snapshot and its newest releases ([`registry/README.md`](registry/README.md)) |
 | `vt/results.json` | Latest VirusTotal hash lookups for every card (written by the "VirusTotal lookup" workflow) |
 | `lab/real-game/` | Runs plugins in the public demo of the game, offline (Wine in sessions, a throwaway Windows runner in "Analyse a tool"), with the download pinned by SHA-256 |
