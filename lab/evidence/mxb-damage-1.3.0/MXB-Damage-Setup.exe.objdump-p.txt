@@ -1,0 +1,310 @@
+$ objdump -p 'MXB-Damage-Setup.exe' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+MXB-Damage-Setup.exe:     file format pei-x86-64
+
+Characteristics 0x22
+	executable
+	large address aware
+
+Time/Date		Sun Nov 15 19:37:03 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	44
+SizeOfCode		0000000000046e00
+SizeOfInitializedData	000000000001f000
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	0000000000024e14
+BaseOfCode		0000000000001000
+ImageBase		0000000140000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		0006a000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00008160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+					TERMINAL_SERVICE_AWARE
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 0000000000000000 00000000 Export Directory [.edata (or where ever we found it)]
+Entry 1 000000000005e06c 000000c8 Import Directory [parts of .idata]
+Entry 2 0000000000067000 000011a0 Resource Directory [.rsrc]
+Entry 3 0000000000063000 00002ef8 Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 0000000000069000 000008c8 Base Relocation Directory [.reloc]
+Entry 6 0000000000058930 0000001c Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 0000000000058b00 00000028 Thread Storage Directory [.tls]
+Entry a 00000000000587f0 00000140 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 0000000000048000 00000668 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x14005e06c
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 0005e06c	0005e718 00000000 00000000 0005e86e 000485e0
+
+	DLL Name: bcrypt.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000485e0  <none>  003b  BCryptVerifySignature
+	000485e8  <none>  0025  BCryptHashData
+	000485f0  <none>  000f  BCryptDestroyKey
+	000485f8  <none>  0027  BCryptImportKeyPair
+	00048600  <none>  0002  BCryptCloseAlgorithmProvider
+	00048608  <none>  0029  BCryptOpenAlgorithmProvider
+	00048610  <none>  0006  BCryptCreateHash
+	00048618  <none>  001d  BCryptFinishHash
+	00048620  <none>  000e  BCryptDestroyHash
+
+ 0005e080	0005e6b8 00000000 00000000 0005e95a 00048580
+
+	DLL Name: WINHTTP.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00048580  <none>  003e  WinHttpReadData
+	00048588  <none>  0031  WinHttpOpen
+	00048590  <none>  0008  WinHttpCloseHandle
+	00048598  <none>  0009  WinHttpConnect
+	000485a0  <none>  004b  WinHttpSetOption
+	000485a8  <none>  004f  WinHttpSetTimeouts
+	000485b0  <none>  0032  WinHttpOpenRequest
+	000485b8  <none>  0048  WinHttpSendRequest
+	000485c0  <none>  003b  WinHttpQueryHeaders
+	000485c8  <none>  0042  WinHttpReceiveResponse
+	000485d0  <none>  0018  WinHttpCrackUrl
+
+ 0005e094	0005e768 00000000 00000000 0005e97e 00048630
+
+	DLL Name: dwmapi.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00048630  <none>  001b  DwmSetWindowAttribute
+
+ 0005e0a8	0005e778 00000000 00000000 0005e9d2 00048640
+
+	DLL Name: ole32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00048640  <none>  0061  CoInitializeEx
+	00048648  <none>  002b  CoCreateInstance
+	00048650  <none>  008c  CoTaskMemFree
+	00048658  <none>  0091  CoUninitialize
+
+ 0005e0bc	0005e538 00000000 00000000 0005ea16 00048400
+
+	DLL Name: SHELL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00048400  <none>  0139  SHFileOperationW
+	00048408  <none>  01b0  ShellExecuteW
+	00048410  <none>  0009  CommandLineToArgvW
+
+ 0005e0d0	0005e138 00000000 00000000 0005ea32 00048000
+
+	DLL Name: ADVAPI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00048000  <none>  027b  RegGetValueW
+
+ 0005e0e4	0005e558 00000000 00000000 0005ecfe 00048420
+
+	DLL Name: USER32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00048420  <none>  0020  CallNextHookEx
+	00048428  <none>  03d7  UnhookWindowsHookEx
+	00048430  <none>  03a2  SetWindowsHookExW
+	00048438  <none>  0138  GetClassNameW
+	00048440  <none>  02c6  PtInRect
+	00048448  <none>  0117  FillRect
+	00048450  <none>  031e  ScreenToClient
+	00048458  <none>  0269  LoadIconW
+	00048460  <none>  004e  ClientToScreen
+	00048468  <none>  014a  GetCursorPos
+	00048470  <none>  033f  SetCursor
+	00048478  <none>  0291  MessageBeep
+	00048480  <none>  0299  MessageBoxW
+	00048488  <none>  0004  AdjustWindowRectEx
+	00048490  <none>  01fe  GetWindowRect
+	00048498  <none>  013a  GetClientRect
+	000484a0  <none>  02ea  RedrawWindow
+	000484a8  <none>  0230  InvalidateRect
+	000484b0  <none>  03c2  SystemParametersInfoW
+	000484b8  <none>  0012  BeginPaint
+	000484c0  <none>  0311  ReleaseDC
+	000484c8  <none>  014b  GetDC
+	000484d0  <none>  03ec  UpdateWindow
+	000484d8  <none>  00e2  DrawTextW
+	000484e0  <none>  01d5  GetSystemMetrics
+	000484e8  <none>  034b  SetDlgItemTextW
+	000484f0  <none>  02c0  PrintWindow
+	000484f8  <none>  03b1  ShowWindow
+	00048500  <none>  00b9  DestroyWindow
+	00048508  <none>  007a  CreateWindowExW
+	00048510  <none>  02ee  RegisterClassExW
+	00048518  <none>  02bd  PostQuitMessage
+	00048520  <none>  00ab  DefWindowProcW
+	00048528  <none>  02bc  PostMessageW
+	00048530  <none>  036a  SetProcessDPIAware
+	00048538  <none>  02b8  PeekMessageW
+	00048540  <none>  00c1  DispatchMessageW
+	00048548  <none>  03d2  TranslateMessage
+	00048550  <none>  0193  GetMessageW
+	00048558  <none>  03cb  TrackMouseEvent
+	00048560  <none>  0267  LoadCursorW
+	00048568  <none>  00fa  EndPaint
+	00048570  <none>  032d  SendMessageW
+
+ 0005e0f8	0005e148 00000000 00000000 0005ee1e 00048010
+
+	DLL Name: GDI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00048010  <none>  03ab  SetTextColor
+	00048018  <none>  0384  SetBkMode
+	00048020  <none>  037c  SelectObject
+	00048028  <none>  0345  RoundRect
+	00048030  <none>  02e7  GetTextExtentPoint32W
+	00048038  <none>  02d6  GetStockObject
+	00048040  <none>  0291  GetDIBits
+	00048048  <none>  02ef  GetTextMetricsW
+	00048050  <none>  0195  DeleteObject
+	00048058  <none>  0192  DeleteDC
+	00048060  <none>  005a  CreateSolidBrush
+	00048068  <none>  0044  CreateFontW
+	00048070  <none>  0031  CreateCompatibleDC
+	00048078  <none>  0030  CreateCompatibleBitmap
+	00048080  <none>  0013  BitBlt
+	00048088  <none>  0292  GetDeviceCaps
+	00048090  <none>  03be  TextOutW
+
+ 0005e10c	0005e1d8 00000000 00000000 0005f2bc 000480a0
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000480a0  <none>  01a3  FindFirstFileExW
+	000480a8  <none>  0569  SetFilePointerEx
+	000480b0  <none>  03e4  LCMapStringW
+	000480b8  <none>  061a  VirtualProtect
+	000480c0  <none>  03be  IsValidCodePage
+	000480c8  <none>  01db  GetACP
+	000480d0  <none>  01c3  FlsFree
+	000480d8  <none>  01c6  FlsSetValue
+	000480e0  <none>  01c4  FlsGetValue
+	000480e8  <none>  01c2  FlsAlloc
+	000480f0  <none>  027a  GetFileType
+	000480f8  <none>  037c  HeapAlloc
+	00048100  <none>  0380  HeapFree
+	00048108  <none>  0303  GetStdHandle
+	00048110  <none>  0186  ExitProcess
+	00048118  <none>  02a4  GetModuleHandleExW
+	00048120  <none>  01d5  FreeLibraryAndExitThread
+	00048128  <none>  02c6  GetOEMCP
+	00048130  <none>  010f  CreateThread
+	00048138  <none>  03f6  LoadLibraryExW
+	00048140  <none>  01d4  FreeLibrary
+	00048148  <none>  05eb  TlsFree
+	00048150  <none>  05ee  TlsSetValue
+	00048158  <none>  05ec  TlsGetValue
+	00048160  <none>  05ea  TlsAlloc
+	00048168  <none>  0396  InitializeCriticalSectionAndSpinCount
+	00048170  <none>  012f  DeleteCriticalSection
+	00048178  <none>  03f0  LeaveCriticalSection
+	00048180  <none>  0157  EnterCriticalSection
+	00048188  <none>  0153  EncodePointer
+	00048190  <none>  0578  SetLastError
+	00048198  <none>  0517  RtlUnwindEx
+	000481a0  <none>  0498  RaiseException
+	000481a8  <none>  0513  RtlPcToFileHeader
+	000481b0  <none>  039a  InitializeSListHead
+	000481b8  <none>  0242  GetCurrentProcessId
+	000481c0  <none>  05d8  TerminateProcess
+	000481c8  <none>  0241  GetCurrentProcess
+	000481d0  <none>  03b8  IsProcessorFeaturePresent
+	000481d8  <none>  0301  GetStartupInfoW
+	000481e0  <none>  05b8  SetUnhandledExceptionFilter
+	000481e8  <none>  05fb  UnhandledExceptionFilter
+	000481f0  <none>  03b0  IsDebuggerPresent
+	000481f8  <none>  0518  RtlVirtualUnwind
+	00048200  <none>  0511  RtlLookupFunctionEntry
+	00048208  <none>  0509  RtlCaptureContext
+	00048210  <none>  01ea  GetCPInfo
+	00048218  <none>  01ff  GetCommandLineA
+	00048220  <none>  0262  GetEnvironmentStringsW
+	00048228  <none>  01d3  FreeEnvironmentStringsW
+	00048230  <none>  02e4  GetProcessHeap
+	00048238  <none>  0593  SetStdHandle
+	00048240  <none>  0308  GetStringTypeW
+	00048248  <none>  0229  GetConsoleOutputCP
+	00048250  <none>  0225  GetConsoleMode
+	00048258  <none>  0385  HeapSize
+	00048260  <none>  0383  HeapReAlloc
+	00048268  <none>  0556  SetEndOfFile
+	00048270  <none>  04a6  ReadConsoleW
+	00048278  <none>  065f  WriteConsoleW
+	00048280  <none>  0187  ExitThread
+	00048288  <none>  02da  GetPrivateProfileStringW
+	00048290  <none>  0200  GetCommandLineW
+	00048298  <none>  00d4  CreateDirectoryW
+	000482a0  <none>  00e6  CreateFileW
+	000482a8  <none>  0136  DeleteFileW
+	000482b0  <none>  019d  FindClose
+	000482b8  <none>  01a8  FindFirstFileW
+	000482c0  <none>  01b4  FindNextFileW
+	000482c8  <none>  01c8  FlushFileBuffers
+	000482d0  <none>  0270  GetFileAttributesW
+	000482d8  <none>  0278  GetFileSizeEx
+	000482e0  <none>  04a9  ReadFile
+	000482e8  <none>  04f3  RemoveDirectoryW
+	000482f0  <none>  0660  WriteFile
+	000482f8  <none>  0329  GetTempPathW
+	00048300  <none>  009d  CloseHandle
+	00048308  <none>  028d  GetLastError
+	00048310  <none>  05c8  Sleep
+	00048318  <none>  0246  GetCurrentThreadId
+	00048320  <none>  028e  GetLocalTime
+	00048328  <none>  02a1  GetModuleFileNameW
+	00048330  <none>  03fa  LoadResource
+	00048338  <none>  040e  LockResource
+	00048340  <none>  05c7  SizeofResource
+	00048348  <none>  01be  FindResourceW
+	00048350  <none>  0422  MulDiv
+	00048358  <none>  0666  WritePrivateProfileStringW
+	00048360  <none>  00c5  CopyFileW
+	00048368  <none>  041c  MoveFileExW
+	00048370  <none>  0423  MultiByteToWideChar
+	00048378  <none>  064c  WideCharToMultiByte
+	00048380  <none>  0118  CreateToolhelp32Snapshot
+	00048388  <none>  045f  Process32FirstW
+	00048390  <none>  0461  Process32NextW
+	00048398  <none>  0626  WaitForSingleObjectEx
+	000483a0  <none>  0268  GetExitCodeThread
+	000483a8  <none>  04ea  ReleaseSRWLockExclusive
+	000483b0  <none>  0000  AcquireSRWLockExclusive
+	000483b8  <none>  05f2  TryAcquireSRWLockExclusive
+	000483c0  <none>  0481  QueryPerformanceCounter
+	000483c8  <none>  062d  WakeAllConditionVariable
+	000483d0  <none>  05ca  SleepConditionVariableSRW
+	000483d8  <none>  0397  InitializeCriticalSectionEx
+	000483e0  <none>  031a  GetSystemTimeAsFileTime
+	000483e8  <none>  02a5  GetModuleHandleW
+	000483f0  <none>  02dd  GetProcAddress
+
+ 0005e120	00000000 00000000 00000000 00000000 00000000
+
+(exit 0)

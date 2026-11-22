@@ -1,0 +1,343 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\logs  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\logs\bikes  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\logs\bikes\ktm_450sxf_2024  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\logs\log_20261122_211633.txt  SUCCESS
+    4  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\menu_state.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\parts  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\profiles  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\profiles\rec  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\profiles\rec\ktm_450sxf_2024  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\font.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g032.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g033.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g034.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g035.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g036.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g037.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g038.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g039.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g040.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g041.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g042.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g043.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g044.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g045.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g046.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g047.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g048.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g049.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g050.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g051.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g052.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g053.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g054.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g055.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g056.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g057.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g058.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g059.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g060.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g061.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g062.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g063.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g064.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g065.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g066.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g067.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g068.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g069.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g070.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g071.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g072.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g073.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g074.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g075.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g076.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g077.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g078.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g079.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g080.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g081.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g082.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g083.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g084.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g085.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g086.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g087.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g088.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g089.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g090.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g091.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g092.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g093.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g094.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g095.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g096.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g097.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g098.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g099.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g100.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g101.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g102.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g103.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g104.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g105.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g106.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g107.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g108.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g109.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g110.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g111.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g112.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g113.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g114.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g115.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g116.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g117.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g118.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g119.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g120.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g121.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g122.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g123.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g124.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g125.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g126.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\pointer.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\update  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\update\installed.txt  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\write_test.tmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0220.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0300.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0420.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0630.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_1198.bmp  SUCCESS
+    1  mxbikes.exe  FlushBuffersFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\update\installed.txt  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-menu-crash\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetDispositionInformationEx  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\write_test.tmp  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-menu-crash\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-menu-crash\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage.dlo  SUCCESS
+    3  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\menu_state.ini  SUCCESS
+  190  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+  183  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\menu-crash\host.log  FAST IO DISALLOWED
+  368  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\menu-crash\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage.dlo  SUCCESS
+    9  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\logs\log_20261122_211633.txt  FAST IO DISALLOWED
+   62  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\logs\log_20261122_211633.txt  SUCCESS
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\menu_state.ini  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\menu_state.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\font.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g032.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g032.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g033.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g033.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g034.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g034.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g035.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g035.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g036.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g036.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g037.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g037.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g038.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g038.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g039.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g039.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g040.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g040.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g041.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g041.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g042.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g042.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g043.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g043.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g044.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g044.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g045.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g045.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g046.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g046.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g047.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g047.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g048.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g048.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g049.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g049.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g050.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g050.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g051.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g051.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g052.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g052.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g053.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g053.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g054.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g054.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g055.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g055.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g056.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g056.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g057.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g057.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g058.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g058.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g059.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g059.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g060.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g060.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g061.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g061.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g062.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g062.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g063.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g063.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g064.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g064.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g065.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g065.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g066.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g066.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g067.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g067.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g068.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g068.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g069.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g069.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g070.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g070.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g071.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g071.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g072.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g072.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g073.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g073.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g074.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g074.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g075.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g075.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g076.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g076.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g077.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g077.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g078.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g078.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g079.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g079.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g080.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g080.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g081.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g081.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g082.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g082.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g083.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g083.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g084.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g084.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g085.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g085.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g086.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g086.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g087.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g087.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g088.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g088.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g089.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g089.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g090.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g090.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g091.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g091.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g092.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g092.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g093.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g093.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g094.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g094.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g095.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g095.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g096.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g096.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g097.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g097.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g098.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g098.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g099.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g099.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g100.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g100.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g101.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g101.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g102.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g102.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g103.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g103.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g104.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g104.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g105.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g105.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g106.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g106.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g107.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g107.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g108.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g108.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g109.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g109.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g110.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g110.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g111.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g111.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g112.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g112.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g113.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g113.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g114.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g114.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g115.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g115.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g116.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g116.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g117.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g117.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g118.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g118.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g119.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g119.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g120.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g120.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g121.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g121.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g122.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g122.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g123.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g123.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g124.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g124.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g125.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g125.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g126.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\g126.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\pointer.tga  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\ui\pointer.tga  SUCCESS
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\plugins\mxb_damage\update\installed.txt  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0220.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0220.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0300.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0300.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0420.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0420.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0630.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0630.bmp  SUCCESS
+   49  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_1198.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_1198.bmp  SUCCESS

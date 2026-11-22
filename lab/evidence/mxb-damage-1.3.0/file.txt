@@ -1,0 +1,56 @@
+$ file MXB-Damage-Setup.exe mxb_damage.dlo mxb_damage/mxb_damage_updater.exe mxb_damage_1.3.0.pkg; unzip -l mxb_damage_1.3.0.zip
+MXB-Damage-Setup.exe:              PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+mxb_damage.dlo:                    PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+mxb_damage/mxb_damage_updater.exe: PE32+ executable for MS Windows 6.00 (GUI), x86-64, 6 sections
+mxb_damage_1.3.0.pkg:              data
+Archive:  mxb_damage_1.3.0.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+  1375232  2026-11-15 20:36   mxb_damage.dlo
+   623616  2026-11-15 20:36   mxb_damage/mxb_damage_updater.exe
+     8947  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Fantic_XX250.ini
+    10207  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Honda_CRF450R.ini
+    15597  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Husqvarna_FC_350.ini
+     9242  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Husqvarna_FC_450.ini
+     9438  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Husqvarna_TC_250.ini
+    10556  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Kawasaki_KX450.ini
+    11064  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_KTM_250_SX.ini
+     9794  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_KTM_350_SX-F.ini
+     9655  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_KTM_450_SX-F.ini
+    10969  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Suzuki_RM-Z450.ini
+    11345  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_TM_MX_144.ini
+    11279  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_TM_MX_250.ini
+    11970  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_TM_MX_300_Fi.ini
+    11401  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_TM_MX_450_Fi.ini
+    10327  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Yamaha_YZ250.ini
+    11391  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2023_Yamaha_YZ450F.ini
+     9777  2026-11-14 03:33   mxb_damage/parts/MX1OEM_2024_Beta_RX_450.ini
+    10631  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2024_GasGas_MC_250.ini
+    10831  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2024_GasGas_MC_350F.ini
+    10631  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2024_GasGas_MC_450F.ini
+    10841  2026-11-14 03:12   mxb_damage/parts/MX1OEM_2025_Fantic_XXF_450.ini
+     8820  2026-11-14 03:34   mxb_damage/parts/MX1OEM_2025_Triumph_TF_450-RC.ini
+    10318  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_Honda_CRF250R.ini
+    15461  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_Husqvarna_FC_250.ini
+    10668  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_Kawasaki_KX250.ini
+     8597  2026-11-14 03:33   mxb_damage/parts/MX2OEM_2023_KTM_125_SX.ini
+     9684  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_KTM_250_SX-F.ini
+    10990  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_Suzuki_RM-Z250.ini
+    11285  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_TM_MX_125.ini
+    11916  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_TM_MX_250_Fi.ini
+    10286  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2023_Yamaha_YZ125.ini
+    10719  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2024_GasGas_MC_250F.ini
+     8946  2026-11-14 03:35   mxb_damage/parts/MX2OEM_2024_Triumph_TF_250-X.ini
+    11370  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2024_Yamaha_YZ250F.ini
+    10886  2026-11-14 03:12   mxb_damage/parts/MX2OEM_2025_Fantic_XXF_250.ini
+     8626  2026-11-14 03:33   mxb_damage/parts/MX3OEM_2021_KTM_KX_500.ini
+     8356  2026-11-14 19:05   mxb_damage/parts/MX3OEM_2022_Beta_300_RX.ini
+    11171  2026-11-14 03:12   mxb_damage/parts/MX3OEM_2023_KTM_300_SX.ini
+    11295  2026-11-14 03:12   mxb_damage/parts/MX3OEM_2023_TM_MX_300.ini
+    11458  2026-11-14 03:12   mxb_damage/parts/MX3OEM_2023_TM_MX_530_Fi.ini
+    10299  2026-11-14 03:12   mxb_damage/parts/MX3OEM_Service_Honda_CR500AF.ini
+     9081  2026-11-15 19:05   mxb_damage/README.txt
+     3439  2026-11-12 16:13   mxb_damage/settings.ini
+---------                     -------
+  2448412                     45 files
+(exit 0)

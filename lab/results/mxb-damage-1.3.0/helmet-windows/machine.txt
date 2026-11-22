@@ -1,0 +1,7 @@
+Machine: Microsoft Windows Server 2025 Datacenter, video: Microsoft Hyper-V Video (no GPU). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: 97330813853e0e514a11ee16a47d4c6fe90148fae834649839afb30487cc8b0b.
+Release files (SHA-256):
+0c4941e5d00501d92513e304d1d1ca091efb2b19c4770108238a767c278b8cfd  mxb_damage_1.3.0.zip
+b683715954706111f0a60bc70ec0f5a6f716602d0cddfd0acc9af30b1d5a1160  MXB-Damage-Setup.exe
+1c66705ce5a5e469c1ded584d3e869161d0253a72c10481f4bc815e04baaa1d6  mxb_damage_1.3.0.pkg
+e35c0af1ee095b9bf51f1741e06feb58cf5b12e9c7749d1a16a51f512d5c5403  mxb_damage_manifest.txt
+9d392a57687a2ba1e8d29a1949a5646b2b64a300f24166f76f6c4f80e21e42b1  mxb_damage_manifest.sig

@@ -1,0 +1,542 @@
+tool: MXB Damage
+version: 1.3.0
+summary: >-
+  An MX Bikes plugin that draws crash damage and dirt on your bike by redirecting the game's OpenGL draw pointers to its own code.
+  By default it updates itself from GitHub when the game closes, after checking a signed manifest, and saves a copy of each new bike's
+  model buffers and textures into its folder to find the bike's parts.
+header:
+  What it is: >-
+    A closed-source plugin (`mxb_damage.dlo` and an `mxb_damage` folder) that goes into the game's `plugins` folder, with a helper
+    program (`mxb_damage_updater.exe`) that finds a bike's parts and installs updates, and an installer (`MXB-Damage-Setup.exe`) that
+    downloads the release from GitHub. In the game it bends, breaks and dirties the bike you ride as it is drawn, with an in-game menu on Q.
+  In one line: Plugin that draws crash damage and dirt on your bike by hooking the game's drawing
+  Category: Gameplay and visuals
+  Author: GitHub user [FroxyMXB](https://github.com/FroxyMXB)
+  Game: MX Bikes
+  mxb-mods.com: '[MXB Damage](https://mxb-mods.com/mxb-damage-plugin-2/)'
+  Homepage: None found
+  GitHub: '[FroxyMXB/MXB-Damage-Plugin](https://github.com/FroxyMXB/MXB-Damage-Plugin)'
+  Version analysed: 'MXB Damage 1.3.0, tag [v1.3.0](https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/tag/v1.3.0)'
+  Source commit: >-
+    [7e92011d3c4653af579beb4588416359b572bf53](https://github.com/FroxyMXB/MXB-Damage-Plugin/tree/7e92011d3c4653af579beb4588416359b572bf53)
+    (the commit tag v1.3.0 points at; the repository holds only `README.md`, so it isn't the source of the release files)
+  Analysed on: 22 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Closed source, and neither the repository nor the release carries a licence or a clause against analysis, so the release files were
+    examined: imports, exports and code-signing entries (`objdump -p`), text (`strings`, `strings -el`), chosen call sites (`objdump -d`),
+    the update package listed against the signed manifest, and the manifest's signature checked with the key found in the programs; every
+    command is in `lab/evidence/mxb-damage-1.3.0/run.sh`. The release was not rebuilt (no public source). A throwaway Windows Server 2025
+    machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU) and no keys ran the plugin in the MX Bikes demo
+    (beta21e), offline behind a firewall block, under Process Monitor: the bare demo as baseline, a 180 s ride with default settings, and a
+    ride pressing Q four times; then the plugin test host (a crash case and a helmet-camera case, with the bystander plugin's checks) and the
+    installer and the updater started alone. The real game online, other bikes and other plugins beside it were not run. VirusTotal: no
+    key in this run and no lookup in `vt/results.json`, so P1 is not checked.
+files:
+  - name: MXB-Damage-Setup.exe
+    sha256: b683715954706111f0a60bc70ec0f5a6f716602d0cddfd0acc9af30b1d5a1160
+    note: The installer the README recommends; it downloads the release from GitHub.
+  - name: mxb_damage_1.3.0.zip
+    sha256: 0c4941e5d00501d92513e304d1d1ca091efb2b19c4770108238a767c278b8cfd
+    note: For installing by hand.
+  - name: mxb_damage.dlo
+    inside: mxb_damage_1.3.0.zip
+    sha256: ad601331c9c444121c911e148f5348c09be09dac10234a7da9c13c50f754bd02
+    note: The plugin.
+  - name: mxb_damage_updater.exe
+    inside: mxb_damage_1.3.0.zip
+    sha256: 30ec75fe5547f2fe5ad682c3a4bce8d9ec3c2e5b4e582948ef3b0c6334fcb69f
+    note: Part finder and updater, in `mxb_damage\`.
+  - name: README.txt
+    inside: mxb_damage_1.3.0.zip
+    sha256: e995b1cfedd320d1c31970d3f96cd7ccb9a9a5540bd4a48e7dbbda5fc2635656
+  - name: settings.ini
+    inside: mxb_damage_1.3.0.zip
+    sha256: 038f8483c075c833310c9f08c0a1e6f2c913f4c44843c6146461966b75ef227f
+    note: The default settings.
+  - name: mxb_damage_1.3.0.pkg
+    sha256: 1c66705ce5a5e469c1ded584d3e869161d0253a72c10481f4bc815e04baaa1d6
+    note: The update package the installer and the plugin download.
+  - name: mxb_damage_manifest.txt
+    sha256: e35c0af1ee095b9bf51f1741e06feb58cf5b12e9c7749d1a16a51f512d5c5403
+    note: Names the package and every file in it with its SHA-256.
+  - name: mxb_damage_manifest.sig
+    sha256: 9d392a57687a2ba1e8d29a1949a5646b2b64a300f24166f76f6c4f80e21e42b1
+    note: ECDSA P-256 signature of the manifest.
+files_note: >-
+  None of the three program files is code-signed (`lab/evidence/mxb-damage-1.3.0/signature.txt`). The hashes match the ones GitHub lists
+  for the release and the ones the Windows machine ran (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/machine.txt`).
+key:
+  K1: 'No malware found; VirusTotal not checked. No lookup was available in this run; nothing in the release files was hidden or disguised.'
+  K2: 'Yes, checked first; by default it installs updates when you close the game, after checking a signed manifest and every file''s SHA-256.'
+  K3: 'No. It writes only into its own folder in `plugins`.'
+  K4: 'No. Only download requests to GitHub were found.'
+  K5: 'Yes, redirects pointers; it points the game''s OpenGL draw pointers at its own code at every event, offline and, as far as its code shows, online too.'
+  K6: 'Yes, copies bike models; by default it saves the vertex buffers and textures of each new bike you ride into its folder.'
+  K7: 'No. The GitHub repository holds only a README.'
+  K8: 'Yes, as far as checked; what its docs say about updates, data and other plugins matches what was found.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'Yes, GitHub only; a daily update check, which you can turn off.'
+areas:
+  Your PC and files: Installs updates by default when the game closes, checked against a manifest signed with a key built into the plugin; nothing written outside its own folder; not code-signed.
+  Your data: Connects only to GitHub release downloads, for updates, which can be switched off; no data about you was found in what it sends or stores.
+  Your game: Redirects the game's OpenGL draw pointers to its own code at every event and searches the game's code to find them; starts its helper program next to the game.
+  Creators' content: Saves the bike's model buffers and textures, read from the graphics card, into its folder for each new bike, by default.
+  Transparency: Closed source with no licence; the GitHub repository holds only a README.
+  Money: Free; its mxb-mods.com page asks for donations, with no link.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: the updater installs into a staging copy and keeps a rollback copy, so a failed install puts the old version back
+          (`lab/evidence/mxb-damage-1.3.0/strings-updater.txt`), and an update adds new settings to `settings.ini` without changing yours.
+        mark: good
+      - text: >-
+          Also found: the plugin keeps only its newest 30 logs and deletes older ones in `mxb_damage\logs`, its own folder
+          (`lab/evidence/mxb-damage-1.3.0/strings-capture.txt`, settings.ini `[log]`).
+        mark: note
+      - text: >-
+          Also found: the installer still has a "Remove Incompatible Plugins?" dialog that moves the files it lists to the Recycle Bin when
+          you click Remove; in 1.3 its text names only a second copy of MXB Damage as a conflict and says GameFX64, Camera64 and Overhaul64
+          "work together with it" (`lab/evidence/mxb-damage-1.3.0/strings-setup.txt`). It was not run with other plugins installed (see Limits).
+        mark: note
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: Update check and download (the manifest, its signature, then the package)
+            Where to: github.com (FroxyMXB/MXB-Damage-Plugin release downloads)
+            When: Once a day, at game start; tried 20 s after start in both runs
+            Switch: '`update.auto=0` in settings.ini, or "automatic updates" off in the menu; then only on "Check for Updates"'
+          - What: Release download by the installer
+            Where to: github.com (the same release downloads)
+            When: When you run the installer and click Download & Install
+            Switch: Install from the zip by hand instead
+      - text: >-
+          Also found: by default the log in `mxb_damage\logs` records the game's save path (with your Windows user name), the bike, the track and
+          each crash; the README asks you to send it when something goes wrong
+          (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`). It stays on your PC unless you send it.
+        mark: note
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: it exports a function (`OverhaulHookFor`) that another plugin can call to get its draw hook and hook on top of it, and it
+          keeps its hook in a chain with other plugins' hooks rather than removing them (`lab/evidence/mxb-damage-1.3.0/strings-hooks.txt`).
+        mark: note
+      - text: >-
+          Also found: when no draw reaches its hook for 3 seconds on track, it puts itself back on top of the game's draw pointer, at most 3
+          times an event (`lab/evidence/mxb-damage-1.3.0/strings-hooks.txt`).
+        mark: concern
+        questions: [G2]
+  - title: Creators' content
+    blocks:
+      - text: >-
+          Also found: in the default ride, the copy of the demo's MSM 350XF was 23 vertex buffers (`buffer_*.bin`, 3.7 MB) and 6 textures
+          (`texture_*.dds`, 2.0 MB) in `plugins\mxb_damage\profiles\rec\350xf\pack`, still there when the game closed
+          (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/files.diff`).
+        mark: concern
+        questions: [C2]
+  - title: Transparency
+    blocks:
+      - text: >-
+          Also found: the plugin exports 43 test functions (`MXBD_Test…`) beside the game's plugin functions; nothing in the game calls them
+          (`lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.objdump-p.txt`).
+        mark: note
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"Once a day the plugin checks GitHub for a new version and installs it when you close MX Bikes." (README.txt)'
+            Verdict: Matches
+            Evidence: 'Update check to github.com at start in both rides (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/network.txt`); updater text "waiting for MX Bikes … to close" (`lab/evidence/mxb-damage-1.3.0/strings-updater.txt`).'
+          - Claim: '"every update is signed by its author and checked file by file before it is installed; if an install fails, the old version is put back" (README.txt)'
+            Verdict: Matches
+            Evidence: 'The manifest signature verifies with the key in all three programs (`lab/evidence/mxb-damage-1.3.0/key-verify.txt`, `lab/evidence/mxb-damage-1.3.0/key-find.txt`); the package matches the manifest file by file (`lab/evidence/mxb-damage-1.3.0/pkg.txt`). The install itself wasn''t run (offline).'
+          - Claim: '"Nothing about you is sent anywhere - only the download requests to GitHub" (README.txt)'
+            Verdict: Matches, as far as checked
+            Evidence: 'The only addresses in the programs are GitHub release downloads (`lab/evidence/mxb-damage-1.3.0/strings-urls.txt`); the only connection tried was to github.com. The requests'' content wasn''t seen (blocked).'
+          - Claim: '"It changes nothing else - no physics, no bike files, no profile." (README.txt)'
+            Verdict: Partly
+            Evidence: 'No write outside its folder, so no bike or profile file changed (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/outside.txt`); it does redirect pointers in the game''s memory (G2).'
+          - Claim: '"does not modify bikes, physics, ReShade, profiles, or other plugins" (GitHub README, about the installer)'
+            Verdict: Matches, as far as checked
+            Evidence: '[README.md line 20](https://github.com/FroxyMXB/MXB-Damage-Plugin/blob/7e92011d3c4653af579beb4588416359b572bf53/README.md#L20); the installer text leaves GameFX64, Camera64, Overhaul64 and Whiteout as they are (`lab/evidence/mxb-damage-1.3.0/strings-setup.txt`). Not run with them installed.'
+          - Claim: '"Automatic updates are on by default and install after MX Bikes closes." (GitHub README)'
+            Verdict: Matches
+            Evidence: '[README.md line 46](https://github.com/FroxyMXB/MXB-Damage-Plugin/blob/7e92011d3c4653af579beb4588416359b572bf53/README.md#L46); `update.auto=1` in the shipped settings.ini, and the log says "automatic updates on" (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`).'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX Bikes
+              demo, offline. Frame times say nothing about real performance.
+            questions: []
+          - text: >-
+              The real game on an online server can't be reached here (the demo has no online play). That the pointer redirects also happen
+              there rests on the code's text and the runs: they are made at every event with no condition but the bike filter, and the plugin
+              has code for other riders in multiplayer.
+            questions: [G3]
+          - text: >-
+              Every connection was blocked, so what the update requests carry (headers, user agent) wasn't seen; the answers rest on the
+              addresses in the programs and the connection attempts.
+            questions: [D2, D3, D4]
+          - text: >-
+              No update was downloaded or installed (offline), so the updater's signature and file checks were read from its text and
+              checked on the release files, not seen refusing a changed file.
+            questions: [P2, P3]
+          - text: >-
+              The installer was started alone and stayed at its first screen (no game found); the plugin wasn't run with GameFX64, Camera64,
+              Overhaul64, Whiteout or an older MXB Damage install beside it, so the installer's and updater's handling of other plugins
+              was read from their text only.
+            questions: [P4, P7, P8, G6]
+          - text: >-
+              The ride with automatic updates off (`update.auto=0`) wasn't run, so that it then makes no connection rests on the setting's
+              own description.
+            questions: [D8]
+          - text: >-
+              The demo's stock bike was the only bike ridden; a third-party bike, whose files may be protected, wasn't, so the copy of a
+              mod bike's model rests on the settings' description ("third-party packs, model swaps") and the code's text.
+            questions: [C1, C2, C5]
+          - text: >-
+              One of the plugin's key reads (a snapshot of all keys when you click a hotkey field) was traced to the menu's key-field
+              handler, not to every caller of that handler.
+            questions: [G7]
+          - text: VirusTotal wasn't looked up in this run (no key), and the release files aren't in `vt/results.json`.
+            questions: [P1]
+answers:
+  P1:
+    verdict: Not checked
+    text: No VirusTotal key was available in this run and `vt/results.json` has no lookup for these files.
+    evidence: '-'
+  P2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      With the default `update.auto=1`, the plugin checks GitHub once a day and its updater installs a new release when you close the game,
+      without asking. "Check for Updates" in the menu and `update.auto=0` turn it into an update on request.
+    evidence: >-
+      Shipped settings.ini `[update] auto=1`; log line "automatic updates on" and the check at start
+      (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`); plugin text "update: v%s installs now
+      that MX Bikes closes (updater started)" (`lab/evidence/mxb-damage-1.3.0/strings-update.txt`).
+  P3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The release manifest is signed with ECDSA P-256, and the public key is built into the plugin, the updater and the installer, so it
+      doesn't come from the same place as the files. The manifest names the package and every file with its SHA-256, and the package
+      matches it file by file.
+    evidence: >-
+      The signature of `mxb_damage_manifest.txt` verifies with the key found in all three programs (`lab/evidence/mxb-damage-1.3.0/key-find.txt`,
+      `lab/evidence/mxb-damage-1.3.0/key-verify.txt`); `mxbd_pkg.py` lists the package against the manifest (`lab/evidence/mxb-damage-1.3.0/pkg.txt`);
+      updater text "the staged release's signature is not valid", "the package is not the one the release names (size or SHA-256)"
+      (`lab/evidence/mxb-damage-1.3.0/strings-updater.txt`).
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      In the runs it wrote and deleted only inside `plugins\mxb_damage`. The installer's remove dialog in 1.3 names only a second copy of MXB
+      Damage, and the updater's `--gamefx-off` mode (renames GameFX's plugin, deletes it if that fails) is started by nothing in this release.
+    evidence: >-
+      `lab/results/mxb-damage-1.3.0/ride-defaults-windows/files.diff`, `lab/results/mxb-damage-1.3.0/ride-defaults-windows/outside.txt`
+      (the same as the baseline's `lab/results/mxb-damage-1.3.0/baseline-windows/outside.txt`); searching the plugin's and installer's text for
+      `--gamefx-off` finds nothing (`lab/evidence/mxb-damage-1.3.0/strings-plugins.txt`, `lab/evidence/mxb-damage-1.3.0/strings-setup.txt`); the
+      updater's own text (`lab/evidence/mxb-damage-1.3.0/strings-updater.txt`).
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: None of the three program files carries a code signature, and they can't be traced to public source.
+    evidence: Empty Security Directory in each (`lab/evidence/mxb-damage-1.3.0/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The rides wrote no registry key the bare demo didn't; the installer only reads Steam's install path. No program imports a registry
+      write function.
+    evidence: >-
+      `lab/results/mxb-damage-1.3.0/ride-defaults-windows/registry.txt` against `lab/results/mxb-damage-1.3.0/baseline-windows/registry.txt`;
+      `lab/results/mxb-damage-1.3.0/setup-windows/registry.txt`; imports (`lab/evidence/mxb-damage-1.3.0/imports-absent.txt`,
+      `lab/evidence/mxb-damage-1.3.0/imports-setup-hook.txt`).
+  P7:
+    verdict: 'No'
+    mark: good
+    text: Everything it wrote in the game folder is inside `plugins\mxb_damage` (logs, profiles, the bike copy, menu state, its update state).
+    evidence: '`lab/results/mxb-damage-1.3.0/ride-defaults-windows/files.diff`, `lab/results/mxb-damage-1.3.0/menu-q-windows/files.diff`.'
+  P8:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It writes nothing outside `mxb_damage.dlo` and the `mxb_damage` folder and no registry key, so removing those two, as the README says,
+      leaves nothing.
+    evidence: >-
+      `lab/results/mxb-damage-1.3.0/ride-defaults-windows/outside.txt` (the same as the baseline's),
+      `lab/results/mxb-damage-1.3.0/ride-defaults-windows/registry.txt`.
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. Its imports and text match what it shows and logs (drawing hooks, its menu, GitHub updates, the part finder); its
+      hooks and every file it writes are named in its own log.
+    evidence: >-
+      `lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.iat.txt`, `lab/evidence/mxb-damage-1.3.0/updater.iat.txt`,
+      `lab/evidence/mxb-damage-1.3.0/MXB-Damage-Setup.exe.iat.txt`, `lab/evidence/mxb-damage-1.3.0/strings-urls.txt`,
+      `lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: The game tried a connection to github.com (port 443) about 20 s after start in both rides; the installer downloads from GitHub too.
+    evidence: >-
+      `lab/results/mxb-damage-1.3.0/ride-defaults-windows/network.txt`, `lab/results/mxb-damage-1.3.0/menu-q-windows/network.txt`; the bare
+      demo tried none (`lab/results/mxb-damage-1.3.0/baseline-windows/network.txt`).
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Only GitHub release downloads were found: the programs hold no other address and no upload code was seen. The content of the
+      requests wasn't seen, because they were blocked.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-urls.txt`; `lab/results/mxb-damage-1.3.0/ride-defaults-windows/network.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: No identifier was found in what it requests; the requests are for fixed release file names.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-urls.txt`, `lab/evidence/mxb-damage-1.3.0/strings-update.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent but the GitHub release downloads; other riders' data stays in its log on your PC.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-urls.txt`, `lab/evidence/mxb-damage-1.3.0/strings-multiplayer.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: No program imports a socket library; WinHTTP is used only as a client.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/imports-absent.txt`, `lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.iat.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The installer reads Steam's registry key and `libraryfolders.vdf` to find the game; the plugin reads the game's texture cache and MXB
+      Whiteout's `settings.ini` when Whiteout is installed. None of it is other people's data.
+    evidence: >-
+      Installer text `Software\Valve\Steam`, `\steamapps\libraryfolders.vdf` (`lab/evidence/mxb-damage-1.3.0/strings-setup.txt`); plugin text
+      `whiteout\settings.ini` (`lab/evidence/mxb-damage-1.3.0/strings-plugins.txt`); log "cache: cannot read …\cache\textures\main"
+      (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`).
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; it only downloads.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-urls.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Its only connection, the update check, is off with `update.auto=0` (or the menu's automatic updates switch); then it connects only when
+      you press "Check for Updates".
+    evidence: Shipped settings.ini `[update]` comment; plugin text (`lab/evidence/mxb-damage-1.3.0/strings-update.txt`).
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the downloads are public GitHub release files.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-urls.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No shared memory or local connection; its files stay in its own folder. It does let another plugin ask for its draw hook
+      (`OverhaulHookFor`), which passes a function address, not your data.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/imports-absent.txt`, `lab/evidence/mxb-damage-1.3.0/strings-hooks.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It runs as a plugin the game loads. Its helper program only waits for the game to close (it opens the process for that) and imports no
+      function that writes into another process.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/updater.iat.txt`, `lab/evidence/mxb-damage-1.3.0/imports-absent.txt`.'
+  G2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      At every event it redirects the game's OpenGL draw and buffer pointers (glDrawRangeElementsEXT, glDrawRangeElementsBaseVertex,
+      glBufferDataARB, glBufferSubDataARB, in `mxbikes.exe`) and the game's glDrawElements import to its own code, and draws the bike bent
+      and dirty from there. It puts them back when the game unloads it.
+    evidence: >-
+      Log "hooks: glDrawRangeElementsEXT: 1 pointer(s) in the game redirected … at mxbikes.exe+0x398ca0" and the lines after it
+      (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`); the test host found glDrawElements and
+      glDrawRangeElements "REDIRECTED to mxb_damage.dlo" after the frames and untouched after unload
+      (`lab/results/mxb-damage-1.3.0/menu-crash-windows/host.log`).
+  G3:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      The redirects are made at every event, with no condition but the bike filter in settings.ini, and the plugin has code for other riders in
+      multiplayer; nothing in it turns it off on a server. Not seen on a server (see Limits).
+    evidence: >-
+      Log "every bike allowed (settings.ini [bikes]) -> plugin on", then the redirects
+      (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`); text "multiplayer: rider #%d crashed …",
+      "multiplayer: other riders' damage gone" and no "online" or "server" check (`lab/evidence/mxb-damage-1.3.0/strings-multiplayer.txt`).
+  G4:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It searches the game's program in memory (its name strings and the code that uses them) to find the draw pointers, and reads the
+      game's pointers into other modules.
+    evidence: >-
+      Log "hooks: game image 17571840 bytes, build stamp 6a21e814", "check of the code search for glDrawRangeElementsEXT: 1 name string(s),
+      1 code reference(s)" (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`); text
+      (`lab/evidence/mxb-damage-1.3.0/strings-hooks.txt`).
+  G5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads keys and the mouse for its own menu and leaves them to the game too ("The game still sees these keys too", settings.ini); it
+      imports nothing that presses keys or clicks.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/imports-absent.txt`; menu toggled with Q in `lab/results/mxb-damage-1.3.0/menu-q-windows/host.log`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The bystander plugin's tables stayed untouched in the test host. In 1.3 its installer and updater leave GameFX64, Camera64, Overhaul64
+      and Whiteout as they are, and the updater's `--gamefx-off` mode is started by nothing in this release.
+    evidence: >-
+      `lab/results/mxb-damage-1.3.0/menu-crash-windows/host.log` (bystander plugin import and pointer tables), text "works together with MXB
+      Damage (1.3), left as it is" (`lab/evidence/mxb-damage-1.3.0/strings-updater.txt`, `lab/evidence/mxb-damage-1.3.0/strings-setup.txt`,
+      `lab/evidence/mxb-damage-1.3.0/strings-plugins.txt`).
+  G7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads keys with GetAsyncKeyState, but only after checking that the window in front belongs to the game, or when you click a hotkey
+      field in its menu.
+    evidence: >-
+      Every call site (`lab/evidence/mxb-damage-1.3.0/keys-callsites.txt`); the focus check
+      (`lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.18008fd38-18008fdc1.txt`), and the reads behind it
+      (`lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.18008ffb8-180090011.txt`, `lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.1800900b0-1800900c7.txt`,
+      `lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.180090260-1800903cb.txt`); the hotkey-field snapshot
+      (`lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.1800925d0-180092658.txt`).
+  G8:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its three calls of SetUnhandledExceptionFilter all pass 0 right before the C runtime ends the process on a fatal error; it sets no
+      handler of its own.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/crash-filter.txt`; `lab/evidence/mxb-damage-1.3.0/imports-absent.txt` (no AddVectoredExceptionHandler).'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; no registry write and nothing outside its folder.
+    evidence: '`lab/results/mxb-damage-1.3.0/ride-defaults-windows/registry.txt`, `lab/results/mxb-damage-1.3.0/ride-defaults-windows/outside.txt`.'
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The plugin starts `mxb_damage_updater.exe` beside the game, at lowest priority, to find a new bike's parts, and again when the game
+      closes to install an update.
+    evidence: >-
+      Process Monitor "mxbikes.exe Process Create …\mxb_damage_updater.exe" (`lab/results/mxb-damage-1.3.0/menu-q-windows/procmon.txt`); log
+      "the part finder is at work … (its own process, lowest priority)"
+      (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`).
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`mxb_damage.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: Exports Startup, EventInit, Draw and the other plugin functions (`lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.objdump-p.txt`).
+  G12:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No integrity, version, licence or anti-cheat check was found being got around; it reads the game's build stamp and finds the
+      pointers by searching the code, and gives up (with a warning) when it can't.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-hooks.txt`; the rides ran like the baseline (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/host.log`).'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It decrypts no files: it reads the bike from what the game has already sent to the graphics card (C2). No decryption code or
+      key for the game's files was found.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-capture.txt`, `lab/evidence/mxb-damage-1.3.0/mxb_damage.dlo.iat.txt` (bcrypt is used for SHA-256 and the update signature only).'
+  C2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      By default (`[probe] draw_capture=1`, `[auto] enabled=1`) it records each new bike you ride, OEM or third-party, once on track:
+      the bike's vertex buffers and textures, read from the graphics card, saved as files in `mxb_damage\profiles\rec\`, and kept there.
+    evidence: >-
+      Log "capture #1: … 23 bike buffers dumped (3.7 MB), textures 2.0 MB -> …\profiles\rec\350xf\pack"
+      (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`); the files
+      (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/files.diff`); text (`lab/evidence/mxb-damage-1.3.0/strings-capture.txt`).
+  C3:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It uploads nothing; the copies stay on your PC. The README asks for the logs and the profile `.txt` files when something goes wrong,
+      not the recordings.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-urls.txt`.'
+  C4:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The release credits no third-party code. The programs show Microsoft's C/C++ runtime built in and no names of other libraries.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-thirdparty.txt`.'
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads every bike's model and textures as the game draws them, through its hooks rather than the plugin interface, also on third-party
+      bikes and model swaps.
+    evidence: '`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt` ("bike texture found on the GPU"); `lab/evidence/mxb-damage-1.3.0/strings-capture.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source isn't public: the repository holds only `README.md`. Prebuilt program files: `mxb_damage.dlo`, `mxb_damage_updater.exe`,
+      `MXB-Damage-Setup.exe` (all three PE32+ x86-64), with no public source.
+    evidence: >-
+      [Repository at the tag's commit](https://github.com/FroxyMXB/MXB-Damage-Plugin/tree/7e92011d3c4653af579beb4588416359b572bf53);
+      `file` on each (`lab/evidence/mxb-damage-1.3.0/file.txt`).
+  T2:
+    verdict: 'No'
+    mark: good
+    text: Its claims about updates, data and other plugins match what was found; see "What it says vs what it does".
+    evidence: '`lab/evidence/mxb-damage-1.3.0/key-verify.txt`, `lab/results/mxb-damage-1.3.0/ride-defaults-windows/network.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release files were uploaded to the release; the repository has no build workflow and no source to build.
+    evidence: '[Repository at the tag''s commit](https://github.com/FroxyMXB/MXB-Damage-Plugin/tree/7e92011d3c4653af579beb4588416359b572bf53).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[Repository at the tag''s commit](https://github.com/FroxyMXB/MXB-Damage-Plugin/tree/7e92011d3c4653af579beb4588416359b572bf53).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: The public history has seven commits, all to the README.
+    evidence: '[Commits up to the tag](https://github.com/FroxyMXB/MXB-Damage-Plugin/commits/7e92011d3c4653af579beb4588416359b572bf53).'
+  T6:
+    verdict: Not checked
+    text: No source or build files are public, so its dependencies can't be read.
+    evidence: '-'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: Neither the repository nor the release has a licence.
+    evidence: '[Repository at the tag''s commit](https://github.com/FroxyMXB/MXB-Damage-Plugin/tree/7e92011d3c4653af579beb4588416359b572bf53); `unzip -l` of the zip (`lab/evidence/mxb-damage-1.3.0/file.txt`).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the release has no shop or payment link.
+    evidence: '`lab/evidence/mxb-damage-1.3.0/strings-money.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: Its mxb-mods.com page asks for donations ("I would appreciate donations"), with no link; the release files ask for none.
+    evidence: '[mxb-mods.com page](https://mxb-mods.com/mxb-damage-plugin-2/); `lab/evidence/mxb-damage-1.3.0/strings-money.txt`.'
+history:
+  - date: 22 Nov 2026
+    change: First card, for 1.3.0.

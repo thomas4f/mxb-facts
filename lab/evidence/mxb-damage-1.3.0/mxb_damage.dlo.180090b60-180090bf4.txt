@@ -1,0 +1,47 @@
+$ objdump -d 'mxb_damage.dlo' | awk -v a=180090b60 -v b=180090bf4 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180090b60:	48 83 ec 28          	sub    $0x28,%rsp
+   180090b64:	81 f9 00 10 00 00    	cmp    $0x1000,%ecx
+   180090b6a:	7c 5f                	jl     0x180090bcb
+   180090b6c:	81 f9 00 20 00 00    	cmp    $0x2000,%ecx
+   180090b72:	7c 45                	jl     0x180090bb9
+   180090b74:	8d 81 00 e0 ff ff    	lea    -0x2000(%rcx),%eax
+   180090b7a:	3d 00 02 00 00       	cmp    $0x200,%eax
+   180090b7f:	7d 31                	jge    0x180090bb2
+   180090b81:	99                   	cltd
+   180090b82:	83 e2 1f             	and    $0x1f,%edx
+   180090b85:	03 c2                	add    %edx,%eax
+   180090b87:	8b c8                	mov    %eax,%ecx
+   180090b89:	83 e0 1f             	and    $0x1f,%eax
+   180090b8c:	2b c2                	sub    %edx,%eax
+   180090b8e:	c1 f9 05             	sar    $0x5,%ecx
+   180090b91:	48 63 c9             	movslq %ecx,%rcx
+   180090b94:	48 8d 15 65 f4 f6 ff 	lea    -0x90b9b(%rip),%rdx        # 0x180000000
+   180090b9b:	8b 94 8a b0 8a 16 00 	mov    0x168ab0(%rdx,%rcx,4),%edx
+   180090ba2:	8b c8                	mov    %eax,%ecx
+   180090ba4:	d3 ea                	shr    %cl,%edx
+   180090ba6:	f6 c2 01             	test   $0x1,%dl
+   180090ba9:	74 07                	je     0x180090bb2
+   180090bab:	b0 01                	mov    $0x1,%al
+   180090bad:	48 83 c4 28          	add    $0x28,%rsp
+   180090bb1:	c3                   	ret
+   180090bb2:	32 c0                	xor    %al,%al
+   180090bb4:	48 83 c4 28          	add    $0x28,%rsp
+   180090bb8:	c3                   	ret
+   180090bb9:	8b 05 e1 7e 0d 00    	mov    0xd7ee1(%rip),%eax        # 0x180168aa0
+   180090bbf:	83 e1 0f             	and    $0xf,%ecx
+   180090bc2:	d3 e8                	shr    %cl,%eax
+   180090bc4:	24 01                	and    $0x1,%al
+   180090bc6:	48 83 c4 28          	add    $0x28,%rsp
+   180090bca:	c3                   	ret
+   180090bcb:	80 3d 5c 6b 0b 00 00 	cmpb   $0x0,0xb6b5c(%rip)        # 0x18014772e
+   180090bd2:	74 1a                	je     0x180090bee
+   180090bd4:	0f b6 c9             	movzbl %cl,%ecx
+   180090bd7:	48 8d 15 22 f4 f6 ff 	lea    -0x90bde(%rip),%rdx        # 0x180000000
+   180090bde:	80 bc 11 80 89 16 00 	cmpb   $0x0,0x168980(%rcx,%rdx,1)
+   180090be5:	00 
+   180090be6:	0f 95 c0             	setne  %al
+   180090be9:	48 83 c4 28          	add    $0x28,%rsp
+   180090bed:	c3                   	ret
+   180090bee:	ff 15 34 fa 07 00    	call   *0x7fa34(%rip)        # 0x180110628
+   180090bf4:	66 c1 e8 0f          	shr    $0xf,%ax
+(exit 0)

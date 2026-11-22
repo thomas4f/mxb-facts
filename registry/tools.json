@@ -172,7 +172,7 @@
     "author": "FroxyMXB",
     "github": "FroxyMXB/MXB-Damage-Plugin",
     "homepage": null,
-    "cards": [],
+    "cards": ["mxb-damage-1.3.0.yaml"],
     "mxb-mods": {
       "post": 195327,
       "tied_by": "github.com/FroxyMXB/MXB-Damage-Plugin"

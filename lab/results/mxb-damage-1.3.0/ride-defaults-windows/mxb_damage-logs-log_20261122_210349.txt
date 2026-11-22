@@ -1,0 +1,87 @@
+21:03:49.264  mxb_damage 1.3.0 (every bike: automatic parts, part finder 1.2-r7, GPU texture search r3: uncompressed + sRGB textures; ultrawide menu; depth ground r1; async copies; hook finder r2) started (log detail 1: full log)
+21:03:49.264  data folder: D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage
+21:03:49.264  game save path: C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\
+21:03:49.264  sizeof bike data 188, event 652, session 112
+21:03:49.265  context check: Startup      thread  9040  OpenGL context CURRENT
+21:03:49.265  GL vendor:   Mesa
+21:03:49.265  GL renderer: llvmpipe (LLVM 23.1.5, 256 bits)
+21:03:49.265  GL version:  4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+21:03:49.270  menu: Performance Mode off, Damage x1.0, Dirt x1.0, Keep Damage in Pits off
+21:03:49.292  MXBD_VERSION_TAG=1.3.0 MXBD_BUILD=release; menu key Q, Repair Damage no key, Clean Bike no key; automatic updates on
+21:03:49.292  context check: DrawInit     thread  9040  OpenGL context CURRENT
+21:04:09.416  update: check failed: no connection (12029)
+21:04:43.295  context check: EventInit    thread  9040  OpenGL context CURRENT
+21:04:43.295  event: bike id '350xf' name 'MSM 350XF' category 'mx_450_4st' track 'MXB Club' type 1
+21:04:43.296  event: 'MSM 350XF' (350xf) on 'MXB Club': every bike allowed (settings.ini [bikes]) -> plugin on
+21:04:43.296  event: susp travel 0.300 / 0.120 m, steer lock 42.0 deg
+21:04:43.296  cache: cannot read C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\main
+21:04:43.301  damage model: intensity 1.00, variety 1.00, a 10 G square hit = load 1; lever 1.10, bar 1.70, handguard 2.00, fender 1.45 (comes off at 5.2), plate 1.45 (at 4.1); seat tears at most 1 per race
+21:04:43.301  crash tiers: medium from 0.35, heavy from 0.75, extreme from 1.15; parts durability 1.00; track id 'club'
+21:04:43.302  recorder: '350xf' (model from its pack) will be recorded once it is on track with straight bars (D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\logs\bikes\350xf\pack)
+21:04:43.302  hooks: glDrawElements import redirected
+21:04:43.302  hooks: game image 17571840 bytes, build stamp 6a21e814
+21:04:43.304  hooks: glDrawRangeElementsEXT: 1 pointer(s) in the game redirected (same address as the plugin's) at mxbikes.exe+0x398ca0
+21:04:43.333  hooks: check of the code search for glDrawRangeElementsEXT: 1 name string(s), 1 code reference(s), 1 slot(s) in 31 ms at mxbikes.exe+0x398ca0 -> SAME slot(s) as found by address
+21:04:43.334  hooks: glDrawRangeElementsBaseVertex: 1 pointer(s) in the game redirected (same address as the plugin's) at mxbikes.exe+0x398ca8
+21:04:43.335  hooks: glBufferDataARB: 1 pointer(s) in the game redirected (same address as the plugin's) at mxbikes.exe+0x398cc8
+21:04:43.336  hooks: glBufferSubDataARB: 1 pointer(s) in the game redirected (same address as the plugin's) at mxbikes.exe+0x398cd0
+21:04:43.337  hooks: glBufferData: 0 pointer(s) in the game redirected (NOT FOUND)
+21:04:43.338  hooks: glBufferSubData: 0 pointer(s) in the game redirected (NOT FOUND)
+21:04:43.338  damage: on, strength 1.00
+21:04:43.339  parts: no D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\parts\350xf.ini, this bike has no breakable parts yet
+21:04:43.339  auto parts: '350xf' (pack) has no parts file: it is recorded once it is on track (D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack), then its parts are found automatically
+21:07:24.301  context check: RunInit      thread  9040  OpenGL context CURRENT
+21:07:24.301  on track: session 1, conditions 0, air 20.0 C, setup ''
+21:07:24.462  context check: RunStart     thread  9040  OpenGL context CURRENT
+21:07:24.462  simulation started
+21:07:25.223  context check: Draw         thread  9040  OpenGL context CURRENT
+21:07:25.223  hooks: draw calls so far: glDrawElements 0, glDrawRangeElementsEXT 171740, glDrawRangeElementsBaseVertex 0
+21:07:25.223  snapshot skipped: no cached textures found for this bike, looking for them on the GPU
+21:07:25.224  context check: RunTelemetry thread  9040  OpenGL context CURRENT
+21:07:25.880  menu: opened by itself (the first time on track after the install)
+21:07:25.880  menu: window 1280 x 720 (aspect 1.778): the 16:9 box spans x -0.000..1.000, y -0.000..1.000
+21:07:27.268  damage: GL texture 231 (1024x1024, 11 levels, unit 0, drawn with 51420 indices at the bike) read from the GPU for damage
+21:07:27.268  damage: GPU probe try 1: GL texture 301 (unit 0, 936 indices at the bike) not taken: 256x128 uncompressed 0x8058, smaller than 1024x512 or not a power of two
+21:07:27.268  damage: bike texture found on the GPU at try 1 (1 taken)
+21:07:27.279  damage: now damaging GL texture 231 'bike texture 231' 1024x1024, 11 levels (read from the GPU), 0 earlier patches painted (0.0 MB queued) in 15 ms
+21:07:28.603  others: the player's own entry is race number 2
+21:07:29.963  perf: a slow frame end, 4.95 ms: paint 0.00, uploads 0.00, menu 0.00, show 0.00, capture 4.94, auto 0.00, parts 0.00, upload probe 0.00, gpu probe 0.00, gloss 0.00
+21:07:30.301  capture #1: 1776 draws (23 bike), 23 bike buffers dumped (3.7 MB), textures 2.0 MB -> D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack (draw list 2.9 ms, buffers read 1.1 ms, textures copies started in 0.9 ms, collected 1 frame(s) later, 0 ms in all; files written on their own thread)
+21:07:30.301  recorder: 'MSM 350XF' recorded (23 bike draws) -> D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack. Go to the next bike.
+21:07:30.640  auto parts: the part finder is at work on D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\rec\350xf\pack (its own process, lowest priority)
+21:07:31.322  auto parts: 3 parts found in 0.3 s (22 left out) -> D:\a\_temp\realgame\run-ride-defaults\plugins\mxb_damage\profiles\350xf__pack.ini; used from the next time out of the pits
+21:07:35.416  compatibility: OK - 53280 bike / world draws reached this plugin's hook in its first 10 s on track; on top of the game's draw pointer: this plugin; it calls libgallium_wgl.dll+0x4e5e00
+21:07:40.964  CRASH #1 start  t=16.58  speed 9.1 km/h  yaw 49.5 pitch -20.4 roll -177.8  vel (-1.5, -1.6, -1.2) m/s
+21:07:40.964  CRASH #1 wheels on material 0 / 11 before the crash, clock 16.59 s
+21:07:40.964  parts: crash 1 at 34 km/h (9 when the rider came off)
+21:07:41.413  IMPACT #1 t=16.73  peak 12.22 G  local (0.11, -12.22, 0.00)  yaw 50.5 pitch 13.6 roll 178.6  speed 12.0 km/h  crashed 1  wheels 0/0  susp 0.280/0.106
+21:07:41.419  IMPACT #2 t=16.99  peak 3.77 G  local (0.65, -2.53, 2.71)  yaw 45.0 pitch -17.2 roll 174.3  speed 11.5 km/h  crashed 1  wheels 0/0  susp 0.282/0.106
+21:07:41.421  damage: crash #1, 9 km/h, hardest hit 12.2 G, slid 1 m -> severity 0.48 = medium crash
+21:07:41.446  damage: medium crash (severity 0.48, slid 1 m) -> 4 marks: 1 scuff, 1 abrasion, 0 gouge, 0 crack, 2 dirt, 0 torn graphics, 0 tear (4 total), painted into 1 textures in 31 ms, 0.01 MB queued (0.00 MB of it shine), 0.02 MB kept for replays
+21:07:55.370  perf: last 30 s (with a crash): 4 fps average, 1% low 2 fps, worst frame 461.7 ms; the plugin per frame: 0.082 ms average, 4.95 ms at most (bending parts 0.000 / 0.00 ms)
+21:07:55.370  perf: all of the plugin's work per frame (also inside the game's draws): 0.082 ms average, 4.95 ms at most; new model copies mapped 0.00 ms at most (0 without waiting for the GPU, 0 read at once); worst frame 461.7 ms: plugin 0.01 ms in it (draws 0.00 incl. mapping 0.00 and bending 0.00, frame end 0.01)
+21:07:55.370  perf: inside the game's draws a frame: the world 0.000 ms (0 draws), the player's bike 0.000 ms (0), other riders' bikes of this model 0.000 ms (0), the shadow 0.000 ms (0); 0 bike pieces known
+21:07:55.370  perf detail: bending - the whole bike bent again 0 time(s), 0.0 ms in all, 0.00 ms the longest; a part swinging after a hit: 0 frame(s), 0.0 ms; the game's own writes over bent vertices: 0 (0 KB), the bend put back on them in 0.00 ms in all, 0.000 ms the longest; followers waiting for their pieces: 0 frame(s), given up: 0
+21:08:25.244  hooks: draw calls so far: glDrawElements 0, glDrawRangeElementsEXT 361744, glDrawRangeElementsBaseVertex 0
+21:08:25.631  perf: last 30 s: 5 fps average, 1% low 4 fps, worst frame 223.9 ms; the plugin per frame: 0.008 ms average, 0.25 ms at most (bending parts 0.000 / 0.00 ms)
+21:08:25.631  perf: all of the plugin's work per frame (also inside the game's draws): 0.008 ms average, 0.25 ms at most; new model copies mapped 0.00 ms at most (0 without waiting for the GPU, 0 read at once); worst frame 223.9 ms: plugin 0.01 ms in it (draws 0.00 incl. mapping 0.00 and bending 0.00, frame end 0.01)
+21:08:25.632  perf: inside the game's draws a frame: the world 0.000 ms (0 draws), the player's bike 0.000 ms (0), other riders' bikes of this model 0.000 ms (0), the shadow 0.000 ms (0); 0 bike pieces known
+21:08:25.632  perf detail: bending - the whole bike bent again 0 time(s), 0.0 ms in all, 0.00 ms the longest; a part swinging after a hit: 0 frame(s), 0.0 ms; the game's own writes over bent vertices: 0 (0 KB), the bend put back on them in 0.00 ms in all, 0.000 ms the longest; followers waiting for their pieces: 0 frame(s), given up: 0
+21:08:55.898  perf: last 30 s: 5 fps average, 1% low 5 fps, worst frame 221.1 ms; the plugin per frame: 0.007 ms average, 0.03 ms at most (bending parts 0.000 / 0.00 ms)
+21:08:55.898  perf: all of the plugin's work per frame (also inside the game's draws): 0.007 ms average, 0.03 ms at most; new model copies mapped 0.00 ms at most (0 without waiting for the GPU, 0 read at once); worst frame 221.1 ms: plugin 0.01 ms in it (draws 0.00 incl. mapping 0.00 and bending 0.00, frame end 0.01)
+21:08:55.898  perf: inside the game's draws a frame: the world 0.000 ms (0 draws), the player's bike 0.000 ms (0), other riders' bikes of this model 0.000 ms (0), the shadow 0.000 ms (0); 0 bike pieces known
+21:08:55.898  perf detail: bending - the whole bike bent again 0 time(s), 0.0 ms in all, 0.00 ms the longest; a part swinging after a hit: 0 frame(s), 0.0 ms; the game's own writes over bent vertices: 0 (0 KB), the bend put back on them in 0.00 ms in all, 0.000 ms the longest; followers waiting for their pieces: 0 frame(s), given up: 0
+21:09:25.396  hooks: draw calls so far: glDrawElements 0, glDrawRangeElementsEXT 499750, glDrawRangeElementsBaseVertex 0
+21:09:26.169  perf: last 30 s: 5 fps average, 1% low 5 fps, worst frame 223.0 ms; the plugin per frame: 0.009 ms average, 0.15 ms at most (bending parts 0.000 / 0.00 ms)
+21:09:26.169  perf: all of the plugin's work per frame (also inside the game's draws): 0.009 ms average, 0.15 ms at most; new model copies mapped 0.00 ms at most (0 without waiting for the GPU, 0 read at once); worst frame 223.0 ms: plugin 0.01 ms in it (draws 0.00 incl. mapping 0.00 and bending 0.00, frame end 0.01)
+21:09:26.169  perf: inside the game's draws a frame: the world 0.000 ms (0 draws), the player's bike 0.000 ms (0), other riders' bikes of this model 0.000 ms (0), the shadow 0.000 ms (0); 0 bike pieces known
+21:09:26.169  perf detail: bending - the whole bike bent again 0 time(s), 0.0 ms in all, 0.00 ms the longest; a part swinging after a hit: 0 frame(s), 0.0 ms; the game's own writes over bent vertices: 0 (0 KB), the bend put back on them in 0.00 ms in all, 0.000 ms the longest; followers waiting for their pieces: 0 frame(s), given up: 0
+21:09:56.537  perf: last 30 s: 5 fps average, 1% low 5 fps, worst frame 215.7 ms; the plugin per frame: 0.007 ms average, 0.02 ms at most (bending parts 0.000 / 0.00 ms)
+21:09:56.537  perf: all of the plugin's work per frame (also inside the game's draws): 0.007 ms average, 0.02 ms at most; new model copies mapped 0.00 ms at most (0 without waiting for the GPU, 0 read at once); worst frame 215.7 ms: plugin 0.01 ms in it (draws 0.00 incl. mapping 0.00 and bending 0.00, frame end 0.01)
+21:09:56.537  perf: inside the game's draws a frame: the world 0.000 ms (0 draws), the player's bike 0.000 ms (0), other riders' bikes of this model 0.000 ms (0), the shadow 0.000 ms (0); 0 bike pieces known
+21:09:56.537  perf detail: bending - the whole bike bent again 0 time(s), 0.0 ms in all, 0.00 ms the longest; a part swinging after a hit: 0 frame(s), 0.0 ms; the game's own writes over bent vertices: 0 (0 KB), the bend put back on them in 0.00 ms in all, 0.000 ms the longest; followers waiting for their pieces: 0 frame(s), given up: 0
+21:10:25.594  hooks: draw calls so far: glDrawElements 0, glDrawRangeElementsEXT 640259, glDrawRangeElementsBaseVertex 0
+21:10:26.735  perf: last 30 s: 5 fps average, 1% low 5 fps, worst frame 238.8 ms; the plugin per frame: 0.008 ms average, 0.13 ms at most (bending parts 0.000 / 0.00 ms)
+21:10:26.735  perf: all of the plugin's work per frame (also inside the game's draws): 0.008 ms average, 0.13 ms at most; new model copies mapped 0.00 ms at most (0 without waiting for the GPU, 0 read at once); worst frame 238.8 ms: plugin 0.01 ms in it (draws 0.00 incl. mapping 0.00 and bending 0.00, frame end 0.01)
+21:10:26.735  perf: inside the game's draws a frame: the world 0.000 ms (0 draws), the player's bike 0.000 ms (0), other riders' bikes of this model 0.000 ms (0), the shadow 0.000 ms (0); 0 bike pieces known
+21:10:26.735  perf detail: bending - the whole bike bent again 0 time(s), 0.0 ms in all, 0.00 ms the longest; a part swinging after a hit: 0 frame(s), 0.0 ms; the game's own writes over bent vertices: 0 (0 KB), the bend put back on them in 0.00 ms in all, 0.000 ms the longest; followers waiting for their pieces: 0 frame(s), given up: 0

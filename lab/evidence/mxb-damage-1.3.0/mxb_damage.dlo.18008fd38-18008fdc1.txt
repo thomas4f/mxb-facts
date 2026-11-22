@@ -1,0 +1,38 @@
+$ objdump -d 'mxb_damage.dlo' | awk -v a=18008fd38 -v b=18008fdc1 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18008fd38:	45 33 e4             	xor    %r12d,%r12d
+   18008fd3b:	0f b6 05 ec 79 0b 00 	movzbl 0xb79ec(%rip),%eax        # 0x18014772e
+   18008fd42:	84 c0                	test   %al,%al
+   18008fd44:	74 05                	je     0x18008fd4b
+   18008fd46:	41 8b dc             	mov    %r12d,%ebx
+   18008fd49:	eb 39                	jmp    0x18008fd84
+   18008fd4b:	ff 15 e7 08 08 00    	call   *0x808e7(%rip)        # 0x180110638
+   18008fd51:	48 8b f8             	mov    %rax,%rdi
+   18008fd54:	44 89 64 24 40       	mov    %r12d,0x40(%rsp)
+   18008fd59:	48 85 c0             	test   %rax,%rax
+   18008fd5c:	74 0e                	je     0x18008fd6c
+   18008fd5e:	48 8d 54 24 40       	lea    0x40(%rsp),%rdx
+   18008fd63:	48 8b c8             	mov    %rax,%rcx
+   18008fd66:	ff 15 04 09 08 00    	call   *0x80904(%rip)        # 0x180110670
+   18008fd6c:	ff 15 d6 05 08 00    	call   *0x805d6(%rip)        # 0x180110348
+   18008fd72:	49 8b dc             	mov    %r12,%rbx
+   18008fd75:	39 44 24 40          	cmp    %eax,0x40(%rsp)
+   18008fd79:	48 0f 44 df          	cmove  %rdi,%rbx
+   18008fd7d:	0f b6 05 aa 79 0b 00 	movzbl 0xb79aa(%rip),%eax        # 0x18014772e
+   18008fd84:	45 0f 57 c9          	xorps  %xmm9,%xmm9
+   18008fd88:	f3 44 0f 10 15 43 09 	movss  0x90943(%rip),%xmm10        # 0x1801206d4
+   18008fd8f:	09 00 
+   18008fd91:	84 c0                	test   %al,%al
+   18008fd93:	75 1b                	jne    0x18008fdb0
+   18008fd95:	48 85 db             	test   %rbx,%rbx
+   18008fd98:	75 16                	jne    0x18008fdb0
+   18008fd9a:	40 32 f6             	xor    %sil,%sil
+   18008fd9d:	ff 15 ed 05 08 00    	call   *0x805ed(%rip)        # 0x180110390
+   18008fda3:	4c 8b e8             	mov    %rax,%r13
+   18008fda6:	e8 95 87 00 00       	call   0x180098540
+   18008fdab:	e9 08 02 00 00       	jmp    0x18008ffb8
+   18008fdb0:	ff 15 da 05 08 00    	call   *0x805da(%rip)        # 0x180110390
+   18008fdb6:	4c 8b e8             	mov    %rax,%r13
+   18008fdb9:	e8 82 87 00 00       	call   0x180098540
+   18008fdbe:	40 b6 01             	mov    $0x1,%sil
+   18008fdc1:	48 85 db             	test   %rbx,%rbx
+(exit 0)

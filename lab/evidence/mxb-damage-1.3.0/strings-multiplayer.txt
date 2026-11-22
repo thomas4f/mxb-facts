@@ -1,0 +1,18 @@
+$ { strings -n 6 mxb_damage.dlo; strings -el -n 6 mxb_damage.dlo; } | grep -niE 'multiplayer|other riders|others:|online|server'
+1870:damage: clean copies of the bike textures for other riders on the same paint: %zu strips, %.1f MB queued
+1880:damage: a clean copy of texture %u could not be made (format 0x%04X): other riders on that paint show the player's dirt
+1881:damage: the clean copy of texture %u is ready (%.1f MB): other riders on that paint are drawn without the player's damage
+2186:multiplayer: rider #%d's damage gone (%s)
+2187:multiplayer: other riders' damage gone (%s): %zu bike(s), %zu loose part(s)
+2193:multiplayer: rider #%d crashed at about %.0f km/h (%s, estimated hit %.0f G, judged at 1.0x): %s
+2194:others: the player's own entry is race number %d
+2195:multiplayer: rider #%d followed again - its bike still lacks what it lost before
+2198:multiplayer: rider #%d not heard of for a while - followed again when it comes back (%s)
+2201:multiplayer: rider #%d's shadow (a %d-index draw) drawn without what its bike lost
+2233:perf: inside the game's draws a frame: the world %.3f ms (%.0f draws), the player's bike %.3f ms (%.0f), other riders' bikes of this model %.3f ms (%.0f), the shadow %.3f ms (%.0f); %zu bike pieces known
+2243:multiplayer detail: rider #%d lost %s; %s; drawn without it %u time(s) in that time (%u of them its simpler far model), %u far-model draws in all; %s
+2285:cannot reach the server
+2404:Multiplayer Damage
+2406:Other riders losing parts in crashes comes in a later version.
+2711:RaceTrackPosition: element size %d, expected %zu: roost from other riders off
+(exit 0)

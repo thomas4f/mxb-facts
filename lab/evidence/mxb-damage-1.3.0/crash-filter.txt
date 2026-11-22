@@ -1,0 +1,16 @@
+$ objdump -d mxb_damage.dlo | grep -B3 '# 0x180110208'
+   1800dd7ae:	48 83 ec 20          	sub    $0x20,%rsp
+   1800dd7b2:	48 8b d9             	mov    %rcx,%rbx
+   1800dd7b5:	33 c9                	xor    %ecx,%ecx
+   1800dd7b7:	ff 15 4b 2a 03 00    	call   *0x32a4b(%rip)        # 0x180110208
+--
+   1800de62e:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+   1800de633:	48 8d 45 f0          	lea    -0x10(%rbp),%rax
+   1800de637:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+   1800de63c:	ff 15 c6 1b 03 00    	call   *0x31bc6(%rip)        # 0x180110208
+--
+   1800e396f:	ff 15 0b c8 02 00    	call   *0x2c80b(%rip)        # 0x180110180
+   1800e3975:	33 c9                	xor    %ecx,%ecx
+   1800e3977:	8b f8                	mov    %eax,%edi
+   1800e3979:	ff 15 89 c8 02 00    	call   *0x2c889(%rip)        # 0x180110208
+(exit 0)

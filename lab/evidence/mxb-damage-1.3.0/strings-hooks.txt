@@ -1,0 +1,28 @@
+$ { strings -n 6 mxb_damage.dlo; strings -el -n 6 mxb_damage.dlo; } | grep -nE '^hooks:|OverhaulHookFor|compatibility:'
+1900:hooks: diagnosis - pointers in the game's data into other modules: %s (%llu ms)
+1901:hooks: diagnosis - modules loaded: %s
+1902:hooks: %s: still in the chain of %s from the last event (it calls this plugin's hook): kept, not hooked again
+1903:hooks: %s: %d pointer(s) in the game redirected (kept from the last event)%s
+1906:hooks: %s: slot %s found from the game's code holds %p (%s) - not used
+1909:hooks: %s: plugin's address %s; candidates: %s; code search: %s
+1910:hooks: %s: the game holds %s (%s)
+1911:hooks: %s not available
+1913:hooks: %s: %zu pointer(s) in the game redirected (%s)%s
+1917:hooks: check of the code search for %s: %s%s -> %s
+1935:hooks: glDrawElements import: kept from the last event (in another plugin's chain)
+1938:hooks: glDrawElements import redirected
+1939:hooks: glDrawElements import not found
+1940:hooks: game image %u bytes, build stamp %08x
+1943:hooks: WARNING - the game's bike draw function was not found: parts cannot bend or come off on this PC (dirt and scratches still work). Please send this log.
+1944:hooks: %s at %s: another plugin's hook (%s) sits on top of this plugin's - left in its chain
+1946:hooks: %zu pointer(s) put back%s
+1956:hooks: %s entered again from inside itself (another plugin's hook calls back into this one): the driver is called directly for those draws
+2000:hooks: this plugin's saved draw pointer was rewritten to %s - a loop: put back to %s
+2001:hooks: another plugin (%s) rewrote this plugin's saved draw pointer (was %s) - left as it is (a plugin hooking below this one)
+2002:hooks: no draw reached this plugin in %u frames on track (3 s) - cut out of the draw chain (the game's draw pointer held %s); this plugin is on top again, calling it (%u of 3 this event)
+2007:compatibility: %s - %u bike / world draws reached this plugin's hook in its first 10 s on track; on top of the game's draw pointer: %s; it calls %s%s%s
+2008:hooks: draw calls so far: glDrawElements %u, glDrawRangeElementsEXT %u, glDrawRangeElementsBaseVertex %u
+2009:hooks: WARNING - on track but no glDrawRangeElementsEXT draw reached the hooks (DE %u, DREBV %u; redirected: DRE %d, DREBV %d): no bike geometry can be seen on this PC. Please send this log.
+2637:hooks: another plugin asked for this plugin's %s hook (to hook on top of it): %s
+3178:OverhaulHookFor
+(exit 0)

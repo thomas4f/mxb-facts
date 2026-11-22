@@ -1,0 +1,35 @@
+$ { strings -n 6 mxb_damage.dlo; strings -el -n 6 mxb_damage.dlo; } | grep -nE 'capture|recorder|draw_capture|dumped|profiles.rec|texture_|buffer_|read from the GPU|cache'
+1799:cache: file %s missing (%s)
+1800:cache: file %s has an unknown format
+1801:cache: file %s texture %u looks wrong, rest of file skipped
+1802:%s%scache\textures
+1804:cache: cannot read %s
+1806:cache: %u files, %zu textures for '%s' read in %llu ms
+1807:cache:   %-28s %5dx%-5d (%s)
+1808:cache: cannot start reader thread
+1835:damage: cannot open cache file %s for '%s'
+1837:damage: '%s' could not be loaded from the cache (or it changed), not damaged
+1886:damage: none of this bike's textures are in the game's texture cache: looking for them on the GPU
+1947:capture: could not read the %s array of draw %u
+1959:%s\buffer_%u.bin
+1962:%s\texture_%u_%dx%d.dds
+1971:draws %u, bike draws %u, buffers dumped %zu (%.1f MB), textures %.1f MB
+1982:capture #%d: %u draws (%u bike), %zu bike buffers dumped (%.1f MB), textures %.1f MB -> %s (draw list %.1f ms, buffers read %.1f ms, textures %s %.1f ms%s; files written on their own thread)
+1987:recorder: '%s' recorded (%u bike draws) -> %s. Go to the next bike.
+1988:recorder: '%s' not seen in this frame (%u bike draws, camera on the bike?), trying again
+1989:recorder: the game closed before the bike's textures were read back - it is recorded again next time
+1996:recorder: '%s' (%s) is recorded already (%s), nothing to do
+1997:recorder: '%s' (%s) will be recorded once it is on track with straight bars (%s)
+2228:read from the GPU
+2229:damage: %zu gloss map(s) read from the GPU in %llu ms
+2260:read from the GPU, compressed by the plugin
+2264:damage: GL texture %u (%dx%d, %d levels, unit %s, drawn with %zu indices at the bike) read from the GPU for damage
+2504:%s\profiles\rec\%s
+2518:%s\profiles\rec
+2690:draw_capture
+2695:recorder: '%s' has a hand-checked parts map - not recorded ([probe] draw_capture=2 records it)
+2796: capture=
+2808:perf: a slow frame end, %.2f ms: paint %.2f, uploads %.2f, menu %.2f, show %.2f, capture %.2f, auto %.2f, parts %.2f, upload probe %.2f, gpu probe %.2f, gloss %.2f
+2809:snapshot skipped: texture cache still not read after 30 s
+2811:snapshot skipped: no cached textures found for this bike, looking for them on the GPU
+(exit 0)
