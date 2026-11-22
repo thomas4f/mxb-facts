@@ -11,11 +11,14 @@ Usage:
   python3 -I tools/vt_lookup.py <sha256> [<sha256> ...]
   python3 -I tools/vt_lookup.py --card cards/<card>.yaml [cards/<card>.yaml ...]
   python3 -I tools/vt_lookup.py --all                  (every card in cards/)
+  python3 -I tools/vt_lookup.py --from <lookups.json> --card cards/<card>.yaml --json vt/results.json
+                                (no key: takes the results from lookups tools/vt_release.py made before the card existed)
 
 Options for --card and --all:
   --json vt/results.json   merge the results into this file, one entry per card and hash
                            (--all also drops cards that no longer exist)
   --markdown <file>        also write the results as a Markdown table (for a PR comment)
+  --from <lookups.json>    use these results instead of looking up; a hash they lack is left out of --json
 
 A card's hashes are the sha256 values of its files list.
 Prints one line per hash: detections / engines, scan date, and the names of the engines
@@ -156,14 +159,25 @@ def take(argv, flag):
     return None
 
 
+def from_lookups(path, cards):
+    """The results tools/vt_release.py wrote, for the cards' hashes it has, and the cards without the hashes it lacks."""
+    with open(path, encoding='utf-8') as f:
+        saved = json.load(f)
+    results = {h: {k: v for k, v in r.items() if k not in ('name', 'looked_up', 'run', 'permalink')} for h, r in saved.items()
+               if 'error' not in r}
+    dates = {r['looked_up'] for r in saved.values()} or {time.strftime('%Y-%m-%d', time.gmtime())}
+    return results, {n: [h for h in hs if h in results] for n, hs in cards.items()}, min(dates), next(iter({r['run'] for r in saved.values()}), None)
+
+
 def main(argv):
-    key = os.environ.get('VT_API_KEY')
-    if not key:
-        print('Set VT_API_KEY first.', file=sys.stderr)
-        return 2
     argv = list(argv)
     json_path = take(argv, '--json')
     md_path = take(argv, '--markdown')
+    from_path = take(argv, '--from')
+    key = os.environ.get('VT_API_KEY')
+    if not key and not from_path:
+        print('Set VT_API_KEY first.', file=sys.stderr)
+        return 2
     prune = False
     if argv[:1] == ['--all']:
         paths = sorted(glob.glob(os.path.join(ROOT, 'cards', '*.yaml')))
@@ -171,15 +185,21 @@ def main(argv):
     elif argv[:1] == ['--card']:
         paths = argv[1:]
     else:
+        if not key:
+            print('Set VT_API_KEY first.', file=sys.stderr)
+            return 2
         results = lookup_all(key, [x.lower() for x in argv])
         for h, r in results.items():
             print(f'{h}  {describe(r)}' + ('' if 'error' in r else f'  {GUI + h}'))
         return 1 if any('error' in r for r in results.values()) else 0
 
     cards = {os.path.basename(p): card_hashes(p) for p in paths}
-    results = lookup_all(key, [h for hs in cards.values() for h in hs])
-    today = time.strftime('%Y-%m-%d', time.gmtime())
-    url = run_url()
+    if from_path:
+        results, cards, today, url = from_lookups(from_path, cards)
+    else:
+        results = lookup_all(key, [h for hs in cards.values() for h in hs])
+        today = time.strftime('%Y-%m-%d', time.gmtime())
+        url = run_url()
     for name, hashes in cards.items():
         print(name if hashes else f'{name}  (no SHA-256 in the header)')
         for h in hashes:

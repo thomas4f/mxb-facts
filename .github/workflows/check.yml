@@ -2,12 +2,13 @@ name: Check cards
 # On every pull request and every push to main. A correction issue opened or closed is checked by issues.yml when it happens,
 # and VirusTotal results reach main as a commit, so nothing changes on a schedule and there is no daily run.
 on:
-  # ready_for_review too: a draft opened by "Analyse a tool" (with the workflow's own token, which starts no other
-  # workflow) gets its checks when the maintainer marks it ready.
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
   push:
     branches: [main]
+  # "Analyse a tool" pushes its branch with the workflow's own token, which starts no other workflow, so it starts this
+  # one by hand on that branch; the checks then show on its pull request.
+  workflow_dispatch:
 # A newer push to the same pull request or branch cancels the run it replaces.
 concurrency: { group: "check-${{ github.ref }}", cancel-in-progress: true }
 permissions:
