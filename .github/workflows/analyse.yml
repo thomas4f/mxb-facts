@@ -16,8 +16,10 @@ name: Analyse a tool
 # demo, lab/real-game/windows/) and what that can't do in the plugin test host (lab/plugin-test-host/windows/), and hands
 # back only the evidence. The full analysis ("analyse") reads that evidence and
 # untrusted files (releases, READMEs, pages) in a job that can only read the repository, with no git credentials kept in the
-# checkout and a spending limit (tools/agent_run.py). A last job, which runs nothing from the analysis, applies its changes
-# (never to workflow files) and opens the draft pull request.
+# checkout and a spending limit (tools/agent_run.py). VirusTotal hash lookups of the release files and what they unpack
+# to are made beside the Windows run ("vt-hash", "vt-lookup"), for the analysis to answer P1 from. A last job, which runs
+# nothing from the analysis, applies its changes (never to workflow files), writes vt/results.json from those lookups,
+# opens the draft pull request and starts "Check cards" on it.
 on:
   workflow_dispatch:
     inputs:
@@ -115,6 +117,39 @@ jobs:
           python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no"))' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: plan, path: "${{ runner.temp }}/plan.json", retention-days: 7 }
+  # VirusTotal hash lookups for the release, before the analysis, so that it can answer P1 (rule 6 allows them for any
+  # tool). The first job downloads the files the plan names and unpacks them with 7-Zip, without any key; the second
+  # holds VT_API_KEY and only reads the list of hashes (tools/vt_release.py). Neither runs anything from the release.
+  vt-hash:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false, sparse-checkout: tools }
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: plan, path: "${{ runner.temp }}/plan" }
+      - run: mkdir -p "$RUNNER_TEMP/vt" && python3 -I tools/vt_release.py hash "$RUNNER_TEMP/plan/plan.json" "$RUNNER_TEMP/vt/hashes.json"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: vt-hashes, path: "${{ runner.temp }}/vt/hashes.json", retention-days: 7 }
+  vt-lookup:
+    needs: vt-hash
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false, sparse-checkout: tools }
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: vt-hashes, path: "${{ runner.temp }}/vt" }
+      - env:
+          VT_API_KEY: ${{ secrets.VT_API_KEY }}
+        run: python3 -I tools/vt_release.py lookup "$RUNNER_TEMP/vt/hashes.json" "$RUNNER_TEMP/vt/lookups.json"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: vt-lookups, path: "${{ runner.temp }}/vt/lookups.json", retention-days: 7 }
   # The fake game, built from the repository alone, in a job Claude never touches.
   host:
     runs-on: ubuntu-24.04
@@ -185,9 +220,10 @@ jobs:
         if: always()
         with: { name: windows-evidence, path: "${{ runner.temp }}/evidence", retention-days: 7 }
   analyse:
-    needs: [plan, windows]
-    # Also when the plan had nothing to run (the windows job is then skipped), but not when the Windows run failed.
-    if: always() && needs.plan.result == 'success' && needs.windows.result != 'failure' && needs.windows.result != 'cancelled'
+    needs: [plan, windows, vt-lookup]
+    # Also when the plan had nothing to run (the windows job is then skipped), but not when the Windows run failed. A failed
+    # VirusTotal lookup doesn't stop it: P1 is then "Not checked".
+    if: always() && needs.plan.result == 'success' && needs.windows.result != 'failure' && needs.windows.result != 'cancelled' && needs.vt-lookup.result != 'cancelled'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:
@@ -207,6 +243,9 @@ jobs:
       - if: needs.windows.result == 'success'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: windows-evidence, path: "${{ runner.temp }}/windows-evidence" }
+      - if: needs.vt-lookup.result == 'success'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: vt-lookups, path: "${{ runner.temp }}/vt" }
       # The Claude Agent SDK (pinned), not the Claude Code GitHub Action: the API credit this runs on covers the Agent SDK.
       - run: pip install claude-agent-sdk==0.2.187
       - name: Analyse with Claude
@@ -251,8 +290,13 @@ jobs:
             runs against the baseline, as the prompt says. Don't start the tool, its installer or its plugins
             here, under Wine or otherwise. What the plan didn't run (another hotkey, a setting) goes under "Limits of this
             analysis".
-            VirusTotal (step 6): no key is available here; answer P1 from vt/results.json if it has the files, and otherwise
-            "Not checked" with that reason, and say so in the Method row.
+            VirusTotal (step 6): no key is available here. The release was looked up before this job: the files the plan
+            downloads and every file 7-Zip unpacks from them (at most 40 looked up), by SHA-256, in $RUNNER_TEMP/vt/lookups.json.
+            Once the card lists its files, write their results to vt/results.json with
+            python3 -I tools/vt_lookup.py --from "$RUNNER_TEMP/vt/lookups.json" --card cards/<card>.yaml --json vt/results.json
+            and answer P1 from what it writes, linking each file's VirusTotal entry. A file on the card that isn't in the
+            lookups wasn't looked up: say so on P1. If the lookups file is missing, the lookup failed: P1 is "Not checked"
+            with that reason. Say which in the Method row.
 
             If you can't get the release files (no download reachable from here), change nothing: write one line with the
             reason to STOP.txt at the repository root, and stop.
@@ -367,18 +411,22 @@ jobs:
           shred -u "$RUNNER_TEMP/advisory.json"
           echo "Filed a draft security advisory for $TOOL (Security > Advisories)."
   pull-request:
-    needs: analyse
-    if: needs.analyse.outputs.changed == 'true'
+    needs: [analyse, vt-lookup]
+    if: always() && needs.analyse.outputs.changed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
       contents: write
       pull-requests: write
+      actions: write
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with: { ref: "${{ github.sha }}" }
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: analysis, path: "${{ runner.temp }}" }
+      - if: needs.vt-lookup.result == 'success'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: vt-lookups, path: "${{ runner.temp }}/vt" }
       - name: Open a draft pull request
         env:
           GH_TOKEN: ${{ github.token }}
@@ -389,8 +437,17 @@ jobs:
         run: |
           # The patch is applied, not run; workflow files are left out again (the run's token can't push those). The build
           # keeps the dropdowns to registry/tools.json, so a new card doesn't touch them.
-          git apply --index --exclude='.github/workflows/*' "$RUNNER_TEMP/analysis.patch"
+          # vt/results.json is left out too and written again here from the lookups, so the analysis can't change them; the
+          # script is the one committed, copied before the patch is applied, and it only reads the cards' hashes.
+          cp tools/vt_lookup.py "$RUNNER_TEMP/vt_lookup.py"
+          git apply --index --exclude='.github/workflows/*' --exclude='vt/*' "$RUNNER_TEMP/analysis.patch"
           if git diff --cached --quiet; then echo "No change to any card."; exit 0; fi
+          if [ -f "$RUNNER_TEMP/vt/lookups.json" ]; then
+            for card in $(git diff --cached --name-only --diff-filter=AM -- 'cards/*.yaml'); do
+              python3 -I "$RUNNER_TEMP/vt_lookup.py" --from "$RUNNER_TEMP/vt/lookups.json" --card "$card" --json vt/results.json
+            done
+            git add vt/results.json
+          fi
           slug="$TOOL"
           branch="analyse/${slug}-${GITHUB_RUN_ID}"
           git config user.name "github-actions[bot]"
@@ -400,5 +457,7 @@ jobs:
           other=$(git diff --cached --name-only | grep -Ev '^(cards/|lab/|registry/|docs/QUEUE\.md$)' | sed 's/^/- /' || true)
           git commit -q -m "Analyse ${slug}${VERSION:+ $VERSION}${QUESTIONS:+ ($QUESTIONS)}"
           git push -q origin "$branch"
+          # A push with the workflow's token starts no other workflow, so the checks are started by hand; they show on the PR.
+          gh workflow run check.yml --ref "$branch"
           gh pr create --draft --head "$branch" --title "Analyse ${slug}${VERSION:+: $VERSION}${QUESTIONS:+ ($QUESTIONS)}" \
-            --body "Run by the \"Analyse a tool\" workflow (run ${GITHUB_RUN_ID}), from prompts/analyse-tool.md. Checks (tests, build, links): ${CHECKS}. Review the card before merging.${other:+$(printf '\n\nIt also changes files outside the card, its evidence and the registry; read these before merging:\n%s' "$other")}"
+            --body "Run by the \"Analyse a tool\" workflow (run ${GITHUB_RUN_ID}), from prompts/analyse-tool.md, with the VirusTotal lookups made in the same run. Checks in the analysis (tests, build, links): ${CHECKS}; \"Check cards\" runs on this branch too. Review the card before merging.${other:+$(printf '\n\nIt also changes files outside the card, its evidence and the registry; read these before merging:\n%s' "$other")}"
