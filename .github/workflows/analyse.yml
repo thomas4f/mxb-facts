@@ -1,0 +1,404 @@
+name: Analyse a tool
+# Runs the published analysis prompt (prompts/analyse-tool.md) on one tool from the inventory (registry/tools.json), with
+# Claude through the Agent SDK on this runner (tools/agent_run.py), and opens a draft pull request with the card: a new card for a tool without one, a re-check
+# for a tool that has one. By hand only: each run uses the maintainer's Anthropic API key (repository secret
+# ANTHROPIC_API_KEY) and runner minutes.
+#
+# Rule 9: Claude's own output stays out of the logs (tools/agent_run.py keeps only the final result); only its
+# last message is shown, and not even that when an item is held back. If the analysis finds a security problem that isn't
+# public, it writes the question IDs to HOLD.txt and its report to HOLD.md, and nothing about it anywhere else; the run
+# then stops without a pull request, and the report reaches the maintainer encrypted, as a private draft security advisory
+# (the "advisory" job). Without .github/held-items.pem no report is kept, and the maintainer takes it up in a private session.
+#
+# The tool under test never runs where Claude runs. A short first pass ("plan") reads the release's licence and readme and
+# writes which files to run and how (tools/check_plan.py checks it); nothing runs when the licence forbids analysis (rule 6).
+# A throwaway Windows machine ("windows"), with no keys and no write access, runs the plugins in the real game (the public
+# demo, lab/real-game/windows/) and what that can't do in the plugin test host (lab/plugin-test-host/windows/), and hands
+# back only the evidence. The full analysis ("analyse") reads that evidence and
+# untrusted files (releases, READMEs, pages) in a job that can only read the repository, with no git credentials kept in the
+# checkout and a spending limit (tools/agent_run.py). A last job, which runs nothing from the analysis, applies its changes
+# (never to workflow files) and opens the draft pull request.
+on:
+  workflow_dispatch:
+    inputs:
+      tool:
+        description: "The tool to analyse (from registry/tools.json; re-checked if it has a card)"
+        type: choice
+        # The options follow registry/tools.json: the build rewrites this list, and CI fails while it is out of date.
+        options:
+          # tools:start
+          - akit-studio
+          - coremx
+          - fixxers-rumble
+          - frost-converter
+          - frostmod
+          - gamefx-plus
+          - gpb-content-manager
+          - graphics-overhaul
+          - heightmap-studio
+          - holeshot
+          - maxhud
+          - mx-dirt-mod
+          - mx-dirt-mod-alt
+          - mxb-app
+          - mxb-coach
+          - mxb-damage
+          - mxb-discord-rpc
+          - mxb-dualsense
+          - mxb-fps-booster
+          - mxb-ragdoll
+          - mxbfix
+          - mxbmrp3
+          - mxbtt
+          - mxpulse
+          - rider-pov-plus
+          - suspension-tuner
+          # tools:end
+      questions:
+        description: "Only these questions, e.g. P4, D5 (leave empty for a full analysis; needs a card, same release)"
+        default: ""
+      version:
+        description: "The release to analyse (leave empty: the newest in registry/releases.json, or the card's release)"
+        default: ""
+      release:
+        description: "Link to that release or its download page (leave empty to take it from registry/releases.json)"
+        default: ""
+permissions: {}
+concurrency: { group: "analyse-${{ inputs.tool }}", cancel-in-progress: false }
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    outputs:
+      runs: ${{ steps.check.outputs.runs }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false }
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt claude-agent-sdk==0.2.187
+      - name: Plan the Windows run with Claude
+        env:
+          TOOL: ${{ inputs.tool }}
+          QUESTIONS: ${{ inputs.questions }}
+          VERSION: ${{ inputs.version }}
+          RELEASE: ${{ inputs.release }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PROMPT: |
+            Plan the Windows run for an MXB Facts analysis. This is a short first pass: don't analyse the tool, don't write
+            a card, change no file in the repository, and don't run anything you download.
+
+            The tool is the entry in registry/tools.json named by the environment variable TOOL. Find the release to analyse
+            exactly as the full analysis will: if QUESTIONS is set and the tool has a card, the release its newest card names;
+            else if VERSION and RELEASE are set, that release; else the newest release in registry/releases.json, by date,
+            and for a tool with a card, the card's release when no release there has a file the card doesn't list. Download
+            the files players get into a folder under $RUNNER_TEMP and work out their SHA-256.
+
+            Read its licence (rule 6 in CLAUDE.md). If it forbids reverse engineering, decompiling or AI analysis, or you
+            can't download the files, plan no runs and say why in "note". Otherwise read the readme and, for an open-source
+            tool, the source of its input handling, to find each plugin's hotkeys and any setting that turns features on.
+
+            Write $RUNNER_TEMP/plan.json, as lab/plugin-test-host/windows/README.md describes ("The plan"): the game, the
+            release files by direct download URL and SHA-256, a real-game run per sensible way to use the plugins (ride
+            and press their hotkeys; the bare demo runs as the baseline on its own), a test-host case for what the real
+            game can't do on cue (--crash, --helmet when a plugin reacts to them, the bystander plugin's checks, with
+            victim.dlo last), and the apps (.exe) that start without an account or the real game. Then stop.
+        run: |
+          printf '%s' "$PROMPT" > "$RUNNER_TEMP/prompt.txt"
+          python3 -I tools/agent_run.py "$RUNNER_TEMP/prompt.txt" "$RUNNER_TEMP/plan-output.json" 2
+      - name: Check the plan
+        id: check
+        run: |
+          python3 -I tools/check_plan.py "$RUNNER_TEMP/plan.json" | tee -a "$GITHUB_STEP_SUMMARY"
+          python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no"))' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: plan, path: "${{ runner.temp }}/plan.json", retention-days: 7 }
+  # The fake game, built from the repository alone, in a job Claude never touches.
+  host:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false }
+      - run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends g++-mingw-w64-x86-64
+      - run: lab/plugin-test-host/src/build.sh "$RUNNER_TEMP/host"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: host
+          retention-days: 7
+          path: |
+            ${{ runner.temp }}/host/*.exe
+            ${{ runner.temp }}/host/*.dlo
+  windows:
+    needs: [plan, host]
+    if: needs.plan.outputs.runs == 'yes'
+    runs-on: windows-2025
+    timeout-minutes: 90
+    permissions: {}
+    defaults: { run: { shell: pwsh } }
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+          sparse-checkout: |
+            lab/plugin-test-host/windows
+            lab/real-game
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: plan, path: "${{ runner.temp }}/plan" }
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: host, path: "${{ runner.temp }}/host" }
+      # The real game: the public demo games.json names, kept in the Actions cache by its SHA-256. The cache is saved
+      # right after the download is checked, before any plugin runs on this machine, and run.ps1 checks it again.
+      - name: Game
+        id: game
+        run: |
+          $p = Get-Content "$env:RUNNER_TEMP\plan\plan.json" -Raw | ConvertFrom-Json
+          $g = (Get-Content lab/real-game/games.json -Raw | ConvertFrom-Json).($p.game)
+          "runs=$(if ($p.realgame) { 'yes' } else { 'no' })" >> $env:GITHUB_OUTPUT
+          "host=$(if ($p.cases -or $p.apps) { 'yes' } else { 'no' })" >> $env:GITHUB_OUTPUT
+          "url=$($g.url)" >> $env:GITHUB_OUTPUT; "sha=$($g.sha256)" >> $env:GITHUB_OUTPUT
+          "file=$env:RUNNER_TEMP\demo\$([IO.Path]::GetFileName($g.url))" >> $env:GITHUB_OUTPUT
+      - if: steps.game.outputs.runs == 'yes'
+        id: cache
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with: { path: "${{ steps.game.outputs.file }}", key: "demo-${{ steps.game.outputs.sha }}" }
+      - name: Download the demo
+        if: steps.game.outputs.runs == 'yes' && steps.cache.outputs.cache-hit != 'true'
+        run: |
+          $f = '${{ steps.game.outputs.file }}'
+          New-Item -ItemType Directory -Force (Split-Path $f) | Out-Null; curl.exe -fsSL --retry 3 -o $f '${{ steps.game.outputs.url }}'
+          if ((Get-FileHash $f -Algorithm SHA256).Hash.ToLower() -ne '${{ steps.game.outputs.sha }}') { throw "the demo doesn't match its SHA-256 in games.json" }
+      - if: steps.game.outputs.runs == 'yes' && steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with: { path: "${{ steps.game.outputs.file }}", key: "demo-${{ steps.game.outputs.sha }}" }
+      - name: Run the plugins in the real game
+        if: steps.game.outputs.runs == 'yes'
+        run: lab/real-game/windows/run.ps1 -Plan "$env:RUNNER_TEMP\plan\plan.json" -Installer '${{ steps.game.outputs.file }}' -Out "$env:RUNNER_TEMP\evidence\real-game"
+      - name: Run the test-host cases and apps
+        if: steps.game.outputs.host == 'yes'
+        run: lab/plugin-test-host/windows/run.ps1 -Plan "$env:RUNNER_TEMP\plan\plan.json" -HostDir "$env:RUNNER_TEMP\host" -Out "$env:RUNNER_TEMP\evidence\test-host"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        if: always()
+        with: { name: windows-evidence, path: "${{ runner.temp }}/evidence", retention-days: 7 }
+  analyse:
+    needs: [plan, windows]
+    # Also when the plan had nothing to run (the windows job is then skipped), but not when the Windows run failed.
+    if: always() && needs.plan.result == 'success' && needs.windows.result != 'failure' && needs.windows.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    outputs:
+      changed: ${{ steps.save.outputs.changed }}
+      checks: ${{ steps.checks.outcome }}
+      held: ${{ steps.seal.outputs.held }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { fetch-depth: 0, persist-credentials: false }
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: plan, path: "${{ runner.temp }}/plan" }
+      - if: needs.windows.result == 'success'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: windows-evidence, path: "${{ runner.temp }}/windows-evidence" }
+      # The Claude Agent SDK (pinned), not the Claude Code GitHub Action: the API credit this runs on covers the Agent SDK.
+      - run: pip install claude-agent-sdk==0.2.187
+      - name: Analyse with Claude
+        id: claude
+        # A failed run still goes to the report step below, which says why.
+        continue-on-error: true
+        env:
+          TOOL: ${{ inputs.tool }}
+          QUESTIONS: ${{ inputs.questions }}
+          VERSION: ${{ inputs.version }}
+          RELEASE: ${{ inputs.release }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PROMPT: |
+            Analyse one tool for MXB Facts, in this repository's checkout, from the published prompt.
+
+            The tool is the entry in registry/tools.json named by the environment variable TOOL. If its "cards" list is
+            empty, this is a new analysis. Otherwise it is a re-check of its newest card (the last one in that list).
+
+            If QUESTIONS is set, this is a partial check of the newest card, for the release it already names: answer only
+            those questions again (with the steps of the prompt they need), change nothing else on the card, and ignore
+            VERSION and RELEASE. A partial check of a tool without a card isn't possible: write that to STOP.txt and stop.
+            A new release always gets a full analysis, because its code may have changed anywhere.
+
+            Which release: if VERSION and RELEASE are set, analyse that release. If they are empty, look up the tool in
+            registry/releases.json (written by the "Update inventory" workflow) and take the newest release there, by date,
+            and say where it was found. For a re-check, if no release there has a file that isn't on the card, re-run the
+            release the card names (its "Version analysed" row and files). Use the places the registry entry names (github,
+            mxb-mods post, downloads) to fetch the files.
+
+            Follow prompts/analyse-tool.md, section "The prompt", steps 1 to 9, exactly as written, for that tool and release.
+            For a re-check, with this addition from it: "This is a re-check. The earlier card is <the card>. Write a new card
+            file, keep the old one, and link it under 'Earlier reports'." For a re-run of the same release, update the card
+            file in place instead. For a new card, also remove the tool's line from docs/QUEUE.md.
+            Running it (step 5): the tool under test doesn't run here. A throwaway Windows machine already ran it, from
+            the plan in $RUNNER_TEMP/plan/plan.json: the plugins in the real game (lab/real-game/README.md, "On Windows"),
+            with the bare demo as "baseline", and the test-host cases and apps (lab/plugin-test-host/windows/README.md).
+            Its evidence is in $RUNNER_TEMP/windows-evidence/real-game/ and .../test-host/, one folder per run, each with
+            machine.txt. If that folder is missing, nothing ran: the plan's "note" says why, and step 5's answers say so.
+            Check that the release files in machine.txt are the ones you analyse; if they differ, don't use the evidence
+            and say so under "Limits of this analysis". Otherwise copy each run's folder to
+            lab/results/<card>/<run>-windows/ and link it on the lines it proves, reading the real-game
+            runs against the baseline, as the prompt says. Don't start the tool, its installer or its plugins
+            here, under Wine or otherwise. What the plan didn't run (another hotkey, a setting) goes under "Limits of this
+            analysis".
+            VirusTotal (step 6): no key is available here; answer P1 from vt/results.json if it has the files, and otherwise
+            "Not checked" with that reason, and say so in the Method row.
+
+            If you can't get the release files (no download reachable from here), change nothing: write one line with the
+            reason to STOP.txt at the repository root, and stop.
+
+            Rule 9 (CLAUDE.md) instead of step 10: if you find a security problem that isn't public and fixed, write nothing
+            about it in the card, a commit, any other file or your output, with two exceptions at the repository root:
+            HOLD.txt, the question IDs it touches, one per line; and HOLD.md, the report the maintainer will send the author:
+            the tool, release and file SHA-256, what the problem is, where (permalinks or file and offset), how to see it
+            (the test, step by step), what it lets someone do, and a fix if one is plain. The workflow encrypts HOLD.md and
+            files it as a private draft advisory for the maintainer; it never reaches a log. Then stop.
+
+            Don't commit or push; the workflow does that. Finish with python3 -I site/build.py, python3 -I tests/test_build.py
+            and python3 -I tools/check_links.py passing.
+        run: |
+          printf '%s' "$PROMPT" > "$RUNNER_TEMP/prompt.txt"
+          python3 -I tools/agent_run.py "$RUNNER_TEMP/prompt.txt" "$RUNNER_TEMP/claude-execution-output.json"
+      # Rule 9: a held item's report leaves this job only encrypted, to the maintainer's public key (.github/held-items.pem),
+      # and HOLD.md is deleted. This job holds no key that can decrypt it; the "advisory" job below does.
+      - name: Seal a held item
+        id: seal
+        if: always()
+        run: |
+          [ -f HOLD.txt ] || [ -f HOLD.md ] || exit 0
+          [ -f HOLD.md ] || echo "Claude wrote no report (HOLD.md) for the held item." > HOLD.md
+          # The key as committed, never a copy the analysis could have changed in the checkout.
+          if git show HEAD:.github/held-items.pem > "$RUNNER_TEMP/held-items.pem" 2>/dev/null; then
+            { echo "Tool: $TOOL. Questions: $(tr '\n' ' ' < HOLD.txt 2>/dev/null). Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; echo; cat HOLD.md; } |
+              openssl cms -encrypt -aes256 -binary -outform DER -out "$RUNNER_TEMP/held.cms" "$RUNNER_TEMP/held-items.pem"
+            echo "held=true" >> "$GITHUB_OUTPUT"
+          fi
+          shred -u HOLD.md
+        env:
+          TOOL: ${{ inputs.tool }}
+      - if: always() && steps.seal.outputs.held == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: held, path: "${{ runner.temp }}/held.cms", retention-days: 1 }
+      - name: Report
+        if: always()
+        env:
+          OUTCOME: ${{ steps.claude.outcome }}
+          SEALED: ${{ steps.seal.outputs.held }}
+        run: |
+          # Claude's last message, unless an item is held back (rule 9): then nothing it said is shown.
+          out="$RUNNER_TEMP/claude-execution-output.json"
+          if [ ! -f HOLD.txt ] && [ -f "$out" ]; then
+            msg=$(python3 -I -c 'import json,sys; r=[x for x in json.load(open(sys.argv[1])) if x.get("type")=="result"]; print(str(r[-1].get("result") or r[-1].get("errors") or "")[:3000] if r else "")' "$out" || true)
+            { echo "### Claude's last message"; echo; echo "$msg"; } >> "$GITHUB_STEP_SUMMARY"
+            echo "Claude's last message: $msg"
+          fi
+          if [ -f HOLD.txt ]; then
+            if [ "$SEALED" = true ]; then
+              echo "::error::The analysis found an item to hold back (rule 9). No pull request; its report goes to a private draft security advisory in this repository (never to this log)."
+            else
+              echo "::error::The analysis found an item to hold back (rule 9). No pull request, and no report kept (.github/held-items.pem is missing); take it up in a private session."
+            fi
+            exit 1
+          fi
+          if [ -f STOP.txt ]; then
+            echo "::error::No analysis: $(head -c 300 STOP.txt)"
+            exit 1
+          fi
+          if [ "$OUTCOME" != success ]; then
+            echo "::error::Claude didn't finish the analysis (see its last message above). No pull request."
+            exit 1
+          fi
+      # The same checks as CI, so the draft says whether the card passes them (Claude was asked to leave them passing).
+      - name: Check the card
+        id: checks
+        continue-on-error: true
+        run: |
+          python3 -I tests/test_build.py && python3 -I site/build.py && python3 -I tools/check_links.py
+      # Everything the analysis changed (cards, registry, lab evidence, tools it added), except workflow files, as a patch
+      # for the next job. Only when the run finished and nothing is held back (the Report step stops the job otherwise).
+      - name: Save the changes
+        id: save
+        run: |
+          git add -A -- . ':!.github/workflows' ':!HOLD.txt' ':!HOLD.md' ':!STOP.txt'
+          if git diff --cached --quiet; then echo "No change to any card."; exit 0; fi
+          git diff --cached --binary > "$RUNNER_TEMP/analysis.patch"
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - if: steps.save.outputs.changed == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: analysis, path: "${{ runner.temp }}/analysis.patch", retention-days: 7 }
+  # A held item's report, decrypted only here, filed as a draft security advisory: private to the repository's admins,
+  # never published (it is about another author's tool). The maintainer forwards it to the author (CLAUDE.md, rule 9).
+  # Secrets: HELD_ITEMS_KEY (the private key of .github/held-items.pem) and ADVISORY_TOKEN (a fine-grained token for this
+  # repository with only "Repository security advisories: Read and write"). This job runs nothing from the analysis.
+  advisory:
+    needs: analyse
+    if: always() && needs.analyse.outputs.held == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions: {}
+    steps:
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: held, path: "${{ runner.temp }}/held" }
+      - name: File a draft security advisory
+        env:
+          HELD_ITEMS_KEY: ${{ secrets.HELD_ITEMS_KEY }}
+          GH_TOKEN: ${{ secrets.ADVISORY_TOKEN }}
+          TOOL: ${{ inputs.tool }}
+        run: |
+          umask 077
+          printf '%s\n' "$HELD_ITEMS_KEY" > "$RUNNER_TEMP/key.pem"
+          openssl cms -decrypt -inform DER -in "$RUNNER_TEMP/held/held.cms" -inkey "$RUNNER_TEMP/key.pem" -out "$RUNNER_TEMP/held.md"
+          shred -u "$RUNNER_TEMP/key.pem"
+          python3 -I -c 'import json,sys; print(json.dumps({"summary": "HELD, rule 9, never publish: " + sys.argv[1], "description": open(sys.argv[2]).read(),
+            "vulnerabilities": [{"package": {"ecosystem": "other", "name": sys.argv[1]}}]}))' "$TOOL" "$RUNNER_TEMP/held.md" > "$RUNNER_TEMP/advisory.json"
+          shred -u "$RUNNER_TEMP/held.md"
+          curl -sf -o /dev/null -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/security-advisories" --data @"$RUNNER_TEMP/advisory.json"
+          shred -u "$RUNNER_TEMP/advisory.json"
+          echo "Filed a draft security advisory for $TOOL (Security > Advisories)."
+  pull-request:
+    needs: analyse
+    if: needs.analyse.outputs.changed == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { ref: "${{ github.sha }}" }
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: analysis, path: "${{ runner.temp }}" }
+      - name: Open a draft pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TOOL: ${{ inputs.tool }}
+          QUESTIONS: ${{ inputs.questions }}
+          VERSION: ${{ inputs.version }}
+          CHECKS: ${{ needs.analyse.outputs.checks }}
+        run: |
+          # The patch is applied, not run; workflow files are left out again (the run's token can't push those). The build
+          # keeps the dropdowns to registry/tools.json, so a new card doesn't touch them.
+          git apply --index --exclude='.github/workflows/*' "$RUNNER_TEMP/analysis.patch"
+          if git diff --cached --quiet; then echo "No change to any card."; exit 0; fi
+          slug="$TOOL"
+          branch="analyse/${slug}-${GITHUB_RUN_ID}"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          # Files changed outside the card, its evidence and the registry are named in the pull request, so its review can't miss them.
+          other=$(git diff --cached --name-only | grep -Ev '^(cards/|lab/|registry/|docs/QUEUE\.md$)' | sed 's/^/- /' || true)
+          git commit -q -m "Analyse ${slug}${VERSION:+ $VERSION}${QUESTIONS:+ ($QUESTIONS)}"
+          git push -q origin "$branch"
+          gh pr create --draft --head "$branch" --title "Analyse ${slug}${VERSION:+: $VERSION}${QUESTIONS:+ ($QUESTIONS)}" \
+            --body "Run by the \"Analyse a tool\" workflow (run ${GITHUB_RUN_ID}), from prompts/analyse-tool.md. Checks (tests, build, links): ${CHECKS}. Review the card before merging.${other:+$(printf '\n\nIt also changes files outside the card, its evidence and the registry; read these before merging:\n%s' "$other")}"

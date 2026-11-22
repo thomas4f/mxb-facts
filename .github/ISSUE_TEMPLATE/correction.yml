@@ -1,0 +1,35 @@
+name: Comment on an answer
+description: Say an answer is wrong or out of date, point out something missing, or add context as the tool's author.
+title: "Comment: <card> "
+labels: ["correction"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every comment is answered here in public, and shows on the answer it names until it is decided. If it changes the card, the card's "Card history" links this issue.
+  - type: input
+    id: card
+    attributes: { label: Card, description: "Tool and version, as on the card." }
+    validations: { required: true }
+  - type: textarea
+    id: line
+    attributes: { label: The answer, description: "The question (e.g. D3) and the answer as the card gives it now; the comment icon on the page fills this in. Say which part you mean." }
+    validations: { required: true }
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What is it?
+      options: ["It's wrong or out of date", "Something is missing", "Context from the tool's author", "Something else"]
+    validations: { required: true }
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: "A link to the code at the same release, a file and its SHA-256, or steps anyone can repeat. A card only states what can be shown, so a comment without evidence can't change it."
+    validations: { required: true }
+  - type: dropdown
+    id: relation
+    attributes:
+      label: You are
+      options: [A player, "This tool's author", "Someone else (another tool's author, a mod creator, a server owner…)"]
+    validations: { required: true }

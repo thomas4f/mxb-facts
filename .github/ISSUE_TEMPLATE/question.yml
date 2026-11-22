@@ -1,0 +1,30 @@
+name: Suggest a question
+description: Point out something the cards don't ask about, so every tool can be checked for it.
+title: "Question: <what to check>"
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Every card answers the same questions (rules/questions.md). A new question is added for every tool at once, never for one tool, so word it so any plugin, app or mod can answer it.
+  - type: textarea
+    id: check
+    attributes: { label: What to check, description: "The behaviour, as a yes/no question if you can (e.g. 'Does it change Windows firewall rules?')." }
+    validations: { required: true }
+  - type: textarea
+    id: why
+    attributes: { label: Why it matters to players, description: "What it can do to your PC, your data, your game or creators' content, or what it lets you check." }
+    validations: { required: true }
+  - type: textarea
+    id: proof
+    attributes: { label: How it can be proven, description: "Where the answer would come from: code to read, a call to look for, a test anyone can repeat." }
+    validations: { required: true }
+  - type: input
+    id: seen
+    attributes: { label: Seen in, description: "A tool or card where you noticed it, if any. The question still goes to every tool." }
+  - type: dropdown
+    id: relation
+    attributes:
+      label: You are
+      options: [A player, "A tool's author", "Someone else (a mod creator, a server owner…)"]
+    validations: { required: true }

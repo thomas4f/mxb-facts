@@ -1,0 +1,142 @@
+name: VirusTotal lookup
+# Looks up the SHA-256 hashes of the cards' files (tools/vt_lookup.py). It never uploads files; the maintainer uploads by
+# hand (CLAUDE.md, "VirusTotal"). Needs the repository secret VT_API_KEY. By hand only, to save runner minutes:
+# - with "pr": looks up the cards that pull request adds or changes and posts the results as one comment on it (updated on
+#   each run); pull requests from forks are skipped;
+# - otherwise, with "tool": looks up that tool's cards (or all), writes the results to vt/results.json and commits it to main.
+on:
+  workflow_dispatch:
+    inputs:
+      tool:
+        description: "Which tool's cards to look up (or all cards)"
+        type: choice
+        default: all
+        # The options follow registry/tools.json (not the cards, so a new card never has to change this file): the build
+        # rewrites this list, and CI fails while it is out of date.
+        options:
+          # tools:start
+          - all
+          - akit-studio
+          - coremx
+          - fixxers-rumble
+          - frost-converter
+          - frostmod
+          - gamefx-plus
+          - gpb-content-manager
+          - graphics-overhaul
+          - heightmap-studio
+          - holeshot
+          - maxhud
+          - mx-dirt-mod
+          - mx-dirt-mod-alt
+          - mxb-app
+          - mxb-coach
+          - mxb-damage
+          - mxb-discord-rpc
+          - mxb-dualsense
+          - mxb-fps-booster
+          - mxb-ragdoll
+          - mxbfix
+          - mxbmrp3
+          - mxbtt
+          - mxpulse
+          - rider-pov-plus
+          - suspension-tuner
+          # tools:end
+      pr:
+        description: "Pull request number: look up the cards it adds or changes and comment there (leave empty otherwise)"
+        default: ""
+permissions:
+  contents: read
+
+jobs:
+  pull-request:
+    if: inputs.pr != ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    concurrency: vt-lookup-pr-${{ inputs.pr }}
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+      PR: ${{ inputs.pr }}
+    steps:
+      # The lookup script comes from the branch the run starts on (never the pull request's code, since it runs with the key);
+      # the cards from the pull request.
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: refs/pull/${{ inputs.pr }}/head
+          path: pr
+          fetch-depth: 0
+      - name: Find the cards the pull request adds or changes
+        id: cards
+        run: |
+          read -r base cross < <(gh pr view "$PR" --json baseRefName,isCrossRepository -q '"\(.baseRefName) \(.isCrossRepository)"')
+          if [ "$cross" = "true" ]; then echo "Pull request from a fork: skipped."; exit 0; fi
+          cd pr
+          git fetch -q origin "$base"
+          cards=$(git diff --name-only --diff-filter=AM "$(git merge-base FETCH_HEAD HEAD)" HEAD -- 'cards/*.yaml' | sed 's|^|pr/|' | tr '\n' ' ')
+          echo "Cards: ${cards:-none}"
+          echo "list=$cards" >> "$GITHUB_OUTPUT"
+      - name: Look up the hashes
+        if: steps.cards.outputs.list != ''
+        env:
+          VT_API_KEY: ${{ secrets.VT_API_KEY }}
+          CARDS: ${{ steps.cards.outputs.list }}
+        run: |
+          read -r -a cards <<< "$CARDS"
+          python3 -I tools/vt_lookup.py --markdown "$RUNNER_TEMP/vt.md" --card "${cards[@]}"
+      - name: Post or update the pull request comment
+        if: ${{ !cancelled() && steps.cards.outputs.list != '' }}
+        run: |
+          [ -f "$RUNNER_TEMP/vt.md" ] || exit 0
+          cat "$RUNNER_TEMP/vt.md" >> "$GITHUB_STEP_SUMMARY"
+          id=$(gh api "repos/$GITHUB_REPOSITORY/issues/$PR/comments" --paginate \
+               -q '[.[] | select(.body | startswith("<!-- vt-lookup -->"))][0].id // empty' | head -n1)
+          if [ -n "$id" ]; then
+            gh api -X PATCH "repos/$GITHUB_REPOSITORY/issues/comments/$id" -F "body=@$RUNNER_TEMP/vt.md" > /dev/null
+          else
+            gh api "repos/$GITHUB_REPOSITORY/issues/$PR/comments" -F "body=@$RUNNER_TEMP/vt.md" > /dev/null
+          fi
+
+  main:
+    if: inputs.pr == ''
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency: vt-lookup-main
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { ref: main, fetch-depth: 0 }
+      - name: Choose the cards
+        id: cards
+        env:
+          INPUT_TOOL: ${{ inputs.tool }}
+        run: |
+          if [ "$INPUT_TOOL" = "all" ] || [ -z "$INPUT_TOOL" ]; then args="--all"; else
+            cards=$(python3 -I -c 'import json,sys; print(" ".join("cards/"+c for c in json.load(open("registry/tools.json"))[sys.argv[1]]["cards"]))' "$INPUT_TOOL")
+            args=${cards:+--card $cards}
+          fi
+          echo "Arguments: ${args:-none}"
+          echo "args=$args" >> "$GITHUB_OUTPUT"
+      - name: Look up the hashes
+        if: steps.cards.outputs.args != ''
+        env:
+          VT_API_KEY: ${{ secrets.VT_API_KEY }}
+          ARGS: ${{ steps.cards.outputs.args }}
+        run: |
+          read -r -a args <<< "$ARGS"
+          python3 -I tools/vt_lookup.py --json vt/results.json --markdown "$RUNNER_TEMP/vt.md" "${args[@]}"
+      - name: Commit vt/results.json if changed
+        if: ${{ !cancelled() && steps.cards.outputs.args != '' }}
+        run: |
+          [ -f "$RUNNER_TEMP/vt.md" ] && cat "$RUNNER_TEMP/vt.md" >> "$GITHUB_STEP_SUMMARY"
+          git add vt/results.json 2>/dev/null || exit 0
+          git diff --cached --quiet && { echo "No change"; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Update VirusTotal lookups (vt/results.json)"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push && exit 0; sleep 5; done
+          exit 1

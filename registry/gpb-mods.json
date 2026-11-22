@@ -1,0 +1,33 @@
+{
+  "fetched": "2026-11-20",
+  "source": "https://gpb-mods.com/wp-json/wp/v2/posts",
+  "note": "Each excerpt is quoted from the tool's gpb-mods.com page as published, not verified.",
+  "tools": {
+    "fixxers-rumble": {
+      "post": 4879,
+      "link": "https://gpb-mods.com/fixxers-controller-vibration-rumble/",
+      "title": "FIXXER’s Controller Vibration/Rumble",
+      "excerpt": "FIXXER’s Controller Rumble for GP Bikes A controller rumble plugin for GP Bikes that uses live bike telemetry to drive XInput-compatible controllers in real time. Fully configurable in-game, allowing each user to fine-tune feedback to their preference or share custom profiles with friends. Designed to improve rider awareness and immersion, the plugin provides a clearer…",
+      "published": "2026-04-26",
+      "updated": "2026-07-05",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "gpb-content-manager": {
+      "post": 4836,
+      "link": "https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/",
+      "title": "GP Bikes Content Manager By FIXXER 1001",
+      "excerpt": "GP Bikes Content Manager (GPBCM) Developed by FIXXER 1001 What? GPBCM is a Windows desktop application built in C# and WPF, designed specifically for riders and enthusiasts of GPB. It manages all your GPB content in one place. (Not everything yet, but that is the plan 😉 ) This tool focuses on helping new and…",
+      "published": "2026-04-04",
+      "updated": "2026-04-04",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": null
+    }
+  }
+}

@@ -1,0 +1,40 @@
+name: Check cards
+# On every pull request and every push to main. A correction issue opened or closed is checked by issues.yml when it happens,
+# and VirusTotal results reach main as a commit, so nothing changes on a schedule and there is no daily run.
+on:
+  # ready_for_review too: a draft opened by "Analyse a tool" (with the workflow's own token, which starts no other
+  # workflow) gets its checks when the maintainer marks it ready.
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+  push:
+    branches: [main]
+# A newer push to the same pull request or branch cancels the run it replaces.
+concurrency: { group: "check-${{ github.ref }}", cancel-in-progress: true }
+permissions:
+  contents: read
+  issues: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        # The whole history, so the build can compare the cards with the pull request's base branch.
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: python3 -I tests/test_build.py
+      # On a pull request the build also lists what the change does to each card's scores, marks and tags (in the run's summary).
+      - run: python3 -I site/build.py
+        env:
+          CHANGES_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || 'HEAD' }}
+      # Every open correction issue is on its card, and every open correction on a card is an open issue.
+      - run: python3 -I tools/check_corrections.py
+        env:
+          GH_TOKEN: ${{ github.token }}
+      - uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: .cache/repos
+          key: repos-${{ hashFiles('cards/*.yaml') }}
+          restore-keys: repos-
+      - run: python3 -I tools/check_links.py

@@ -1,0 +1,363 @@
+# MXB Facts: every question, mark, cost, tag and threshold that sets a card's marks and scores, and its Money label.
+#
+# This is the one place to change them. site/build.py reads it, applies it to every card the same way,
+# and writes the tables in rules/questions.md, rules/template.md and rules/scores.md from it (run the build after an edit;
+# CI fails while those tables are out of date). The prose around those tables explains the rules for readers.
+# The build refuses an entry it can't read and a duplicated name. After an edit, it prints what changes on each card
+# (scores, Money labels, marks, tags), compared with the last commit (in CI, with the pull request's base branch).
+
+# Areas, in the order cards show them: the prefix of their question IDs, the area's name and its page anchor. The name is the
+# one a reader sees everywhere: the score bars, the question tables, the report section that holds its answers, and the
+# contents bar of a tool page. Every area but Money (see money below) is scored.
+areas:
+  P: {name: Your PC and files, anchor: pc}
+  D: {name: Your data, anchor: data}
+  G: {name: Your game, anchor: game}
+  C: {name: Creators' content, anchor: creators}
+  T: {name: Transparency, anchor: transparency}
+  M: {name: Money, anchor: money}
+
+# Fixed numbers the build checks cards against.
+virustotal:
+  flagged_share: 0.1   # P1 is Yes when this share of engines or more flags a file, Partly below it, No when none does
+
+# The ten key questions. mark: strongest (Concern before Note before Good) or best (any one good answer settles it).
+keys:
+  K1: {question: "Do antivirus engines flag it, or did the analysis find signs of malware?", short: "Flagged or malware?", from: [P1, P9], mark: strongest}
+  K2: {question: "Does it update itself without asking, or without checking the file?", short: "Updates unchecked?", from: [P2, P3], mark: strongest}
+  K3: {question: "Can it delete or change files that aren't its own?", short: "Touches other files?", from: [P4, P6, P7], mark: strongest}
+  K4: {question: "Does it send data about you?", short: "Sends your data?", from: [D2, D3], mark: strongest}
+  K5: {question: "Does it change the game, or get around one of its checks?", short: "Changes the game?", from: [G1, G2, G3, G12], mark: strongest}
+  K6: {question: "Does it unlock, copy or share other people's content?", short: "Uses others' content?", from: [C1, C2, C3], mark: strongest}
+  K7: {question: "Is the source code public?", short: "Open source?", from: [T1], mark: strongest}
+  K8: {question: "Does it do what its docs say?", short: "Does what it says?", from: [T2], mark: strongest}
+  K9: {question: "Can you check the download is the real one?", short: "Download checkable?", from: [P5, T3, T4], mark: best}
+  K10: {question: "Does it connect to the internet?", short: "Goes online?", from: [D1], mark: strongest}
+
+# Every question, in area order. yes_mark and no_mark are the mark cells: the first mark applies unless the condition holds.
+# partly: concern (Partly is a Concern and costs points), or never (the question has no Partly); otherwise Partly is a Note.
+# doesnt_apply: true lets the answer be "Doesn't apply". note_on_request: true makes "Yes, on request" a Note and every other Yes a Concern.
+# Text may hold Markdown (`code`, links); the build escapes | and < for the tables.
+questions:
+  P1:
+    text: Do antivirus engines flag the release files (VirusTotal hash lookups)?
+    yes_mark: Concern
+    no_mark: Good; Note if a file players download isn't on VirusTotal
+  P2:
+    text: Does it install updates without asking?
+    yes_mark: Concern
+    no_mark: Good
+  P3:
+    text: "Are updates checked before they are installed? (Partly: a check from the same place as the file.)"
+    yes_mark: Good
+    no_mark: Concern
+    partly: concern
+    doesnt_apply: true
+  P4:
+    text: Can it delete or overwrite files that aren't its own?
+    yes_mark: Concern
+    note_on_request: true   # "Yes, on request" is a Note, every other Yes a Concern; the build checks it
+    no_mark: Good
+  P5:
+    text: Are the release files code-signed?
+    yes_mark: Good
+    no_mark: Concern; Note if the files can be traced to public source (T3 or T4 is Yes)
+  P6:
+    text: Does it change Windows settings or the registry beyond its own entries?
+    yes_mark: Concern
+    note_on_request: true   # "Yes, on request" is a Note, every other Yes a Concern; the build checks it
+    no_mark: Good
+  P7:
+    text: Does it write into the game's folders beyond its own plugin and settings?
+    yes_mark: Note; Concern if, by default, it changes the game's own files or adds content you didn't pick
+    no_mark: Good
+  P8:
+    text: Does uninstalling leave changes behind?
+    yes_mark: Note; Concern if changes to Windows or to files that aren't its own stay
+    no_mark: Good
+  P9:
+    text: "Did the analysis find signs of malware: code that is hidden, disguised, or does something the tool doesn't show you?"
+    yes_mark: Concern
+    # A Yes here replaces the whole score, so a second check with another method must confirm it before the card is published.
+    second_check: true
+    no_mark: Good
+  D1:
+    text: Does it connect to the internet?
+    yes_mark: Note
+    no_mark: Good
+    partly: never
+  D2:
+    text: Is anything about you or your game sent (not counting a plain update check)?
+    yes_mark: Concern
+    no_mark: Good
+  D3:
+    text: Is an identifier sent (install ID, machine ID, Steam ID, GUID)?
+    yes_mark: Concern; Note if the only identifier is a random install ID the tool makes itself
+    no_mark: Good
+  D4:
+    text: Is other players' data sent?
+    yes_mark: Concern
+    no_mark: Good
+  D5:
+    text: Does it run a local web server that any website open in your browser can read?
+    yes_mark: Concern
+    no_mark: Good
+  D6:
+    text: Does it read other programs' files or data on your PC?
+    yes_mark: Note; Concern if it reads other people's data
+    no_mark: Good
+  D7:
+    text: Is data about its users published?
+    yes_mark: Concern
+    no_mark: Good
+  D8:
+    text: Can every connection it makes be switched off?
+    yes_mark: Good
+    no_mark: Concern; Note if what has no switch carries nothing about you
+  D9:
+    text: Does it need, or create, an online account?
+    yes_mark: Concern
+    no_mark: Good
+  D10:
+    text: Does it share your game data with other programs on your PC?
+    yes_mark: Note; Concern if any program can read your identifiers or other riders' data from it
+    no_mark: Good
+  G1:
+    text: Does it inject code into the game from another program?
+    yes_mark: Concern
+    no_mark: Good
+  G2:
+    text: Does it change the game's code or memory (hooks, patches, pointer swaps, writing records)?
+    yes_mark: Concern
+    no_mark: Good; Note if a tool it runs or installs by default does
+  G3:
+    text: Does it change the game while you're on online servers?
+    yes_mark: Concern
+    no_mark: Good; Note if a tool it runs or installs by default does
+  G4:
+    text: Does it read the game's memory outside the plugin interface?
+    yes_mark: Note
+    no_mark: Good
+  G5:
+    text: Does it take over the game window's input, or press keys for you?
+    yes_mark: Concern; Note if it only takes input for its own menu or for buttons you click
+    no_mark: Good
+  G6:
+    text: Does it change other plugins or tools, their files or their memory?
+    yes_mark: Concern; Note if installing or updating that tool is its stated job
+    no_mark: Good
+  G7:
+    text: Does it read the keyboard through Windows, also while the game isn't focused?
+    yes_mark: Note
+    no_mark: Good
+  G8:
+    text: Does it install a crash handler for the whole game?
+    yes_mark: Note
+    no_mark: Good
+  G9:
+    text: Does it start with Windows?
+    yes_mark: Concern
+    no_mark: Good
+  G10:
+    text: Does it run a separate program next to the game?
+    yes_mark: Note
+    no_mark: Good
+  G11:
+    text: Does it run inside the game (as a plugin, or loaded into it)?
+    yes_mark: Note
+    no_mark: Good
+    partly: never
+  G12:
+    text: Does it get around a check or protection in the game itself (an integrity or version check, anti-cheat, or the game's own Steam or licence check)?
+    yes_mark: Concern
+    no_mark: Good
+  C1:
+    text: Does it decrypt protected content?
+    yes_mark: Concern
+    no_mark: Good
+  C2:
+    text: Does it save copies of other people's models or textures as files?
+    yes_mark: Concern
+    no_mark: Good
+  C3:
+    text: Does it share other people's content with the protection removed?
+    yes_mark: Concern
+    no_mark: Good
+  C4:
+    text: Does it credit third-party code it ships?
+    yes_mark: Good
+    no_mark: Note
+  C5:
+    text: Does it open other people's mods, paints, tracks or models (files, or the game's copy outside the plugin interface)?
+    yes_mark: Note
+    no_mark: Good
+    partly: never
+  T1:
+    text: Is the full source of the analysed release public?
+    yes_mark: Good
+    no_mark: Concern
+    partly: never
+  T2:
+    text: Do its docs say something its code doesn't do, on a point these questions ask about?
+    yes_mark: Concern
+    no_mark: Good
+    partly: never
+  T3:
+    text: Are the releases built by CI from a public tag?
+    yes_mark: Good
+    no_mark: Concern
+  T4:
+    text: Was the release rebuilt and matched to the source?
+    yes_mark: Good
+    no_mark: Concern
+  T5:
+    text: Is the day-to-day development history public?
+    yes_mark: Good
+    no_mark: Note
+  T6:
+    text: Are its dependencies pinned to exact versions?
+    yes_mark: Good
+    no_mark: Concern
+  T7:
+    text: Does it have an open-source licence?
+    yes_mark: Good
+    no_mark: Concern
+  M1:
+    text: Does it cost money to use?
+    yes_mark: Note
+    no_mark: Good
+    partly: never
+  M2:
+    text: Are features or versions sold separately?
+    yes_mark: Note
+    no_mark: Good; Note if it opens or links to someone else's shop
+    partly: never
+  M3:
+    text: Does it ask for donations?
+    yes_mark: Note
+    no_mark: Good
+
+# Money isn't scored: its label says what the tool costs, from the answers to M1 (it costs money to use) and M2 (features or
+# versions are sold separately). The first label whose answers all hold is shown; when none does, it is "Not allowed" if the
+# tool's licence forbids answering M1 or M2, else "Not checked". "means" is what readers see.
+money:
+  area: M
+  labels:
+    Paid: {when: [M1 yes], means: You have to pay to use it}
+    Paid extras: {when: [M1 no, M2 yes], means: "It is free to use, but features, versions or some kinds of use are sold separately"}
+    Free: {when: [M1 no, M2 no], means: It costs nothing to use and sells nothing extra; donation links are allowed}
+    Not allowed: {means: "The tool's licence forbids the analysis, and the questions it does allow don't say what it costs"}
+    Not checked: {means: "The analysis couldn't settle what it costs; the Money answers say why"}
+
+# Front-page tags, each from one answer. kind: Critical, Positive, or None (no tag: the label says which tag covers it).
+# unless: a list of "<question> yes", "<question> no" or "<question> partly"; any of them leaves the tag out, because another tag
+# or answer says it (a closed-source tool shows only "Closed source"; a release a matching rebuild traces isn't "Not traced").
+tags:
+  - {from: P9, answer: "Yes", tag: Signs of malware, kind: Critical}
+  - {from: P1, answer: "Yes", tag: Flagged by antivirus, kind: Critical}
+  - {from: P2, answer: "Yes", tag: Updates without asking, kind: Critical}
+  - {from: P3, answer: "No", tag: Unchecked updates, kind: Critical}
+  - {from: P3, answer: "Partly", tag: Updates partly checked, kind: Critical}
+  - {from: P4, answer: "Yes", tag: Deletes others' files, kind: Critical}
+  - {from: P5, answer: "No", tag: Not signed or traceable, kind: Critical}
+  - {from: P6, answer: "Yes", tag: Changes Windows settings, kind: Critical}
+  - {from: P7, answer: "Yes", tag: Changes game files, kind: Critical}
+  - {from: P8, answer: "Yes", tag: Leaves changes behind, kind: Critical}
+  - {from: D2, answer: "Yes", tag: Sends your data, kind: Critical}
+  - {from: D3, answer: "Yes", tag: Sends an identifier, kind: Critical}
+  - {from: D4, answer: "Yes", tag: Sends other players' data, kind: Critical}
+  - {from: D5, answer: "Yes", tag: Open local web server, kind: Critical}
+  - {from: D6, answer: "Yes", tag: Reads other people's data, kind: Critical}
+  - {from: D7, answer: "Yes", tag: Publishes user data, kind: Critical}
+  - {from: D8, answer: "No", tag: No off switch, kind: Critical}
+  - {from: D9, answer: "Yes", tag: Needs an online account, kind: Critical}
+  - {from: D10, answer: "Yes", tag: Shares identifiers locally, kind: Critical}
+  - {from: G1, answer: "Yes", tag: Injects into the game, kind: Critical}
+  - {from: G2, answer: "Yes", tag: Changes game memory, kind: Critical}
+  - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical}
+  - {from: G12, answer: "Yes", tag: Gets around a game check, kind: Critical}
+  - {from: G5, answer: "Yes", tag: Presses keys for you, kind: Critical}
+  - {from: G6, answer: "Yes", tag: Changes other plugins, kind: Critical}
+  - {from: G9, answer: "Yes", tag: Starts with Windows, kind: Critical}
+  - {from: C1, answer: "Yes", tag: Decrypts protected content, kind: Critical}
+  - {from: C2, answer: "Yes", tag: Copies others' content, kind: Critical}
+  - {from: C3, answer: "Yes", tag: Shares unprotected content, kind: Critical}
+  - {from: T7, answer: "No", tag: No open-source licence, kind: Critical, unless: [T1 no]}
+  - {from: T1, answer: "No", tag: Closed source, kind: Critical}
+  - {from: T2, answer: "Yes", tag: Docs contradict code, kind: Critical}
+  - {from: T3, answer: "No", tag: Not traced to source, kind: Critical, unless: [T1 no, T4 yes]}
+  - {from: T4, answer: "No", tag: "Covered by \"Not traced to source\", \"Not signed or traceable\" or \"Closed source\": the answer is also No when there is no public source to rebuild from", kind: None}
+  - {from: T6, answer: "No", tag: Dependencies not pinned, kind: Critical}
+  - {from: T1, answer: "Yes", tag: Open source, kind: Positive}
+  - {from: T3, answer: "Yes", tag: Built from public source, kind: Positive}
+  - {from: T4, answer: "Yes", tag: Rebuild matches source, kind: Positive}
+  - {from: P5, answer: "Yes", tag: Code-signed, kind: Positive}
+  - {from: D1, answer: "No", tag: No internet connections, kind: Positive}
+
+# The overall score (rules/scores.md, which explains it; the build writes its tables from here). Each area starts at 100 and every
+# answer that is a Concern by default takes off its cost; questions in one group describe one behaviour, so only the highest cost
+# in a group counts. A change to any number here is a new version: it rescores every card at once, and rules/scores.md,
+# "Changes to this rubric", gets a row.
+scores:
+  version: v1
+  # The tiers, set first; every cost below is one of them.
+  tiers: {small: 5, low: 10, medium: 15, large: 25, severe: 40, malware: 100}
+  # What a Concern by default costs, by question (by verdict where it differs). Every question that can be a Concern has one.
+  costs:
+    P1: medium
+    P2: medium
+    P3: {"No": severe, Partly: medium}
+    P4: severe
+    P5: small
+    P6: large
+    P7: low
+    P8: small
+    P9: malware
+    D2: medium
+    D3: severe
+    D4: severe
+    D5: severe
+    D6: low
+    D7: large
+    D8: large
+    D9: small
+    D10: small
+    G1: large
+    G2: large
+    G3: severe
+    G5: medium
+    G6: large
+    G9: small
+    G12: severe
+    C1: large
+    C2: large
+    C3: severe
+    T1: large
+    T2: large
+    T3: small
+    T4: small
+    T6: small
+    T7: small
+  # A cost that isn't charged when one of these answers is Yes: the release is traced to public source by either check.
+  waived:
+    T3: [T4]
+    T4: [T3]
+    P5: [T3, T4]
+  # A cost that isn't charged while one of these answers is a Concern by default, because that answer already says it: a tool
+  # whose source isn't public has no CI build to pin and no licence to name, so closed source is counted once (T1).
+  covered:
+    T6: [T1]
+    T7: [T1]
+  # Questions that describe one behaviour: only the highest cost among them counts.
+  groups:
+    - {name: changes the game, questions: [G1, G2, G3]}
+    - {name: sends data about you, questions: [D2, D3]}
+    - {name: decrypts and shares content, questions: [C1, C3]}
+    - {name: release not traced to public source, questions: [T1, T3, T4]}
+  # An answer not checked or held back is charged its highest cost, so less analysis never scores better; a line under the
+  # score says how many answers are still open.
+  # The score: the average of the five area scores and the lowest area score, weighted like this (half each).
+  lowest_weight: 0.5
+  # The question whose Concern gives "Signs of malware" in place of a score; left "Not checked", or with a licence that forbids
+  # the analysis, the tool is "Not scored".
+  malware: P9

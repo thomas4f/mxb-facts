@@ -1,0 +1,40 @@
+name: Analyse a tool
+description: Ask for a card about an MX Bikes or GP Bikes plugin, app or mod, or about a newer release of one.
+title: "Analyse: <tool> <version>"
+labels: ["analyse"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cards cover one release each. Link where players get it, so the card can record its origin.
+        If you are the author and your licence forbids reverse engineering, the card will cover only public facts.
+  - type: input
+    id: tool
+    attributes: { label: Tool name }
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes: { label: Version, description: "The release you want covered, as the tool names it." }
+    validations: { required: true }
+  - type: input
+    id: download
+    attributes: { label: Download link, description: "Where players get this release." }
+    validations: { required: true }
+  - type: input
+    id: mxbmods
+    attributes: { label: mxb-mods.com or gpb-mods.com page, description: "If it has one." }
+  - type: input
+    id: github
+    attributes: { label: Source repository, description: "If it has one." }
+  - type: input
+    id: website
+    attributes: { label: Website, description: "If it has its own." }
+  - type: dropdown
+    id: relation
+    attributes:
+      label: You are
+      options: [A player, "This tool's author", "Someone else (another tool's author, a mod creator, a server owner…)"]
+    validations: { required: true }
+  - type: textarea
+    id: notes
+    attributes: { label: Anything else, description: "For example what you'd like checked. Every card answers the same questions anyway." }

@@ -1,0 +1,280 @@
+{
+  "fetched": "2026-11-19",
+  "source": "https://mxb-mods.com/wp-json/wp/v2/posts",
+  "note": "Each excerpt is quoted from the tool's mxb-mods.com page as published, not verified.",
+  "tools": {
+    "akit-studio": {
+      "post": 188622,
+      "link": "https://mxb-mods.com/mxb-a-kit-studio/",
+      "title": "MXB A-Kit Studio",
+      "excerpt": "An industry-standard C++ telemetry and chassis setup engineering plugin for MX Bikes. Combining real-time physics monitoring with interactive rider cockpit feedback, it reverse-engineers pro championship chassis balance and delivers mathematically actionable setup adjustments without the guesswork. Whether you’re fighting front-end tuck in deep ARL ruts, packing through braking bumps, or searching for that extra second per…",
+      "published": "2026-08-08",
+      "updated": "2026-11-17",
+      "categories": [
+        "Code Mods",
+        "Other"
+      ],
+      "still_tied": true
+    },
+    "frost-converter": {
+      "post": 197656,
+      "link": "https://mxb-mods.com/fbx3edf/",
+      "title": "fbx3edf",
+      "excerpt": "fbx3edf by mxbsecure FBX to MX Bikes .edf, in seconds. fbx3edf turns an FBX into the .edf that MX Bikes loads. The output matches PiBoSo’s fbx2edf 1.32, and it’s a lot faster. It runs on your PC, and it’s Windows-signed. It used to be called Frost Converter. Part of mxbsecure mxbsecure is my home for…",
+      "published": "2026-11-13",
+      "updated": "2026-11-13",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "gamefx-plus": {
+      "post": 195150,
+      "link": "https://mxb-mods.com/gamefx-2/",
+      "title": "GameFX+",
+      "excerpt": "GameFX+ replaces the game’s roost with new roost and dust, and adds realistic exhaust effects. Roost and dust New roost from the rear tyre, for every rider online Dirt clods that fly off and land Dust clouds that hang in the air and drift with the wind Roost takes its colour from the track Roost…",
+      "published": "2026-10-31",
+      "updated": "2026-11-16",
+      "categories": [
+        "Code Mods",
+        "Other"
+      ],
+      "still_tied": true
+    },
+    "graphics-overhaul": {
+      "post": 195566,
+      "link": "https://mxb-mods.com/graphics-overhaul-2/",
+      "title": "Graphics Overhaul",
+      "excerpt": "Graphics Overhaul – the mod that replaces ReShade in MX Bikes. Graphics Overhaul is a plugin that changes how MX Bikes actually draws the world. It isn’t a filter over the finished picture like ReShade, so the lighting looks real and your HUD and menus stay crisp. Lighting Ambient occlusion and soft contact shadows Sun…",
+      "published": "2026-11-03",
+      "updated": "2026-11-16",
+      "categories": [
+        "Code Mods",
+        "Other"
+      ],
+      "still_tied": true
+    },
+    "heightmap-studio": {
+      "post": 185826,
+      "link": "https://mxb-mods.com/heightmap-studio-build-your-own-tracks/",
+      "title": "Heightmap Studio",
+      "excerpt": "Everything to build your full environment. Heightmap Studio is back with the biggest update since it’s original launch, reworked entirely to offer you the ultimate custom environment building tool for your favorite game(s)! This update packs huge optimization fixes, countless new features, a refreshed and streamlined UI, with real-time 3d editing throughout your workflow. Simply…",
+      "published": "2026-06-25",
+      "updated": "2026-11-19",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "holeshot": {
+      "post": 189700,
+      "link": "https://mxb-mods.com/holeshot-hud/",
+      "title": "HoleShot HUD",
+      "excerpt": "Holeshot HUD — a free, fully customizable overlay for MX Bikes MX Bikes does not give you much on-screen. Holeshot HUD sits on top of the game and shows live race data the way *you* want it: standings, gaps, a dash, a pit board, telemetry, maps, and who’s around you. It is fully customizable. Nothing is…",
+      "published": "2026-08-24",
+      "updated": "2026-10-06",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "maxhud": {
+      "post": 12051,
+      "link": "https://mxb-mods.com/maxhud/",
+      "title": "MaxHUD",
+      "excerpt": "Hey guys it’s me again, posting someone else’s mod that’s popular because I can’t make anything myself. Anyway that’s besides the point. The mod I’m posting is called MaxHUD. It’s a really useful mod that can do a lot of things. It shows lap times, shows your fuel, track map, among other things. I put…",
+      "published": "2021-05-22",
+      "updated": "2021-05-22",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": null
+    },
+    "mx-dirt-mod": {
+      "post": 197551,
+      "link": "https://mxb-mods.com/dirt-erode-overhall/",
+      "title": "Dirt/Erode Overhall",
+      "excerpt": "MX Dirt Mod – realistic track wear for MX Bikes Ruts, braking bumps, acceleration chop, berms and a soft layer of loose dirt form where riders actually wear a track: while you ride or before you start. The ruts and bumps are written into the game’s own terrain, so the bike really rides them. FEATURES…",
+      "published": "2026-11-12",
+      "updated": "2026-11-17",
+      "categories": [
+        "Other",
+        "Others"
+      ],
+      "still_tied": true
+    },
+    "mxb-app": {
+      "post": 188347,
+      "link": "https://mxb-mods.com/mxb-app-one-click-mod-manager/",
+      "title": "MXB App",
+      "excerpt": "MXB App by mxbsecure Find a server. Install its track. Ride. Crash less. MXB App is the free desktop app for MX Bikes that installs your mods, finds you a server, fixes the game’s known crashes and keeps your mods folder clean. It’s open source (MIT) and Windows-signed. Part of mxbsecure mxbsecure is my home…",
+      "published": "2026-08-06",
+      "updated": "2026-11-12",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "mxb-coach": {
+      "post": 197534,
+      "link": "https://mxb-mods.com/mxb-coach/",
+      "title": "MXB Coach",
+      "excerpt": "MXB Coach by mxbsecure Find your lap time. MXB Coach records your laps and shows where you lose time, corner by corner, and what to change in each one. It runs on your PC and nothing is uploaded. It’s free and Windows-signed. Part of mxbsecure mxbsecure is my home for MX Bikes: mods, apps, servers…",
+      "published": "2026-11-12",
+      "updated": "2026-11-12",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "mxb-damage": {
+      "post": 195327,
+      "link": "https://mxb-mods.com/mxb-damage-plugin-2/",
+      "title": "MXB Damage",
+      "excerpt": "For questions, feedback, suggestions, or bug reports, DM froxy462 on Discord I would appreciate donations as i do all of this for free. it would help me push out more updates and bug fixes Things to know Works on every bike, Model swaps are supported. New bike? Ride it once, wait for “Bike Setup Complete”,…",
+      "published": "2026-11-01",
+      "updated": "2026-11-15",
+      "categories": [
+        "Code Mods",
+        "Other"
+      ],
+      "still_tied": true
+    },
+    "mxb-discord-rpc": {
+      "post": 101004,
+      "link": "https://mxb-mods.com/improved-discord-rich-presence-discord-rpc/",
+      "title": "Improved MX Bikes Status in Discord",
+      "excerpt": "Info: MX Bikes’ default discord RPC has no info about the game, so I made a plugin to display some extra info I have made the Github repository public, if you want to add or fix anything go make a pull request I’ll try to check frequently for new requests. Images: Issues: If you close…",
+      "published": "2024-09-24",
+      "updated": "2024-10-07",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "mxb-dualsense": {
+      "post": 197978,
+      "link": "https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/",
+      "title": "MXB DualSense Support – PS5 adaptive triggers",
+      "excerpt": "Feel MX Bikes in your hands. MXB DualSense Support brings the adaptive triggers of the PS5 DualSense to MX Bikes: L2 becomes a real brake lever that stutters when a wheel locks, R2 a throttle with a return spring. It reads the bike data the game already sends, about 100 times per second.…",
+      "published": "2026-11-15",
+      "updated": "2026-11-16",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "mxb-fps-booster": {
+      "post": 196428,
+      "link": "https://mxb-mods.com/mxb_fps_booster_v1-2/",
+      "title": "MXB_FPS_Booster_V1",
+      "excerpt": "A little fps booster for mxbikes. usually give a few 10- 30 more fps depending on what pc u got. MAKE SURE TO TURN OF GAME MODE WHEN GOING OTHER STUFF BECAUSE THE PROGRAM MAKES OTHER APPLICATIONS SLOWER. VirusTotal – File – 97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4",
+      "published": "2026-11-05",
+      "updated": "2026-11-05",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "mxb-ragdoll": {
+      "post": 194769,
+      "link": "https://mxb-mods.com/mx-bikes-ragdoll-v1-0-2/",
+      "title": "MX Bikes Ragdoll  v1.0",
+      "excerpt": "VIDEO SHOWCASE OF AUTO INSTALL AND MOD AT WORK MX Bikes Ragdoll v1.0: HERE IS A SHOWCASE AND LINKS TO DOWNLOADS for MX Bikes beta21 (Steam) – by BoredDev / mxbikesmods THE TIME HAS COME!!! AFTER A LONG WEEK AND A HALF OF FINISHING UP MY MOD, IT IS FINALLY HERE! (continuation from last post)…",
+      "published": "2026-10-30",
+      "updated": "2026-10-30",
+      "categories": [
+        "Code Mods",
+        "Other"
+      ],
+      "still_tied": true
+    },
+    "mxbfix": {
+      "post": 195602,
+      "link": "https://mxb-mods.com/mxbfix-fixes-common-game-crashes-2/",
+      "title": "MXBFix – Fixes Common Game Crashes",
+      "excerpt": "MXBFix stops the crashes MX Bikes players run into most often. It’s free, and all of its source code is public. Four crash types account for about 65% of the 104,764 crash reports in the MXBMRP3 usage survey. MXBFix includes a fix for each one: Track Loading (32%): Damaged ghost lap files cause the game…",
+      "published": "2026-11-03",
+      "updated": "2026-11-03",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "mxbmrp3": {
+      "post": 170597,
+      "link": "https://mxb-mods.com/mxbmrp3/",
+      "title": "MXBMRP3",
+      "excerpt": "A free, open-source plugin for MX Bikes, GP Bikes, and Kart Racing Pro with customizable on-screen displays, immersion features, social tools, and streaming/broadcasting overlays. Toggle HUDs from the strip, flip Dash pages, and switch themes, languages and fonts in Settings. Features Racing: Live standings, timing, dash, gap bar, track map, radar and online records Social:…",
+      "published": "2025-11-29",
+      "updated": "2026-11-08",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "mxbtt": {
+      "post": 189853,
+      "link": "https://mxb-mods.com/mxbtt-com-the-weekly-time-trial-prize-money-racing-platform/",
+      "title": "MXBTT.com  — The Weekly Time Trial & Prize Money Racing Platform",
+      "excerpt": "MXBTT is a competitive time trial plugin for MX Bikes. Connect your game directly to mxbtt.com to log verified lap times, record telemetry, download competitor ghost replays, and compete in weekly cash bounty rounds! 🏆 Key Features ⏱️ Zero-Configuration Lap Sync: Seamlessly detects valid laps and logs personal bests to the live online leaderboards in…",
+      "published": "2026-08-27",
+      "updated": "2026-08-27",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "mxpulse": {
+      "post": 187943,
+      "link": "https://mxb-mods.com/mxpulse/",
+      "title": "MXPulse",
+      "excerpt": "MXPulse MXPulse is a modern and highly customizable HUD plugin built for MX Bikes, combining essential live race information, modular widgets and a premium racing-focused interface. Every element can be positioned independently, scaled and adapted to your riding style. Whether you want a complete race dashboard or a minimal HUD with only the information that…",
+      "published": "2026-07-31",
+      "updated": "2026-08-01",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "rider-pov-plus": {
+      "post": 194956,
+      "link": "https://mxb-mods.com/rider-pov-2/",
+      "title": "Rider POV+",
+      "excerpt": "Rider POV+ makes the first person camera feel like a real head on a neck. Head movement Leans with acceleration, braking and corners Jolts on landings and chatter over bumps Engine vibration and wind buffeting at speed Choose how much of each you want Chest cam Move the camera from your helmet to your chest…",
+      "published": "2026-10-31",
+      "updated": "2026-11-16",
+      "categories": [
+        "Code Mods",
+        "Other"
+      ],
+      "still_tied": true
+    },
+    "suspension-tuner": {
+      "post": 191807,
+      "link": "https://mxb-mods.com/suspension-tuner/",
+      "title": "Suspension Tuner",
+      "excerpt": "I’ve been working on this desktop tool for the last few weeks to make suspension setup way easier. It’s free, no account, no key, no paid features, just open it and use it. You ride a few clean laps, the tool reads MX Bikes’ UDP telemetry, analyzes how your suspension behaves, and writes an updated…",
+      "published": "2026-10-09",
+      "updated": "2026-10-21",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    }
+  }
+}

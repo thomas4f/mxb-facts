@@ -1,0 +1,652 @@
+{
+ "$schema": "https://json-schema.org/draft/2020-12/schema",
+ "$id": "https://github.com/thomas4f/mxb-facts/rules/card.schema.json",
+ "title": "MXB Facts card",
+ "description": "One card: one release of one tool. The build (site/build.py) checks every card against this schema, then against the rules in rules/template.md and rules/questions.md: it sets the scores and key-question marks itself.",
+ "type": "object",
+ "additionalProperties": false,
+ "required": [
+  "tool",
+  "version",
+  "summary",
+  "header",
+  "files",
+  "key",
+  "areas",
+  "sections",
+  "answers",
+  "history"
+ ],
+ "properties": {
+  "tool": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The tool's name, as its author names it"
+  },
+  "version": {
+   "type": "string",
+   "minLength": 1,
+   "description": "The release analysed"
+  },
+  "summary": {
+   "type": "string",
+   "minLength": 1,
+   "description": "Two short sentences shown under the name on the tool's page, written from the analysis"
+  },
+  "header": {
+   "type": "object",
+   "description": "The header rows of rules/template.md, by label, except Files checked (see files). An MX Bikes tool has the \"mxb-mods.com\" row, a GP Bikes tool the \"gpb-mods.com\" row",
+   "required": [
+    "In one line",
+    "Category",
+    "Author",
+    "Game",
+    "Homepage",
+    "GitHub",
+    "Version analysed",
+    "Analysed on",
+    "Method"
+   ],
+   "properties": {
+    "What it is": {
+     "type": "string",
+     "minLength": 1,
+     "description": "What the tool is and where it goes, in two or three sentences, from the analysis"
+    },
+    "In one line": {
+     "type": "string",
+     "minLength": 1,
+     "description": "What the tool is and does, at most 90 characters, written from the analysis: never the author's own claims and no words that judge. Shown under the tool's name"
+    },
+    "Category": {
+     "enum": [
+      "HUD",
+      "Setup and coaching",
+      "Gameplay and visuals",
+      "Fixes and performance",
+      "Mod managers",
+      "Content creation",
+      "Controllers",
+      "Social"
+     ],
+     "description": "It says what kind of tool it is, so readers can find similar ones; it says nothing about the tool's quality"
+    },
+    "Author": {
+     "type": "string",
+     "minLength": 1,
+     "description": "The name the author publishes as their public identity (GitHub name, the name on its licence or page)"
+    },
+    "Game": {
+     "enum": [
+      "MX Bikes",
+      "GP Bikes"
+     ],
+     "description": "The PiBoSo game the tool is for"
+    },
+    "mxb-mods.com": {
+     "type": "string",
+     "minLength": 1,
+     "description": "For an MX Bikes tool: its mxb-mods.com page, \"None found\", or \"Not checked\" with the reason"
+    },
+    "gpb-mods.com": {
+     "type": "string",
+     "minLength": 1,
+     "description": "For a GP Bikes tool, in place of mxb-mods.com: its gpb-mods.com page, \"None found\", or \"Not checked\" with the reason"
+    },
+    "Homepage": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Its own website, or \"None found\""
+    },
+    "GitHub": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Its GitHub repository or releases, or \"None found\""
+    },
+    "Received as": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Only for a file sent to us: what was received and where it came from"
+    },
+    "Version analysed": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Release name and tag"
+    },
+    "Source commit": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Full hash, linked"
+    },
+    "Analysed on": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Date"
+    },
+    "Held back": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Only while an item is held back under rule 9: \"<n> item(s) (rule 9): <question IDs>\". Those answers can't be Good. The dates (when the author was told, and the end, 30 days later at most) are kept privately by the maintainer, not in the repository"
+    },
+    "Licence clause": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Only when the licence forbids the analysis (rule 6): the clause, quoted, with a link to it or the SHA-256 of the file it is in. A card has this row if, and only if, an answer is \"Not allowed\"; that card gets \"Not scored\" in place of a score. A clause added in a later release applies from that release on; a card for an earlier release stays (rule 2)"
+    },
+    "Earlier reports": {
+     "type": "string",
+     "minLength": 1,
+     "description": "Only when the tool has earlier cards: a link to each, newest first, so a reader can see what changed between releases"
+    },
+    "Method": {
+     "type": "string",
+     "minLength": 1,
+     "description": "That the analysis was done by an AI assistant, and the model and effort it ran with; read the source at the commit; compared release files to source where possible; what was and wasn't run"
+    }
+   },
+   "additionalProperties": false,
+   "oneOf": [
+    {
+     "properties": {
+      "Game": {
+       "const": "MX Bikes"
+      }
+     },
+     "required": [
+      "mxb-mods.com"
+     ],
+     "not": {
+      "required": [
+       "gpb-mods.com"
+      ]
+     }
+    },
+    {
+     "properties": {
+      "Game": {
+       "const": "GP Bikes"
+      }
+     },
+     "required": [
+      "gpb-mods.com"
+     ],
+     "not": {
+      "required": [
+       "mxb-mods.com"
+      ]
+     }
+    }
+   ]
+  },
+  "files": {
+   "type": "array",
+   "minItems": 1,
+   "description": "File names + SHA-256 of what players download, and of the files inside them that were checked (the `files` list)",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "name",
+     "sha256"
+    ],
+    "properties": {
+     "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "File name as shipped; \"Zip\" for an unnamed download"
+     },
+     "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+     },
+     "inside": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The listed file this one comes from"
+     },
+     "note": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  },
+  "files_note": {
+   "type": "string",
+   "minLength": 1,
+   "description": "What else the header says about the files (code signing, matching published hashes)"
+  },
+  "key": {
+   "type": "object",
+   "description": "Short answers to the ten key questions: a few words, then the detail. No mark: the build sets it",
+   "additionalProperties": false,
+   "required": [
+    "K1",
+    "K2",
+    "K3",
+    "K4",
+    "K5",
+    "K6",
+    "K7",
+    "K8",
+    "K9",
+    "K10"
+   ],
+   "properties": {
+    "K1": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K2": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K3": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K4": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K5": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K6": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K7": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K8": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K9": {
+     "type": "string",
+     "minLength": 1
+    },
+    "K10": {
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  },
+  "areas": {
+   "type": "object",
+   "description": "One line per area on what the tool does there, from the analysis; the area's score comes from the answers' costs",
+   "additionalProperties": false,
+   "required": [
+    "Your PC and files",
+    "Your data",
+    "Your game",
+    "Creators' content",
+    "Transparency",
+    "Money"
+   ],
+   "properties": {
+    "Your PC and files": {
+     "type": "string",
+     "minLength": 1
+    },
+    "Your data": {
+     "type": "string",
+     "minLength": 1
+    },
+    "Your game": {
+     "type": "string",
+     "minLength": 1
+    },
+    "Creators' content": {
+     "type": "string",
+     "minLength": 1
+    },
+    "Transparency": {
+     "type": "string",
+     "minLength": 1
+    },
+    "Money": {
+     "type": "string",
+     "minLength": 1
+    }
+   }
+  },
+  "sections": {
+   "type": "array",
+   "description": "The report sections of rules/template.md, in order, each a list of paragraphs, lists and tables",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "title",
+     "blocks"
+    ],
+    "properties": {
+     "title": {
+      "enum": [
+       "Your PC and files",
+       "Your data",
+       "Your game",
+       "Creators' content",
+       "Transparency",
+       "Money",
+       "What it says vs what it does",
+       "Limits of this analysis"
+      ]
+     },
+     "blocks": {
+      "type": "array",
+      "items": {
+       "$ref": "#/$defs/block"
+      }
+     }
+    }
+   }
+  },
+  "answers": {
+   "type": "object",
+   "description": "One answer per question in rules/questions.md, by its ID (the build checks that none is missing or unknown)",
+   "additionalProperties": false,
+   "patternProperties": {
+    "^[PDGCTM][0-9]+$": {
+     "$ref": "#/$defs/answer"
+    }
+   }
+  },
+  "by_maintainer": {
+   "const": true,
+   "description": "Only on a card of a tool made by the person who runs MXB Facts: the tool's page then shows a notice saying so, with the Author row (see README, \"Conflict of interest\")"
+  },
+  "corrections": {
+   "type": "array",
+   "description": "Comments on answers sent through the \"Comment on an answer\" form (GitHub issues), oldest first: a correction, something missing, or context from the tool's author. While one is open, each answer it names shows its count on the comment icon, and the tool a neutral \"under review\" tag; nothing else on the card changes until it is decided",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "issue",
+     "questions",
+     "opened",
+     "status"
+    ],
+    "properties": {
+     "issue": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "The issue number in this repository"
+     },
+     "kind": {
+      "enum": [
+       "correction",
+       "missing",
+       "context"
+      ],
+      "description": "What it is: a correction (the answer is wrong or out of date), something missing, or context from the tool's author. Left out, it is a correction"
+     },
+     "questions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+       "type": "string",
+       "pattern": "^[PDGCTM]\\d+$"
+      },
+      "description": "The questions whose answers it is about"
+     },
+     "opened": {
+      "type": "string",
+      "pattern": "^\\d{1,2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4}$"
+     },
+     "status": {
+      "enum": [
+       "open",
+       "fixed",
+       "declined",
+       "noted"
+      ],
+      "description": "fixed: the card changed (a Card history row links the issue); declined: it doesn't hold; noted: answered without a change to the card (usually context)"
+     },
+     "closed": {
+      "type": "string",
+      "pattern": "^\\d{1,2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4}$"
+     },
+     "reason": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Once decided: what was fixed, or why it was declined, in one line"
+     }
+    }
+   }
+  },
+  "history": {
+   "type": "array",
+   "minItems": 1,
+   "description": "Card history, oldest first, one change per row",
+   "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+     "date",
+     "change"
+    ],
+    "properties": {
+     "date": {
+      "type": "string",
+      "pattern": "^\\d{1,2} (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) \\d{4}$"
+     },
+     "change": {
+      "type": "string",
+      "minLength": 1
+     }
+    }
+   }
+  }
+ },
+ "$defs": {
+  "block": {
+   "oneOf": [
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "text"
+     ],
+     "properties": {
+      "mark": {
+       "enum": [
+        "good",
+        "note",
+        "concern"
+       ]
+      },
+      "text": {
+       "type": "string",
+       "minLength": 1
+      },
+      "questions": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "string",
+        "pattern": "^[PDGCTM][0-9]+$"
+       },
+       "description": "A Concern line or row only: the answers it backs; it is shown as a Concern when one of them is"
+      }
+     }
+    },
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "limits"
+     ],
+     "description": "Limits of this analysis only: each thing we couldn't prove or run, with the questions whose answers it affects (none when it touches no single question)",
+     "properties": {
+      "limits": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+         "text",
+         "questions"
+        ],
+        "properties": {
+         "text": {
+          "type": "string",
+          "minLength": 1
+         },
+         "questions": {
+          "type": "array",
+          "items": {
+           "type": "string",
+           "pattern": "^[PDGCTM][0-9]+$"
+          }
+         }
+        }
+       }
+      }
+     }
+    },
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "list"
+     ],
+     "properties": {
+      "list": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "string",
+        "minLength": 1
+       }
+      }
+     }
+    },
+    {
+     "type": "object",
+     "additionalProperties": false,
+     "required": [
+      "table",
+      "rows"
+     ],
+     "properties": {
+      "table": {
+       "type": "array",
+       "minItems": 2,
+       "items": {
+        "type": "string",
+        "minLength": 1
+       }
+      },
+      "rows": {
+       "type": "array",
+       "minItems": 1,
+       "items": {
+        "type": "object",
+        "properties": {
+         "mark": {
+          "enum": [
+           "good",
+           "note",
+           "concern"
+          ]
+         },
+         "questions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+           "type": "string",
+           "pattern": "^[PDGCTM][0-9]+$"
+          },
+          "description": "A Concern line or row only: the answers it backs; it is shown as a Concern when one of them is"
+         }
+        },
+        "additionalProperties": {
+         "type": "string"
+        }
+       }
+      }
+     }
+    }
+   ]
+  },
+  "answer": {
+   "type": "object",
+   "additionalProperties": false,
+   "required": [
+    "verdict",
+    "evidence"
+   ],
+   "properties": {
+    "verdict": {
+     "enum": [
+      "Yes",
+      "Yes, not by default",
+      "Yes, on request",
+      "No",
+      "Partly",
+      "Not checked",
+      "Not allowed",
+      "Doesn't apply"
+     ]
+    },
+    "mark": {
+     "enum": [
+      "good",
+      "note",
+      "concern"
+     ]
+    },
+    "text": {
+     "type": "string",
+     "minLength": 1
+    },
+    "evidence": {
+     "type": "string",
+     "minLength": 1
+    },
+    "second_check": {
+     "type": "string",
+     "minLength": 1
+    }
+   },
+   "allOf": [
+    {
+     "if": {
+      "properties": {
+       "verdict": {
+        "enum": [
+         "Not checked",
+         "Not allowed",
+         "Doesn't apply"
+        ]
+       }
+      }
+     },
+     "then": {
+      "required": [
+       "text"
+      ],
+      "not": {
+       "required": [
+        "mark"
+       ]
+      }
+     },
+     "else": {
+      "required": [
+       "mark"
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

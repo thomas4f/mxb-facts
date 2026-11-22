@@ -1,0 +1,10 @@
+_site/
+.cache/
+__pycache__/
+*.exe
+*.dlo
+*.dll
+*.zip
+lab/plugin-test-host/build/
+lab/real-game/cache/
+lab/real-game/build/

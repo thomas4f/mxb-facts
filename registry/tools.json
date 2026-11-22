@@ -1,0 +1,291 @@
+{
+  "akit-studio": {
+    "name": "MXB A-Kit Studio",
+    "author": "DankMaps",
+    "github": "DankMaps/MXB-AKit-Studio-Releases",
+    "homepage": "https://mxbtt.com/akit-studio",
+    "cards": [],
+    "mxb-mods": {
+      "post": 188622,
+      "tied_by": "MXB-AKit-Studio-Releases/releases/download/V1.7.0/MXB_AKit_Studio_ReleaseV1.7.0.zip"
+    }
+  },
+  "coremx": {
+    "name": "CoreMX",
+    "author": "rare621",
+    "github": "rare621/Core-MX",
+    "homepage": "https://coremx.app",
+    "cards": [],
+    "mxb-mods": {
+      "post": null,
+      "note": "Not on mxb-mods.com (none found by search on 19 Nov 2026; the maintainer confirmed it isn't uploaded there)"
+    }
+  },
+  "fixxers-rumble": {
+    "name": "FIXXER's Controller Rumble",
+    "author": "FIXXER 1001",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 4879,
+      "tied_by": "FIXXER_RUMBLE_GPB64.dlo"
+    }
+  },
+  "frost-converter": {
+    "name": "Frost Converter",
+    "author": "Frost (Frostn1)",
+    "github": "Frostn1/frost-converter",
+    "homepage": "https://mxbsecure.com/convert",
+    "cards": [],
+    "mxb-mods": {
+      "post": 197656,
+      "tied_by": "github.com/Frostn1/frost-converter"
+    }
+  },
+  "frostmod": {
+    "name": "FrostMod",
+    "author": "Frost (Frostn1)",
+    "github": "Frostn1/frostmod",
+    "homepage": "https://mxbsecure.com/frostmod",
+    "cards": [],
+    "mxb-mods": {
+      "post": null,
+      "note": "Not on mxb-mods.com (none found by search on 19 Nov 2026; the maintainer confirmed Frost's tools there are fbx3edf, Frost's Studio, MXB Coach and MXB App)"
+    }
+  },
+  "gamefx-plus": {
+    "name": "GameFX+",
+    "author": "Finner24",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 195150,
+      "tied_by": "1794860691-gamefx-plus.zip"
+    }
+  },
+  "gpb-content-manager": {
+    "name": "GP Bikes Content Manager",
+    "author": "FIXXER 1001",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 4836,
+      "confirmed": "The maintainer, 20 Nov 2026: the tool's gpb-mods.com page, by FIXXER 1001. Not analysed yet, so no file ties it"
+    }
+  },
+  "graphics-overhaul": {
+    "name": "Graphics Overhaul",
+    "author": "Finner24",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 195566,
+      "tied_by": "1794860747-graphics-overhaul.zip"
+    }
+  },
+  "heightmap-studio": {
+    "name": "Heightmap Studio",
+    "author": "bradenmackey",
+    "github": "bradenmackey/hms-public",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 185826,
+      "tied_by": "github.com/bradenmackey/hms-public"
+    }
+  },
+  "holeshot": {
+    "name": "HoleShot HUD",
+    "author": "LeadingTrendTechnologies",
+    "github": "LeadingTrendTechnologies/HoleshotHUD",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 189700,
+      "tied_by": "github.com/LeadingTrendTechnologies/HoleshotHUD"
+    }
+  },
+  "maxhud": {
+    "name": "MaXHUD",
+    "author": "HornetMaX (PiBoSo forum)",
+    "github": null,
+    "homepage": "https://forum.piboso.com/index.php?topic=79.0",
+    "cards": [],
+    "mxb-mods": {
+      "post": 12051,
+      "confirmed": "The maintainer confirmed on 19 Nov 2026 that this page is MaXHUD uploaded by someone else; it was posted in 2021, has no download tied to 2.2.7, and its text says it posts someone else's mod. MaXHUD is published on the PiBoSo forum"
+    },
+    "downloads": [
+      "https://forum.piboso.com/index.php?topic=79.0"
+    ]
+  },
+  "mx-dirt-mod": {
+    "name": "MX Dirt Mod",
+    "author": "kadenball",
+    "github": "kadenball/mx-dirt-mod",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 197551,
+      "tied_by": "github.com/kadenball/mx-dirt-mod"
+    }
+  },
+  "mx-dirt-mod-alt": {
+    "name": "MX Dirt Mod Alt",
+    "author": "FMilesi-Cloud",
+    "github": "FMilesi-Cloud/mx-dirt-mod-alt",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": null,
+      "note": "No page found (searched 19 Nov 2026)"
+    }
+  },
+  "mxb-app": {
+    "name": "MXB App",
+    "author": "Frost (Frostn1)",
+    "github": "Frostn1/mxb-app",
+    "homepage": "https://mxbsecure.com/app",
+    "cards": [],
+    "mxb-mods": {
+      "post": 188347,
+      "tied_by": "github.com/Frostn1/mxb-app"
+    }
+  },
+  "mxb-coach": {
+    "name": "MXB Coach",
+    "author": "Frost (Frostn1)",
+    "github": "Frostn1/mxb-coach",
+    "homepage": "https://mxbsecure.com/coach",
+    "cards": [],
+    "mxb-mods": {
+      "post": 197534,
+      "tied_by": "github.com/Frostn1/mxb-coach"
+    }
+  },
+  "mxb-damage": {
+    "name": "MXB Damage",
+    "author": "FroxyMXB",
+    "github": "FroxyMXB/MXB-Damage-Plugin",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 195327,
+      "tied_by": "github.com/FroxyMXB/MXB-Damage-Plugin"
+    }
+  },
+  "mxb-discord-rpc": {
+    "name": "MXB Discord RPC",
+    "author": "stars (starsssy)",
+    "github": "starsssy/mxb-discord-rpc",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 101004,
+      "tied_by": "github.com/starsssy/mxb-discord-rpc"
+    }
+  },
+  "mxb-dualsense": {
+    "name": "MXB DualSense Support",
+    "author": "Slimerex",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 197978,
+      "tied_by": "1794750282-mxb-dualsense-support-1.0.0.zip"
+    }
+  },
+  "mxb-fps-booster": {
+    "name": "MXB FPS Booster",
+    "author": "ts",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 196428,
+      "tied_by": "97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4"
+    }
+  },
+  "mxb-ragdoll": {
+    "name": "MXB Ragdoll",
+    "author": "BoredDev / mxbikesmods",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 194769,
+      "tied_by": "MXB-Ragdoll-v1.0.zip"
+    }
+  },
+  "mxbfix": {
+    "name": "mxbfix",
+    "author": "xAmped",
+    "github": "xAmped/mxbfix",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 195602,
+      "tied_by": "github.com/xAmped/mxbfix"
+    }
+  },
+  "mxbmrp3": {
+    "name": "MXBMRP3",
+    "author": "thomas4f",
+    "github": "thomas4f/mxbmrp3",
+    "homepage": "https://thomas4f.github.io/mxbmrp3/",
+    "cards": [],
+    "mxb-mods": {
+      "post": 170597,
+      "tied_by": "github.com/thomas4f/mxbmrp3"
+    }
+  },
+  "mxbtt": {
+    "name": "MXBTT",
+    "author": "DankMaps",
+    "github": "DankMaps/MXBTT.com-Releases",
+    "homepage": "https://mxbtt.com",
+    "cards": [],
+    "mxb-mods": {
+      "post": 189853,
+      "tied_by": "mxbtt.dlo"
+    }
+  },
+  "mxpulse": {
+    "name": "MXPulse Alpha",
+    "author": "daf0707pro-lgtm",
+    "github": "daf0707pro-lgtm/MXPulse",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 187943,
+      "tied_by": "github.com/daf0707pro-lgtm/MXPulse"
+    }
+  },
+  "rider-pov-plus": {
+    "name": "Rider POV+",
+    "author": "Finner24",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 194956,
+      "tied_by": "1794860628-rider-pov-plus.zip"
+    }
+  },
+  "suspension-tuner": {
+    "name": "Suspension Tuner",
+    "author": "Lilian1134",
+    "github": "Lilian1134/Suspension-Tuner",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 191807,
+      "tied_by": "github.com/Lilian1134/Suspension-Tuner"
+    }
+  }
+}

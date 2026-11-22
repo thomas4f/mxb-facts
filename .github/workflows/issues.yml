@@ -1,0 +1,53 @@
+name: Issues
+# Labels a new issue by its form and tool, and checks that open correction issues and the cards' open corrections agree
+# (tools/check_corrections.py): a run fails while a correction issue opened or closed isn't yet on its card, which is how the
+# maintainer hears of it.
+on:
+  issues:
+    types: [opened, closed, reopened]
+permissions:
+  contents: read
+  issues: write
+jobs:
+  label:
+    if: github.event.action == 'opened'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - id: find
+        run: |
+          read -r kind slug < <(python3 -I tools/issue_label.py "$GITHUB_EVENT_PATH") || true
+          echo "kind=$kind" >> "$GITHUB_OUTPUT"
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+      # The form's own label ("analyse" or "correction"): GitHub drops a form's label when it doesn't exist yet, so it is made here.
+      - if: steps.find.outputs.kind == 'analyse' || steps.find.outputs.kind == 'correction'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KIND: ${{ steps.find.outputs.kind }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh label create "$KIND" --repo "$GITHUB_REPOSITORY" --color d4c5f9 --force
+          gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --add-label "$KIND"
+      # The slug comes from registry/tools.json, never from the issue text.
+      - if: steps.find.outputs.slug != '' && steps.find.outputs.slug != '-'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          SLUG: ${{ steps.find.outputs.slug }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          gh label create "tool:$SLUG" --repo "$GITHUB_REPOSITORY" --color ededed --description "Issues about this tool" --force
+          gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --add-label "tool:$SLUG"
+  corrections:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { ref: main }
+      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
+        with: { python-version: "3.12" }
+      - run: pip install -r requirements.txt
+      - run: python3 -I tools/check_corrections.py
+        env:
+          GH_TOKEN: ${{ github.token }}
