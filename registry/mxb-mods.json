@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-11-19",
+  "fetched": "2026-11-22",
   "source": "https://mxb-mods.com/wp-json/wp/v2/posts",
   "note": "Each excerpt is quoted from the tool's mxb-mods.com page as published, not verified.",
   "tools": {
@@ -163,9 +163,9 @@
       "post": 197978,
       "link": "https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/",
       "title": "MXB DualSense Support – PS5 adaptive triggers",
-      "excerpt": "Feel MX Bikes in your hands. MXB DualSense Support brings the adaptive triggers of the PS5 DualSense to MX Bikes: L2 becomes a real brake lever that stutters when a wheel locks, R2 a throttle with a return spring. It reads the bike data the game already sends, about 100 times per second.…",
+      "excerpt": "Feel the bike in your triggers. MXB DualSense Support brings the adaptive triggers of the PS5 DualSense to MX Bikes: L2 becomes a real brake lever that stutters when a wheel locks, R2 a throttle with a return spring, and every landing kicks both. It reads the bike data the game already sends, about…",
       "published": "2026-11-15",
-      "updated": "2026-11-16",
+      "updated": "2026-11-20",
       "categories": [
         "Other",
         "Tools"

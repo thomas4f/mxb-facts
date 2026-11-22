@@ -1,0 +1,845 @@
+{
+ "note": "The newest release seen in each place a tool publishes, written by tools/releases_fetch.py. \"seen\" is the date it was first seen. Hashes come from GitHub or from downloading the file once.",
+ "tools": {
+  "akit-studio": {
+   "github": {
+    "source": "github",
+    "version": "V1.7.0",
+    "date": "2026-09-02",
+    "url": "https://github.com/DankMaps/MXB-AKit-Studio-Releases/releases/tag/V1.7.0",
+    "files": [
+     {
+      "name": "MXB_AKit_Studio_ReleaseV1.7.0.zip",
+      "size": 7006862,
+      "sha256": "a9eef3262c74b801e701662e38fbc2f095b5cde38195a0ce79b61050f42a84ca",
+      "url": "https://github.com/DankMaps/MXB-AKit-Studio-Releases/releases/download/V1.7.0/MXB_AKit_Studio_ReleaseV1.7.0.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-17",
+    "url": "https://mxb-mods.com/mxb-a-kit-studio/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "coremx": {
+   "github": {
+    "source": "github",
+    "version": "v1.0.52",
+    "date": "2026-11-21",
+    "url": "https://github.com/rare621/Core-MX/releases/tag/v1.0.52",
+    "files": [
+     {
+      "name": "CoreMX-server-v27.zip",
+      "size": 36963,
+      "sha256": "f4e745816403a108905186339d8b7a84d05e1f05a356445901c6f2b9c6f9d3ba",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/CoreMX-server-v27.zip"
+     },
+     {
+      "name": "CoreMX-Setup-1.0.52-x64.exe",
+      "size": 113542685,
+      "sha256": "cf425fe5b41a2ef6c66e2b161957430468adc3c4f644ba0828749526368757a5",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/CoreMX-Setup-1.0.52-x64.exe"
+     },
+     {
+      "name": "CoreMX-Setup-x64.exe",
+      "size": 113542685,
+      "sha256": "cf425fe5b41a2ef6c66e2b161957430468adc3c4f644ba0828749526368757a5",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/CoreMX-Setup-x64.exe"
+     },
+     {
+      "name": "latest.yml",
+      "size": 916,
+      "sha256": "228a77d2033d7ff870df6a2226570e573dded07649b526706538843d4e8b64f8",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/latest.yml"
+     },
+     {
+      "name": "SHA256SUMS.txt",
+      "size": 346,
+      "sha256": "fa56ec70c0eb893d20beb02988e348ba9549d603ce56f46457c5880e805dbeac",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/SHA256SUMS.txt"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "fixxers-rumble": {
+   "gpb-mods": {
+    "source": "mega.nz",
+    "version": null,
+    "date": null,
+    "url": "https://mega.nz/file/EPwQ2C7Y#h8ljtwB07QDbCWzQgLDRSv252Ti_6nYuzyFjnE2FiNw",
+    "files": [
+     {
+      "name": null,
+      "size": 142896,
+      "sha256": null,
+      "url": null
+     }
+    ],
+    "via": "https://gpb-mods.com/fixxers-controller-vibration-rumble/",
+    "seen": "2026-11-22"
+   }
+  },
+  "frost-converter": {
+   "github": {
+    "source": "github",
+    "version": "v0.6.4",
+    "date": "2026-11-21",
+    "url": "https://github.com/Frostn1/frost-converter/releases/tag/v0.6.4",
+    "files": [
+     {
+      "name": "Frost-Converter-0.6.4-portable.exe",
+      "size": 16544528,
+      "sha256": "04ff863fff579f6444939d927d4aa56fd4224c0aaa3f3fa3cb4dd33c7a30a44e",
+      "url": "https://github.com/Frostn1/frost-converter/releases/download/v0.6.4/Frost-Converter-0.6.4-portable.exe"
+     },
+     {
+      "name": "Frost-Converter-0.6.4-x64.exe",
+      "size": 5850264,
+      "sha256": "d28a38180fd580c861c70ed24c95243d300e7ff10848751c7e08ab4c698da8ac",
+      "url": "https://github.com/Frostn1/frost-converter/releases/download/v0.6.4/Frost-Converter-0.6.4-x64.exe"
+     },
+     {
+      "name": "Frost-Converter-0.6.4-x64.exe.sig",
+      "size": 416,
+      "sha256": "346f2fad8217816878fd5f6741c8484564f3a23dd2673c78e111ec4149967757",
+      "url": "https://github.com/Frostn1/frost-converter/releases/download/v0.6.4/Frost-Converter-0.6.4-x64.exe.sig"
+     },
+     {
+      "name": "latest.json",
+      "size": 2427,
+      "sha256": "b7faf7c731d001527583389c2e23ec4668c1385fd17a6a2267853bcf6b82ef70",
+      "url": "https://github.com/Frostn1/frost-converter/releases/download/v0.6.4/latest.json"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-13",
+    "url": "https://mxb-mods.com/fbx3edf/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "frostmod": {
+   "github": {
+    "source": "github",
+    "version": "v0.52.2",
+    "date": "2026-11-19",
+    "url": "https://github.com/Frostn1/frostmod/releases/tag/v0.52.2",
+    "files": [
+     {
+      "name": "frostmod.dll",
+      "size": 1139472,
+      "sha256": "d5b436f6649cc2825722bf1c31b6aa1e267dd589e978748a73b2e025af8d1e18",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/frostmod.dll"
+     },
+     {
+      "name": "frostmod.dlo",
+      "size": 1139472,
+      "sha256": "d5b436f6649cc2825722bf1c31b6aa1e267dd589e978748a73b2e025af8d1e18",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/frostmod.dlo"
+     },
+     {
+      "name": "frostmod.exe",
+      "size": 100624,
+      "sha256": "5fd1f6debcc82e1731fcc60b47e1944d28e396d93628de688a8443b04b13f092",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/frostmod.exe"
+     },
+     {
+      "name": "frostserver.dll",
+      "size": 134928,
+      "sha256": "e902f3fe4d52d315a1350894e1ad1f1b63757e15d4eef531f7b3e1880e70d602",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/frostserver.dll"
+     },
+     {
+      "name": "frostserver.dlo",
+      "size": 134928,
+      "sha256": "e902f3fe4d52d315a1350894e1ad1f1b63757e15d4eef531f7b3e1880e70d602",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/frostserver.dlo"
+     },
+     {
+      "name": "frostserver.exe",
+      "size": 121104,
+      "sha256": "a2b4d2aad6fa4b7979ba6f69830db255d8f0fa09ebf35d33f8a99aae846a2216",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/frostserver.exe"
+     },
+     {
+      "name": "FrostServer.zip",
+      "size": 125902,
+      "sha256": "613e4b19f94649dfd66472215fdae36f82819217e450529003de65d6b9e74fa7",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/FrostServer.zip"
+     },
+     {
+      "name": "mxbcoach.dlo",
+      "size": 1465616,
+      "sha256": "d7f1e1d5dfd3be70563f3692e28be26fee67ef5b96db7843cd2a991ce3a41076",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/mxbcoach.dlo"
+     },
+     {
+      "name": "Release.zip",
+      "size": 595969,
+      "sha256": "2c93de7e3a3c87f42f57755b4271f49100bf93b5096e199b4c07fa99a0dc71aa",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.52.2/Release.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "gamefx-plus": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-16",
+    "url": "https://mxb-mods.com/gamefx-2/",
+    "files": [
+     {
+      "name": "1794860691-gamefx-plus.zip",
+      "size": 786502,
+      "sha256": "be8d47440409b902acac3d1304609271ac89276e7d687b443bb441fd5bcea339",
+      "url": "https://mxb-mods.com/wp-content/uploads/2026/10/1794860691-gamefx-plus.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "gpb-content-manager": {
+   "gpb-mods": {
+    "source": "mega.nz",
+    "version": null,
+    "date": null,
+    "url": "https://mega.nz/file/xS5QFLQZ#HFnEOd8KdMlV0fxagIxf2xZEv7Q0R409BUaa44570Fk",
+    "files": [
+     {
+      "name": null,
+      "size": 154437264,
+      "sha256": null,
+      "url": null
+     }
+    ],
+    "via": "https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/",
+    "seen": "2026-11-22"
+   }
+  },
+  "graphics-overhaul": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-16",
+    "url": "https://mxb-mods.com/graphics-overhaul-2/",
+    "files": [
+     {
+      "name": "1794860747-graphics-overhaul.zip",
+      "size": 8176564,
+      "sha256": "6f0cf878eaa3198177f45c7382efd2c0026323fb34eb8a8dad3b9be10b053510",
+      "url": "https://mxb-mods.com/wp-content/uploads/2026/11/1794860747-graphics-overhaul.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "heightmap-studio": {
+   "github": {
+    "source": "github",
+    "version": "v26.11.7",
+    "date": "2026-11-19",
+    "url": "https://github.com/bradenmackey/hms-public/releases/tag/v26.11.7",
+    "files": [
+     {
+      "name": "Heightmap-Studio-setup.exe",
+      "size": 19217680,
+      "sha256": "787220208773078061a85caba7ba860665502af2b16528a34471856500418004",
+      "url": "https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio-setup.exe"
+     },
+     {
+      "name": "Heightmap-Studio-setup.exe.sig",
+      "size": 432,
+      "sha256": "a9850fe28b5bcb7a6cedba6167799d62fea983d8e0d0da40e6f42f949d08871d",
+      "url": "https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio-setup.exe.sig"
+     },
+     {
+      "name": "Heightmap-Studio.AppImage",
+      "size": 100628984,
+      "sha256": "b32b1961c2c0e92a9416a79f277fc384142f83992e823c0da350ce45164b6f7d",
+      "url": "https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio.AppImage"
+     },
+     {
+      "name": "Heightmap-Studio.AppImage.sig",
+      "size": 432,
+      "sha256": "0556a8b978fb2f3352805ad8b2e752effe81fdb2c217689fe4febb73a7cfae3e",
+      "url": "https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio.AppImage.sig"
+     },
+     {
+      "name": "Heightmap-Studio.deb",
+      "size": 22996740,
+      "sha256": "068128c365a20caa284ca0e46b1ca367b4b1cae953258177a7e62357a788d67d",
+      "url": "https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio.deb"
+     },
+     {
+      "name": "Heightmap-Studio.rpm",
+      "size": 22999089,
+      "sha256": "2d2f830bdb0feff60f504ef0a7b35516c89e757b41bec02069ff314e44a73edf",
+      "url": "https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio.rpm"
+     },
+     {
+      "name": "latest.json",
+      "size": 13743,
+      "sha256": "50b2dd7f634307135da04ecba31f444a558ece8abfff23d14254ed3b743a00f1",
+      "url": "https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/latest.json"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-19",
+    "url": "https://mxb-mods.com/heightmap-studio-build-your-own-tracks/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "holeshot": {
+   "github": {
+    "source": "github",
+    "version": "v0.24.0",
+    "date": "2026-10-26",
+    "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/tag/v0.24.0",
+    "files": [
+     {
+      "name": "Holeshot-HUD-0.24.0-windows-x64.zip",
+      "size": 14343956,
+      "sha256": "6fc20a6367a6bd5d6f27dbabec73978645615fe96bb36458b9272bc8ae7b728c",
+      "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/download/v0.24.0/Holeshot-HUD-0.24.0-windows-x64.zip"
+     },
+     {
+      "name": "HoleshotHUD-Setup.exe",
+      "size": 14878976,
+      "sha256": "8faa862dc2b081d6e56b223b06fefecee84e02adee00d3d96ffc9dbd785b2846",
+      "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/download/v0.24.0/HoleshotHUD-Setup.exe"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-10-06",
+    "url": "https://mxb-mods.com/holeshot-hud/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "maxhud": {
+   "https://forum.piboso.com/index.php?topic=79.0": {
+    "source": "forum.piboso.com",
+    "version": null,
+    "date": null,
+    "url": "https://forum.piboso.com/index.php?topic=79.0",
+    "files": [
+     {
+      "name": "vc_redist.x64.exe",
+      "size": 25333272,
+      "sha256": "6afae68a783f11292149175844aed0e2ce3f247bc0250f6cb18c931295b3f399",
+      "url": "https://aka.ms/vs/16/release/vc_redist.x64.exe"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "mx-dirt-mod": {
+   "github": {
+    "source": "github",
+    "version": "v1.7.1",
+    "date": "2026-11-17",
+    "url": "https://github.com/kadenball/mx-dirt-mod/releases/tag/v1.7.1",
+    "files": [
+     {
+      "name": "MX-Dirt-Mod-1.7.1.sha256.txt",
+      "size": 330,
+      "sha256": "78984f26d03176278b7a7b2597aca239adac6b82fa7d4cdd062c857c27cbe337",
+      "url": "https://github.com/kadenball/mx-dirt-mod/releases/download/v1.7.1/MX-Dirt-Mod-1.7.1.sha256.txt"
+     },
+     {
+      "name": "MX-Dirt-Mod-1.7.1.zip",
+      "size": 403264,
+      "sha256": "2b496d6fa60d0e1b81c3d67c15b83f0718aad2300638bc8bce970f837cff6c38",
+      "url": "https://github.com/kadenball/mx-dirt-mod/releases/download/v1.7.1/MX-Dirt-Mod-1.7.1.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-17",
+    "url": "https://mxb-mods.com/dirt-erode-overhall/",
+    "files": [
+     {
+      "name": "1794887541-mx-dirt-mod-1.7.1.zip",
+      "size": 403264,
+      "sha256": "2b496d6fa60d0e1b81c3d67c15b83f0718aad2300638bc8bce970f837cff6c38",
+      "url": "https://mxb-mods.com/wp-content/uploads/2026/11/1794887541-mx-dirt-mod-1.7.1.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "mx-dirt-mod-alt": {
+   "github": {
+    "source": "github",
+    "version": "v1.7.1-alt.1",
+    "date": "2026-11-19",
+    "url": "https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/releases/tag/v1.7.1-alt.1",
+    "files": [
+     {
+      "name": "MX-Dirt-Mod-Alt-1.7.1-alt.1.sha256.txt",
+      "size": 330,
+      "sha256": "18f90dbe6d1c95fbe23bd602089f8735e4c2c8a91afc9bbe952c15090af9f3e0",
+      "url": "https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/releases/download/v1.7.1-alt.1/MX-Dirt-Mod-Alt-1.7.1-alt.1.sha256.txt"
+     },
+     {
+      "name": "MX-Dirt-Mod-Alt-1.7.1-alt.1.zip",
+      "size": 365089,
+      "sha256": "519a65ac9c33457c916e59282411b1fcf14cb34ce08b4e78f03030193a64bea4",
+      "url": "https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/releases/download/v1.7.1-alt.1/MX-Dirt-Mod-Alt-1.7.1-alt.1.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxb-app": {
+   "github": {
+    "source": "github",
+    "version": "v0.20.11",
+    "date": "2026-11-16",
+    "url": "https://github.com/Frostn1/mxb-app/releases/tag/v0.20.11",
+    "files": [
+     {
+      "name": "latest.json",
+      "size": 6250,
+      "sha256": "4d5943410ed87e76df38b960e01c0cbfa2b2c5051acf02a7b99aae9305b16723",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/latest.json"
+     },
+     {
+      "name": "MXB-App-0.20.11-aarch64.dmg",
+      "size": 13422525,
+      "sha256": "fcd5c9776f96c84efd2a385015c62a47f82a53a70860eed65064f00e39636daa",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB-App-0.20.11-aarch64.dmg"
+     },
+     {
+      "name": "MXB-App-0.20.11-amd64.AppImage",
+      "size": 96279032,
+      "sha256": "b2879928dbcc5e49cbbca9d09834ddd51681df046d177cbcd493494a43f21bce",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB-App-0.20.11-amd64.AppImage"
+     },
+     {
+      "name": "MXB-App-0.20.11-amd64.AppImage.sig",
+      "size": 420,
+      "sha256": "7d4ab1636fab08142f0d1bfb3515988945afc6e624e4a67986b3e9518769c236",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB-App-0.20.11-amd64.AppImage.sig"
+     },
+     {
+      "name": "MXB-App-0.20.11-amd64.deb",
+      "size": 16067096,
+      "sha256": "8094fb94ef492ea019367889afa770f6284b1386d6959bd9c1adec99edc9aec2",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB-App-0.20.11-amd64.deb"
+     },
+     {
+      "name": "MXB-App-0.20.11-x64.exe",
+      "size": 9958144,
+      "sha256": "a70fb4bce75b46cfc49a481e7201e9458663252f82eca29564511b6bf36445a5",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB-App-0.20.11-x64.exe"
+     },
+     {
+      "name": "MXB-App-0.20.11-x64.exe.sig",
+      "size": 420,
+      "sha256": "8b1147a187f11c4a6376462b5a5ad6164163331b60e309d6c51e0d54acf2c0f3",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB-App-0.20.11-x64.exe.sig"
+     },
+     {
+      "name": "MXB.App-0.20.11-1.x86_64.rpm",
+      "size": 16067369,
+      "sha256": "184830a3d56ff9f9eceb795c9cb8b2302af0179f56b31f3b6719a5fed0a78149",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB.App-0.20.11-1.x86_64.rpm"
+     },
+     {
+      "name": "MXB.App-0.20.11-1.x86_64.rpm.sig",
+      "size": 420,
+      "sha256": "03c73139cd8ac2dcf50ecb144b97d16b1a21b9ec681370610c7902f39b039ecd",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB.App-0.20.11-1.x86_64.rpm.sig"
+     },
+     {
+      "name": "MXB.App_0.20.11_amd64.deb.sig",
+      "size": 416,
+      "sha256": "0379ca739b1aeb4d78ec65d287f705dbf036a853980365ebe529f13c90613b5b",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB.App_0.20.11_amd64.deb.sig"
+     },
+     {
+      "name": "MXB.App_aarch64.app.tar.gz",
+      "size": 13805396,
+      "sha256": "0f19e564151660e03a173d1cf6fd42df25d7ddfb24cc5b8f4eabec4a8da92cf5",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB.App_aarch64.app.tar.gz"
+     },
+     {
+      "name": "MXB.App_aarch64.app.tar.gz.sig",
+      "size": 404,
+      "sha256": "6b70f6605aa2151c7218d7da141860c1a9cb160ed19b7f2bfcfdad7850647a28",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/MXB.App_aarch64.app.tar.gz.sig"
+     },
+     {
+      "name": "mxbsecure.dll",
+      "size": 463632,
+      "sha256": "e2a13e68ac839edab49d67a1854703adf8c27bb2971208912bcecb6ee186ab4f",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/mxbsecure.dll"
+     },
+     {
+      "name": "SHA256SUMS",
+      "size": 641,
+      "sha256": "690ef6d19844caeb03df28bc532e61697402f93b7a16a510a87a7d9969a6ac0b",
+      "url": "https://github.com/Frostn1/mxb-app/releases/download/v0.20.11/SHA256SUMS"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-12",
+    "url": "https://mxb-mods.com/mxb-app-one-click-mod-manager/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxb-coach": {
+   "github": {
+    "source": "github",
+    "version": "v0.1.27",
+    "date": "2026-10-23",
+    "url": "https://github.com/Frostn1/mxb-coach/releases/tag/v0.1.27",
+    "files": [
+     {
+      "name": "latest.json",
+      "size": 2756,
+      "sha256": "06df7b1865d3c6dd3b69e37212d82e315c89998f648f6e51856c9a956d7d2ed4",
+      "url": "https://github.com/Frostn1/mxb-coach/releases/download/v0.1.27/latest.json"
+     },
+     {
+      "name": "MXB-Coach-0.1.27-x64.exe",
+      "size": 5288840,
+      "sha256": "769a529cb419916fcb65f2fe203c0f171913a3a13657a854878d58e008dc4580",
+      "url": "https://github.com/Frostn1/mxb-coach/releases/download/v0.1.27/MXB-Coach-0.1.27-x64.exe"
+     },
+     {
+      "name": "MXB-Coach-0.1.27-x64.exe.sig",
+      "size": 420,
+      "sha256": "21b4df94576801d65fb12ca54c5d89c392fbc00d09af48935dbcc6ea741eadb7",
+      "url": "https://github.com/Frostn1/mxb-coach/releases/download/v0.1.27/MXB-Coach-0.1.27-x64.exe.sig"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-12",
+    "url": "https://mxb-mods.com/mxb-coach/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxb-damage": {
+   "github": {
+    "source": "github",
+    "version": "v1.3.0",
+    "date": "2026-11-15",
+    "url": "https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/tag/v1.3.0",
+    "files": [
+     {
+      "name": "MXB-Damage-Setup.exe",
+      "size": 412672,
+      "sha256": "b683715954706111f0a60bc70ec0f5a6f716602d0cddfd0acc9af30b1d5a1160",
+      "url": "https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v1.3.0/MXB-Damage-Setup.exe"
+     },
+     {
+      "name": "mxb_damage_1.3.0.pkg",
+      "size": 2447223,
+      "sha256": "1c66705ce5a5e469c1ded584d3e869161d0253a72c10481f4bc815e04baaa1d6",
+      "url": "https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v1.3.0/mxb_damage_1.3.0.pkg"
+     },
+     {
+      "name": "mxb_damage_1.3.0.zip",
+      "size": 1123038,
+      "sha256": "0c4941e5d00501d92513e304d1d1ca091efb2b19c4770108238a767c278b8cfd",
+      "url": "https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v1.3.0/mxb_damage_1.3.0.zip"
+     },
+     {
+      "name": "mxb_damage_manifest.sig",
+      "size": 128,
+      "sha256": "9d392a57687a2ba1e8d29a1949a5646b2b64a300f24166f76f6c4f80e21e42b1",
+      "url": "https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v1.3.0/mxb_damage_manifest.sig"
+     },
+     {
+      "name": "mxb_damage_manifest.txt",
+      "size": 6196,
+      "sha256": "e35c0af1ee095b9bf51f1741e06feb58cf5b12e9c7749d1a16a51f512d5c5403",
+      "url": "https://github.com/FroxyMXB/MXB-Damage-Plugin/releases/download/v1.3.0/mxb_damage_manifest.txt"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-15",
+    "url": "https://mxb-mods.com/mxb-damage-plugin-2/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxb-discord-rpc": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2024-10-06",
+    "url": "https://www.mediafire.com/file/303b4vaofhtvt3y/MXB_Discord_RPC.zip/file",
+    "files": [
+     {
+      "name": "MXB Discord RPC.zip",
+      "size": "1.38MB",
+      "sha256": "d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b",
+      "url": "https://download1980.mediafire.com/txur18pm20pgD556anqfH-PeEexZkv4a7OtoW-wZ1FGfTw2JruuC_vqV9-Ivmp9AnQACiTrqxriorrRq2pBOkTVTkEG4LB61zOAEAEBf7xrDn3nMeEUo27QquljMuEOy6LSo9Cx-e7O3gZxwIXtQoHQSmt1IBmA4yUmxrn4zyw/303b4vaofhtvt3y/MXB+Discord+RPC.zip"
+     }
+    ],
+    "via": "https://mxb-mods.com/improved-discord-rich-presence-discord-rpc/",
+    "seen": "2026-11-22"
+   }
+  },
+  "mxb-dualsense": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-20",
+    "url": "https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/",
+    "files": [
+     {
+      "name": "1795198224-mxb-dualsense-support-1.1.0.zip",
+      "size": 15673233,
+      "sha256": "4b5250f746f1ff6e7a80843839ef06a537e44775cadc6aef3c87ad6af75438f6",
+      "url": "https://mxb-mods.com/wp-content/uploads/2026/11/1795198224-mxb-dualsense-support-1.1.0.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxb-fps-booster": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2026-11-05",
+    "url": "https://www.mediafire.com/file/6cas28gcg5u2v56/MXB_FPS_Booster_V1.zip/file",
+    "files": [
+     {
+      "name": "MXB_FPS_Booster_V1.zip",
+      "size": "12.28MB",
+      "sha256": "97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4",
+      "url": "https://download1527.mediafire.com/5wo1ns7z3pigf8WwyzEusqM_dHUsBhJQtuAoflNUuYU8T7NP8-AvizHWm66LYvzyzYwSf0cdmz4o5W7BXxFLcv3wy0Ijx3k00SH2MgvGuwyDVyy2k4RoY8_WugoLGA5uviMehWJh7RHyq8WhIXcDUAfRjmu77-pv3x77ry8KojBk/6cas28gcg5u2v56/MXB_FPS_Booster_V1.zip"
+     }
+    ],
+    "via": "https://mxb-mods.com/mxb_fps_booster_v1-2/",
+    "seen": "2026-11-22"
+   }
+  },
+  "mxb-ragdoll": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2026-10-29",
+    "url": "https://www.mediafire.com/file/k34umlk5ta5n39g/MXB-Ragdoll-v1.0.zip/file",
+    "files": [
+     {
+      "name": "MXB-Ragdoll-v1.0.zip",
+      "size": "4.01MB",
+      "sha256": "0ab67df8e9584a3b41894260389c75165fbb4960c9d5932f8d106de0846c0119",
+      "url": "https://download851.mediafire.com/azb37ev8c4wg1OHPmII_rFsr2hr8TPErPOPl5Jogd7tN_KK-D_WPgisUR7MLGjK7ealtSw1GdjDJDRhuiDlpO0UcaAvrUcsz1W3tLyVFO9SkfIivUnpBqof_tRVMb__-w2T8Go4nNIBsQQHv38NdpBqRbmy5p4kzyZM1Ti_zN2c/k34umlk5ta5n39g/MXB-Ragdoll-v1.0.zip"
+     }
+    ],
+    "via": "https://mxb-mods.com/mx-bikes-ragdoll-v1-0-2/",
+    "seen": "2026-11-22"
+   }
+  },
+  "mxbfix": {
+   "github": {
+    "source": "github",
+    "version": "v0.1.8",
+    "date": "2026-11-09",
+    "url": "https://github.com/xAmped/mxbfix/releases/tag/v0.1.8",
+    "files": [
+     {
+      "name": "mxbfix.dlo",
+      "size": 334848,
+      "sha256": "16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb",
+      "url": "https://github.com/xAmped/mxbfix/releases/download/v0.1.8/mxbfix.dlo"
+     },
+     {
+      "name": "mxbfix.sig",
+      "size": 72,
+      "sha256": "458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb",
+      "url": "https://github.com/xAmped/mxbfix/releases/download/v0.1.8/mxbfix.sig"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-03",
+    "url": "https://mxb-mods.com/mxbfix-fixes-common-game-crashes-2/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxbmrp3": {
+   "github": {
+    "source": "github",
+    "version": "v1.35.0",
+    "date": "2026-11-08",
+    "url": "https://github.com/thomas4f/mxbmrp3/releases/tag/v1.35.0",
+    "files": [
+     {
+      "name": "mxbmrp3-Setup.exe",
+      "size": 13134960,
+      "sha256": "4a30fbd20b01b1c22b962c8ea16e6bc4617ac1e42447b668edc174dcb3324dc9",
+      "url": "https://github.com/thomas4f/mxbmrp3/releases/download/v1.35.0/mxbmrp3-Setup.exe"
+     },
+     {
+      "name": "mxbmrp3.cdx.json",
+      "size": 4226,
+      "sha256": "107fa04299487cbd9e0259648759d67152769f6bbc61e5539eb790089744b90c",
+      "url": "https://github.com/thomas4f/mxbmrp3/releases/download/v1.35.0/mxbmrp3.cdx.json"
+     },
+     {
+      "name": "mxbmrp3.zip",
+      "size": 17403055,
+      "sha256": "0b2d7654d3e830cc192fd3e1cc8eb71342b9ce3e03f73eb62b7918959abebe80",
+      "url": "https://github.com/thomas4f/mxbmrp3/releases/download/v1.35.0/mxbmrp3.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-08",
+    "url": "https://mxb-mods.com/mxbmrp3/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxbtt": {
+   "github": {
+    "source": "github",
+    "version": "V1.0.0",
+    "date": "2026-08-27",
+    "url": "https://github.com/DankMaps/MXBTT.com-Releases/releases/tag/V1.0.0",
+    "files": [
+     {
+      "name": "mxbtt.dlo",
+      "size": 410112,
+      "sha256": "89ec4f8ccdc60ffb15110547c93f34125a2ae48423056683b3f78206961ca24e",
+      "url": "https://github.com/DankMaps/MXBTT.com-Releases/releases/download/V1.0.0/mxbtt.dlo"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-08-27",
+    "url": "https://mxb-mods.com/mxbtt-com-the-weekly-time-trial-prize-money-racing-platform/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "mxpulse": {
+   "github": {
+    "source": "github",
+    "version": "v0.37.3-alpha",
+    "date": "2026-07-31",
+    "url": "https://github.com/daf0707pro-lgtm/MXPulse/releases/tag/v0.37.3-alpha",
+    "files": [
+     {
+      "name": "MXPulse_Setup.exe",
+      "size": 3325671,
+      "sha256": "2958907cd540a75b279f6e527f3e24dc4b6c6c7505dded820ab1d7221d75aace",
+      "url": "https://github.com/daf0707pro-lgtm/MXPulse/releases/download/v0.37.3-alpha/MXPulse_Setup.exe"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-08-01",
+    "url": "https://mxb-mods.com/mxpulse/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  },
+  "rider-pov-plus": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-11-16",
+    "url": "https://mxb-mods.com/rider-pov-2/",
+    "files": [
+     {
+      "name": "1794860628-rider-pov-plus.zip",
+      "size": 371143,
+      "sha256": "33e88a83734304b9543d5682b04404a73902ed63bc363b8ba866a4d9964a74b0",
+      "url": "https://mxb-mods.com/wp-content/uploads/2026/10/1794860628-rider-pov-plus.zip"
+     }
+    ],
+    "seen": "2026-11-22"
+   }
+  },
+  "suspension-tuner": {
+   "github": {
+    "source": "github",
+    "version": "1.4.1",
+    "date": "2026-10-20",
+    "url": "https://github.com/Lilian1134/Suspension-Tuner/releases/tag/1.4.1",
+    "files": [
+     {
+      "name": "SuspensionTuner.zip",
+      "size": 22891373,
+      "sha256": "58b8463c7e49f8e30268df4b78d7200668a721eb170b51c571f7962bb66af525",
+      "url": "https://github.com/Lilian1134/Suspension-Tuner/releases/download/1.4.1/SuspensionTuner.zip"
+     },
+     {
+      "name": "SuspensionTuner_Setup.exe",
+      "size": 16277809,
+      "sha256": "5cbc4f49e300bb7b5daaa2497404749444878caef499abcd52439b90e860989a",
+      "url": "https://github.com/Lilian1134/Suspension-Tuner/releases/download/1.4.1/SuspensionTuner_Setup.exe"
+     }
+    ],
+    "seen": "2026-11-22"
+   },
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2026-10-21",
+    "url": "https://mxb-mods.com/suspension-tuner/",
+    "files": [],
+    "seen": "2026-11-22"
+   }
+  }
+ }
+}
