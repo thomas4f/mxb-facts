@@ -12,7 +12,7 @@ name: Analyse a tool
 #
 # The tool under test never runs where Claude runs. A short first pass ("plan") reads the release's licence and readme and
 # writes which files to run and how (tools/check_plan.py checks it); nothing runs when the licence forbids analysis (rule 6).
-# A throwaway Windows machine ("windows"), with no keys and no write access, runs the plugins in the real game (the public
+# A job with no keys downloads the release files once ("fetch", tools/fetch_release.py, which also reads MEGA links). A throwaway Windows machine ("windows"), with no keys and no write access, runs the plugins in the real game (the public
 # demo, lab/real-game/windows/) and what that can't do in the plugin test host (lab/plugin-test-host/windows/), and hands
 # back only the evidence. The full analysis ("analyse") reads that evidence and
 # untrusted files (releases, READMEs, pages) in a job that can only read the repository, with no git credentials kept in the
@@ -103,7 +103,8 @@ jobs:
             tool, the source of its input handling, to find each plugin's hotkeys and any setting that turns features on.
 
             Write $RUNNER_TEMP/plan.json, as lab/plugin-test-host/windows/README.md describes ("The plan"): the game, the
-            release files by direct download URL and SHA-256, a real-game run per sensible way to use the plugins (ride
+            release files by download URL (a direct https link, or a MEGA file link https://mega.nz/file/<id>#<key> as
+            the page gives it; tools/fetch_release.py downloads both) and SHA-256, a real-game run per sensible way to use the plugins (ride
             and press their hotkeys; the bare demo runs as the baseline on its own), a test-host case for what the real
             game can't do on cue (--crash, --helmet when a plugin reacts to them, the bystander plugin's checks, with
             victim.dlo last), and the apps (.exe) that start without an account or the real game. Then stop.
@@ -117,10 +118,9 @@ jobs:
           python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no"))' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: plan, path: "${{ runner.temp }}/plan.json", retention-days: 7 }
-  # VirusTotal hash lookups for the release, before the analysis, so that it can answer P1 (rule 6 allows them for any
-  # tool). The first job downloads the files the plan names and unpacks them with 7-Zip, without any key; the second
-  # holds VT_API_KEY and only reads the list of hashes (tools/vt_release.py). Neither runs anything from the release.
-  vt-hash:
+  # The release files the plan names, downloaded once (plain https links and MEGA file links, tools/fetch_release.py) and
+  # checked against their SHA-256, for the Windows run and the VirusTotal lookup. No key, and nothing downloaded is run.
+  fetch:
     needs: plan
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -131,7 +131,25 @@ jobs:
         with: { persist-credentials: false, sparse-checkout: tools }
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: plan, path: "${{ runner.temp }}/plan" }
-      - run: mkdir -p "$RUNNER_TEMP/vt" && python3 -I tools/vt_release.py hash "$RUNNER_TEMP/plan/plan.json" "$RUNNER_TEMP/vt/hashes.json"
+      - run: pip install cryptography==44.0.2
+      - run: python3 -I tools/fetch_release.py "$RUNNER_TEMP/plan/plan.json" "$RUNNER_TEMP/release"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: release, path: "${{ runner.temp }}/release", retention-days: 7 }
+  # VirusTotal hash lookups for the release, before the analysis, so that it can answer P1 (rule 6 allows them for any
+  # tool). The first job unpacks the release files with 7-Zip and hashes them, without any key; the second holds
+  # VT_API_KEY and only reads the list of hashes (tools/vt_release.py). Neither runs anything from the release.
+  vt-hash:
+    needs: fetch
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with: { persist-credentials: false, sparse-checkout: tools }
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: release, path: "${{ runner.temp }}/release" }
+      - run: mkdir -p "$RUNNER_TEMP/vt" && python3 -I tools/vt_release.py hash "$RUNNER_TEMP/release" "$RUNNER_TEMP/vt/hashes.json"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: vt-hashes, path: "${{ runner.temp }}/vt/hashes.json", retention-days: 7 }
   vt-lookup:
@@ -169,7 +187,7 @@ jobs:
             ${{ runner.temp }}/host/*.exe
             ${{ runner.temp }}/host/*.dlo
   windows:
-    needs: [plan, host]
+    needs: [plan, host, fetch]
     if: needs.plan.outputs.runs == 'yes'
     runs-on: windows-2025
     timeout-minutes: 90
@@ -186,6 +204,8 @@ jobs:
         with: { name: plan, path: "${{ runner.temp }}/plan" }
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: host, path: "${{ runner.temp }}/host" }
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: release, path: "${{ runner.temp }}/release" }
       # The real game: the public demo games.json names, kept in the Actions cache by its SHA-256. The cache is saved
       # right after the download is checked, before any plugin runs on this machine, and run.ps1 checks it again.
       - name: Game
@@ -212,18 +232,18 @@ jobs:
         with: { path: "${{ steps.game.outputs.file }}", key: "demo-${{ steps.game.outputs.sha }}" }
       - name: Run the plugins in the real game
         if: steps.game.outputs.runs == 'yes'
-        run: lab/real-game/windows/run.ps1 -Plan "$env:RUNNER_TEMP\plan\plan.json" -Installer '${{ steps.game.outputs.file }}' -Out "$env:RUNNER_TEMP\evidence\real-game"
+        run: lab/real-game/windows/run.ps1 -Plan "$env:RUNNER_TEMP\plan\plan.json" -Release "$env:RUNNER_TEMP\release" -Installer '${{ steps.game.outputs.file }}' -Out "$env:RUNNER_TEMP\evidence\real-game"
       - name: Run the test-host cases and apps
         if: steps.game.outputs.host == 'yes'
-        run: lab/plugin-test-host/windows/run.ps1 -Plan "$env:RUNNER_TEMP\plan\plan.json" -HostDir "$env:RUNNER_TEMP\host" -Out "$env:RUNNER_TEMP\evidence\test-host"
+        run: lab/plugin-test-host/windows/run.ps1 -Plan "$env:RUNNER_TEMP\plan\plan.json" -Release "$env:RUNNER_TEMP\release" -HostDir "$env:RUNNER_TEMP\host" -Out "$env:RUNNER_TEMP\evidence\test-host"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         if: always()
         with: { name: windows-evidence, path: "${{ runner.temp }}/evidence", retention-days: 7 }
   analyse:
-    needs: [plan, windows, vt-lookup]
-    # Also when the plan had nothing to run (the windows job is then skipped), but not when the Windows run failed. A failed
-    # VirusTotal lookup doesn't stop it: P1 is then "Not checked".
-    if: always() && needs.plan.result == 'success' && needs.windows.result != 'failure' && needs.windows.result != 'cancelled' && needs.vt-lookup.result != 'cancelled'
+    needs: [plan, fetch, windows, vt-lookup]
+    # Also when the plan had nothing to run (the windows job is then skipped), but not when the release couldn't be
+    # downloaded or the Windows run failed. A failed VirusTotal lookup doesn't stop it: P1 is then "Not checked".
+    if: always() && needs.plan.result == 'success' && needs.fetch.result == 'success' && needs.windows.result != 'failure' && needs.windows.result != 'cancelled' && needs.vt-lookup.result != 'cancelled'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:

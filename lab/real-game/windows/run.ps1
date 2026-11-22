@@ -1,7 +1,7 @@
 # Runs the real game (the public demo named in lab/real-game/games.json) with a tool's plugins on a throwaway Windows
 # machine (a GitHub-hosted runner), the way lab/real-game/run.sh does under Wine, and writes the evidence.
 #
-#   pwsh run.ps1 -Plan plan.json -Installer <the demo's installer> -Out <evidence folder>
+#   pwsh run.ps1 -Plan plan.json -Release <release folder> -Installer <the demo's installer> -Out <evidence folder>
 #
 # The plan is the one lab/plugin-test-host/windows/run.ps1 reads (game, release files by URL and SHA-256), with its real-game
 # runs under "realgame": [{"name": ..., "ride": <seconds>, "keys": [[<second>, "<key>"], ...]}]. The bare demo runs first,
@@ -9,7 +9,7 @@
 # folder, an outbound firewall block on every program in it, and Process Monitor; the screen is clicked through to a track
 # as games.json says, the throttle is held for "ride" seconds and each key is pressed at its second. Its evidence goes to
 # <Out>/<name>/ in the layout of the Windows test host.
-param([Parameter(Mandatory)][string]$Plan, [Parameter(Mandatory)][string]$Installer, [Parameter(Mandatory)][string]$Out)
+param([Parameter(Mandatory)][string]$Plan, [Parameter(Mandatory)][string]$Release, [Parameter(Mandatory)][string]$Installer, [Parameter(Mandatory)][string]$Out)
 $ErrorActionPreference = 'Stop'
 $cfg = Get-Content $Plan -Raw | ConvertFrom-Json
 $games = Get-Content (Join-Path $PSScriptRoot '..\games.json') -Raw | ConvertFrom-Json
@@ -40,13 +40,15 @@ Get-Pinned 'https://github.com/pal1000/mesa-dist-win/releases/download/26.3.0/me
 $env:GALLIUM_DRIVER = 'llvmpipe'
 $pm = "$work\pm\Procmon64.exe"
 
-# The release files, checked against the plan's SHA-256 and unpacked into rel\<file name>\.
+# The release files, downloaded by the workflow's fetch job (tools/fetch_release.py, which also reads MEGA links) and
+# listed in release.json, checked again against their SHA-256 and unpacked (zip, 7z, rar) into rel\<file name>\.
 $rel = New-Item -ItemType Directory -Force "$work\rel"
-$fileLines = foreach ($f in $cfg.files) {
-  $name = [IO.Path]::GetFileName(([uri]$f.url).LocalPath)
-  $h = Get-Pinned $f.url $f.sha256.ToLower() "$work\$name"
+$fileLines = foreach ($f in @(Get-Content (Join-Path $Release 'release.json') -Raw | ConvertFrom-Json)) {
+  $name = $f.name; $file = Join-Path $Release $name
+  $h = (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower()
+  if ($h -ne $f.sha256) { throw "$name has SHA-256 $h, expected $($f.sha256)" }
   $dest = New-Item -ItemType Directory -Force (Join-Path $rel $name)
-  if ($name -match '\.(zip|7z|rar)$') { 7z x -y "-o$dest" "$work\$name" | Out-Null } else { Copy-Item "$work\$name" $dest }
+  if ($name -match '\.(zip|7z|rar)$') { 7z x -y "-o$dest" $file | Out-Null } else { Copy-Item -LiteralPath $file $dest }
   "$h  $name"
 }
 function Get-PluginsFolder {

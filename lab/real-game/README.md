@@ -26,7 +26,7 @@ In the "Analyse a tool" workflow, a throwaway `windows-2025` runner with no keys
 
 - The demo's installer comes from the Actions cache, keyed by its SHA-256, or is downloaded and checked first; the cache is saved before any plugin runs, and `run.ps1` checks the installer again.
 - The game runs full screen at 1280x720 with Mesa's software OpenGL (llvmpipe) beside `mxbikes.exe`, under Process Monitor, with an outbound firewall block on every program in the run folder. Clicks and keys go through `SendInput` (keys by scan code) to the game's window, brought to the front first.
-- The bare demo runs first as `baseline`, ridden as long as the longest run; then each run gets a fresh game folder with the release's plugins.
+- The bare demo runs first as `baseline`, ridden as long as the longest run; then each run gets a fresh game folder with the release's plugins, from the release files the workflow's fetch job downloaded (`-Release`).
 - The evidence has the layout of the Windows test host (`network.txt` from Process Monitor and the firewall's drops, `outside.txt`, `registry.txt`, `procmon.txt`, `raw/` and the rest), plus `host.log` with the steps and a screenshot after each step and key. The analysis copies each run's folder to `../results/<card>/<run>-windows/`.
 
 A run takes about 4 minutes; the first one with an empty cache also downloads the demo.

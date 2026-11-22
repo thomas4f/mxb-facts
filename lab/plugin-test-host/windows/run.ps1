@@ -1,13 +1,13 @@
 # Runs a tool's release files on a throwaway Windows machine (a GitHub-hosted runner) and writes the evidence.
 #
-#   pwsh run.ps1 -Plan plan.json -HostDir <folder with mxbikes.exe, gpbikes.exe, victim.dlo> -Out <evidence folder>
+#   pwsh run.ps1 -Plan plan.json -Release <release folder> -HostDir <folder with mxbikes.exe, gpbikes.exe, victim.dlo> -Out <evidence folder>
 #
 # The plan (lab/plugin-test-host/windows/README.md) names the release files by URL and SHA-256, the game, and the runs:
 # plugin cases (the host's arguments) and apps (an .exe started with no account, then stopped). Each run is recorded by
 # Process Monitor, with an outbound firewall block on every program in the run folder, and its evidence goes to
 # <Out>/<name>/ in the same layout as src/collect.sh, plus what only Windows shows (procmon.txt, registry.txt, outside.txt).
 # The machine holds no keys and no repository credentials; only the evidence folder leaves it.
-param([Parameter(Mandatory)][string]$Plan, [Parameter(Mandatory)][string]$HostDir, [Parameter(Mandatory)][string]$Out)
+param([Parameter(Mandatory)][string]$Plan, [Parameter(Mandatory)][string]$Release, [Parameter(Mandatory)][string]$HostDir, [Parameter(Mandatory)][string]$Out)
 $ErrorActionPreference = 'Stop'
 $cfg = Get-Content $Plan -Raw | ConvertFrom-Json  # $cfg, not $plan: variables ignore case, and $Plan is a [string]
 $game = if ($cfg.game -eq 'gpbikes') { 'gpbikes.exe' } else { 'mxbikes.exe' }
@@ -31,13 +31,15 @@ Get-Pinned 'https://github.com/pal1000/mesa-dist-win/releases/download/26.3.0/me
 $env:GALLIUM_DRIVER = 'llvmpipe'
 $pm = "$work\pm\Procmon64.exe"
 
-# The release files, checked against the plan's SHA-256, then unpacked (zip, 7z, rar) into rel\<file name>\.
+# The release files, downloaded by the workflow's fetch job (tools/fetch_release.py, which also reads MEGA links) and
+# listed in release.json, checked again against their SHA-256 and unpacked (zip, 7z, rar) into rel\<file name>\.
 $rel = New-Item -ItemType Directory -Force "$work\rel"
-$fileLines = foreach ($f in $cfg.files) {
-  $name = [IO.Path]::GetFileName(([uri]$f.url).LocalPath)
-  $h = Get-Pinned $f.url $f.sha256.ToLower() "$work\$name"
+$fileLines = foreach ($f in @(Get-Content (Join-Path $Release 'release.json') -Raw | ConvertFrom-Json)) {
+  $name = $f.name; $file = Join-Path $Release $name
+  $h = (Get-FileHash -LiteralPath $file -Algorithm SHA256).Hash.ToLower()
+  if ($h -ne $f.sha256) { throw "$name has SHA-256 $h, expected $($f.sha256)" }
   $dest = New-Item -ItemType Directory -Force (Join-Path $rel $name)
-  if ($name -match '\.(zip|7z|rar)$') { 7z x -y "-o$dest" "$work\$name" | Out-Null } else { Copy-Item "$work\$name" $dest }
+  if ($name -match '\.(zip|7z|rar)$') { 7z x -y "-o$dest" $file | Out-Null } else { Copy-Item -LiteralPath $file $dest }
   "$h  $name"
 }
 
