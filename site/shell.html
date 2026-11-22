@@ -284,8 +284,8 @@ thead th { font: 600 12px/1.3 var(--f-ui); letter-spacing: .05em; text-transform
 td:has(> .report-it) { width: 1%; padding-left: 0 }
 .legend li.lgh { display: block; font: 600 12px/1.3 var(--f-ui); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); margin-top: 6px }
 .qid { font: 500 12px var(--f-mono); color: var(--muted); margin-right: 4px }
-/* Copy a link: a link icon in the left margin of each part you can link to, shown on hover, with at least 8px to the edge and to the text;
-   on touch screens it sits before the text, faintly. Rows and key questions get a wider left padding to hold it. */
+/* Copy a link: a link icon in the left margin of each part you can link to, shown on hover, with at least 8px to the edge and to the text.
+   Touch screens have no hover, so they show none (the browser's own share gives the page's address). Rows and key questions get a wider left padding to hold it. */
 .plink { position: absolute; left: -22px; top: .2em; width: 14px; height: 14px; background: var(--muted); opacity: 0; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m6.5 9.5l3-3m-2.5-2 1.2-1.2a2.5 2.5 0 0 1 3.5 3.5L10.5 8m-1.5 3.5l-1.2 1.2a2.5 2.5 0 0 1-3.5-3.5L5.5 8' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m6.5 9.5l3-3m-2.5-2 1.2-1.2a2.5 2.5 0 0 1 3.5 3.5L10.5 8m-1.5 3.5l-1.2 1.2a2.5 2.5 0 0 1-3.5-3.5L5.5 8' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; cursor: pointer }
 .haslink { position: relative }
 td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 32px }
@@ -294,9 +294,8 @@ td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 32px }
 .tool .key { padding-left: 40px }
 .kq > .plink { left: -30px; top: .25em }
 ul:has(> li[id^="lim-"]) { list-style: none; padding-left: 28px } /* the limits carry their own numbers */
-li[id^="rule-"] > strong > .plink { left: -46px } /* left of the rule's number */
 tr:hover .plink, summary:hover .plink, li:hover > .haslink > .plink, li.key:hover .plink, .haslink:hover > .plink, .plink:focus-visible { opacity: .55 } .plink:hover, .plink:focus-visible { background: var(--accent); opacity: 1 }
-@media (hover: none) { .kq > .plink { order: 1; margin: 0 0 0 auto } .plink, .qid > .plink, .kq > .plink { position: static; display: inline-block; flex: none; margin: 0 8px 0 0; vertical-align: -2px; opacity: .35 } .tool .key { padding-left: 16px } td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 12px } }
+@media (hover: none) { .plink { display: none } .tool .key { padding-left: 16px } td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 12px } }
 .plink.done { background: var(--accent); opacity: 1 }
 .mk > .gcost { border: 0; border-radius: 0; padding: 0; margin-left: 0; vertical-align: 0; color: inherit; opacity: 1; font: inherit } .mk > .gcost::before { content: "(" } .mk > .gcost::after { content: ")" }
 .mcol { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; white-space: nowrap } td:has(> .mcol) { width: 1% }
@@ -571,7 +570,7 @@ table.goodw td:first-child { width: 68% }
   // The tool's own heading copies its share address (<site>/<tool>/), whose link preview names the tool and its score.
   var SPOTS = ['.tool .toolhead > h2', '.tool .qid[id]', '.tool details[id] > summary > h3', '.tool h3.sech[id]', '.tool details.full[id] > summary > .fs', '.tool li.key[id] > .kq',
     '.tool p[id] > strong', '.tool details.sub[id] > summary', '.tool li[id^="lim-"] > strong:first-child',
-    '#rules h3[id]', '#authors h3[id]', '#rules details.more[id] > summary', '#authors details.more[id] > summary', '#rules li[id^="rule-"] > strong:first-child'];
+    '#rules h3[id]', '#authors h3[id]', '#rules details.more[id] > summary', '#authors details.more[id] > summary'];
   Array.prototype.forEach.call(document.querySelectorAll(SPOTS.join(', ')), function (el) {
     var host = el.id ? el : el.closest('[id]'), a = document.createElement('a');
     a.className = 'plink'; a.href = '#' + host.id; a.title = 'Copy a link to this'; a.setAttribute('aria-label', 'Copy a link to this');
