@@ -1,0 +1,20 @@
+$ file FIXXER_RUMBLE_GPB64.dlo FIXXER_Rumble_Data/*; unzip -l "FIXXER's_Rumble.zip"
+FIXXER_RUMBLE_GPB64.dlo:         PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+FIXXER_Rumble_Data/Pointer.tga:  Targa image data - RGBA 64 x 64 x 32 - 8-bit alpha 25-4-2026 22:01:09 - Paint.NET 5.1.12 0.0 - aspect 1/1 - gamma 1/1
+FIXXER_Rumble_Data/READ ME.md:   Unicode text, UTF-8 text, with CRLF line terminators
+FIXXER_Rumble_Data/rumble.fnt:   data
+FIXXER_Rumble_Data/settings.txt: ASCII text, with CRLF line terminators
+Archive:  FIXXER's_Rumble.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2026-07-05 13:35   FIXXER's_Rumble/
+        0  2026-07-05 13:35   FIXXER's_Rumble/plugins/
+        0  2026-07-05 13:35   FIXXER's_Rumble/plugins/FIXXER_Rumble_Data/
+    16923  2026-07-05 13:35   FIXXER's_Rumble/plugins/FIXXER_Rumble_Data/Pointer.tga
+     5469  2026-07-05 13:35   FIXXER's_Rumble/plugins/FIXXER_Rumble_Data/READ ME.md
+    38091  2026-07-05 13:35   FIXXER's_Rumble/plugins/FIXXER_Rumble_Data/rumble.fnt
+      337  2026-07-05 13:35   FIXXER's_Rumble/plugins/FIXXER_Rumble_Data/settings.txt
+   198656  2026-06-30 19:42   FIXXER's_Rumble/plugins/FIXXER_RUMBLE_GPB64.dlo
+---------                     -------
+   259476                     8 files
+(exit 0)

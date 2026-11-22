@@ -26,7 +26,7 @@
     "author": "FIXXER 1001",
     "github": null,
     "homepage": null,
-    "cards": [],
+    "cards": ["fixxers-rumble-1.0.yaml"],
     "gpb-mods": {
       "post": 4879,
       "tied_by": "FIXXER_RUMBLE_GPB64.dlo"

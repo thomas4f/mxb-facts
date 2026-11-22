@@ -1,0 +1,85 @@
+$ objdump -d 'FIXXER_RUMBLE_GPB64.dlo' | awk -v a=180002840 -v b=180002970 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180002840:	40 55                	rex push %rbp
+   180002842:	53                   	push   %rbx
+   180002843:	56                   	push   %rsi
+   180002844:	57                   	push   %rdi
+   180002845:	48 8b ec             	mov    %rsp,%rbp
+   180002848:	48 83 ec 58          	sub    $0x58,%rsp
+   18000284c:	48 8b 05 ad c7 02 00 	mov    0x2c7ad(%rip),%rax        # 0x18002f000
+   180002853:	48 33 c4             	xor    %rsp,%rax
+   180002856:	48 89 45 e0          	mov    %rax,-0x20(%rbp)
+   18000285a:	b9 11 00 00 00       	mov    $0x11,%ecx
+   18000285f:	ff 15 4b da 01 00    	call   *0x1da4b(%rip)        # 0x1800202b0
+   180002865:	b9 52 00 00 00       	mov    $0x52,%ecx
+   18000286a:	0f b7 d8             	movzwl %ax,%ebx
+   18000286d:	ff 15 3d da 01 00    	call   *0x1da3d(%rip)        # 0x1800202b0
+   180002873:	b9 00 80 00 00       	mov    $0x8000,%ecx
+   180002878:	33 f6                	xor    %esi,%esi
+   18000287a:	bf 01 00 00 00       	mov    $0x1,%edi
+   18000287f:	66 3b d9             	cmp    %cx,%bx
+   180002882:	72 22                	jb     0x1800028a6
+   180002884:	66 3b c1             	cmp    %cx,%ax
+   180002887:	72 1d                	jb     0x1800028a6
+   180002889:	39 35 ad de 02 00    	cmp    %esi,0x2dead(%rip)        # 0x18003073c
+   18000288f:	8b cf                	mov    %edi,%ecx
+   180002891:	75 15                	jne    0x1800028a8
+   180002893:	8b c6                	mov    %esi,%eax
+   180002895:	39 05 19 df 02 00    	cmp    %eax,0x2df19(%rip)        # 0x1800307b4
+   18000289b:	0f 94 c0             	sete   %al
+   18000289e:	89 05 10 df 02 00    	mov    %eax,0x2df10(%rip)        # 0x1800307b4
+   1800028a4:	eb 02                	jmp    0x1800028a8
+   1800028a6:	8b ce                	mov    %esi,%ecx
+   1800028a8:	39 35 06 df 02 00    	cmp    %esi,0x2df06(%rip)        # 0x1800307b4
+   1800028ae:	89 0d 88 de 02 00    	mov    %ecx,0x2de88(%rip)        # 0x18003073c
+   1800028b4:	75 15                	jne    0x1800028cb
+   1800028b6:	c7 05 d4 d1 02 00 ff 	movl   $0xffffffff,0x2d1d4(%rip)        # 0x18002fa94
+   1800028bd:	ff ff ff 
+   1800028c0:	89 35 5e de 02 00    	mov    %esi,0x2de5e(%rip)        # 0x180030724
+   1800028c6:	e9 9c 07 00 00       	jmp    0x180003067
+   1800028cb:	48 8d 4d c8          	lea    -0x38(%rbp),%rcx
+   1800028cf:	ff 15 c3 d9 01 00    	call   *0x1d9c3(%rip)        # 0x180020298
+   1800028d5:	85 c0                	test   %eax,%eax
+   1800028d7:	74 66                	je     0x18000293f
+   1800028d9:	ff 15 d9 d9 01 00    	call   *0x1d9d9(%rip)        # 0x1800202b8
+   1800028df:	48 8b d8             	mov    %rax,%rbx
+   1800028e2:	48 85 c0             	test   %rax,%rax
+   1800028e5:	74 58                	je     0x18000293f
+   1800028e7:	48 8d 55 c8          	lea    -0x38(%rbp),%rdx
+   1800028eb:	48 8b c8             	mov    %rax,%rcx
+   1800028ee:	ff 15 b4 d9 01 00    	call   *0x1d9b4(%rip)        # 0x1800202a8
+   1800028f4:	48 8d 55 d0          	lea    -0x30(%rbp),%rdx
+   1800028f8:	48 8b cb             	mov    %rbx,%rcx
+   1800028fb:	ff 15 9f d9 01 00    	call   *0x1d99f(%rip)        # 0x1800202a0
+   180002901:	85 c0                	test   %eax,%eax
+   180002903:	74 3a                	je     0x18000293f
+   180002905:	8b 45 d8             	mov    -0x28(%rbp),%eax
+   180002908:	85 c0                	test   %eax,%eax
+   18000290a:	7e 33                	jle    0x18000293f
+   18000290c:	8b 4d dc             	mov    -0x24(%rbp),%ecx
+   18000290f:	85 c9                	test   %ecx,%ecx
+   180002911:	7e 2c                	jle    0x18000293f
+   180002913:	66 0f 6e 4d cc       	movd   -0x34(%rbp),%xmm1
+   180002918:	66 0f 6e 55 c8       	movd   -0x38(%rbp),%xmm2
+   18000291d:	66 0f 6e c1          	movd   %ecx,%xmm0
+   180002921:	f3 0f e6 c0          	cvtdq2pd %xmm0,%xmm0
+   180002925:	f3 0f e6 c9          	cvtdq2pd %xmm1,%xmm1
+   180002929:	f3 0f e6 d2          	cvtdq2pd %xmm2,%xmm2
+   18000292d:	f2 0f 5e c8          	divsd  %xmm0,%xmm1
+   180002931:	66 0f 6e c0          	movd   %eax,%xmm0
+   180002935:	f3 0f e6 c0          	cvtdq2pd %xmm0,%xmm0
+   180002939:	f2 0f 5e d0          	divsd  %xmm0,%xmm2
+   18000293d:	eb 0b                	jmp    0x18000294a
+   18000293f:	f2 0f 10 0d a9 67 02 	movsd  0x267a9(%rip),%xmm1        # 0x1800290f0
+   180002946:	00 
+   180002947:	0f 28 d1             	movaps %xmm1,%xmm2
+   18000294a:	8b cf                	mov    %edi,%ecx
+   18000294c:	f2 0f 11 15 4c d2 02 	movsd  %xmm2,0x2d24c(%rip)        # 0x18002fba0
+   180002953:	00 
+   180002954:	f2 0f 11 0d 2c d1 02 	movsd  %xmm1,0x2d12c(%rip)        # 0x18002fa88
+   18000295b:	00 
+   18000295c:	ff 15 4e d9 01 00    	call   *0x1d94e(%rip)        # 0x1800202b0
+   180002962:	0f b7 d8             	movzwl %ax,%ebx
+   180002965:	48 63 05 28 d1 02 00 	movslq 0x2d128(%rip),%rax        # 0x18002fa94
+   18000296c:	c1 eb 0f             	shr    $0xf,%ebx
+   18000296f:	85 c0                	test   %eax,%eax
+(exit 0)

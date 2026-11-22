@@ -1,0 +1,406 @@
+tool: FIXXER's Controller Rumble
+version: '1.0'
+summary: >-
+  A closed-source GP Bikes plugin that makes XInput controllers rumble from the game's bike telemetry, with a settings panel on Ctrl+R.
+  Its files show no internet connection and no writes outside its own folder; it was read from its files only, not run.
+header:
+  What it is: >-
+    A closed-source plugin (`FIXXER_RUMBLE_GPB64.dlo` and a `FIXXER_Rumble_Data` folder) that goes into GP Bikes' `plugins` folder.
+    From the telemetry the game passes to plugins, it drives the two rumble motors of XInput controllers, and it draws a settings panel,
+    opened with Ctrl+R, whose SAVE button writes `settings.txt` in its folder.
+  In one line: GP Bikes plugin that rumbles XInput controllers from bike telemetry
+  Category: Controllers
+  Author: FIXXER 1001 (the name on its gpb-mods.com page and in its README)
+  Game: GP Bikes
+  gpb-mods.com: '[FIXXER’s Controller Vibration/Rumble](https://gpb-mods.com/fixxers-controller-vibration-rumble/)'
+  Homepage: None found
+  GitHub: None found
+  Version analysed: >-
+    V1.0 (the version its README and gpb-mods.com page give), the MEGA download linked from the gpb-mods.com page, updated 5 Jul 2026;
+    no tag
+  Source commit: None (closed source, no public repository)
+  Analysed on: 22 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Closed source, and neither the release nor its page carries a licence or a clause against analysis, so the release files were
+    examined: imports, exports and the code-signing entry (`objdump -p`), text (`strings`, `strings -el`) and chosen call sites
+    (`objdump -d`); every command is in `lab/evidence/fixxers-rumble-1.0/run.sh`. The zip was downloaded from its MEGA link and decrypted
+    as the MEGA web client does, with `tools/mega_fetch.py`, which checks MEGA's own MAC of the file. Not rebuilt (no public source).
+    Not run: the throwaway Windows machine fetches release files by plain https links, and this release's only download is a MEGA link,
+    so neither the real-game ride nor the test-host cases were made (see Limits). VirusTotal: the hash lookup made before the analysis
+    also fetches by plain https links, so none of these files was looked up; nothing uploaded.
+files:
+  - name: FIXXER's_Rumble.zip
+    sha256: bf14c6e274f649c131c1d25ddb17edad92c40b276acb4136f72a504ad563a260
+    note: The download, from the MEGA link on the gpb-mods.com page (142,896 bytes).
+  - name: FIXXER_RUMBLE_GPB64.dlo
+    inside: FIXXER's_Rumble.zip
+    sha256: 9e24bb8ccf58935681914a28e8ee2c87dda36c90d637b0919de821db77bcc9b9
+    note: The plugin, in `plugins`.
+  - name: READ ME.md
+    inside: FIXXER's_Rumble.zip
+    sha256: cfad7739435835acfe581eff3466c1447bfb3276aa160c7ee69a1b1766704d7a
+    note: In `plugins\FIXXER_Rumble_Data`.
+  - name: settings.txt
+    inside: FIXXER's_Rumble.zip
+    sha256: eb97fd39467150e57d19fa0ff3ab48463774512d4ef69bfd4408d90a07ebbef3
+    note: The shipped settings, in `plugins\FIXXER_Rumble_Data`.
+  - name: rumble.fnt
+    inside: FIXXER's_Rumble.zip
+    sha256: 780cf16e114e5b598742298045b67b0cc01fcbe1badd6832f116b8d99614d409
+    note: Bitmap font for the panel.
+  - name: Pointer.tga
+    inside: FIXXER's_Rumble.zip
+    sha256: 04ee15cf9897b596342cf5529499c13e0664bba09ef880ca03f667ecebef1031
+    note: Mouse-pointer image for the panel.
+files_note: >-
+  The plugin isn't code-signed (`lab/evidence/fixxers-rumble-1.0/signature.txt`). The zip's size matches the size MEGA gives for the
+  link in `registry/releases.json`; the hashes are listed by `lab/evidence/fixxers-rumble-1.0/files.txt`.
+key:
+  K1: 'No malware found; not looked up on VirusTotal (MEGA download), and nothing hidden or disguised turned up in its imports and text.'
+  K2: 'No, no updater; it has no internet code, so it can''t update itself.'
+  K3: 'No. Its files show writes only in its own `FIXXER_Rumble_Data` folder.'
+  K4: 'No. It has no internet code at all.'
+  K5: 'No, as far as seen; it runs as a plugin and no code that changes the game was found.'
+  K6: 'No. It opens nobody''s mods, models or textures.'
+  K7: 'No. Only the compiled plugin is published.'
+  K8: 'Yes, as far as checked; its settings file, Ctrl+R panel and SAVE button are where its README says.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'No. It imports no network library and holds no web address.'
+areas:
+  Your PC and files: No updater and no internet code; its files show writes only in its own folder (settings and a log); not code-signed; not looked up on VirusTotal.
+  Your data: No internet connection in its files and nothing shared with other programs; it keeps a log in its own folder.
+  Your game: A plugin that reads Ctrl+R and, while its panel is open, the mouse through Windows, also when the game isn't in front, as far as its code shows.
+  Creators' content: Opens no one else's content; it ships Microsoft's C runtime built in without naming it.
+  Transparency: Closed source with no licence, published only as a compiled plugin on MEGA; no public history.
+  Money: Free; its gpb-mods.com page links a PayPal donation page.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: at start it opens `rumble.log` in its folder; when the log is over 256 KiB it deletes `rumble.log.old` and renames the
+          log to it, both its own files (`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.180001ba0-180001ce4.txt`,
+          `lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`).
+        mark: note
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: it sends the rumble to each of the four XInput controller slots, and sets all four to zero when it stops
+          (`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.1800019d0-180001b5a.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks:
+      - text: >-
+          Also found: the shipped `settings.txt` isn't the defaults the README gives: it has Suspension off at 0.300 and Ground Effects at
+          0.700, where the README's defaults are everything on at 1.0 (`lab/evidence/fixxers-rumble-1.0/settings.txt`). The README's 1.0
+          defaults are for a missing or malformed file.
+        mark: note
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"Settings live in: `<GP Bikes plugins>\FIXXER_Rumble_Data\settings.txt`" (READ ME.md)'
+            Verdict: Matches
+            Evidence: 'Text `%s\FIXXER_Rumble_Data`, `%s\settings.txt` (`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`).'
+          - Claim: '"press Ctrl + R to open the settings panel" (READ ME.md)'
+            Verdict: Matches
+            Evidence: 'GetAsyncKeyState of 0x11 (Ctrl) and 0x52 (R) (`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.180002840-180002970.txt`). Not seen in a run.'
+          - Claim: '"Click SAVE to write the file to disk." (READ ME.md)'
+            Verdict: Matches, as far as checked
+            Evidence: 'The folder is created and the file written after a left click while the panel is open, then "Settings saved" (`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.1800029c6-180002a4d.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.180002bf0-180002c20.txt`). Not seen in a run.'
+          - Claim: '"If the file is missing or any value is malformed, the plugin silently falls back to defaults" (READ ME.md)'
+            Verdict: Matches, as far as checked
+            Evidence: 'Log text "No settings file found, using defaults", "Settings file malformed or out of range, reverting to defaults" (`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`). It writes this to `rumble.log`, so it isn''t silent there.'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The plugin wasn't run, in the real game or the test host: the throwaway Windows machine fetches release files by plain https
+              links, and this release's only download is a MEGA link. So no file, registry or network activity was seen, and every answer
+              rests on the plugin's imports, text and the call sites read.
+            questions: [D1, P4, P6, P7, P8, G2, G4, G5, G6, G7, G8, G10]
+          - text: >-
+              The release files weren't looked up on VirusTotal: the lookup made before the analysis fetches by plain https links too.
+            questions: [P1]
+          - text: >-
+              A plugin can read the game's memory through plain pointers, which no import shows. No such read was found: the only lookups of
+              another module are the C runtime's own (`mscoree.dll` at exit), but not every function of the plugin was read.
+            questions: [G2, G4]
+          - text: >-
+              That it reads Ctrl+R while another window is in front rests on the code: the keys are read before any check of the window in
+              front, from RunTelemetry; whether GP Bikes keeps calling RunTelemetry while it isn't the window in front wasn't seen.
+            questions: [G7]
+answers:
+  P1:
+    verdict: Not checked
+    text: >-
+      None of the card's files was looked up: the VirusTotal lookup made before this analysis fetches release files by plain https links,
+      and this release's only download is a MEGA link. Nothing uploaded.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/files.txt` (the hashes to look up).'
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It has no updater and no internet code (D1), so it installs no update.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its only file deletion and rename are of its own log (`rumble.log.old`, `rumble.log`) in its folder; the other file writes are the
+      C runtime's, used for `settings.txt` and the log.
+    evidence: >-
+      Every call of DeleteFileA, MoveFileA, CreateFileA and CreateDirectoryA (`lab/evidence/fixxers-rumble-1.0/callsites.txt`); the log
+      rotation (`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.180001ba0-180001ce4.txt`); its paths
+      (`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`).
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: The plugin carries no code signature, and it can't be traced to public source.
+    evidence: Empty Security Directory (`lab/evidence/fixxers-rumble-1.0/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: It imports nothing from ADVAPI32, so no registry function, and changes no Windows setting.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.iat.txt`.'
+  P7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The paths it builds are all in its own `plugins\FIXXER_Rumble_Data` folder: `settings.txt`, `rumble.log` and `rumble.log.old`, beside
+      its font and pointer image.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`; `lab/evidence/fixxers-rumble-1.0/callsites.txt`.'
+  P8:
+    verdict: 'No'
+    mark: good
+    text: >-
+      There is no installer; you copy the plugin and its folder in. It writes only inside that folder and no registry key, so deleting the
+      two leaves nothing.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`, `lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `unzip -l` (`lab/evidence/fixxers-rumble-1.0/file.txt`).'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. It imports only KERNEL32, USER32 and XINPUT1_4; its own text is its settings, log lines and panel labels; the
+      libraries the C runtime loads by name are Windows' own.
+    evidence: >-
+      `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.iat.txt`, `lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`,
+      `lab/evidence/fixxers-rumble-1.0/strings-crt.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.
+  D1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It imports no network library (no WinSock, WinINet or WinHTTP), and its text holds no web address; the libraries the C runtime
+      loads by name are Windows' own.
+    evidence: >-
+      `lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`,
+      `lab/evidence/fixxers-rumble-1.0/strings-crt.txt`.
+  D2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent; it has no internet code (D1).
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: No identifier is sent; nothing is sent (D1).
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: No other players' data is sent; nothing is sent (D1).
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: It imports no socket library, so it runs no server.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`.'
+  D6:
+    verdict: 'No'
+    mark: good
+    text: The only files it opens by path are its own, in `FIXXER_Rumble_Data`.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`, `lab/evidence/fixxers-rumble-1.0/callsites.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; it has no internet code (D1).
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: It makes no connection (D1), so there is nothing to switch off.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; it has no internet code.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: No shared memory (no CreateFileMapping) and no local connection; its settings and log stay in its folder.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It is a plugin the game loads; there is no separate program, and it imports nothing that writes into another process.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/file.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No code that changes the game was found. Its three VirtualProtect calls, in the C runtime, change the protection of the plugin's
+      own `.fptable` section (0x180035000), not the game's.
+    evidence: >-
+      `lab/evidence/fixxers-rumble-1.0/callsites.txt`; `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.1800143e8-18001444e.txt`,
+      `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.1800146e0-18001470f.txt`; the section table
+      (`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.objdump-h.txt`).
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game (G2); on a server it only rumbles your controller from the telemetry, as offline.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/callsites.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.objdump-h.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No read of the game's memory outside the plugin functions was found: it looks up no game module (only the C runtime's
+      `mscoree.dll` at exit) and imports no process-reading function. Read from its files only (see Limits).
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/strings-crt.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.iat.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads Ctrl, R and the left mouse button for its own panel without taking them from the game, and imports nothing that presses
+      keys, clicks or hooks input.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.180002840-180002970.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: It opens no file outside its own folder and imports nothing that writes another module's memory, so it leaves other plugins alone.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`, `lab/evidence/fixxers-rumble-1.0/imports-absent.txt`.'
+  G7:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Each time the game passes it telemetry, it reads Ctrl and R with GetAsyncKeyState before any check of the window in front, so Ctrl+R
+      pressed in another window (a browser's reload, say) also opens or closes its panel. The window in front is only used to place the
+      mouse pointer; the left mouse button is read only while the panel is open.
+    evidence: >-
+      `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.180002840-180002970.txt` (0x11 and 0x52, then GetForegroundWindow);
+      RunTelemetry calls it first (`lab/evidence/fixxers-rumble-1.0/telemetry-calls.txt`); every call site
+      (`lab/evidence/fixxers-rumble-1.0/callsites.txt`).
+  G8:
+    verdict: 'No'
+    mark: good
+    text: Its one call of SetUnhandledExceptionFilter passes 0, in the C runtime, right before it reports a fatal error; it sets no handler.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.18000ee07-18000ee1c.txt`; `lab/evidence/fixxers-rumble-1.0/imports-absent.txt` (no AddVectoredExceptionHandler).'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; it has no registry function and writes only in its folder.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`.'
+  G10:
+    verdict: 'No'
+    mark: good
+    text: It starts no program (no CreateProcess or ShellExecute) and ships none.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/imports-absent.txt`, `lab/evidence/fixxers-rumble-1.0/file.txt`.'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`FIXXER_RUMBLE_GPB64.dlo` is a game plugin, loaded by GP Bikes from `plugins`.'
+    evidence: Exports Startup, RunTelemetry, Draw and the other plugin functions (`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.objdump-p.txt`).
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No check or protection of the game is got around; it uses only the plugin functions and changes nothing in the game (G2).
+    evidence: '`lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.objdump-p.txt`, `lab/evidence/fixxers-rumble-1.0/imports-absent.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; it opens only its own files.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.iat.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves only its settings and log.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; it has no internet code.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-urls.txt`.'
+  C4:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The release credits no third-party code. The plugin has Microsoft's C runtime built in, and no other library's name shows.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-thirdparty.txt`; `READ ME.md` ("Credits").'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: It opens no mods, paints, tracks or models; it reads the telemetry the game passes to plugins.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.objdump-p.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source isn't public. Prebuilt program file: `FIXXER_RUMBLE_GPB64.dlo` (PE32+ x86-64 DLL), with no public source. The other files
+      are a README, a settings file, a font and an image.
+    evidence: '`file` on each (`lab/evidence/fixxers-rumble-1.0/file.txt`).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: What its README says about its settings file, panel and SAVE button matches its code; see "What it says vs what it does".
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-plugin.txt`, `lab/evidence/fixxers-rumble-1.0/FIXXER_RUMBLE_GPB64.dlo.1800029c6-180002a4d.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: It is published as a zip on MEGA; there is no public source or build.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/fixxers-controller-vibration-rumble/); `lab/evidence/fixxers-rumble-1.0/file.txt`.'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/fixxers-controller-vibration-rumble/).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: No development history is public; the gpb-mods.com page and the zip are all there is.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/fixxers-controller-vibration-rumble/).'
+  T6:
+    verdict: Not checked
+    text: No source or build files are public, so its dependencies can't be read.
+    evidence: '-'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: Neither the release nor its page has a licence.
+    evidence: '`unzip -l` of the zip (`lab/evidence/fixxers-rumble-1.0/file.txt`); [gpb-mods.com page](https://gpb-mods.com/fixxers-controller-vibration-rumble/).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-money.txt`; [gpb-mods.com page](https://gpb-mods.com/fixxers-controller-vibration-rumble/).'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the plugin has no shop or payment link.
+    evidence: '`lab/evidence/fixxers-rumble-1.0/strings-money.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: Its gpb-mods.com page asks for support with a "Paypal Donate" link (paypal.me); the plugin and its README ask for none.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/fixxers-controller-vibration-rumble/); `lab/evidence/fixxers-rumble-1.0/strings-money.txt`.'
+history:
+  - date: 22 Nov 2026
+    change: First card, for V1.0.

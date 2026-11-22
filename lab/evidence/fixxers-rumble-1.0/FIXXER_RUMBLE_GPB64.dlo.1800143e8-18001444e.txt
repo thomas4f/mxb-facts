@@ -1,0 +1,28 @@
+$ objdump -d 'FIXXER_RUMBLE_GPB64.dlo' | awk -v a=1800143e8 -v b=18001444e '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   1800143e8:	33 db                	xor    %ebx,%ebx
+   1800143ea:	bf 0e 00 00 00       	mov    $0xe,%edi
+   1800143ef:	8b cf                	mov    %edi,%ecx
+   1800143f1:	e8 c2 e1 ff ff       	call   0x1800125b8
+   1800143f6:	83 64 24 60 00       	andl   $0x0,0x60(%rsp)
+   1800143fb:	48 8d 35 fe 0b 02 00 	lea    0x20bfe(%rip),%rsi        # 0x180035000
+   180014402:	bd 00 01 00 00       	mov    $0x100,%ebp
+   180014407:	4c 8d 4c 24 60       	lea    0x60(%rsp),%r9
+   18001440c:	8b d5                	mov    %ebp,%edx
+   18001440e:	44 8d 47 f6          	lea    -0xa(%rdi),%r8d
+   180014412:	48 8b ce             	mov    %rsi,%rcx
+   180014415:	ff 15 2d be 00 00    	call   *0xbe2d(%rip)        # 0x180020248
+   18001441b:	85 c0                	test   %eax,%eax
+   18001441d:	0f 84 81 00 00 00    	je     0x1800144a4
+   180014423:	48 85 db             	test   %rbx,%rbx
+   180014426:	48 8b c3             	mov    %rbx,%rax
+   180014429:	48 c7 c1 ff ff ff ff 	mov    $0xffffffffffffffff,%rcx
+   180014430:	48 0f 44 c1          	cmove  %rcx,%rax
+   180014434:	4a 87 04 e6          	xchg   %rax,(%rsi,%r12,8)
+   180014438:	4c 8d 4c 24 60       	lea    0x60(%rsp),%r9
+   18001443d:	8b d5                	mov    %ebp,%edx
+   18001443f:	44 8d 47 f4          	lea    -0xc(%rdi),%r8d
+   180014443:	48 8b ce             	mov    %rsi,%rcx
+   180014446:	ff 15 fc bd 00 00    	call   *0xbdfc(%rip)        # 0x180020248
+   18001444c:	85 c0                	test   %eax,%eax
+   18001444e:	74 54                	je     0x1800144a4
+(exit 0)

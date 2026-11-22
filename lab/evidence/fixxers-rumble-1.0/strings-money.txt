@@ -1,0 +1,2 @@
+$ { strings -n 6 FIXXER_RUMBLE_GPB64.dlo; strings -el -n 6 FIXXER_RUMBLE_GPB64.dlo; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+(exit 1)

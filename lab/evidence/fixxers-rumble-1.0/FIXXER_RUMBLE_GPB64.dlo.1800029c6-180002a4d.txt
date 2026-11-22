@@ -1,0 +1,32 @@
+$ objdump -d 'FIXXER_RUMBLE_GPB64.dlo' | awk -v a=1800029c6 -v b=180002a4d '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   1800029c6:	85 db                	test   %ebx,%ebx
+   1800029c8:	0f 84 93 06 00 00    	je     0x180003061
+   1800029ce:	39 35 50 dd 02 00    	cmp    %esi,0x2dd50(%rip)        # 0x180030724
+   1800029d4:	0f 85 87 06 00 00    	jne    0x180003061
+   1800029da:	f2 0f 10 0d be d1 02 	movsd  0x2d1be(%rip),%xmm1        # 0x18002fba0
+   1800029e1:	00 
+   1800029e2:	66 0f 2f 0d c6 65 02 	comisd 0x265c6(%rip),%xmm1        # 0x180028fb0
+   1800029e9:	00 
+   1800029ea:	f2 0f 10 15 96 d0 02 	movsd  0x2d096(%rip),%xmm2        # 0x18002fa88
+   1800029f1:	00 
+   1800029f2:	f2 0f 10 1d 3e 66 02 	movsd  0x2663e(%rip),%xmm3        # 0x180029038
+   1800029f9:	00 
+   1800029fa:	f2 0f 10 25 3e 66 02 	movsd  0x2663e(%rip),%xmm4        # 0x180029040
+   180002a01:	00 
+   180002a02:	0f 82 37 02 00 00    	jb     0x180002c3f
+   180002a08:	f2 0f 10 05 08 66 02 	movsd  0x26608(%rip),%xmm0        # 0x180029018
+   180002a0f:	00 
+   180002a10:	66 0f 2f c1          	comisd %xmm1,%xmm0
+   180002a14:	0f 82 25 02 00 00    	jb     0x180002c3f
+   180002a1a:	66 0f 2f d3          	comisd %xmm3,%xmm2
+   180002a1e:	0f 82 1b 02 00 00    	jb     0x180002c3f
+   180002a24:	66 0f 2f e2          	comisd %xmm2,%xmm4
+   180002a28:	0f 82 11 02 00 00    	jb     0x180002c3f
+   180002a2e:	48 89 75 c8          	mov    %rsi,-0x38(%rbp)
+   180002a32:	e8 c9 e6 ff ff       	call   0x180001100
+   180002a37:	33 d2                	xor    %edx,%edx
+   180002a39:	48 8d 0d 90 e8 02 00 	lea    0x2e890(%rip),%rcx        # 0x1800312d0
+   180002a40:	ff 15 02 d6 01 00    	call   *0x1d602(%rip)        # 0x180020048
+   180002a46:	4c 8d 05 c7 5d 02 00 	lea    0x25dc7(%rip),%r8        # 0x180028814
+   180002a4d:	48 8d 15 3c f7 02 00 	lea    0x2f73c(%rip),%rdx        # 0x180032190
+(exit 0)

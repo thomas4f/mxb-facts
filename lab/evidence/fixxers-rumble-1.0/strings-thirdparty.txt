@@ -1,0 +1,4 @@
+$ { strings -n 6 FIXXER_RUMBLE_GPB64.dlo; strings -el -n 6 FIXXER_RUMBLE_GPB64.dlo; } | grep -iE 'copyright|licen[cs]e|zlib|stb_|lodepng|imgui|miniz|freetype|crts|ucrt|Microsoft' | sort | uniq -c
+      1 <assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+      1 minkernel\crts\ucrt\inc\corecrt_internal_strtox.h
+(exit 0)

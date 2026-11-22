@@ -1,0 +1,36 @@
+$ for s in KERNEL32.dll!MoveFileA KERNEL32.dll!DeleteFileA KERNEL32.dll!CreateFileA KERNEL32.dll!CreateDirectoryA KERNEL32.dll!VirtualProtect KERNEL32.dll!SetUnhandledExceptionFilter USER32.dll!GetAsyncKeyState USER32.dll!GetForegroundWindow USER32.dll!GetCursorPos 'XINPUT1_4.dll!#2' 'XINPUT1_4.dll!#3'; do a=$(iat.py FIXXER_RUMBLE_GPB64.dlo | awk -v s="$s" '$2 == s {print $1}'); echo "== $s ($a)"; objdump -d FIXXER_RUMBLE_GPB64.dlo | grep "# $a$"; done
+== KERNEL32.dll!MoveFileA (0x180020008)
+   180001cbd:	ff 15 45 e3 01 00    	call   *0x1e345(%rip)        # 0x180020008
+== KERNEL32.dll!DeleteFileA (0x180020030)
+   180001caf:	ff 15 7b e3 01 00    	call   *0x1e37b(%rip)        # 0x180020030
+== KERNEL32.dll!CreateFileA (0x180020020)
+   180001c53:	ff 15 c7 e3 01 00    	call   *0x1e3c7(%rip)        # 0x180020020
+== KERNEL32.dll!CreateDirectoryA (0x180020048)
+   1800012d1:	ff 15 71 ed 01 00    	call   *0x1ed71(%rip)        # 0x180020048
+   180002a40:	ff 15 02 d6 01 00    	call   *0x1d602(%rip)        # 0x180020048
+== KERNEL32.dll!VirtualProtect (0x180020248)
+   180014415:	ff 15 2d be 00 00    	call   *0xbe2d(%rip)        # 0x180020248
+   180014446:	ff 15 fc bd 00 00    	call   *0xbdfc(%rip)        # 0x180020248
+   180014700:	ff 15 42 bb 00 00    	call   *0xbb42(%rip)        # 0x180020248
+== KERNEL32.dll!SetUnhandledExceptionFilter (0x1800200c8)
+   18000ee11:	ff 15 b1 12 01 00    	call   *0x112b1(%rip)        # 0x1800200c8
+== USER32.dll!GetAsyncKeyState (0x1800202b0)
+   18000285f:	ff 15 4b da 01 00    	call   *0x1da4b(%rip)        # 0x1800202b0
+   18000286d:	ff 15 3d da 01 00    	call   *0x1da3d(%rip)        # 0x1800202b0
+   18000295c:	ff 15 4e d9 01 00    	call   *0x1d94e(%rip)        # 0x1800202b0
+== USER32.dll!GetForegroundWindow (0x1800202b8)
+   1800028d9:	ff 15 d9 d9 01 00    	call   *0x1d9d9(%rip)        # 0x1800202b8
+== USER32.dll!GetCursorPos (0x180020298)
+   1800028cf:	ff 15 c3 d9 01 00    	call   *0x1d9c3(%rip)        # 0x180020298
+== XINPUT1_4.dll!#2 (0x1800202d0)
+   1800019f2:	ff 15 d8 e8 01 00    	call   *0x1e8d8(%rip)        # 0x1800202d0
+   180001a17:	ff 15 b3 e8 01 00    	call   *0x1e8b3(%rip)        # 0x1800202d0
+   180001a3c:	ff 15 8e e8 01 00    	call   *0x1e88e(%rip)        # 0x1800202d0
+   180001a61:	ff 15 69 e8 01 00    	call   *0x1e869(%rip)        # 0x1800202d0
+== XINPUT1_4.dll!#3 (0x1800202c8)
+   180001abd:	ff 15 05 e8 01 00    	call   *0x1e805(%rip)        # 0x1800202c8
+   180001ad6:	ff 15 ec e7 01 00    	call   *0x1e7ec(%rip)        # 0x1800202c8
+   180001aef:	ff 15 d3 e7 01 00    	call   *0x1e7d3(%rip)        # 0x1800202c8
+   180001b08:	ff 15 ba e7 01 00    	call   *0x1e7ba(%rip)        # 0x1800202c8
+   180001b47:	ff 15 7b e7 01 00    	call   *0x1e77b(%rip)        # 0x1800202c8
+(exit 0)

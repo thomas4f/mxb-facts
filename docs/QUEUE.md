@@ -16,7 +16,6 @@ Tools on file to analyse. The release named here is the one on file when the too
 | **Next** | mxbfix | [v0.1.8](https://github.com/xAmped/mxbfix/releases/tag/v0.1.8) | Fixes and performance | GitHub user [xAmped](https://github.com/xAmped) | [xAmped/mxbfix](https://github.com/xAmped/mxbfix) | None found | `mxbfix` |
 | **Next** | Graphics Overhaul | 2.4.0 | Gameplay and visuals | Finner24 on mxb-mods.com | None | Graphicsoverhaul.com | `graphics-overhaul` |
 |  | CoreMX | The newest when it runs | Mod managers | GitHub user [rare621](https://github.com/rare621) | [rare621/Core-MX](https://github.com/rare621/Core-MX) | [coremx.app](https://coremx.app) | `coremx` |
-|  | FIXXER's Controller Rumble (GP Bikes) | The newest when it runs | Controllers | FIXXER 1001 on gpb-mods.com | None | None found | `fixxers-rumble` |
 |  | Frost Converter | [v0.6.2](https://github.com/Frostn1/frost-converter/releases/tag/v0.6.2) | Content creation | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/frost-converter](https://github.com/Frostn1/frost-converter) | [mxbsecure.com/convert](https://mxbsecure.com/convert) | `frost-converter` |
 |  | FrostMod | [v0.52.2](https://github.com/Frostn1/frostmod/releases/tag/v0.52.2) | Fixes and performance | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/frostmod](https://github.com/Frostn1/frostmod) | [mxbsecure.com/frostmod](https://mxbsecure.com/frostmod) | `frostmod` |
 |  | GameFX+ | 2.4.0 | Gameplay and visuals | Finner24 on mxb-mods.com | None | None found | `gamefx-plus` |
@@ -62,6 +61,7 @@ Tools the maintainer picked from mxb-mods.com. Not started yet. Counts are from 
 
 ## To revisit
 
+- **Runs and VirusTotal lookups for releases published only on MEGA** (FIXXER's Controller Rumble V1.0). The Windows run (`run.ps1`) and `tools/vt_release.py` fetch plain https links, so the plugin wasn't run and its files weren't looked up; `tools/mega_fetch.py` now downloads and decrypts a MEGA link here. Teach both to use it (or the same API calls), then re-run the card's runs and P1.
 - **When VirusTotal lookups run.** The workflow runs by hand only. If lookups should also run on their own (on each card pull request, or weekly for every card), add those triggers to `.github/workflows/virustotal.yml`.
 
 ## Known, not planned

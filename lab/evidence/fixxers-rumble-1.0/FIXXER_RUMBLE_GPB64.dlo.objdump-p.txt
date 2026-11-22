@@ -1,0 +1,224 @@
+$ objdump -p 'FIXXER_RUMBLE_GPB64.dlo' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+FIXXER_RUMBLE_GPB64.dlo:     file format pei-x86-64
+
+Characteristics 0x2022
+	executable
+	large address aware
+	DLL
+
+Time/Date		Tue Jun 30 19:42:49 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	50
+SizeOfCode		000000000001ec00
+SizeOfInitializedData	0000000000013e00
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	0000000000004214
+BaseOfCode		0000000000001000
+ImageBase		0000000180000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		00038000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00000160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 000000000002da30 00000160 Export Directory [.edata (or where ever we found it)]
+Entry 1 000000000002db90 00000050 Import Directory [parts of .idata]
+Entry 2 0000000000036000 000000f8 Resource Directory [.rsrc]
+Entry 3 0000000000033000 000016e0 Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 0000000000037000 00000684 Base Relocation Directory [.reloc]
+Entry 6 000000000002b960 00000070 Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 0000000000000000 00000000 Thread Storage Directory [.tls]
+Entry a 000000000002b820 00000140 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 0000000000020000 000002e0 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x18002db90
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 0002db90	0002dbe0 00000000 00000000 0002df9c 00020000
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00020000  <none>  02a0  GetModuleFileNameA
+	00020008  <none>  041a  MoveFileA
+	00020010  <none>  0278  GetFileSizeEx
+	00020018  <none>  02a3  GetModuleHandleExA
+	00020020  <none>  00de  CreateFileA
+	00020028  <none>  0482  QueryPerformanceFrequency
+	00020030  <none>  0133  DeleteFileA
+	00020038  <none>  009d  CloseHandle
+	00020040  <none>  028e  GetLocalTime
+	00020048  <none>  00cf  CreateDirectoryA
+	00020050  <none>  0481  QueryPerformanceCounter
+	00020058  <none>  033c  GetTickCount
+	00020060  <none>  065f  WriteConsoleW
+	00020068  <none>  0556  SetEndOfFile
+	00020070  <none>  04a6  ReadConsoleW
+	00020078  <none>  04a9  ReadFile
+	00020080  <none>  0383  HeapReAlloc
+	00020088  <none>  0385  HeapSize
+	00020090  <none>  00e6  CreateFileW
+	00020098  <none>  0569  SetFilePointerEx
+	000200a0  <none>  0308  GetStringTypeW
+	000200a8  <none>  0242  GetCurrentProcessId
+	000200b0  <none>  0246  GetCurrentThreadId
+	000200b8  <none>  031a  GetSystemTimeAsFileTime
+	000200c0  <none>  039a  InitializeSListHead
+	000200c8  <none>  05b8  SetUnhandledExceptionFilter
+	000200d0  <none>  0301  GetStartupInfoW
+	000200d8  <none>  02a5  GetModuleHandleW
+	000200e0  <none>  0517  RtlUnwindEx
+	000200e8  <none>  039e  InterlockedFlushSList
+	000200f0  <none>  028d  GetLastError
+	000200f8  <none>  0578  SetLastError
+	00020100  <none>  01c2  FlsAlloc
+	00020108  <none>  01c4  FlsGetValue
+	00020110  <none>  01c6  FlsSetValue
+	00020118  <none>  01c3  FlsFree
+	00020120  <none>  0157  EnterCriticalSection
+	00020128  <none>  03f0  LeaveCriticalSection
+	00020130  <none>  0397  InitializeCriticalSectionEx
+	00020138  <none>  012f  DeleteCriticalSection
+	00020140  <none>  0511  RtlLookupFunctionEntry
+	00020148  <none>  0153  EncodePointer
+	00020150  <none>  0498  RaiseException
+	00020158  <none>  0513  RtlPcToFileHeader
+	00020160  <none>  0241  GetCurrentProcess
+	00020168  <none>  0186  ExitProcess
+	00020170  <none>  05d8  TerminateProcess
+	00020178  <none>  01d4  FreeLibrary
+	00020180  <none>  02a4  GetModuleHandleExW
+	00020188  <none>  02dd  GetProcAddress
+	00020190  <none>  02a1  GetModuleFileNameW
+	00020198  <none>  03b8  IsProcessorFeaturePresent
+	000201a0  <none>  0380  HeapFree
+	000201a8  <none>  0509  RtlCaptureContext
+	000201b0  <none>  0518  RtlVirtualUnwind
+	000201b8  <none>  03b0  IsDebuggerPresent
+	000201c0  <none>  05fb  UnhandledExceptionFilter
+	000201c8  <none>  037c  HeapAlloc
+	000201d0  <none>  0303  GetStdHandle
+	000201d8  <none>  027a  GetFileType
+	000201e0  <none>  019d  FindClose
+	000201e8  <none>  01a3  FindFirstFileExW
+	000201f0  <none>  01b4  FindNextFileW
+	000201f8  <none>  03be  IsValidCodePage
+	00020200  <none>  01db  GetACP
+	00020208  <none>  02c6  GetOEMCP
+	00020210  <none>  01ea  GetCPInfo
+	00020218  <none>  01ff  GetCommandLineA
+	00020220  <none>  0200  GetCommandLineW
+	00020228  <none>  0423  MultiByteToWideChar
+	00020230  <none>  064c  WideCharToMultiByte
+	00020238  <none>  0262  GetEnvironmentStringsW
+	00020240  <none>  01d3  FreeEnvironmentStringsW
+	00020248  <none>  061a  VirtualProtect
+	00020250  <none>  03f6  LoadLibraryExW
+	00020258  <none>  03e4  LCMapStringW
+	00020260  <none>  02e4  GetProcessHeap
+	00020268  <none>  0593  SetStdHandle
+	00020270  <none>  01c8  FlushFileBuffers
+	00020278  <none>  0660  WriteFile
+	00020280  <none>  0229  GetConsoleOutputCP
+	00020288  <none>  0225  GetConsoleMode
+
+ 0002dba4	0002de78 00000000 00000000 0002e006 00020298
+
+	DLL Name: USER32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00020298  <none>  014a  GetCursorPos
+	000202a0  <none>  013a  GetClientRect
+	000202a8  <none>  031e  ScreenToClient
+	000202b0  <none>  0128  GetAsyncKeyState
+	000202b8  <none>  0162  GetForegroundWindow
+
+ 0002dbb8	0002dea8 00000000 00000000 0002e012 000202c8
+
+	DLL Name: XINPUT1_4.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000202c8      3  <none> <none>
+	000202d0      2  <none> <none>
+
+ 0002dbcc	00000000 00000000 00000000 00000000 00000000
+
+There is an export table in .rdata at 0x18002da30
+
+The Export Tables (interpreted .rdata section contents)
+
+Export Flags 			0
+Time/Date stamp 		ffffffff
+Major/Minor 			0/0
+Name 				000000000002dae4 FIXXER_RUMBLE_GPB64.dlo
+Ordinal Base 			1
+Number in:
+	Export Address Table 		0000000e
+	[Name Pointer/Ordinal] Table	0000000e
+Table Addresses
+	Export Address Table 		000000000002da58
+	Name Pointer Table 		000000000002da90
+	Ordinal Table 			000000000002dac8
+
+Export Address Table -- Ordinal Base 1
+	          Ordinal  Address  Type
+	[   0] +base[   1] 000030b0 Export RVA
+	[   1] +base[   2] 00003080 Export RVA
+	[   2] +base[   3] 00001db0 Export RVA
+	[   3] +base[   4] 00001d30 Export RVA
+	[   4] +base[   5] 000010f0 Export RVA
+	[   5] +base[   6] 000010e0 Export RVA
+	[   6] +base[   7] 000010d0 Export RVA
+	[   7] +base[   8] 00001df0 Export RVA
+	[   8] +base[   9] 00001dc0 Export RVA
+	[   9] +base[  10] 00001e00 Export RVA
+	[  10] +base[  11] 00001df0 Export RVA
+	[  11] +base[  12] 00001e10 Export RVA
+	[  12] +base[  13] 00001d10 Export RVA
+	[  13] +base[  14] 00001ba0 Export RVA
+
+[Ordinal/Name Pointer] Table -- Ordinal Base 1
+	          Ordinal   Hint Name
+	[   0] +base[   1]  0000 Draw
+	[   1] +base[   2]  0001 DrawInit
+	[   2] +base[   3]  0002 EventDeinit
+	[   3] +base[   4]  0003 EventInit
+	[   4] +base[   5]  0004 GetInterfaceVersion
+	[   5] +base[   6]  0005 GetModDataVersion
+	[   6] +base[   7]  0006 GetModID
+	[   7] +base[   8]  0007 RunDeinit
+	[   8] +base[   9]  0008 RunInit
+	[   9] +base[  10]  0009 RunStart
+	[  10] +base[  11]  000a RunStop
+	[  11] +base[  12]  000b RunTelemetry
+	[  12] +base[  13]  000c Shutdown
+	[  13] +base[  14]  000d Startup
+
+(exit 0)

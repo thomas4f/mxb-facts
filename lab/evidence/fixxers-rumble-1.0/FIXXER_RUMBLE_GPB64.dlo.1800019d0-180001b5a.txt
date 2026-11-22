@@ -1,0 +1,105 @@
+$ objdump -d 'FIXXER_RUMBLE_GPB64.dlo' | awk -v a=1800019d0 -v b=180001b5a '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   1800019d0:	48 83 ec 48          	sub    $0x48,%rsp
+   1800019d4:	48 8b 05 25 d6 02 00 	mov    0x2d625(%rip),%rax        # 0x18002f000
+   1800019db:	48 33 c4             	xor    %rsp,%rax
+   1800019de:	48 89 44 24 30       	mov    %rax,0x30(%rsp)
+   1800019e3:	0f 57 c0             	xorps  %xmm0,%xmm0
+   1800019e6:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   1800019eb:	33 c9                	xor    %ecx,%ecx
+   1800019ed:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   1800019f2:	ff 15 d8 e8 01 00    	call   *0x1e8d8(%rip)        # 0x1800202d0
+   1800019f8:	33 c9                	xor    %ecx,%ecx
+   1800019fa:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   1800019ff:	85 c0                	test   %eax,%eax
+   180001a01:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180001a04:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   180001a09:	0f 94 c1             	sete   %cl
+   180001a0c:	89 0d 8e 08 03 00    	mov    %ecx,0x3088e(%rip)        # 0x1800322a0
+   180001a12:	b9 01 00 00 00       	mov    $0x1,%ecx
+   180001a17:	ff 15 b3 e8 01 00    	call   *0x1e8b3(%rip)        # 0x1800202d0
+   180001a1d:	33 c9                	xor    %ecx,%ecx
+   180001a1f:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180001a24:	85 c0                	test   %eax,%eax
+   180001a26:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180001a29:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   180001a2e:	0f 94 c1             	sete   %cl
+   180001a31:	89 0d 6d 08 03 00    	mov    %ecx,0x3086d(%rip)        # 0x1800322a4
+   180001a37:	b9 02 00 00 00       	mov    $0x2,%ecx
+   180001a3c:	ff 15 8e e8 01 00    	call   *0x1e88e(%rip)        # 0x1800202d0
+   180001a42:	33 c9                	xor    %ecx,%ecx
+   180001a44:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180001a49:	85 c0                	test   %eax,%eax
+   180001a4b:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180001a4e:	0f 11 44 24 20       	movups %xmm0,0x20(%rsp)
+   180001a53:	0f 94 c1             	sete   %cl
+   180001a56:	89 0d 4c 08 03 00    	mov    %ecx,0x3084c(%rip)        # 0x1800322a8
+   180001a5c:	b9 03 00 00 00       	mov    $0x3,%ecx
+   180001a61:	ff 15 69 e8 01 00    	call   *0x1e869(%rip)        # 0x1800202d0
+   180001a67:	33 c9                	xor    %ecx,%ecx
+   180001a69:	85 c0                	test   %eax,%eax
+   180001a6b:	0f 94 c1             	sete   %cl
+   180001a6e:	89 0d 38 08 03 00    	mov    %ecx,0x30838(%rip)        # 0x1800322ac
+   180001a74:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
+   180001a79:	48 33 cc             	xor    %rsp,%rcx
+   180001a7c:	e8 5f 24 00 00       	call   0x180003ee0
+   180001a81:	48 83 c4 48          	add    $0x48,%rsp
+   180001a85:	c3                   	ret
+   180001a86:	cc                   	int3
+   180001a87:	cc                   	int3
+   180001a88:	cc                   	int3
+   180001a89:	cc                   	int3
+   180001a8a:	cc                   	int3
+   180001a8b:	cc                   	int3
+   180001a8c:	cc                   	int3
+   180001a8d:	cc                   	int3
+   180001a8e:	cc                   	int3
+   180001a8f:	cc                   	int3
+   180001a90:	48 83 ec 38          	sub    $0x38,%rsp
+   180001a94:	48 8b 05 65 d5 02 00 	mov    0x2d565(%rip),%rax        # 0x18002f000
+   180001a9b:	48 33 c4             	xor    %rsp,%rax
+   180001a9e:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+   180001aa3:	83 3d f6 07 03 00 00 	cmpl   $0x0,0x307f6(%rip)        # 0x1800322a0
+   180001aaa:	66 89 4c 24 20       	mov    %cx,0x20(%rsp)
+   180001aaf:	66 89 54 24 22       	mov    %dx,0x22(%rsp)
+   180001ab4:	74 0d                	je     0x180001ac3
+   180001ab6:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180001abb:	33 c9                	xor    %ecx,%ecx
+   180001abd:	ff 15 05 e8 01 00    	call   *0x1e805(%rip)        # 0x1800202c8
+   180001ac3:	83 3d da 07 03 00 00 	cmpl   $0x0,0x307da(%rip)        # 0x1800322a4
+   180001aca:	74 10                	je     0x180001adc
+   180001acc:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180001ad1:	b9 01 00 00 00       	mov    $0x1,%ecx
+   180001ad6:	ff 15 ec e7 01 00    	call   *0x1e7ec(%rip)        # 0x1800202c8
+   180001adc:	83 3d c5 07 03 00 00 	cmpl   $0x0,0x307c5(%rip)        # 0x1800322a8
+   180001ae3:	74 10                	je     0x180001af5
+   180001ae5:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180001aea:	b9 02 00 00 00       	mov    $0x2,%ecx
+   180001aef:	ff 15 d3 e7 01 00    	call   *0x1e7d3(%rip)        # 0x1800202c8
+   180001af5:	83 3d b0 07 03 00 00 	cmpl   $0x0,0x307b0(%rip)        # 0x1800322ac
+   180001afc:	74 10                	je     0x180001b0e
+   180001afe:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180001b03:	b9 03 00 00 00       	mov    $0x3,%ecx
+   180001b08:	ff 15 ba e7 01 00    	call   *0x1e7ba(%rip)        # 0x1800202c8
+   180001b0e:	48 8b 4c 24 28       	mov    0x28(%rsp),%rcx
+   180001b13:	48 33 cc             	xor    %rsp,%rcx
+   180001b16:	e8 c5 23 00 00       	call   0x180003ee0
+   180001b1b:	48 83 c4 38          	add    $0x38,%rsp
+   180001b1f:	c3                   	ret
+   180001b20:	40 53                	rex push %rbx
+   180001b22:	48 83 ec 30          	sub    $0x30,%rsp
+   180001b26:	48 8b 05 d3 d4 02 00 	mov    0x2d4d3(%rip),%rax        # 0x18002f000
+   180001b2d:	48 33 c4             	xor    %rsp,%rax
+   180001b30:	48 89 44 24 28       	mov    %rax,0x28(%rsp)
+   180001b35:	33 c0                	xor    %eax,%eax
+   180001b37:	89 44 24 20          	mov    %eax,0x20(%rsp)
+   180001b3b:	33 db                	xor    %ebx,%ebx
+   180001b3d:	0f 1f 00             	nopl   (%rax)
+   180001b40:	48 8d 54 24 20       	lea    0x20(%rsp),%rdx
+   180001b45:	8b cb                	mov    %ebx,%ecx
+   180001b47:	ff 15 7b e7 01 00    	call   *0x1e77b(%rip)        # 0x1800202c8
+   180001b4d:	ff c3                	inc    %ebx
+   180001b4f:	83 fb 04             	cmp    $0x4,%ebx
+   180001b52:	72 ec                	jb     0x180001b40
+   180001b54:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180001b57:	f2 0f 11 05 79 f8 02 	movsd  %xmm0,0x2f879(%rip)        # 0x1800313d8
+(exit 0)
