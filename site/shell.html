@@ -108,6 +108,7 @@ pre code { padding: 0; background: none }
 .ascore { display: inline-block; min-width: 2.4em; text-align: center; font: 800 13px/1 var(--f-ui); font-variant-numeric: tabular-nums; color: #fff; background: #3d4a5c; border-radius: var(--r-ctl); padding: 4px 6px; text-decoration: none }
 .g-score { --gc: #3d4a5c } .g-notscored { --gc: #6e7682 } .g-malware { --gc: #cf222e }
 .gcost { font: 700 11px/1 var(--f-ui); color: var(--muted); border: 1px solid currentColor; border-radius: var(--r-ctl); padding: 2px 5px; vertical-align: 1px; white-space: nowrap; opacity: .85 }
+.mcol > .mrule { white-space: normal }
 .mrule { display: block; margin-top: 3px; font: 12px/1.4 var(--f-ui); color: var(--muted) }
 .trow .tl { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0 6px } .trow > .sbox { grid-area: g; --gs: 72px; margin: 0; align-self: center }
 
@@ -250,10 +251,12 @@ details.rsec > summary .awhy { flex: 1 1 320px; min-width: 0; font-size: 14px; c
 /* A table behind an area's answers, folded under them. */
 details.sub { margin: 10px 0 4px } details.sub > summary { cursor: pointer; font: 600 14px var(--f-ui); color: var(--accent); padding: 4px 0 }
 details.sub[open] > summary { margin-bottom: 4px }
+details.sub > summary { list-style: none } details.sub > summary::-webkit-details-marker { display: none }
+details.sub > summary::before { content: "▸"; font-size: 12px; color: var(--muted); transition: transform .15s; display: inline-block; width: 12px; margin-right: 8px } details.sub[open] > summary::before { transform: rotate(90deg) }
 /* A Concern answer shows its cost; Major (the severe tier) orange, with a triangle; Off by default and On request grey and dashed. */
 .mk.off, .mark.off { color: var(--muted); border-style: dashed }
 /* An answer a limit of this analysis affects links down to it; the limit links back to its answers. */
-.limit { font: 600 12px var(--f-ui); white-space: nowrap; margin-left: 2px } .limit::before { content: "↓ " } .limit.claims { white-space: normal }
+.limit { font: 600 12px var(--f-ui); white-space: nowrap; margin-left: 2px } .limit::before { content: "↓ " }
 /* Every answer links the correction form, filled in for that card and question. */
 .report-it { display: inline-block; width: 15px; height: 15px; margin-left: 6px; vertical-align: -3px; background: var(--muted); opacity: .55; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 3.5a1.5 1.5 0 0 1 1.5-1.5h8a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5H7l-3 2.8V11h0a1.5 1.5 0 0 1-1.5-1.5z' fill='none' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 3.5a1.5 1.5 0 0 1 1.5-1.5h8a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5H7l-3 2.8V11h0a1.5 1.5 0 0 1-1.5-1.5z' fill='none' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat } .report-it:hover, .report-it:focus-visible { background: var(--accent); opacity: 1 }
 .report-it.has { display: inline-flex; align-items: center; gap: 3px; width: auto; height: auto; padding: 1px 5px; -webkit-mask: none; mask: none; background: none; border: 1px dashed currentColor; border-radius: var(--r-ctl); color: var(--accent); opacity: 1; font: 700 11px/1.2 var(--f-ui); text-decoration: none; vertical-align: 0 }
@@ -264,7 +267,7 @@ li:target { background: var(--sunk); border-radius: 4px }
 .tool [id] { scroll-margin-top: calc(var(--rnavh, 48px) + 12px) }
 .report p, .report li { max-width: 72ch }
 .report ul { padding-left: 20px }
-.tw { overflow-x: auto; margin: 6px 0 }
+.tw { overflow-x: auto; margin: 6px 0; position: relative }
 table { border-collapse: collapse; width: 100%; font-size: 14px }
 th, td { text-align: left; vertical-align: top; padding: 9px 12px; border-bottom: var(--border) }
 tr:last-child > td, tr:last-child > th { border-bottom: 0 }
@@ -289,7 +292,7 @@ td:has(> .report-it) { width: 1%; padding-left: 0 }
 .haslink { position: relative }
 td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 32px }
 /* Every answer table keeps the same columns, so the marks and the evidence line up from one area to the next (wide screens; phones stack them). */
-@media (min-width: 900px) { .tw table:has(.qid) { table-layout: fixed; width: 100% } .tw table:has(.qid) th:nth-child(1) { width: 24% } .tw table:has(.qid) th:nth-child(2) { width: 172px } .tw table:has(.qid) th:nth-child(4) { width: 30% } .tw table:has(.qid) th:nth-child(5) { width: 44px } }
+@media (min-width: 1100px) { .says table { table-layout: fixed; width: 100% } .says th:nth-child(2) { width: 172px } .says th:nth-child(3) { width: 45% } .tw table:has(.qid) { table-layout: fixed; width: 100% } .tw table:has(.qid) th:nth-child(1) { width: 24% } .tw table:has(.qid) th:nth-child(2) { width: 172px } .tw table:has(.qid) th:nth-child(4) { width: 30% } .tw table:has(.qid) th:nth-child(5) { width: 44px } }
 .ev { font-size: 13px; line-height: 1.45 }
 .qid > .plink { left: -24px; top: 1px }
 .tool .key { padding-left: 40px }
@@ -406,6 +409,7 @@ table.goodw td:first-child { width: 68% }
         {{MARKS}}
         <li><span class="mark bad">Sends your data</span> A tag: what it does by default, marked like its answer.</li>
         <li><span class="mark off">+2 off by default</span> Tags for what happens only after a choice you make, behind one button.</li>
+        <li><span class="mark bad">Doesn't match</span> <span>A verdict on one of a tool's own claims (What it says vs what it does): drawn like a mark, but it costs nothing; T2 is the answer that counts.</span></li>
         <li><span class="mark corr">1 under review</span> <span>A comment not decided yet. Add yours with the <span class="report-it" role="img" aria-label="comment icon"></span> beside any answer: wrong, missing, or context.</span></li>
         <li><span class="mark good">Open source</span> What you can check, or what it leaves alone.</li>
       </ul>

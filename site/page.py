@@ -49,8 +49,8 @@ def table(head,rows,cls=''):
 SAYS={'Matches':('good','What it does matches what its docs say'),'Partly':('note','Only part of what its docs say matches what it does'),
       "Doesn't match":('concern','What it does differs from what its docs say; T2 says whether that costs points'),
       'Not checked':('nc','Not checked; the evidence says why'),'Not allowed':('na','The licence forbids checking this')}
-SAYSQ='T2'  # the answer the claims back: its key question links them, with their count
-SAYSW={'Matches':('matches','match'),'Partly':('partly','partly'),"Doesn't match":("doesn't match","don't match"),'Not checked':('not checked','not checked'),'Not allowed':('not allowed','not allowed')}
+SAYSQ='T2'  # the answer the claims back: its key question links them
+assert SAYSQ in QIDS, 'rules/scoring.yaml: '+SAYSQ+', the answer "What it says vs what it does" backs, is gone; name the new one in SAYSQ (site/page.py)'
 assert set(SAYS)==set(re.match(r'\^\((.*?)\)',SCHEMA['$defs']['block']['oneOf'][3]['properties']['rows']['items']['properties']['Verdict']['pattern']).group(1).split('|')), 'card.schema.json: the "Says vs does" verdicts changed; give each one a mark and a meaning in SAYS (site/page.py)'
 def says_word(v):
     # The verdict a "Says vs does" row starts with (SAYS); it may add words after its own ("Matches, as far as checked").
@@ -59,13 +59,14 @@ def says_word(v):
     return w
 def says_verdict(v):
     # One "Says vs does" verdict as a mark.
-    return state_html(SAYS[says_word(v)][0],SAYS[says_word(v)][1],inner=esc(v))
+    # Only the verdict's own word goes in the mark, like every other mark; any words after it follow in grey ("as far as checked").
+    w=says_word(v); rest=v[len(w):].lstrip(', ')
+    return state_html(SAYS[w][0],SAYS[w][1],inner=w)+(f'<span class="mrule">{esc(rest)}</span>' if rest else '')
 def says_link(C,a):
-    # A link to the tool's claims with their count by verdict ("7 claims: 5 match, 1 partly, 1 not checked"), or ''.
-    vs=[says_word(r['Verdict']) for b in C['sections'].get('What it says vs what it does',[]) if 'Verdict' in b.get('table',[]) for r in b['rows']]
-    if not vs: return ''
-    n={w:vs.count(w) for w in SAYS if w in vs}
-    return f'<a class="limit claims" href="#r-{a}-says" title="What its docs say, checked claim by claim">{len(vs)} claim{"s" if len(vs)>1 else ""}: '+', '.join(f'{c} {SAYSW[w][c>1]}' for w,c in n.items())+'</a>'
+    # A link to the tool's claims, checked one by one ("7 claims, one by one"), or ''. The verdicts stay in the table: beside an
+    # answer that only counts the points these questions ask about, a count of them would read as a contradiction.
+    n=sum(len(b['rows']) for b in C['sections'].get('What it says vs what it does',[]) if 'Verdict' in b.get('table',[]))
+    return f'<a class="limit" href="#r-{a}-says" title="What its docs say, checked claim by claim">{n} claim{"s" if n>1 else ""}, one by one</a>' if n else ''
 def blocks(C,bl,a,area=None):
     # A section's blocks (text, lists, limits, tables) as HTML. In an area section a Concern line or row shows as its
     # costliest answer does ("Concern", "Major", "Off by default", "On request"); Good and Note show as they are.
