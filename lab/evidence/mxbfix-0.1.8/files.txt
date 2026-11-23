@@ -1,0 +1,4 @@
+$ sha256sum mxbfix.dlo mxbfix.sig
+16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb  mxbfix.dlo
+458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb  mxbfix.sig
+(exit 0)

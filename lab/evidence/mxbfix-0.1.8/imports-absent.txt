@@ -1,0 +1,2 @@
+$ iat.py mxbfix.dlo | grep -iE 'SendInput|keybd_event|mouse_event|SetWindowsHookEx|CreateProcess|WinExec|RegSetValue|RegCreateKey|RegDeleteKey|RegDeleteValue|WriteProcessMemory|OpenProcess|CreateRemoteThread|CreateFileMapping|MapViewOfFile|CreateNamedPipe|socket|bind|listen'
+(exit 1)

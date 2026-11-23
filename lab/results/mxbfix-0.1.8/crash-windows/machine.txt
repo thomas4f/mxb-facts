@@ -1,0 +1,4 @@
+Machine: Microsoft Windows Server 2025 Datacenter, video: Microsoft Hyper-V Video (no GPU). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: 97330813853e0e514a11ee16a47d4c6fe90148fae834649839afb30487cc8b0b.
+Release files (SHA-256):
+16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb  mxbfix.dlo
+458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb  mxbfix.sig

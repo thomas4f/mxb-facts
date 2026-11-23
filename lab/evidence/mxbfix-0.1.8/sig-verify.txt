@@ -1,0 +1,4 @@
+$ p256.py verify-der c5a5101755b6081ec547ad64cbd6f3338505a8459220c548eab881dc5e48494f8a3d406841118205e52be4f127828cb7bd30e60f215e4a5ad63e24bc7fc76455 mxbfix.sig "mxbfix-update|0.1.8|$(sha256sum mxbfix.dlo | cut -c1-64)"
+message: mxbfix-update|0.1.8|16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb
+Verified OK
+(exit 0)

@@ -1,0 +1,8 @@
+mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix  NAME COLLISION
+mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-5392.txt  SUCCESS
+mxbikes.exe  CreateFile  D:\a  NAME COLLISION
+mxbikes.exe  CreateFile  D:\a\_temp  NAME COLLISION
+mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts  NAME COLLISION
+mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander  NAME COLLISION
+mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-5392.txt  FAST IO DISALLOWED
+mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-5392.txt  SUCCESS

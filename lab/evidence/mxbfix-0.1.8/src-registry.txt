@@ -1,0 +1,4 @@
+$ cd "$SRC" && grep -rn 'Reg[A-Z][A-Za-z]*(\|ShellExecute\|CreateProcess' src
+src/context.c:109:    if (RegGetValueW(HKEY_LOCAL_MACHINE, L"HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
+src/ui.c:183:    ShellExecuteW(NULL, L"open", what, NULL, NULL, SW_SHOWNORMAL);
+(exit 0)

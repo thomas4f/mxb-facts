@@ -1,0 +1,2 @@
+Internet connections the run's processes tried (Process Monitor), then the firewall's drops for them. Every program in the run folder was blocked by the firewall, so this shows attempts, not traffic.
+3:53:56.6826573 AM  mxbikes.exe (5392)  TCP Disconnect  runnervmbpeip.hba1tuaematuhd453uo2lhhf3e.yx.internal.cloudapp.net:65400 -> lb-140-82-112-6-iad.github.com:https  SUCCESS

@@ -1,0 +1,71 @@
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix  NAME COLLISION
+    2  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-5392.txt  SUCCESS
+    4  mxbikes.exe  CreateFile  D:\a  NAME COLLISION
+    4  mxbikes.exe  CreateFile  D:\a\_temp  NAME COLLISION
+    4  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts  NAME COLLISION
+    4  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data  SUCCESS
+    3  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data\fonts  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp  SUCCESS
+    4  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save  SUCCESS
+    4  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\dumps  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\dumps  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\mxbfix.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\mxbfix.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\mxbfix.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\reports  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\reports  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\reports\pending  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\reports\pending  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\reports\sent  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\reports\sent  SUCCESS
+    3  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\session.crashed  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\session.lock  NAME NOT FOUND
+   56  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\session.lock  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\shot_0125.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\shot_0280.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\shot_0498.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-bystander\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-5392.txt  SUCCESS
+    1  mxbikes.exe  SetDispositionInformationEx  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\session.lock  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix.dlo  SUCCESS
+   51  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\session.lock  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\victim.dlo  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmbpeip.hba1tuaematuhd453uo2lhhf3e.yx.internal.cloudapp.net:65400 -> lb-140-82-112-6-iad.github.com:https  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-5392.txt  FAST IO DISALLOWED
+    5  mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-5392.txt  SUCCESS
+   88  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   83  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\bystander\host.log  FAST IO DISALLOWED
+  168  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\bystander\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\plugins\mxbfix.dlo  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\mxbfix.ini  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\mxbfix.log  FAST IO DISALLOWED
+   15  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\mxbfix.log  SUCCESS
+   14  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\session.lock  FAST IO DISALLOWED
+   51  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbfix\session.lock  SUCCESS
+   61  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0125.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0125.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0280.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0280.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0498.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0498.bmp  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\victim.dlo  SUCCESS

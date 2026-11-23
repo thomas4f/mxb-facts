@@ -1,0 +1,15 @@
+$ cd "$SRC" && grep -n 'RAW\[\]\|"\\"path\\""\|install_id\|has_path(payload' src/upload.c
+17:static char s_install_id[33];
+25:static void load_install_id(void)
+29:    GetPrivateProfileStringW(L"reports", L"install_id", L"", val, 40, ini);
+31:        WideCharToMultiByte(CP_ACP, 0, val, -1, s_install_id, sizeof s_install_id, NULL, NULL);
+36:    for (int i = 0; i < 16; i++) wsprintfA(s_install_id + 2 * i, "%02x", r[i]);
+37:    MultiByteToWideChar(CP_ACP, 0, s_install_id, -1, val, 40);
+38:    WritePrivateProfileStringW(L"reports", L"install_id", val, ini);
+112:    static const char *RAW[] = {"\"registers\"", "\"xmm_low\"", "\"code_at_fault\"", "\"code_before_fault\""};
+123:    o = (size_t)sprintf(out, "{\"install_id\":\"%s\",", s_install_id);
+135:        int path = e - i == 5 && !memcmp(in + i, "\"path\"", 6) && q < n && in[q] == '"';
+204:        if (has_path(payload, len)) {
+264:    load_install_id();
+265:    if (!s_install_id[0]) return 0;
+(exit 0)

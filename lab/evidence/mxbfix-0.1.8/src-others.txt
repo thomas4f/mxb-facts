@@ -1,0 +1,6 @@
+$ cd "$SRC" && grep -rn 'profiles\\\\\|mxbmrp3\\\\\|EvtQuery(' src
+src/fixes/fix_trainer_repair.c:171:    path_join(profiles, MAX_PATH, g_save_dir, L"profiles\\");
+src/crash.c:273:    EVT_HANDLE q = EvtQuery(NULL, L"Application", query, EvtQueryChannelPath | EvtQueryReverseDirection);
+src/mxbmrp3.c:146:    if (!path_join(dir, MAX_PATH, g_save_dir, L"mxbmrp3\\crashes\\")) return 0;
+src/mxbmrp3.c:171:    char *j = path_join(pend, MAX_PATH, g_save_dir, L"mxbmrp3\\pending_crash.json") ? read_small(pend, 64 * 1024, &len) : NULL;
+(exit 0)

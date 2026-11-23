@@ -1,0 +1,32 @@
+$ cd "$SRC" && grep -rn 'VirtualProtect\|fix_apply_patch' src; sed -n '17,24p' src/fixes.c; grep -rn 'define [A-Z]*_BUILD' src
+src/fixes.h:51: * `orig`, then write `patch` with VirtualProtect + FlushInstructionCache. Logs the outcome under the
+src/fixes.h:53:int fix_apply_patch(const char *id, uint8_t *at, const uint8_t *orig, const uint8_t *patch, size_t len);
+src/fixes.h:64:int fix_apply_patches(const char *id, uint8_t *base, const fix_span_t *spans, int n);
+src/fixes.c:48:int fix_apply_patch(const char *id, uint8_t *p, const uint8_t *orig, const uint8_t *patch, size_t len)
+src/fixes.c:60:    if (!VirtualProtect(p, len, PAGE_EXECUTE_READWRITE, &old)) {
+src/fixes.c:65:    BOOL restored = VirtualProtect(p, len, old, &tmp);
+src/fixes.c:74:int fix_apply_patches(const char *id, uint8_t *base, const fix_span_t *sp, int n)
+src/fixes.c:97:        if (!VirtualProtect(base + sp[i].rva, sp[i].len, PAGE_EXECUTE_READWRITE, &old[i])) {
+src/fixes.c:101:            for (int k = i - 1; k >= 0; k--) VirtualProtect(base + sp[k].rva, sp[k].len, old[k], &tmp);
+src/fixes.c:112:        restored[i] = VirtualProtect(base + sp[i].rva, sp[i].len, old[i], &tmp);
+src/fixes/fix_ground_nan_guard.c:31: * Six spans, one per check, applied with fix_apply_patches(): all are verified
+src/fixes/fix_ground_nan_guard.c:102:    return fix_apply_patches(self->id, image_base(), spans, NSITES);
+src/fixes/fix_gate_vertex_pointer.c:77:    return fix_apply_patch(self->id, target(), ORIG, PATCH, GATE_LEN);
+src/fixes/fix_fence_contact_nan.c:48:    return fix_apply_patch(self->id, target(), ORIG, PATCH, FCN_LEN);
+src/fixes/fix_trainer_series_lookup.c:66:    return fix_apply_patch(self->id, target(), ORIG, PATCH, TRN_LEN);
+src/fixes/fix_trainer_cleanup_reset.c:94:    return fix_apply_patches(self->id, image_base(), spans, NSITES);   /* all or nothing */
+static fix_t *ALL[] = {
+    &fix_gate_vertex_pointer,
+    &fix_trainer_series_lookup,
+    &fix_trainer_repair,
+    &fix_ground_nan_guard,
+    &fix_trainer_cleanup_reset,
+    &fix_fence_contact_nan,
+};
+src/fixes/fix_ground_nan_guard.c:42:#define GNG_BUILD 0x6A21833Du
+src/fixes/fix_gate_vertex_pointer.c:25:#define GATE_BUILD 0x6A21833Du
+src/fixes/fix_fence_contact_nan.c:24:#define FCN_BUILD 0x6A21833Du
+src/fixes/fix_trainer_series_lookup.c:26:#define TRN_BUILD 0x6A21833Du
+src/fixes/fix_suspension_nan_guard.c:31:#define SNG_BUILD   0x6A21833Du
+src/fixes/fix_trainer_cleanup_reset.c:35:#define TCR_BUILD 0x6A21833Du
+(exit 0)

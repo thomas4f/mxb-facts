@@ -1,0 +1,4 @@
+$ file mxbfix.dlo mxbfix.sig
+mxbfix.dlo: PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+mxbfix.sig: data
+(exit 0)

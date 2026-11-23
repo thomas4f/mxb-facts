@@ -237,7 +237,7 @@
     "author": "xAmped",
     "github": "xAmped/mxbfix",
     "homepage": null,
-    "cards": [],
+    "cards": ["mxbfix-0.1.8.yaml"],
     "mxb-mods": {
       "post": 195602,
       "tied_by": "github.com/xAmped/mxbfix"
