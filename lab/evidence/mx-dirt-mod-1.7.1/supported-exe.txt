@@ -1,0 +1,9 @@
+$ cat SUPPORTED_EXE.txt; strings -n 64 plugins/mx_dirt.dlo | grep -n 9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291
+9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291  mxbikes.exe (Steam build 23566986)
+
+The mod patches and reads fixed places in this exact mxbikes.exe. With any other
+version it stays inactive and the game runs normally until a new release supports it.
+31:9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291
+32:9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291
+33:9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291
+(exit 0)

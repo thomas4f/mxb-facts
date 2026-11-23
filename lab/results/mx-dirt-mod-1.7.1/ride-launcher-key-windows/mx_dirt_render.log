@@ -1,0 +1,5 @@
+963828 content_ready dirt_material=1 strength=135 loose=55 fade=75..100 soft_layer=1
+963828 audit exe_hash_mismatch code=2 thread=3108 tick=963828 a=0x7ff6dff60000 b=0x10c2000 slot=4294967295 reason=0
+963828 audit gate_fail code=3 thread=3108 tick=963828 a=0x0 b=0x1 slot=4294967295 reason=0
+963828 lifecycle event=7 generation=0
+963828 scene_retired

@@ -82,7 +82,7 @@ def files_table(f,d):
             rows.append((name,f'`{y["inside"]}`' if y.get('inside') else '-',f'`{y["sha256"]}`',cell(y["sha256"]),y.get("note","")))
     return rows
 # The name a table in an area section is folded under, by its columns.
-FOLDNAME={('What','Where to','When','Switch'):'Connections found'}
+FOLDNAME={('What','Where to','When','Switch'):'Connections found',('What','Where in the game','When'):'Changes to the game found'}
 LIMS={}
 REPO='https://github.com/thomas4f/mxb-facts/'
 try: COMMIT=subprocess.run(['git','-C',ROOT,'rev-parse','HEAD'],capture_output=True,text=True,check=True).stdout.strip()

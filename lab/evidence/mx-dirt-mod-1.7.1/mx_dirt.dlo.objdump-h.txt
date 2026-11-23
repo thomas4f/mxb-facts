@@ -1,0 +1,21 @@
+$ objdump -h plugins/mx_dirt.dlo
+
+plugins/mx_dirt.dlo:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         0005a256  0000000180001000  0000000180001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        0000e260  000000018005c000  000000018005c000  0005a800  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .buildid      0000005c  000000018006b000  000000018006b000  00068c00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .data         00000200  000000018006c000  000000018006c000  00068e00  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .pdata        00002418  00000001806b3000  00000001806b3000  00069000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .tls          00000010  00000001806b6000  00000001806b6000  0006b600  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .reloc        00000120  00000001806b7000  00000001806b7000  0006b800  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)
