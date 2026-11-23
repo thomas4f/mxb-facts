@@ -1,0 +1,44 @@
+$ { strings -n 5 MaxHUD_MXB64.dlo; strings -el -n 5 MaxHUD_MXB64.dlo; } | grep -nE 'MaxHUD|\.tga|\.fnt|\.ini|\.log|path|%Y'
+616:Background : File [back_%s.tga]
+618:back_%s.tga
+653:helmet-mxb-top.tga
+654:helmet-mxb-bot.tga
+667:Background      : File [back_%s.tga]
+677:Background       : File [back_%s.tga]
+690:Background     : File [back_%s.tga]
+724:dot.tga
+733:MaxHUD %s  - %s
+736:  szSave path = %s
+737:  Save path   = %s
+738:  Data path   = %s
+779:Exiting MaxHUD - %s
+880:MaxHUD.ini has been reset !!
+893:MaxHUD
+902:%Y%m%d-%H%M%S
+914:pointer.tga
+915:pointer_shadow.tga
+916:poslink.tga
+917:on-off.tga
+918:link.tga
+919:profile-cross.tga
+933:Background  : File [back_%s.tga]
+976:Background   : File [back_%s.tga]
+982:radar.tga
+983:radar-left.tga
+984:radar-right.tga
+985:radar-back.tga
+1047:susp-warn.tga
+1078:MaxHUD_data\
+1081:%d %b %Y, %H:%M:%S
+1084:plugins\MaxHUD_data\
+1085:MaxHUD.ini
+1086:MaxHUD.log
+1087:Font*.fnt
+1088:FontFix_*.fnt
+1089:FontVar_*.fnt
+1090:*.tga
+1091:**WARNING** @Startup() : no fixed font found (FontFix_*.fnt)
+1092:**WARNING** @Startup() : no variable font found (FontVar_*.fnt)
+1134:C:\Users\MaX\Documents\Visual Studio 2017\Projects\MaxHUD\MaxHUD_GPB_Output\MaxHUD_MXB64.pdb
+1177:MaxHUD_MXB64.dlo
+(exit 0)

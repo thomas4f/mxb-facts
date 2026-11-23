@@ -1,0 +1,20 @@
+$ { strings -n 5 MaxHUD_MXB64.dlo; strings -el -n 5 MaxHUD_MXB64.dlo; } | grep -niE '\.dll|^api-ms-|^ext-ms-'
+559:dinput8.dll
+1209:WINMM.dll
+1212:XINPUT9_1_0.dll
+1233:KERNEL32.dll
+1240:USER32.dll
+1244:ADVAPI32.dll
+1305:MSVCP140.dll
+1316:VCRUNTIME140.dll
+1351:api-ms-win-crt-runtime-l1-1-0.dll
+1352:api-ms-win-crt-stdio-l1-1-0.dll
+1353:api-ms-win-crt-utility-l1-1-0.dll
+1354:api-ms-win-crt-math-l1-1-0.dll
+1355:api-ms-win-crt-time-l1-1-0.dll
+1356:api-ms-win-crt-filesystem-l1-1-0.dll
+1357:api-ms-win-crt-string-l1-1-0.dll
+1358:api-ms-win-crt-heap-l1-1-0.dll
+1436:api-ms-win-core-synch-l1-2-0.dll
+1437:kernel32.dll
+(exit 0)

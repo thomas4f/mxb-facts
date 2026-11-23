@@ -1,0 +1,10 @@
+$ objdump -d MaxHUD_MXB64.dlo | grep -E '# 0x180035410|# 0x180035408|# 0x1800353f0|# 0x1800353f8'
+   180027769:	ff 15 a1 dc 00 00    	call   *0xdca1(%rip)        # 0x180035410
+   18002795c:	ff 15 ae da 00 00    	call   *0xdaae(%rip)        # 0x180035410
+   180027a60:	ff 15 aa d9 00 00    	call   *0xd9aa(%rip)        # 0x180035410
+   180027ad0:	ff 15 32 d9 00 00    	call   *0xd932(%rip)        # 0x180035408
+   18002ed30:	ff 15 ba 66 00 00    	call   *0x66ba(%rip)        # 0x1800353f0
+   18002ee57:	ff 15 93 65 00 00    	call   *0x6593(%rip)        # 0x1800353f0
+   18002eef3:	ff 15 ff 64 00 00    	call   *0x64ff(%rip)        # 0x1800353f8
+   180030169:	ff 15 81 52 00 00    	call   *0x5281(%rip)        # 0x1800353f0
+(exit 0)

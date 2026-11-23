@@ -21,7 +21,6 @@ Tools on file to analyse. The release named here is the one on file when the too
 |  | GameFX+ | 2.4.0 | Gameplay and visuals | Finner24 on mxb-mods.com | None | None found | `gamefx-plus` |
 |  | Heightmap Studio | [v26.11.6](https://github.com/bradenmackey/hms-public/releases/tag/v26.11.6) | Content creation | GitHub user [bradenmackey](https://github.com/bradenmackey) | [bradenmackey/hms-public](https://github.com/bradenmackey/hms-public) | None found | `heightmap-studio` |
 |  | HoleShot HUD | [v0.24.0](https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/tag/v0.24.0) | HUD | GitHub organisation [LeadingTrendTechnologies](https://github.com/LeadingTrendTechnologies) | [LeadingTrendTechnologies/HoleshotHUD](https://github.com/LeadingTrendTechnologies/HoleshotHUD) | None found | `holeshot` |
-|  | MaXHUD | The newest when it runs | HUD | HornetMaX on the PiBoSo forum | None | [PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0) | `maxhud` |
 |  | MX Dirt Mod | [v1.7.1](https://github.com/kadenball/mx-dirt-mod/tree/5c300cccd92f533e415b7258ee084feb2d35fc97) | Gameplay and visuals | GitHub user [kadenball](https://github.com/kadenball) | [kadenball/mx-dirt-mod](https://github.com/kadenball/mx-dirt-mod) | None found | `mx-dirt-mod` |
 |  | MX Dirt Mod Alt | [v1.7.1-alt.1](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/tree/c5ed04c72bdbab7b00fd594ce7525e7a1914f797) | Gameplay and visuals | GitHub user [FMilesi-Cloud](https://github.com/FMilesi-Cloud) | [FMilesi-Cloud/mx-dirt-mod-alt](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt) | None found | `mx-dirt-mod-alt` |
 |  | MXB A-Kit Studio | [V1.7.0](https://github.com/DankMaps/MXB-AKit-Studio-Releases/releases/tag/V1.7.0) | Setup and coaching | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXB-AKit-Studio-Releases](https://github.com/DankMaps/MXB-AKit-Studio-Releases) | [mxbtt.com/akit-studio](https://mxbtt.com/akit-studio) | `akit-studio` |
@@ -62,6 +61,7 @@ Tools the maintainer picked from mxb-mods.com. Not started yet. Counts are from 
 ## To revisit
 
 - **When VirusTotal lookups run.** The workflow runs by hand only. If lookups should also run on their own (on each card pull request, or weekly for every card), add those triggers to `.github/workflows/virustotal.yml`.
+- **MaXHUD 2.2.7: its Caps Lock menu wasn't seen.** The menu shows while Caps Lock is on, so the real-game run's four presses ended with it closed before the screenshot, and the test host's draw list didn't change after its presses. A real-game run with an odd number of Caps Lock presses (a screenshot while it is on) would show it, and settle the G7 limit on `cards/maxhud-2.2.7.yaml`.
 
 ## Known, not planned
 

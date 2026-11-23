@@ -1,0 +1,43 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.ini  NAME NOT FOUND
+  228  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0140.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0150.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0260.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0330.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0598.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Id  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\MostRecentStart  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Name  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Version  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC1C75  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-menu-crash\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-menu-crash\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-menu-crash\opengl32.dll  SUCCESS
+  214  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.ini  SUCCESS
+  350  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+  341  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\menu-crash\host.log  FAST IO DISALLOWED
+  684  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\menu-crash\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\opengl32.dll  SUCCESS
+   33  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.ini  FAST IO DISALLOWED
+  214  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.log  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\save\MaxHUD.log  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0140.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0140.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0150.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0150.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0260.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0260.bmp  SUCCESS
+   50  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0330.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0330.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0598.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-menu-crash\shot_0598.bmp  SUCCESS

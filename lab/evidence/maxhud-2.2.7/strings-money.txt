@@ -1,0 +1,5 @@
+$ { strings -n 6 MaxHUD_MXB64.dlo MaxStopRumble.exe MaxHUD.pdf; strings -el -n 6 MaxHUD_MXB64.dlo MaxStopRumble.exe MaxHUD.pdf; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+1199:/URI (https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)>>>>
+1225:/URI (https://aka.ms/vs/16/release/vc_redist.x64.exe)>>>>
+2392:/URI (http://forum.mx-bikes.com/index.php?topic=3143.0)>>>>
+(exit 0)

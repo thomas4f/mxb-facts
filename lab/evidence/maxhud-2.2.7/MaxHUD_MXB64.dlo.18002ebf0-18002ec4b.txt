@@ -1,0 +1,23 @@
+$ objdump -d 'MaxHUD_MXB64.dlo' | awk -v a=18002ebf0 -v b=18002ec4b '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18002ebf0:	48 89 5c 24 10       	mov    %rbx,0x10(%rsp)
+   18002ebf5:	56                   	push   %rsi
+   18002ebf6:	48 81 ec 80 00 00 00 	sub    $0x80,%rsp
+   18002ebfd:	48 8b 05 0c 64 01 00 	mov    0x1640c(%rip),%rax        # 0x180045010
+   18002ec04:	48 33 c4             	xor    %rsp,%rax
+   18002ec07:	48 89 44 24 70       	mov    %rax,0x70(%rsp)
+   18002ec0c:	48 8d 0d 5d 70 00 00 	lea    0x705d(%rip),%rcx        # 0x180035c70
+   18002ec13:	ff 15 07 65 00 00    	call   *0x6507(%rip)        # 0x180035120
+   18002ec19:	33 f6                	xor    %esi,%esi
+   18002ec1b:	48 89 05 36 91 01 00 	mov    %rax,0x19136(%rip)        # 0x180047d58
+   18002ec22:	48 85 c0             	test   %rax,%rax
+   18002ec25:	0f 84 a3 00 00 00    	je     0x18002ecce
+   18002ec2b:	48 8d 15 4e 70 00 00 	lea    0x704e(%rip),%rdx        # 0x180035c80
+   18002ec32:	48 8b c8             	mov    %rax,%rcx
+   18002ec35:	ff 15 4d 64 00 00    	call   *0x644d(%rip)        # 0x180035088
+   18002ec3b:	48 8b d8             	mov    %rax,%rbx
+   18002ec3e:	48 85 c0             	test   %rax,%rax
+   18002ec41:	74 77                	je     0x18002ecba
+   18002ec43:	33 c9                	xor    %ecx,%ecx
+   18002ec45:	ff 15 35 64 00 00    	call   *0x6435(%rip)        # 0x180035080
+   18002ec4b:	4c 8d 0d 0e 91 01 00 	lea    0x1910e(%rip),%r9        # 0x180047d60
+(exit 0)

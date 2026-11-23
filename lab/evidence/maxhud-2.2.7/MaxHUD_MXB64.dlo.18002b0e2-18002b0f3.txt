@@ -1,0 +1,7 @@
+$ objdump -d 'MaxHUD_MXB64.dlo' | awk -v a=18002b0e2 -v b=18002b0f3 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18002b0e2:	83 f8 02             	cmp    $0x2,%eax
+   18002b0e5:	77 39                	ja     0x18002b120
+   18002b0e7:	48 8b 8b 88 01 00 00 	mov    0x188(%rbx),%rcx
+   18002b0ee:	e8 ad 88 fe ff       	call   0x1800139a0
+   18002b0f3:	8b 43 08             	mov    0x8(%rbx),%eax
+(exit 0)

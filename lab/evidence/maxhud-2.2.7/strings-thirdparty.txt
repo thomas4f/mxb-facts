@@ -1,0 +1,25 @@
+$ { strings -n 5 MaxHUD_MXB64.dlo; strings -el -n 5 MaxHUD_MXB64.dlo; } | grep -iE 'copyright|licen[cs]e|SFML|joystick|DirectInput|zlib|imgui|nlohmann|Microsoft'
+No Joystick
+Unknown Joystick
+Unable to open registry for joystick at index 
+Unable to query registry key for joystick at index 
+Unable to open registry key for joystick at index 
+Unable to query name for joystick at index 
+DirectInput not available, falling back to Windows joystick API
+DirectInput8Create
+Failed to initialize DirectInput: 
+Failed to enumerate DirectInput devices: 
+Failed to create DirectInput device: 
+Failed to set DirectInput device data format: 
+Failed to get DirectInput device capabilities: 
+Failed to set DirectInput device axis mode: 
+Failed to enumerate DirectInput device objects: 
+Failed to get DirectInput device state: 
+Failed to set DirectInput device axis property range: 
+<assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+  <trustInfo xmlns="urn:schemas-microsoft-com:asm.v3">
+System\CurrentControlSet\Control\MediaResources\Joystick
+CurrentJoystickSettings
+Joystick
+System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM
+(exit 0)

@@ -1,0 +1,589 @@
+tool: MaXHUD
+version: 2.2.7
+summary: >-
+  An MX Bikes plugin that draws a set of HUD widgets (timing, live gap, standings, map, radar, speed, inputs and more), set in a
+  menu while Caps Lock is on. It makes no internet connection and writes only its settings and log, in the game's own save folder.
+header:
+  What it is: >-
+    A closed-source plugin (`MaxHUD_MXB64.dlo` and a `MaxHUD_data` folder of fonts and images) that goes into the game's `plugins`
+    folder. On track it draws widgets from the data the game passes to plugins, and can rumble an XInput controller. The same zip
+    holds the plugins for GP Bikes, Kart Racing Pro and World Racing Series, and `MaxStopRumble.exe`, a small program that stops
+    controller rumble.
+  In one line: HUD plugin with timing, live gap, standings, map, radar and input widgets
+  Category: HUD
+  Author: HornetMaX (the name on the PiBoSo forum topic)
+  Game: MX Bikes
+  mxb-mods.com: >-
+    [MaxHUD](https://mxb-mods.com/maxhud/), uploaded in 2021 by someone other than the author, with no download tied to 2.2.7; the
+    author publishes MaXHUD on the PiBoSo forum
+  Homepage: '[PiBoSo forum topic "MaxHUD plugin"](https://forum.piboso.com/index.php?topic=79.0)'
+  GitHub: None found
+  Version analysed: >-
+    v2.2.7 (18 Aug 2023), the newest release on the author's PiBoSo forum topic (its first post, last edited 18 Aug 2023, links
+    it): `MaXHUD - v2.2.7.zip` from the author's
+    [MEGA folder](https://mega.nz/folder/dRsyARjI#ceFbX0UW01KgB93KY83hZA/file/QYlnVZwS). The inventory (`registry/releases.json`)
+    lists only Microsoft's `vc_redist.x64.exe` from that topic, a prerequisite and not part of the tool. There are no tags or
+    commits: the source isn't public.
+  Analysed on: 23 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Closed source, and neither the release, its manual nor its forum topic carries a licence or a clause against analysis, so the
+    release files were examined: imports, exports and code-signing entry (`objdump -p`), text (`strings`, `strings -el`, and
+    `pdftotext` for the manual), and every call site of the imports that read keys and the mouse, drive controllers, read the
+    registry, delete or rename files or set a crash handler (`objdump -d`); every command is in
+    `lab/evidence/maxhud-2.2.7/run.sh`. Only the MX Bikes plugin and `MaxStopRumble.exe` were read in depth; the three plugins
+    for other games were checked by type, hash, signature and VirusTotal. The release was not rebuilt (no public source). A
+    throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU), no controller
+    and no keys ran the plugin in the MX Bikes demo (beta21e), offline behind a firewall block, under Process Monitor: the bare
+    demo as baseline, a 90 s ride, and a ride pressing Caps Lock four times; then the plugin test host (a default case, a case
+    with Caps Lock twice and a crash with the bystander plugin's checks, and a helmet-view case), and `MaxStopRumble.exe` for
+    20 s. The real game online and a real controller were not used. VirusTotal: hash lookups only (made before the analysis,
+    23 Nov 2026), nothing uploaded.
+files:
+  - name: MaXHUD - v2.2.7.zip
+    sha256: 7bad0de4e79f07d555b00f487dc9849a3220fcd475d547235e357b5a46fe2d58
+    note: The download players get from the author's MEGA folder, linked from the PiBoSo forum topic.
+  - name: MaxHUD_GPB64.dlo
+    sha256: 1d8a0809582b494813e0bc13a539cc100db9a91717739c9949e89d78e52e75e0
+    inside: MaXHUD - v2.2.7.zip
+    note: 'The GP Bikes plugin (not run: another game).'
+  - name: MaxHUD_KRP64.dlo
+    sha256: 5ac21e129fc5090dc55882757d6ad6255f99809e5967c5f6542a6c1bd3df7924
+    inside: MaXHUD - v2.2.7.zip
+    note: 'The Kart Racing Pro plugin (not run: another game).'
+  - name: MaxHUD_MXB64.dlo
+    sha256: d6216e38d3b8100ce34dbf83b18e075d320c7c05c497147dfb8f626da0118295
+    inside: MaXHUD - v2.2.7.zip
+    note: The MX Bikes plugin, copied into `plugins\`; the file this card analyses.
+  - name: MaxHUD_WRS64.dlo
+    sha256: 538c9338bbff7b43b395b14405697ae6667ce7af3f1c228a94a696debe7913a7
+    inside: MaXHUD - v2.2.7.zip
+    note: 'The World Racing Series plugin (not run: another game).'
+  - name: MaxStopRumble.exe
+    sha256: ad745843f5dd2e92c6acc470c614a998ffea6f59d03ca8c3bbaf3eda8efb9042
+    inside: MaXHUD - v2.2.7.zip
+    note: A console program that stops rumble on XInput controllers; the manual doesn't name it.
+  - name: MaxHUD.pdf
+    sha256: dc0d95cf122330646b2ed0ff9b81ac9af63ce1d29557b0b6d3b2e52916cb5a93
+    inside: MaXHUD - v2.2.7.zip
+    note: 'The manual: install steps, widgets, settings and changelog.'
+  - name: FontFix_CqMono.fnt
+    sha256: 4ef1d7746a4fe7c4f52e7cec944b9e336e46644d5057a847ec03553a1ec5ec6c
+    inside: MaXHUD - v2.2.7.zip
+    note: Bitmap font, in `MaxHUD_data\`.
+  - name: FontFix_SourceCodeProBold.fnt
+    sha256: 8e6fcc47232b13240582d731807495c491621f5a735c8e04d5258dc367fd9000
+    inside: MaXHUD - v2.2.7.zip
+    note: Bitmap font, in `MaxHUD_data\`.
+  - name: FontVar_Audiowide.fnt
+    sha256: 795f64a940b6ee19bc5b55c7f9dbc476d2f186768c56ee4346380ac471d453b1
+    inside: MaXHUD - v2.2.7.zip
+    note: Bitmap font, in `MaxHUD_data\`.
+  - name: FontVar_FallingSkyBold.fnt
+    sha256: 80815e7b53c5ff80b3b415758dea22bf41d90bdff6903a563f0ba3edba71d514
+    inside: MaXHUD - v2.2.7.zip
+    note: Bitmap font, in `MaxHUD_data\`.
+  - name: FontVar_PiBoSo.fnt
+    sha256: 310463b695ab0bd6cf4d28597c7c0a6b7f88421181d6a1054ed7c1781cd89270
+    inside: MaXHUD - v2.2.7.zip
+    note: Bitmap font, in `MaxHUD_data\`.
+  - name: dot.tga
+    sha256: 6605add8a020a0987284c6051b66515ec639896d21b20cc45adeda4c01a4c277
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: helmet-bot.tga
+    sha256: f0bfd92d4ac5a538bbf36a56b2fb23a5b91fcc9e718efcc8179dcbbf5df6adce
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: helmet-mxb-bot.tga
+    sha256: 06b6a7ad722005698d1b294ba4489f2b92c6a85145c3c45c5827bd0dc51c0e1d
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: helmet-mxb-top.tga
+    sha256: 8165b6f6ea2097f0d10ca73c39038e3f89e0c351bc45938ad73d4bd6e5f9d784
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: helmet-top.tga
+    sha256: e127dc026814d5a93068c05336e02451544959536425b6fd5a4905a0f2098177
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: link.tga
+    sha256: 8f8df113430b15714be583971e852401872e7c6cf0544119af3873ffe3e41d1a
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: on-off.tga
+    sha256: b8824f5f9b5f77953fcd61d20006901af6931c219594a34fa6a19060bb491e33
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: pointer.tga
+    sha256: 5ee1f3620365d5b54153676d3300566f31ef8f60a18ab963aaec77e98b10a520
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: pointer_shadow.tga
+    sha256: 37b4e44aa7e32244454195deb75361276dff38ae4ecc1dff24008ea793263820
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: poslink.tga
+    sha256: 32d594974e7e098d6b2bba367e7dbcca4179beb2d8b34cc7fa82e74d2f5b5996
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: profile-cross.tga
+    sha256: 043f5f105bce7d02d068526db2b7808a935049e190c6b0c9c3b8f4d68c56bb00
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: profile-track.tga
+    sha256: 6c534c3f87ef6bbff04833fa4ae04b9c17747f9f650b560736afa91f597dfb0c
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: radar-back.tga
+    sha256: 56a3cc87a30ec585b92284316fc035ee2885d0e2664ed3a35c1fdea9d8d7c279
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: radar-left.tga
+    sha256: 1b457f1f3ef2310e575ee3080f0f0c5eb32f01ac640cdef1358c2ab0ee35e8c4
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: radar-right.tga
+    sha256: fe10456c3d64da12f87839fdd8b5e4340320ad6e260e0b6b4dcc800e0ae34ff6
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: radar.tga
+    sha256: 1f8ad1a76dc4b99e5b969831f18dc8916a979dd270d734415575a58dd5f7b1ed
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+  - name: susp-warn.tga
+    sha256: 33db97d2b6ea54eea18fb23c847407b489d5b7383aa9919867d5fee2a12285d9
+    inside: MaXHUD - v2.2.7.zip
+    note: Image, in `MaxHUD_data\`.
+files_note: >-
+  No program file in the zip is code-signed (`lab/evidence/maxhud-2.2.7/signature.txt`). The zip's hash matches the one the
+  Windows machine ran (`lab/results/maxhud-2.2.7/ride-windows/machine.txt`), and the plugins' the ones the game loaded
+  (`lab/results/maxhud-2.2.7/ride-windows/plugins.sha256`).
+key:
+  K1: 'No malware found. One engine of 67 flags the zip; none flags any file in it.'
+  K2: 'No. It has no updater.'
+  K3: 'No. It deletes and renames only its own log and settings.'
+  K4: 'No. It makes no internet connection.'
+  K5: 'No. It uses only the plugin interface and changes nothing in the game''s code or memory.'
+  K6: 'No. It reads only the data the game passes to plugins.'
+  K7: 'No. Only the compiled plugins and program are published.'
+  K8: 'Yes, as far as checked; nothing its manual says on these questions differs from what was found.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'No. It has no network code, and the runs tried no connection.'
+areas:
+  Your PC and files: >-
+    No updater and no installer; it writes only its settings and log in the game's save folder, and they stay when you remove
+    the plugin; not code-signed.
+  Your data: No internet connection and no network code; its log holds one short line per start.
+  Your game: >-
+    A plugin that uses only the plugin interface, XInput and the joystick functions of Windows; while its menu is open it reads
+    the mouse and Left Shift through Windows without checking which window is in front.
+  Creators' content: Doesn't touch other people's content; it reads only the data the game passes to plugins.
+  Transparency: Closed source with no licence, published as a zip on MEGA from a PiBoSo forum topic.
+  Money: Free; its forum topic asks for donations through PayPal.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: the plugin needs Microsoft's Visual C++ runtime (`MSVCP140.dll`, `VCRUNTIME140.dll`), which the release
+          doesn't ship; its manual links Microsoft's installer (`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.iat.txt`,
+          `lab/evidence/maxhud-2.2.7/readme-claims.txt`).
+        mark: note
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: for its Inputs and Joypad widgets it reads joysticks through DirectInput, which it loads itself, and the
+          older Windows joystick functions, and it reads and sets XInput controllers for its Rumble widget, on the controller chosen in its settings
+          (`xinput_device`) (`lab/evidence/maxhud-2.2.7/xinput-callsites.txt`, `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.18002ebf0-18002ec4b.txt`).
+        mark: note
+      - text: >-
+          Also found: `MaxStopRumble.exe` imports only XInput and the C runtime; run, it printed "MaxStopRumble running ..." and
+          "MaxStopRumble done !", exited, wrote no file and tried no connection (`lab/evidence/maxhud-2.2.7/MaxStopRumble.exe.iat.txt`,
+          `lab/evidence/maxhud-2.2.7/stoprumble-strings.txt`, `lab/results/maxhud-2.2.7/maxstoprumble-windows/host.log`,
+          `lab/results/maxhud-2.2.7/maxstoprumble-windows/files.diff`, `lab/results/maxhud-2.2.7/maxstoprumble-windows/network.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"MaxHUD_MXB64.dlo : plugin for MX Bikes" (MaxHUD.pdf)'
+            Verdict: Matches
+            Evidence: 'The MX Bikes demo (beta21e) loaded it and it drew its widgets on track (`lab/results/maxhud-2.2.7/ride-windows/loaded.txt`, `lab/results/maxhud-2.2.7/ride-windows/shot_ride.png`).'
+          - Claim: '"Unzipping the archive you will find: MaxHUD.pdf, MaxHUD_data, MaxHUD_GPB64.dlo, MaxHUD_MXB64.dlo, MaxHUD_WRS64.dlo, MaxHUD_KRP64.dlo" (MaxHUD.pdf)'
+            Verdict: Partly
+            Evidence: 'The zip also holds `MaxStopRumble.exe`, which the manual doesn''t name (`lab/evidence/maxhud-2.2.7/file.txt`, `lab/evidence/maxhud-2.2.7/readme-claims.txt`).'
+          - Claim: '"The plugin creates a MaxHUD.ini file in the data directory corresponding to the game: `C:\Users\<Your Windows Username>\Documents\PiBoSo\MX Bikes\`" (MaxHUD.pdf)'
+            Verdict: Matches
+            Evidence: 'The ride created `Documents\PiBoSo\MX Bikes\MaxHUD.ini` (`lab/results/maxhud-2.2.7/ride-windows/outside.txt`).'
+          - Claim: '"Logging to MaxHUD.log is always now on (tiny file, no impact)." "Now it''s erased at startup." (MaxHUD.pdf, changelog)'
+            Verdict: Matches
+            Evidence: 'At start it deletes `MaxHUD.log` (the only `remove` call), then wrote it once, 40 bytes, in the 90 s ride (`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.180029e1e-180029ea0.txt`, `lab/evidence/maxhud-2.2.7/file-names.txt`, `lab/results/maxhud-2.2.7/ride-windows/raw/procmon.csv.gz`).'
+          - Claim: '"your old MaxHUD.ini file will be renamed to MaxHUD.ini.YYYYMMDD-hhmmss" (MaxHUD.pdf)'
+            Verdict: Matches
+            Evidence: 'Its only `rename` call moves the `MaxHUD.ini` path to the same path with a date in the format `%Y%m%d-%H%M%S` (`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.1800118d7-1800119c7.txt`, `lab/evidence/maxhud-2.2.7/file-names.txt`). The runs started without a `MaxHUD.ini`, so none renamed one.'
+          - Claim: '"When on the track, pressing CAPS-LOCK will show a menu" (MaxHUD.pdf)'
+            Verdict: Not checked
+            Evidence: 'The code shows the menu while Caps Lock is on and hides it when it is off (`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.1800139a0-180013bca.txt`), but no run shows the menu (see Limits).'
+          - Claim: '"I credit random for his great work and his willingness to share his code." (MaxHUD.pdf)'
+            Verdict: Matches
+            Evidence: 'The manual''s first line (`lab/evidence/maxhud-2.2.7/readme-claims.txt`); see C4 for the code it doesn''t credit.'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX Bikes
+              demo, offline. Frame times say nothing about real performance.
+            questions: []
+          - text: >-
+              In the real-game runs, all four MaXHUD plugins and `MaxStopRumble.exe` were in `plugins` (the manual says to copy only the
+              game's own plugin), and the game loaded all four, so those runs' file, registry and network lines cover the four together.
+              The test-host runs loaded only `MaxHUD_MXB64.dlo`.
+            questions: []
+          - text: >-
+              No XInput controller or joystick was connected in any run, so rumble and the Inputs and Joypad widgets' device reads
+              weren't seen; what the plugin does with a controller was read from its calls to XInput, DirectInput and the Windows
+              joystick functions.
+            questions: []
+          - text: >-
+              The menu was never seen: in the real game the screenshot was taken after the fourth Caps Lock press, which turns Caps Lock
+              off and closes it, and in the test host the plugin's draw list didn't change after the presses. That it reads the mouse
+              and Left Shift while the menu is open, without checking which window is in front, rests on its code.
+            questions: [G7]
+          - text: >-
+              The content of `MaxHUD.log` wasn't collected; what it holds rests on its size (one 40-byte write per ride, from Process
+              Monitor).
+            questions: [D10]
+          - text: >-
+              Every run started without a `MaxHUD.ini`, so the reset that renames an old one wasn't run; that it renames only that file
+              rests on its code.
+            questions: [P4]
+          - text: >-
+              The real game on an online server can't be reached here (the demo has no online play). That it changes nothing there rests
+              on its code: it has no hooks, patches or writes into the game, so it has nothing to change on a server either.
+            questions: [G3]
+          - text: >-
+              Closed source: the plugin was read from its imports, text and the call sites named on the lines, not decompiled in full. A
+              read of the game's memory through an address the plugin works out at run time would not show in these.
+            questions: [G4]
+          - text: >-
+              The plugins for GP Bikes, Kart Racing Pro and World Racing Series were not read or run beyond their type, hashes, code
+              signature and VirusTotal; this card covers the MX Bikes plugin.
+            questions: []
+answers:
+  P1:
+    verdict: Partly
+    mark: note
+    text: >-
+      One engine of 67 (MaxSecure) flags `MaXHUD - v2.2.7.zip` (last scanned 28 Jul 2025). No engine flags any of the 28 files
+      inside it, the four plugins and `MaxStopRumble.exe` included. Every file is on VirusTotal. Hash lookups on 23 Nov 2026;
+      nothing uploaded.
+    evidence: >-
+      [MaXHUD - v2.2.7.zip](https://www.virustotal.com/gui/file/7bad0de4e79f07d555b00f487dc9849a3220fcd475d547235e357b5a46fe2d58), [MaxHUD_GPB64.dlo](https://www.virustotal.com/gui/file/1d8a0809582b494813e0bc13a539cc100db9a91717739c9949e89d78e52e75e0), [MaxHUD_KRP64.dlo](https://www.virustotal.com/gui/file/5ac21e129fc5090dc55882757d6ad6255f99809e5967c5f6542a6c1bd3df7924), [MaxHUD_MXB64.dlo](https://www.virustotal.com/gui/file/d6216e38d3b8100ce34dbf83b18e075d320c7c05c497147dfb8f626da0118295), [MaxHUD_WRS64.dlo](https://www.virustotal.com/gui/file/538c9338bbff7b43b395b14405697ae6667ce7af3f1c228a94a696debe7913a7), [MaxStopRumble.exe](https://www.virustotal.com/gui/file/ad745843f5dd2e92c6acc470c614a998ffea6f59d03ca8c3bbaf3eda8efb9042), [MaxHUD.pdf](https://www.virustotal.com/gui/file/dc0d95cf122330646b2ed0ff9b81ac9af63ce1d29557b0b6d3b2e52916cb5a93), [FontFix_CqMono.fnt](https://www.virustotal.com/gui/file/4ef1d7746a4fe7c4f52e7cec944b9e336e46644d5057a847ec03553a1ec5ec6c), [FontFix_SourceCodeProBold.fnt](https://www.virustotal.com/gui/file/8e6fcc47232b13240582d731807495c491621f5a735c8e04d5258dc367fd9000), [FontVar_Audiowide.fnt](https://www.virustotal.com/gui/file/795f64a940b6ee19bc5b55c7f9dbc476d2f186768c56ee4346380ac471d453b1), [FontVar_FallingSkyBold.fnt](https://www.virustotal.com/gui/file/80815e7b53c5ff80b3b415758dea22bf41d90bdff6903a563f0ba3edba71d514), [FontVar_PiBoSo.fnt](https://www.virustotal.com/gui/file/310463b695ab0bd6cf4d28597c7c0a6b7f88421181d6a1054ed7c1781cd89270), [dot.tga](https://www.virustotal.com/gui/file/6605add8a020a0987284c6051b66515ec639896d21b20cc45adeda4c01a4c277), [helmet-bot.tga](https://www.virustotal.com/gui/file/f0bfd92d4ac5a538bbf36a56b2fb23a5b91fcc9e718efcc8179dcbbf5df6adce), [helmet-mxb-bot.tga](https://www.virustotal.com/gui/file/06b6a7ad722005698d1b294ba4489f2b92c6a85145c3c45c5827bd0dc51c0e1d), [helmet-mxb-top.tga](https://www.virustotal.com/gui/file/8165b6f6ea2097f0d10ca73c39038e3f89e0c351bc45938ad73d4bd6e5f9d784), [helmet-top.tga](https://www.virustotal.com/gui/file/e127dc026814d5a93068c05336e02451544959536425b6fd5a4905a0f2098177), [link.tga](https://www.virustotal.com/gui/file/8f8df113430b15714be583971e852401872e7c6cf0544119af3873ffe3e41d1a), [on-off.tga](https://www.virustotal.com/gui/file/b8824f5f9b5f77953fcd61d20006901af6931c219594a34fa6a19060bb491e33), [pointer.tga](https://www.virustotal.com/gui/file/5ee1f3620365d5b54153676d3300566f31ef8f60a18ab963aaec77e98b10a520), [pointer_shadow.tga](https://www.virustotal.com/gui/file/37b4e44aa7e32244454195deb75361276dff38ae4ecc1dff24008ea793263820), [poslink.tga](https://www.virustotal.com/gui/file/32d594974e7e098d6b2bba367e7dbcca4179beb2d8b34cc7fa82e74d2f5b5996), [profile-cross.tga](https://www.virustotal.com/gui/file/043f5f105bce7d02d068526db2b7808a935049e190c6b0c9c3b8f4d68c56bb00), [profile-track.tga](https://www.virustotal.com/gui/file/6c534c3f87ef6bbff04833fa4ae04b9c17747f9f650b560736afa91f597dfb0c), [radar-back.tga](https://www.virustotal.com/gui/file/56a3cc87a30ec585b92284316fc035ee2885d0e2664ed3a35c1fdea9d8d7c279), [radar-left.tga](https://www.virustotal.com/gui/file/1b457f1f3ef2310e575ee3080f0f0c5eb32f01ac640cdef1358c2ab0ee35e8c4), [radar-right.tga](https://www.virustotal.com/gui/file/fe10456c3d64da12f87839fdd8b5e4340320ad6e260e0b6b4dcc800e0ae34ff6), [radar.tga](https://www.virustotal.com/gui/file/1f8ad1a76dc4b99e5b969831f18dc8916a979dd270d734415575a58dd5f7b1ed), [susp-warn.tga](https://www.virustotal.com/gui/file/33db97d2b6ea54eea18fb23c847407b489d5b7383aa9919867d5fee2a12285d9)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It has no updater, no web address and no network code.
+    evidence: '`lab/evidence/maxhud-2.2.7/strings-urls.txt`, `lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/maxhud-2.2.7/strings-urls.txt`, `lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its only file delete is of its own `MaxHUD.log`, at start, and its only rename moves its own `MaxHUD.ini` to a dated copy when
+      it resets its settings. The rides wrote only `MaxHUD.ini` and `MaxHUD.log` beyond what the bare demo wrote.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/file-ops.txt`, `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.180029e1e-180029ea0.txt`,
+      `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.1800118d7-1800119c7.txt`, `lab/evidence/maxhud-2.2.7/file-names.txt`;
+      `lab/results/maxhud-2.2.7/ride-windows/outside.txt` against `lab/results/maxhud-2.2.7/baseline-windows/outside.txt`.
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: No program file in the release carries a code signature, and none can be traced to public source.
+    evidence: Empty Security Directory in all five (`lab/evidence/maxhud-2.2.7/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The rides wrote no registry value the bare demo didn't, and the plugin imports no function that writes the registry; it only
+      reads Windows' joystick settings to name joysticks.
+    evidence: >-
+      `lab/results/maxhud-2.2.7/ride-windows/registry.txt` and `lab/results/maxhud-2.2.7/menu-windows/registry.txt` against
+      `lab/results/maxhud-2.2.7/baseline-windows/registry.txt`; `lab/evidence/maxhud-2.2.7/imports-absent.txt`,
+      `lab/evidence/maxhud-2.2.7/registry-callsites.txt`.
+  P7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It writes only its settings (`MaxHUD.ini`) and log (`MaxHUD.log`), in the game's save folder `Documents\PiBoSo\MX Bikes`;
+      nothing in the game's install folder.
+    evidence: '`lab/results/maxhud-2.2.7/ride-windows/outside.txt`, `lab/results/maxhud-2.2.7/ride-windows/files.diff`.'
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It has no uninstaller. Removing `MaxHUD_MXB64.dlo` and `MaxHUD_data` leaves its own `MaxHUD.ini` and `MaxHUD.log` in
+      `Documents\PiBoSo\MX Bikes`; it changes nothing in Windows.
+    evidence: >-
+      `lab/results/maxhud-2.2.7/ride-windows/outside.txt`, `lab/results/maxhud-2.2.7/ride-windows/registry.txt` (the same as the
+      baseline's).
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. Its imports and text match what it shows: the plugin functions, its widgets and menu, its settings and log,
+      joysticks and XInput controllers. It imports no function that changes memory protection, opens another process, starts a
+      program or connects to the internet.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.iat.txt`, `lab/evidence/maxhud-2.2.7/imports-absent.txt`,
+      `lab/evidence/maxhud-2.2.7/strings-files.txt`, `lab/evidence/maxhud-2.2.7/MaxStopRumble.exe.iat.txt`.
+  D1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It imports no network library and holds no web address, and no run tried a connection. The only DLL it loads by name is
+      `dinput8.dll`, Windows' DirectInput.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/imports-absent.txt`, `lab/evidence/maxhud-2.2.7/strings-urls.txt`,
+      `lab/evidence/maxhud-2.2.7/dinput-names.txt`; `lab/results/maxhud-2.2.7/ride-windows/network.txt`,
+      `lab/results/maxhud-2.2.7/menu-windows/network.txt`, `lab/results/maxhud-2.2.7/menu-crash-windows/network.txt`.
+  D2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent; it has no way to connect.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`, `lab/results/maxhud-2.2.7/ride-windows/network.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent, so no identifier is.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`, `lab/results/maxhud-2.2.7/ride-windows/network.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing is sent. It takes the other riders' standings and positions from the plugin functions only to draw them.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`, `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.objdump-p.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: It imports no socket library, so it runs no server.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  D6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The only files it names are its own (its data folder, settings and log). It reads Windows' joystick settings in the registry,
+      to name joysticks.
+    evidence: '`lab/evidence/maxhud-2.2.7/strings-files.txt`, `lab/evidence/maxhud-2.2.7/registry-callsites.txt`, `lab/evidence/maxhud-2.2.7/strings-thirdparty.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; it has no network code.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: It makes no connection, so there is nothing to switch off.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`, `lab/results/maxhud-2.2.7/ride-windows/network.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the forum topic and the MEGA folder open without one.
+    evidence: '[PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0); `lab/evidence/maxhud-2.2.7/strings-urls.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No shared memory, socket or exported data function. Its log got one 40-byte write per ride.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/imports-absent.txt`, `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.objdump-p.txt`,
+      `lab/results/maxhud-2.2.7/ride-windows/raw/procmon.csv.gz`.
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It runs only as a plugin the game loads; it imports nothing that writes into or starts another process.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The test host found the game's import table and the bystander plugin's tables untouched before, during and after it ran, a
+      crash included. It imports no function that changes memory protection.
+    evidence: >-
+      `lab/results/maxhud-2.2.7/menu-crash-windows/host.log`, `lab/results/maxhud-2.2.7/helmet-windows/host.log`;
+      `lab/evidence/maxhud-2.2.7/imports-absent.txt`.
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game's code or memory (G2), so it changes nothing online either. Not seen on a server (see Limits).
+    evidence: '`lab/results/maxhud-2.2.7/menu-crash-windows/host.log`, `lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      None found. Its code holds no address in the game's program, and it imports nothing that reads another process. The only
+      handle to the game it takes is passed to DirectInput, as SFML's joystick code does; it finds the "MX Bikes" window only for
+      its size and the mouse position.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/fixed-addresses.txt`, `lab/evidence/maxhud-2.2.7/imports-absent.txt`,
+      `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.18002ebf0-18002ec4b.txt`, `lab/evidence/maxhud-2.2.7/keys-callsites.txt`,
+      `lab/evidence/maxhud-2.2.7/window-name.txt`.
+  G5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads Caps Lock, and while its menu is open the mouse, its buttons and Left Shift, for its own menu; reading them doesn't
+      take them from the game, and it imports nothing that presses keys or clicks.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/keys-callsites.txt`, `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.1800139a0-180013bca.txt`,
+      `lab/evidence/maxhud-2.2.7/imports-absent.txt`.
+  G6:
+    verdict: 'No'
+    mark: good
+    text: The bystander plugin's import and pointer tables stayed untouched in the test host, and it names no other plugin's files.
+    evidence: '`lab/results/maxhud-2.2.7/menu-crash-windows/host.log`, `lab/evidence/maxhud-2.2.7/strings-files.txt`.'
+  G7:
+    verdict: Yes, not by default
+    mark: note
+    text: >-
+      While its menu is open (Caps Lock on, on track), each time the game draws a frame it reads the left and right mouse buttons
+      and Left Shift with GetAsyncKeyState without checking which window is in front. Caps Lock itself is read with GetKeyState,
+      which follows the game window's own input. These are its only key reads.
+    evidence: >-
+      Draw calls the menu function (`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.18002b0e2-18002b0f3.txt`); the reads of 0x14
+      (Caps Lock), 0x01, 0x02 and 0xa0 (Left Shift) (`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.1800139a0-180013bca.txt`); every
+      call site (`lab/evidence/maxhud-2.2.7/keys-callsites.txt`).
+  G8:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Both its SetUnhandledExceptionFilter calls pass 0, right before the C runtime ends the process on a fatal error; it sets no
+      handler of its own.
+    evidence: '`lab/evidence/maxhud-2.2.7/crash-filter.txt`; `lab/evidence/maxhud-2.2.7/imports-absent.txt` (no AddVectoredExceptionHandler).'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; it writes no registry value.
+    evidence: '`lab/results/maxhud-2.2.7/ride-windows/registry.txt`, `lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  G10:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      The release holds `MaxStopRumble.exe`, a console program you start yourself, which stops rumble on XInput controllers and
+      exits. The plugin starts no program.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/file.txt`, `lab/evidence/maxhud-2.2.7/stoprumble-strings.txt`,
+      `lab/results/maxhud-2.2.7/maxstoprumble-windows/host.log`; `lab/evidence/maxhud-2.2.7/imports-absent.txt` (no CreateProcess).
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`MaxHUD_MXB64.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: >-
+      Exports Startup, RunTelemetry, Draw and the other plugin functions (`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.objdump-p.txt`);
+      loaded in `lab/results/maxhud-2.2.7/ride-windows/loaded.txt`.
+  G12:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No integrity, version, licence or anti-cheat check is got around; it changes nothing in the game, and the rides ran like the
+      baseline.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`, `lab/results/maxhud-2.2.7/ride-windows/host.log`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It opens no game content and has no decryption code; it imports no cryptography function.
+    evidence: '`lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.iat.txt`, `lab/evidence/maxhud-2.2.7/strings-files.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves only its settings and log.
+    evidence: '`lab/results/maxhud-2.2.7/ride-windows/outside.txt`, `lab/evidence/maxhud-2.2.7/strings-files.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; it has no network code.
+    evidence: '`lab/evidence/maxhud-2.2.7/imports-absent.txt`.'
+  C4:
+    verdict: Partly
+    mark: note
+    text: >-
+      Its manual credits random's AdvancedHUD, whose code inspired it, and the makers of the helmet images. Its joystick code,
+      whose messages match those in SFML's Windows joystick code (zlib licence), isn't named; nor is Microsoft's C/C++ runtime it
+      uses.
+    evidence: >-
+      `lab/evidence/maxhud-2.2.7/readme-claims.txt`, `lab/evidence/maxhud-2.2.7/strings-thirdparty.txt`; SFML 2.5.1
+      [JoystickImpl.cpp](https://github.com/SFML/SFML/blob/2f11710abc5aa478503a7ff3f9e654bd2078ebab/src/SFML/Window/Win32/JoystickImpl.cpp#L380-L401).
+  C5:
+    verdict: 'No'
+    mark: good
+    text: It opens no mod, paint, track or model file; its data, the track map included, comes from the plugin functions.
+    evidence: '`lab/evidence/maxhud-2.2.7/strings-files.txt`, `lab/results/maxhud-2.2.7/ride-windows/outside.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source isn't public. Prebuilt program files, none with public source: `MaxHUD_MXB64.dlo`, `MaxHUD_GPB64.dlo`,
+      `MaxHUD_KRP64.dlo` and `MaxHUD_WRS64.dlo` (PE32+ DLLs, x86-64) and `MaxStopRumble.exe` (PE32 console program, i386). The
+      other files are fonts, images and the manual.
+    evidence: '`file` on each (`lab/evidence/maxhud-2.2.7/file.txt`); [PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0) (a MEGA download only).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing its manual says on these questions differs from what was found; the file list and the menu are in "What it says vs
+      what it does".
+    evidence: '`lab/evidence/maxhud-2.2.7/readme-claims.txt`, `lab/results/maxhud-2.2.7/ride-windows/outside.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release is a zip on MEGA; there is no public source or build.
+    evidence: '[PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No code history is public; the manual has a changelog from v1.0.0 (2013) to v2.2.7 (2023), and the forum topic announces
+      releases.
+    evidence: '`lab/evidence/maxhud-2.2.7/pdf-text.txt`; [PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0).'
+  T6:
+    verdict: Not checked
+    text: No source or build files are public, so its dependencies can't be read.
+    evidence: '-'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: Neither the release, its manual nor its forum topic has a licence.
+    evidence: '`unzip -l` of the zip (`lab/evidence/maxhud-2.2.7/file.txt`), `lab/evidence/maxhud-2.2.7/readme-claims.txt`; [PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/maxhud-2.2.7/strings-money.txt`; [PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0).'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the release has no shop or payment link.
+    evidence: '`lab/evidence/maxhud-2.2.7/strings-money.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: Its forum topic says "Donations are welcome" with a PayPal link; the release files ask for none.
+    evidence: '[PiBoSo forum topic](https://forum.piboso.com/index.php?topic=79.0); `lab/evidence/maxhud-2.2.7/strings-money.txt`, `lab/evidence/maxhud-2.2.7/readme-claims.txt`.'
+history:
+  - date: 23 Nov 2026
+    change: First card, for v2.2.7.
