@@ -1,0 +1,424 @@
+tool: MXB Discord RPC
+version: '2024-10-06'
+summary: >-
+  An MX Bikes plugin that shows your track, bike, session and lap as your Discord status, through Discord's own Game SDK
+  library. Its source is public, it has no settings, and in the runs here it didn't load, because the zip's layout leaves
+  Discord's library out of the folder the game looks in.
+header:
+  What it is: >-
+    An open-source plugin (`discord-rpc.dlo`) for the game's `plugins` folder, with Discord's Game SDK library
+    (`discord_game_sdk.dll`), which its readme says goes beside `mxbikes.exe`. While the Discord app runs, it shows in your Discord
+    status what you are doing in the game: the track and bike, testing or racing with the lap, paused, spectating, watching a
+    replay or in the menus.
+  In one line: Plugin that shows your track, bike and lap as your Discord status
+  Category: Social
+  Author: stars (GitHub [starsssy](https://github.com/starsssy))
+  Game: MX Bikes
+  mxb-mods.com: '[Improved MX Bikes Status in Discord](https://mxb-mods.com/improved-discord-rich-presence-discord-rpc/)'
+  Homepage: None found
+  GitHub: '[starsssy/mxb-discord-rpc](https://github.com/starsssy/mxb-discord-rpc)'
+  Version analysed: >-
+    The download of 6 Oct 2024 (no version number; the mxb-mods.com page calls it "Update 2"): `MXB Discord RPC.zip`, the
+    [MediaFire download](https://www.mediafire.com/file/303b4vaofhtvt3y/MXB_Discord_RPC.zip/file) linked from the mxb-mods.com
+    page; its [MEGA download](https://mega.nz/file/dBQyVZwQ#03Ulu8DFr9K4OLXU3jWlD9_oFeviupIKLOGlEmv7V-0) gives the same file
+    (`lab/evidence/mxb-discord-rpc-2024-10-06/mirror.txt`). The repository has no tags or releases.
+  Source commit: >-
+    [92fbd333129d47e96d0aaed10d11e89931824b8a](https://github.com/starsssy/mxb-discord-rpc/tree/92fbd333129d47e96d0aaed10d11e89931824b8a) ("Paused state, Cleanup", the newest commit, 6 Oct 2024 17:24 UTC). The
+    plugin was built 20 minutes before it (build time stamp 6 Oct 2024 17:03:58 UTC, `lab/evidence/mxb-discord-rpc-2024-10-06/discord-rpc.dlo.objdump-p.txt`) and
+    holds the "Paused" text that commit added (`lab/evidence/mxb-discord-rpc-2024-10-06/strings-status.txt`).
+  Analysed on: 23 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Open source with no licence, so nothing forbids analysis: the source was read at the commit, and the plugin's imports,
+    exports, code-signing entry and text were compared with it (`objdump -p`, `strings`, `objdump -d` for the crash-handler
+    call); Discord's library was only identified, by SHA-256 against Discord's own SDK 3.2.1 download and by its code signature,
+    and nothing inside it was examined. Every command is in `lab/evidence/mxb-discord-rpc-2024-10-06/run.sh`. The release was not
+    rebuilt (Visual Studio project, see T4). A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL,
+    not Windows on a real GPU), no Discord app and no keys ran the zip's files in the MX Bikes demo (beta21e), offline behind a
+    firewall block, under Process Monitor: the bare demo as baseline and a 120 s ride, with the plugin and Discord's library
+    both in `plugins`, as the zip lays them out; then the plugin test host with the bystander plugin. In both runs the plugin
+    didn't load, because Discord's library wasn't beside `mxbikes.exe`, so none of its code ran (see Limits). VirusTotal: hash
+    lookups only (made before the analysis, 23 Nov 2026), nothing uploaded.
+files:
+  - name: MXB Discord RPC.zip
+    sha256: d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b
+    note: The download players get from the MediaFire and MEGA links on the mxb-mods.com page.
+  - name: discord-rpc.dlo
+    inside: MXB Discord RPC.zip
+    sha256: b1285ccf46232e82e00653a6677a024d389b5a12258e2cb059f497f1433a0ac5
+    note: The plugin, for `plugins`.
+  - name: discord_game_sdk.dll
+    inside: MXB Discord RPC.zip
+    sha256: a6b6d7df00a58dc50248d91048578d0fe52182286b487ef89a961fd10467dbd1
+    note: Discord's Game SDK 3.2.1 library, the same file as in Discord's download; the readme says to put it beside `mxbikes.exe`.
+  - name: READ ME IMPORTANT.txt
+    inside: MXB Discord RPC.zip
+    sha256: eaad3a2a885eb88900ce06419424a9422413a61449b14af92f7054ce3042df2b
+    note: The install steps.
+files_note: >-
+  The plugin isn't code-signed; Discord's library is, by Discord Inc. (`lab/evidence/mxb-discord-rpc-2024-10-06/signature.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/signature-sdk.txt`). The hashes
+  match the zip the Windows machine ran (`lab/results/mxb-discord-rpc-2024-10-06/ride-windows/machine.txt`, `lab/results/mxb-discord-rpc-2024-10-06/ride-windows/plugins.sha256`).
+key:
+  K1: No malware found. No engine flagged any of the four files on VirusTotal, and nothing in the plugin is hidden from its source.
+  K2: No. It has no updater.
+  K3: No. The plugin writes no file and no registry key.
+  K4: 'Yes, to Discord; it hands your track, bike, session, lap and play time to the Discord app, which shows them in your status, with no switch in the plugin.'
+  K5: No. It uses only the game's plugin interface and draws nothing.
+  K6: No. It reads only the bike and track names the game gives plugins.
+  K7: 'No, partly; the plugin''s own source is public, but Discord''s Game SDK library it ships is closed.'
+  K8: 'Yes, as far as checked; its readme and page match the code and the runs.'
+  K9: 'Partly; Discord''s library is code-signed and matches Discord''s download, but the plugin is neither signed nor rebuilt.'
+  K10: Yes, through Discord; it gives your status to the Discord app on your PC, which shows it on Discord.
+areas:
+  Your PC and files: Writes nothing and has no updater; the plugin isn't code-signed, the Discord library it ships is signed by Discord.
+  Your data: Hands your track, bike, session, lap and play time to the Discord app for your Discord status, with no switch in the plugin, and needs a Discord account to do anything.
+  Your game: A plugin that uses only the game's plugin interface; it draws nothing and reads no keys.
+  Creators' content: Reads only the bike and track names the game gives plugins.
+  Transparency: The plugin's source is public with seven commits, but has no licence, no CI build, and ships Discord's closed library.
+  Money: Free; no shop and no donation request.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: the zip puts `discord_game_sdk.dll` next to `discord-rpc.dlo`, so copying the zip's folder into `plugins` leaves
+          the plugin unloaded: in both Windows runs the game looked for the library beside `mxbikes.exe` and on the PATH, never in
+          `plugins`, and the plugin didn't load; the game itself ran on (`lab/evidence/mxb-discord-rpc-2024-10-06/sdk-not-found.txt`). The readme says to put the library
+          beside `mxbikes.exe` (`lab/evidence/mxb-discord-rpc-2024-10-06/readme.txt`).
+        mark: note
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: >-
+              Your status: "MX Bikes", the time the game started, and one of "In Menus"; "Testing (Lap n)" or "Racing (Lap n)" or
+              "Paused" with "(track) on (bike)"; "Spectating" with the track; "Watching Replay" with track and bike
+            Where to: The Discord app on your PC (Discord's Game SDK), which shows it in your Discord status
+            When: Every 250 ms while the game runs, from game start; it asks Discord to clear it when the game closes
+            Switch: None in the plugin; remove it, or don't run Discord
+      - text: >-
+          Also found: the status carries no rider names; when you spectate, it shows only the track ([rpc.cpp lines 146-152](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L146-L152)).
+        mark: good
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: the committed source turns on a debug console (`#define CONSOLE`, which opens a "Debug" console window and
+          prints every call), but the release has none of its messages and doesn't import `AllocConsole`, so it was built with that
+          line off ([includes.h lines 13-18](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/includes.h#L13-L18); `lab/evidence/mxb-discord-rpc-2024-10-06/console.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/discord-rpc.dlo.iat.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "Put the discord_game_sdk.dll file in the game directory (SAME FOLDER AS MXBIKES.EXE) This is important because the
+              plugin requires it as a dependency and WILL NOT LOAD IF ITS NOT THERE!!" (READ ME IMPORTANT.txt)
+            Verdict: Matches
+            Evidence: >-
+              With the library in `plugins` only, the plugin didn't load in the real game or the test host
+              (`lab/evidence/mxb-discord-rpc-2024-10-06/sdk-not-found.txt`); it imports `DiscordCreate` from `discord_game_sdk.dll` (`lab/evidence/mxb-discord-rpc-2024-10-06/imports-dlls.txt`).
+          - Claim: '"Update 2: Added “Paused” state" (mxb-mods.com page)'
+            Verdict: Matches
+            Evidence: 'The plugin holds "Paused" ([rpc.cpp line 166](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L166); `lab/evidence/mxb-discord-rpc-2024-10-06/strings-status.txt`).'
+          - Claim: '"If you close discord and re-open it the plugin will stop working" (mxb-mods.com page, under Issues)'
+            Verdict: Matches, as far as checked
+            Evidence: >-
+              The code that would make a new connection when Discord closes is commented out, so the old one stays
+              ([rpc.cpp lines 68-88](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L68-L88), [rpc.cpp lines 18-21](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L18-L21)). Not run with Discord.
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX
+              Bikes demo, offline.
+            questions: []
+          - text: >-
+              The plugin never ran: the plan put Discord's library in `plugins`, as the zip lays it out, not beside `mxbikes.exe` as
+              the readme says, so the game didn't load the plugin, and no Discord app was on the machine. What it does when it runs
+              rests on its source and on the release's imports and text, which match that source; a run with the library beside
+              `mxbikes.exe`, with and without a Discord app, is still to do.
+            questions: [P4, P6, P8, D1, D2, D6, D10, G2, G4, G6, G8, G10]
+          - text: >-
+              Discord's library (`discord_game_sdk.dll`) was identified by SHA-256 as the file in Discord's own Game SDK 3.2.1
+              download and by Discord's code signature; nothing inside it was examined. What it does with the status it is given,
+              whether it starts the Discord app or ends the game when Discord isn't running (the plugin asks it to start with
+              `DiscordCreateFlags_Default`), and what the Discord app then sends, are Discord's and weren't seen.
+            questions: [D1, D3, D6, D8, G8, G10]
+          - text: >-
+              The release wasn't rebuilt, so it is tied to the source by its imports, exports and text only; it was built with the
+              debug console off, unlike the committed source.
+            questions: [T4, G2, G4, G5, G7, D4]
+answers:
+  P1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No engine flagged any file: the zip 0 of 68, `discord-rpc.dlo` 0 of 72, `discord_game_sdk.dll` 0 of 71, `READ ME
+      IMPORTANT.txt` 0 of 62 engines. Hash lookups on 23 Nov 2026; nothing uploaded.
+    evidence: '[MXB Discord RPC.zip](https://www.virustotal.com/gui/file/d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b), [discord-rpc.dlo](https://www.virustotal.com/gui/file/b1285ccf46232e82e00653a6677a024d389b5a12258e2cb059f497f1433a0ac5), [discord_game_sdk.dll](https://www.virustotal.com/gui/file/a6b6d7df00a58dc50248d91048578d0fe52182286b487ef89a961fd10467dbd1), [READ ME IMPORTANT.txt](https://www.virustotal.com/gui/file/eaad3a2a885eb88900ce06419424a9422413a61449b14af92f7054ce3042df2b)'
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It has no updater; the plugin holds no web address and imports no network function.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/strings-urls.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/strings-urls.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  P4:
+    verdict: 'No'
+    mark: good
+    text: The plugin opens no file at all; its imports have no file function, and the source writes nothing.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt` (no `CreateFile`), `lab/evidence/mxb-discord-rpc-2024-10-06/imports-dlls.txt`; [the source at the commit](https://github.com/starsssy/mxb-discord-rpc/tree/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin).'
+  P5:
+    verdict: Partly
+    mark: note
+    text: >-
+      Discord's library is code-signed by Discord Inc.; the plugin, `discord-rpc.dlo`, isn't.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/signature.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/signature-sdk.txt`.'
+  P6:
+    verdict: 'No'
+    mark: good
+    text: The plugin imports no registry function, and the source has none.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/imports-dlls.txt`.'
+  P7:
+    verdict: Partly
+    mark: note
+    text: >-
+      The plugin writes nothing; but its readme has you put Discord's library in the game's own folder, beside `mxbikes.exe`,
+      outside `plugins`.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/readme.txt`; `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  P8:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It writes no file and no registry key, so removing `discord-rpc.dlo` from `plugins` and `discord_game_sdk.dll` from beside
+      `mxbikes.exe` leaves nothing of it. When the game closes it asks Discord to clear your status.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`; [main.cpp lines 23-29](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L23-L29), [rpc.cpp lines 103-115](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L103-L115).'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The plugin's exports are the game's plugin functions, its only import beyond Windows' basics and the C++
+      runtime is `DiscordCreate`, and its text is the status words in its source.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/discord-rpc.dlo.objdump-p.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/imports-dlls.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/strings-status.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/strings-urls.txt`.'
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Through Discord: it gives your status to the Discord app on your PC through Discord's library, and Discord shows it in your
+      Discord status. The plugin itself imports no network function and holds no web address; neither run reached it (see Limits).
+    evidence: >-
+      [rpc.cpp lines 90-101](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L90-L101), [rpc.cpp lines 117-171](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L117-L171); `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/strings-urls.txt`.
+  D2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      By default, from game start: the track, the bike, testing or racing with the lap, paused, spectating, replay or menus, and
+      the time the game started, sent four times a second to the Discord app for your Discord status.
+    evidence: >-
+      [rpc.cpp lines 117-171](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L117-L171), [rpc.cpp lines 68-88](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L68-L88), [main.cpp lines 5-20](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L5-L20),
+      [main.cpp lines 65-77](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L65-L77).
+  D3:
+    verdict: Partly
+    mark: note
+    text: >-
+      The plugin sends no identifier of you or your PC; the only ID it gives is its own Discord application ID, the same for
+      everyone. The Discord app shows the status under the Discord account it is logged in to.
+    evidence: '[rpc.cpp line 92](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L92); [rpc.cpp lines 117-171](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L117-L171).'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No rider names or other riders' data: when you spectate it notes only the time, and the status shows the track.
+    evidence: '[main.cpp lines 159-168](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L159-L168), [rpc.cpp lines 146-152](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L146-L152).'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: The plugin imports no socket function and runs no server.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/imports-dlls.txt`.'
+  D6:
+    verdict: 'No'
+    mark: good
+    text: The plugin opens no file; it reads only what the game passes to plugins.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`; [main.cpp lines 65-139](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L65-L139).'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing itself; what Discord shows in your status is D2.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/strings-urls.txt`; [rpc.cpp lines 117-171](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L117-L171).'
+  D8:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The plugin has no setting: it starts giving your status to Discord at every game start. Only removing it, or not running
+      Discord, stops it.
+    evidence: '[main.cpp lines 5-20](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L5-L20), [rpc.cpp lines 68-88](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L68-L88); the release holds only the plugin, the library and the readme (`lab/evidence/mxb-discord-rpc-2024-10-06/file.txt`).'
+  D9:
+    verdict: 'Yes'
+    mark: concern
+    text: Its only feature needs the Discord app, logged in to a Discord account; it creates none.
+    evidence: '[rpc.cpp lines 90-101](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L90-L101); `lab/evidence/mxb-discord-rpc-2024-10-06/imports-dlls.txt` (`DiscordCreate`).'
+  D10:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It hands your track, bike, session and lap to the Discord app on your PC; no identifier and no other riders' data.
+    evidence: '[rpc.cpp lines 117-171](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L117-L171).'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It runs as a plugin the game loads; it imports nothing that writes into another process.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It changes no game code or memory: it imports no memory-protection or process-writing function and only copies what the
+      plugin functions pass to it. It draws nothing (`Draw` returns no quads or strings).
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`; [main.cpp lines 146-157](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L146-L157).'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game, online or offline; it only reads what the plugin functions pass to it.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`; [main.cpp lines 65-168](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L65-L168).'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads only what the game passes to its plugin functions (bike and track names, session type, lap, run and draw state);
+      it imports nothing that reads another module's memory.
+    evidence: '[main.cpp lines 65-168](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L65-L168); `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It reads no input and presses no keys; no keyboard, mouse or hook function is imported.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: It touches no other plugin or tool; it imports nothing that opens files or changes memory.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`; [the source at the commit](https://github.com/starsssy/mxb-discord-rpc/tree/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin).'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It reads no keys at all; no keyboard function is imported.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its calls of SetUnhandledExceptionFilter all pass 0, in the C runtime's fatal-error path; it sets no handler of its own.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/crash-filter.txt`; `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt` (no AddVectoredExceptionHandler).'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; it writes no file and no registry key.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  G10:
+    verdict: 'No'
+    mark: good
+    text: The plugin starts no program; it imports no process-starting function. It talks to the Discord app if that is already running.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`discord-rpc.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: Exports Startup, EventInit, Draw and the other plugin functions (`lab/evidence/mxb-discord-rpc-2024-10-06/discord-rpc.dlo.objdump-p.txt`).
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check is got around; it uses only the plugin interface.
+    evidence: '[main.cpp lines 1-170](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L1-L170); `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It opens no files, so it decrypts none.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves no files.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares no content; only the bike and track names go into your Discord status.
+    evidence: '[rpc.cpp lines 117-171](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/rpc.cpp#L117-L171).'
+  C4:
+    verdict: Partly
+    mark: note
+    text: >-
+      The source keeps tinyformat's licence header (Boost Software License) and names the Discord SDK download it uses; the
+      release credits neither.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/thirdparty.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: It opens no mods, paints, tracks or models; it reads only the bike and track names the game gives plugins.
+    evidence: '[main.cpp lines 65-77](https://github.com/starsssy/mxb-discord-rpc/blob/92fbd333129d47e96d0aaed10d11e89931824b8a/mxb-plugin/main.cpp#L65-L77); `lab/evidence/mxb-discord-rpc-2024-10-06/imports-absent.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The plugin's source is public, but not all of the release's: prebuilt files are `discord-rpc.dlo` (PE32+ x86-64, its source
+      in the repository, built with the debug console line off), `discord_game_sdk.dll` (PE32+ x86-64, in the release and the
+      repository: Discord's Game SDK 3.2.1, whose source isn't public) and, in the repository, `discord_game_sdk.dll.lib`
+      (Discord's import library from the same SDK).
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/file.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/repo-files.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/sdk-dll.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/sdk-src.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/console.txt`.'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: What its readme and page say matches the code and the runs; see "What it says vs what it does".
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/readme.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/sdk-not-found.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/strings-status.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The zip is uploaded to MediaFire and MEGA by hand; the repository has no tags, releases or build workflow.
+    evidence: '[Repository at the commit](https://github.com/starsssy/mxb-discord-rpc/tree/92fbd333129d47e96d0aaed10d11e89931824b8a); `lab/evidence/mxb-discord-rpc-2024-10-06/repo-files.txt`.'
+  T4:
+    verdict: Not checked
+    text: >-
+      Not rebuilt: it is a Visual Studio 2022 project (toolset v143) that needs Windows and Microsoft's compiler, which this setup
+      doesn't have; and the release was built with the debug console off, unlike the committed source.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/deps.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/console.txt`.'
+  T5:
+    verdict: 'Yes'
+    mark: good
+    text: The public history has seven commits, from the first code on 21 Sep 2024 to the "Paused" change of the release.
+    evidence: '[Commits up to the commit](https://github.com/starsssy/mxb-discord-rpc/commits/92fbd333129d47e96d0aaed10d11e89931824b8a); `lab/evidence/mxb-discord-rpc-2024-10-06/repo-files.txt`.'
+  T6:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Both dependencies are copied into the repository at exact versions: Discord's Game SDK 3.2.1 (its C++ files unchanged, and
+      its library) and tinyformat as one header.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/deps.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/sdk-src.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/sdk-dll.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/thirdparty.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: Neither the repository nor the release has a licence.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/repo-files.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/file.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the only link in the release is the author's mxb-mods.com page.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Neither the release nor its mxb-mods.com page asks for donations.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/strings-money.txt`; [mxb-mods.com page](https://mxb-mods.com/improved-discord-rich-presence-discord-rpc/).'
+history:
+  - date: 23 Nov 2026
+    change: First card, for the download of 6 Oct 2024.

@@ -1,0 +1,34 @@
+$ for f in sdk/cpp/*; do b=$(basename "$f"); cmp "$f" "$SRC/mxb-plugin/discord/src/$b" && echo "same $b"; done; ls "$SRC/mxb-plugin/discord/src" | wc -l
+same achievement_manager.cpp
+same achievement_manager.h
+same activity_manager.cpp
+same activity_manager.h
+same application_manager.cpp
+same application_manager.h
+same core.cpp
+same core.h
+same discord.h
+same event.h
+same ffi.h
+same image_manager.cpp
+same image_manager.h
+same lobby_manager.cpp
+same lobby_manager.h
+same network_manager.cpp
+same network_manager.h
+same overlay_manager.cpp
+same overlay_manager.h
+same relationship_manager.cpp
+same relationship_manager.h
+same storage_manager.cpp
+same storage_manager.h
+same store_manager.cpp
+same store_manager.h
+same types.cpp
+same types.h
+same user_manager.cpp
+same user_manager.h
+same voice_manager.cpp
+same voice_manager.h
+31
+(exit 0)

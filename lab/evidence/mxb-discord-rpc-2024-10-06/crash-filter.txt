@@ -1,0 +1,33 @@
+$ objdump -d discord-rpc.dlo | grep -B3 -A3 '# 0x180022068'
+   18001e8e2:	48 83 ec 20          	sub    $0x20,%rsp
+   18001e8e6:	48 8b d9             	mov    %rcx,%rbx
+   18001e8e9:	33 c9                	xor    %ecx,%ecx
+   18001e8eb:	ff 15 77 37 00 00    	call   *0x3777(%rip)        # 0x180022068
+   18001e8f1:	48 8b cb             	mov    %rbx,%rcx
+   18001e8f4:	ff 15 7e 37 00 00    	call   *0x377e(%rip)        # 0x180022078
+   18001e8fa:	ff 15 60 37 00 00    	call   *0x3760(%rip)        # 0x180022060
+--
+   18001f3db:	0f 94 c3             	sete   %bl
+   18001f3de:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+   18001f3e3:	33 c9                	xor    %ecx,%ecx
+   18001f3e5:	ff 15 7d 2c 00 00    	call   *0x2c7d(%rip)        # 0x180022068
+   18001f3eb:	48 8d 4c 24 40       	lea    0x40(%rsp),%rcx
+   18001f3f0:	ff 15 82 2c 00 00    	call   *0x2c82(%rip)        # 0x180022078
+   18001f3f6:	85 c0                	test   %eax,%eax
+--
+   18001f4b2:	cc                   	int3
+   18001f4b3:	cc                   	int3
+   18001f4b4:	48 8d 0d 0d 00 00 00 	lea    0xd(%rip),%rcx        # 0x18001f4c8
+   18001f4bb:	48 ff 25 a6 2b 00 00 	rex.W jmp *0x2ba6(%rip)        # 0x180022068
+   18001f4c2:	cc                   	int3
+   18001f4c3:	cc                   	int3
+   18001f4c4:	33 c0                	xor    %eax,%eax
+--
+   18001f9ea:	ff 25 18 26 00 00    	jmp    *0x2618(%rip)        # 0x180022008
+   18001f9f0:	ff 25 8a 26 00 00    	jmp    *0x268a(%rip)        # 0x180022080
+   18001f9f6:	ff 25 7c 26 00 00    	jmp    *0x267c(%rip)        # 0x180022078
+   18001f9fc:	ff 25 66 26 00 00    	jmp    *0x2666(%rip)        # 0x180022068
+   18001fa02:	ff 25 58 26 00 00    	jmp    *0x2658(%rip)        # 0x180022060
+   18001fa08:	ff 25 4a 26 00 00    	jmp    *0x264a(%rip)        # 0x180022058
+   18001fa0e:	ff 25 3c 26 00 00    	jmp    *0x263c(%rip)        # 0x180022050
+(exit 0)

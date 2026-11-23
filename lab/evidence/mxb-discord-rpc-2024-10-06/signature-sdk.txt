@@ -1,0 +1,4 @@
+$ python3 -I -c 'import struct,sys; d=open(sys.argv[1],"rb").read(); pe=struct.unpack_from("<I",d,0x3C)[0]; o,n=struct.unpack_from("<II",d,pe+24+112+4*8); sys.stdout.buffer.write(d[o+8:o+n])' discord_game_sdk.dll | openssl pkcs7 -inform DER -print_certs -noout | grep -E '^subject='
+subject=jurisdictionC=US, jurisdictionST=Delaware, businessCategory=Private Organization, serialNumber=5128862, C=US, ST=California, L=San Francisco, O=Discord Inc., OU=Select or enter, CN=Discord Inc.
+subject=C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA (SHA2)
+(exit 0)

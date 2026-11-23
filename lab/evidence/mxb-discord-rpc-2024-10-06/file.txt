@@ -1,0 +1,14 @@
+$ file discord-rpc.dlo discord_game_sdk.dll 'READ ME IMPORTANT.txt'; unzip -l 'MXB Discord RPC.zip'
+discord-rpc.dlo:       PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+discord_game_sdk.dll:  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+READ ME IMPORTANT.txt: ASCII text, with CRLF line terminators
+Archive:  MXB Discord RPC.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2024-10-06 10:04   MXB Discord RPC/
+   188416  2024-10-06 10:04   MXB Discord RPC/discord-rpc.dlo
+  3488768  2022-05-04 18:22   MXB Discord RPC/discord_game_sdk.dll
+      404  2024-09-23 16:42   MXB Discord RPC/READ ME IMPORTANT.txt
+---------                     -------
+  3677588                     4 files
+(exit 0)

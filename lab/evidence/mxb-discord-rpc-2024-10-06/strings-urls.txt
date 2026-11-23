@@ -1,0 +1,2 @@
+$ { strings -n 5 discord-rpc.dlo; strings -el -n 5 discord-rpc.dlo; } | grep -niE 'https?://|www\.|\.(com|net|org|io)\b'
+(exit 1)

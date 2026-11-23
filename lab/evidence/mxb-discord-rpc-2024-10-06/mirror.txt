@@ -1,0 +1,4 @@
+$ python3 -I "$TOOLS/fetch_release.py" get 'https://mega.nz/file/dBQyVZwQ#03Ulu8DFr9K4OLXU3jWlD9_oFeviupIKLOGlEmv7V-0' "$W" 2>&1 | tail -n 1; sha256sum 'MXB Discord RPC.zip'
+d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b  MXB Discord RPC.zip
+d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b  MXB Discord RPC.zip
+(exit 0)

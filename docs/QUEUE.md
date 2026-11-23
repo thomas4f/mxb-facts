@@ -26,7 +26,6 @@ Tools on file to analyse. The release named here is the one on file when the too
 |  | MXB A-Kit Studio | [V1.7.0](https://github.com/DankMaps/MXB-AKit-Studio-Releases/releases/tag/V1.7.0) | Setup and coaching | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXB-AKit-Studio-Releases](https://github.com/DankMaps/MXB-AKit-Studio-Releases) | [mxbtt.com/akit-studio](https://mxbtt.com/akit-studio) | `akit-studio` |
 |  | MXB App | 0.20.11 | Mod managers | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-app](https://github.com/Frostn1/mxb-app) | [mxbsecure.com/app](https://mxbsecure.com/app) | `mxb-app` |
 |  | MXB Coach | [v0.1.27](https://github.com/Frostn1/mxb-coach/releases/tag/v0.1.27) | Setup and coaching | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-coach](https://github.com/Frostn1/mxb-coach) | [mxbsecure.com/coach](https://mxbsecure.com/coach) | `mxb-coach` |
-|  | MXB Discord RPC | The mxb-mods.com download of 6 Oct 2024 (no version number) | Social | stars ([starsssy](https://github.com/starsssy)) | [starsssy/mxb-discord-rpc](https://github.com/starsssy/mxb-discord-rpc) | None found | `mxb-discord-rpc` |
 |  | MXB DualSense Support | 1.0.0 | Controllers | "Slimerex" | None | None found | `mxb-dualsense` |
 |  | MXB Ragdoll | v1.0 | Gameplay and visuals | "BoredDev / mxbikesmods" | None | None found | `mxb-ragdoll` |
 |  | MXBMRP3 | The newest when it runs | HUD | GitHub user [thomas4f](https://github.com/thomas4f) (the maintainer) | [thomas4f/mxbmrp3](https://github.com/thomas4f/mxbmrp3) | [thomas4f.github.io/mxbmrp3](https://thomas4f.github.io/mxbmrp3/) | `mxbmrp3` |
@@ -61,6 +60,7 @@ Tools the maintainer picked from mxb-mods.com. Not started yet. Counts are from 
 
 - **When VirusTotal lookups run.** The workflow runs by hand only. If lookups should also run on their own (on each card pull request, or weekly for every card), add those triggers to `.github/workflows/virustotal.yml`.
 - **MaXHUD 2.2.7: its Caps Lock menu wasn't seen.** The menu shows while Caps Lock is on, so the real-game run's four presses ended with it closed before the screenshot, and the test host's draw list didn't change after its presses. A real-game run with an odd number of Caps Lock presses (a screenshot while it is on) would show it, and settle the G7 limit on `cards/maxhud-2.2.7.yaml`.
+- **MXB Discord RPC (download of 6 Oct 2024): the plugin never ran.** The plan put `discord_game_sdk.dll` in `plugins`, as the zip lays it out, so the game didn't load the plugin. A real-game run with the library beside `mxbikes.exe` (as its readme says), once without a Discord app and once with a logged-out Discord app if the runner allows it, would show what the plugin and Discord's library do (files, start-up of Discord, the game closing) and settle the run limit on `cards/mxb-discord-rpc-2024-10-06.yaml`. T4 there is "Not checked": it needs a Windows build with Visual Studio 2022 (v143), and the release was built with the source's `#define CONSOLE` off.
 
 ## Known, not planned
 

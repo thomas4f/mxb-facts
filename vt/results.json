@@ -401,6 +401,48 @@
         "permalink": "https://www.virustotal.com/gui/file/9d392a57687a2ba1e8d29a1949a5646b2b64a300f24166f76f6c4f80e21e42b1"
       }
     },
+    "mxb-discord-rpc-2024-10-06.yaml": {
+      "d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b": {
+        "found": true,
+        "flagged": 0,
+        "engines": 68,
+        "flagged_by": [],
+        "last_scanned": "2024-10-12",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096373938",
+        "permalink": "https://www.virustotal.com/gui/file/d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b"
+      },
+      "b1285ccf46232e82e00653a6677a024d389b5a12258e2cb059f497f1433a0ac5": {
+        "found": true,
+        "flagged": 0,
+        "engines": 72,
+        "flagged_by": [],
+        "last_scanned": "2024-11-11",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096373938",
+        "permalink": "https://www.virustotal.com/gui/file/b1285ccf46232e82e00653a6677a024d389b5a12258e2cb059f497f1433a0ac5"
+      },
+      "a6b6d7df00a58dc50248d91048578d0fe52182286b487ef89a961fd10467dbd1": {
+        "found": true,
+        "flagged": 0,
+        "engines": 71,
+        "flagged_by": [],
+        "last_scanned": "2026-11-22",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096373938",
+        "permalink": "https://www.virustotal.com/gui/file/a6b6d7df00a58dc50248d91048578d0fe52182286b487ef89a961fd10467dbd1"
+      },
+      "eaad3a2a885eb88900ce06419424a9422413a61449b14af92f7054ce3042df2b": {
+        "found": true,
+        "flagged": 0,
+        "engines": 62,
+        "flagged_by": [],
+        "last_scanned": "2024-09-24",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096373938",
+        "permalink": "https://www.virustotal.com/gui/file/eaad3a2a885eb88900ce06419424a9422413a61449b14af92f7054ce3042df2b"
+      }
+    },
     "mxb-fps-booster-v1.yaml": {
       "97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4": {
         "found": true,

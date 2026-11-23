@@ -1,0 +1,7 @@
+$ sha256sum 'MXB Discord RPC.zip' discord-rpc.dlo discord_game_sdk.dll 'READ ME IMPORTANT.txt' discord_game_sdk.zip
+d2e43e2ed5c9e782de8a4d9eb24bbf463fe331a21f22c8cd0a329cdaf8f8598b  MXB Discord RPC.zip
+b1285ccf46232e82e00653a6677a024d389b5a12258e2cb059f497f1433a0ac5  discord-rpc.dlo
+a6b6d7df00a58dc50248d91048578d0fe52182286b487ef89a961fd10467dbd1  discord_game_sdk.dll
+eaad3a2a885eb88900ce06419424a9422413a61449b14af92f7054ce3042df2b  READ ME IMPORTANT.txt
+6757bb4a1f5b42aa7b6707cbf2158420278760ac5d80d40ca708bb01d20ae6b4  discord_game_sdk.zip
+(exit 0)
