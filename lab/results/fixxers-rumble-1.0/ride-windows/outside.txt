@@ -1,0 +1,86 @@
+gpbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches  NAME COLLISION
+gpbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches\{AFBF9F1A-8EE8-4C77-AF34-C647E37CA0D9}.1.ver0x0000000000000000.db  NAME NOT FOUND
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints  NAME COLLISION
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\bikes  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\bikes\schwaben_m2_18.ini  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider\riders  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider\riders\modern.ini  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\3lriyksh  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\4w1jwt5z  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\55odqbol  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\6njrnehu  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\aiomalz1  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\b0k7h6hn  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\brdrv47t  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\ewgoq123  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\f4bt5y1q  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\iao9q4gu  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\iv9tgj6o  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\jgdn6n1n  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\jqcyah5n  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\nd7zzwns  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\wfhwk4dv  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\whnuwv1n  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\yhgma1yl  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\yyw5r56p  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\bikes  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\misc  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\misc\dashes  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\misc\stands  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider\animations  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider\helmets  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider\riders  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\tracks  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\tyres  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\bikes\schwaben_m2_18.ini  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider\riders\modern.ini  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\3lriyksh  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\3lriyksh  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\4w1jwt5z  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\4w1jwt5z  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\55odqbol  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\55odqbol  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\6njrnehu  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\6njrnehu  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\aiomalz1  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\aiomalz1  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\b0k7h6hn  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\b0k7h6hn  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\brdrv47t  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\brdrv47t  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\ewgoq123  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\ewgoq123  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\f4bt5y1q  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\f4bt5y1q  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\iao9q4gu  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\iao9q4gu  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\iv9tgj6o  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\iv9tgj6o  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\jgdn6n1n  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\jgdn6n1n  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\jqcyah5n  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\jqcyah5n  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\nd7zzwns  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\nd7zzwns  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\wfhwk4dv  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\wfhwk4dv  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\whnuwv1n  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\whnuwv1n  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\yhgma1yl  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\yhgma1yl  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\yyw5r56p  FAST IO DISALLOWED
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\yyw5r56p  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS

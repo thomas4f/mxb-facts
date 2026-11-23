@@ -1,0 +1,26 @@
+$ { strings -n 5 FIXXER_RUMBLE_GPB64.dlo; strings -el -n 5 FIXXER_RUMBLE_GPB64.dlo; } | grep -niE '\.dll|^api-ms-|^ext-ms-'
+764:KERNEL32.dll
+770:USER32.dll
+771:XINPUT1_4.dll
+862:mscoree.dll
+888:api-ms-win-core-datetime-l1-1-1
+889:api-ms-win-core-fibers-l1-1-2
+890:api-ms-win-core-file-l1-2-4
+891:api-ms-win-core-file-l1-2-2
+892:api-ms-win-core-file-l2-1-4
+893:api-ms-win-core-localization-l1-2-1
+894:api-ms-win-core-localization-obsolete-l1-2-0
+895:api-ms-win-core-processthreads-l1-1-2
+896:api-ms-win-core-string-l1-1-0
+897:api-ms-win-core-synch-l1-2-0
+898:api-ms-win-core-sysinfo-l1-2-1
+899:api-ms-win-core-winrt-l1-1-0
+900:api-ms-win-core-xstate-l2-1-0
+901:api-ms-win-rtcore-ntuser-window-l1-1-0
+902:api-ms-win-security-systemfunctions-l1-1-0
+903:ext-ms-win-ntuser-dialogbox-l1-1-0
+904:ext-ms-win-ntuser-windowstation-l1-1-0
+909:api-ms-win-appmodel-runtime-l1-1-2
+911:api-ms-
+912:ext-ms-
+(exit 0)

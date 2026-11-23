@@ -1,0 +1,7 @@
+$ objdump -d FIXXER_RUMBLE_GPB64.dlo | grep -E '# 0x1800202b0|# 0x1800202b8|call   0x180002840'
+   180001e34:	e8 07 0a 00 00       	call   0x180002840
+   18000285f:	ff 15 4b da 01 00    	call   *0x1da4b(%rip)        # 0x1800202b0
+   18000286d:	ff 15 3d da 01 00    	call   *0x1da3d(%rip)        # 0x1800202b0
+   1800028d9:	ff 15 d9 d9 01 00    	call   *0x1d9d9(%rip)        # 0x1800202b8
+   18000295c:	ff 15 4e d9 01 00    	call   *0x1d94e(%rip)        # 0x1800202b0
+(exit 0)

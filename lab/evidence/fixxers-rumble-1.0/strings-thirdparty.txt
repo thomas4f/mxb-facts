@@ -1,0 +1,3 @@
+$ { strings -n 5 FIXXER_RUMBLE_GPB64.dlo; strings -el -n 5 FIXXER_RUMBLE_GPB64.dlo; } | grep -iE 'copyright|licen[cs]e|zlib|stb_|lodepng|imgui|miniz|nlohmann|Microsoft|SDK' | sort | uniq -c
+      1 <assembly xmlns='urn:schemas-microsoft-com:asm.v1' manifestVersion='1.0'>
+(exit 0)

@@ -1,0 +1,17 @@
+$ cat settings.txt
+front_lockup_enabled=1
+front_lockup_intensity=1.000
+rear_spin_enabled=1
+rear_spin_intensity=1.000
+rear_lock_enabled=1
+rear_lock_intensity=1.000
+suspension_enabled=0
+suspension_intensity=0.300
+rpm_enabled=1
+rpm_intensity=1.000
+ground_enabled=1
+ground_intensity=0.700
+engine_enabled=1
+engine_intensity=1.000
+invert_motors=0
+(exit 0)

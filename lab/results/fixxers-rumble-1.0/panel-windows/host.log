@@ -1,0 +1,11 @@
+game: GP Bikes beta22b (demo), gpbikes.exe, installer SHA-256 82941f66e66e96bdce56b0652e89b973da817915c0f2af5536698ea2467d2ea3
+steps (unix time, step):
+1795391612 started gpbikes.exe, screen 1280x720, window found, in front: True
+1795391618 login
+1795391627 demo
+1795391651 testing
+1795391681 start
+1795391706 to-track
+1795391728 key-ctrl+r
+1795391759 key-ctrl+r
+1795391797 ride

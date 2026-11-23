@@ -1,0 +1,2 @@
+$ iat.py FIXXER_RUMBLE_GPB64.dlo | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|SendInput|keybd_event|mouse_event|SetWindowsHookEx|CreateProcess|ShellExecute|WinExec|RegSetValue|RegCreateKey|WriteProcessMemory|ReadProcessMemory|OpenProcess|CreateRemoteThread|VirtualQuery|CreateFileMapping|AddVectoredExceptionHandler'
+(exit 1)

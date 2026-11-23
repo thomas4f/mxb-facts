@@ -1,0 +1,20 @@
+$ { strings -n 4 FIXXER_RUMBLE_GPB64.dlo; strings -el -n 4 FIXXER_RUMBLE_GPB64.dlo; } | grep -nE '^(Rumble|FIXXER Rumble Settings|Front Lockup|Rear Spin|Rear Lock|Suspension|Rev Limiter|Ground Effects|Engine Effects|Invert L/R motors|RESET|SAVE|Material.*|Ctrl\+R to close|FIXXER 1001|V[0-9].*)$'
+1907:V6E>`"(5
+1975:Front Lockup
+1976:Rear Spin
+1977:Rear Lock
+1978:Suspension
+1979:Rev Limiter
+1980:Ground Effects
+1981:Engine Effects
+1982:Rumble
+1984:FIXXER Rumble Settings
+1985:Invert L/R motors
+1986:RESET
+1987:SAVE
+1988:Material  F=%d  R=%d
+1989:V1.1
+1990:Ctrl+R to close
+1991:FIXXER 1001
+2050:V7($
+(exit 0)
