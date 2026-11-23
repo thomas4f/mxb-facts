@@ -29,42 +29,42 @@
   "coremx": {
    "github": {
     "source": "github",
-    "version": "v1.0.52",
-    "date": "2026-11-21",
-    "url": "https://github.com/rare621/Core-MX/releases/tag/v1.0.52",
+    "version": "v1.0.54",
+    "date": "2026-11-23",
+    "url": "https://github.com/rare621/Core-MX/releases/tag/v1.0.54",
     "files": [
      {
-      "name": "CoreMX-server-v27.zip",
-      "size": 36963,
-      "sha256": "f4e745816403a108905186339d8b7a84d05e1f05a356445901c6f2b9c6f9d3ba",
-      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/CoreMX-server-v27.zip"
+      "name": "CoreMX-server-v28.zip",
+      "size": 38085,
+      "sha256": "76fd1a12b69282c09f717b45a066d75e6ac4ec99d524c2e104b008dae44bf0ef",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.54/CoreMX-server-v28.zip"
      },
      {
-      "name": "CoreMX-Setup-1.0.52-x64.exe",
-      "size": 113542685,
-      "sha256": "cf425fe5b41a2ef6c66e2b161957430468adc3c4f644ba0828749526368757a5",
-      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/CoreMX-Setup-1.0.52-x64.exe"
+      "name": "CoreMX-Setup-1.0.54-x64.exe",
+      "size": 113545538,
+      "sha256": "16cf5467f624ab71d21568b801243134c3d1eeaa58f2898e63931b04170ec28e",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.54/CoreMX-Setup-1.0.54-x64.exe"
      },
      {
       "name": "CoreMX-Setup-x64.exe",
-      "size": 113542685,
-      "sha256": "cf425fe5b41a2ef6c66e2b161957430468adc3c4f644ba0828749526368757a5",
-      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/CoreMX-Setup-x64.exe"
+      "size": 113545538,
+      "sha256": "16cf5467f624ab71d21568b801243134c3d1eeaa58f2898e63931b04170ec28e",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.54/CoreMX-Setup-x64.exe"
      },
      {
       "name": "latest.yml",
-      "size": 916,
-      "sha256": "228a77d2033d7ff870df6a2226570e573dded07649b526706538843d4e8b64f8",
-      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/latest.yml"
+      "size": 1190,
+      "sha256": "3600e62df05a7e8640c2e3177a2b9d7505c4a986d09452d75bcbf9a7f972d6b6",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.54/latest.yml"
      },
      {
       "name": "SHA256SUMS.txt",
       "size": 346,
-      "sha256": "fa56ec70c0eb893d20beb02988e348ba9549d603ce56f46457c5880e805dbeac",
-      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.52/SHA256SUMS.txt"
+      "sha256": "d15fdf25cecd9e57ef8cc7309d57dd6b2c4d4f57594e73e57354354d89c22e8d",
+      "url": "https://github.com/rare621/Core-MX/releases/download/v1.0.54/SHA256SUMS.txt"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-23"
    }
   },
   "fixxers-rumble": {
@@ -207,7 +207,7 @@
       "url": "https://mxb-mods.com/wp-content/uploads/2026/10/1794860691-gamefx-plus.zip"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-23"
    }
   },
   "gpb-content-manager": {
@@ -242,7 +242,7 @@
       "url": "https://mxb-mods.com/wp-content/uploads/2026/11/1794860747-graphics-overhaul.zip"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-23"
    }
   },
   "heightmap-studio": {
@@ -351,7 +351,7 @@
       "url": "https://aka.ms/vs/16/release/vc_redist.x64.exe"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-23"
    }
   },
   "mx-dirt-mod": {
@@ -389,7 +389,7 @@
       "url": "https://mxb-mods.com/wp-content/uploads/2026/11/1794887541-mx-dirt-mod-1.7.1.zip"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-23"
    }
   },
   "mx-dirt-mod-alt": {
@@ -636,7 +636,7 @@
       "url": "https://mxb-mods.com/wp-content/uploads/2026/11/1795198224-mxb-dualsense-support-1.1.0.zip"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-23"
    }
   },
   "mxb-fps-booster": {
@@ -807,7 +807,7 @@
       "url": "https://mxb-mods.com/wp-content/uploads/2026/10/1794860628-rider-pov-plus.zip"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-23"
    }
   },
   "suspension-tuner": {
