@@ -111,9 +111,11 @@ function Get-Patch($x, $y) {
 # Keys by name, as xdotool names them in games.json and the plan: scan code and whether it is an extended key.
 $scan = @{ Up = 0x48, 1; Down = 0x50, 1; Left = 0x4B, 1; Right = 0x4D, 1; Escape = 0x01, 0; Return = 0x1C, 0; space = 0x39, 0
   F1 = 0x3B, 0; F2 = 0x3C, 0; F3 = 0x3D, 0; F4 = 0x3E, 0; F5 = 0x3F, 0; F6 = 0x40, 0; F7 = 0x41, 0; F8 = 0x42, 0; F9 = 0x43, 0; F10 = 0x44, 0
-  F11 = 0x57, 0; F12 = 0x58, 0; ctrl = 0x1D, 0; shift = 0x2A, 0; alt = 0x38, 0 }
+  F11 = 0x57, 0; F12 = 0x58, 0; ctrl = 0x1D, 0; shift = 0x2A, 0; alt = 0x38, 0; Tab = 0x0F, 0; BackSpace = 0x0E, 0; Caps_Lock = 0x3A, 0
+  Insert = 0x52, 1; Delete = 0x53, 1; Home = 0x47, 1; End = 0x4F, 1; Prior = 0x49, 1; Next = 0x51, 1 }
 $letters = 'qwertyuiop', 'asdfghjkl', 'zxcvbnm'; $row = 0x10, 0x1E, 0x2C
 for ($i = 0; $i -lt 3; $i++) { for ($j = 0; $j -lt $letters[$i].Length; $j++) { $scan["$($letters[$i][$j])"] = ($row[$i] + $j), 0 } }
+for ($d = 1; $d -le 10; $d++) { $scan["$($d % 10)"] = ($d + 1), 0 }  # 1 to 9, then 0
 function Send-Key($name, $up) { $k = $scan[$name]; if (-not $k) { throw "unknown key $name" }; [Input]::Key($k[0], [bool]$k[1], $up) }
 function Press-Key($combo) { $parts = $combo -split '\+'; foreach ($p in $parts) { Send-Key $p $false; Start-Sleep -Milliseconds 50 }
   Start-Sleep -Milliseconds 150; [array]::Reverse($parts); foreach ($p in $parts) { Send-Key $p $true } }
