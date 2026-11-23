@@ -1,0 +1,8 @@
+$ sha256sum FIXXER_s_Rumble.zip FIXXER_RUMBLE_GPB64.dlo 'READ ME.md' settings.txt rumble.fnt Pointer.tga
+bf14c6e274f649c131c1d25ddb17edad92c40b276acb4136f72a504ad563a260  FIXXER_s_Rumble.zip
+9e24bb8ccf58935681914a28e8ee2c87dda36c90d637b0919de821db77bcc9b9  FIXXER_RUMBLE_GPB64.dlo
+cfad7739435835acfe581eff3466c1447bfb3276aa160c7ee69a1b1766704d7a  READ ME.md
+eb97fd39467150e57d19fa0ff3ab48463774512d4ef69bfd4408d90a07ebbef3  settings.txt
+780cf16e114e5b598742298045b67b0cc01fcbe1badd6832f116b8d99614d409  rumble.fnt
+04ee15cf9897b596342cf5529499c13e0664bba09ef880ca03f667ecebef1031  Pointer.tga
+(exit 0)

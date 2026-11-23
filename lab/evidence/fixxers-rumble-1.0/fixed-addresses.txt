@@ -1,0 +1,2 @@
+$ objdump -d FIXXER_RUMBLE_GPB64.dlo | grep -E '0x14[0-9a-f]{7}\b'
+(exit 1)

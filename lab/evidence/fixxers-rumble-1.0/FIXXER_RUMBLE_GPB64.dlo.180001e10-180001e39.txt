@@ -1,0 +1,13 @@
+$ objdump -d 'FIXXER_RUMBLE_GPB64.dlo' | awk -v a=180001e10 -v b=180001e39 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180001e10:	48 89 5c 24 18       	mov    %rbx,0x18(%rsp)
+   180001e15:	57                   	push   %rdi
+   180001e16:	48 81 ec 30 01 00 00 	sub    $0x130,%rsp
+   180001e1d:	48 8b 05 dc d1 02 00 	mov    0x2d1dc(%rip),%rax        # 0x18002f000
+   180001e24:	48 33 c4             	xor    %rsp,%rax
+   180001e27:	48 89 84 24 88 00 00 	mov    %rax,0x88(%rsp)
+   180001e2e:	00 
+   180001e2f:	8b fa                	mov    %edx,%edi
+   180001e31:	48 8b d9             	mov    %rcx,%rbx
+   180001e34:	e8 07 0a 00 00       	call   0x180002840
+   180001e39:	83 3d 40 dc 02 00 00 	cmpl   $0x0,0x2dc40(%rip)        # 0x18002fa80
+(exit 0)

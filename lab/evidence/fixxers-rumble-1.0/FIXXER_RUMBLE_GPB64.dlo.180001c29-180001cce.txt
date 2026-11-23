@@ -1,0 +1,41 @@
+$ objdump -d 'FIXXER_RUMBLE_GPB64.dlo' | awk -v a=180001c29 -v b=180001cce '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180001c29:	48 c7 44 24 30 00 00 	movq   $0x0,0x30(%rsp)
+   180001c30:	00 00 
+   180001c32:	45 33 c9             	xor    %r9d,%r9d
+   180001c35:	c7 44 24 28 80 00 00 	movl   $0x80,0x28(%rsp)
+   180001c3c:	00 
+   180001c3d:	ba 00 00 00 80       	mov    $0x80000000,%edx
+   180001c42:	41 b8 07 00 00 00    	mov    $0x7,%r8d
+   180001c48:	c7 44 24 20 03 00 00 	movl   $0x3,0x20(%rsp)
+   180001c4f:	00 
+   180001c50:	48 8b cf             	mov    %rdi,%rcx
+   180001c53:	ff 15 c7 e3 01 00    	call   *0x1e3c7(%rip)        # 0x180020020
+   180001c59:	48 8b d8             	mov    %rax,%rbx
+   180001c5c:	48 83 f8 ff          	cmp    $0xffffffffffffffff,%rax
+   180001c60:	74 6c                	je     0x180001cce
+   180001c62:	48 8d 54 24 40       	lea    0x40(%rsp),%rdx
+   180001c67:	48 8b c8             	mov    %rax,%rcx
+   180001c6a:	ff 15 a0 e3 01 00    	call   *0x1e3a0(%rip)        # 0x180020010
+   180001c70:	85 c0                	test   %eax,%eax
+   180001c72:	74 51                	je     0x180001cc5
+   180001c74:	48 81 7c 24 40 00 00 	cmpq   $0x40000,0x40(%rsp)
+   180001c7b:	04 00 
+   180001c7d:	7e 46                	jle    0x180001cc5
+   180001c7f:	48 8b cb             	mov    %rbx,%rcx
+   180001c82:	ff 15 b0 e3 01 00    	call   *0x1e3b0(%rip)        # 0x180020038
+   180001c88:	4c 8d 0d 7d 6b 02 00 	lea    0x26b7d(%rip),%r9        # 0x18002880c
+   180001c8f:	48 89 7c 24 20       	mov    %rdi,0x20(%rsp)
+   180001c94:	ba 04 01 00 00       	mov    $0x104,%edx
+   180001c99:	48 8d 4c 24 50       	lea    0x50(%rsp),%rcx
+   180001c9e:	49 c7 c0 ff ff ff ff 	mov    $0xffffffffffffffff,%r8
+   180001ca5:	e8 b6 f3 ff ff       	call   0x180001060
+   180001caa:	48 8d 4c 24 50       	lea    0x50(%rsp),%rcx
+   180001caf:	ff 15 7b e3 01 00    	call   *0x1e37b(%rip)        # 0x180020030
+   180001cb5:	48 8d 54 24 50       	lea    0x50(%rsp),%rdx
+   180001cba:	48 8b cf             	mov    %rdi,%rcx
+   180001cbd:	ff 15 45 e3 01 00    	call   *0x1e345(%rip)        # 0x180020008
+   180001cc3:	eb 09                	jmp    0x180001cce
+   180001cc5:	48 8b cb             	mov    %rbx,%rcx
+   180001cc8:	ff 15 6a e3 01 00    	call   *0x1e36a(%rip)        # 0x180020038
+   180001cce:	4c 8b c6             	mov    %rsi,%r8
+(exit 0)

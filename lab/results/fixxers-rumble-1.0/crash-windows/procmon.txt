@@ -1,0 +1,29 @@
+    3  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash\plugins\FIXXER_Rumble_Data  NAME COLLISION
+    3  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash\plugins\FIXXER_Rumble_Data\rumble.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash\save  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash\shot_0150.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash\shot_0330.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash\shot_0598.bmp  SUCCESS
+    1  gpbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  gpbikes.exe  Process Exit    SUCCESS
+    1  gpbikes.exe  Process Start    SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC1C75  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-crash\gpbikes.exe  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash\opengl32.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash\plugins\FIXXER_RUMBLE_GPB64.dlo  SUCCESS
+   87  gpbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  gpbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   83  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash\host.log  FAST IO DISALLOWED
+  168  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash\host.log  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\opengl32.dll  SUCCESS
+    3  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\plugins\FIXXER_Rumble_Data\rumble.log  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\plugins\FIXXER_RUMBLE_GPB64.dlo  SUCCESS
+   74  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\shot_0150.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\shot_0150.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\shot_0330.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\shot_0330.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\shot_0598.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash\shot_0598.bmp  SUCCESS

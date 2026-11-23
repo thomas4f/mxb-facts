@@ -1,0 +1,43 @@
+    5  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\plugins\FIXXER_Rumble_Data  NAME COLLISION
+    4  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\plugins\FIXXER_Rumble_Data\rumble.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\plugins\FIXXER_Rumble_Data\settings.txt  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\save  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0120.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0121.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0175.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0380.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0420.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0421.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0698.bmp  SUCCESS
+    1  gpbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  gpbikes.exe  Process Exit    SUCCESS
+    1  gpbikes.exe  Process Start    SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC1C75  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-panel-save\gpbikes.exe  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-panel-save\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-panel-save\opengl32.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-panel-save\plugins\FIXXER_RUMBLE_GPB64.dlo  SUCCESS
+  115  gpbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  gpbikes.exe  WriteFile  D:\$Mft  SUCCESS
+  110  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\panel-save\host.log  FAST IO DISALLOWED
+  222  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\panel-save\host.log  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\opengl32.dll  SUCCESS
+    4  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\plugins\FIXXER_Rumble_Data\rumble.log  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\plugins\FIXXER_Rumble_Data\settings.txt  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\plugins\FIXXER_RUMBLE_GPB64.dlo  SUCCESS
+   59  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0120.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0120.bmp  SUCCESS
+   49  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0121.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0121.bmp  SUCCESS
+   50  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0175.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0175.bmp  SUCCESS
+   50  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0380.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0380.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0420.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0420.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0421.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0421.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0698.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-panel-save\shot_0698.bmp  SUCCESS

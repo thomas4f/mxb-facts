@@ -1,0 +1,49 @@
+$ { strings -n 5 FIXXER_RUMBLE_GPB64.dlo; strings -el -n 5 FIXXER_RUMBLE_GPB64.dlo; } | grep -nE '%s|FIXXER_Rumble|Settings|settings|_enabled|_intensity|invert_motors'
+594:%s\FIXXER_Rumble_Data
+595:%s\settings.txt
+596:%s\rumble.log
+597:[%04u-%02u-%02u %02u:%02u:%02u] [%-5s] %s
+598:%s.old
+599:Failed to write settings file: %s
+601:front_lockup_enabled=%d
+602:front_lockup_intensity=%.3f
+603:rear_spin_enabled=%d
+604:rear_spin_intensity=%.3f
+605:rear_lock_enabled=%d
+606:rear_lock_intensity=%.3f
+607:suspension_enabled=%d
+608:suspension_intensity=%.3f
+609:rpm_enabled=%d
+610:rpm_intensity=%.3f
+611:ground_enabled=%d
+612:ground_intensity=%.3f
+613:engine_enabled=%d
+614:engine_intensity=%.3f
+615:invert_motors=%d
+616:Settings saved
+617:No settings file found, using defaults
+618:front_lockup_enabled
+619:front_lockup_intensity
+620:rear_spin_enabled
+621:rear_spin_intensity
+622:rear_lock_enabled
+623:rear_lock_intensity
+624:suspension_enabled
+625:suspension_intensity
+626:kerbs_enabled
+627:kerbs_intensity
+628:rpm_enabled
+629:rpm_intensity
+630:ground_enabled
+631:ground_intensity
+632:engine_enabled
+633:engine_intensity
+634:invert_motors
+635:Settings file malformed or out of range, reverting to defaults
+636:Settings loaded
+637:FIXXER_Rumble starting (data folder: %s)
+638:FIXXER_Rumble stopped
+647:FIXXER Rumble Settings
+848:FIXXER_Rumble_Data\rumble.fnt
+849:FIXXER_Rumble_Data\Pointer.tga
+(exit 0)

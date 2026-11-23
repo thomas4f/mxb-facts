@@ -1,0 +1,2 @@
+$ { strings -n 5 FIXXER_RUMBLE_GPB64.dlo; strings -el -n 5 FIXXER_RUMBLE_GPB64.dlo; } | grep -niE 'https?://|www\.|\.(com|net|org|io)\b'
+(exit 1)

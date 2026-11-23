@@ -1,0 +1,124 @@
+host: D:\a\_temp\mxbfacts\run-panel-save\gpbikes.exe
+GL: Mesa | llvmpipe (LLVM 23.1.5, 256 bits) | 4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+== host import table check (before plugins)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+loaded plugins\FIXXER_RUMBLE_GPB64.dlo (mod id 'gpbikes')
+loaded victim.dlo (mod id 'victim')
+Startup(plugins\FIXXER_RUMBLE_GPB64.dlo) -> 0
+Startup(victim.dlo) -> -1
+== host import table check (after Startup)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+DrawInit(plugins\FIXXER_RUMBLE_GPB64.dlo) -> 0, 1 sprites, 1 fonts
+  sprite FIXXER_Rumble_Data\Pointer.tga
+  font FIXXER_Rumble_Data\rumble.fnt
+Draw(plugins\FIXXER_RUMBLE_GPB64.dlo): 0 quads, 0 strings
+Draw(plugins\FIXXER_RUMBLE_GPB64.dlo): 47 quads, 24 strings
+  string "Rumble" at 0.375,0.046
+  string "0%" at 0.625,0.046
+  string "FIXXER Rumble Settings" at 0.500,0.170
+  string "Front Lockup" at 0.305,0.284
+  string "100%" at 0.700,0.285
+  string "Rear Spin" at 0.305,0.344
+  string "100%" at 0.700,0.345
+  string "Rear Lock" at 0.305,0.404
+  string "100%" at 0.700,0.405
+  string "Suspension" at 0.305,0.464
+  string "30%" at 0.700,0.465
+  string "Rev Limiter" at 0.305,0.524
+  string "100%" at 0.700,0.525
+  string "Ground Effects" at 0.305,0.584
+  string "70%" at 0.700,0.585
+  string "Engine Effects" at 0.305,0.644
+  string "100%" at 0.700,0.645
+  string "Invert L/R motors" at 0.305,0.701
+  string "RESET" at 0.380,0.750
+  string "SAVE" at 0.620,0.750
+  string "Material  F=1  R=1" at 0.500,0.820
+  string "V1.1" at 0.270,0.855
+  string "Ctrl+R to close" at 0.500,0.855
+  string "FIXXER 1001" at 0.730,0.855
+mouse on "SAVE" at 793,550
+Draw(plugins\FIXXER_RUMBLE_GPB64.dlo): 0 quads, 0 strings
+direct HUD draw saw viewport 0,0 1280x720, draw FBO 0
+frames 700, avg 16.02 ms, worst 114.11 ms
+== host import table check (after frames)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+== bystander plugin (victim.dlo) import table
+  import glOrtho    untouched
+  import glBegin    untouched
+  import glViewport untouched
+== bystander plugin (victim.dlo) pointer table
+  glOrtho          untouched
+  glFrustum        untouched
+  glLoadIdentity   untouched
+  glDrawElements   untouched
+  glViewport       untouched
+  glScissor        untouched
+  glReadPixels     untouched
+  glBegin          untouched
+FreeLibrary victim.dlo
+FreeLibrary plugins\FIXXER_RUMBLE_GPB64.dlo
+== host import table check (after unload)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+host: clean exit
+exit=0

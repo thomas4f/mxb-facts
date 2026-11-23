@@ -1,0 +1,30 @@
+gpbikes.exe  RegCreateKey  HKCR\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}\Instance  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\Software\Microsoft\DirectInput  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\DirectInput\GPBIKES.EXE67D97064003EAA00  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput  NAME NOT FOUND
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\Calibration  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\Calibration\0  SUCCESS
+gpbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\DeviceInstances  SUCCESS
+gpbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+gpbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\GPBIKES.EXE67D97064003EAA00\Name  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\GPBIKES.EXE67D97064003EAA00\UsesMapper  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Id  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\MostRecentStart  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Name  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Version  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+gpbikes.exe  RegSetValue  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\Calibration\0\GUID  SUCCESS
+gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\realgame\run-baseline\gpbikes.exe  SUCCESS
