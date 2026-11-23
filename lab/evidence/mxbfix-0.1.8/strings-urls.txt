@@ -1,0 +1,9 @@
+$ { strings -n 6 mxbfix.dlo; strings -el -n 6 mxbfix.dlo; } | grep -nE 'https?://|github\.com|workers\.dev'
+297:; All settings: https://github.com/xAmped/mxbfix#settings
+1076:https://github.com/xAmped/mxbfix/releases/latest
+1078:https://github.com/xAmped/mxbfix/issues/new
+1079:https://github.com/xAmped/mxbfix
+1082:8api.github.com
+1086:github.com
+1108:8mxbfix-reports.jay-b9d.workers.dev
+(exit 0)

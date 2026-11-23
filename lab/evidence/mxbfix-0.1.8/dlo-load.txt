@@ -1,0 +1,10 @@
+$ for r in ride-pause ride-long; do echo "== $r"; zcat "$RES/$r-windows/raw/procmon.csv.gz" | grep -E '(WriteFile|Load Image)","[^"]*plugins.mxbfix.dlo' | cut -d, -f1,4,6- | sed -E 's/D:.a._temp.realgame.run-[a-z-]+.//'; grep mxbfix "$RES/$r-windows/plugins.sha256"; done
+== ride-pause
+"3:41:53.2809651 AM","WriteFile","SUCCESS","Offset: 0, Length: 335,872, I/O Flags: Non-cached, Paging I/O, Synchronous Paging I/O, Priority: Low"
+"3:41:53.2816858 AM","Load Image","SUCCESS","Image Base: 0x64890000, Image Size: 0x195000"
+16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb  plugins\mxbfix.dlo
+== ride-long
+"3:46:36.6119611 AM","WriteFile","SUCCESS","Offset: 0, Length: 335,872, I/O Flags: Non-cached, Paging I/O, Synchronous Paging I/O, Priority: Low"
+"3:46:36.6125923 AM","Load Image","SUCCESS","Image Base: 0x64890000, Image Size: 0x195000"
+16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb  plugins\mxbfix.dlo
+(exit 0)

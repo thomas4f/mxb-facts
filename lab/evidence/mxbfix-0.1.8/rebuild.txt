@@ -1,0 +1,11 @@
+$ curl -sSLo "$W/zig.tar.xz" https://ziglang.org/download/0.13.0/zig-linux-x86_64-0.13.0.tar.xz && echo 'd45312e61ebcc48032b77bc4cf7fd6915c11fa16e4aad116b66c9468211230ea  '"$W/zig.tar.xz" | sha256sum -c && tar -xf "$W/zig.tar.xz" -C "$W" && cp -r "$SRC" "$W/src" && (cd "$W/src" && ZIG="$W/zig-linux-x86_64-0.13.0/zig" ./build.sh) && sha256sum mxbfix.dlo "$W/src/dist/mxbfix.dlo" | sed "s|$W|\$W|" && pecmp.py mxbfix.dlo "$W/src/dist/mxbfix.dlo" | sed "s|$W|\$W|"
+/tmp/tmp.BNP55oOxa6/zig.tar.xz: OK
+built dist/mxbfix.dlo
+16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb  mxbfix.dlo
+2d238ba8be7e3a33a550121f4698423706c93ce870f7d5dc2dd160f015c9597f  $W/src/dist/mxbfix.dlo
+mxbfix.dlo: 334848 bytes; $W/src/dist/mxbfix.dlo: 334848 bytes
+differ at 0x80-0x83 (4 bytes): PE header TimeDateStamp
+differ at 0x50004-0x50007 (4 bytes): debug directory entry 0 TimeDateStamp
+differ at 0x50020-0x50027 (8 bytes): debug directory entry 0: CodeView build ID (GUID and age)
+with those fields blanked in both: identical
+(exit 0)

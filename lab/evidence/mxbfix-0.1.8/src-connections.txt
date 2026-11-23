@@ -1,0 +1,8 @@
+$ cd "$SRC" && grep -rn 'WinHttpConnect\|#define API_HOST\|#define DL_HOST\|#define RELAY_HOST' src
+src/upload.c:10:#define RELAY_HOST L"mxbfix-reports.jay-b9d.workers.dev"
+src/upload.c:166:    HINTERNET con = WinHttpConnect(ses, RELAY_HOST, INTERNET_DEFAULT_HTTPS_PORT, 0);
+src/update.c:9:#define API_HOST L"api.github.com"
+src/update.c:11:#define DL_HOST  L"github.com"
+src/update.c:83:    HINTERNET con = WinHttpConnect(ses, API_HOST, INTERNET_DEFAULT_HTTPS_PORT, 0);
+src/update.c:161:    HINTERNET con = WinHttpConnect(ses, DL_HOST, INTERNET_DEFAULT_HTTPS_PORT, 0);
+(exit 0)

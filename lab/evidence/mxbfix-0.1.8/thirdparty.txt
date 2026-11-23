@@ -1,0 +1,9 @@
+$ strings -n 6 mxbfix.dlo | grep -n 'Mingw-w64'; cd "$SRC" && grep -n -A5 '^## Credits' README.md
+796:Mingw-w64 runtime failure:
+201:## Credits
+202-
+203-Crash fingerprints and crash statistics from [mxbmrp3](https://github.com/thomas4f/mxbmrp3).
+204-
+205-The in-game page uses Barlow Semi Condensed, under the SIL Open Font License (see [FONT-LICENSE.txt](FONT-LICENSE.txt)).
+206-
+(exit 0)

@@ -474,6 +474,20 @@
         "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096747217",
         "permalink": "https://www.virustotal.com/gui/file/00c571c7306180bc824e53ef9a4e859fecc63869cd038850eb84324d8a5b3c49"
       }
+    },
+    "mxbfix-0.1.8.yaml": {
+      "16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45106494160",
+        "permalink": "https://www.virustotal.com/gui/file/16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb"
+      },
+      "458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45106494160",
+        "permalink": "https://www.virustotal.com/gui/file/458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb"
+      }
     }
   }
 }

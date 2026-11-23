@@ -1,0 +1,497 @@
+tool: mxbfix
+version: 0.1.8
+summary: An MX Bikes plugin that patches the game's code in memory to stop five known crashes of MX Bikes Beta 21e, repairs damaged ghost lap files and
+  writes a report when the game crashes. Its source is public and the release rebuilds from it; it checks GitHub for a new version at every start, and once
+  you finish its setup it sends crash reports and daily crash counts, a box that is ticked to start with.
+header:
+  What it is: An open-source plugin (`mxbfix.dlo`) for the game's `plugins` folder. At start it changes a few instructions of the game's code in memory,
+    only on the game build it was written for, and cleans damaged trainer (ghost lap) files after backing them up; it keeps a log, crash reports and crash
+    dumps in `Documents\PiBoSo\MX Bikes\mxbfix`, and adds an MXBFix tab to the pause menu with a setup page, crash report settings and one-click signed
+    updates.
+  In one line: Plugin that patches the game in memory to stop known crashes, and reports crashes
+  Category: Fixes and performance
+  Author: jay (GitHub [xAmped](https://github.com/xAmped))
+  Game: MX Bikes
+  mxb-mods.com: '[MXBFix – Fixes Common Game Crashes](https://mxb-mods.com/mxbfix-fixes-common-game-crashes-2/)'
+  Homepage: None found
+  GitHub: '[xAmped/mxbfix](https://github.com/xAmped/mxbfix)'
+  Version analysed: mxbfix 0.1.8, tag [v0.1.8](https://github.com/xAmped/mxbfix/releases/tag/v0.1.8) (GitHub release of 9 Nov 2026, the newest in the release
+    inventory)
+  Source commit: '[90740b49b5486f64e2b48abccc86dd61d1ace200](https://github.com/xAmped/mxbfix/tree/90740b49b5486f64e2b48abccc86dd61d1ace200) (the commit
+    tag v0.1.8 points at, `lab/evidence/mxbfix-0.1.8/repo.txt`)'
+  Analysed on: 23 Nov 2026
+  Method: '100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md). Open source under the
+    MIT licence, so nothing forbids analysis: the source was read at the commit, the plugin was rebuilt with Zig 0.13.0 as its build.sh says and compared
+    byte for byte with the release, the update signature published beside it was checked with the key in the source, and its imports and text were listed
+    (`objdump -p`, `strings`); every command is in `lab/evidence/mxbfix-0.1.8/run.sh`. A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe
+    software OpenGL, not Windows on a real GPU) and no keys ran the plugin in the MX Bikes demo (beta21e), offline behind a firewall block, under Process
+    Monitor: the bare demo as baseline, a 90 s ride with Esc pressed twice to open and close the pause menu, and a 240 s ride; then the plugin test host
+    with the bystander plugin, and its crash case. The setup page wasn''t clicked through, no update was installed, the game process wasn''t made to crash,
+    and the real game online and the full game build its code fixes are written for weren''t run (see Limits). VirusTotal: hash lookups only (made before
+    the analysis, 23 Nov 2026), nothing uploaded.'
+files:
+- name: mxbfix.dlo
+  sha256: 16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb
+  note: The plugin, for `plugins`; the only file players install.
+- name: mxbfix.sig
+  sha256: 458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb
+  note: The update signature published beside the plugin; the plugin downloads it with an update.
+files_note: The plugin isn't code-signed (`lab/evidence/mxbfix-0.1.8/signature.txt`). The hashes match the files the Windows machine ran (`lab/results/mxbfix-0.1.8/ride-long-windows/machine.txt`,
+  `lab/results/mxbfix-0.1.8/ride-long-windows/plugins.sha256`).
+key:
+  K1: No malware found. Neither release file is on VirusTotal yet, so no engine has scanned them; the release rebuilds from its public source.
+  K2: No. It installs an update only when you click Install, and refuses a download whose signature doesn't check out.
+  K3: Yes; by default it rewrites damaged ghost lap (trainer) files in your profile, after backing each one up, and they stay changed if you remove it.
+  K4: Yes, after its setup; once you press Continue there, with the box ticked to start with, it sends crash reports with your PC, server, track and bike
+    and a random install ID, and daily crash counts.
+  K5: Yes; it changes a few instructions of the game's code in memory, physics checks included, also on servers. Only on the game build it was written for.
+  K6: No. It opens no mods, paints, tracks or models.
+  K7: Yes; the full source is public under the MIT licence.
+  K8: Yes, as far as checked; its README matches the code.
+  K9: Yes; the release rebuilds byte for byte from the source, except the build time stamps. It isn't code-signed.
+  K10: Yes; it asks GitHub for the latest version at every start, and sends crash reports and counts to its own server once you finish its setup.
+areas:
+  Your PC and files: Rewrites damaged ghost lap files after backing them up, keeps crash dumps, and installs signed updates only when you click; not code-signed.
+  Your data: Checks GitHub for updates at every start and, after its setup, sends crash reports with a random install ID and daily counts to its own server;
+    both can be switched off.
+  Your game: A plugin that patches a few of the game's instructions in memory, physics checks included, reads game memory outside the plugin interface and
+    installs a crash handler.
+  Creators' content: Opens no one's content; credits its font and the crash data it builds on, but not the MinGW-w64 runtime built into it.
+  Transparency: Full source public under MIT, and the release rebuilds from it byte for byte except time stamps; built by hand, with a history of mostly
+    one commit per release.
+  Money: Free; no shop and no donation request.
+sections:
+- title: Your PC and files
+  blocks:
+  - text: 'Also found: it keeps a crash dump (raw memory of the game, about 60 MB each by its README) for every crash in `Documents\PiBoSo\MX Bikes\mxbfix\dumps`,
+      the newest 3 by default (`[capture] write_dumps=1`, `keep_dumps=3`); dumps are never uploaded. [crash.c lines 976-1017](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L976-L1017),
+      [crash.c lines 1097-1126](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L1097-L1126), [config.c lines
+      13-17](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/config.c#L13-L17).'
+    mark: note
+  - text: 'Also found: an update goes in beside the plugin as `mxbfix.update.dlo`, then the current plugin moves to `plugins\mxbfix_data\mxbfix.previous`
+      and the new one takes its name; it is used from the next game start. [update.c lines 271-318](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L271-L318).'
+    mark: note
+- title: Your data
+  blocks:
+  - table:
+    - What
+    - Where to
+    - When
+    - Switch
+    rows:
+    - What: A request for the latest release (the version tag comes back); the plugin version in the User-Agent
+      Where to: api.github.com (`/repos/xAmped/mxbfix/releases/latest`)
+      When: Once at every game start, by default; tried in both real-game runs (blocked)
+      Switch: '`[updates] check=0` in `mxbfix.ini`'
+    - What: Download of the new `mxbfix.dlo` and `mxbfix.sig`
+      Where to: github.com (the release's files)
+      When: Only when you click Install on its page
+      Switch: Don't click Install
+    - What: 'A crash or freeze report: where it crashed, the call stack, the diagnosis, game and plugin versions, active fixes, Windows version, CPU, RAM,
+        GPU and driver, ReShade, server name, track, bike, session, number of riders, the last telemetry (speed, inputs, position), the last 64 game events,
+        the names of loaded modules, and a random install ID. Module paths, CPU register values and code bytes are taken out first'
+      Where to: mxbfix-reports.jay-b9d.workers.dev (`/v1/report`), the author's server
+      When: At a game start after a crash, up to 10 reports, only for crashes after you pressed Continue on its setup page with the box ticked (ticked to
+        start with)
+      Switch: '"Send crash reports and crash counts" on its setup page or page (`[reports] share`)'
+      mark: concern
+      questions:
+      - D2
+      - D3
+    - What: How many crashes each fix prevented since the last send; no install ID
+      Where to: mxbfix-reports.jay-b9d.workers.dev (`/v1/counts`)
+      When: Once a day at a game start, under the same condition
+      Switch: The same box
+      mark: concern
+      questions:
+      - D2
+  - text: 'Also found: `bad_positions.log` in its folder lists, by race number, every rider whose position went bad (NaN or huge) while you rode, kept between
+      sessions up to 1 MB; it isn''t uploaded. [fix_ground_nan_guard.c lines 113-162](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_ground_nan_guard.c#L113-L162).'
+    mark: note
+- title: Your game
+  blocks:
+  - text: 'Also found: the code fixes are written for one game build (time stamp 0x6A21833D, MX Bikes Beta 21e) and check every original byte before writing;
+      the demo the runs used is build 6A21E814, so they stayed off there. `lab/evidence/mxbfix-0.1.8/src-patches.txt`, `lab/evidence/mxbfix-0.1.8/demo-build.txt`.'
+    mark: note
+  - text: 'Also found: a sixth code fix, `suspension-nan-guard`, is in the source and the plugin but not in the list of fixes it installs, so it never runs
+      in this release. [fixes.c lines 17-24](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes.c#L17-L24), [fix_suspension_nan_guard.c
+      lines 1-25](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_suspension_nan_guard.c#L1-L25).'
+    mark: note
+  - text: 'Also found: until you finish its setup, it draws an "MXBFix: click to set up" tab in the pause menu, and while you ride, when the bike is stopped,
+      a banner "MXBFix is installed. Press Esc to set it up." `lab/results/mxbfix-0.1.8/ride-pause-windows/shot_key-Escape.png`; [ui.c lines 404-433](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L404-L433).'
+    mark: note
+- title: Creators' content
+  blocks: []
+- title: Transparency
+  blocks:
+  - text: 'Also found: the release''s build time stamp (9 Nov 2026 17:03:04 UTC) is the time of the commit the tag points at. `lab/evidence/mxbfix-0.1.8/mxbfix.dlo.objdump-p.txt`,
+      `lab/evidence/mxbfix-0.1.8/repo.txt`.'
+    mark: note
+- title: Money
+  blocks: []
+- title: What it says vs what it does
+  blocks:
+  - table:
+    - Claim
+    - Verdict
+    - Evidence
+    rows:
+    - Claim: '"It doesn''t change the game''s program files. The fixes are applied in memory each time the game starts. The only game files it changes are
+        damaged trainer (ghost lap) files, after backing each one up." (README)'
+      Verdict: Matches
+      Evidence: Code changes go through `VirtualProtect` in memory only (`lab/evidence/mxbfix-0.1.8/src-patches.txt`); trainer files are backed up before
+        they are rewritten ([fix_trainer_repair.c lines 141-162](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L141-L162)).
+    - Claim: '"Each code fix only turns on if the game''s code is exactly what it was written for." (README)'
+      Verdict: Matches
+      Evidence: '[fixes.c lines 48-121](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes.c#L48-L121); each fix checks
+        the build first (`lab/evidence/mxbfix-0.1.8/src-patches.txt`).'
+    - Claim: '"The plugin checks the download''s signature before using it [...] It never updates without that click." (README)'
+      Verdict: Matches
+      Evidence: '[update.c lines 347-388](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L347-L388); the release''s
+        own signature checks out with the key in the plugin (`lab/evidence/mxbfix-0.1.8/sig-verify.txt`, `lab/evidence/mxbfix-0.1.8/key-find.txt`).'
+    - Claim: '"No reports or counts are sent until you''ve seen that screen and pressed Continue, and only crashes from then on are sent." (README)'
+      Verdict: Matches
+      Evidence: '[ui.c line 482](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L482), [ui.c lines 395-401](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L395-L401),
+        [upload.c lines 182-194](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L182-L194). Not run (see Limits).'
+    - Claim: '"Never deliberately sent: Rider names, race numbers, passwords, your Windows user name, file paths, crash dumps" and "Kept on your PC only:
+        CPU register values and the bytes of code at the crash" (README)'
+      Verdict: Matches, as far as checked
+      Evidence: The report holds no rider names or race numbers ([crash.c lines 894-943](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L894-L943));
+        paths and raw values are taken out and a report still holding a path isn't sent ([upload.c lines 108-153](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L108-L153),
+        [upload.c lines 204-207](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L204-L207)). Not run.
+    - Claim: '"The plugin also asks GitHub for the latest version number each time the game starts. `[updates] check=0` turns that off." (README)'
+      Verdict: Matches
+      Evidence: '[update.c lines 120-126](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L120-L126), [ui.c
+        line 104](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L104); `lab/results/mxbfix-0.1.8/ride-long-windows/network.txt`.'
+    - Claim: '"Reports go to our server, which keeps them privately for 90 days and doesn''t store IP addresses." (README)'
+      Verdict: Not checked
+      Evidence: The server code at the commit does so ([schema.sql lines 1-14](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/server/schema.sql#L1-L14),
+        [index.js line 3](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/server/src/index.js#L3)), but what runs on the
+        server can't be seen (see Limits).
+- title: Limits of this analysis
+  blocks:
+  - limits:
+    - text: The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX Bikes demo, offline.
+      questions: []
+    - text: The demo is game build 6A21E814, not the build 6A21833D the code fixes are written for, so no code fix was applied in the runs; what they change
+        rests on the source, which the release was rebuilt from. The fixes weren't run on the full game, or on a server.
+      questions:
+      - G2
+      - G3
+      - G12
+    - text: The setup page wasn't clicked through and no crash happened before a run, so no install ID was made and nothing was sent to the report server;
+        what a report carries rests on the source. What the server keeps, publishes and does with your address can't be seen; its code is in the repository
+        at the commit, but nothing ties it to what runs.
+      questions:
+      - D2
+      - D3
+      - D4
+      - D7
+    - text: The game process wasn't made to crash (the test host's crash case only sets the bike's crashed flag), so the crash handler, its reports and
+        dumps, and the next start's look-up of mxbmrp3's crash files and Windows' event log rest on the source.
+      questions:
+      - G8
+      - D6
+      - P4
+    - text: The demo's fresh profile had no trainer files, so the trainer repair found nothing to change in the runs.
+      questions:
+      - P4
+      - P7
+      - P8
+    - text: No newer release existed, so the update install (download, signature check, file swap) wasn't run; it rests on the source and on the signature
+        check of this release.
+      questions:
+      - P2
+      - P3
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: 'No engine has scanned either file: `mxbfix.dlo` and `mxbfix.sig` are not on VirusTotal (hash lookup on 23 Nov 2026). Nothing uploaded.'
+    evidence: '[mxbfix.dlo](https://www.virustotal.com/gui/file/16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb), [mxbfix.sig](https://www.virustotal.com/gui/file/458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb)'
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It checks for a new version at every start but installs one only when you click Install on its page; the new plugin is used from the next start.
+    evidence: '[update.c lines 120-126](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L120-L126), [update.c
+      lines 378-388](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L378-L388), [ui.c lines 97-118](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L97-L118).'
+  P3:
+    verdict: 'Yes'
+    mark: good
+    text: Before installing, it checks an ECDSA P-256 signature of `mxbfix-update|<version>|<SHA-256 of the file>` against the public key built into the
+      plugin, so a changed file or a file passed off as another version is refused. The signature published with 0.1.8 checks out with that key.
+    evidence: '[update.c lines 230-254](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L230-L254), [update.c
+      lines 347-376](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L347-L376), [update_key.h line 3](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update_key.h#L3);
+      `lab/evidence/mxbfix-0.1.8/sig-verify.txt`, `lab/evidence/mxbfix-0.1.8/key-find.txt`.'
+  P4:
+    verdict: 'Yes'
+    mark: concern
+    text: By default, at every start it checks the trainer (ghost lap) files in `profiles\*\trainers` and rewrites a damaged one with its junk bytes zeroed,
+      after saving the original once to `mxbfix\backups\trainers`. It deletes only its own files (old dumps, its temporary files).
+    evidence: '[fix_trainer_repair.c lines 114-166](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L114-L166),
+      [fix_trainer_repair.c lines 168-213](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L168-L213),
+      [crash.c lines 1097-1126](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L1097-L1126); `lab/evidence/mxbfix-0.1.8/src-others.txt`.'
+  P5:
+    verdict: 'No'
+    mark: note
+    text: The plugin isn't code-signed; the release can be traced to its source by rebuilding it (T4).
+    evidence: '`lab/evidence/mxbfix-0.1.8/signature.txt`, `lab/evidence/mxbfix-0.1.8/rebuild.txt`.'
+  P6:
+    verdict: 'No'
+    mark: good
+    text: It reads one registry value (the CPU name) and writes none. The rides wrote no registry key or value that the bare demo didn't.
+    evidence: '`lab/evidence/mxbfix-0.1.8/src-registry.txt`, `lab/evidence/mxbfix-0.1.8/imports-absent.txt`; `lab/results/mxbfix-0.1.8/ride-long-windows/registry.txt`
+      against `lab/results/mxbfix-0.1.8/baseline-windows/registry.txt`.'
+  P7:
+    verdict: 'Yes'
+    mark: concern
+    text: 'By default it rewrites damaged trainer files in the game''s `profiles` folder (P4). Beyond that it writes its own: `plugins\mxbfix_data` (its
+      font and the backup of an updated plugin) and its folder `Documents\PiBoSo\MX Bikes\mxbfix`.'
+    evidence: '[fix_trainer_repair.c lines 168-213](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L168-L213),
+      [ui.c lines 75-95](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L75-L95); `lab/evidence/mxbfix-0.1.8/run-writes.txt`,
+      `lab/results/mxbfix-0.1.8/ride-long-windows/files.diff`.'
+  P8:
+    verdict: 'Yes'
+    mark: concern
+    text: Removing it as its README says (`mxbfix.dlo` and `plugins\mxbfix_data`) leaves its `Documents\PiBoSo\MX Bikes\mxbfix` folder (settings, logs,
+      reports, dumps, trainer backups) and `%TEMP%\mxbfix`, and repaired trainer files stay changed; the originals are in its backup folder.
+    evidence: '[README.md lines 91-94](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/README.md#L91-L94); `lab/evidence/mxbfix-0.1.8/run-writes.txt`;
+      [alive.c lines 23-39](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/alive.c#L23-L39).'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: 'No malware found. The release is the public source rebuilt (T4), and everything that source does is in its README: the patches, trainer repair,
+      update check, signed updates, crash reports and counts.'
+    evidence: '`lab/evidence/mxbfix-0.1.8/rebuild.txt`; [the source at the commit](https://github.com/xAmped/mxbfix/tree/90740b49b5486f64e2b48abccc86dd61d1ace200/src).'
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: By default it asks api.github.com for the latest release at every game start; both real-game runs show the attempt (blocked). After its setup
+      it also sends crash reports and counts to its own server (D2), and it downloads an update from github.com when you click Install.
+    evidence: '`lab/evidence/mxbfix-0.1.8/src-connections.txt`, `lab/evidence/mxbfix-0.1.8/strings-urls.txt`; `lab/results/mxbfix-0.1.8/ride-pause-windows/network.txt`,
+      `lab/results/mxbfix-0.1.8/ride-long-windows/network.txt`, against `lab/results/mxbfix-0.1.8/baseline-windows/network.txt`.'
+  D2:
+    verdict: 'Yes'
+    mark: concern
+    text: Once you press Continue on its setup page, where "Send crash reports and crash counts" is ticked to start with, it sends a report of each later
+      crash or freeze (your PC's hardware and Windows version, server name, track, bike, session, last telemetry, loaded modules) and a daily count of prevented
+      crashes. See "Connections found".
+    evidence: '[ui.c lines 97-118](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L97-L118), [ui.c lines 364-402](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L364-L402),
+      [ui.c line 482](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L482); [upload.c lines 177-269](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L177-L269);
+      [crash.c lines 894-974](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L894-L974), [crash.c lines 93-105](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L93-L105).'
+  D3:
+    verdict: 'Yes'
+    mark: note
+    text: Each crash report carries a random 32-hex-digit install ID the plugin makes itself and keeps in `mxbfix.ini`; the daily counts carry none. No
+      machine, Steam or account ID was found.
+    evidence: '[upload.c lines 25-39](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L25-L39), [upload.c lines
+      118-124](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L118-L124), [upload.c lines 223-252](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L223-L252).'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: Reports carry the number of riders in the event but no rider names or race numbers; the race numbers in `bad_positions.log` stay on your PC.
+    evidence: '[plugin.c lines 245-252](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/plugin.c#L245-L252), [crash.c
+      lines 894-943](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L894-L943); [fix_ground_nan_guard.c lines
+      113-118](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_ground_nan_guard.c#L113-L118).'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: 'It runs no server: it imports no socket function, and its only network functions are WinHTTP client calls.'
+    evidence: '`lab/evidence/mxbfix-0.1.8/imports-absent.txt`, `lab/evidence/mxbfix-0.1.8/imports-used.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: After a session that ended without a clean exit, it reads mxbmrp3's crash log names and `pending_crash.json` (if you have mxbmrp3) and Windows'
+      Application event log (crash and hang records of `mxbikes.exe`) to describe that crash. It also reads the version details of loaded GPU driver and
+      ReShade files. No one else's data.
+    evidence: '[mxbmrp3.c lines 141-193](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/mxbmrp3.c#L141-L193), [crash.c
+      lines 266-346](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L266-L346), [context.c lines 128-168](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/context.c#L128-L168);
+      `lab/evidence/mxbfix-0.1.8/src-others.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: 'The server code at the commit publishes only totals: a "crashes prevented" count and, for crash types the author approves, a GitHub issue with
+      the crash location, the number of reports and of players, dates and versions.'
+    evidence: '[validate.js lines 144-155](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/server/src/validate.js#L144-L155),
+      [index.js lines 221-231](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/server/src/index.js#L221-L231).'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: 'Every connection has a switch: `[updates] check=0` for the update check, and the "Send crash reports and crash counts" box for reports and counts;
+      an update downloads only on your click.'
+    evidence: '[update.c lines 120-126](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/update.c#L120-L126), [ui.c line
+      482](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L482), [upload.c line 194](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L194).'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account is needed or made; reports carry only the random install ID.
+    evidence: '[upload.c lines 118-124](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L118-L124), [upload.c
+      lines 158-175](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/upload.c#L158-L175).'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: 'It shares nothing with other programs: no shared memory, pipe or local server; it writes only its own files.'
+    evidence: '`lab/evidence/mxbfix-0.1.8/imports-absent.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It runs as a plugin the game loads; it imports nothing that opens or writes into another process.
+    evidence: '`lab/evidence/mxbfix-0.1.8/imports-absent.txt`.'
+  G2:
+    verdict: 'Yes'
+    mark: concern
+    text: 'By default, at start it rewrites a few of the game''s instructions in memory with `VirtualProtect`: four 64-bit loads in the render setup, the
+      trainer series lookup, the trainer cleanup, six "outside the map" checks of the terrain lookups and one check of the fence collision. Each only on
+      game build 0x6A21833D with every original byte matching.'
+    evidence: '`lab/evidence/mxbfix-0.1.8/src-patches.txt`; [fixes.c lines 48-138](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes.c#L48-L138);
+      [fix_fence_contact_nan.c lines 1-49](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_fence_contact_nan.c#L1-L49),
+      [fix_ground_nan_guard.c lines 1-35](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_ground_nan_guard.c#L1-L35).'
+  G3:
+    verdict: 'Yes'
+    mark: concern
+    text: 'The patches stay on when you ride on a server, and two of them change physics code: a NaN position takes the "off the map" path in the terrain
+      lookups, and a fence contact with a NaN depth is dropped. For every ordinary value the result is the same, by its source.'
+    evidence: '[fix_ground_nan_guard.c lines 1-35](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_ground_nan_guard.c#L1-L35),
+      [fix_fence_contact_nan.c lines 1-21](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_fence_contact_nan.c#L1-L21);
+      [fixes.c lines 123-138](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes.c#L123-L138) (no server condition).'
+  G4:
+    verdict: 'Yes'
+    mark: note
+    text: 'It reads the game''s memory outside the plugin interface: the 50 rider slots (positions, race numbers) every frame for its bad-position log,
+      render batch records, and trainer state at event changes. Read only.'
+    evidence: '[fix_ground_nan_guard.c lines 123-130](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_ground_nan_guard.c#L123-L130),
+      [fix_ground_nan_guard.c lines 187-211](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_ground_nan_guard.c#L187-L211),
+      [batches.c lines 22-61](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/batches.c#L22-L61), [fix_trainer_cleanup_reset.c
+      lines 140-158](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_cleanup_reset.c#L140-L158).'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It reads the mouse position and left button for its own tab and page, and leaves them to the game; it imports nothing that presses keys or clicks,
+      or hooks input.
+    evidence: '[ui.c lines 437-480](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L437-L480); `lab/evidence/mxbfix-0.1.8/imports-absent.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: It changes no other plugin's files or memory; it only reads mxbmrp3's crash files (D6). Its crash handler passes crashes on to the one set before
+      it (G8). A second copy of mxbfix itself refuses to start.
+    evidence: '[mxbmrp3.c lines 122-193](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/mxbmrp3.c#L122-L193), [crash.c
+      lines 1056-1078](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L1056-L1078), [plugin.c lines 35-45](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/plugin.c#L35-L45).'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It reads the left mouse button with `GetAsyncKeyState` only while the game's own window is in front; it reads no keyboard keys.
+    evidence: '[ui.c lines 437-456](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L437-L456); `lab/evidence/mxbfix-0.1.8/imports-used.txt`.'
+  G8:
+    verdict: 'Yes'
+    mark: note
+    text: At start it sets an unhandled-exception filter for the whole game (chaining to the one set before it, e.g. mxbmrp3's, and keeping that module
+      loaded until exit) and a first-in-line vectored exception handler for its fixes. It writes a report and a dump for each crash.
+    evidence: '[crash.c lines 1056-1078](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L1056-L1078), [crash.c
+      lines 1023-1052](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L1023-L1052); `lab/evidence/mxbfix-0.1.8/imports-used.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; it writes no registry value and starts no program at boot.
+    evidence: '`lab/evidence/mxbfix-0.1.8/src-registry.txt`, `lab/evidence/mxbfix-0.1.8/imports-absent.txt`.'
+  G10:
+    verdict: Yes, on request
+    mark: note
+    text: 'Only when you click its page''s buttons: "Crash reports" opens the reports folder in Explorer, "Report issue" and "Project page" open GitHub
+      in your browser.'
+    evidence: '[ui.c lines 180-184](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L180-L184), [ui.c lines 350-361](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/ui.c#L350-L361);
+      `lab/evidence/mxbfix-0.1.8/src-registry.txt`.'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`mxbfix.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: Exports Startup, Draw and the other plugin functions (`lab/evidence/mxbfix-0.1.8/mxbfix.dlo.objdump-p.txt`); `lab/results/mxbfix-0.1.8/ride-long-windows/loaded.txt`.
+  G12:
+    verdict: 'No'
+    mark: good
+    text: 'No integrity, version, licence or anti-cheat check is got around: the patched spans are crash checks in rendering, trainer loading, terrain lookups
+      and collision.'
+    evidence: '`lab/evidence/mxbfix-0.1.8/src-patches.txt`; [fix_gate_vertex_pointer.c lines 1-21](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_gate_vertex_pointer.c#L1-L21),
+      [fix_trainer_series_lookup.c lines 1-22](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_series_lookup.c#L1-L22),
+      [fix_trainer_cleanup_reset.c lines 1-31](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_cleanup_reset.c#L1-L31).'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; the only game files it opens are your trainer files, which it checks as plain data.
+    evidence: '[fix_trainer_repair.c lines 114-166](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L114-L166).'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves no models or textures; its only copies are backups of your own trainer files.
+    evidence: '[fix_trainer_repair.c lines 141-151](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L141-L151).'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares no content; reports carry the track and bike names only.
+    evidence: '[crash.c lines 894-910](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L894-L910).'
+  C4:
+    verdict: Partly
+    mark: note
+    text: Its README credits the Barlow Semi Condensed font (with its licence) and mxbmrp3's crash data; the MinGW-w64 runtime that Zig builds into the
+      plugin isn't named.
+    evidence: '`lab/evidence/mxbfix-0.1.8/thirdparty.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: It opens no mods, paints, tracks or models; the game files it opens are your trainer (ghost lap) files.
+    evidence: '`lab/evidence/mxbfix-0.1.8/src-others.txt`.'
+  T1:
+    verdict: 'Yes'
+    mark: good
+    text: The full source is public. The only prebuilt program file is `mxbfix.dlo` (PE32+ x86-64 DLL), built from the source at the commit (T4); `mxbfix.sig`
+      is data, and the repository holds no prebuilt program files (only `build.sh`, a script).
+    evidence: '`lab/evidence/mxbfix-0.1.8/file.txt`, `lab/evidence/mxbfix-0.1.8/repo.txt`, `lab/evidence/mxbfix-0.1.8/rebuild.txt`.'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: What its README says matches the code; see "What it says vs what it does".
+    evidence: '`lab/evidence/mxbfix-0.1.8/sig-verify.txt`, `lab/evidence/mxbfix-0.1.8/src-patches.txt`, `lab/evidence/mxbfix-0.1.8/src-payload.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The repository has no build workflow (`.github` holds only issue templates); the release file is built and uploaded by hand.
+    evidence: '`lab/evidence/mxbfix-0.1.8/repo.txt`.'
+  T4:
+    verdict: 'Yes'
+    mark: good
+    text: 'Rebuilt with Zig 0.13.0 as build.sh says: the same size, and identical byte for byte except the 16 bytes of build time stamps and build ID.'
+    evidence: '`lab/evidence/mxbfix-0.1.8/rebuild.txt`.'
+  T5:
+    verdict: Partly
+    mark: note
+    text: The history is public but has 12 commits, mostly one per release ("mxbfix 0.1.8"), so the work between releases isn't shown.
+    evidence: '`lab/evidence/mxbfix-0.1.8/repo.txt`; [commits up to the tag](https://github.com/xAmped/mxbfix/commits/90740b49b5486f64e2b48abccc86dd61d1ace200).'
+  T6:
+    verdict: 'Yes'
+    mark: good
+    text: The plugin uses no third-party library; build.sh names the compiler, Zig 0.13 (whose one release is 0.13.0). The server's packages are pinned
+      in its package-lock.json.
+    evidence: '[build.sh](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/build.sh#L2-L13), [server/package-lock.json](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/server/package-lock.json);
+      `lab/evidence/mxbfix-0.1.8/rebuild.txt`.'
+  T7:
+    verdict: 'Yes'
+    mark: good
+    text: MIT licence.
+    evidence: '[LICENSE](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/LICENSE).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/mxbfix-0.1.8/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; its only links are to its own GitHub pages.
+    evidence: '`lab/evidence/mxbfix-0.1.8/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Neither the plugin nor its README asks for donations.
+    evidence: '`lab/evidence/mxbfix-0.1.8/strings-money.txt`; [README.md](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/README.md).'
+history:
+- date: 23 Nov 2026
+  change: First card, for mxbfix 0.1.8.

@@ -1,0 +1,57 @@
+$ for r in ride-pause ride-long; do echo "== $r"; grep -E 'mxbfix' "$RES/$r-windows/procmon.txt" | grep -E 'WriteFile|SetRename|CreateFile.*(SUCCESS)' | awk '{$1=""; print}' | sed -E 's/D:.a._temp.realgame.run-[a-z-]+.//' | grep -v 'plugins.mxbfix.dlo ' | sort -u; cat "$RES/$r-windows/network.txt" | tail -n 2; done
+== ride-pause
+ mxbikes.exe CreateFile C:\Users\runneradmin\AppData\Local\Temp\mxbfix SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-1344.txt SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\dumps SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.ini SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.log SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\reports SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\reports\pending SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\reports\sent SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\session.lock SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data\fonts SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp SUCCESS
+ mxbikes.exe SetRenameInformationFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp SUCCESS
+ mxbikes.exe SetRenameInformationFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-1344.txt FAST IO DISALLOWED
+ mxbikes.exe WriteFile C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-1344.txt SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.ini SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.log FAST IO DISALLOWED
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.log SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\session.lock FAST IO DISALLOWED
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\session.lock SUCCESS
+ mxbikes.exe WriteFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp SUCCESS
+ mxbikes.exe WriteFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp SUCCESS
+3:41:53.3347860 AM  mxbikes.exe (1344)  TCP Disconnect  runnervmbpeip.hba1tuaematuhd453uo2lhhf3e.yx.internal.cloudapp.net:65075 -> lb-140-82-114-5-iad.github.com:https  SUCCESS
+2026-11-23 03:41:53 DROP TCP 10.1.0.20 140.82.114.5 65075 443 0 - 0 0 0 - - - SEND 1344
+== ride-long
+ mxbikes.exe CreateFile C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-8800.txt SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\dumps SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.ini SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.log SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\reports SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\reports\pending SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\reports\sent SUCCESS
+ mxbikes.exe CreateFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\session.lock SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data\fonts SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp SUCCESS
+ mxbikes.exe CreateFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp SUCCESS
+ mxbikes.exe SetRenameInformationFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp SUCCESS
+ mxbikes.exe SetRenameInformationFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-8800.txt FAST IO DISALLOWED
+ mxbikes.exe WriteFile C:\Users\runneradmin\AppData\Local\Temp\mxbfix\alive-8800.txt SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.ini SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.log FAST IO DISALLOWED
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\mxbfix.log SUCCESS
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\session.lock FAST IO DISALLOWED
+ mxbikes.exe WriteFile C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbfix\session.lock SUCCESS
+ mxbikes.exe WriteFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-Regular.fnt.tmp SUCCESS
+ mxbikes.exe WriteFile plugins\mxbfix_data\fonts\BarlowSemiCondensed-SemiBold.fnt.tmp SUCCESS
+3:46:36.6582480 AM  mxbikes.exe (8800)  TCP Disconnect  runnervmbpeip.hba1tuaematuhd453uo2lhhf3e.yx.internal.cloudapp.net:65203 -> lb-140-82-114-5-iad.github.com:https  SUCCESS
+2026-11-23 03:46:36 DROP TCP 10.1.0.20 140.82.114.5 65203 443 0 - 0 0 0 - - - SEND 8800
+(exit 0)

@@ -1,0 +1,24 @@
+$ iat.py mxbfix.dlo | grep -E 'WinHttp|RegGetValue|GetAsyncKeyState|GetCursorPos|GetForegroundWindow|VirtualProtect|FlushInstructionCache|ReadProcessMemory|SetUnhandledExceptionFilter|AddVectoredExceptionHandler|ShellExecute|LoadLibrary|IsHungAppWindow|K32EnumProcessModules'
+0x1004e728  KERNEL32.dll!AddVectoredExceptionHandler
+0x1004e7a8  KERNEL32.dll!FlushInstructionCache
+0x1004e888  KERNEL32.dll!K32EnumProcessModules
+0x1004e8a8  KERNEL32.dll!LoadLibraryW
+0x1004e8c8  KERNEL32.dll!ReadProcessMemory
+0x1004e908  KERNEL32.dll!SetUnhandledExceptionFilter
+0x1004e930  KERNEL32.dll!VirtualProtect
+0x1004e9c0  USER32.dll!GetAsyncKeyState
+0x1004e9d0  USER32.dll!GetCursorPos
+0x1004e9d8  USER32.dll!GetForegroundWindow
+0x1004e9e8  USER32.dll!IsHungAppWindow
+0x1004ea18  ADVAPI32.dll!RegGetValueW
+0x1004ea70  WINHTTP.dll!WinHttpCloseHandle
+0x1004ea78  WINHTTP.dll!WinHttpConnect
+0x1004ea80  WINHTTP.dll!WinHttpOpen
+0x1004ea88  WINHTTP.dll!WinHttpOpenRequest
+0x1004ea90  WINHTTP.dll!WinHttpQueryHeaders
+0x1004ea98  WINHTTP.dll!WinHttpReadData
+0x1004eaa0  WINHTTP.dll!WinHttpReceiveResponse
+0x1004eaa8  WINHTTP.dll!WinHttpSendRequest
+0x1004eab0  WINHTTP.dll!WinHttpSetTimeouts
+0x1004eac0  SHELL32.dll!ShellExecuteW
+(exit 0)

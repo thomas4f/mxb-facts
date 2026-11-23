@@ -1,0 +1,21 @@
+$ objdump -h 'mxbfix.dlo'
+
+mxbfix.dlo:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00030aa6  0000000010001000  0000000010001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        0001ee64  0000000010032000  0000000010032000  00031000  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .buildid      0000003f  0000000010051000  0000000010051000  00050000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .data         00000400  0000000010052000  0000000010052000  00050200  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .pdata        0000114c  0000000010191000  0000000010191000  00050600  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .tls          00000010  0000000010193000  0000000010193000  00051800  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .reloc        00000194  0000000010194000  0000000010194000  00051a00  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)
