@@ -81,7 +81,7 @@ flowchart LR
 | `docs/QUEUE.md` | Requested tools in request order, then the maintainer's picks, then "To revisit" | |
 | `tools/check_links.py`, `check_corrections.py`, `issue_label.py`, `recheck_issues.py` | Pinned links exist; open correction issues are on their card; issues get a tool label; a newer release gets a re-check issue | |
 | `tools/agent_run.py`, `check_plan.py` | Run one prompt with the Agent SDK (spending limit); check the plan for a Windows run before anything runs | |
-| `.github/held-items.pem` | The maintainer's public key: a held item's report leaves the analysis job only encrypted to it (rule 9) | `analyse.yml` header |
+| `.github/held-items.pem` | The maintainer's public key: a held item's report, and how a tool gets at protected content, leave the analysis job only encrypted to it (rule 9), each as its own draft advisory | `analyse.yml` header |
 | `tests/test_build.py` | The build's own tests for scores, marks and tags | |
 
 ### Workflows on GitHub

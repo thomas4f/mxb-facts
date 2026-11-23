@@ -5,7 +5,7 @@ data beside the cards: the registry (registry/*.json) and the VirusTotal lookups
 import datetime, json, jsonschema, os, re, subprocess, urllib.parse
 from rules import (
     ANS, AREAN, DNA, HEADER, HELD, KEYS, KMODE, KNAMES, NOPARTLY, ONREQ, QIDS, QMARK, QTXT, RANK, ROOT, SECOND,
-    SCHEMA, SECTIONS, SYM, ans_md, charges, concern_span, heldq, money, verdict)
+    SCHEMA, SECTIONS, SYM, WITHHELD_EV, WITHHELD_LIM, ans_md, charges, concern_span, heldq, money, verdict, withheld_error)
 def glance(A,G,held=()):
     # What each area shows: a scored area's score (rules/scores.md), and the Money label from M1 and M2. A tool that isn't
     # scored, or shows signs of malware, gets no numbers at all, its areas included.
@@ -45,6 +45,7 @@ def answer_rows(f,d,held):
     assert not extra, f+': unknown question '+', '.join(extra)
     for i in [q for k in SECTIONS.values() if k for q in QIDS if q[0]==k]:
         x=d['answers'][i]; ev=x['evidence']
+        e=withheld_error(i,x); assert not e, f+': '+e
         # Rule 9: an answer the "Held back" row names says so on its own line too, so its verdict isn't read as the whole story.
         ans=ans_md(x)+('' if i not in held or x['text'].startswith('Held back') else ' An item on this question is held back (rule 9); it counts at its highest cost until it is published.')
         assert ANS.match(ans), f+': '+i+' answer must start with a mark and Yes, "Yes, not by default.", "Yes, on request.", No or Partly, or with "Not checked.", "Not allowed." or "Doesn\'t apply." and the reason'
@@ -57,7 +58,7 @@ def answer_rows(f,d,held):
         assert not re.fullmatch(r'`?(strings|objdump|file|source|readme|manual|changelog)`?\.?',ev.strip(),re.I), f+': '+i+' evidence names only a tool or a file kind; say which file and what it finds, so anyone can repeat it'
         # Rule 1: every answer links its evidence (a pinned link, or a file in this repository: a run's evidence, or the
         # output of the commands it names, from lab/evidence/<card>/run.sh), and a line that names a command links its output.
-        if not ans.startswith(('Not ',"Doesn't")):
+        if not ans.startswith(('Not ',"Doesn't")) and ev.strip()!=WITHHELD_EV:
             assert re.search(r'https://|lab/',ev), f+': '+i+' links no evidence; link the code, or the output of the command it names (lab/evidence/)'
             assert not re.search(CMDS,ev) or 'lab/' in ev, f+': '+i+' names a command; link its output (lab/evidence/<card>/run.sh)'
         rows[i]=ans
@@ -187,6 +188,11 @@ def check_card(f,raw):
                 # Rule 9: a limit doesn't point at a held-back question; the "Held back" row says all there is to say.
                 assert q not in held, f+': limit '+str(n+1)+' names '+q+', which is held back (rule 9)'
                 LIMS[f].setdefault(q,[]).append(n)
+    # Rule 9, protected content: a card that withholds how a tool gets at it says so once under Limits, naming no question.
+    wq=[q for q,x in d['answers'].items() if x['evidence'].strip()==WITHHELD_EV]
+    wl=[x for b in sec.get('Limits of this analysis',[]) for x in b['limits'] if x['text'].rstrip().endswith(WITHHELD_LIM)]
+    assert bool(wq)==bool(wl), f+(': '+', '.join(wq)+' withholds the how, so one limit ends "'+WITHHELD_LIM+'"' if wq else ': a limit says something is withheld, but no answer withholds it')
+    assert len(wl)<=1 and not any(x['questions'] for x in wl), f+': the "withheld" limit is one line and names no question'
     for title,k in SECTIONS.items():
         for b in sec.get(title,[]):
             if 'table' in b:

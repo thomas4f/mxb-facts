@@ -107,6 +107,16 @@ check('"Yes, not by default" costs nothing', B['scored'](A)['score'] == 100)
 crit, opt, _ = B['tagsof'](answers(A))
 check('"Yes, not by default" shows as an optional tag', any(q == 'G2' for _l, q in opt) and not crit, (crit, opt))
 
+# Rule 9, protected content: only a C1-C3 Yes withholds the how, and then fully.
+W = B['withheld_error']
+WOK = {'verdict': 'Yes', 'text': 'For its previews, in memory only. ' + B['WITHHELD_TEXT'], 'evidence': B['WITHHELD_EV']}
+check('a C1 Yes can withhold the how (rule 9)', W('C1', WOK) is None, W('C1', WOK))
+check('only C1 to C3 can withhold the how', W('P4', WOK) is not None)
+check('a No never withholds its evidence', W('C1', {**WOK, 'verdict': 'No'}) is not None)
+check('a withheld answer links no evidence', W('C1', {**WOK, 'evidence': 'Withheld (rule 9). https://example.com'}) is not None)
+check('a withheld answer says so in its text', W('C1', {**WOK, 'text': 'For its previews.'}) is not None)
+check('an answer with its evidence is not withheld', W('C1', {'verdict': 'Yes', 'text': 'It decrypts.', 'evidence': 'https://x'}) is None)
+
 # Money: its label comes from M1 and M2, the first whose answers all hold; else "Not allowed" when the licence leaves them
 # unsettled, or "Not checked" when one is not checked or held back.
 check('Money is Free with no price', B['money'](benign()) == 'Free')

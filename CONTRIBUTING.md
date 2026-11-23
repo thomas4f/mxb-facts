@@ -6,7 +6,7 @@ Most help comes as issues: [request an analysis](../../issues/new?template=analy
 
 The rules are in [`CLAUDE.md`](CLAUDE.md) ("The rules that don't bend") and [`rules/`](rules/); they aren't repeated here, so they can't drift apart. Briefly: evidence on every line, the same questions and scoring rules for every tool, neutral words, a dated "Card history" row for every change to what a card says, and a new card file for a new release.
 
-**Security problems** you find in a tool: report them privately to its author, not in an issue (rule 9). To reach this project privately, see [`SECURITY.md`](SECURITY.md).
+**Security problems** you find in a tool, and **how a tool gets at creators' protected content**: report them privately to its author, not in an issue (rule 9). The same goes for a comment on an answer that reads "Details withheld (rule 9).": send it privately, so the details stay out of public issues. To reach this project privately, see [`SECURITY.md`](SECURITY.md).
 
 ## Before you push
 

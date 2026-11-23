@@ -10,4 +10,4 @@ Use a private report instead when the matter shouldn't be public:
 
 Open the repository's **Security** tab and choose **Report a vulnerability**. Only the maintainer sees it.
 
-A security problem in a tool itself goes to that tool's author first, not here (`CLAUDE.md`, rule 9).
+A security problem in a tool itself goes to that tool's author first, not here (`CLAUDE.md`, rule 9). A comment on an answer whose details are withheld (rule 9, protected content) comes here, as a private report, rather than as a public issue.

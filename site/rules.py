@@ -184,6 +184,22 @@ UNLESS={(x['from'],x['answer']):unless(x['unless']) for x in SC['tags'] if 'unle
 # No gap between marks and tags: every answer the mark table can make a Concern has a tag row (or a row saying why it has none).
 _gap=[q+' '+v for q in QIDS for v in ('Yes','No','Partly') if '!' in QMARK[q][v] and not any(t[0]==q and t[1]==v for t in TAGS)]
 assert not _gap, 'rules/scoring.yaml: no tag for these Concern answers: '+', '.join(_gap)
+# Rule 9, creators' protected content: how a tool gets at it is withheld for good. Such an answer keeps its verdict, mark and
+# cost, ends with WITHHELD_TEXT, has WITHHELD_EV for evidence, and the card's Limits hold one line saying so (WITHHELD_LIM).
+PROTECTED_QS=('C1','C2','C3')
+WITHHELD_TEXT='Details withheld (rule 9).'
+WITHHELD_EV='Withheld (rule 9).'
+WITHHELD_LIM='is withheld (rule 9).'
+def withheld_error(q,x):
+    # Why one answer that withholds the how breaks the rule, or None.
+    w=x.get('evidence','').strip()==WITHHELD_EV or x.get('text','').rstrip().endswith(WITHHELD_TEXT)
+    if not w: return None
+    if q not in PROTECTED_QS: return q+': only '+', '.join(PROTECTED_QS)+' can withhold the how (rule 9)'
+    if not x['verdict'].startswith('Yes'): return q+': only a Yes withholds the how (rule 9); a No shows its evidence'
+    if x.get('evidence','').strip()!=WITHHELD_EV: return q+': its evidence reads only "'+WITHHELD_EV+'" (rule 9)'
+    if not x.get('text','').rstrip().endswith(WITHHELD_TEXT): return q+': its text ends "'+WITHHELD_TEXT+'" (rule 9)'
+    if 'second_check' in x: return q+': a withheld answer has no second check'
+    return None
 def tagsof(card):
     # The tags of one card: (label, question) lists for critical, optional and positive. "unless" leaves a tag out when another says it.
     A=card['answers']; crit=[]; opt=[]; pos=[]
