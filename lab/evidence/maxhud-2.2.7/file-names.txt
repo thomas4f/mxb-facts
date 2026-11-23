@@ -1,0 +1,13 @@
+$ objdump -s --start-address=0x18003ab60 --stop-address=0x18003ab70 MaxHUD_MXB64.dlo; objdump -s --start-address=0x180039070 --stop-address=0x180039090 MaxHUD_MXB64.dlo
+
+MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 18003ab60 4d617848 55442e6c 6f670000 00000000  MaxHUD.log......
+
+MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 180039070 6c6f675f 6c697665 67617077 696e0000  log_livegapwin..
+ 180039080 2559256d 25642d25 48254d25 53000000  %Y%m%d-%H%M%S...
+(exit 0)

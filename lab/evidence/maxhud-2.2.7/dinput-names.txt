@@ -1,0 +1,13 @@
+$ objdump -s --start-address=0x180035c30 --stop-address=0x180035ca0 MaxHUD_MXB64.dlo
+
+MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 180035c30 44697265 6374496e 70757420 6e6f7420  DirectInput not 
+ 180035c40 61766169 6c61626c 652c2066 616c6c69  available, falli
+ 180035c50 6e672062 61636b20 746f2057 696e646f  ng back to Windo
+ 180035c60 7773206a 6f797374 69636b20 41504900  ws joystick API.
+ 180035c70 64696e70 7574382e 646c6c00 00000000  dinput8.dll.....
+ 180035c80 44697265 6374496e 70757438 43726561  DirectInput8Crea
+ 180035c90 74650000 00000000 4661696c 65642074  te......Failed t
+(exit 0)

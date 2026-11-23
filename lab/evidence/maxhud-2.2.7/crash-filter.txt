@@ -1,0 +1,17 @@
+$ objdump -d MaxHUD_MXB64.dlo | grep -B3 -A3 '# 0x180035108'
+   180032f56:	48 83 ec 20          	sub    $0x20,%rsp
+   180032f5a:	48 8b d9             	mov    %rcx,%rbx
+   180032f5d:	33 c9                	xor    %ecx,%ecx
+   180032f5f:	ff 15 a3 21 00 00    	call   *0x21a3(%rip)        # 0x180035108
+   180032f65:	48 8b cb             	mov    %rbx,%rcx
+   180032f68:	ff 15 92 21 00 00    	call   *0x2192(%rip)        # 0x180035100
+   180032f6e:	ff 15 dc 21 00 00    	call   *0x21dc(%rip)        # 0x180035150
+--
+   1800334d6:	0f 94 c3             	sete   %bl
+   1800334d9:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+   1800334de:	33 c9                	xor    %ecx,%ecx
+   1800334e0:	ff 15 22 1c 00 00    	call   *0x1c22(%rip)        # 0x180035108
+   1800334e6:	48 8d 4c 24 40       	lea    0x40(%rsp),%rcx
+   1800334eb:	ff 15 0f 1c 00 00    	call   *0x1c0f(%rip)        # 0x180035100
+   1800334f1:	85 c0                	test   %eax,%eax
+(exit 0)

@@ -18,6 +18,7 @@ from page import (
     money_html, prm, share_page, tagrow, tool, tpl)
 CARDS=[  # (card file, page anchor), alphabetical
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
+    ('maxhud-2.2.7.yaml', 'maxhud'),
     ('mxb-damage-1.3.0.yaml', 'mxb-damage'),
 ]
 # The dropdowns of the hand-started workflows (GitHub can only offer a fixed list), written like the rules tables. Both offer

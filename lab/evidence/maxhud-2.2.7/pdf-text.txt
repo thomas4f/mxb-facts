@@ -1,0 +1,823 @@
+$ pdftotext -layout MaxHUD.pdf - 
+                            MaXHUD v 2.2.7 (2023/08/18)
+
+MaXHUD has been inspired by the great AdvancedHUD by random: I credit random for his
+great work and his willingness to share his code. Thanks man !
+
+Currently working with:
+                   GP Bikes beta21              World Racing Series beta14
+
+                    Kart Racing Pro             MX Bikes beta18
+                   rel13
+
+
+INSTALLATION
+Unzipping the archive you will find:
+
+   ●   MaxHUD.pdf                      : this file
+   ●   MaxHUD_data                     : data directory for the plugin
+   ●   MaxHUD_GPB64.dlo                : plugin for GP Bikes
+   ●   MaxHUD_MXB64.dlo                : plugin for MX Bikes
+   ●   MaxHUD_WRS64.dlo                : plugin for World Racing Series
+   ●   MaxHUD_KRP64.dlo                : plugin for Kart Racing Pro
+
+Copy the MaxHUD_data folder and the relevant .dlo file (e.g. MaxHUD_GPB64.dlo for GPB) to
+the game’s plugins folder, which is (depending on the game):
+    ● C:\Program Files\GP Bikes\gpbikes\plugins
+    ● C:\Program Files\World Racing Series\wrs\plugins
+    ● C:\Program Files\Kart Racing Pro\plugins
+    ● C:\Program Files\MX Bikes\plugins
+
+The plugin creates a MaxHUD.ini file in the data directory corresponding to the game:
+    ● C:\Users\<Your Windows Username>\Documents\PiBoSo\GP Bikes\
+    ● C:\Users\<Your Windows Username>\Documents\PiBoSo\World Racing Series\
+    ● C:\Users\<Your Windows Username>\Documents\PiBoSo\Kart Racing Pro\
+    ● C:\Users\<Your Windows Username>\Documents\PiBoSo\MX Bikes\
+or simply in the game directory if you’re using “compatibility mode”.
+
+If you are installing over a previous version of MaxHUD:
+     ● your existing MaxHUD.ini file MAY be replaced by a new one with default values. All the
+        widget properties (i.e. position and on/off status) may hence be reset. Your old .ini file will
+        be kept, renamed to MaxHUD.ini.20130413_223000 (current date and time).
+     ● it is better to remove the existing MaxHUD_data folder prior to copying the new one.
+
+NOTE: in case of issues like missing dlls or things not showing up, please install Microsoft
+Visual C++ 2015,2017,2019 Redistributable Package x64 available here (root page is here):
+                   https://aka.ms/vs/16/release/vc_redist.x64.exe
+
+DESCRIPTION:
+The plugin has a bunch of independent "widgets", described here below.
+
+
+    ●    General                                      ●   Radar
+    ●    Helmet                                       ●   Inputs
+    ●    Timing                                       ●   Joypad
+    ●    LiveGapBar                                   ●   Speed and gear
+    ●    Standings                                    ●   Suspensions (not for KRP)
+    ●    Fuel                                         ●   Lean (GPB and MXB only)
+    ●    Map                                          ●   Rumble (not visible)
+                                                      ●   ECU
+
+
+
+Widgets common features:
+When on the track, pressing CAPS-LOCK will show a menu that will allow to:
+
+   ●    Select the current profile: three profiles are available (P1, P2, P3), click on the
+        helmet button (top right corner of the menu) to switch profile.
+   ●    Activate/deactivate each widget: clicking on the on/off button of each widget.
+   ●    Set widget position: you can move most of the widgets right clicking on an
+        active widget (or using left shift + click, for Apple people ...) and dragging it to the
+        desired position on the screen. By default, the widget position is the same across all
+        the profiles. If you need different positions per profile, click on the “pin” button of the
+        widget.
+   ●    Access widget options: clicking on the “parameters” button of each widget. You
+        will then see some options on the right part of the menu, clicking on them will cycle
+        through the available settings for each option. Widget options accessible via the
+        menu correspond to .INI file options written in red later on in this document.
+
+Each widget status (enabled/disabled), position and options is saved in the MaXHUD.ini file
+independently for each profile. So you can have (for example) one profile with all widgets
+off and another with some on and some off. The menu itself can be moved around (same
+position no matter the profile).
+
+If you delete the MaXHUD.ini file, it will be recreated (with default values). It will also be
+re-created if there’s a major version change (you’ll be notified on screen when this
+happens): your old MaxHUD.ini file will be renamed to MaxHUD.ini.YYYYMMDD-hhmmss.
+
+Whenever a widget has a color configurable in the .INI file, the color will be in the form
+[alpha, blue, green, red] where each value is an integer in the range 0-255 (alpha is the
+transparency, 255 is fully opaque).
+
+Some widgets are also available when spectating and/or in replay mode: showing the menu
+will show which ones are available in the current mode.
+General:
+This is not really a widget, but allows you to set some global options, like:
+   ●   font_fixed: an integer referencing the fixed size (i.e. monospaced) font.
+   ●   font_variable: an integer referencing the variable size font.
+
+The plugin detects automatically any .fnt file (PiBoSo’s format) with the naming convention:
+          ○ FontFix*.fnt: for fixed size fonts
+          ○ FontVar*.fnt: for variable size fonts
+
+Some widgets have a menu option for a background: it can be set to no background, a
+background color (specified for each widget in the .ini) or to a background .tga file. Each of
+these widgets expect a specific file name, indicated in the menu option (e.g.
+“back_Standings.tga” for HUDStandings).
+
+When times (e.g. laps, splits, gaps) are shown, the separators are:
+  ● “h” between hours and minutes
+  ● “:” between minutes and seconds
+  ● “.” between seconds and fractions of a second (milliseconds or hundredths)
+
+Helmet:
+Overlays the helmet interior (as seen from inside). It only
+makes sense in rider view, of course. MXB has a dedicated
+helmet (thanks to TheFatController) GPB, KRP and WRS
+use the same helmet (thanks to Juju).
+
+
+
+.INI file parameters ([HUDHelmet] section):
+    ● show_helmet: 0/1 to hide/show the helmet overlay.
+    ● top_offset: [0..9], vertical position of the top part of the helmet.
+    ● bottom_offset: [0..9], vertical position of the bottom part of the helmet.
+    ● visor_color: [0..5], color of the visor.
+    ● visor_shade: [0..4], opacity of the visor.
+    ● vibrate: 0/1, helmet vibration off/on.
+    ● helmet_rotation_factor: [0..10] for [0%, 10%, 20%, ... 100%]. For example, the
+         value 100% (resp. 60%) means that if the bike leans Xdeg, the helmet will lean
+         1.0*Xdeg (resp 0.6*Xdeg). 0% means no helmet rotation.
+    ● helmet_rotation_inverse: 0/1 to have the helmet rotate as the horizon or in the
+         opposite direction.
+
+NOTE: the result you obtain depends on the “tilt” setting of the first person view. If “tilt” is
+100% and the helmet rotation factor is 100% and the helmet rotation is not inverted, then
+the helmet will be aligned to the horizon.
+
+
+Timing:
+This widget has 3 modes: full, compact and tiny. In full mode (image on the right), you
+have 4 lines for your best, last and current lap (over one session) and LiveGap. In lines 1, 2
+and 3, column 1 is for the lap number (00 -> no lap), columns 2, 3, 4 and 5 are the 4 splits
+(only 3 for MXB, KRP and WRS) the last column is the overall lap time. If a best lap is
+present, line 2 and 3 will show time differences with respect to the best time (red if slower,
+green if faster). Else they will show absolute times. When you cross a split line or the finish
+line, timing information at the point is maintained for 3 seconds before the entire display is
+updated (your current lap could become your best or last lap).
+LiveGap is the time difference (at the same spot on the track) between your current lap and
+your best lap. This is computed using Windows accurate timer because surprisingly the
+game timing info (_fTime) drifts seriously after a few laps.
+
+In compact mode, you still have the 4 lines (best, last, current lap + LiveGap), but only two
+columns: the first shows the lap times (like last column of full mode), the second shows the
+partials (i.e. cumulative times up to the last crossed split line). If a best lap is present, line
+2 and 3 will show time differences with respect to the best time (red if slower, green if
+faster). Else they will show absolute times.
+
+In tiny mode, you have the same as compact mode, but with only 2 lines: one for the
+current lap, another for LiveGap.
+
+.INI file parameters ([HUDTiming] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● mode: 0/1/2, for full/compact/tiny mode.
+    ● split_hold: [0..4] corresponding to 0, 1, 3, 5 and 10 seconds, delay during which the
+         LiveGap is held when crossing a split/finish line.
+    ●
+    ● _color_back: background color.
+    ● _color_light: normal timing color.
+    ● _color_dark: dark color (for separators).
+    ● _color_fast: color for gaps when faster.
+    ● _color_slow: color for gaps when slower.
+
+
+LiveGapBar:
+LiveGap shown as an horizontal coloured bar. The time gap is held for a configurable amount
+
+
+
+
+of time when you cross the finish line or a split point.
+
+.INI file parameters ([HUDLiveGapBar] section):
+    ● size: [0..4], for five possible sizes.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● bar_scale: [0..8] corresponding to 0.5, 1, 2, 5, 10, 60, 600, 3600 seconds, scale of
+         the bar.
+   ●    split_hold: [0..4] corresponding to 0, 1, 3, 5 and 10 seconds, delay during which the
+        time gap is held when crossing the finish line or a split point.
+   ●    downsample: [0..6] corresponding to 1, 2, 5, 10, 20, 50 and 100. If you find the
+        LiveGap numbers are flickering (changing too quickly), you can downsample: 1
+        means no downsample, N means keep one sample every N (e.g. if the plugin runs at
+        50 samples per second, N=50 will lead to one LiveGap update only every second).
+   ●    _color_back: background color (unless the .tga is used).
+   ●    _color_bar_slow: bar color when slower (interpolated).
+   ●    _color_bar_neutral: bar color when same time (interpolated).
+   ●    _color_bar_fast: bar color when faster(interpolated).
+   ●    _color_text_slow: text color when slower.
+   ●    _color_text_neutral: text color.
+   ●    _color_text_fast: text color when faster.
+
+
+Standings:
+Shows the current standings. Notice that the standings
+are only updated when a rider crosses the finish line: if
+you pass a rider during a lap, this will not be reflected in
+the standings until you cross the finish line.
+
+.INI file parameters ([HUDStandings] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the
+         background/use a .tga for background.
+    ● gaps: 0/1/2 to show gaps from (respectively) the
+         leader, your vehicle or alternating between the
+         two (every 3 seconds).
+    ● _color_back: background color (unless the .tga is used).
+    ● _color_header: text color of header line.
+    ● _color_pos: text color of position numbers (1st column).
+    ● _color_racenum: text color of race numbers (2nd column).
+    ● _color_namecurr: text color of position numbers (1st column).
+    ● _color_nameoths: text color of name of current rider/driver (3rd column).
+    ● _color_gap: text color of name of non-current rider/driver (3rd column).
+    ● _color_fininshline: color of finish line marker.
+
+
+
+Fuel:
+Shows remaining fuel (litres) and projected laps. The
+1st line has fuel left and projected number of laps left,
+with mileage computed as average on all the laps of
+this run. The 2nd line has fuel used in the last lap and projected number of laps left, with
+mileage computed as per last lap.
+
+.INI file parameters ([HUDFuel] section):
+    ● size: 0/1/2, for small/medium/large.
+   ●   show_background: 0/1/2 to hide/show the background/use a .tga for background.
+   ●   _color_back: background color (unless the .tga is used).
+   ●   _color_light: text color.
+   ●   _color_dark: text color.
+
+Map:
+Track map with a red dot indicating your current position and
+orange dots for other riders (up to 20). Also, a purple arrow
+indicates the track direction and there are lines for finish line,
+split lines and speed trap (respectively white, green and
+yellow). Race numbers can also be shown next to the dots.
+
+.INI file parameters ([HUDMap] section):
+    ● size: [0..4] for five possible sizes.
+    ● show_background:            0/1/2      to    hide/show      the
+         background/use a .tga for background.
+    ● rotate: 0/1. If 0 (zero), the track orientation is fixed. If
+         1 the track will rotate with the bike/car (yaw) in order
+         to always have the bike/car pointing “north” (i.e.
+         towards the top of your screen).
+    ● range: [0..10] corresponding to [0, 10, 50, 100, 200,
+         400, 800, 2000, 5000, 10000, 20000] meters. If 0 (zero) the whole track will be
+         shown, else only a square “window” (side is 2 x range) will be shown and the track
+         will translate. Notice that if the range is such that the entire track fits in, the track
+         will not translate.
+    ● show_racenums: 0/1 to hide/show race numbers on the track map.
+    ● show_range: 0/1 to hide/show the current range. Notice that if the range is such
+         that the entire track fits in, no caption will be shown.
+    ● track_width: [0..11] corresponding to 0, 20, 50, 100, 200, 400, 800, 2000, 5000,
+         10000, 20000 meters of track width. 0 (zero) means a fixed width with respect to
+         the screen (no matter the range being shown).
+    ● trackborder_width: [0..5] corresponding to 0, 0.25, 0.50, 1.0, 1.5, 2.0 meters of
+         track border width. 0 (zero) means a fixed width with respect to the screen (no
+         matter the range being shown).
+    ● _color_back: background color (unless the .tga is used).
+    ● _color_track: color of the track.
+    ● _color_trackborder: color of the track border.
+    ● _color_me: color of current rider/driver marker.
+    ● _color_others: color of non-current rider/driver marker.
+
+For rotate and range, only 2 of the 4 possible combos should be of interest:
+    ● rotate = false, range = 0: this is the default mode, track not rotating and shown
+       entirely.
+    ● rotate = true, range = 200 (or whatever you like): here the track rotates (i.e. the
+       bike/car will always be heading “north” on the map) and translates (i.e. the bike/car
+       will always be in the center of the widget and only +/-200m in each direction will be
+       shown).
+Radar:
+A proximity radar: nearby vehicles are shown (when close to you) as:
+   ● markers on the radar, and/or as
+   ● “flying markers” on the screen
+
+Flying markers are indicators that “turn around the screen” signalling
+where the other vehicle is with respect to you.
+
+.INI file parameters ([HUDRadar] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● mode: 0/1/2 for radar only / flying markers only / both.
+    ● range: [0..4] for 5/10/20/50/100m, detection range for radar and flying markers.
+    ● markers_size: 0/1/2 for small / medium / large (flying markers size).
+    ● markers_fadefov: [0..3] for no fade / small fov / medium fov / large fov (to fade the
+         flying markers when the other vehicle is “in front”).
+    ● _color_back: background color (unless the .tga is used).
+    ● _color_marker_far: color for the markers when far.
+    ● _color_marker_near: color for the markers when near.
+
+
+Speed:
+Shows speed and gear. It changes color when the RPMs are above
+the "suggested" RPM for shifting gear or are at the max. Throttle and
+brake bars can also be shown below the speed.
+
+.INI file parameters ([HUDSpeed] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● use_miles: 0/1 for Kmh / Mph.
+    ● hide_speed: 0/1 to to show/hide speed indicator.
+    ● show_thrbrk: 0/1/2 to hide/show only in replays/show the throttle and brake bars.
+    ● _color_back: background color (unless the .tga is used).
+    ● _color_lowrpm: color for low RPMs.
+    ● _color_highrpm1: color for high RPMs.
+    ● _color_highrpm2: color for high RPMs.
+
+
+
+
+Inputs:
+Bars for inputs: Steering, Throttle, Front/Rear brake (Brake/
+Handbrake for WRS, Front Brakes/Brake for KRP) and Clutch.
+GPB and MXB have an additional input showing the target lean
+(which in fact is the target steering angle/steering torque when
+using Direct Steer Angle/Torque).
+
+.INI file parameters ([HUDInputs] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● input_device: cycles through the possible input devices. You have to select the
+         one you use for steering.
+    ● steering_axis: cycles through the axes of the selected input device. Each axis has a
+         number and a sign. The sign inverts the axis output. You have to select the axis
+         you use for steering.
+    ● Use_engine_throttle: 0/1, “throttle” is what comes out of your input device, “engine
+         throttle” is what goes into the engine (i.e. corrected buy the ECU with idle control,
+         traction control, anti wheeling and rev limiter). For GPB only.
+    ● steering_angle_scale: [0..8] corresponding to [5, 10, 15, 20, 30, 90, 180, 360, 450]
+         degrees, for the max value of the steering angle bar (in degrees). Only for GPB and
+         MXB.
+    ● _color_back: background color (unless the .tga is used).
+
+
+Joypad:
+A representation of the joypad output values. In fact it can be
+used to show the output of any input device (i.e. even if not a
+joypad). You’ll have to select one input device (typically the
+joypad you use) and then manually associate an axis of the
+device to where you want to be displayed. Axis -1 means axis 1,
+but inverted.
+
+.INI file parameters ([HUDJoypad] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● input_device: cycles through the possible input devices. You have to select the
+         one you use: typically, the joypad you use in its XInput variant.
+    ● stick1_hor, stick1_ver: left stick, horizontal/vertical axis.
+    ● stick2_hor, stick2_ver: right stick, horizontal/vertical axis.
+    ● trigger_1, trigger_2: left/right trigger.
+    ● show_values: 0/1, show strings with raw values.
+    ● _color_back: background color (unless the .tga is used).
+    ● _color_front: foreground color.
+    ● _color_dots: stick dot color.
+
+
+Suspensions [not for KRP]:
+An ugly representation of the vehicle suspensions status. A
+warning icon is shown next to each suspension when the
+suspension is “bottoming out” (according to the configurable
+threshold).
+.INI file parameters ([HUDSuspensions] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● bottomout_threshold: [0..5] for different bottom-out thresholds.
+    ● show_infos: 0/1 to show hide raw values (suspension extension and height of the
+         reference point of the vehicle).
+    ● _color_back: background color (unless the .tga is used).
+
+
+Lean [GPB and MXB only]:
+Shows the bike lean angle (blue line). Optionally, it
+is possible to also show a steering line (red) and a
+slip line (orange) tied to the angle between the bike
+yaw (the bike "direction") and the center of gravity
+velocity vector direction. It is supposed to show
+when the bike is moving sideways/drifting. The
+min/max values for lean and steering are reset after
+a crash.
+
+.INI file parameters ([HUDLean] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the background/use a .tga for background.
+    ● show_steer: 0/1 to hide/show the steering angle line (and its max values over a lap).
+    ● show_slip: 0/1 to hide/show the “slip angle” line.
+    ● _color_back: background color (unless the .tga is used).
+    ● _steer_scale: scales the steer angle by this factor. Default value is 1.0, if set at 2.0,
+         a 5deg steering will appear as 10deg on the widget line.
+    ● _slip_scale: same as previous, but for the “slip angle”.
+
+
+Rumble:
+Enables rumble on rumble-capable XInput devices. Rumble can be driven by different
+sources:
+   ● Magnitude of the acceleration of the vehicle CoG (filtered with a high-pass filtered)
+   ● For GPB and MXB only: front/rear wheel overrun or underrun. Overrun is how
+       much (in %) the wheelspeed is bigger than the vehicle speed (CoG speed norm).
+       Underrun is how much (in %) the wheelspeed is smaller than the vehicle speed (CoG
+       speed norm).
+
+No matter the source, the rumble is obtained as linear interpolation between point [min
+driving value, min rumble strength] and point [max driving value, max rumble strength],
+where rumble strengths are in interval [0.0 ... 1.0].
+
+Each source can be “Off’ (not used) or sent to one of the two rumble motors (light or
+heavy).
+
+.INI file parameters ([HUDRumble] section):
+   ●   show_widget: shows a widget with values of the sources and the rumble values sent
+       to the motors. This is only shown in testing sessions. It is meant to help fine-tune
+       the rumble parameters.
+   ●   xinput_device: cycles through the possible XInput devices. You have to select the
+       one you want to rumble.
+   ●   rumble_crashed: 0/1 to avoid/allow rumble when vehicle is crashed.
+   ●   rumble_cog_dest: 0/1/2 for off/heavy/light motor as destination.
+   ●   rumble_cog_mapidx: 0/1/2 to use map 0/1/2 for CoG-based rumble.
+   ●   rumble_f_underrun_dest: 0/1/2 for off/heavy/light motor as destination.
+   ●   rumble_f_underrun_mapidx: 0/1/2 to use map 0/1/2 for front-underrun-based
+       rumble.
+   ●   rumble_r_underrun_dest: 0/1/2 for off/heavy/light motor as destination.
+   ●   rumble_r_underrun_mapidx: 0/1/2 to use map 0/1/2 for rear-underrun-based
+       rumble.
+   ●   rumble_r_overrun_dest: 0/1/2 for off/heavy/light motor as destination.
+   ●   rumble_r_overrun_mapidx: 0/1/2 to use map 0/1/2 for rear-overrun-based rumble.
+   ●   _cogacc_rumble_map0/1/2, _tireslip_rumble_map0/1/2: each map is composed of 4
+       floats representing the two interpolation points translating the source value into a
+       rumble value: [min driving value, max driving value, min rumble strength, max
+       rumble strength]. E.g. for tire slip “{0.04,0.10,0.20,1.00}” means that at 4% slip
+       rumble will be at 20% and at 10% slip rumble will be at 100%. You can modify the
+       maps in the .ini file manually.
+
+
+
+ECU [GPB only]:
+3 indicators showing the current setting of Engine map, Traction Control (TC), Engine Brake
+(EB) and Anti-Wheeling (AW). It also shows when TC, EB and AW are actually working by
+highlighting the background and front/rear tyre temperatures (left/middle/right zones, in
+Celsius), if the bike has temperature sensors.
+
+.INI file parameters ([HUDSpeed] section):
+    ● size: 0/1/2, for small/medium/large.
+    ● show_background: 0/1/2 to hide/show the
+         background/use a .tga for background.
+    ● _color_back: background color (unless the .tga is used).
+CHANGELOG
+v1.0.0 (2013/04/06):
+     ●    Initial version.
+
+v1.0.1 (2013/04/07):
+     ●    Fixed a bug in Input widget (reported by PeterV/Warlock).
+     ●    Found a workaround for widgets default position in case of screens with different format (i.e. 4:3 vs 16:9 vs 16:10).
+     ●    Added a .pdf in the archive with the description of the widgets.
+
+v1.0.2 (2013/04/08):
+     ●    Fixed a bug in LiveGap (mostly visible when playing online).
+     ●    Show plugin version in the menu.
+
+v1.0.3 (2013/04/10):
+     ●    Fixed a bug in LiveGap, again !
+     ●    Max lean/steering angle over last lap.
+
+v1.0.4 (2013/04/11):
+     ●    Improved LiveGap, should be more precise now.
+     ●    Possible to configure color and size of the speed widget (in .INI file).
+     ●    Minor layout change in speed widget.
+
+v1.0.5 (2013/04/13):
+     ●    Fix bug in speed widget (ON even if previously disabled, reported by PeterV).
+     ●    Speed widget changes color in High RPMs.
+     ●    New widget with tiny timing infos.
+     ●    Better timing widgets (now current lap has running time).
+     ●    Some minor stuff.
+
+v1.0.6 (2013/04/13):
+     ●    Fixed widget size problem on non 16:9 screens.
+     ●    Version number for .ini file (file will be backuped and rewritten if necessary).
+
+v1.0.7 (2013/04/25):
+     ●    Independent LiveGap indicator.
+     ●    Colors can be customized (.INI file) for all the timing widgets, LiveGap and Fuel widget.
+     ●    Improved LiveGap computation: smoother (even using less points), also provides the ongoing lap time, solved some
+          issues with fake laps (invalid lap, crashing when crossing the line, etc).
+     ●    Added slip indicator in Lean widget (tentative, can be turned off).
+
+v1.0.8 (2013/05/03):
+     ●    Speed widget:
+               ○    Units Kmh or Mph (HUDSpeed__use_miles in .INI file).
+               ○    3 colors (depending on RPM): before shift point, above shift point and at limiter (or max RPM), configurable in
+                    the .INI file.
+     ●    Added track map widget.
+     ●    Removed milliseconds from all the timing widgets.
+     ●    Minor changes to fuel widget (colors).
+     ●    Some improvements on LiveGap (handling tricky situations).
+v1.0.8b (2013/05/06):
+     ●    Fix problem when not running as admin.
+
+v1.0.9 (2013/05/23):
+     ●    Better HUDMap (using track centerline and showing finish line, split lines and speed traps).
+     ●    Improved LiveGap (less flickering).
+
+v1.1.0 (2013/05/28):
+     ●    Added option to downsample HUDLiveGap updates.
+     ●    Added optional loggig (to investigate freeze/lag reports).
+
+v1.1.0b (2013/06/02):
+     ●    Fix silly bug causing lag/freezes (hopefully).
+
+v1.2.0 (2013/12/15):
+     ●    Updates for beta4, no functional changes.
+
+v1.3.0 (2014/01/02):
+     ●    Centerline passed to plugin from beta4: no need to have .tcl files at hand.
+     ●    Left Shift is also allowed (instead of right mouse button) to drag widgets around: it seems dragging with right mouse
+          button clicked is not possible on Apple trackpads ...
+
+v1.3.1 (2014/01/05):
+     ●    Fix for a strange behavior of WritePrivateProfileString (when “compatibility=0” in core.ini, _szSavePath is empty).
+
+v1.4.0 (2014/01/12):
+     ●    Improvements in Map widget. Roadbook mode could be useful for long tracks.
+
+v1.5.0 (2014/01/14):
+     ●    Make it work for both GPB and WRS. Install procedure changed.
+
+v1.5.1 (2014/01/14):
+     ●    Fix WRS issues in Timing and Map widget (WRS has only 3 time sectors, GPB 4).
+
+v1.6.0 (2014/01/18):
+     ●    Fix Inputs widget bad labels (handbrake for GPB).
+     ●    Settings are no longer bike/car specific.
+     ●    Some settings are accessible via the menu.
+     ●    Helmet widget (replaces MaxHelmet plugin).
+     ●    Made most widgets scalable.
+     ●    Single Timing widget (with 3 modes).
+     ●    Changed layout of Timing widget.
+
+v1.6.1 (2014/01/29):
+     ●    Fix bug in HUDMap (not showing the map in the right position sometimes).
+
+v1.6.2 (2014/02/18):
+     ●    Fix bug in HUDMap introduced with v1.6.1.
+
+v1.6.3 (2014/03/03):
+     ●    Fix bug in HUDTiming (uninitialized string showing garbage sometimes, reported by PeterV/Warlock).
+v1.6.4 (2014/05/26):
+     ●    Allow to hide speed indicator (keeping gear only, HUDSpeed__hide_speed in .ini).
+     ●    Allow to show Lap/Split events (notify_events in .ini). Intended for debug only, off by default.
+     ●    Better lap numbering (trying to match GPB/WRS numbering).
+     ●    Improvement in handling of messy cases (out of pits lap, crashed crossings), in HUDTiming/LiveGap.
+     ●    Better finish line marker on HUDMap.
+
+v1.7.0 (2014/05/29):
+     ●    Now working for Kart Racing Pro too.
+
+v1.8.0 (2014/06/21):
+     ●    Updated for GP Bikes beta5.
+
+v1.8.1 (2014/09/08):
+     ●    Updated for World Racing Series beta5.
+
+v1.9.0 (2014/09/29):
+     ●    LiveGapBar replaces LiveGap (Klax75 suggestion, similar to iRacing indicator).
+     ●    Plugin rate bumped at 50Hz (from 20Hz): shouldn’t be a problem and make everything smoother.
+     ●    Widgets cannot be moved out of the screen.
+     ●    Widgets cannot be moved if they are not enabled.
+     ●    Interpolated colors in HUDInputs (just eye candy).
+     ●    Some default sizes are slightly changed.
+     ●    .ini file structure modified (one section per widget + global section).
+     ●    .ini file version bumped to 7: you will lose your plugin settings as they will be reset to defaults.
+
+v1.9.1 (2014/10/01):
+     ●    Fix a bunch of bugs in LiveGapBar (I must have been very drunk).
+
+v1.9.2 (2014/10/01):
+     ●    Now working for MX Bikes too (no changes for other versions).
+
+v1.9.3 (2014/10/01):
+     ●    Bug fixed: MXB has only 2 sector times, not 3. Doh !
+
+v1.9.4 (2014/10/29):
+     ●    Update for GPB beta6/6b (no changes for MXB, KRP and WRS).
+
+v1.9.5 (2015/01/03):
+     ●    Update for KRP beta12 (no changes for MXB, KRP and WRS).
+
+v1.9.6 (2015/05/24):
+     ●    New helmet for MXB, thanks to TheFatController.
+     ●    When pit limiter is used (GPB and WRS only), the gear indicator now turns into a ‘L’ and the input bar for throttle changes
+          shape.
+     ●    Fixed the documentation.
+
+v1.9.7 (2015/05/26):
+     ●    Changes for WRS beta6 (no changes for GPB, KRP and MXB).
+
+v1.9.8 (2015/07/04):
+     ●    Added steering bar in Inputs widget. Added Joypad widget. A bunch of other minor changes. Will reset the .ini file to its
+          default.
+v1.9.9 (2015/07/18):
+     ●    Added HUDRumble to enable rumble on XInput devices.
+     ●    For GPB/MXB, HUDInputs now show the “lean input” and the steering angle.
+
+v1.9.9b (2015/07/28):
+     ●    Improved HUDRumble: acceleration-based rumble, no need for “fake” gear shift rumble.
+     ●    Improved handling of settings file (MaxHUD.ini): sorry, but it will overwrite your current one (will have to re-configure
+          everything). In the future, it will happen less often thanks to the improvements in this release.
+     ●    Logging to MaxHUD.log is always now on (tiny file, no impact).
+
+v1.9.9c (2015/07/29):
+     ●    Updated for KRP beta14.
+     ●    Fix bug: MaxHUD.log was never erased (hence growing over time). Now it’s erased at startup.
+     ●    Fix bug: starting the game and exiting right after (i.e. without going to track) was messing up the MaxHUD.ini file (possible
+          loss of parameters).
+
+v1.9.9d (2015/0/8/02):
+     ●    Sort out some issues with saving options in .ini file (hopefully).
+
+v1.9.9e (2015/10/20):
+     ●    Updated for WRS beta7.
+     ●    HUDSpeed has option to show background (color in .ini file).
+
+v1.9.9f (2015/10/29):
+     ●    Updated for GPB beta7.
+
+v1.9.9g (2015/10/31):
+     ●    Fix bug leading to crash (when going to replay immediately after connecting).
+
+v2.0.0 (2016/03/04):
+     ●    Updates for WRS beta8 and GPB beta8 (no changes essentially).
+     ●    Updates for MXB beta4
+     ●    HUDMap now shows also the other vehicles on track (and the race numbers).
+     ●    New widget HUDRadar.
+     ●    HUDHelmet: option to have the helmet rotating with the bike lean.
+
+v2.0.1 (2016/07/13):
+     ●    HUDStandings: show current standings and gaps.
+     ●    HUDHelment: option to inverse rotation.
+     ●    HUDRadar:
+               ○    Markers are shown only if distance is within range and track-distance (distance along track) is in range too.
+               ○    Option to fade flying markers when in FOV (configurable FOV).
+               ○    Maximum 4 simultaneous markers shown (the 4 closest ones).
+     ●    HUDSupsensions: option to show raw values (and reference point height).
+     ●    HUDLean: simplified, removed steering angle indicators.
+     ●    Minor changes to default colors, sizes and positions.
+
+V2.0.2 (2016/08/22)
+     ●    HUDLean: steering line added back again.
+     ●    Added option to hide/show background to widgets that were missing it.
+     ●    Fixed nasty bug in HUDMap.
+     ●    HUDSpeed now also works in replay and spectating mode.
+     ●    HUDSpeed now also shows throttle and brake (brake won’t show in live/saved replays as not passed by the sim).
+     ●    Random fixes here and there.
+V2.0.3 (2016/09/06)
+     ●    Does not work with MXB beta4,
+     ●    Update to KRP beta15, WRS beta9, GPB beta9.
+     ●    HUDMap: better centerline approximation (more segments when needed).
+     ●    HUDMap now available also in replay and spectating mode.
+     ●    HUDStandings now available also in spectating mode.
+     ●    HUDStandings option to show player race number, name or alternate between the two.
+     ●    HUDInputs: minor changes.
+     ●    HUDSpeed showing throttle, brake and gear also in replays: now works in GPB (but gear not yet passed by KRP/ MXB).
+     ●    Various improvements to HUDStandings (session type/time, etc).
+
+V2.0.4 (2016/10/08)
+     ●    Does not work with MXB beta4,
+     ●    Fix HUDRadar bug (likely introduced with v2.0.3).
+     ●    Workaround for GPB/WRS bug (SessionState not going to in-progress after semaphore).
+
+V2.0.5 (2016/12/29)
+     ●    Updated for MXB beta5.
+     ●    Allow to change the fonts.
+     ●    Use fixed font (monospaced) where it makes sense (e.g. HUDTiming).
+     ●    Better looking HUDMenu.
+
+V2.0.5b (2016/12/30)
+     ●    Fix bug (HUDLean not showing in menu).
+
+V2.0.6 (2017/02/16)
+     ●    Notify when .ini is recreated (due to new version of .ini format).
+     ●    v2.0.6 will recreate your .ini, you’ll have to redo all the HUD settings. Sorry :)
+     ●    Introduce profiles: you can set widget on/off status, position and options for each profile independently. Click on the small
+          helmet button (top right of the menu) to change the current profile. For example, you could set:
+               ○     profile 1: all widgets off
+               ○     profile 2: HUDMap an HUDHelmet on, HUDMap rotation off
+               ○     profile 3: HUDMap an HUDHelmet on, HUDMap rotation on
+     ●    By default, the position of each widget is the same across the profiles. If you need a per profile position, click on the “pin”
+          icon of the widget.
+     ●    Improved LiveGap: should give more precise timing.
+     ●    Changes in HUDRumble: on top of the ruble strength and threshold, now you can specify a rumble range.
+               ○     When the magnitude of the (high-pass filtered) CoG acceleration vector is below or equal to the threshold, the
+                     rumble speed is zero (i.e. no rumble).
+               ○     When it’s equal to (threshold + range) then the rumble speed is maximal.
+               ○     In between the two points, it’s linear interpolation.
+          Said otherwise:
+               ○     A lower threshold will make the rumble happen earlier (more often).
+               ○     A lover range will make the rumble become stronger earlier.
+               ○     The max strength is still controlled by the strength option.
+
+V2.0.6a (2017/02/17)
+     ●    Changes for GPB beta11 and WRS beta11.
+     ●    No changes for KRP and MXB.
+
+V2.0.6b (2017/02/19)
+     ●    Fix a bug (some widget’s positions were not saved). Reported by PeterV.
+V2.0.7 (2017/03/16)
+     ●    Updated for KRP beta16 and MXB beta6.
+     ●    Show “Rumble if crashed” option in HUDRumbe only for GPB and MXB.
+
+V2.0.7b (2017/03/17)
+     ●    Fix for invalid laps (MXB and KRP only).
+
+V2.0.8 (2017/06/19)
+     ●    HUDSuspensions: warning sign when suspension is bottoming out + configurable threshold (not for KRP of course).
+     ●    HUDMap: cosmetic changes (lines for finish/trap/split points, plus arrow for track direction).
+     ●    HUDJoypad: cosmetic changes.
+     ●    HUDRadar: cosmetic changes (flying markers are now triangular).
+     ●    HUDHelmet: rotation factor has now finer settings (10deg steps). You’ll need to redo all the settings of this widget.
+
+V2.0.9 (2018/01/23)
+     ●    Updated for GPB beta 13.
+     ●    New HUDECU: shows when TC, EB and AW kicks in (GPB only).
+
+V2.1.0 (2018/06/16)
+     ●    Updated for MXB beta 8: first x64 release of PiBoSo sims !!
+     ●    Files renamed to:
+                ○   MaxHUD_GPB32.dlo
+                ○   MaxHUD_MXB64.dlo
+                ○   MaxHUD_WRS32.dlo
+                ○   MaxHUD_KRP32.dlo
+
+V2.1.1 (2018/07/16)
+     ●    Updated for GPB beta14 and WRS beta13 (both are now x64).!
+     ●    Files renamed to:
+                ○   MaxHUD_GPB64.dlo
+                ○   MaxHUD_MXB64.dlo
+                ○   MaxHUD_WRS64.dlo
+                ○   MaxHUD_KRP32.dlo
+
+V2.1.2 (2018/08/29)
+     ●    Updated for MXB beta 9.
+
+V2.1.3 (2019/04/11)
+     ●    Update for KRP release 8: it’s now an x64 app !
+     ●    Try to prevent rumble staying on in some conditions (thanks to TFC for reporting).
+     ●    Fix names of Session & SessionState (was very broken in MXB).
+
+V2.1.4 (2019/05/08)
+     ●    Improved HUDECU (GPB only).
+
+V2.1.5 (2019/08/18)
+     ●    Changes for MXB beta11 (reference UI is now 16:9).
+     ●    Avoid widgets outside the screen (when loading .ini)
+     ●    Change default background color for HUDSpeed.
+
+V2.1.6 (2019/09/11)
+     ●    Changes for GPB beta16.
+V2.1.7 (2020/01/03)
+     ●    Changes for KRP beta10 (reference UI is now 16:9).
+     ●    GPB only: option in HUDInputs to show either “throttle” or “engine throttle”: “throttle” is what comes out of your input
+          device, “engine throttle” is what goes into the engine (i.e. corrected buy the ECU with idle control, traction control, anti
+          wheeling and rev limiter).
+
+V2.1.8 (2020/01/23)
+     ●    HUDTiming: LiveGap now shows only one livegap (the one from Windows timer, as the game’s own timing passed to the
+          output plugins drifts away over laps).
+     ●    Change LiveTiming due to a bug discovered in MXB (see http://forum.mx-bikes.com/index.php?topic=3143.0). Should
+          have no impact (aside mitigating the MXB bug).
+
+V2.2.0 (2020/05/06)
+     ●   All the widgets that had the option to show or not a background can now also use a .tga file as background. Click on the
+         menu option to know the file name each widget is expecting (in MaxHUD_data folder).
+     ●   HUDMap: Improved track drawing. Now plots a border along the track. Width and color of track and border can be
+         configured. Track width and track border width have a “fixed screen size” option. Warning: widget configuration will be
+         reset.
+     ●   HUDStandings: some cosmetic rework. Warning: widget configuration will be reset.
+     ●   Fixed some scaling/aspect ratio bugs.
+     ●   Some cosmetic changes all around.
+
+V2.2.1 (2020/08/11)
+     ●   Reduced by 50% the number of quads used by HUDMap: fps impact of MaxHUD should be lowered (especially on long
+         tracks / low-spec systems).
+     ●   All timings can now display longer times / gaps.
+     ●   HUDLiveGapBar has now more options for its scale (can be longer, for veeery long tracks).
+
+V2.2.2 (2020/12/26)
+     ●   Changes for GPB beta19.
+     ●   Widgets in menu are now sorted alphabetically.
+     ●   Changed default track & border width in HUDMap to “fixed screen size”.
+
+V2.2.3 (2020/12/30)
+     ●   Removed fixed font AsapBold as not truly fixed.
+     ●   GPB only: ECU widget now also shows tyres temperatures (when bike allows it).
+
+V2.2.3 (2021/09/27)
+     ●   .ini file version change: will lose all settings.
+     ●   Minor cosmetic changes: widgets options with fixed font and better aligned.
+     ●   HUDRumble rework:
+                 ○    2 possible sources: CoG acceleration (norm filtered by highpass) or rear tyre overrun (how much faster is the
+                      rear tyre spinning compared to CoG velocity norm).
+                 ○    Each source has 2 extreme points between which the values are interpolated.
+                 ○    Each source can be associated with each rumble motor.
+
+V2.2.5 (2021/12/19)
+     ●   Updates for GPB beta20 (only, no changes for MXB, WRS and KRP).
+
+V2.2.6 (2022/02/06)
+     ●   Updates for MXB beta17.
+     ●   New HUDRumble: this will overwrite your previous rumble settings. You need to reconfigure the settings (at least
+         associate the right XInput device).
+V2.2.7 (2023/08/18)
+     ●   Minor updates for GPB beta21 (only, no changes for MXB, WRS and KRP). Nothing visible.
+(exit 0)

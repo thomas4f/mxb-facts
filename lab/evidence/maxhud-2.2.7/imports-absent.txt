@@ -1,0 +1,2 @@
+$ iat.py MaxHUD_MXB64.dlo MaxStopRumble.exe | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|SendInput|keybd_event|mouse_event|SetWindowsHookEx|CreateProcess|ShellExecute|WinExec|RegSetValue|RegCreateKey|RegDeleteKey|WriteProcessMemory|ReadProcessMemory|OpenProcess|CreateRemoteThread|VirtualProtect|VirtualAlloc|VirtualQuery|CreateFileMapping|AddVectoredExceptionHandler|CreateThread'
+(exit 1)

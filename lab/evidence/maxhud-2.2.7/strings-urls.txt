@@ -1,0 +1,2 @@
+$ { strings -n 5 MaxHUD_MXB64.dlo MaxStopRumble.exe; strings -el -n 5 MaxHUD_MXB64.dlo MaxStopRumble.exe; } | grep -niE 'https?://|www\.|\.(com|net|org|io)\b'
+(exit 1)

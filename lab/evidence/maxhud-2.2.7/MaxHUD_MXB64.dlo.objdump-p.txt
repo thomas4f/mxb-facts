@@ -1,0 +1,397 @@
+$ objdump -p 'MaxHUD_MXB64.dlo' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Characteristics 0x2022
+	executable
+	large address aware
+	DLL
+
+Time/Date		Fri Aug 18 19:31:17 2023
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	16
+SizeOfCode		0000000000034000
+SizeOfInitializedData	0000000000016400
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	0000000000032e18
+BaseOfCode		0000000000001000
+ImageBase		0000000180000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		0004e000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00000160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 0000000000042430 000002d0 Export Directory [.edata (or where ever we found it)]
+Entry 1 0000000000042700 00000140 Import Directory [parts of .idata]
+Entry 2 000000000004c000 000001e0 Resource Directory [.rsrc]
+Entry 3 0000000000049000 00002964 Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 000000000004d000 000005e8 Base Relocation Directory [.reloc]
+Entry 6 000000000003b960 00000070 Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 000000000003bad0 00000028 Thread Storage Directory [.tls]
+Entry a 000000000003b9d0 00000100 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 0000000000035000 000005c8 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x180042700
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 00042700	00042c30 00000000 00000000 00042e28 000353f0
+
+	DLL Name: WINMM.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000353f0  <none>  0016  joyGetPosEx
+	000353f8  <none>  0013  joyGetDevCapsW
+
+ 00042714	00042c48 00000000 00000000 00042e56 00035408
+
+	DLL Name: XINPUT9_1_0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035408  <none>  0004  XInputSetState
+	00035410  <none>  0003  XInputGetState
+
+ 00042728	00042860 00000000 00000000 00043004 00035020
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035020  <none>  036c  InitializeSListHead
+	00035028  <none>  0122  DisableThreadLibraryCalls
+	00035030  <none>  0450  QueryPerformanceCounter
+	00035038  <none>  0451  QueryPerformanceFrequency
+	00035040  <none>  02ab  GetPrivateProfileIntA
+	00035048  <none>  02b1  GetPrivateProfileStringA
+	00035050  <none>  0626  WritePrivateProfileStringA
+	00035058  <none>  025d  GetFullPathNameA
+	00035060  <none>  017f  FindFirstFileA
+	00035068  <none>  0190  FindNextFileA
+	00035070  <none>  017b  FindClose
+	00035078  <none>  01b1  FreeLibrary
+	00035080  <none>  027e  GetModuleHandleW
+	00035088  <none>  02b5  GetProcAddress
+	00035090  <none>  04ca  ResetEvent
+	00035098  <none>  03d2  LocalFree
+	000350a0  <none>  01ad  FormatMessageW
+	000350a8  <none>  0322  GetVersion
+	000350b0  <none>  0367  InitializeCriticalSection
+	000350b8  <none>  0135  EnterCriticalSection
+	000350c0  <none>  03c0  LeaveCriticalSection
+	000350c8  <none>  0111  DeleteCriticalSection
+	000350d0  <none>  0222  GetCurrentThreadId
+	000350d8  <none>  05e7  WaitForSingleObjectEx
+	000350e0  <none>  00bf  CreateEventW
+	000350e8  <none>  04d3  RtlCaptureContext
+	000350f0  <none>  04da  RtlLookupFunctionEntry
+	000350f8  <none>  04e1  RtlVirtualUnwind
+	00035100  <none>  05bc  UnhandledExceptionFilter
+	00035108  <none>  057b  SetUnhandledExceptionFilter
+	00035110  <none>  0524  SetEvent
+	00035118  <none>  0368  InitializeCriticalSectionAndSpinCount
+	00035120  <none>  03c4  LoadLibraryA
+	00035128  <none>  0086  CloseHandle
+	00035130  <none>  021e  GetCurrentProcessId
+	00035138  <none>  0382  IsDebuggerPresent
+	00035140  <none>  0389  IsProcessorFeaturePresent
+	00035148  <none>  059a  TerminateProcess
+	00035150  <none>  021d  GetCurrentProcess
+	00035158  <none>  02f0  GetSystemTimeAsFileTime
+
+ 0004273c	00042b90 00000000 00000000 00043074 00035350
+
+	DLL Name: USER32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035350  <none>  0120  GetAsyncKeyState
+	00035358  <none>  0140  GetCursorPos
+	00035360  <none>  030e  ScreenToClient
+	00035368  <none>  0165  GetKeyState
+	00035370  <none>  0110  FindWindowA
+	00035378  <none>  0132  GetClientRect
+
+ 00042750	00042840 00000000 00000000 000430b2 00035000
+
+	DLL Name: ADVAPI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035000  <none>  028c  RegOpenKeyExW
+	00035008  <none>  025b  RegCloseKey
+	00035010  <none>  0299  RegQueryValueExW
+
+ 00042764	000429a8 00000000 00000000 00043fa0 00035168
+
+	DLL Name: MSVCP140.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035168  <none>  0086  ??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
+	00035170  <none>  024a  ?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ
+	00035178  <none>  0089  ??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ
+	00035180  <none>  04de  ?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z
+	00035188  <none>  051e  ?uncaught_exception@std@@YA_NXZ
+	00035190  <none>  027f  ?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ
+	00035198  <none>  0228  ?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ
+	000351a0  <none>  04fd  ?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ
+	000351a8  <none>  0546  ?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z
+	000351b0  <none>  04d5  ?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JXZ
+	000351b8  <none>  0543  ?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z
+	000351c0  <none>  04b5  ?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAPEAV12@PEAD_J@Z
+	000351c8  <none>  03f6  ?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z
+	000351d0  <none>  04e1  ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z
+	000351d8  <none>  002f  ??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ
+	000351e0  <none>  0244  ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
+	000351e8  <none>  0368  ?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ
+	000351f0  <none>  04c5  ?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z
+	000351f8  <none>  000c  ??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ
+	00035200  <none>  0025  ??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
+	00035208  <none>  0100  ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@I@Z
+	00035210  <none>  0035  ??0?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IEAA@XZ
+	00035218  <none>  008b  ??1?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@UEAA@XZ
+	00035220  <none>  024c  ?_Pninc@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@IEAAPEA_WXZ
+	00035228  <none>  0534  ?widen@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADD@Z
+	00035230  <none>  007f  ??1?$basic_ios@_WU?$char_traits@_W@std@@@std@@UEAA@XZ
+	00035238  <none>  0010  ??0?$basic_ios@_WU?$char_traits@_W@std@@@std@@IEAA@XZ
+	00035240  <none>  0106  ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@P6AAEAV01@AEAV01@@Z@Z
+	00035248  <none>  0101  ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@J@Z
+	00035250  <none>  0461  ?put@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@D@Z
+	00035258  <none>  002b  ??0?$basic_ostream@_WU?$char_traits@_W@std@@@std@@QEAA@PEAV?$basic_streambuf@_WU?$char_traits@_W@std@@@1@_N@Z
+	00035260  <none>  0088  ??1?$basic_ostream@_WU?$char_traits@_W@std@@@std@@UEAA@XZ
+	00035268  <none>  0122  ??6?$basic_ostream@_WU?$char_traits@_W@std@@@std@@QEAAAEAV01@I@Z
+	00035270  <none>  022a  ?_Lock@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@UEAAXXZ
+	00035278  <none>  0281  ?_Unlock@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@UEAAXXZ
+	00035280  <none>  03f8  ?imbue@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MEAAXAEBVlocale@2@@Z
+	00035288  <none>  04b7  ?setbuf@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MEAAPEAV12@PEA_W_J@Z
+	00035290  <none>  04d7  ?showmanyc@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MEAA_JXZ
+	00035298  <none>  051d  ?uflow@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MEAAGXZ
+	000352a0  <none>  0545  ?xsgetn@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MEAA_JPEA_W_J@Z
+	000352a8  <none>  0548  ?xsputn@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MEAA_JPEB_W_J@Z
+	000352b0  <none>  006d  ??0_Lockit@std@@QEAA@H@Z
+	000352b8  <none>  00a5  ??1_Lockit@std@@QEAA@XZ
+	000352c0  <none>  0131  ??Bid@locale@std@@QEAA_KXZ
+	000352c8  <none>  01d5  ?_Getgloballocale@locale@std@@CAPEAV_Locimp@12@XZ
+	000352d0  <none>  053c  ?widen@?$ctype@_W@std@@QEBA_WD@Z
+	000352d8  <none>  042b  ?narrow@?$ctype@_W@std@@QEBAD_WD@Z
+	000352e0  <none>  01b8  ?_Getcat@?$ctype@_W@std@@SA_KPEAPEBVfacet@locale@2@PEBV42@@Z
+	000352e8  <none>  03d1  ?id@?$ctype@_W@std@@2V0locale@2@A
+	000352f0  <none>  016f  ??_D?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
+	000352f8  <none>  043b  ?pbackfail@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHH@Z
+	00035300  <none>  04a4  ?seekoff@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA?AV?$fpos@U_Mbstatet@@@2@_JHH@Z
+	00035308  <none>  04ad  ?seekpos@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA?AV?$fpos@U_Mbstatet@@@2@V32@H@Z
+	00035310  <none>  0520  ?underflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ
+	00035318  <none>  007d  ??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ
+	00035320  <none>  020f  ?_Init@locale@std@@CAPEAV_Locimp@12@_N@Z
+	00035328  <none>  028e  ?_Xlength_error@std@@YAXPEBD@Z
+	00035330  <none>  028f  ?_Xout_of_range@std@@YAXPEBD@Z
+	00035338  <none>  051b  ?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ
+	00035340  <none>  04ff  ?sync@?$basic_streambuf@_WU?$char_traits@_W@std@@@std@@MEAAHXZ
+
+ 00042778	00042bc8 00000000 00000000 00044074 00035388
+
+	DLL Name: VCRUNTIME140.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035388  <none>  003e  memset
+	00035390  <none>  0001  _CxxThrowException
+	00035398  <none>  0021  __std_exception_copy
+	000353a0  <none>  0023  __std_terminate
+	000353a8  <none>  003c  memcpy
+	000353b0  <none>  003d  memmove
+	000353b8  <none>  003b  memcmp
+	000353c0  <none>  0025  __std_type_info_destroy_list
+	000353c8  <none>  0008  __C_specific_handler
+	000353d0  <none>  0022  __std_exception_destroy
+	000353d8  <none>  000e  __CxxFrameHandler3
+	000353e0  <none>  003a  memchr
+
+ 0004278c	00042d00 00000000 00000000 000442de 000354c0
+
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000354c0  <none>  0067  terminate
+	000354c8  <none>  0037  _initterm_e
+	000354d0  <none>  0036  _initterm
+	000354d8  <none>  0016  _cexit
+	000354e0  <none>  003f  _seh_filter_dll
+	000354e8  <none>  0018  _configure_narrow_argv
+	000354f0  <none>  0033  _initialize_narrow_environment
+	000354f8  <none>  001e  _crt_atexit
+	00035500  <none>  0022  _execute_onexit_table
+	00035508  <none>  0039  _invalid_parameter_noinfo_noreturn
+	00035510  <none>  003c  _register_onexit_function
+	00035518  <none>  0034  _initialize_onexit_table
+
+ 000427a0	00042d68 00000000 00000000 00044300 00035528
+
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035528  <none>  0003  __stdio_common_vfprintf
+	00035530  <none>  0077  fflush
+	00035538  <none>  000b  __stdio_common_vsnprintf_s
+	00035540  <none>  008a  fwrite
+	00035548  <none>  0000  __acrt_iob_func
+	00035550  <none>  0010  __stdio_common_vsscanf
+	00035558  <none>  007e  fopen_s
+	00035560  <none>  000f  __stdio_common_vsprintf_s
+	00035568  <none>  0074  fclose
+
+ 000427b4	00042df8 00000000 00000000 00044320 000355b8
+
+	DLL Name: api-ms-win-crt-utility-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000355b8  <none>  001b  rand
+
+ 000427c8	00042c98 00000000 00000000 00044342 00035458
+
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035458  <none>  00c7  fminf
+	00035460  <none>  0113  sinf
+	00035468  <none>  004b  acosf
+	00035470  <none>  0056  atan2f
+	00035478  <none>  00c4  fmaxf
+	00035480  <none>  010a  roundf
+	00035488  <none>  007d  ceilf
+	00035490  <none>  0091  cosf
+	00035498  <none>  0117  sqrtf
+	000354a0  <none>  00bf  floorf
+	000354a8  <none>  00ff  powf
+	000354b0  <none>  00ca  fmodf
+
+ 000427dc	00042dd8 00000000 00000000 00044362 00035598
+
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035598  <none>  0024  _localtime64_s
+	000355a0  <none>  0030  _time64
+	000355a8  <none>  0046  strftime
+
+ 000427f0	00042c60 00000000 00000000 00044382 00035420
+
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035420  <none>  003f  remove
+	00035428  <none>  0040  rename
+
+ 00042804	00042db8 00000000 00000000 000443a8 00035578
+
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035578  <none>  002a  _stricmp
+	00035580  <none>  0029  _strdup
+	00035588  <none>  0089  strcpy_s
+
+ 00042818	00042c78 00000000 00000000 000443ca 00035438
+
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00035438  <none>  0019  malloc
+	00035440  <none>  0008  _callnewh
+	00035448  <none>  0018  free
+
+ 0004282c	00000000 00000000 00000000 00000000 00000000
+
+There is an export table in .rdata at 0x180042430
+
+The Export Tables (interpreted .rdata section contents)
+
+Export Flags 			0
+Time/Date stamp 		ffffffff
+Major/Minor 			0/0
+Name 				0000000000042584 MaxHUD_MXB64.dlo
+Ordinal Base 			1
+Number in:
+	Export Address Table 		0000001e
+	[Name Pointer/Ordinal] Table	0000001e
+Table Addresses
+	Export Address Table 		0000000000042458
+	Name Pointer Table 		00000000000424d0
+	Ordinal Table 			0000000000042548
+
+Export Address Table -- Ordinal Base 1
+	          Ordinal  Address  Type
+	[   0] +base[   1] 0002afd0 Export RVA
+	[   1] +base[   2] 0002af90 Export RVA
+	[   2] +base[   3] 0002a610 Export RVA
+	[   3] +base[   4] 0002a350 Export RVA
+	[   4] +base[   5] 00029ba0 Export RVA
+	[   5] +base[   6] 00029b90 Export RVA
+	[   6] +base[   7] 00029b80 Export RVA
+	[   7] +base[   8] 0002b270 Export RVA
+	[   8] +base[   9] 0002b7f0 Export RVA
+	[   9] +base[  10] 0002b610 Export RVA
+	[  10] +base[  11] 0002b150 Export RVA
+	[  11] +base[  12] 0002b140 Export RVA
+	[  12] +base[  13] 0002b470 Export RVA
+	[  13] +base[  14] 0002b2b0 Export RVA
+	[  14] +base[  15] 0002b280 Export RVA
+	[  15] +base[  16] 0002b290 Export RVA
+	[  16] +base[  17] 0002b2a0 Export RVA
+	[  17] +base[  18] 0002b2c0 Export RVA
+	[  18] +base[  19] 0002b800 Export RVA
+	[  19] +base[  20] 0002b9b0 Export RVA
+	[  20] +base[  21] 0002a8d0 Export RVA
+	[  21] +base[  22] 0002a700 Export RVA
+	[  22] +base[  23] 0002aba0 Export RVA
+	[  23] +base[  24] 0002ad20 Export RVA
+	[  24] +base[  25] 0002a9c0 Export RVA
+	[  25] +base[  26] 0002aab0 Export RVA
+	[  26] +base[  27] 0002ae70 Export RVA
+	[  27] +base[  28] 0002a0f0 Export RVA
+	[  28] +base[  29] 00029bb0 Export RVA
+	[  29] +base[  30] 0002a4f0 Export RVA
+
+[Ordinal/Name Pointer] Table -- Ordinal Base 1
+	          Ordinal   Hint Name
+	[   0] +base[   1]  0000 Draw
+	[   1] +base[   2]  0001 DrawInit
+	[   2] +base[   3]  0002 EventDeinit
+	[   3] +base[   4]  0003 EventInit
+	[   4] +base[   5]  0004 GetInterfaceVersion
+	[   5] +base[   6]  0005 GetModDataVersion
+	[   6] +base[   7]  0006 GetModID
+	[   7] +base[   8]  0007 RaceAddEntry
+	[   8] +base[   9]  0008 RaceClassification
+	[   9] +base[  10]  0009 RaceCommunication
+	[  10] +base[  11]  000a RaceDeinit
+	[  11] +base[  12]  000b RaceEvent
+	[  12] +base[  13]  000c RaceHoleshot
+	[  13] +base[  14]  000d RaceLap
+	[  14] +base[  15]  000e RaceRemoveEntry
+	[  15] +base[  16]  000f RaceSession
+	[  16] +base[  17]  0010 RaceSessionState
+	[  17] +base[  18]  0011 RaceSplit
+	[  18] +base[  19]  0012 RaceTrackPosition
+	[  19] +base[  20]  0013 RaceVehicleData
+	[  20] +base[  21]  0014 RunDeinit
+	[  21] +base[  22]  0015 RunInit
+	[  22] +base[  23]  0016 RunLap
+	[  23] +base[  24]  0017 RunSplit
+	[  24] +base[  25]  0018 RunStart
+	[  25] +base[  26]  0019 RunStop
+	[  26] +base[  27]  001a RunTelemetry
+	[  27] +base[  28]  001b Shutdown
+	[  28] +base[  29]  001c Startup
+	[  29] +base[  30]  001d TrackCenterline
+
+(exit 0)
