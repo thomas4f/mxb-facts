@@ -1,0 +1,93 @@
+$ pyinst.py code pkg/main.pyc_raw App.plugins_dir App.open_plugins App.backup_plugins App.safe_install_files 'App.safe_install_files.<locals>.<genexpr>' App.install_from_file
+=== App.plugins_dir (line 252)
+  253: LOAD_FAST_BORROW self | LOAD_ATTR game | POP_JUMP_IF_TRUE to L1
+  254: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  255: LOAD_FAST_BORROW self | LOAD_ATTR game | LOAD_ATTR parent | LOAD_CONST 'plugins' | BINARY_OP / | RETURN_VALUE
+=== App.open_plugins (line 280)
+  281: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST folder
+  282: LOAD_FAST_BORROW folder | POP_JUMP_IF_TRUE to L1
+  283: LOAD_GLOBAL messagebox | LOAD_ATTR showwarning | LOAD_GLOBAL APP | LOAD_CONST 'Detect or select MX Bikes first.' | CALL
+  284: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  285: LOAD_FAST_BORROW folder | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  286: LOAD_GLOBAL os | LOAD_ATTR startfile | LOAD_FAST_BORROW folder | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.backup_plugins (line 288)
+  289: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST folder
+  290: LOAD_FAST_BORROW folder | POP_JUMP_IF_FALSE to L1 | LOAD_FAST_BORROW folder | LOAD_ATTR exists | CALL | POP_JUMP_IF_TRUE to L2
+  291: LOAD_GLOBAL messagebox | LOAD_ATTR showwarning | LOAD_GLOBAL APP | LOAD_CONST 'MX Bikes plugins folder not found.' | CALL
+  292: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  293: LOAD_GLOBAL BACKUP_ROOT | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  294: LOAD_GLOBAL BACKUP_ROOT | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST 'plugins_%Y%m%d_%H%M%S' | CALL | BINARY_OP / | STORE_FAST destination
+  296: LOAD_GLOBAL shutil | LOAD_ATTR copytree | LOAD_FAST_BORROW_LOAD_FAST_BORROW folder, destination | CALL
+  297: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo | LOAD_GLOBAL APP | LOAD_CONST 'Plugin backup created:\n' | LOAD_FAST_BORROW destination | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  298: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST exc
+  299: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'Backup failed:\n' | LOAD_FAST exc | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  298: RERAISE | RERAISE
+=== App.safe_install_files (line 301)
+  302: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST target
+  303: LOAD_FAST_BORROW target | POP_JUMP_IF_TRUE to L1
+  304: LOAD_GLOBAL RuntimeError | LOAD_CONST 'Select MX Bikes installation first.' | CALL | RAISE_VARARGS
+  305: LOAD_FAST_BORROW target | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  307: BUILD_SET | LOAD_CONST frozenset({'proxy64.dlo', 'xinput64.dli', 'telemetry64.dlo', 'proxy_udp64.dlo'}) | SET_UPDATE | STORE_FAST protected
+  311: BUILD_SET | LOAD_CONST frozenset({'.dll', '.ini', '.otf', '.jpg', '.png', '.ttf', '.json', '.dlo'}) | SET_UPDATE | STORE_FAST supported
+  312: BUILD_LIST | STORE_FAST planned
+  314: LOAD_FAST files | GET_ITER | FOR_ITER to L11 | STORE_FAST src
+  315: LOAD_FAST_BORROW src | LOAD_ATTR relative_to | LOAD_FAST_BORROW source_root | CALL | STORE_FAST relative
+  316: LOAD_GLOBAL any | LOAD_COMMON_CONSTANT <built-in function any> | IS_OP is | POP_JUMP_IF_FALSE to L6 | LOAD_CONST <code App.safe_install_files.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW relative | LOAD_ATTR parts | CALL | FOR_ITER to L5 | POP_JUMP_IF_TRUE to L4 | JUMP_BACKWARD to L3 | LOAD_COMMON_CONSTANT True | JUMP_FORWARD to L7 | LOAD_COMMON_CONSTANT False | JUMP_FORWARD to L7 | LOAD_CONST <code App.safe_install_files.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW relative | LOAD_ATTR parts | CALL | CALL | POP_JUMP_IF_FALSE to L8
+  317: JUMP_BACKWARD to L2
+  318: LOAD_FAST_BORROW src | LOAD_ATTR name | LOAD_ATTR lower | CALL | LOAD_FAST_BORROW protected | CONTAINS_OP in | POP_JUMP_IF_TRUE to L9 | LOAD_FAST_BORROW src | LOAD_ATTR suffix | LOAD_ATTR lower | CALL | LOAD_FAST_BORROW supported | CONTAINS_OP not in | POP_JUMP_IF_FALSE to L10
+  319: JUMP_BACKWARD to L2
+  320: LOAD_FAST_BORROW planned | LOAD_ATTR append | LOAD_FAST_BORROW_LOAD_FAST_BORROW src, target | LOAD_FAST_BORROW relative | BINARY_OP / | BUILD_TUPLE | CALL | JUMP_BACKWARD to L2
+  322: LOAD_FAST_BORROW planned | POP_JUMP_IF_TRUE to L12
+  323: LOAD_GLOBAL RuntimeError | LOAD_CONST 'No supported plugin files were found in that package.' | CALL | RAISE_VARARGS
+  325: LOAD_FAST planned | LOAD_FAST_AND_CLEAR _ | LOAD_FAST_AND_CLEAR destination | BUILD_LIST | GET_ITER | FOR_ITER to L15 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST _, destination | LOAD_FAST_BORROW destination | LOAD_ATTR exists | CALL | POP_JUMP_IF_TRUE to L14 | JUMP_BACKWARD to L13 | LOAD_FAST_BORROW destination | LIST_APPEND | JUMP_BACKWARD to L13 | STORE_FAST conflicts | STORE_FAST _ | STORE_FAST destination
+  326: LOAD_FAST_BORROW conflicts | POP_JUMP_IF_FALSE to L16 | LOAD_GLOBAL messagebox | LOAD_ATTR askyesno
+  327: LOAD_GLOBAL APP
+  328: LOAD_GLOBAL len | LOAD_FAST_BORROW conflicts | CALL | FORMAT_SIMPLE | LOAD_CONST ' existing file(s) will be backed up before replacement. Continue?' | BUILD_STRING
+  326: CALL | POP_JUMP_IF_TRUE to L16
+  330: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  332: LOAD_FAST_BORROW conflicts | POP_JUMP_IF_FALSE to L19
+  333: LOAD_GLOBAL BACKUP_ROOT | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  334: LOAD_GLOBAL BACKUP_ROOT | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST 'pre_install_%Y%m%d_%H%M%S' | CALL | BINARY_OP / | STORE_FAST backup
+  335: LOAD_FAST conflicts | GET_ITER | FOR_ITER to L18 | STORE_FAST destination
+  336: LOAD_FAST_BORROW destination | LOAD_ATTR relative_to | LOAD_FAST_BORROW target | CALL | STORE_FAST relative
+  337: LOAD_FAST_BORROW_LOAD_FAST_BORROW backup, relative | BINARY_OP / | STORE_FAST output
+  338: LOAD_FAST_BORROW output | LOAD_ATTR parent | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  339: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW destination, output | CALL | JUMP_BACKWARD to L17
+  341: LOAD_FAST planned | GET_ITER | FOR_ITER to L21 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST source, destination
+  342: LOAD_FAST_BORROW destination | LOAD_ATTR parent | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  343: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW source, destination | CALL | JUMP_BACKWARD to L20
+  345: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo | LOAD_GLOBAL APP | LOAD_CONST 'Installed ' | LOAD_GLOBAL len | LOAD_FAST_BORROW planned | CALL | FORMAT_SIMPLE | LOAD_CONST ' file(s) into:\n' | LOAD_FAST_BORROW target | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  325: STORE_FAST destination | STORE_FAST _ | RERAISE
+=== App.safe_install_files.<locals>.<genexpr> (line 316)
+  316: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST_LOAD_FAST part, part | LOAD_CONST ('..', '') | CONTAINS_OP in | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== App.install_from_file (line 347)
+  348: LOAD_GLOBAL filedialog | LOAD_ATTR askopenfilename
+  349: LOAD_CONST 'Choose plugin .zip or .dlo'
+  350: LOAD_CONST ('Plugin packages', '*.zip *.dlo') | LOAD_CONST ('All files', '*.*') | BUILD_LIST
+  348: LOAD_CONST ('title', 'filetypes') | CALL_KW | STORE_FAST chosen
+  352: LOAD_FAST_BORROW chosen | POP_JUMP_IF_TRUE to L1
+  353: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  356: LOAD_GLOBAL Path | LOAD_FAST_BORROW chosen | CALL | STORE_FAST source
+  357: LOAD_FAST_BORROW source | LOAD_ATTR suffix | LOAD_ATTR lower | CALL | LOAD_CONST '.dlo' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L2
+  358: LOAD_FAST_BORROW self | LOAD_ATTR safe_install_files | LOAD_FAST_BORROW source | BUILD_LIST | LOAD_FAST_BORROW source | LOAD_ATTR parent | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  359: LOAD_FAST_BORROW source | LOAD_ATTR suffix | LOAD_ATTR lower | CALL | LOAD_CONST '.zip' | COMPARE_OP bool(==) | EXTENDED_ARG | POP_JUMP_IF_FALSE to L10
+  360: LOAD_GLOBAL tempfile | LOAD_ATTR TemporaryDirectory | CALL | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL | STORE_FAST temporary
+  361: LOAD_GLOBAL Path | LOAD_FAST_BORROW temporary | CALL | LOAD_ATTR resolve | CALL | STORE_FAST temp
+  362: LOAD_GLOBAL zipfile | LOAD_ATTR ZipFile | LOAD_FAST_BORROW source | CALL | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL | STORE_FAST archive
+  363: LOAD_FAST_BORROW archive | LOAD_ATTR infolist | CALL | GET_ITER | FOR_ITER to L5 | STORE_FAST member
+  364: LOAD_FAST_BORROW_LOAD_FAST_BORROW temp, member | LOAD_ATTR filename | BINARY_OP / | LOAD_ATTR resolve | CALL | STORE_FAST destination
+  365: LOAD_GLOBAL str | LOAD_FAST_BORROW destination | CALL | LOAD_ATTR startswith | LOAD_GLOBAL str | LOAD_FAST_BORROW temp | CALL | LOAD_GLOBAL os | LOAD_ATTR sep | BINARY_OP + | CALL | POP_JUMP_IF_FALSE to L4 | JUMP_BACKWARD to L3
+  366: LOAD_GLOBAL RuntimeError | LOAD_CONST 'The ZIP contains an unsafe path.' | CALL | RAISE_VARARGS
+  367: LOAD_FAST_BORROW archive | LOAD_ATTR extractall | LOAD_FAST_BORROW temp | CALL
+  362: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  368: LOAD_FAST_BORROW temp | LOAD_ATTR rglob | LOAD_CONST '*' | CALL | LOAD_FAST_AND_CLEAR item | BUILD_LIST | GET_ITER | FOR_ITER to L9 | STORE_FAST_LOAD_FAST item, item | LOAD_ATTR is_file | CALL | POP_JUMP_IF_TRUE to L8 | JUMP_BACKWARD to L7 | LOAD_FAST_BORROW item | LIST_APPEND | JUMP_BACKWARD to L7 | STORE_FAST files | STORE_FAST item
+  369: LOAD_FAST_BORROW self | LOAD_ATTR safe_install_files | LOAD_FAST_BORROW_LOAD_FAST_BORROW files, temp | CALL
+  360: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  359: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  362: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L11 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L6 | RERAISE
+  368: STORE_FAST item | RERAISE
+  360: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L12 | RERAISE | LOAD_COMMON_CONSTANT None | RETURN_VALUE | RERAISE | PUSH_EXC_INFO
+  370: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L13 | STORE_FAST exc
+  371: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'Installation failed:\n' | LOAD_FAST exc | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  370: RERAISE | RERAISE
+(exit 0)

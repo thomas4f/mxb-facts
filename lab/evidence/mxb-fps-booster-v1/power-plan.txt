@@ -1,0 +1,72 @@
+$ pyinst.py code pkg/main.pyc_raw get_active_power_plan set_power_plan App.toggle_gaming_mode App.disable_gaming_mode App.on_close
+=== get_active_power_plan (line 54)
+  55: LOAD_GLOBAL subprocess | LOAD_ATTR run
+  56: LOAD_CONST 'powercfg' | LOAD_CONST '/getactivescheme' | BUILD_LIST
+  57: LOAD_COMMON_CONSTANT True
+  58: LOAD_COMMON_CONSTANT True
+  59: LOAD_COMMON_CONSTANT True
+  60: LOAD_GLOBAL getattr | LOAD_GLOBAL subprocess | LOAD_CONST 'CREATE_NO_WINDOW' | LOAD_SMALL_INT | CALL
+  55: LOAD_CONST ('capture_output', 'text', 'check', 'creationflags') | CALL_KW | STORE_FAST result
+  62: LOAD_GLOBAL re | LOAD_ATTR search
+  63: LOAD_CONST '([0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})'
+  64: LOAD_FAST_BORROW result | LOAD_ATTR stdout
+  62: CALL | STORE_FAST match
+  66: LOAD_FAST_BORROW match | POP_JUMP_IF_TRUE to L1
+  67: LOAD_GLOBAL RuntimeError | LOAD_CONST 'Could not read the current Windows power plan.' | CALL | RAISE_VARARGS
+  68: LOAD_FAST_BORROW match | LOAD_ATTR group | LOAD_SMALL_INT | CALL | RETURN_VALUE
+=== set_power_plan (line 71)
+  72: LOAD_GLOBAL subprocess | LOAD_ATTR run
+  73: LOAD_CONST 'powercfg' | LOAD_CONST '/setactive' | LOAD_FAST_BORROW guid | BUILD_LIST
+  74: LOAD_COMMON_CONSTANT True
+  75: LOAD_COMMON_CONSTANT True
+  76: LOAD_COMMON_CONSTANT True
+  77: LOAD_GLOBAL getattr | LOAD_GLOBAL subprocess | LOAD_CONST 'CREATE_NO_WINDOW' | LOAD_SMALL_INT | CALL
+  72: LOAD_CONST ('capture_output', 'text', 'check', 'creationflags') | CALL_KW | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.toggle_gaming_mode (line 373)
+  374: LOAD_FAST_BORROW self | LOAD_ATTR gaming_mode | POP_JUMP_IF_FALSE to L1
+  375: LOAD_FAST_BORROW self | LOAD_ATTR disable_gaming_mode | CALL
+  376: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  379: LOAD_GLOBAL get_active_power_plan | CALL | STORE_FAST current_plan
+  381: LOAD_GLOBAL set_power_plan | LOAD_CONST 'SCHEME_MIN' | CALL
+  382: LOAD_FAST_BORROW_LOAD_FAST_BORROW current_plan, self | STORE_ATTR original_power_plan
+  383: LOAD_COMMON_CONSTANT True | LOAD_FAST_BORROW self | STORE_ATTR gaming_mode
+  384: LOAD_FAST_BORROW self | LOAD_ATTR gaming_button | LOAD_ATTR configure | LOAD_CONST 'DISABLE GAMING MODE' | LOAD_CONST 'Red.TButton' | LOAD_CONST ('text', 'style') | CALL_KW
+  385: LOAD_FAST_BORROW self | LOAD_ATTR gaming_status | LOAD_ATTR configure | LOAD_CONST 'ON — HIGH PERFORMANCE' | LOAD_CONST ('text',) | CALL_KW
+  386: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo
+  387: LOAD_GLOBAL APP
+  388: LOAD_CONST 'Gaming Mode is enabled.\n\nWindows is using the High performance power plan. MX Bikes will be started with Above normal priority.'
+  386: CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  392: LOAD_GLOBAL subprocess | LOAD_ATTR CalledProcessError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST exc
+  393: LOAD_FAST exc | LOAD_ATTR stderr | POP_JUMP_IF_TRUE to L2 | LOAD_FAST exc | LOAD_ATTR stdout | POP_JUMP_IF_TRUE to L2 | LOAD_GLOBAL str | LOAD_FAST exc | CALL | LOAD_ATTR strip | CALL | STORE_FAST details
+  394: LOAD_GLOBAL messagebox | LOAD_ATTR showerror
+  395: LOAD_GLOBAL APP
+  396: LOAD_CONST 'Windows could not switch to the High performance power plan.\n\n'
+  397: LOAD_FAST details | FORMAT_SIMPLE | LOAD_CONST '\n\nNo other system settings were changed.'
+  396: BUILD_STRING
+  394: CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  400: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4 | STORE_FAST exc
+  401: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'Could not enable Gaming Mode:\n' | LOAD_FAST exc | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  400: RERAISE | RERAISE
+=== App.disable_gaming_mode (line 403)
+  405: LOAD_FAST_BORROW self | LOAD_ATTR original_power_plan | POP_JUMP_IF_FALSE to L1
+  406: LOAD_GLOBAL set_power_plan | LOAD_FAST_BORROW self | LOAD_ATTR original_power_plan | CALL
+  407: LOAD_COMMON_CONSTANT False | LOAD_FAST_BORROW self | STORE_ATTR gaming_mode
+  408: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR original_power_plan
+  409: LOAD_FAST_BORROW self | LOAD_ATTR gaming_button | LOAD_ATTR configure | LOAD_CONST 'ENABLE GAMING MODE' | LOAD_CONST 'Green.TButton' | LOAD_CONST ('text', 'style') | CALL_KW
+  410: LOAD_FAST_BORROW self | LOAD_ATTR gaming_status | LOAD_ATTR configure | LOAD_CONST 'OFF' | LOAD_CONST ('text',) | CALL_KW
+  411: LOAD_FAST_BORROW quiet | POP_JUMP_IF_TRUE to L2
+  412: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo | LOAD_GLOBAL APP | LOAD_CONST 'Gaming Mode is off. Your previous power plan was restored.' | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  411: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  413: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST exc
+  414: LOAD_GLOBAL messagebox | LOAD_ATTR showerror
+  415: LOAD_GLOBAL APP
+  416: LOAD_CONST 'Could not restore the previous Windows power plan.\nYou can select it again in Windows Settings.\n\n'
+  418: LOAD_FAST exc | FORMAT_SIMPLE
+  416: BUILD_STRING
+  414: CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  413: RERAISE | RERAISE
+=== App.on_close (line 501)
+  502: LOAD_FAST_BORROW self | LOAD_ATTR gaming_mode | POP_JUMP_IF_FALSE to L1
+  503: LOAD_FAST_BORROW self | LOAD_ATTR disable_gaming_mode | LOAD_COMMON_CONSTANT True | LOAD_CONST ('quiet',) | CALL_KW
+  504: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR destroy | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

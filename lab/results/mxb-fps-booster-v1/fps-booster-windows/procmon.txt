@@ -1,0 +1,92 @@
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_bz2.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_ctypes.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_decimal.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_hashlib.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_lzma.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_socket.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_ssl.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_tkinter.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_zstd.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\base_library.zip  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libcrypto-3.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libffi-8.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libssl-3.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libtommath.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\psutil  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\psutil\_psutil_windows.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python3.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python315.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\select.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl90.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl9tk90.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\unicodedata.pyd  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\VCRUNTIME140.dll  SUCCESS
+    1  MXB FPS Booster.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\zlib1.dll  SUCCESS
+    2  MXB FPS Booster.exe  FileSystemControl  D:\a\_temp\mxbfacts\run-fps-booster\release\MXB_FPS_Booster_V1.zip\MXB_FPS_Booster_V1\MXB FPS Booster.exe  INVALID DEVICE REQUEST
+    1  MXB FPS Booster.exe  Process Create  D:\a\_temp\mxbfacts\run-fps-booster\release\MXB_FPS_Booster_V1.zip\MXB_FPS_Booster_V1\MXB FPS Booster.exe  SUCCESS
+    2  MXB FPS Booster.exe  Process Exit    SUCCESS
+    2  MXB FPS Booster.exe  Process Start    SUCCESS
+    2  MXB FPS Booster.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-fps-booster\release\MXB_FPS_Booster_V1.zip\MXB_FPS_Booster_V1\MXB FPS Booster.exe  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_bz2.pyd  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_ctypes.pyd  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_lzma.pyd  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_socket.pyd  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_tkinter.pyd  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_zstd.pyd  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libffi-8.dll  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libtommath.dll  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\psutil\_psutil_windows.pyd  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python3.dll  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python315.dll  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl90.dll  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl9tk90.dll  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\VCRUNTIME140.dll  SUCCESS
+    1  MXB FPS Booster.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\zlib1.dll  SUCCESS
+    2  MXB FPS Booster.exe  WriteFile  C:\$LogFile  SUCCESS
+    4  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_bz2.pyd  FAST IO DISALLOWED
+   22  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_bz2.pyd  SUCCESS
+    5  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_ctypes.pyd  FAST IO DISALLOWED
+   36  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_ctypes.pyd  SUCCESS
+    8  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_decimal.pyd  FAST IO DISALLOWED
+   78  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_decimal.pyd  SUCCESS
+    3  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_hashlib.pyd  FAST IO DISALLOWED
+   16  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_hashlib.pyd  SUCCESS
+    5  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_lzma.pyd  FAST IO DISALLOWED
+   42  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_lzma.pyd  SUCCESS
+    4  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_socket.pyd  FAST IO DISALLOWED
+   22  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_socket.pyd  SUCCESS
+    6  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_ssl.pyd  FAST IO DISALLOWED
+   48  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_ssl.pyd  SUCCESS
+    4  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_tkinter.pyd  FAST IO DISALLOWED
+   18  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_tkinter.pyd  SUCCESS
+   10  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_zstd.pyd  FAST IO DISALLOWED
+  125  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\_zstd.pyd  SUCCESS
+   25  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\base_library.zip  FAST IO DISALLOWED
+  346  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\base_library.zip  SUCCESS
+  128  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libcrypto-3.dll  FAST IO DISALLOWED
+ 1470  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libcrypto-3.dll  SUCCESS
+    3  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libffi-8.dll  FAST IO DISALLOWED
+   10  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libffi-8.dll  SUCCESS
+   32  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libssl-3.dll  FAST IO DISALLOWED
+  318  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libssl-3.dll  SUCCESS
+    4  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libtommath.dll  FAST IO DISALLOWED
+   20  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\libtommath.dll  SUCCESS
+    4  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\psutil\_psutil_windows.pyd  FAST IO DISALLOWED
+   18  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\psutil\_psutil_windows.pyd  SUCCESS
+    3  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python3.dll  FAST IO DISALLOWED
+   18  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python3.dll  SUCCESS
+  332  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python315.dll  FAST IO DISALLOWED
+ 1935  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\python315.dll  SUCCESS
+    2  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\select.pyd  FAST IO DISALLOWED
+    7  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\select.pyd  SUCCESS
+   74  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl90.dll  FAST IO DISALLOWED
+  824  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl90.dll  SUCCESS
+   43  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl9tk90.dll  FAST IO DISALLOWED
+  524  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\tcl9tk90.dll  SUCCESS
+   18  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\unicodedata.pyd  FAST IO DISALLOWED
+  183  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\unicodedata.pyd  SUCCESS
+    5  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\VCRUNTIME140.dll  FAST IO DISALLOWED
+   44  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\VCRUNTIME140.dll  SUCCESS
+    4  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\zlib1.dll  FAST IO DISALLOWED
+   26  MXB FPS Booster.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI000019b42\zlib1.dll  SUCCESS

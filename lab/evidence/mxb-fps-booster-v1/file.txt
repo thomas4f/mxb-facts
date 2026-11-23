@@ -1,0 +1,10 @@
+$ unzip -l MXB_FPS_Booster_V1.zip; file 'MXB FPS Booster.exe'
+Archive:  MXB_FPS_Booster_V1.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2026-11-05 17:58   MXB_FPS_Booster_V1/
+ 13066006  2026-11-04 20:40   MXB_FPS_Booster_V1/MXB FPS Booster.exe
+---------                     -------
+ 13066006                     2 files
+MXB FPS Booster.exe: PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+(exit 0)
