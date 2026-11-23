@@ -55,6 +55,7 @@ on:
           - mxbmrp3
           - mxbtt
           - mxpulse
+          - pitbox
           - rider-pov-plus
           - suspension-tuner
           # tools:end

@@ -276,6 +276,17 @@
       "tied_by": "github.com/daf0707pro-lgtm/MXPulse"
     }
   },
+  "pitbox": {
+    "name": "Pitbox",
+    "author": "cristianboni22",
+    "github": "cristianboni22/pitbox",
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 5412,
+      "tied_by": "github.com/cristianboni22/pitbox"
+    }
+  },
   "rider-pov-plus": {
     "name": "Rider POV+",
     "author": "Finner24",
