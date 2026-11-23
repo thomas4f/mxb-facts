@@ -242,7 +242,7 @@ def report(C,a,gl):
     d=C['d']; h=C['h']; got=[]
     # (anchor key, heading, contents-bar label, beside the heading, body)
     secs=[('release','Release and method','Release','',post(
-        table(['',''],[(k,cell(h[k])) for k in HEADER if k in h and k not in TOPROWS],' meta')+'\n<p>Files checked:</p>\n'
+        table(['',''],[(k,cell(h[k])) for k in HEADER if k in h and k not in TOPROWS],' meta')+'\n<p><strong>Files checked</strong></p>\n'
         +table(['File','Inside','SHA-256','VirusTotal','Note'],[[cell(c) for c in r] for r in files_table(C['f'],d)])
         +('\n'+markdown.markdown(d['files_note']) if d.get('files_note') else ''),a))]
     for title,k in SECTIONS.items():

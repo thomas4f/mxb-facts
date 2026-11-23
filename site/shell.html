@@ -117,7 +117,7 @@ pre code { padding: 0; background: none }
 /* The hint beside a score heading (GNOTE in site/page.py): on the heading's line, on the tools list and on every tool page. */
 .sech .gnote { margin-left: 6px; font: 400 14px/1 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--muted) }
 .intro { display: flex; flex-direction: column; gap: 14px; padding: var(--pad-card) }
-.intro p { margin: 0; max-width: 62ch }
+.intro p { margin: 0; max-width: 62ch } .view > .intro { font-size: 15px } /* a view's opening box reads like those of How it works and For authors */
 /* The two boxes under the headline read as a pair: full-width text at the legend's size, and each box's closing note at its foot, level with the other's. */
 .toolhead .one { margin: 0 0 4px; font: 600 15px/1.4 var(--f-ui); color: var(--muted) }
 .tlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--gap-card) }
@@ -214,14 +214,15 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 details.full { margin-top: 28px; border-top: var(--border); padding-top: 18px }
 details.full > summary { cursor: pointer; display: flex; flex-direction: column; gap: 2px; list-style: none }
 details.full > summary::-webkit-details-marker { display: none }
-.fs { font: 700 20px var(--f-ui) } .fs::after { content: " +"; color: var(--muted); font-weight: 400 }
+.fs { font: 700 18px var(--f-ui) } .fs::after { content: " +"; color: var(--muted); font-weight: 400 }
 details[open] > summary .fs::after { content: " −" }
 .fn { color: var(--muted); font-size: 14px }
 #compare > .fn { margin: 0 0 12px }
 
 /* The report: All answers and evidence (rendered card) */
 .report { display: flex; flex-direction: column; min-width: 0; font-size: 15px }
-.report h3 { font: 700 19px/1.25 var(--f-ui); margin: 34px 0 10px }
+/* One size for every heading inside a view and every fold: report sections, How it works, For authors. */
+.report h3 { font: 700 18px/1.25 var(--f-ui); margin: 34px 0 10px }
 .report h2.glanceh { font: 700 19px/1.25 var(--f-ui); margin: 30px 0 10px }
 /* The tool's contents bar: stays under the top bar on the whole tool page. */
 .rnav { position: sticky; top: var(--toph, var(--top-h)); z-index: 5; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 16px; margin: 16px 0 4px; padding: 8px 0; background: var(--bg); border-bottom: var(--border) }
@@ -297,6 +298,7 @@ td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 32px }
 .qid > .plink { left: -24px; top: 1px }
 .tool .key { padding-left: 40px }
 .kq > .plink { left: -30px; top: .25em }
+@media (max-width: 480px) { .plink { display: none } } /* no room left of the text in a narrow window, as on phones */
 ul:has(> li[id^="lim-"]) { list-style: none; padding-left: 28px } /* the limits carry their own numbers */
 tr:hover .plink, summary:hover .plink, li:hover > .haslink > .plink, li.key:hover .plink, .haslink:hover > .plink, .plink:focus-visible { opacity: .55 } .plink:hover, .plink:focus-visible { background: var(--accent); opacity: 1 }
 @media (hover: none) { .plink { display: none } .tool .key { padding-left: 16px } td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 12px } }
@@ -322,7 +324,7 @@ table.mx { min-width: 640px }
 .mx a.money, .mx a.mark { text-decoration: none }
 details.more { border-top: var(--border); padding-top: 16px }
 .flow + details.more { margin-top: 16px }
-details.more > summary { cursor: pointer; font: 700 17px var(--f-ui); list-style: none }
+details.more > summary { cursor: pointer; font: 700 18px var(--f-ui); list-style: none }
 /* Every fold opens with the same grey arrow as the report's sections. */
 details.more > summary::-webkit-details-marker { display: none }
 details.more > summary::before { content: "▸"; font-size: 12px; color: var(--muted); transition: transform .15s; display: inline-block; width: 12px; margin-right: 8px }
@@ -331,7 +333,7 @@ details.more > summary span { font: 400 14px var(--f-ui); color: var(--muted); m
 details.more[open] > summary { margin-bottom: 12px }
 .view { display: flex; flex-direction: column; gap: 14px; min-width: 0 }
 .view > .sech { margin-top: 8px }
-.rules { font-size: 15px } .rules h3 { font: 700 18px var(--f-ui); margin: 26px 0 8px }
+.rules { font-size: 15px }
 
 footer { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 6px 24px; border-top: var(--border); padding-top: 18px; font-size: 14px; color: var(--muted) }
 footer p { margin: 0 }
@@ -419,8 +421,8 @@ table.goodw td:first-child { width: 68% }
   </section>
 
   <section class="view" id="compare" data-view>
+    <h2 class="sech">Compare tools</h2>
     <div class="intro">
-      <h2 class="sech">Compare tools</h2>
       <p>Every answer side by side, with the area scores. Hover for the short answer; click to jump to it with its evidence.</p>
     </div>
       <div class="picker" role="group" aria-label="Tools to compare">{{PICKER}}</div>
@@ -438,6 +440,7 @@ table.goodw td:first-child { width: 68% }
   <section class="view rules" id="rules" data-view>
     <h2 class="sech">How it works</h2>
     <div class="report">
+      <div class="intro"><p>How a card is made, the ten rules every card follows, and, folded below, how answers are marked and scores worked out.</p></div>
       <h3>How a card is made</h3>
       <ol class="flow">
         <li><b>A tool is requested</b> through the request form, or Thomas picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it.</li>
