@@ -1,0 +1,5 @@
+521593 content_ready dirt_material=1 strength=135 loose=55 fade=75..100 soft_layer=1
+521593 audit exe_hash_mismatch code=2 thread=2020 tick=521593 a=0x7ff766630000 b=0x10c2000 slot=4294967295 reason=0
+521593 audit gate_fail code=3 thread=2020 tick=521593 a=0x0 b=0x1 slot=4294967295 reason=0
+521593 lifecycle event=7 generation=0
+521593 scene_retired

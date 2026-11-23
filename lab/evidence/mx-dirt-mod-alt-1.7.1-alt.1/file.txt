@@ -1,0 +1,37 @@
+$ unzip -l MX-Dirt-Mod-Alt-1.7.1-alt.1.zip; find . -type f ! -name '*.zip' ! -name '*.sha256.txt' | sort | while read -r f; do file "$f"; done
+Archive:  MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     4439  2026-11-19 01:22   install\Install.ps1
+     2874  2026-11-19 01:22   install\Uninstall.ps1
+      126  2026-11-19 01:22   launcher\MX Dirt Mod.cmd
+    22928  2026-11-19 01:22   launcher\MXDirtLauncher.ps1
+   431104  2026-11-19 01:25   plugins\mx_dirt.dlo
+     6154  2026-11-19 01:22   plugins\mx_dirt.ini
+   222208  2026-11-19 01:26   plugins\mx_dirt_render.dlo
+     2827  2026-11-19 01:22   plugins\mx_dirt_render.ini
+       34  2026-11-19 01:22   plugins\mx_dirt_data\white.tga
+      101  2026-11-19 01:22   Install.cmd
+    35823  2026-11-19 01:22   LICENSE
+     1402  2026-11-19 01:22   NOTICE.txt
+    24291  2026-11-19 01:22   README.txt
+      273  2026-11-19 01:22   SUPPORTED_EXE.txt
+      103  2026-11-19 01:22   Uninstall.cmd
+---------                     -------
+   754687                     15 files
+./Install.cmd: DOS batch file, ASCII text, with CRLF line terminators
+./LICENSE: ASCII text, with CRLF line terminators
+./NOTICE.txt: Unicode text, UTF-8 text
+./README.txt: Unicode text, UTF-8 text, with very long lines (458)
+./SUPPORTED_EXE.txt: ASCII text, with CRLF line terminators
+./Uninstall.cmd: DOS batch file, ASCII text, with CRLF line terminators
+./install/Install.ps1: ASCII text, with CRLF line terminators
+./install/Uninstall.ps1: ASCII text
+./launcher/MX Dirt Mod.cmd: DOS batch file, ASCII text, with CRLF line terminators
+./launcher/MXDirtLauncher.ps1: ASCII text, with very long lines (484)
+./plugins/mx_dirt.dlo: PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+./plugins/mx_dirt.ini: ASCII text
+./plugins/mx_dirt_data/white.tga: Targa image data - RGBA 2 x 2 x 32 - 8-bit alpha
+./plugins/mx_dirt_render.dlo: PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+./plugins/mx_dirt_render.ini: ASCII text
+(exit 0)

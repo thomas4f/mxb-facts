@@ -1,0 +1,20 @@
+$ bash "$EVD/rebuild.sh"
+zig.tar.xz: OK
+zig 0.13.0
+1cc95aab56cea10344adcf705464b5fcc3e3c81644e6f4d5a6f3f289e0004ce9  plugins/mx_dirt.dlo
+4ce0b1dfde054a9fc0777af02979f24513b0bf4688fb7ead1f5d8da11a929502  $W/mx_dirt.dll
+d83821b2e449f9580db8bc978eef735cfce7de412c7ad09c3a45cdb43dd07859  plugins/mx_dirt_render.dlo
+9f6e2033ca4d4cb3c9196fded499e64b4f86b43301f819530ed3e292e72757c7  $W/mx_dirt_render.dll
+-- plugins/mx_dirt.dlo vs the rebuild:
+sizes: 431104 431104
+0x80-0x83 (4 bytes): file header TimeDateStamp
+0x67204-0x67207 (4 bytes): debug entry 0 TimeDateStamp
+0x67220-0x67227 (8 bytes): debug entry 0 CodeView build ID (GUID and age)
+16 bytes differ; 0 outside the link-time fields; sizes equal
+-- plugins/mx_dirt_render.dlo vs the rebuild:
+sizes: 222208 222208
+0x80-0x83 (4 bytes): file header TimeDateStamp
+0x34c04-0x34c07 (4 bytes): debug entry 0 TimeDateStamp
+0x34c20-0x34c27 (8 bytes): debug entry 0 CodeView build ID (GUID and age)
+16 bytes differ; 0 outside the link-time fields; sizes equal
+(exit 0)

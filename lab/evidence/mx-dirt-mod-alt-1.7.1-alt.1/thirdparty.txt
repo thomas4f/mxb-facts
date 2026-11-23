@@ -1,0 +1,20 @@
+$ cd "$SRC" && grep -rniE 'copyright|licen[cs]e|public domain|kadenball' NOTICE.md src tests | cut -c1-200; grep -niE 'kadenball|GPL' README.md | head -8 | cut -c1-200
+NOTICE.md:3:**English.** MX Dirt Mod Alt is a modified version of **MX Dirt Mod** by **kadenball**
+NOTICE.md:4:(<https://github.com/kadenball/mx-dirt-mod>), licensed under the GNU General Public License v3.0.
+NOTICE.md:7:changes is in `README.md` and `docs/DEVELOPMENT.md`. Copyright in the original code stays with its author;
+NOTICE.md:8:this version is distributed under the same license (GPL-3.0, see `LICENSE`).
+NOTICE.md:10:**Español.** MX Dirt Mod Alt es una versión modificada de **MX Dirt Mod**, de **kadenball**
+NOTICE.md:11:(<https://github.com/kadenball/mx-dirt-mod>), con licencia GNU General Public License v3.0.
+NOTICE.md:14:completa de cambios está en `README.md` y en `docs/DESARROLLO.md`. El copyright del código original es de
+NOTICE.md:15:su autor; esta versión se distribuye con la misma licencia (GPL-3.0, ver `LICENSE`).
+NOTICE.md:17:MX Bikes is © PiBoSo. This project is not affiliated with or endorsed by PiBoSo, nor endorsed by kadenball.
+NOTICE.md:18:MX Bikes es © PiBoSo. Este proyecto no está afiliado ni avalado por PiBoSo, ni avalado por kadenball.
+5:> Versión alternativa de **[MX Dirt Mod](https://github.com/kadenball/mx-dirt-mod)** de **kadenball** para MX Bikes.
+6:> An alternative version of **[MX Dirt Mod](https://github.com/kadenball/mx-dirt-mod)** by **kadenball** for MX Bikes.
+8:![license](https://img.shields.io/badge/license-GPL--3.0-blue) ![base](https://img.shields.io/badge/based%20on-MX%20Dirt%20Mod%201.7.1-8a5a2b) ![game](https://img.shields.io/badge/MX%20Bikes-Steam%2
+16:**MX Dirt Mod Alt** es una versión alternativa del **MX Dirt Mod** de **kadenball**. No es el mod oficial ni lo reemplaza: parte de su versión 1.7.1 y agrega un menú dentro del juego, herramient
+18:Todo el mérito del sistema de tierra (simulación del suelo, publicación en el terreno del juego, pre-wear, capa blanda, render) es de **kadenball**. Esta versión se construyó encima de ese tra
+20:> **¿Sos kadenball?** Me encantaría colaborar y llevar lo que sirva de acá al mod original. Escribime por Discord: **`fran8035`**.
+24:- **MX Dirt Mod** — [kadenball](https://github.com/kadenball/mx-dirt-mod), GPL-3.0. Autor del mod original y de todo lo que este fork no toca.
+50:- **Tirones al mandar terreno al juego**: el código original verificaba la grilla entera (16 MB) varias veces por envío; después de un reseteo eso congelaba el juego segundos. Primero lo limitam
+(exit 0)

@@ -1,0 +1,11 @@
+$ cd "$SRC" && grep -rnE 'GetProcAddress|GetModuleHandle[AW]?\("|LoadLibrary' src
+src/render/mxdirt_render_content.c:54: FARPROC entry=GetProcAddress(module,"MxDirtBorrowFrame");if(!entry)return 0;
+src/render/mxdirt_dirt_gl.c:141:#define LOAD(field,name) do{PROC f=wglGetProcAddress(name);if((uintptr_t)f<=3||(uintptr_t)f==UINTPTR_MAX)goto fail;memcpy(&p->field,&f,sizeof(f));}while(0)
+src/render/mxdirt_dirt_gl.c:154: {PROC f[4]={wglGetProcAddress("glGenQueries"),wglGetProcAddress("glDeleteQueries"),wglGetProcAddress("glQueryCounter"),wglGetProcAddress("glGetQueryObjectui64v")};int all=1;
+src/render/mxdirt_render_host.c:79: return module?(ElementsFn)(uintptr_t)GetProcAddress(module,"glDrawElements"):NULL;
+src/render/mxdirt_render_host.c:170:  p=NULL;resolved=i<2?(void*)wglGetProcAddress(names[i]):(void*)core_elements;
+src/shared/mxdirt_frame.h:8:   GetProcAddress(module,"MxDirtBorrowFrame"). Both are optional: no core, an
+src/core/mxdirt_menu.inc:180: HMODULE h=GetModuleHandleA("overhaul64.dlo");MenuWetFn f=h?(MenuWetFn)(uintptr_t)GetProcAddress(h,"OverhaulTrackWetness"):NULL;
+src/core/mxdirt_menu.inc:297: typedef int (*StatsFn)(double out[3]);HMODULE r=GetModuleHandleA("mx_dirt_render.dlo");
+src/core/mxdirt_menu.inc:298: StatsFn fn=r?(StatsFn)(uintptr_t)GetProcAddress(r,"MxDirtRenderStats"):NULL;double st[3];
+(exit 0)

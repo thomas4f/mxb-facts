@@ -1,0 +1,23 @@
+$ grep -nE '^(enabled|use_telemetry|use_bike_tyres|record_ghosts|ghost_riders|prewear_riders|online_wear|dump_terrain|online_echo|launcher_key|content_log|dirt_material|raised_dirt_surface)=|^\[' plugins/mx_dirt.ini plugins/mx_dirt_render.ini
+plugins/mx_dirt.ini:11:[active]
+plugins/mx_dirt.ini:13:enabled=1
+plugins/mx_dirt.ini:15:[soil]
+plugins/mx_dirt.ini:47:use_telemetry=1
+plugins/mx_dirt.ini:49:use_bike_tyres=1
+plugins/mx_dirt.ini:73:record_ghosts=1
+plugins/mx_dirt.ini:75:ghost_riders=0
+plugins/mx_dirt.ini:79:prewear_riders=50
+plugins/mx_dirt.ini:106:[menu]
+plugins/mx_dirt.ini:110:[terrain]
+plugins/mx_dirt.ini:118:[online]
+plugins/mx_dirt.ini:124:online_wear=0
+plugins/mx_dirt.ini:126:[debug]
+plugins/mx_dirt.ini:128:dump_terrain=0
+plugins/mx_dirt.ini:131:online_echo=0
+plugins/mx_dirt_render.ini:7:[renderer]
+plugins/mx_dirt_render.ini:9:enabled=1
+plugins/mx_dirt_render.ini:14:dirt_material=1
+plugins/mx_dirt_render.ini:40:launcher_key=
+plugins/mx_dirt_render.ini:60:raised_dirt_surface=1
+plugins/mx_dirt_render.ini:64:content_log=plugins\mx_dirt_render.log
+(exit 0)

@@ -145,7 +145,9 @@
     "author": "FMilesi-Cloud",
     "github": "FMilesi-Cloud/mx-dirt-mod-alt",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "mx-dirt-mod-alt-1.7.1-alt.1.yaml"
+    ],
     "mxb-mods": {
       "post": null,
       "note": "No page found (searched 19 Nov 2026)"

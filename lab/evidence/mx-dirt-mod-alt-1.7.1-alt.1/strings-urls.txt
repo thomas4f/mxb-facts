@@ -1,0 +1,30 @@
+$ for f in plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo; do { strings -n 5 $f; strings -el -n 5 $f; } | grep -niE 'https?://|www\.|\.(com|net|org|io)\b|\.dll'; done
+1710:mx_dirt.dll
+1837:USER32.dll
+1838:ADVAPI32.dll
+1839:api-ms-win-crt-convert-l1-1-0.dll
+1840:api-ms-win-crt-heap-l1-1-0.dll
+1841:api-ms-win-crt-math-l1-1-0.dll
+1842:api-ms-win-crt-private-l1-1-0.dll
+1843:api-ms-win-crt-runtime-l1-1-0.dll
+1844:api-ms-win-crt-stdio-l1-1-0.dll
+1845:api-ms-win-crt-string-l1-1-0.dll
+1846:KERNEL32.dll
+1847:api-ms-win-crt-environment-l1-1-0.dll
+1848:api-ms-win-crt-time-l1-1-0.dll
+728:mx_dirt_render.dll
+860:OPENGL32.dll
+861:USER32.dll
+862:bcrypt.dll
+863:api-ms-win-crt-convert-l1-1-0.dll
+864:api-ms-win-crt-heap-l1-1-0.dll
+865:api-ms-win-crt-math-l1-1-0.dll
+866:api-ms-win-crt-private-l1-1-0.dll
+867:api-ms-win-crt-runtime-l1-1-0.dll
+868:api-ms-win-crt-stdio-l1-1-0.dll
+869:api-ms-win-crt-string-l1-1-0.dll
+870:KERNEL32.dll
+871:api-ms-win-crt-environment-l1-1-0.dll
+872:api-ms-win-crt-time-l1-1-0.dll
+881:opengl32.dll
+(exit 0)

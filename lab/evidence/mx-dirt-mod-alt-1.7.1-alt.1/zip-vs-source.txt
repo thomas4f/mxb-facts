@@ -1,0 +1,42 @@
+$ for p in README.md:README.txt NOTICE.md:NOTICE.txt LICENSE:LICENSE SUPPORTED_EXE.txt:SUPPORTED_EXE.txt install/Install.cmd:Install.cmd install/Uninstall.cmd:Uninstall.cmd install/Install.ps1:install/Install.ps1 install/Uninstall.ps1:install/Uninstall.ps1 launcher/MXDirtLauncher.ps1:launcher/MXDirtLauncher.ps1 'launcher/MX Dirt Mod.cmd:launcher/MX Dirt Mod.cmd' src/core/mx_dirt.ini:plugins/mx_dirt.ini src/render/mx_dirt_render.ini:plugins/mx_dirt_render.ini data/mx_dirt_data/white.tga:plugins/mx_dirt_data/white.tga; do a="${p%%:*}"; b="${p##*:}"; if cmp -s "$SRC/$a" "$b"; then echo "same: $b"; elif cmp -s <(tr -d '\r' < "$SRC/$a") <(tr -d '\r' < "$b"); then echo "same apart from line endings: $b"; else echo "DIFFERENT: $b"; fi; done; cat "$SRC/package.ps1"
+same: README.txt
+same: NOTICE.txt
+same apart from line endings: LICENSE
+same apart from line endings: SUPPORTED_EXE.txt
+same: Install.cmd
+same: Uninstall.cmd
+same apart from line endings: install/Install.ps1
+same: install/Uninstall.ps1
+same: launcher/MXDirtLauncher.ps1
+same: launcher/MX Dirt Mod.cmd
+same: plugins/mx_dirt.ini
+same: plugins/mx_dirt_render.ini
+same: plugins/mx_dirt_data/white.tga
+# Builds both plugins and assembles the release zip in build\.
+#   .\package.ps1 -Version 1.0.0
+param([Parameter(Mandatory)][string]$Version,[string]$Zig='')
+$ErrorActionPreference='Stop'
+$R=$PSScriptRoot; $B="$R\build"
+$zigArg=@{}; if($Zig){ $zigArg.Zig=$Zig }
+& "$R\build.ps1" @zigArg; if(-not $?){ throw 'core build failed' }
+& "$R\build_render.ps1" @zigArg; if(-not $?){ throw 'render build failed' }
+
+$name="MX-Dirt-Mod-Alt-$Version"; $S="$B\$name"
+if(Test-Path $S){ Remove-Item $S -Recurse -Force }
+New-Item -ItemType Directory -Force "$S\plugins","$S\plugins\mx_dirt_data","$S\install","$S\launcher" | Out-Null
+# in-game menu sprite; no font is shipped (see README, "Menu font")
+Copy-Item "$R\data\mx_dirt_data\white.tga" "$S\plugins\mx_dirt_data\"
+Copy-Item "$B\mx_dirt.dll" "$S\plugins\mx_dirt.dlo"
+Copy-Item "$B\mx_dirt_render.dll" "$S\plugins\mx_dirt_render.dlo"
+Copy-Item "$R\src\core\mx_dirt.ini","$R\src\render\mx_dirt_render.ini" "$S\plugins\"
+Copy-Item "$R\install\Install.ps1","$R\install\Uninstall.ps1" "$S\install\"
+Copy-Item "$R\install\Install.cmd","$R\install\Uninstall.cmd" "$S\"
+Copy-Item "$R\launcher\*" "$S\launcher\"
+Copy-Item "$R\LICENSE","$R\SUPPORTED_EXE.txt" "$S\"
+Copy-Item "$R\README.md" "$S\README.txt"
+Copy-Item "$R\NOTICE.md" "$S\NOTICE.txt"
+$zip="$B\$name.zip"; if(Test-Path $zip){ Remove-Item $zip -Force }
+Compress-Archive -Path "$S\*" -DestinationPath $zip
+Get-ChildItem "$S\plugins" -File | ForEach-Object { '{0}  {1}' -f (Get-FileHash $_.FullName).Hash.ToLower(),$_.Name } | Set-Content -Encoding ascii "$B\$name.sha256.txt"
+"$zip"; Get-Content "$B\$name.sha256.txt"
+(exit 0)
