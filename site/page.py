@@ -8,6 +8,9 @@ from rules import (
     SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagsof, verdict)
 from icons import group as icon_group
 from cards import COMMIT, CORR, CORRTIP, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, correction_link, esc, files_table
+# The hint beside every score: one text and one style (.gnote), under the tools list's bar (shell.html, {{GNOTE}}) and in each
+# tool page's Score heading, where it stays on the heading's line so the score box lines up with Key findings beside it.
+GNOTE='Scores are out of 100; higher is better.'
 # The notice on the page of a tool made by the person who runs MXB Facts (a card's by_maintainer).
 MAINT=('<p class="maint"><strong>Made by the maintainer of MXB Facts.</strong> thomas4f, who runs this project, makes this tool. '
        'It is analysed from the same prompt, answers the same questions and is scored by the same fixed costs as every other tool, '
@@ -358,7 +361,7 @@ def score_section(a,name,ver,G,date,gl):
     # Open answers count at their full cost (rules/scores.md, "What we don't know"); the line under the score says how many.
     n=len(G['open'])
     gopen=(f'<p class="gopen">{n} answer{"s" if n>1 else ""} still open count{"" if n>1 else "s"} at full cost: '+', '.join(f'<a href="#q-{a}-{q}">{q}</a>' for q in G['open'])+'</p>') if n and G['kind']=='score' else '<p class="gopen">No answer still open costs points here.</p>' if G['kind']=='score' else ''
-    card=(f'<div class="hcol"><h3 class="sech" id="g-{a}">Score <small class="gdir">out of 100, higher is better</small></h3><div class="scorecard">{score_html(G,a,"card").replace("</a>",best+"</a>",1)}<div class="abars">{bars}</div>{gopen}</div></div>')
+    card=(f'<div class="hcol"><h3 class="sech" id="g-{a}">Score <small class="gnote">{GNOTE}</small></h3><div class="scorecard">{score_html(G,a,"card").replace("</a>",best+"</a>",1)}<div class="abars">{bars}</div>{gopen}</div></div>')
     bpath=f'badge/{a}/{ver}'; purl=f'{SITEURL}{a}/'; t=btitle(name,ver,G,date); opts=''
     for suf,label,draw in BADGES:
         burl=f'{SITEURL}{bpath}{suf}.svg'

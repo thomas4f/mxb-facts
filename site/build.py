@@ -14,7 +14,7 @@ from rules import (
 from icons import mask_url
 from cards import CORRFORM, JUDGE, MM, REG, REPO, SITES, SLUG, VT, check_card, esc, glance, strings
 from page import (
-    BADGES, COMMIT, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
+    BADGES, COMMIT, GNOTE, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
     money_html, prm, share_page, tagrow, tool, tpl)
 CARDS=[  # (card file, page anchor), alphabetical
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
@@ -213,7 +213,7 @@ iconcss=('.mark::before, .mk::before { flex: none } '
                    +f' {{ width: 11px; height: 11px; border-radius: 0; box-shadow: none; background: currentColor; -webkit-mask: {mask_url(ic)} center / contain no-repeat; mask: {mask_url(ic)} center / contain no-repeat }}'
                    for k,(_l,c,ic,_m) in STATES.items())
          +' '.join(f' .g-{k} .gicon {{ display: block; width: calc(var(--gs) * .42); height: calc(var(--gs) * .42); background: #fff; -webkit-mask: {mask_url(STATES[k][2])} center / contain no-repeat; mask: {mask_url(STATES[k][2])} center / contain no-repeat }}' for k in ('malware','notscored')))
-out=(shell.replace('{{ICONCSS}}',iconcss).replace('{{FILTERS}}',filters).replace('{{MARKS}}',marks).replace('{{PICKER}}',picker).replace('{{INDEX}}',('<ul class="tlist">'+''.join(h for _k,h in sorted(rowsh))+'</ul>') if rowsh else '<p class="pending">No tool is analysed yet. The first analyses are under way.</p>').replace('{{TOOLS}}','\n'.join(views))
+out=(shell.replace('{{ICONCSS}}',iconcss).replace('{{FILTERS}}',filters).replace('{{GNOTE}}',f'<p class="gnote">{GNOTE}</p>').replace('{{MARKS}}',marks).replace('{{PICKER}}',picker).replace('{{INDEX}}',('<ul class="tlist">'+''.join(h for _k,h in sorted(rowsh))+'</ul>') if rowsh else '<p class="pending">No tool is analysed yet. The first analyses are under way.</p>').replace('{{TOOLS}}','\n'.join(views))
      .replace('{{MATRIX}}',''.join(mx)).replace('{{TPL}}',tpl).replace('{{PROMPT}}',prm).replace('{{AUTHORS}}',authors))
 assert '{{' not in out
 # Every link inside the page (tags, Compare, key answers, the report's contents bar) lands on an anchor that exists, once.
