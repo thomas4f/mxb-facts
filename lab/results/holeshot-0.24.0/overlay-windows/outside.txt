@@ -1,0 +1,37 @@
+Holeshot-HUD.exe  CreateFile  C:\Users\RUNNER~1\AppData\Local\Temp\Holeshot HUD\logs  PATH NOT FOUND
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs  NAME COLLISION
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\race.jsonl  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-journal  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-shm  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-wal  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\track-pbs  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD\logs  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes  NAME COLLISION
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD.ini.tmp  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards  PATH NOT FOUND
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\board.json  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\holeshot.png  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\sample.png  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mxbo.ini  NAME NOT FOUND
+Holeshot-HUD.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-shm  SUCCESS
+Holeshot-HUD.exe  SetRenameInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD.ini.tmp  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\race.jsonl  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-journal  FAST IO DISALLOWED
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-journal  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-wal  FAST IO DISALLOWED
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-wal  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD.ini.tmp  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\board.json  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\holeshot.png  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\sample.png  SUCCESS

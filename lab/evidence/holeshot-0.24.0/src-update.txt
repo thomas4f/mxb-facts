@@ -1,0 +1,14 @@
+$ cd "$SRC" && grep -nE 'auto_update_on_launch|update::check|apply_on_launch' overlay/src/main.rs; grep -nE 'releases/latest|browser_download_url|"digest"|sha256:|starts_with\("https://github.com|got != rel.digest|fs::copy\(&src_exe|join\(PLUGIN_DLO\)|const UA' overlay/src/update.rs
+284:    if loaded.auto_update_on_launch && !wait_for_game && crate::update::apply_on_launch() {
+288:    if !loaded.auto_update_on_launch {
+289:        crate::update::check();
+17:const UA: &str = "mxbo-overlay";
+215:    let url = format!("https://api.github.com/repos/{REPO}/releases/latest");
+260:        if let Some(url) = json_string(obj, "browser_download_url") {
+264:                    digest: json_string(obj, "digest").unwrap_or_default(),
+307:        .starts_with("https://github.com/leadingtrendtechnologies/holeshothud/releases/download/")
+320:        .strip_prefix("sha256:")
+337:    if got != rel.digest {
+434:    fs::copy(&src_exe, &dst_exe).map_err(|e| format!("Could not replace overlay: {e}"))?;
+437:            let _ = fs::copy(&dlo, dir.join(PLUGIN_DLO));
+(exit 0)

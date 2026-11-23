@@ -1,0 +1,39 @@
+$ cd "$SRC" && grep -nE 'fs::write\(&dest|remove_legacy_plugin|LEGACY_PLUGIN_FILE: &str|PLUGIN_FILE: &str' overlay/src/plugin.rs; grep -nE 'misc|pitboard.cfg|MARKER_FILE: &str|fs::write\(&cfg_path|pitboard_shown_anywhere' overlay/src/stock_pitboard.rs; grep -nE 'BAK_DIR: &str|MANIFEST: &str' overlay/src/game_ui/mod.rs; grep -nE 'write_english_labels\(ui|backup_if_needed\(ui|copy_dir\(bak, ui\)|ui.pkz' overlay/src/game_ui/pack.rs; grep -nE 'english.str\"\)|patch_str_pair\(&raw' overlay/src/game_ui/io.rs; grep -nE 'Copy-Item|Remove-Item' installer/install-plugin.ps1 installer/install.ps1
+11:const PLUGIN_FILE: &str = "Holeshot-HUD.dlo";
+12:const LEGACY_PLUGIN_FILE: &str = "mxbo.dlo";
+171:                    remove_legacy_plugin(game);
+180:    match fs::write(&dest, bytes) {
+184:                remove_legacy_plugin(game);
+192:fn remove_legacy_plugin(game: &Path) {
+2://! An empty `misc/hud/pitboard.cfg` is the game's own override. `holeshot-pitboard`
+3://! beside it marks a file we created, so a foreign `pitboard.cfg` is left alone.
+10:const CFG_FILE: &str = "pitboard.cfg";
+11:const MARKER_FILE: &str = "holeshot-pitboard";
+38:    let want_hidden = crate::config::with_config(|cfg| cfg.pitboard_shown_anywhere());
+48:    game.join("misc").join("hud")
+71:/// Create the empty override and our marker. A `pitboard.cfg` we did not create stays.
+79:    fs::write(&cfg_path, b"")?;
+16:pub const MANIFEST: &str = "holeshot-ui.manifest";
+17:pub const BAK_DIR: &str = "ui.holeshot-bak";
+192:        backup_if_needed(ui, bak)?;
+206:    write_english_labels(ui, bak)?;
+328:            copy_dir(bak, ui)?;
+340:/// does not fall back to `ui.pkz` for chrome while using our `.mnu` colors.
+343:/// does not fall back to `ui.pkz` for chrome while using our `.mnu` colors.
+376:pub(crate) fn backup_if_needed(ui: &Path, bak: &Path) -> Result<(), String> {
+377:    // Keep a complete stock bak. If loose ui/ was wiped, fill bak from ui.pkz.
+416:    let pkz = game.join("ui.pkz");
+12:    let from_bak = bak.map(|b| b.join("english.str")).filter(|p| p.is_file());
+13:    let from_ui = Some(ui.join("english.str")).filter(|p| p.is_file());
+17:        match read_ui_pkz_text(game, "english.str") {
+24:    let patched = patch_str_pair(&raw, "Testing", "Practice");
+26:    write_text(&ui.join("english.str"), &patched)
+installer/install-plugin.ps1:80:    Copy-Item -LiteralPath $PluginSrc -Destination (Join-Path $plugins "Holeshot-HUD.dlo") -Force
+installer/install-plugin.ps1:81:    Remove-Item -LiteralPath (Join-Path $plugins "mxbo.dlo") -Force -ErrorAction SilentlyContinue
+installer/install.ps1:107:    Copy-Item -LiteralPath $pluginSrc -Destination (Join-Path $plugins "Holeshot-HUD.dlo") -Force
+installer/install.ps1:108:    Remove-Item -LiteralPath (Join-Path $plugins "mxbo.dlo") -Force -ErrorAction SilentlyContinue
+installer/install.ps1:114:Copy-Item -LiteralPath $overlaySrc -Destination (Join-Path $InstallDir "Holeshot-HUD.exe") -Force
+installer/install.ps1:115:Copy-Item -LiteralPath (Join-Path $Here "Uninstall.ps1") -Destination (Join-Path $InstallDir "Uninstall.ps1") -Force
+installer/install.ps1:116:Copy-Item -LiteralPath (Join-Path $Here "Uninstall.bat") -Destination (Join-Path $InstallDir "Uninstall.bat") -Force
+installer/install.ps1:117:Copy-Item -LiteralPath (Join-Path $Here "README.txt") -Destination (Join-Path $InstallDir "README.txt") -ErrorAction SilentlyContinue
+(exit 0)

@@ -1,0 +1,12 @@
+$ cd "$SRC" && grep -nE 'GetAsyncKeyState|keyDown\(VK_|GetForegroundWindow' src/layout.cpp; grep -nE 'GetAsyncKeyState\(' overlay/src/main.rs overlay/src/stance.rs; grep -nE 'ClipCursor\(Some' overlay/src/compat.rs
+10:        return (GetAsyncKeyState(vk) & 0x8000) != 0;
+15:        HWND fg = GetForegroundWindow();
+100:    m_layoutMode = keyDown(VK_CONTROL);
+155:    const bool mouseDown = keyDown(VK_LBUTTON);
+overlay/src/main.rs:583:        let lmb = unsafe { GetAsyncKeyState(VK_LBUTTON.0 as i32) < 0 };
+overlay/src/main.rs:597:        let settings_down = unsafe { GetAsyncKeyState(settings_vk) < 0 };
+overlay/src/main.rs:602:        let f9 = unsafe { GetAsyncKeyState(VK_F9.0 as i32) < 0 };
+overlay/src/stance.rs:283:    unsafe { GetAsyncKeyState(vk) < 0 }
+55:                    let _ = ClipCursor(Some(&r));
+514:                    let _ = ClipCursor(Some(&wr));
+(exit 0)

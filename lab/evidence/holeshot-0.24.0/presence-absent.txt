@@ -1,0 +1,29 @@
+$ grep -n '^mod ' "$SRC/overlay/src/main.rs"; grep -c 'mod presence' "$SRC/overlay/src/main.rs"; strings -n 6 zip/Holeshot-HUD.exe | grep -c -iE 'workers\.dev|holeshot-presence'
+3:mod changelog;
+4:mod compat;
+5:mod config;
+6:mod crash_dump;
+7:mod feedback;
+8:mod game_ui;
+9:mod gpu;
+10:mod layout;
+11:mod locale;
+12:mod ping;
+13:mod plugin;
+14:mod record;
+15:mod render;
+16:mod review;
+17:mod settings;
+18:mod shm;
+19:mod stance;
+20:mod startup;
+21:mod stock_pitboard;
+22:mod stream;
+23:mod sys;
+24:mod tray;
+25:mod uninstall;
+26:mod update;
+27:mod util;
+0
+0
+(exit 1)

@@ -1,0 +1,26 @@
+$ cd "$SRC" && grep -nE 'AppCompatFlags|DISABLEDXMAXIMIZEDWINDOWEDMODE|ensureOverlayCompat\(\)' src/plugin.cpp; grep -nE 'AppCompatFlags|const FLAG|fn ensure_disable_fullscreen_optimizations' overlay/src/compat.rs; grep -nE 'ensure_disable_fullscreen_optimizations' overlay/src/main.rs; grep -nE 'RUN_KEY|RUN_GAME|wait-for-game' overlay/src/startup.rs | head -8; echo '--- in the uninstallers:'; grep -nE 'HKCU|AppCompat' installer/uninstall.ps1 overlay/src/uninstall.rs
+67:    void ensureOverlayCompat()
+77:                L"Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers",
+91:        const wchar_t* flag = L"DISABLEDXMAXIMIZEDWINDOWEDMODE";
+246:        ensureOverlayCompat();
+31:const FLAG: &str = "DISABLEDXMAXIMIZEDWINDOWEDMODE";
+355:pub fn ensure_disable_fullscreen_optimizations(exe_path: &str) -> bool {
+362:            w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"),
+389:        let wrote = compat::ensure_disable_fullscreen_optimizations(&path);
+393:        restart_hint = compat::ensure_disable_fullscreen_optimizations(&path);
+471:                    let wrote = compat::ensure_disable_fullscreen_optimizations(&path);
+24:const RUN_KEY: windows::core::PCWSTR = w!("Software\\Microsoft\\Windows\\CurrentVersion\\Run");
+26:const RUN_GAME: windows::core::PCWSTR = w!("Holeshot HUD game");
+46:        remove_value(RUN_GAME);
+53:    set_run_value(RUN_GAME, follow, "--wait-for-game");
+112:/// Detached `--wait-for-game` child. Survives this process exiting.
+121:        .arg("--wait-for-game")
+151:        .arg("--wait-for-game")
+166:/// Real HUD path passed to a temp `--wait-for-game` helper.
+--- in the uninstallers:
+installer/uninstall.ps1:61:            "HKCU:\Software\Valve\Steam",
+installer/uninstall.ps1:124:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD' -Force -ErrorAction SilentlyContinue
+installer/uninstall.ps1:125:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD game' -Force -ErrorAction SilentlyContinue
+overlay/src/uninstall.rs:112:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD' -Force -ErrorAction SilentlyContinue
+overlay/src/uninstall.rs:113:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD game' -Force -ErrorAction SilentlyContinue
+(exit 0)

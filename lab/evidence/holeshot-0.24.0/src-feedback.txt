@@ -1,0 +1,15 @@
+$ cd "$SRC" && grep -nE 'attach_log: true|fn send\(|\\"kind\\":|log_name|fn tick\(settings_open|tickets_lock\(\).is_empty|fn fetch_tickets' overlay/src/feedback.rs; grep -nE '\\"v\\":1,\\"file\\"|\\"evt\\":\\"place\\"|\\"n\\":\{race_num\}' overlay/src/record.rs; grep -n 'public: false' api/feedback.js
+56:            attach_log: true,
+393:pub fn send() {
+714:        "{{\"kind\":\"{kind_s}\",\"rating\":{rating_s},\"message\":\"{}\",\"version\":\"{}\",\"first_version\":\"{}\",\"os\":\"{} {}\"",
+723:            ",\"log_name\":\"{}\",\"log_truncated\":{},\"log\":\"{}\"",
+935:pub fn tick(settings_open: bool) {
+939:    if tickets_lock().is_empty() {
+957:    if tickets_lock().is_empty() {
+1108:fn fetch_tickets(ids: &[String]) -> Result<Vec<Ticket>, String> {
+1167:            "\"id\":\"{}\",\"kind\":\"{}\",\"summary\":\"{}\",\"sent_at\":\"{}\",\"reply\":\"{}\",\"replied_at\":\"{}\",\"thread\":{},\"seen_reply\":{}",
+230:                            "{{\"v\":1,\"file\":\"{}\"}}",
+426:            "{{\"n\":{race_num},\"g\":{game_place},\"p\":{},\"laps\":{laps},\"frac\":{fraction:.3},\"x\":{x:.1},\"z\":{z:.1}}}",
+438:        "{{\"t\":{:.2},\"evt\":\"place\",\"track\":\"{}\",\"len\":{:.0},\"you\":{you},\"live\":{live},\"order\":[{order_json}],\"riders\":[{riders}]}}",
+84:      public: false,
+(exit 0)

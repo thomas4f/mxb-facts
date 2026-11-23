@@ -18,6 +18,7 @@ from page import (
     money_html, prm, share_page, tagrow, tool, tpl)
 CARDS=[  # (card file, page anchor), alphabetical
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
+    ('holeshot-0.24.0.yaml', 'holeshot'),
     ('maxhud-2.2.7.yaml', 'maxhud'),
     ('mx-dirt-mod-1.7.1.yaml', 'mx-dirt-mod'),
     ('mx-dirt-mod-alt-1.7.1-alt.1.yaml', 'mx-dirt-mod-alt'),

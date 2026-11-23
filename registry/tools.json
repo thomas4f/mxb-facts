@@ -105,7 +105,9 @@
     "author": "LeadingTrendTechnologies",
     "github": "LeadingTrendTechnologies/HoleshotHUD",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "holeshot-0.24.0.yaml"
+    ],
     "mxb-mods": {
       "post": 189700,
       "tied_by": "github.com/LeadingTrendTechnologies/HoleshotHUD"

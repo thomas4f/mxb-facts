@@ -1,0 +1,8 @@
+$ echo '== credits in the release README'; grep -niE 'font awesome|licen|credit|thanks' zip/README.txt; echo '== crates in the lock file'; grep -c '^name = ' "$SRC/overlay/Cargo.lock"; echo '== font licence in the repository'; cd "$SRC" && git ls-files | grep -iE 'OFL|licen'
+== credits in the release README
+34:Icons use Font Awesome Free (https://fontawesome.com/license/free)
+== crates in the lock file
+315
+== font licence in the repository
+overlay/hud/fonts/OFL.txt
+(exit 0)

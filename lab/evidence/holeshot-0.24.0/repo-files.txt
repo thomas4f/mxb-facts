@@ -1,0 +1,30 @@
+$ cd "$SRC" && git ls-files | grep -iE 'licen|copying' || echo 'no licence file'; echo '--- prebuilt program files:'; git ls-files | grep -E '\.(dll|lib|exe|dlo|so|wasm|pyc|o|obj)$' | while read f; do file "$f"; done; echo '--- the .pyc header (magic, flags, source mtime, source size) and the size of the script it is named for, in every commit that has them:'; python3 -I -c 'import struct,sys; print(struct.unpack("<IIII", open(sys.argv[1],"rb").read(16)))' overlay/hud/assets/__pycache__/gen_gamepad_xbox.cpython-313.pyc; for c in $(git log --format=%h -- overlay/hud/assets/gen_gamepad_xbox.py); do echo "$c: gen_gamepad_xbox.py $(git show $c:overlay/hud/assets/gen_gamepad_xbox.py | wc -c) bytes"; done; echo '--- names in the .pyc:'; strings -n 8 overlay/hud/assets/__pycache__/gen_gamepad_xbox.cpython-313.pyc | head -12; echo '--- the wasm and the last commits that changed it and its source:'; git log -1 --format='%h %ad %s' --date=short -- web/pkg/mxbo_web_preview_bg.wasm; git log -1 --format='%h %ad %s' --date=short -- web-preview overlay/hud/src; echo '--- history:'; git log --oneline 3ffdbf366023c19e1741178e39b5704a91728819 | wc -l; git log --format='%ad' --date=short 3ffdbf366023c19e1741178e39b5704a91728819 | sed -n '1p;$p'
+no licence file
+--- prebuilt program files:
+overlay/hud/assets/__pycache__/gen_gamepad_xbox.cpython-313.pyc: Byte-compiled Python module for CPython 3.13 (magic: 3571), timestamp-based, .py timestamp: Thu Sep  3 19:32:22 2026 UTC, .py size: 17875 bytes
+web/pkg/mxbo_web_preview_bg.wasm: WebAssembly (wasm) binary module version 0x1 (MVP)
+--- the .pyc header (magic, flags, source mtime, source size) and the size of the script it is named for, in every commit that has them:
+(168627699, 0, 1788463942, 17875)
+3b473e5: gen_gamepad_xbox.py 2203 bytes
+a759049: gen_gamepad_xbox.py 19161 bytes
+--- names in the .pyc:
+r*S r+S!r,S"r-S#r.S$r/S%r0S&r1S&r2S'r3S(r4S)r5S*r6S+r7S(r8S@SAS,
+r@SISJS4
+rASKSLS5
+rK\LS?:X
+Xbox Series pad 
+ charcoal blueprint matching gamepad-ds4.png.
+Silhouette from the dark body in gamepad-xbox-ref.png (blue bg + glow ignored).
+Merge direction: one connected outline including detached horns; LT/RT labels in horns.
+Layout constants are copied into overlay/hud/src/render.rs xbox_gamepad_layout().
+annotationsN)
+ImageChops
+	ImageDraw
+--- the wasm and the last commits that changed it and its source:
+c3ea51e 2026-10-06 Enhance HUD features and update session management
+3ffdbf3 2026-10-26 Ship 0.24.0 so a practice fuel fill and a track guide stay behind Labs.
+--- history:
+95
+2026-10-26
+2026-08-14
+(exit 0)

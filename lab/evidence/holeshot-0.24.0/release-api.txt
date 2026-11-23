@@ -1,0 +1,8 @@
+$ curl -sS https://api.github.com/repos/LeadingTrendTechnologies/HoleshotHUD/releases/tags/v0.24.0 | python3 -I -c 'import json,sys; d=json.load(sys.stdin); print("release", d["tag_name"], "author", d["author"]["login"], "published", d["published_at"]); [print(a["name"], "uploaded by", a["uploader"]["login"], a["digest"], a["updated_at"]) for a in d["assets"]]'; curl -sS 'https://api.github.com/repos/LeadingTrendTechnologies/HoleshotHUD/actions/runs?head_sha=3ffdbf366023c19e1741178e39b5704a91728819' | python3 -I -c 'import json,sys; [print(r["name"], r["event"], r["head_branch"], r["head_sha"], r["conclusion"], r["created_at"], r["updated_at"], r["html_url"]) for r in json.load(sys.stdin)["workflow_runs"]]'
+release v0.24.0 author github-actions[bot] published 2026-10-26T13:04:55Z
+Holeshot-HUD-0.24.0-windows-x64.zip uploaded by github-actions[bot] sha256:6fc20a6367a6bd5d6f27dbabec73978645615fe96bb36458b9272bc8ae7b728c 2026-10-26T13:04:54Z
+HoleshotHUD-Setup.exe uploaded by github-actions[bot] sha256:8faa862dc2b081d6e56b223b06fefecee84e02adee00d3d96ffc9dbd785b2846 2026-10-26T13:04:54Z
+Release push v0.24.0 3ffdbf366023c19e1741178e39b5704a91728819 success 2026-10-26T12:59:32Z 2026-10-26T13:05:24Z https://github.com/LeadingTrendTechnologies/HoleshotHUD/actions/runs/40326818569
+Build push main 3ffdbf366023c19e1741178e39b5704a91728819 skipped 2026-10-26T12:59:31Z 2026-10-26T12:59:32Z https://github.com/LeadingTrendTechnologies/HoleshotHUD/actions/runs/40326815353
+Pages push main 3ffdbf366023c19e1741178e39b5704a91728819 skipped 2026-10-26T12:59:30Z 2026-10-26T12:59:32Z https://github.com/LeadingTrendTechnologies/HoleshotHUD/actions/runs/40326815168
+(exit 0)

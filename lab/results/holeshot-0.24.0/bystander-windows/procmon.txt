@@ -1,0 +1,32 @@
+   28  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD  NAME COLLISION
+   28  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs  NAME COLLISION
+   28  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\save\mxbo.ini  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\shot_0150.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\shot_0330.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-bystander\shot_0598.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegCreateKey  HKCU\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers\D:\a\_temp\mxbfacts\run-bystander\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-bystander\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-bystander\plugins\Holeshot-HUD.dlo  SUCCESS
+ 1034  mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS
+   86  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   81  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\bystander\host.log  FAST IO DISALLOWED
+  164  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\bystander\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\plugins\Holeshot-HUD.dlo  SUCCESS
+   56  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0150.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0150.bmp  SUCCESS
+   52  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0330.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0330.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0598.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-bystander\shot_0598.bmp  SUCCESS
