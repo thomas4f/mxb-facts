@@ -1,0 +1,22 @@
+$ iat.py m/MaxHUD_MXB64.dlo | grep -E 'LoadLibraryA|GetProcAddress|GetModuleHandleW'; objdump -d m/MaxHUD_MXB64.dlo | grep -B8 -E '# 0x180035120|# 0x180035088|# 0x180035080' | grep -E 'call|lea .*# 0x1800'
+0x180035080  KERNEL32.dll!GetModuleHandleW
+0x180035088  KERNEL32.dll!GetProcAddress
+0x180035120  KERNEL32.dll!LoadLibraryA
+   18002ec0c:	48 8d 0d 5d 70 00 00 	lea    0x705d(%rip),%rcx        # 0x180035c70
+   18002ec13:	ff 15 07 65 00 00    	call   *0x6507(%rip)        # 0x180035120
+   18002ec2b:	48 8d 15 4e 70 00 00 	lea    0x704e(%rip),%rdx        # 0x180035c80
+   18002ec35:	ff 15 4d 64 00 00    	call   *0x644d(%rip)        # 0x180035088
+   18002ec45:	ff 15 35 64 00 00    	call   *0x6435(%rip)        # 0x180035080
+   18003274e:	48 8d 0d 6b 5c 01 00 	lea    0x15c6b(%rip),%rcx        # 0x1800483c0
+   180032755:	ff 15 bd 29 00 00    	call   *0x29bd(%rip)        # 0x180035118
+   18003275c:	48 8d 0d 8d 39 00 00 	lea    0x398d(%rip),%rcx        # 0x1800360f0
+   180032763:	ff 15 17 29 00 00    	call   *0x2917(%rip)        # 0x180035080
+   180032772:	48 8d 0d bf 39 00 00 	lea    0x39bf(%rip),%rcx        # 0x180036138
+   180032779:	ff 15 01 29 00 00    	call   *0x2901(%rip)        # 0x180035080
+   18003278c:	48 8d 15 c5 39 00 00 	lea    0x39c5(%rip),%rdx        # 0x180036158
+   180032796:	ff 15 ec 28 00 00    	call   *0x28ec(%rip)        # 0x180035088
+   1800327a0:	48 8d 15 d1 39 00 00 	lea    0x39d1(%rip),%rdx        # 0x180036178
+   1800327aa:	ff 15 d8 28 00 00    	call   *0x28d8(%rip)        # 0x180035088
+   1800327b4:	48 8d 15 dd 39 00 00 	lea    0x39dd(%rip),%rdx        # 0x180036198
+   1800327be:	ff 15 c4 28 00 00    	call   *0x28c4(%rip)        # 0x180035088
+(exit 0)

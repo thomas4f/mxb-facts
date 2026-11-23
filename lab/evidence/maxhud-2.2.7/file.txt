@@ -1,0 +1,43 @@
+$ file m/MaxHUD_MXB64.dlo m/MaxHUD_GPB64.dlo m/MaxHUD_KRP64.dlo m/MaxHUD_WRS64.dlo m/MaxStopRumble.exe m/MaxHUD.pdf; unzip -l 'MaXHUD - v2.2.7.zip'
+m/MaxHUD_MXB64.dlo:  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+m/MaxHUD_GPB64.dlo:  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+m/MaxHUD_KRP64.dlo:  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+m/MaxHUD_WRS64.dlo:  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+m/MaxStopRumble.exe: PE32 executable for MS Windows 6.00 (console), Intel i386, 6 sections
+m/MaxHUD.pdf:        PDF document, version 1.4, 8 page(s)
+Archive:  MaXHUD - v2.2.7.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2023-08-18 21:34   MaXHUD - v2.2.7/
+   685277  2023-08-18 21:18   MaXHUD - v2.2.7/MaxHUD.pdf
+        0  2023-08-18 21:33   MaXHUD - v2.2.7/MaxHUD_data/
+     6296  2017-03-27 00:36   MaXHUD - v2.2.7/MaxHUD_data/dot.tga
+    30485  2020-05-03 15:46   MaXHUD - v2.2.7/MaxHUD_data/FontFix_CqMono.fnt
+    43185  2020-05-03 15:58   MaXHUD - v2.2.7/MaxHUD_data/FontFix_SourceCodeProBold.fnt
+    40451  2020-05-03 16:13   MaXHUD - v2.2.7/MaxHUD_data/FontVar_Audiowide.fnt
+    45483  2020-05-03 16:14   MaXHUD - v2.2.7/MaxHUD_data/FontVar_FallingSkyBold.fnt
+    37038  2015-11-19 22:04   MaXHUD - v2.2.7/MaxHUD_data/FontVar_PiBoSo.fnt
+   788868  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/helmet-bot.tga
+   303800  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/helmet-mxb-bot.tga
+   314864  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/helmet-mxb-top.tga
+   535833  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/helmet-top.tga
+     3900  2017-02-09 22:47   MaXHUD - v2.2.7/MaxHUD_data/link.tga
+     6986  2016-12-14 00:53   MaXHUD - v2.2.7/MaxHUD_data/on-off.tga
+    16428  2010-05-12 12:26   MaXHUD - v2.2.7/MaxHUD_data/pointer.tga
+    16428  2009-08-10 16:27   MaXHUD - v2.2.7/MaxHUD_data/pointer_shadow.tga
+     6268  2017-02-08 23:26   MaXHUD - v2.2.7/MaxHUD_data/poslink.tga
+     5689  2017-02-16 22:25   MaXHUD - v2.2.7/MaxHUD_data/profile-cross.tga
+     6471  2017-02-16 22:23   MaXHUD - v2.2.7/MaxHUD_data/profile-track.tga
+    33992  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/radar-back.tga
+    70266  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/radar-left.tga
+    70269  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/radar-right.tga
+    39278  2016-10-02 00:07   MaXHUD - v2.2.7/MaxHUD_data/radar.tga
+     5782  2017-03-20 22:28   MaXHUD - v2.2.7/MaxHUD_data/susp-warn.tga
+   300544  2023-08-18 21:15   MaXHUD - v2.2.7/MaxHUD_GPB64.dlo
+   272384  2023-08-18 21:31   MaXHUD - v2.2.7/MaxHUD_KRP64.dlo
+   292864  2023-08-18 21:31   MaXHUD - v2.2.7/MaxHUD_MXB64.dlo
+   280576  2023-08-18 21:31   MaXHUD - v2.2.7/MaxHUD_WRS64.dlo
+     9728  2016-08-22 22:36   MaXHUD - v2.2.7/MaxStopRumble.exe
+---------                     -------
+  4269433                     30 files
+(exit 0)

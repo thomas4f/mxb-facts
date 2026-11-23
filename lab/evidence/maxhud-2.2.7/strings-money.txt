@@ -1,0 +1,5 @@
+$ { for f in m/MaxHUD_MXB64.dlo m/MaxHUD_GPB64.dlo m/MaxHUD_KRP64.dlo m/MaxHUD_WRS64.dlo m/MaxStopRumble.exe; do strings -n 6 $f; strings -el -n 6 $f; done; pdftotext -layout m/MaxHUD.pdf -; } | grep -niE '[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat|licen[cs]e key|serial|activat'
+4396:   ●    Activate/deactivate each widget: clicking on the on/off button of each widget.
+4667:         throttle” is what goes into the engine (i.e. corrected buy the ECU with idle control,
+5099:          device, “engine throttle” is what goes into the engine (i.e. corrected buy the ECU with idle control, traction control, anti
+(exit 0)

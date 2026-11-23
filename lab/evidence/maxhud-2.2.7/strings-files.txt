@@ -1,0 +1,42 @@
+$ { strings -n 5 m/MaxHUD_MXB64.dlo; strings -el -n 5 m/MaxHUD_MXB64.dlo; } | grep -nE 'MaxHUD\.ini|MaxHUD\.log|MaxHUD_data|back_%s|\.fnt|\.tga|Save path|Data path|Ini file|Log file|mxbikes|has been reset'; objdump -d m/MaxHUD_MXB64.dlo | grep -E '# 0x180035420|# 0x180035428'
+616:Background : File [back_%s.tga]
+618:back_%s.tga
+653:helmet-mxb-top.tga
+654:helmet-mxb-bot.tga
+667:Background      : File [back_%s.tga]
+677:Background       : File [back_%s.tga]
+690:Background     : File [back_%s.tga]
+724:dot.tga
+736:  szSave path = %s
+737:  Save path   = %s
+738:  Data path   = %s
+739:  Ini file    = %s
+740:  Log file    = %s
+880:MaxHUD.ini has been reset !!
+914:pointer.tga
+915:pointer_shadow.tga
+916:poslink.tga
+917:on-off.tga
+918:link.tga
+919:profile-cross.tga
+933:Background  : File [back_%s.tga]
+976:Background   : File [back_%s.tga]
+982:radar.tga
+983:radar-left.tga
+984:radar-right.tga
+985:radar-back.tga
+1047:susp-warn.tga
+1078:MaxHUD_data\
+1083:mxbikes
+1084:plugins\MaxHUD_data\
+1085:MaxHUD.ini
+1086:MaxHUD.log
+1087:Font*.fnt
+1088:FontFix_*.fnt
+1089:FontVar_*.fnt
+1090:*.tga
+1091:**WARNING** @Startup() : no fixed font found (FontFix_*.fnt)
+1092:**WARNING** @Startup() : no variable font found (FontVar_*.fnt)
+   1800119c1:	ff 15 61 3a 02 00    	call   *0x23a61(%rip)        # 0x180035428
+   180029e9a:	ff 15 80 b5 00 00    	call   *0xb580(%rip)        # 0x180035420
+(exit 0)

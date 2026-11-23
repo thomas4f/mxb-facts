@@ -1,0 +1,9 @@
+$ { strings -n 6 m/MaxHUD_MXB64.dlo; strings -el -n 6 m/MaxHUD_MXB64.dlo; } | grep -nE 'CurrentControlSet|OEMName|registry'; objdump -d m/MaxHUD_MXB64.dlo | grep -c '# 0x180035000'
+216:Unable to open registry for joystick at index 
+217:Unable to query registry key for joystick at index 
+218:Unable to open registry key for joystick at index 
+1066:System\CurrentControlSet\Control\MediaResources\Joystick
+1069:OEMName
+1070:System\CurrentControlSet\Control\MediaProperties\PrivateProperties\Joystick\OEM
+3
+(exit 0)

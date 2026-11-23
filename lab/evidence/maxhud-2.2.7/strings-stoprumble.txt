@@ -1,0 +1,5 @@
+$ strings -n 6 m/MaxStopRumble.exe | grep -nE 'Rumble running|Rumble done|Stopped xinput'
+9:MaxStopRumble running ...
+10:  Stopped xinput device #%d
+11:MaxStopRumble done !
+(exit 0)

@@ -1,0 +1,19 @@
+$ objdump -h m/MaxHUD_MXB64.dlo
+
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00033f28  0000000180001000  0000000180001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        0000f5fe  0000000180035000  0000000180035000  00034400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .data         00000c00  0000000180045000  0000000180045000  00043a00  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .pdata        00002964  0000000180049000  0000000180049000  00044600  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .rsrc         000001e0  000000018004c000  000000018004c000  00047000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .reloc        000005e8  000000018004d000  000000018004d000  00047200  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)

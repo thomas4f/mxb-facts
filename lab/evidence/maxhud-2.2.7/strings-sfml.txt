@@ -1,0 +1,21 @@
+$ { strings -n 6 m/MaxHUD_MXB64.dlo; strings -el -n 6 m/MaxHUD_MXB64.dlo; } | grep -nE 'joystick at index|DirectInput|Joystick$'
+213:No Joystick
+215:Unknown Joystick
+216:Unable to open registry for joystick at index 
+217:Unable to query registry key for joystick at index 
+218:Unable to open registry key for joystick at index 
+219:Unable to query name for joystick at index 
+220:DirectInput not available, falling back to Windows joystick API
+222:DirectInput8Create
+223:Failed to initialize DirectInput: 
+224:Failed to enumerate DirectInput devices: 
+225:Failed to create DirectInput device: 
+226:Failed to set DirectInput device data format: 
+227:Failed to get DirectInput device capabilities: 
+228:Failed to set DirectInput device axis mode: 
+229:Failed to enumerate DirectInput device objects: 
+230:Failed to get DirectInput device state: 
+231:Failed to set DirectInput device axis property range: 
+1066:System\CurrentControlSet\Control\MediaResources\Joystick
+1068:Joystick
+(exit 0)

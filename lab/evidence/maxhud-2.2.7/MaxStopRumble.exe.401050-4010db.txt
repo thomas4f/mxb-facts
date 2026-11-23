@@ -1,0 +1,50 @@
+$ objdump -d 'm/MaxStopRumble.exe' | awk -v a=401050 -v b=4010db '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+  401050:	55                   	push   %ebp
+  401051:	8b ec                	mov    %esp,%ebp
+  401053:	83 e4 f0             	and    $0xfffffff0,%esp
+  401056:	83 ec 28             	sub    $0x28,%esp
+  401059:	a1 04 30 40 00       	mov    0x403004,%eax
+  40105e:	33 c4                	xor    %esp,%eax
+  401060:	89 44 24 24          	mov    %eax,0x24(%esp)
+  401064:	56                   	push   %esi
+  401065:	57                   	push   %edi
+  401066:	68 08 21 40 00       	push   $0x402108
+  40106b:	e8 a0 ff ff ff       	call   0x401010
+  401070:	8b 3d 40 20 40 00    	mov    0x402040,%edi
+  401076:	83 c4 04             	add    $0x4,%esp
+  401079:	33 f6                	xor    %esi,%esi
+  40107b:	0f 1f 44 00 00       	nopl   0x0(%eax,%eax,1)
+  401080:	8d 44 24 10          	lea    0x10(%esp),%eax
+  401084:	0f 57 c0             	xorps  %xmm0,%xmm0
+  401087:	50                   	push   %eax
+  401088:	56                   	push   %esi
+  401089:	0f 29 44 24 18       	movaps %xmm0,0x18(%esp)
+  40108e:	ff 15 44 20 40 00    	call   *0x402044
+  401094:	85 c0                	test   %eax,%eax
+  401096:	75 1e                	jne    0x4010b6
+  401098:	89 44 24 0c          	mov    %eax,0xc(%esp)
+  40109c:	89 44 24 0c          	mov    %eax,0xc(%esp)
+  4010a0:	8d 44 24 0c          	lea    0xc(%esp),%eax
+  4010a4:	50                   	push   %eax
+  4010a5:	56                   	push   %esi
+  4010a6:	ff d7                	call   *%edi
+  4010a8:	56                   	push   %esi
+  4010a9:	68 24 21 40 00       	push   $0x402124
+  4010ae:	e8 5d ff ff ff       	call   0x401010
+  4010b3:	83 c4 08             	add    $0x8,%esp
+  4010b6:	46                   	inc    %esi
+  4010b7:	83 fe 04             	cmp    $0x4,%esi
+  4010ba:	7c c4                	jl     0x401080
+  4010bc:	68 44 21 40 00       	push   $0x402144
+  4010c1:	e8 4a ff ff ff       	call   0x401010
+  4010c6:	8b 4c 24 30          	mov    0x30(%esp),%ecx
+  4010ca:	83 c4 04             	add    $0x4,%esp
+  4010cd:	33 c0                	xor    %eax,%eax
+  4010cf:	5f                   	pop    %edi
+  4010d0:	5e                   	pop    %esi
+  4010d1:	33 cc                	xor    %esp,%ecx
+  4010d3:	e8 04 00 00 00       	call   0x4010dc
+  4010d8:	8b e5                	mov    %ebp,%esp
+  4010da:	5d                   	pop    %ebp
+  4010db:	c3                   	ret
+(exit 0)

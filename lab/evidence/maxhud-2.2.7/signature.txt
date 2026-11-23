@@ -1,0 +1,12 @@
+$ objdump -p m/MaxHUD_MXB64.dlo m/MaxHUD_GPB64.dlo m/MaxHUD_KRP64.dlo m/MaxHUD_WRS64.dlo m/MaxStopRumble.exe | grep -E 'file format|Security Directory'
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+m/MaxHUD_GPB64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+m/MaxHUD_KRP64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+m/MaxHUD_WRS64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+m/MaxStopRumble.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+(exit 0)

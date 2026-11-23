@@ -1,0 +1,7 @@
+$ objdump -s --start-address=0x1800390a0 --stop-address=0x1800390b0 m/MaxHUD_MXB64.dlo
+
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 1800390a0 4d582042 696b6573 00000000 00000000  MX Bikes........
+(exit 0)

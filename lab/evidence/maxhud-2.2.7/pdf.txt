@@ -1,0 +1,27 @@
+$ pdftotext -layout m/MaxHUD.pdf - | grep -nE 'MaXHUD v|AdvancedHUD|share his code|Unzipping|MaxHUD_[A-Z]+64.dlo :|MaxHUD_data :|MaxHUD.pdf :|Copy the MaxHUD_data|creates a MaxHUD.ini|Documents.PiBoSo.MX Bikes|compatibility mode|renamed to MaxHUD.ini|CAPS-LOCK|right clicking|left shift|Logging to MaxHUD.log|erased at startup|TheFatController|Juju|Enables rumble|XInput|vc_redist|Rumble \(not'
+1:                            MaXHUD v 2.2.7 (2023/08/18)
+3:MaXHUD has been inspired by the great AdvancedHUD by random: I credit random for his
+4:great work and his willingness to share his code. Thanks man !
+14:Unzipping the archive you will find:
+23:Copy the MaxHUD_data folder and the relevant .dlo file (e.g. MaxHUD_GPB64.dlo for GPB) to
+30:The plugin creates a MaxHUD.ini file in the data directory corresponding to the game:
+34:    ● C:\Users\<Your Windows Username>\Documents\PiBoSo\MX Bikes\
+35:or simply in the game directory if you’re using “compatibility mode”.
+40:        be kept, renamed to MaxHUD.ini.20130413_223000 (current date and time).
+45:                   https://aka.ms/vs/16/release/vc_redist.x64.exe
+57:    ●    Map                                          ●   Rumble (not visible)
+63:When on the track, pressing CAPS-LOCK will show a menu that will allow to:
+68:   ●    Set widget position: you can move most of the widgets right clicking on an
+69:        active widget (or using left shift + click, for Apple people ...) and dragging it to the
+85:happens): your old MaxHUD.ini file will be renamed to MaxHUD.ini.YYYYMMDD-hhmmss.
+115:helmet (thanks to TheFatController) GPB, KRP and WRS
+116:use the same helmet (thanks to Juju).
+358:         one you use: typically, the joypad you use in its XInput variant.
+404:Enables rumble on rumble-capable XInput devices. Rumble can be driven by different
+423:   ●   xinput_device: cycles through the possible XInput devices. You have to select the
+598:     ●    New helmet for MXB, thanks to TheFatController.
+610:     ●    Added HUDRumble to enable rumble on XInput devices.
+617:     ●    Logging to MaxHUD.log is always now on (tiny file, no impact).
+621:     ●    Fix bug: MaxHUD.log was never erased (hence growing over time). Now it’s erased at startup.
+819:         associate the right XInput device).
+(exit 0)

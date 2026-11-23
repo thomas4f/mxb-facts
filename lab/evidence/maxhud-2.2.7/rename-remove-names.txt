@@ -1,0 +1,18 @@
+$ objdump -s --start-address=0x180039000 --stop-address=0x180039008 m/MaxHUD_MXB64.dlo; objdump -s --start-address=0x180039080 --stop-address=0x180039090 m/MaxHUD_MXB64.dlo; objdump -s --start-address=0x18003ab50 --stop-address=0x18003ab6b m/MaxHUD_MXB64.dlo
+
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 180039000 4d617848 55440000                    MaxHUD..        
+
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 180039080 2559256d 25642d25 48254d25 53000000  %Y%m%d-%H%M%S...
+
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 18003ab50 4d617848 55442e69 6e690000 00000000  MaxHUD.ini......
+ 18003ab60 4d617848 55442e6c 6f6700             MaxHUD.log.     
+(exit 0)

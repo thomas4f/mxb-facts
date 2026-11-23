@@ -1,0 +1,75 @@
+$ for f in m/MaxHUD_MXB64.dlo m/MaxHUD_GPB64.dlo m/MaxHUD_KRP64.dlo m/MaxHUD_WRS64.dlo m/MaxStopRumble.exe; do echo "== $f"; objdump -p $f | grep 'DLL Name'; done
+== m/MaxHUD_MXB64.dlo
+	DLL Name: WINMM.dll
+	DLL Name: XINPUT9_1_0.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: USER32.dll
+	DLL Name: ADVAPI32.dll
+	DLL Name: MSVCP140.dll
+	DLL Name: VCRUNTIME140.dll
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	DLL Name: api-ms-win-crt-utility-l1-1-0.dll
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+== m/MaxHUD_GPB64.dlo
+	DLL Name: WINMM.dll
+	DLL Name: XINPUT9_1_0.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: USER32.dll
+	DLL Name: ADVAPI32.dll
+	DLL Name: MSVCP140.dll
+	DLL Name: VCRUNTIME140.dll
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	DLL Name: api-ms-win-crt-utility-l1-1-0.dll
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+== m/MaxHUD_KRP64.dlo
+	DLL Name: WINMM.dll
+	DLL Name: XINPUT9_1_0.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: USER32.dll
+	DLL Name: ADVAPI32.dll
+	DLL Name: MSVCP140.dll
+	DLL Name: VCRUNTIME140.dll
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	DLL Name: api-ms-win-crt-utility-l1-1-0.dll
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+== m/MaxHUD_WRS64.dlo
+	DLL Name: WINMM.dll
+	DLL Name: XINPUT9_1_0.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: USER32.dll
+	DLL Name: ADVAPI32.dll
+	DLL Name: MSVCP140.dll
+	DLL Name: VCRUNTIME140.dll
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	DLL Name: api-ms-win-crt-utility-l1-1-0.dll
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+== m/MaxStopRumble.exe
+	DLL Name: XINPUT9_1_0.dll
+	DLL Name: VCRUNTIME140.dll
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	DLL Name: api-ms-win-crt-locale-l1-1-0.dll
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+	DLL Name: KERNEL32.dll
+(exit 0)

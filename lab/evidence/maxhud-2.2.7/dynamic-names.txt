@@ -1,0 +1,25 @@
+$ objdump -s --start-address=0x180035c70 --stop-address=0x180035c94 m/MaxHUD_MXB64.dlo; objdump -s --start-address=0x1800360f0 --stop-address=0x1800361b0 m/MaxHUD_MXB64.dlo
+
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 180035c70 64696e70 7574382e 646c6c00 00000000  dinput8.dll.....
+ 180035c80 44697265 6374496e 70757438 43726561  DirectInput8Crea
+ 180035c90 74650000                             te..            
+
+m/MaxHUD_MXB64.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 1800360f0 61007000 69002d00 6d007300 2d007700  a.p.i.-.m.s.-.w.
+ 180036100 69006e00 2d006300 6f007200 65002d00  i.n.-.c.o.r.e.-.
+ 180036110 73007900 6e006300 68002d00 6c003100  s.y.n.c.h.-.l.1.
+ 180036120 2d003200 2d003000 2e006400 6c006c00  -.2.-.0...d.l.l.
+ 180036130 00000000 00000000 6b006500 72006e00  ........k.e.r.n.
+ 180036140 65006c00 33003200 2e006400 6c006c00  e.l.3.2...d.l.l.
+ 180036150 00000000 00000000 496e6974 69616c69  ........Initiali
+ 180036160 7a65436f 6e646974 696f6e56 61726961  zeConditionVaria
+ 180036170 626c6500 00000000 536c6565 70436f6e  ble.....SleepCon
+ 180036180 64697469 6f6e5661 72696162 6c654353  ditionVariableCS
+ 180036190 00000000 00000000 57616b65 416c6c43  ........WakeAllC
+ 1800361a0 6f6e6469 74696f6e 56617269 61626c65  onditionVariable
+(exit 0)

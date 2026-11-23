@@ -1,0 +1,21 @@
+$ objdump -d 'm/MaxHUD_MXB64.dlo' | awk -v a=180029e40 -v b=180029ea0 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180029e42:	41 b8 0a 00 00 00    	mov    $0xa,%r8d
+   180029e48:	48 8d 15 11 0d 01 00 	lea    0x10d11(%rip),%rdx        # 0x18003ab60
+   180029e4f:	48 8d 4c 24 40       	lea    0x40(%rsp),%rcx
+   180029e54:	e8 67 86 fe ff       	call   0x1800124c0
+   180029e59:	48 8d 1d d0 b4 01 00 	lea    0x1b4d0(%rip),%rbx        # 0x180045330
+   180029e60:	48 8b cb             	mov    %rbx,%rcx
+   180029e63:	e8 18 aa fd ff       	call   0x180004880
+   180029e68:	0f 10 4c 24 50       	movups 0x50(%rsp),%xmm1
+   180029e6d:	0f 10 44 24 40       	movups 0x40(%rsp),%xmm0
+   180029e72:	0f 11 0d c7 b4 01 00 	movups %xmm1,0x1b4c7(%rip)        # 0x180045340
+   180029e79:	66 0f 73 d9 08       	psrldq $0x8,%xmm1
+   180029e7e:	66 48 0f 7e c2       	movq   %xmm0,%rdx
+   180029e83:	66 48 0f 7e c8       	movq   %xmm1,%rax
+   180029e88:	48 83 f8 10          	cmp    $0x10,%rax
+   180029e8c:	0f 11 05 9d b4 01 00 	movups %xmm0,0x1b49d(%rip)        # 0x180045330
+   180029e93:	48 0f 43 da          	cmovae %rdx,%rbx
+   180029e97:	48 8b cb             	mov    %rbx,%rcx
+   180029e9a:	ff 15 80 b5 00 00    	call   *0xb580(%rip)        # 0x180035420
+   180029ea0:	41 b8 09 00 00 00    	mov    $0x9,%r8d
+(exit 0)
