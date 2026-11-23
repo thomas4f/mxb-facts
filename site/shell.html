@@ -86,14 +86,14 @@ pre code { padding: 0; background: none }
 @media (max-width: 480px) { .brand { flex: 1; flex-wrap: nowrap } .brand > a:first-child { flex: none } .brand > span { display: none } .topin > .nav { order: 2; width: 100%; margin-left: 0 } .topin { padding-top: 12px } .nav a { padding: 12px 8px 10px } }
 
 /* Marks */
-.mark, .mk, .tag, .money { display: inline-flex; align-items: center; gap: 5px; font: 600 10.5px/1 var(--f-ui); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; padding: 3px 6px; border: 1px solid currentColor; border-radius: var(--r-mark) }
-.mark::before, .mk::before, .tag::before, .money::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; transform: translateY(-.07em) } /* lifted to the middle of the capitals, not of the line box */
+.mark, .mk, .money { display: inline-flex; align-items: center; gap: 5px; font: 600 10.5px/1 var(--f-ui); letter-spacing: .05em; text-transform: uppercase; white-space: nowrap; padding: 3px 6px; border: 1px solid currentColor; border-radius: var(--r-mark) }
+.mark::before, .mk::before, .money::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; transform: translateY(-.07em) } /* lifted to the middle of the capitals, not of the line box */
 .mark.good, .mk.good { color: var(--good); background: var(--good-bg) } .mark.note, .mk.note { color: var(--info); background: var(--info-bg) } .mark.bad, .mk.bad { color: var(--bad); background: var(--bad-bg) }
 .mark.none, .mk.none { color: var(--muted) }
 /* Every mark and state carries its icon as well as its colour, so it reads without colour too: {{ICONCSS}} sets them (STATES in rules.py, drawings in icons.py). */
 /* A dashed box: off by default, on request, open, held back, not allowed or doesn't apply. */
-.mark.none, .mk.none, .tag.nc, .tag.na, .money.na { border-style: dashed }
-.mark.none::before, .tag.nc::before, .tag.na::before, .money.na::before { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor }
+.mark.none, .mk.none, .money.na { border-style: dashed }
+.mark.none::before, .money.na::before { background: transparent; box-shadow: inset 0 0 0 1.5px currentColor }
 
 /* Cards: every boxed surface shares one border, radius and background; the padded ones share one padding. */
 .trow, .tagcard, .intro, .facts, .keys, .wide, .tw { background: var(--surface); border: var(--border); border-radius: var(--r-card) }
@@ -113,8 +113,8 @@ pre code { padding: 0; background: none }
 
 /* Index */
 .sech { font: 700 13px/1.2 var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 }
-.gnote { margin: 4px 0 10px; font: 400 13px var(--f-ui); color: var(--muted) }
-.sech .gnote { margin: 0 0 0 6px; line-height: 1; letter-spacing: 0; text-transform: none }
+/* The hint beside a score heading (GNOTE in site/page.py): on the heading's line, on the tools list and on every tool page. */
+.sech .gnote { margin-left: 6px; font: 400 13px/1 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--muted) }
 .intro { display: flex; flex-direction: column; gap: 14px; padding: var(--pad-card) }
 .intro p { margin: 0; max-width: 62ch }
 /* The two boxes under the headline read as a pair: full-width text at the legend's size, and each box's closing note at its foot, level with the other's. */
@@ -253,7 +253,7 @@ details.sub[open] > summary { margin-bottom: 4px }
 /* A Concern answer shows its cost; Major (the severe tier) orange, with a triangle; Off by default and On request grey and dashed. */
 .mk.off, .mark.off { color: var(--muted); border-style: dashed }
 /* An answer a limit of this analysis affects links down to it; the limit links back to its answers. */
-.limit { font: 600 12px var(--f-ui); white-space: nowrap; margin-left: 2px } .limit::before { content: "↓ " }
+.limit { font: 600 12px var(--f-ui); white-space: nowrap; margin-left: 2px } .limit::before { content: "↓ " } .limit.claims { white-space: normal }
 /* Every answer links the correction form, filled in for that card and question. */
 .report-it { display: inline-block; width: 15px; height: 15px; margin-left: 6px; vertical-align: -3px; background: var(--muted); opacity: .55; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 3.5a1.5 1.5 0 0 1 1.5-1.5h8a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5H7l-3 2.8V11h0a1.5 1.5 0 0 1-1.5-1.5z' fill='none' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2.5 3.5a1.5 1.5 0 0 1 1.5-1.5h8a1.5 1.5 0 0 1 1.5 1.5v6a1.5 1.5 0 0 1-1.5 1.5H7l-3 2.8V11h0a1.5 1.5 0 0 1-1.5-1.5z' fill='none' stroke='%23000' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat } .report-it:hover, .report-it:focus-visible { background: var(--accent); opacity: 1 }
 .report-it.has { display: inline-flex; align-items: center; gap: 3px; width: auto; height: auto; padding: 1px 5px; -webkit-mask: none; mask: none; background: none; border: 1px dashed currentColor; border-radius: var(--r-ctl); color: var(--accent); opacity: 1; font: 700 11px/1.2 var(--f-ui); text-decoration: none; vertical-align: 0 }
@@ -271,9 +271,7 @@ tr:last-child > td, tr:last-child > th { border-bottom: 0 }
 thead th { font: 600 12px/1.3 var(--f-ui); letter-spacing: .05em; text-transform: uppercase; color: var(--muted); background: var(--sunk) }
 .tw table { min-width: 560px }
 .meta table { min-width: 0 } .meta thead { display: none } .meta td:first-child { color: var(--muted); width: 26%; white-space: nowrap }
-.mk, .tag { margin-right: 2px }
-/* Not checked and Not allowed tags are dashed and grey, as their marks are. */
-.tag.nc, .tag.na { color: var(--muted) }
+.mk { margin-right: 2px }
 /* The Money label; what it means shows on hover. */
 .money { color: var(--note); cursor: help }
 .money.na { color: var(--muted) }
@@ -351,7 +349,7 @@ footer p { margin: 0 }
   .says table, .says tbody, .says tr, .says td { display: block }
   .says tr { padding: 10px 0; border-bottom: var(--border) } .says tr:last-child { border-bottom: 0 }
   .says td { border: 0; padding: 3px 12px }
-  .says td:nth-child(3) { font-size: 13px; color: var(--muted) } .says td:nth-child(3)::before { content: "Evidence: "; font-weight: 600 }
+  .says td:has(> .ev) { font-size: 13px; color: var(--muted) } .says td:has(> .ev)::before { content: "Evidence: "; font-weight: 600 }
   .meta td:first-child { white-space: normal; width: 34% }
 }
 /* An open correction: neutral and dashed, like everything still open. */
@@ -391,10 +389,9 @@ table.goodw td:first-child { width: 68% }
 
   <main>
   <section class="view" id="index" data-view>
-    <h2 class="sech">Tools</h2>
+    <h2 class="sech">Tools {{GNOTE}}</h2>
     <div class="tbar"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div>
       <label class="tsort">Sort by <select id="tsort"><option value="name">Name</option><option value="score-hi">Score, highest first</option><option value="score-lo">Score, lowest first</option><option value="date">Newest analysis</option></select></label></div>
-    {{GNOTE}}
     <div>{{INDEX}}</div>
     <details class="more legbox"><summary>How to read the results <span>scores, tags and counts</span></summary>
       <ul class="legend">

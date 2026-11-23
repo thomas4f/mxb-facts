@@ -5,11 +5,11 @@ Everything here turns checked card data (cards.py) and the rules (rules.py) into
 import json, markdown, math, re
 from rules import (
     AREAK, AREAN, CONCERN, D, GCOST, GCOVER, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PFX, PMEANS, QCELL, QIDS, QTXT, ROOT, RUBRICV, SC,
-    SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagsof, verdict)
+    SCHEMA, SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagsof, verdict)
 from icons import group as icon_group
 from cards import COMMIT, CORR, CORRTIP, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, correction_link, esc, files_table
-# The hint beside every score: one text and one style (.gnote), under the tools list's bar (shell.html, {{GNOTE}}) and in each
-# tool page's Score heading, where it stays on the heading's line so the score box lines up with Key findings beside it.
+# The hint beside every score: one text and one style (.gnote), on the line of the tools list's heading (shell.html, {{GNOTE}})
+# and of each tool page's Score heading, where it keeps the score box level with Key findings beside it.
 GNOTE='Scores are out of 100; higher is better.'
 # The notice on the page of a tool made by the person who runs MXB Facts (a card's by_maintainer).
 MAINT=('<p class="maint"><strong>Made by the maintainer of MXB Facts.</strong> thomas4f, who runs this project, makes this tool. '
@@ -21,6 +21,8 @@ def post(h,anchor):
     # What every piece of a tool's page gets after its Markdown is HTML: links open in a new tab, {+} {~} {!} become marks,
     # and {lim:n} and {q:ID} (blocks() writes them) become the tool's own links.
     h=h.replace('<a href="http','<a target="_blank" rel="noopener" href="http')
+    # Card text that names the "What it says vs what it does" section links it.
+    h=h.replace('"What it says vs what it does"',f'<a href="#r-{anchor}-says">What it says vs what it does</a>')
     MK={'+':'good','~':'note','!':'concern'}
     h=re.sub(r'\{([+~!])\} ?', lambda m:state_html(MK[m.group(1)])+' ', h)
     h=re.sub(r'<li>\{lim:(\d+)\} ',lambda m:f'<li id="lim-{anchor}-{m.group(1)}">',h)
@@ -47,11 +49,23 @@ def table(head,rows,cls=''):
 SAYS={'Matches':('good','What it does matches what its docs say'),'Partly':('note','Only part of what its docs say matches what it does'),
       "Doesn't match":('concern','What it does differs from what its docs say; T2 says whether that costs points'),
       'Not checked':('nc','Not checked; the evidence says why'),'Not allowed':('na','The licence forbids checking this')}
-def says_verdict(v):
-    # One "Says vs does" verdict as a mark.
+SAYSQ='T2'  # the answer the claims back: its key question links them, with their count
+SAYSW={'Matches':('matches','match'),'Partly':('partly','partly'),"Doesn't match":("doesn't match","don't match"),'Not checked':('not checked','not checked'),'Not allowed':('not allowed','not allowed')}
+assert set(SAYS)==set(re.match(r'\^\((.*?)\)',SCHEMA['$defs']['block']['oneOf'][3]['properties']['rows']['items']['properties']['Verdict']['pattern']).group(1).split('|')), 'card.schema.json: the "Says vs does" verdicts changed; give each one a mark and a meaning in SAYS (site/page.py)'
+def says_word(v):
+    # The verdict a "Says vs does" row starts with (SAYS); it may add words after its own ("Matches, as far as checked").
     w=next((w for w in SAYS if v==w or v.startswith(w+',')),None)
     assert w, 'a "What it says vs what it does" verdict must start with '+', '.join(SAYS)+': '+v
-    return state_html(SAYS[w][0],SAYS[w][1],inner=esc(v))
+    return w
+def says_verdict(v):
+    # One "Says vs does" verdict as a mark.
+    return state_html(SAYS[says_word(v)][0],SAYS[says_word(v)][1],inner=esc(v))
+def says_link(C,a):
+    # A link to the tool's claims with their count by verdict ("7 claims: 5 match, 1 partly, 1 not checked"), or ''.
+    vs=[says_word(r['Verdict']) for b in C['sections'].get('What it says vs what it does',[]) if 'Verdict' in b.get('table',[]) for r in b['rows']]
+    if not vs: return ''
+    n={w:vs.count(w) for w in SAYS if w in vs}
+    return f'<a class="limit claims" href="#r-{a}-says" title="What its docs say, checked claim by claim">{len(vs)} claim{"s" if len(vs)>1 else ""}: '+', '.join(f'{c} {SAYSW[w][c>1]}' for w,c in n.items())+'</a>'
 def blocks(C,bl,a,area=None):
     # A section's blocks (text, lists, limits, tables) as HTML. In an area section a Concern line or row shows as its
     # costliest answer does ("Concern", "Major", "Off by default", "On request"); Good and Note show as they are.
@@ -398,7 +412,7 @@ def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False):
         detail=ans[len(head):].lstrip('.;').strip()
         frm=', '.join(f'<a href="#q-{a}-{i}">{i}</a>' for i in src)
         items+=(f'<li class="key" id="k-{a}-{k.lower()}"><p class="kq">{q}</p><div class="km">{badge}</div><div class="ka">'
-                f'<p class="kh">{inline(head)}</p>'+(f'<p class="kd">{inline(detail)} <span class="kf">From {frm}</span></p>' if detail else f'<p class="kd"><span class="kf">From {frm}</span></p>')+
+                f'<p class="kh">{inline(head)}</p>'+(f'<p class="kd">{post(inline(detail),a)}'+(f' {says_link(C,a)}' if SAYSQ in src else '')+f' <span class="kf">From {frm}</span></p>' if detail else f'<p class="kd"><span class="kf">From {frm}</span></p>')+
                 ''.join(f'<p class="kc"><a class="mark corr" href="#r-{a}-corr" title="{CORRTIP}">Under review #{n}</a></p>' for n in dict.fromkeys(n for i in src for n in CORR.get(f,{}).get(i,[])))+
                 '</div></li>')
     keys=f'<h3 class="sech" id="k-{a}">Key questions</h3><ol class="keys">{items}</ol>'
