@@ -67,7 +67,8 @@ function Invoke-Run($name, $exe, [string[]]$exeArgs, $seconds) {
   Start-Sleep 8
   $sp = @{ FilePath = (Join-Path $run $exe); WorkingDirectory = $run; PassThru = $true
           RedirectStandardOutput = "$o\host.log"; RedirectStandardError = "$work\$name-stderr.log" }
-  if ($exeArgs) { $sp.ArgumentList = $exeArgs }
+  # Start-Process joins the arguments with spaces, so one with a space (a --click text) is quoted to stay one argument.
+  if ($exeArgs) { $sp.ArgumentList = $exeArgs | ForEach-Object { if ($_ -match '\s') { '"' + $_ + '"' } else { $_ } } }
   $p = Start-Process @sp
   if (-not $p.WaitForExit($seconds * 1000)) {
     & taskkill /T /F /PID $p.Id | Out-Null

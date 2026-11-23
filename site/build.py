@@ -19,6 +19,7 @@ from page import (
 CARDS=[  # (card file, page anchor), alphabetical
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
     ('maxhud-2.2.7.yaml', 'maxhud'),
+    ('mx-dirt-mod-1.7.1.yaml', 'mx-dirt-mod'),
     ('mx-dirt-mod-alt-1.7.1-alt.1.yaml', 'mx-dirt-mod-alt'),
     ('mxb-damage-1.3.0.yaml', 'mxb-damage'),
     ('mxb-discord-rpc-2024-10-06.yaml', 'mxb-discord-rpc'),
@@ -116,7 +117,6 @@ for f,a in CARDS:
 used=[c for c in CATS if any(p[0]==c for p in PICK)]
 filters='<button type="button" class="chip on" data-cat="">All <span>'+str(len(PICK))+'</span></button>'+''.join(f'<button type="button" class="chip" data-cat="{c}">{c} <span>{sum(1 for p in PICK if p[0]==c)}</span></button>' for c in used)
 picker=''.join(f'<div class="pkg"><span class="pkh">{c}</span><div class="pks">'+''.join(f'<label class="pk"><input type="checkbox" id="pk-{a}" value="{a}"> {nm}</label>' for _c,nm,a in sorted((p for p in PICK if p[0]==c),key=lambda p:p[1].lower()))+'</div></div>' for c in used) or '<p class="pending">No tool is analysed yet, so there is nothing to compare.</p>'
-MC={'+':'good','~':'note','!':'bad'}
 AREAS=[]
 for i,ar,_ in QS:
     if ar not in AREAS: AREAS.append(ar)
@@ -155,9 +155,9 @@ for ar in AREAS:
                 ch=ST.get(i); cost=f' ({"±0" if ch[1] else "−"+str(ch[0])})' if ch else ' (±0)' if v in ('Yes','No','Partly') and i in GCOST else ''
                 cells+=f'<td data-t="{a}"><a class="mark {m.group(1)}" href="#q-{a}-{i}" title="{tip}">{m.group(2)}{cost}</a></td>'
                 continue
-            # No mark: its grey state, as in the answer (Held back when a rule-9 item touches it).
-            if mk is None: word,cls=STATES[{'NC':'held' if i in HELDS[a] else 'nc','NA':'na','DNA':'dna'}[v]][:2]
-            else: cls,word=MC[mk],v
+            # Good or Note, as in the answer; with no mark, its grey state (Held back when a rule-9 item touches it). The verdict
+            # (Yes, No, Partly, ...) is in the tip, as the answer text is beside the mark on the tool page.
+            word,cls=STATES[{'+':'good','~':'note'}[mk] if mk else {'NC':'held' if i in HELDS[a] else 'nc','NA':'na','DNA':'dna'}[v]][:2]
             cells+=f'<td data-t="{a}"><a class="mark {cls}" href="#q-{a}-{i}" title="{tip}">{word}</a></td>'
         mx.append(f'<tr><th scope="row"><span class="qid">{i}</span> {qt}</th>{cells}</tr>')
 mx.append('</tbody></table>')

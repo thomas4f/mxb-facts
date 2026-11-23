@@ -1,0 +1,5 @@
+1425625 content_ready dirt_material=1 strength=135 loose=55 fade=75..100 soft_layer=1
+1425625 audit exe_hash_mismatch code=2 thread=7732 tick=1425625 a=0x7ff6a6630000 b=0x69000 slot=4294967295 reason=0
+1425625 audit gate_fail code=3 thread=7732 tick=1425625 a=0x0 b=0x1 slot=4294967295 reason=0
+1425640 lifecycle event=7 generation=0
+1425640 scene_retired

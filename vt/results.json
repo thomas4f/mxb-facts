@@ -337,6 +337,118 @@
         "permalink": "https://www.virustotal.com/gui/file/33db97d2b6ea54eea18fb23c847407b489d5b7383aa9919867d5fee2a12285d9"
       }
     },
+    "mx-dirt-mod-1.7.1.yaml": {
+      "2b496d6fa60d0e1b81c3d67c15b83f0718aad2300638bc8bce970f837cff6c38": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/2b496d6fa60d0e1b81c3d67c15b83f0718aad2300638bc8bce970f837cff6c38"
+      },
+      "78984f26d03176278b7a7b2597aca239adac6b82fa7d4cdd062c857c27cbe337": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/78984f26d03176278b7a7b2597aca239adac6b82fa7d4cdd062c857c27cbe337"
+      },
+      "527d75c3c6dd709308c2bf104a61e36dd321fa05ffee329006cb06d2d5016e0e": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/527d75c3c6dd709308c2bf104a61e36dd321fa05ffee329006cb06d2d5016e0e"
+      },
+      "b199fda79938864bfc895c4f2b0f9f8a805a513480c397a3dc8f63618e9eaae6": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/b199fda79938864bfc895c4f2b0f9f8a805a513480c397a3dc8f63618e9eaae6"
+      },
+      "88af0ebe23c63a4b52870d25a46c19b646a7232e498b6e47afafb64758dd6e87": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/88af0ebe23c63a4b52870d25a46c19b646a7232e498b6e47afafb64758dd6e87"
+      },
+      "217153b2f4088046d33b94513b36e0f1073b39165d82f5f3580ee047038d56a5": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/217153b2f4088046d33b94513b36e0f1073b39165d82f5f3580ee047038d56a5"
+      },
+      "8be639c8736b3838e6523cc961dc605458e062f926a8690f558512dec875e90c": {
+        "found": true,
+        "flagged": 0,
+        "engines": 61,
+        "flagged_by": [],
+        "last_scanned": "2026-11-14",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/8be639c8736b3838e6523cc961dc605458e062f926a8690f558512dec875e90c"
+      },
+      "2730860726a607b26348ca6d8c22882b9e8a15edd19167bcbc515b694fdfc8c4": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/2730860726a607b26348ca6d8c22882b9e8a15edd19167bcbc515b694fdfc8c4"
+      },
+      "74afffc8cef848e9d2af5161cb4688e730575c5a10c2cf31059ecd360fb26855": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/74afffc8cef848e9d2af5161cb4688e730575c5a10c2cf31059ecd360fb26855"
+      },
+      "5c95eb371b09dae729ae53e4ff8a1446a317bb1625a057a0cd9771f150488379": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/5c95eb371b09dae729ae53e4ff8a1446a317bb1625a057a0cd9771f150488379"
+      },
+      "da31aa93ff73c5fdf20e0185dd8114972debee25fa8e5a659671f438b162c39f": {
+        "found": true,
+        "flagged": 0,
+        "engines": 61,
+        "flagged_by": [],
+        "last_scanned": "2026-11-18",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/da31aa93ff73c5fdf20e0185dd8114972debee25fa8e5a659671f438b162c39f"
+      },
+      "af75cec63f2b6a8a0aa392a36e32363170f8da136d5ae6d8ae033fedbf29afe5": {
+        "found": true,
+        "flagged": 0,
+        "engines": 61,
+        "flagged_by": [],
+        "last_scanned": "2026-11-14",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/af75cec63f2b6a8a0aa392a36e32363170f8da136d5ae6d8ae033fedbf29afe5"
+      },
+      "4109a6c60ea168f9f03af3c7d26ed642a331fa8971bde060bedcde5eb7a3ffca": {
+        "found": false,
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/4109a6c60ea168f9f03af3c7d26ed642a331fa8971bde060bedcde5eb7a3ffca"
+      },
+      "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986": {
+        "found": true,
+        "flagged": 0,
+        "engines": 61,
+        "flagged_by": [],
+        "last_scanned": "2026-11-22",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986"
+      },
+      "c5eb65307d0c2d303609e8909bbd44a344fcd2c6e28dad5c1cf26a488897515c": {
+        "found": true,
+        "flagged": 0,
+        "engines": 60,
+        "flagged_by": [],
+        "last_scanned": "2026-11-14",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45105252096",
+        "permalink": "https://www.virustotal.com/gui/file/c5eb65307d0c2d303609e8909bbd44a344fcd2c6e28dad5c1cf26a488897515c"
+      }
+    },
     "mx-dirt-mod-alt-1.7.1-alt.1.yaml": {
       "519a65ac9c33457c916e59282411b1fcf14cb34ce08b4e78f03030193a64bea4": {
         "found": false,

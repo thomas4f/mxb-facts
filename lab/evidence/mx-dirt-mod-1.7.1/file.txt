@@ -1,0 +1,28 @@
+$ unzip -l MX-Dirt-Mod-1.7.1.zip; file plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo install/*.ps1 launcher/*.ps1 *.cmd launcher/*.cmd
+Archive:  MX-Dirt-Mod-1.7.1.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     4161  2026-11-08 20:21   install\Install.ps1
+     2824  2026-11-16 20:04   install\Uninstall.ps1
+      126  2026-11-06 00:23   launcher\MX Dirt Mod.cmd
+    22928  2026-11-16 20:19   launcher\MXDirtLauncher.ps1
+   440832  2026-11-16 20:47   plugins\mx_dirt.dlo
+     5323  2026-11-16 20:00   plugins\mx_dirt.ini
+   270336  2026-11-16 20:47   plugins\mx_dirt_render.dlo
+     2830  2026-11-16 20:19   plugins\mx_dirt_render.ini
+      101  2026-11-06 00:23   Install.cmd
+    35149  2026-11-08 20:21   LICENSE
+    31281  2026-11-16 20:47   README.txt
+      269  2026-11-06 00:23   SUPPORTED_EXE.txt
+      103  2026-11-06 00:23   Uninstall.cmd
+---------                     -------
+   816263                     13 files
+plugins/mx_dirt.dlo:         PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+plugins/mx_dirt_render.dlo:  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+install/Install.ps1:         ASCII text
+install/Uninstall.ps1:       ASCII text
+launcher/MXDirtLauncher.ps1: ASCII text, with very long lines (484)
+Install.cmd:                 DOS batch file, ASCII text, with CRLF line terminators
+Uninstall.cmd:               DOS batch file, ASCII text, with CRLF line terminators
+launcher/MX Dirt Mod.cmd:    DOS batch file, ASCII text, with CRLF line terminators
+(exit 0)

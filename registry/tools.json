@@ -132,7 +132,9 @@
     "author": "kadenball",
     "github": "kadenball/mx-dirt-mod",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "mx-dirt-mod-1.7.1.yaml"
+    ],
     "mxb-mods": {
       "post": 197551,
       "tied_by": "github.com/kadenball/mx-dirt-mod"

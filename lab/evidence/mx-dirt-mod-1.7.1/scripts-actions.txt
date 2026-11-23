@@ -1,0 +1,26 @@
+$ grep -nE 'Move-Item|Copy-Item|Remove-Item|Start-Process|HKCU|HKLM|Set-ItemProperty|New-ItemProperty|CreateShortcut|Unblock-File|libraryfolders|testing\.dfm|Retire|living_dirt' install/Install.ps1 install/Uninstall.ps1 launcher/MXDirtLauncher.ps1 Install.cmd Uninstall.cmd 'launcher/MX Dirt Mod.cmd' | cut -c1-260
+install/Install.ps1:11:    $roots=@(); try{ $s=(Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath; if($s){ $s=$s -replace '/','\'; $roots+=$s
+install/Install.ps1:12:        $vdf="$s\steamapps\libraryfolders.vdf"; if(Test-Path $vdf){ $roots+=(Select-String -Path $vdf -Pattern '"path"\s+"([^"]+)"' | % { $_.Matches[0].Groups[1].Value -replace '\\\\','\' }) } } }catch{}
+install/Install.ps1:21:    Get-ChildItem $Here -Recurse -File -ErrorAction SilentlyContinue | Unblock-File -ErrorAction SilentlyContinue
+install/Install.ps1:31:    function Backup($f){ if(Test-Path $f){ Copy-Item $f $B -Recurse -Force } }
+install/Install.ps1:32:    function Retire($f){ if(Test-Path $f){ Move-Item $f $B -Force } }
+install/Install.ps1:35:    foreach($n in 'mxb_reflex_active.dlo','mxb_reflex_renderer.dlo','living_dirt.dlo','mxb_reflex_runtime_probe.dlo','mxb_publication_probe.dlo','mxb_scoped_render_probe.dlo'){ Retire "$P\$n" }
+install/Install.ps1:38:    Copy-Item "$Here\plugins\mx_dirt.dlo","$Here\plugins\mx_dirt_render.dlo" $P -Force
+install/Install.ps1:40:    foreach($n in 'mx_dirt.ini','mx_dirt_render.ini'){ if(-not (Test-Path "$P\$n")){ Copy-Item "$Here\plugins\$n" $P } }
+install/Install.ps1:43:    Copy-Item "$Here\launcher\*" $L -Recurse -Force
+install/Install.ps1:45:        $ws=New-Object -ComObject WScript.Shell; $lnk=$ws.CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\MX Dirt Mod.lnk")
+install/Uninstall.ps1:12:        # every Steam library (games installed on another drive are listed in libraryfolders.vdf)
+install/Uninstall.ps1:14:            try{ $s=(Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath; if($s){ $s=$s -replace '/','\'; $roots+=$s
+install/Uninstall.ps1:15:                $vdf="$s\steamapps\libraryfolders.vdf"; if(Test-Path $vdf){ $roots+=(Select-String -Path $vdf -Pattern '"path"\s+"([^"]+)"' | ForEach-Object { $_.Matches[0].Groups[1].Value -replace '\\\\','\' }) } } }catch{}
+install/Uninstall.ps1:26:    foreach($n in 'mx_dirt.dlo','mx_dirt_render.dlo','mx_dirt.ini','mx_dirt_render.ini','mx_dirt.jsonl','mx_dirt_render.log','mx_dirt_launcher','mx_dirt_soft','mx_dirt_terrain'){ if(Test-Path "$P\$n"){ Move-Item "$P\$n" $B -Force } }
+install/Uninstall.ps1:27:    $lnk="$([Environment]::GetFolderPath('Desktop'))\MX Dirt Mod.lnk"; if(Test-Path $lnk){ Move-Item $lnk $B -Force }
+launcher/MXDirtLauncher.ps1:17:    $roots=@(); try{ $s=(Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath; if($s){ $s=$s -replace '/','\'; $roots+=$s
+launcher/MXDirtLauncher.ps1:18:        $vdf="$s\steamapps\libraryfolders.vdf"; if(Test-Path $vdf){ $roots+=(Select-String -Path $vdf -Pattern '"path"\s+"([^"]+)"' | % { $_.Matches[0].Groups[1].Value -replace '\\\\','\' }) } } }catch{}
+launcher/MXDirtLauncher.ps1:31:else{ $Ini=@{active="$Plugins\mxb_reflex_active.ini";renderer="$Plugins\mxb_reflex_renderer.ini";ld="$Plugins\living_dirt.ini"} }
+launcher/MXDirtLauncher.ps1:58:    catch{ [IO.File]::WriteAllLines($path,$new,$Enc); Remove-Item $tmp -Force -ErrorAction SilentlyContinue }
+launcher/MXDirtLauncher.ps1:126:Row 'Track' $track 'Tracks with saved wear (testing.dfm). Reset moves the file to a backup folder - nothing is deleted.'
+launcher/MXDirtLauncher.ps1:148:    Get-ChildItem $ProfileDir -Recurse -Filter testing.dfm -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending |
+launcher/MXDirtLauncher.ps1:177:        foreach($k in $Ini.Keys){ Copy-Item $Ini[$k] $d }; $script:BackedUp=$true }
+launcher/MXDirtLauncher.ps1:214:        Start-Process 'steam://rungameid/655500'; $f.Close() }catch{ [Windows.Forms.MessageBox]::Show("Could not start:`n$($_.Exception.Message)",'MX Dirt Mod','OK','Error') | Out-Null } })
+launcher/MXDirtLauncher.ps1:220:    Move-Item $p "$d\$n-$(Get-Date -Format 'yyyyMMdd-HHmmss').dfm"
+(exit 0)
