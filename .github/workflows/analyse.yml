@@ -12,7 +12,7 @@ name: Analyse a tool
 #
 # The tool under test never runs where Claude runs. A short first pass ("plan") reads the release's licence and readme and
 # writes which files to run and how (tools/check_plan.py checks it); nothing runs when the licence forbids analysis (rule 6).
-# A job with no keys downloads the release files once ("fetch", tools/fetch_release.py, which also reads MEGA links). A throwaway Windows machine ("windows"), with no keys and no write access, runs the plugins in the real game (the public
+# A job with no keys downloads the release files once ("fetch", tools/fetch_release.py, which also reads MEGA file and folder links). A throwaway Windows machine ("windows"), with no keys and no write access, runs the plugins in the real game (the public
 # demo, lab/real-game/windows/) and what that can't do in the plugin test host (lab/plugin-test-host/windows/), and hands
 # back only the evidence. The full analysis ("analyse") reads that evidence and
 # untrusted files (releases, READMEs, pages) in a job that can only read the repository, with no git credentials kept in the
@@ -80,7 +80,7 @@ jobs:
         with: { persist-credentials: false }
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with: { python-version: "3.12" }
-      - run: pip install -r requirements.txt claude-agent-sdk==0.2.187
+      - run: pip install -r requirements.txt claude-agent-sdk==0.2.187 cryptography==44.0.2
       - name: Plan the Windows run with Claude
         env:
           TOOL: ${{ inputs.tool }}
@@ -104,7 +104,8 @@ jobs:
 
             Write $RUNNER_TEMP/plan.json, as lab/plugin-test-host/windows/README.md describes ("The plan"): the game, the
             release files by download URL (a direct https link, or a MEGA file link https://mega.nz/file/<id>#<key> as
-            the page gives it; tools/fetch_release.py downloads both) and SHA-256, a real-game run per sensible way to use the plugins (ride
+            the page gives it, or for a file in a MEGA folder the link that `python3 -I tools/fetch_release.py list <folder link>`
+            prints for it; `python3 -I tools/fetch_release.py get <link> <folder>` downloads any of them and prints its SHA-256) and SHA-256, a real-game run per sensible way to use the plugins (ride
             and press their hotkeys; the bare demo runs as the baseline on its own), a test-host case for what the real
             game can't do on cue (--crash, --helmet when a plugin reacts to them, the bystander plugin's checks, with
             victim.dlo last), and the apps (.exe) that start without an account or the real game. Then stop.
@@ -118,7 +119,7 @@ jobs:
           python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no"))' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: plan, path: "${{ runner.temp }}/plan.json", retention-days: 7 }
-  # The release files the plan names, downloaded once (plain https links and MEGA file links, tools/fetch_release.py) and
+  # The release files the plan names, downloaded once (plain https links and MEGA file and folder links, tools/fetch_release.py) and
   # checked against their SHA-256, for the Windows run and the VirusTotal lookup. No key, and nothing downloaded is run.
   fetch:
     needs: plan

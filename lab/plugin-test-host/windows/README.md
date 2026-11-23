@@ -10,7 +10,7 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 1. Claude's short first pass reads the release's licence and readme and writes **the plan** (below). It plans no runs
    when the licence forbids analysis (rule 6). `tools/check_plan.py` checks the plan before anything runs.
 2. A Linux job builds `mxbikes.exe`, `gpbikes.exe` and `victim.dlo` from `../src/` with `../src/build.sh`, and another
-   downloads the release files (`tools/fetch_release.py`: a plain https link or a MEGA file link), checks each against
+   downloads the release files (`tools/fetch_release.py`: a plain https link, a MEGA file link or a file in a MEGA folder), checks each against
    the plan's SHA-256 and hands them on with a `release.json` listing them.
 3. The Windows job runs the plan's real-game runs (`../../real-game/windows/run.ps1`, with the bare demo as the
    baseline), then its cases and apps with `run.ps1`. It downloads Process Monitor and Mesa's software OpenGL (llvmpipe, the renderer the Wine
@@ -35,8 +35,9 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 ```
 
 - `game`: `mxbikes` or `gpbikes` (a GP Bikes plugin runs in `gpbikes.exe`).
-- `files`: the files players download, by URL and SHA-256 (at most 5): a direct https link, or a MEGA file link
-  (`https://mega.nz/file/<id>#<key>`) as the tool's page gives it. Each is saved under its name (a MEGA file under its
+- `files`: the files players download, by URL and SHA-256 (at most 5): a direct https link, a MEGA file link
+  (`https://mega.nz/file/<id>#<key>`) as the tool's page gives it, or a file in a MEGA folder
+  (`https://mega.nz/folder/<id>#<key>/file/<handle>`, as `tools/fetch_release.py list <folder link>` prints it). Each is saved under its name (a MEGA file under its
   own), with characters other than letters, digits, spaces and `._+()-` replaced by `_`; `rel\<that name>\` holds it unpacked.
 - `realgame`: a run of the plugins in the real game per sensible way to use them: ride for `ride` seconds (10 to 300)
   and press each key (xdotool's names, as `games.json` uses them) at its second. The bare demo runs first as `baseline`,
