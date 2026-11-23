@@ -113,6 +113,7 @@ pre code { padding: 0; background: none }
 
 /* Index */
 .sech { font: 700 13px/1.2 var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 }
+.gnote { margin: 4px 0 10px; font: 400 13px var(--f-ui); color: var(--muted) }
 .sech .gdir { font: 400 12px var(--f-ui); letter-spacing: 0; text-transform: none; margin-left: 6px }
 .intro { display: flex; flex-direction: column; gap: 14px; padding: var(--pad-card) }
 .intro p { margin: 0; max-width: 62ch }
@@ -384,9 +385,10 @@ table.goodw td:first-child { width: 68% }
 
   <main>
   <section class="view" id="index" data-view>
-    <h2 class="sech">Tools <small class="gdir">score out of 100, higher is better</small></h2>
+    <h2 class="sech">Tools</h2>
     <div class="tbar"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div>
       <label class="tsort">Sort by <select id="tsort"><option value="name">Name</option><option value="score-hi">Score, highest first</option><option value="score-lo">Score, lowest first</option><option value="date">Newest analysis</option></select></label></div>
+    <p class="gnote">Scores are out of 100; higher is better.</p>
     <div>{{INDEX}}</div>
     <details class="more legbox"><summary>How to read the results <span>scores, tags and counts</span></summary>
       <ul class="legend">
