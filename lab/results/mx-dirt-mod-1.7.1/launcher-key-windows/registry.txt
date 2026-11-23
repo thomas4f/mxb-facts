@@ -1,0 +1,2 @@
+mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-launcher-key\mxbikes.exe  SUCCESS

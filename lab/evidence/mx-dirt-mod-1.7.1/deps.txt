@@ -1,0 +1,28 @@
+$ cd "$SRC" && grep -nE 'Zig|zig' README.md build.ps1 build_render.ps1 | cut -c1-200; grep -rliE 'copyright|licensed under|SPDX' src || echo 'no copyright or licence header in src/'
+README.md:477:You need [Zig](https://ziglang.org/) 0.13 or newer on `PATH`; it is used as the C compiler. In PowerShell:
+build.ps1:3:# Needs zig (zig cc). Default: `zig` on PATH; pass -Zig <path to zig.exe> otherwise.
+build.ps1:5:  [string]$Zig = '',
+build.ps1:13:if (-not $Zig) {
+build.ps1:14:  $cmd = Get-Command zig -ErrorAction SilentlyContinue
+build.ps1:15:  if ($cmd) { $Zig = $cmd.Source }
+build.ps1:17:    # Fallback: the zig bundled next to this checkout (..\..\work\build-libs\ziglang).
+build.ps1:18:    $bundled = Join-Path $root '..\..\work\build-libs\ziglang\zig.exe'
+build.ps1:19:    if (Test-Path $bundled) { $Zig = (Resolve-Path $bundled).Path }
+build.ps1:22:if (-not $Zig -or -not (Test-Path $Zig)) { throw 'zig not found: put zig on PATH or pass -Zig <path>' }
+build.ps1:25:$env:ZIG_GLOBAL_CACHE_DIR = Join-Path $OutDir 'zig-global-cache'
+build.ps1:26:$env:ZIG_LOCAL_CACHE_DIR = Join-Path $OutDir 'zig-local-cache'
+build.ps1:49:& $Zig @flags @units @libs -o $dll
+build_render.ps1:2:#   .\build_render.ps1                 # zig from PATH, else the bundled zig next to this repo
+build_render.ps1:3:#   .\build_render.ps1 -Zig C:\path\zig.exe
+build_render.ps1:4:param([string]$Zig='')
+build_render.ps1:9:if(-not $Zig){
+build_render.ps1:10:    $onPath=Get-Command zig -ErrorAction SilentlyContinue
+build_render.ps1:11:    if($onPath){ $Zig=$onPath.Source }
+build_render.ps1:12:    else{ $Zig=Join-Path $R '..\..\work\build-libs\ziglang\zig.exe' }
+build_render.ps1:14:if(-not (Test-Path $Zig)){ throw "zig not found: $Zig (pass -Zig <path to zig.exe>)" }
+build_render.ps1:17:$env:ZIG_LOCAL_CACHE_DIR=Join-Path $B 'zig-cache-render'
+build_render.ps1:18:$env:ZIG_GLOBAL_CACHE_DIR=Join-Path $B 'zig-global-cache'
+build_render.ps1:33:& $Zig @cc
+build_render.ps1:34:if($LASTEXITCODE -ne 0 -or -not (Test-Path $out)){ throw "render build failed (zig exit $LASTEXITCODE)" }
+no copyright or licence header in src/
+(exit 0)

@@ -1,0 +1,18 @@
+$ for f in plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo; do echo "== $f"; strings -n 8 $f | grep -iE 'mingw|zig|copyright|licen'; done; echo '== README.txt'; grep -niE 'credit|thanks|mingw|zig|copyright|licen|PiBoSo' README.txt
+== plugins/mx_dirt.dlo
+Mingw-w64 runtime failure:
+== plugins/mx_dirt_render.dlo
+Mingw-w64 runtime failure:
+== README.txt
+24:14. [License](#license)
+70:- **never deletes anything.** Every file it replaces is moved to `Documents\PiBoSo\MX Bikes\mx_dirt_mod_backups\install-<date>`.
+86:  install\, Install.cmd, Uninstall.cmd, README.txt, LICENSE, SUPPORTED_EXE.txt
+352:The uninstaller **moves** these to `Documents\PiBoSo\MX Bikes\mx_dirt_mod_backups\uninstall-<date>`, so nothing is deleted:
+364:  - To make a track fresh again, move or delete its `testing.dfm` from `Documents\PiBoSo\MX Bikes\profiles\<profile>\tracks\<track>\`.
+366:- **The backup folder** `Documents\PiBoSo\MX Bikes\mx_dirt_mod_backups`. Delete it when you no longer need it.
+411:**I want my old track back.** Every reset or replaced file is in `Documents\PiBoSo\MX Bikes\mx_dirt_mod_backups`. To restore a track, copy its `.dfm` from `track-wear` back to that track's folder and rename it `testing.dfm`.
+429:| `Documents\PiBoSo\MX Bikes\mx_dirt_mod_backups\` | Everything the installer, uninstaller or a reset replaced |
+477:You need [Zig](https://ziglang.org/) 0.13 or newer on `PATH`; it is used as the C compiler. In PowerShell:
+493:## License
+495:GPL-3.0, see `LICENSE`. MX Bikes is © PiBoSo. This project is not affiliated with or endorsed by PiBoSo.
+(exit 0)

@@ -1,0 +1,22 @@
+$ sha256sum MX-Dirt-Mod-1.7.1.zip MX-Dirt-Mod-1.7.1.sha256.txt plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo plugins/mx_dirt.ini plugins/mx_dirt_render.ini install/Install.ps1 install/Uninstall.ps1 'launcher/MX Dirt Mod.cmd' launcher/MXDirtLauncher.ps1 Install.cmd Uninstall.cmd LICENSE README.txt SUPPORTED_EXE.txt; echo '--- the author-published hash list:'; cat MX-Dirt-Mod-1.7.1.sha256.txt
+2b496d6fa60d0e1b81c3d67c15b83f0718aad2300638bc8bce970f837cff6c38  MX-Dirt-Mod-1.7.1.zip
+78984f26d03176278b7a7b2597aca239adac6b82fa7d4cdd062c857c27cbe337  MX-Dirt-Mod-1.7.1.sha256.txt
+527d75c3c6dd709308c2bf104a61e36dd321fa05ffee329006cb06d2d5016e0e  plugins/mx_dirt.dlo
+b199fda79938864bfc895c4f2b0f9f8a805a513480c397a3dc8f63618e9eaae6  plugins/mx_dirt_render.dlo
+88af0ebe23c63a4b52870d25a46c19b646a7232e498b6e47afafb64758dd6e87  plugins/mx_dirt.ini
+217153b2f4088046d33b94513b36e0f1073b39165d82f5f3580ee047038d56a5  plugins/mx_dirt_render.ini
+8be639c8736b3838e6523cc961dc605458e062f926a8690f558512dec875e90c  install/Install.ps1
+2730860726a607b26348ca6d8c22882b9e8a15edd19167bcbc515b694fdfc8c4  install/Uninstall.ps1
+5c95eb371b09dae729ae53e4ff8a1446a317bb1625a057a0cd9771f150488379  launcher/MX Dirt Mod.cmd
+74afffc8cef848e9d2af5161cb4688e730575c5a10c2cf31059ecd360fb26855  launcher/MXDirtLauncher.ps1
+da31aa93ff73c5fdf20e0185dd8114972debee25fa8e5a659671f438b162c39f  Install.cmd
+af75cec63f2b6a8a0aa392a36e32363170f8da136d5ae6d8ae033fedbf29afe5  Uninstall.cmd
+3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986  LICENSE
+4109a6c60ea168f9f03af3c7d26ed642a331fa8971bde060bedcde5eb7a3ffca  README.txt
+c5eb65307d0c2d303609e8909bbd44a344fcd2c6e28dad5c1cf26a488897515c  SUPPORTED_EXE.txt
+--- the author-published hash list:
+527d75c3c6dd709308c2bf104a61e36dd321fa05ffee329006cb06d2d5016e0e  mx_dirt.dlo
+88af0ebe23c63a4b52870d25a46c19b646a7232e498b6e47afafb64758dd6e87  mx_dirt.ini
+b199fda79938864bfc895c4f2b0f9f8a805a513480c397a3dc8f63618e9eaae6  mx_dirt_render.dlo
+217153b2f4088046d33b94513b36e0f1073b39165d82f5f3580ee047038d56a5  mx_dirt_render.ini
+(exit 0)

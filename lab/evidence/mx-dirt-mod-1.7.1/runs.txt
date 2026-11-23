@@ -1,0 +1,39 @@
+$ for r in ride ride-launcher-key default launcher-key crash; do echo "== $r"; grep -h 'mxbikes.exe$' "$RES/$r-windows/plugins.sha256"; grep -E 'exe_hash_mismatch|gate_fail|launcher_key|core_export' "$RES/$r-windows/mx_dirt_render.log"; echo "files: $(tr '\n' ' ' < "$RES/$r-windows/files.diff")"; echo "mx_dirt.jsonl written: $(zcat "$RES/$r-windows/raw/procmon.csv.gz" | grep -c 'mx_dirt.jsonl')"; echo "processes started: $(zcat "$RES/$r-windows/raw/procmon.csv.gz" | grep 'Process Create' | cut -d, -f2,5 | tr '\n' ' ')"; head -n 1 "$RES/$r-windows/network.txt"; done; grep -h 'Startup(plugins' "$RES/default-windows/host.log"
+== ride
+532984 audit exe_hash_mismatch code=2 thread=8428 tick=532984 a=0x7ff66b950000 b=0x10c2000 slot=4294967295 reason=0
+532984 audit gate_fail code=3 thread=8428 tick=532984 a=0x0 b=0x1 slot=4294967295 reason=0
+files: > .\e3dlog.txt > .\plugins\mx_dirt_render.log > .\sllog.txt 
+mx_dirt.jsonl written: 0
+processes started: 
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+== ride-launcher-key
+963828 audit exe_hash_mismatch code=2 thread=3108 tick=963828 a=0x7ff6dff60000 b=0x10c2000 slot=4294967295 reason=0
+963828 audit gate_fail code=3 thread=3108 tick=963828 a=0x0 b=0x1 slot=4294967295 reason=0
+files: > .\e3dlog.txt > .\plugins\mx_dirt_render.log > .\sllog.txt 
+mx_dirt.jsonl written: 0
+processes started: 
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+== default
+1355640 audit exe_hash_mismatch code=2 thread=1892 tick=1355640 a=0x7ff766610000 b=0x69000 slot=4294967295 reason=0
+1355640 audit gate_fail code=3 thread=1892 tick=1355640 a=0x0 b=0x1 slot=4294967295 reason=0
+files: > .\plugins\mx_dirt_render.log > .\shot_0150.bmp > .\shot_0330.bmp > .\shot_0598.bmp 
+mx_dirt.jsonl written: 0
+processes started: "mxbikes.exe","C:\Windows\System32\Conhost.exe" 
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+== launcher-key
+1391187 audit exe_hash_mismatch code=2 thread=6880 tick=1391187 a=0x7ff702d70000 b=0x69000 slot=4294967295 reason=0
+1391187 audit gate_fail code=3 thread=6880 tick=1391187 a=0x0 b=0x1 slot=4294967295 reason=0
+files: > .\plugins\mx_dirt_render.log > .\shot_0150.bmp > .\shot_0170.bmp > .\shot_0330.bmp > .\shot_0420.bmp > .\shot_0598.bmp 
+mx_dirt.jsonl written: 0
+processes started: "mxbikes.exe","C:\Windows\System32\Conhost.exe" 
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+== crash
+1425625 audit exe_hash_mismatch code=2 thread=7732 tick=1425625 a=0x7ff6a6630000 b=0x69000 slot=4294967295 reason=0
+1425625 audit gate_fail code=3 thread=7732 tick=1425625 a=0x0 b=0x1 slot=4294967295 reason=0
+files: > .\plugins\mx_dirt_render.log > .\shot_0150.bmp > .\shot_0330.bmp > .\shot_0598.bmp 
+mx_dirt.jsonl written: 0
+processes started: "mxbikes.exe","C:\Windows\System32\Conhost.exe" 
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+Startup(plugins\mx_dirt.dlo) -> -1
+Startup(plugins\mx_dirt_render.dlo) -> -1
+(exit 0)
