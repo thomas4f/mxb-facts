@@ -1,0 +1,15 @@
+$ strings -n 3 discord-rpc.dlo | grep -nE '^(MX Bikes|rpc-icon|Spectating|Watching Replay|%s on %s|In Menus|Paused|%s \(Lap %i\)|Testing|Racing|mxbikes)$'
+6167:MX Bikes
+6168:rpc-icon
+6169:MX Bikes
+6170:Spectating
+6171:Watching Replay
+6172:%s on %s
+6173:In Menus
+6174:Paused
+6175:%s (Lap %i)
+6176:%s on %s
+6177:mxbikes
+6178:Testing
+6179:Racing
+(exit 0)

@@ -1,0 +1,6 @@
+$ for f in discord-rpc.dlo discord_game_sdk.dll; do objdump -p $f | grep -E 'file format|Security Directory'; done
+discord-rpc.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+discord_game_sdk.dll:     file format pei-x86-64
+Entry 4 000000000034fa00 00004200 Security Directory
+(exit 0)

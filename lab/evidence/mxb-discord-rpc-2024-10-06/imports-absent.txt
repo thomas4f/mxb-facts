@@ -1,0 +1,2 @@
+$ iat.py discord-rpc.dlo | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|SendInput|keybd_event|mouse_event|GetAsyncKeyState|GetKeyState|SetWindowsHookEx|CreateProcess|ShellExecute|WinExec|RegSetValue|RegCreateKey|WriteProcessMemory|ReadProcessMemory|OpenProcess|CreateRemoteThread|VirtualProtect|VirtualQuery|CreateFileMapping|CreateFile|AddVectoredExceptionHandler|AllocConsole'
+(exit 1)

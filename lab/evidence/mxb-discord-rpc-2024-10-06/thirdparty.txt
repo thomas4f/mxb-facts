@@ -1,0 +1,8 @@
+$ (cd "$SRC" && head -n 40 mxb-plugin/tinyformat.h | grep -nE 'Boost Software License|^// Tinyformat'; grep -nE 'tinyformat|discord' mxb-plugin/includes.h); grep -inE 'credit|tinyformat|licen|copyright|discord' 'READ ME IMPORTANT.txt'
+4:// Boost Software License - Version 1.0
+29:// Tinyformat: A minimal type safe printf replacement
+22:#include "tinyformat.h"
+25:#include "discord/src/discord.h" // https://dl-game-sdk.discordapp.net/3.2.1/discord_game_sdk.zip // https://discord.com/developers/docs/developer-tools/game-sdk#using-the-sdk
+3:Put the discord_game_sdk.dll file in the game directory (SAME FOLDER AS MXBIKES.EXE)
+6:Put the discord-rpc.dlo file in the plugins folder
+(exit 0)

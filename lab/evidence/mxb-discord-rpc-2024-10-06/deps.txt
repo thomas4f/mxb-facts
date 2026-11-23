@@ -1,0 +1,9 @@
+$ cd "$SRC" && grep -n 'game-sdk' mxb-plugin/includes.h; grep -nE 'AdditionalDependencies|PlatformToolset' mxb-plugin/mxb-plugin.vcxproj
+25:#include "discord/src/discord.h" // https://dl-game-sdk.discordapp.net/3.2.1/discord_game_sdk.zip // https://discord.com/developers/docs/developer-tools/game-sdk#using-the-sdk
+32:    <PlatformToolset>v143</PlatformToolset>
+38:    <PlatformToolset>v143</PlatformToolset>
+45:    <PlatformToolset>v143</PlatformToolset>
+52:    <PlatformToolset>v143</PlatformToolset>
+130:      <AdditionalDependencies>discord_game_sdk.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+153:      <AdditionalDependencies>discord_game_sdk.dll.lib;%(AdditionalDependencies)</AdditionalDependencies>
+(exit 0)

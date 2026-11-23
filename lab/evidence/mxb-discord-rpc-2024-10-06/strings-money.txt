@@ -1,0 +1,3 @@
+$ { strings -n 6 discord-rpc.dlo 'READ ME IMPORTANT.txt'; strings -el -n 6 discord-rpc.dlo 'READ ME IMPORTANT.txt'; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+388:https://mxb-mods.com/user/stars/
+(exit 0)

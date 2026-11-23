@@ -187,7 +187,9 @@
     "author": "stars (starsssy)",
     "github": "starsssy/mxb-discord-rpc",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "mxb-discord-rpc-2024-10-06.yaml"
+    ],
     "mxb-mods": {
       "post": 101004,
       "tied_by": "github.com/starsssy/mxb-discord-rpc"

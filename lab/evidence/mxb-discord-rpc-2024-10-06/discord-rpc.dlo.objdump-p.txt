@@ -1,0 +1,273 @@
+$ objdump -p 'discord-rpc.dlo' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+discord-rpc.dlo:     file format pei-x86-64
+
+Characteristics 0x2022
+	executable
+	large address aware
+	DLL
+
+Time/Date		Sun Oct  6 17:03:58 2024
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	35
+SizeOfCode		0000000000020200
+SizeOfInitializedData	000000000000e000
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	000000000001e8a0
+BaseOfCode		0000000000001000
+ImageBase		0000000180000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		00032000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000003	(Windows CUI)
+DllCharacteristics	00000160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 00000000000297c0 00000158 Export Directory [.edata (or where ever we found it)]
+Entry 1 0000000000029918 000000c8 Import Directory [parts of .idata]
+Entry 2 0000000000030000 000001e0 Resource Directory [.rsrc]
+Entry 3 000000000002c000 00003c9c Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 0000000000031000 000000e4 Base Relocation Directory [.reloc]
+Entry 6 0000000000022860 00000054 Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 0000000000000000 00000000 Thread Storage Directory [.tls]
+Entry a 0000000000022720 00000140 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 0000000000022000 000003a8 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x180029918
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 00029918	00029d78 00000000 00000000 00029d98 00022398
+
+	DLL Name: discord_game_sdk.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00022398  <none>  0000  DiscordCreate
+
+ 0002992c	000299e0 00000000 00000000 00029db6 00022000
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00022000  <none>  04f5  RtlCaptureContext
+	00022008  <none>  04fd  RtlLookupFunctionEntry
+	00022010  <none>  05b4  Sleep
+	00022018  <none>  03a0  IsDebuggerPresent
+	00022020  <none>  02f1  GetStartupInfoW
+	00022028  <none>  0134  DisableThreadLibraryCalls
+	00022030  <none>  030a  GetSystemTimeAsFileTime
+	00022038  <none>  0237  GetCurrentThreadId
+	00022040  <none>  0233  GetCurrentProcessId
+	00022048  <none>  0470  QueryPerformanceCounter
+	00022050  <none>  03a8  IsProcessorFeaturePresent
+	00022058  <none>  05c4  TerminateProcess
+	00022060  <none>  0232  GetCurrentProcess
+	00022068  <none>  05a4  SetUnhandledExceptionFilter
+	00022070  <none>  0295  GetModuleHandleW
+	00022078  <none>  05e6  UnhandledExceptionFilter
+	00022080  <none>  0504  RtlVirtualUnwind
+	00022088  <none>  038a  InitializeSListHead
+
+ 00029940	00029a78 00000000 00000000 0002aa9e 00022098
+
+	DLL Name: MSVCP140.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00022098  <none>  036b  ?gbump@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXH@Z
+	000220a0  <none>  04ba  ?setg@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXPEAD00@Z
+	000220a8  <none>  0359  ?epptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ
+	000220b0  <none>  04be  ?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXPEAD00@Z
+	000220b8  <none>  024a  ?_Pninc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAPEADXZ
+	000220c0  <none>  04c5  ?setstate@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAXH_N@Z
+	000220c8  <none>  050a  ?tie@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBAPEAV?$basic_ostream@DU?$char_traits@D@std@@@2@XZ
+	000220d0  <none>  0487  ?rdbuf@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBAPEAV?$basic_streambuf@DU?$char_traits@D@std@@@2@XZ
+	000220d8  <none>  000c  ??0?$basic_ios@DU?$char_traits@D@std@@@std@@IEAA@XZ
+	000220e0  <none>  0025  ??0?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAA@PEAV?$basic_streambuf@DU?$char_traits@D@std@@@1@_N@Z
+	000220e8  <none>  0089  ??1?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAA@XZ
+	000220f0  <none>  0228  ?_Lock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ
+	000220f8  <none>  027f  ?_Unlock@?$basic_streambuf@DU?$char_traits@D@std@@@std@@UEAAXXZ
+	00022100  <none>  04d5  ?showmanyc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JXZ
+	00022108  <none>  051b  ?uflow@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ
+	00022110  <none>  0543  ?xsgetn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEAD_J@Z
+	00022118  <none>  0546  ?xsputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAA_JPEBD_J@Z
+	00022120  <none>  04b5  ?setbuf@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAPEAV12@PEAD_J@Z
+	00022128  <none>  0447  ?pptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ
+	00022130  <none>  03f6  ?imbue@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAXAEBVlocale@2@@Z
+	00022138  <none>  007d  ??1?$basic_ios@DU?$char_traits@D@std@@@std@@UEAA@XZ
+	00022140  <none>  02b0  ?copyfmt@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAAAEAV12@AEBV12@@Z
+	00022148  <none>  0361  ?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QEBADXZ
+	00022150  <none>  0360  ?fill@?$basic_ios@DU?$char_traits@D@std@@@std@@QEAADD@Z
+	00022158  <none>  0086  ??1?$basic_ostream@DU?$char_traits@D@std@@@std@@UEAA@XZ
+	00022160  <none>  00ff  ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@H@Z
+	00022168  <none>  053f  ?write@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@PEBD_J@Z
+	00022170  <none>  053d  ?width@ios_base@std@@QEAA_J_J@Z
+	00022178  <none>  053e  ?width@ios_base@std@@QEBA_JXZ
+	00022180  <none>  044a  ?precision@ios_base@std@@QEAA_J_J@Z
+	00022188  <none>  044b  ?precision@ios_base@std@@QEBA_JXZ
+	00022190  <none>  0526  ?unsetf@ios_base@std@@QEAAXH@Z
+	00022198  <none>  04b9  ?setf@ios_base@std@@QEAAHHH@Z
+	000221a0  <none>  04b8  ?setf@ios_base@std@@QEAAHH@Z
+	000221a8  <none>  0366  ?flags@ios_base@std@@QEAAHH@Z
+	000221b0  <none>  0367  ?flags@ios_base@std@@QEBAHXZ
+	000221b8  <none>  03c5  ?good@ios_base@std@@QEBA_NXZ
+	000221c0  <none>  048c  ?rdstate@ios_base@std@@QEBAHXZ
+	000221c8  <none>  0275  ?_Throw_Cpp_error@std@@YAXH@Z
+	000221d0  <none>  03c6  ?gptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ
+	000221d8  <none>  054e  _Cnd_do_broadcast_at_thread_exit
+	000221e0  <none>  05b0  _Thrd_detach
+	000221e8  <none>  034d  ?eback@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ
+	000221f0  <none>  04e1  ?sputn@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAA_JPEBD_J@Z
+	000221f8  <none>  0368  ?flush@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV12@XZ
+	00022200  <none>  0244  ?_Osfx@?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAXXZ
+	00022208  <none>  04bf  ?setp@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAAXPEAD0@Z
+	00022210  <none>  002f  ??0?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEAA@XZ
+	00022218  <none>  043e  ?pbase@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ
+	00022220  <none>  04de  ?sputc@?$basic_streambuf@DU?$char_traits@D@std@@@std@@QEAAHD@Z
+	00022228  <none>  010a  ??6?$basic_ostream@DU?$char_traits@D@std@@@std@@QEAAAEAV01@PEBX@Z
+	00022230  <none>  051e  ?uncaught_exception@std@@YA_NXZ
+	00022238  <none>  028e  ?_Xlength_error@std@@YAXPEBD@Z
+	00022240  <none>  028c  ?_Xbad_function_call@std@@YAXXZ
+	00022248  <none>  0350  ?egptr@?$basic_streambuf@DU?$char_traits@D@std@@@std@@IEBAPEADXZ
+	00022250  <none>  04fd  ?sync@?$basic_streambuf@DU?$char_traits@D@std@@@std@@MEAAHXZ
+	00022258  <none>  0274  ?_Throw_C_error@std@@YAXH@Z
+
+ 00029954	00029ca8 00000000 00000000 0002ab92 000222c8
+
+	DLL Name: VCRUNTIME140_1.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000222c8  <none>  0000  __CxxFrameHandler4
+
+ 00029968	00029c48 00000000 00000000 0002aba6 00022268
+
+	DLL Name: VCRUNTIME140.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00022268  <none>  0025  __std_type_info_destroy_list
+	00022270  <none>  0001  _CxxThrowException
+	00022278  <none>  001c  __current_exception_context
+	00022280  <none>  0021  __std_exception_copy
+	00022288  <none>  0022  __std_exception_destroy
+	00022290  <none>  0023  __std_terminate
+	00022298  <none>  0008  __C_specific_handler
+	000222a0  <none>  001b  __current_exception
+	000222a8  <none>  003d  memmove
+	000222b0  <none>  003c  memcpy
+	000222b8  <none>  003e  memset
+
+ 0002997c	00029cd8 00000000 00000000 0002ad20 000222f8
+
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000222f8  <none>  0016  _cexit
+	00022300  <none>  001d  _crt_at_quick_exit
+	00022308  <none>  001e  _crt_atexit
+	00022310  <none>  0033  _initialize_narrow_environment
+	00022318  <none>  0018  _configure_narrow_argv
+	00022320  <none>  003f  _seh_filter_dll
+	00022328  <none>  0022  _execute_onexit_table
+	00022330  <none>  0037  _initterm_e
+	00022338  <none>  0036  _initterm
+	00022340  <none>  003c  _register_onexit_function
+	00022348  <none>  0034  _initialize_onexit_table
+	00022350  <none>  0039  _invalid_parameter_noinfo_noreturn
+	00022358  <none>  0067  terminate
+	00022360  <none>  0014  _beginthreadex
+
+ 00029990	00029d50 00000000 00000000 0002ad42 00022370
+
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00022370  <none>  0089  strcpy_s
+	00022378  <none>  008f  strncpy
+
+ 000299a4	00029d68 00000000 00000000 0002ad64 00022388
+
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00022388  <none>  0030  _time64
+
+ 000299b8	00029cb8 00000000 00000000 0002ad84 000222d8
+
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000222d8  <none>  0018  free
+	000222e0  <none>  0019  malloc
+	000222e8  <none>  0008  _callnewh
+
+ 000299cc	00000000 00000000 00000000 00000000 00000000
+
+There is an export table in .rdata at 0x1800297c0
+
+The Export Tables (interpreted .rdata section contents)
+
+Export Flags 			0
+Time/Date stamp 		ffffffff
+Major/Minor 			0/0
+Name 				0000000000029874 mxb-plugin.dll
+Ordinal Base 			1
+Number in:
+	Export Address Table 		0000000e
+	[Name Pointer/Ordinal] Table	0000000e
+Table Addresses
+	Export Address Table 		00000000000297e8
+	Name Pointer Table 		0000000000029820
+	Ordinal Table 			0000000000029858
+
+Export Address Table -- Ordinal Base 1
+	          Ordinal  Address  Type
+	[   0] +base[   1] 0001e050 Export RVA
+	[   1] +base[   2] 0001df70 Export RVA
+	[   2] +base[   3] 0001df60 Export RVA
+	[   3] +base[   4] 0001df50 Export RVA
+	[   4] +base[   5] 0001df40 Export RVA
+	[   5] +base[   6] 0001e030 Export RVA
+	[   6] +base[   7] 0001e040 Export RVA
+	[   7] +base[   8] 0001dff0 Export RVA
+	[   8] +base[   9] 0001dfd0 Export RVA
+	[   9] +base[  10] 0001e010 Export RVA
+	[  10] +base[  11] 0001e020 Export RVA
+	[  11] +base[  12] 0001de70 Export RVA
+	[  12] +base[  13] 0001e060 Export RVA
+	[  13] +base[  14] 0001dda0 Export RVA
+
+[Ordinal/Name Pointer] Table -- Ordinal Base 1
+	          Ordinal   Hint Name
+	[   0] +base[   1]  0000 Draw
+	[   1] +base[   2]  0001 EventInit
+	[   2] +base[   3]  0002 GetInterfaceVersion
+	[   3] +base[   4]  0003 GetModDataVersion
+	[   4] +base[   5]  0004 GetModID
+	[   5] +base[   6]  0005 RaceLap
+	[   6] +base[   7]  0006 RaceSplit
+	[   7] +base[   8]  0007 RunDeinit
+	[   8] +base[   9]  0008 RunInit
+	[   9] +base[  10]  0009 RunStart
+	[  10] +base[  11]  000a RunStop
+	[  11] +base[  12]  000b Shutdown
+	[  12] +base[  13]  000c SpectateVehicles
+	[  13] +base[  14]  000d Startup
+
+(exit 0)

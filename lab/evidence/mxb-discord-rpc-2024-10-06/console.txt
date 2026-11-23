@@ -1,0 +1,7 @@
+$ (cd "$SRC" && grep -n 'CONSOLE' mxb-plugin/includes.h mxb-plugin/main.cpp); echo '--- in the release plugin:'; strings -n 3 discord-rpc.dlo | grep -cE '\[FN\]|\[ERR\]|\[DSC\]|\[\+\]|CONOUT|AllocConsole|SetConsoleTitle'
+mxb-plugin/includes.h:13:#define CONSOLE
+mxb-plugin/includes.h:14:#ifdef CONSOLE
+mxb-plugin/main.cpp:37:#ifdef CONSOLE
+--- in the release plugin:
+0
+(exit 1)

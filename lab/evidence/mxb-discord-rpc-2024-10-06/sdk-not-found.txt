@@ -1,0 +1,15 @@
+$ for r in ride bystander; do echo "== $r"; zcat "$RES/$r-windows/raw/procmon.csv.gz" | grep -E 'Load Image.*discord|discord_game_sdk' | cut -d, -f2,4- | sed -E 's/"//g; s/D:.a._temp.[a-z]+.run-[a-z]+.//' | head -n 4; echo "lookups of discord_game_sdk.dll: $(zcat "$RES/$r-windows/raw/procmon.csv.gz" | grep -c discord_game_sdk), succeeded: $(zcat "$RES/$r-windows/raw/procmon.csv.gz" | grep discord_game_sdk | grep -c SUCCESS)"; done; grep -n 'discord' "$RES/bystander-windows/host.log"
+== ride
+mxbikes.exe,Load Image,plugins\discord-rpc.dlo,SUCCESS,Image Base: 0x7ff9c3370000, Image Size: 0x32000
+mxbikes.exe,QueryOpen,discord_game_sdk.dll,NAME NOT FOUND,
+mxbikes.exe,QueryOpen,C:\Windows\System32\discord_game_sdk.dll,FAST IO DISALLOWED,
+mxbikes.exe,CreateFile,C:\Windows\System32\discord_game_sdk.dll,NAME NOT FOUND,Desired Access: Read Attributes, Disposition: Open, Options: Open Reparse Point, Attributes: n/a, ShareMode: Read, Write, Delete, AllocationSize: n/a
+lookups of discord_game_sdk.dll: 154, succeeded: 0
+== bystander
+mxbikes.exe,Load Image,plugins\discord-rpc.dlo,SUCCESS,Image Base: 0x7ff9ba260000, Image Size: 0x32000
+mxbikes.exe,QueryOpen,discord_game_sdk.dll,NAME NOT FOUND,
+mxbikes.exe,QueryOpen,C:\Windows\System32\discord_game_sdk.dll,FAST IO DISALLOWED,
+mxbikes.exe,CreateFile,C:\Windows\System32\discord_game_sdk.dll,NAME NOT FOUND,Desired Access: Read Attributes, Disposition: Open, Options: Open Reparse Point, Attributes: n/a, ShareMode: Read, Write, Delete, AllocationSize: n/a
+lookups of discord_game_sdk.dll: 154, succeeded: 0
+20:LoadLibrary(plugins\discord-rpc.dlo) failed: 126
+(exit 0)
