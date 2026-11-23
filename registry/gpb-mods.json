@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-11-20",
+  "fetched": "2026-11-23",
   "source": "https://gpb-mods.com/wp-json/wp/v2/posts",
   "note": "Each excerpt is quoted from the tool's gpb-mods.com page as published, not verified.",
   "tools": {
@@ -28,6 +28,19 @@
         "Tools"
       ],
       "still_tied": null
+    },
+    "pitbox": {
+      "post": 5412,
+      "link": "https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/",
+      "title": "Pitbox – Launcher, Setup Assistant & HUD for GP Bikes",
+      "excerpt": "Pitbox is a free, all-in-one launcher for GP Bikes. Unofficial: not affiliated with PiBoSo or gpb-mods.com. LAUNCHER Online rooms: see who is racing and join with one click. Missing tracks and bikes are installed for you. Play solo: a private testing session on your PC, with your bike, paints, riding style and weather. My room:…",
+      "published": "2026-10-26",
+      "updated": "2026-10-27",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
     }
   }
 }
