@@ -12,8 +12,8 @@ NAME = re.compile(r'^[a-z0-9][a-z0-9-]{0,39}$')
 SHA = re.compile(r'^[0-9a-f]{64}$')
 # Text a run may pass: paths inside the run folder, and the words a --click looks for ("Tool: click to set up").
 SAFE = re.compile(r'^[A-Za-z0-9 _.,:!+()\[\]\\/-]{1,200}$')
-# The keys lab/real-game/windows/run.ps1 can press (xdotool's names; its $scan table), alone or joined with + (ctrl+r).
-KEY = re.compile(r'^((ctrl|shift|alt)\+){0,2}(Up|Down|Left|Right|Escape|Return|space|Tab|BackSpace|Caps_Lock|Insert|Delete|Home|End|Prior|Next|F([1-9]|1[0-2])|[a-z0-9])$')
+# The keys lab/real-game/windows/run.ps1 can press (xdotool's names; its $scan table), alone (ctrl too) or joined with + (ctrl+r).
+KEY = re.compile(r'^((ctrl|shift|alt)\+){0,2}(Up|Down|Left|Right|Escape|Return|space|Tab|BackSpace|Caps_Lock|Insert|Delete|Home|End|Prior|Next|F([1-9]|1[0-2])|[a-z0-9]|ctrl|shift|alt)$')
 KEYS = {'game', 'files', 'realgame', 'cases', 'apps', 'note'}
 
 
