@@ -566,6 +566,11 @@
            "pattern": "^[PDGCTM][0-9]+$"
           },
           "description": "A Concern line or row only: the answers it backs; it is shown as a Concern when one of them is"
+         },
+         "Verdict": {
+          "type": "string",
+          "pattern": "^(Matches|Partly|Doesn't match|Not checked|Not allowed)(, .+)?$",
+          "description": "What it says vs what it does only: the verdict on one claim, which may add words after its own (\"Matches, as far as checked\")"
          }
         },
         "additionalProperties": {

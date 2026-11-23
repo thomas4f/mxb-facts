@@ -5,9 +5,12 @@ Everything here turns checked card data (cards.py) and the rules (rules.py) into
 import json, markdown, math, re
 from rules import (
     AREAK, AREAN, CONCERN, D, GCOST, GCOVER, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PFX, PMEANS, QCELL, QIDS, QTXT, ROOT, RUBRICV, SC,
-    SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagsof, verdict)
+    SCHEMA, SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagsof, verdict)
 from icons import group as icon_group
 from cards import COMMIT, CORR, CORRTIP, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, correction_link, esc, files_table
+# The hint beside every score: one text and one style (.gnote), on the line of the tools list's heading (shell.html, {{GNOTE}})
+# and of each tool page's Score heading, where it keeps the score box level with Key findings beside it.
+GNOTE='Scores are out of 100; higher is better.'
 # The notice on the page of a tool made by the person who runs MXB Facts (a card's by_maintainer).
 MAINT=('<p class="maint"><strong>Made by the maintainer of MXB Facts.</strong> thomas4f, who runs this project, makes this tool. '
        'It is analysed from the same prompt, answers the same questions and is scored by the same fixed costs as every other tool, '
@@ -15,11 +18,11 @@ MAINT=('<p class="maint"><strong>Made by the maintainer of MXB Facts.</strong> t
        '(<a href="https://github.com/thomas4f/mxb-facts#conflict-of-interest">conflict of interest</a>).</p>')
 
 def post(h,anchor):
-    # What every piece of a tool's page gets after its Markdown is HTML: links open in a new tab, "Says vs does" verdicts
-    # become tags, {+} {~} {!} become marks, and {lim:n} and {q:ID} (blocks() writes them) become the tool's own links.
+    # What every piece of a tool's page gets after its Markdown is HTML: links open in a new tab, {+} {~} {!} become marks,
+    # and {lim:n} and {q:ID} (blocks() writes them) become the tool's own links.
     h=h.replace('<a href="http','<a target="_blank" rel="noopener" href="http')
-    for word,cls in [("Doesn't match","bad"),("Partly","part"),("Matches","ok"),("Not checked","nc"),("Not allowed","na")]:
-        h=re.sub(r'<strong>'+re.escape(word)+r'(\.?)</strong>(\.)?', r'<span class="tag '+cls+'">'+word+'</span>', h)
+    # Card text that names the "What it says vs what it does" section links it.
+    h=h.replace('"What it says vs what it does"',f'<a href="#r-{anchor}-says">What it says vs what it does</a>')
     MK={'+':'good','~':'note','!':'concern'}
     h=re.sub(r'\{([+~!])\} ?', lambda m:state_html(MK[m.group(1)])+' ', h)
     h=re.sub(r'<li>\{lim:(\d+)\} ',lambda m:f'<li id="lim-{anchor}-{m.group(1)}">',h)
@@ -40,6 +43,30 @@ def table(head,rows,cls=''):
     # A table from cells that are already HTML, laid out as Markdown's tables are.
     return (f'<div class="tw{cls}"><table>\n<thead>\n<tr>\n'+''.join(f'<th>{c}</th>\n' for c in head)+'</tr>\n</thead>\n<tbody>\n'
             +''.join('<tr>\n'+''.join(f'<td>{c}</td>\n' for c in r)+'</tr>\n' for r in rows)+'</tbody>\n</table></div>')
+# "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
+# words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
+# after its own ("Matches, as far as checked").
+SAYS={'Matches':('good','What it does matches what its docs say'),'Partly':('note','Only part of what its docs say matches what it does'),
+      "Doesn't match":('concern','What it does differs from what its docs say; T2 says whether that costs points'),
+      'Not checked':('nc','Not checked; the evidence says why'),'Not allowed':('na','The licence forbids checking this')}
+SAYSQ='T2'  # the answer the claims back: its key question links them
+assert SAYSQ in QIDS, 'rules/scoring.yaml: '+SAYSQ+', the answer "What it says vs what it does" backs, is gone; name the new one in SAYSQ (site/page.py)'
+assert set(SAYS)==set(re.match(r'\^\((.*?)\)',SCHEMA['$defs']['block']['oneOf'][3]['properties']['rows']['items']['properties']['Verdict']['pattern']).group(1).split('|')), 'card.schema.json: the "Says vs does" verdicts changed; give each one a mark and a meaning in SAYS (site/page.py)'
+def says_word(v):
+    # The verdict a "Says vs does" row starts with (SAYS); it may add words after its own ("Matches, as far as checked").
+    w=next((w for w in SAYS if v==w or v.startswith(w+',')),None)
+    assert w, 'a "What it says vs what it does" verdict must start with '+', '.join(SAYS)+': '+v
+    return w
+def says_verdict(v):
+    # One "Says vs does" verdict as a mark.
+    # Only the verdict's own word goes in the mark, like every other mark; any words after it follow in grey ("as far as checked").
+    w=says_word(v); rest=v[len(w):].lstrip(', ')
+    return state_html(SAYS[w][0],SAYS[w][1],inner=w)+(f'<span class="mrule">{esc(rest)}</span>' if rest else '')
+def says_link(C,a):
+    # A link to the tool's claims, checked one by one ("7 claims, one by one"), or ''. The verdicts stay in the table: beside an
+    # answer that only counts the points these questions ask about, a count of them would read as a contradiction.
+    n=sum(len(b['rows']) for b in C['sections'].get('What it says vs what it does',[]) if 'Verdict' in b.get('table',[]))
+    return f'<a class="limit" href="#r-{a}-says" title="What its docs say, checked claim by claim">{n} claim{"s" if n>1 else ""}, one by one</a>' if n else ''
 def blocks(C,bl,a,area=None):
     # A section's blocks (text, lists, limits, tables) as HTML. In an area section a Concern line or row shows as its
     # costliest answer does ("Concern", "Major", "Off by default", "On request"); Good and Note show as they are.
@@ -51,8 +78,9 @@ def blocks(C,bl,a,area=None):
         if 'table' in b:
             # A row's mark gets its own first column, as in the answer tables; a table whose rows carry no mark has no such column.
             cols=b['table']; marked=any(r.get('mark') for r in b['rows'])
-            # An Evidence column is set smaller, as in the answer tables.
-            out.append(table((['Mark'] if marked else [])+cols,[([f'<span class="mcol">{mark(r)}</span>'] if marked else [])+[f'<span class="ev">{cell(r[c])}</span>' if c=='Evidence' else cell(r[c]) for c in cols] for r in b['rows']]))
+            # An Evidence column is set smaller, as in the answer tables; a Verdict ("Says vs does") is drawn as a mark.
+            out.append(table((['Mark'] if marked else [])+cols,[([f'<span class="mcol">{mark(r)}</span>'] if marked else [])+[f'<span class="ev">{cell(r[c])}</span>' if c=='Evidence' else
+                             f'<span class="mcol">{says_verdict(r[c])}</span>' if c=='Verdict' else cell(r[c]) for c in cols] for r in b['rows']],' says' if 'Verdict' in cols else ''))
         elif 'list' in b: out.append(markdown.markdown('\n'.join('- '+i for i in b['list'])))
         elif 'limits' in b:
             # Each limit gets an anchor ({lim:n}) and links the answers it affects ({q:ID}); post() turns both into links for the tool.
@@ -111,7 +139,8 @@ FOLDS={'How AI is used':'who does the work, model and effort, the prompt, why ru
 # For card writers: what a card holds and how it is written, in one fold, after the reader's parts.
 WRITERS=('Sections','Wording')
 parts=re.split(r'(?=<h3>)',tpl)
-open_=[x for x in parts if not x.startswith('<h3>') or x.startswith('<h3>Rules</h3>')]
+# The rules are a numbered list like the steps above them (.flow).
+open_=[x.replace('<ol>','<ol class="flow">',1) if x.startswith('<h3>Rules</h3>') else x for x in parts if not x.startswith('<h3>') or x.startswith('<h3>Rules</h3>')]
 folded={re.match(r'<h3>(.*?)</h3>',x).group(1):x for x in parts if x.startswith('<h3>') and not x.startswith('<h3>Rules</h3>')}
 assert set(folded)==set(FOLDS), 'template.md: its sections no longer match the folds in build.py: '+', '.join(sorted(set(folded)^set(FOLDS)))
 # How scores are worked out (rules/scores.md) folds straight after "Marks and scores", so the costs sit beside the marks.
@@ -213,7 +242,7 @@ def report(C,a,gl):
     d=C['d']; h=C['h']; got=[]
     # (anchor key, heading, contents-bar label, beside the heading, body)
     secs=[('release','Release and method','Release','',post(
-        table(['',''],[(k,cell(h[k])) for k in HEADER if k in h and k not in TOPROWS],' meta')+'\n<p>Files checked:</p>\n'
+        table(['',''],[(k,cell(h[k])) for k in HEADER if k in h and k not in TOPROWS],' meta')+'\n<p><strong>Files checked</strong></p>\n'
         +table(['File','Inside','SHA-256','VirusTotal','Note'],[[cell(c) for c in r] for r in files_table(C['f'],d)])
         +('\n'+markdown.markdown(d['files_note']) if d.get('files_note') else ''),a))]
     for title,k in SECTIONS.items():
@@ -224,7 +253,8 @@ def report(C,a,gl):
             ar=SC['areas'][k]['name']; states,body=answer_table(C,a,k); got+=states
             for b in bl:
                 if 'table' in b: body+=f'\n<details class="sub"><summary>{FOLDNAME[tuple(b["table"])]} ({len(b["rows"])})</summary>\n{blocks(C,[b],a,k)}\n</details>'
-            rest=[b for b in bl if 'table' not in b]
+            # The lines no answer covers sit under one "Also found" heading, so a line's own "Also found: " isn't repeated.
+            rest=[dict(b,text=(lambda t:t[:1].upper()+t[1:])(b['text'][len('Also found: '):])) if b.get('text','').startswith('Also found: ') else b for b in bl if 'table' not in b]
             if rest: body+='\n<p><strong>Also found</strong></p>\n'+blocks(C,rest,a,k)
             side=(f'<span class="ascore">{gl[ar]}</span>' if ar in CONCERN else money_html(gl[ar]))+f'<span class="awhy">{post(cell(d["areas"][ar]),a)}</span>'
             secs.append((AREAK[ar],title,ar,side,body))
@@ -358,7 +388,7 @@ def score_section(a,name,ver,G,date,gl):
     # Open answers count at their full cost (rules/scores.md, "What we don't know"); the line under the score says how many.
     n=len(G['open'])
     gopen=(f'<p class="gopen">{n} answer{"s" if n>1 else ""} still open count{"" if n>1 else "s"} at full cost: '+', '.join(f'<a href="#q-{a}-{q}">{q}</a>' for q in G['open'])+'</p>') if n and G['kind']=='score' else '<p class="gopen">No answer still open costs points here.</p>' if G['kind']=='score' else ''
-    card=(f'<div class="hcol"><h3 class="sech" id="g-{a}">Score <small class="gdir">out of 100, higher is better</small></h3><div class="scorecard">{score_html(G,a,"card").replace("</a>",best+"</a>",1)}<div class="abars">{bars}</div>{gopen}</div></div>')
+    card=(f'<div class="hcol"><h3 class="sech" id="g-{a}">Score <small class="gnote">{GNOTE}</small></h3><div class="scorecard">{score_html(G,a,"card").replace("</a>",best+"</a>",1)}<div class="abars">{bars}</div>{gopen}</div></div>')
     bpath=f'badge/{a}/{ver}'; purl=f'{SITEURL}{a}/'; t=btitle(name,ver,G,date); opts=''
     for suf,label,draw in BADGES:
         burl=f'{SITEURL}{bpath}{suf}.svg'
@@ -382,10 +412,10 @@ def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False):
         mk,head,ans,span=C['key'][k]
         st={'+':'good','~':'note','!':'concern'}.get(mk) or ('held' if ans.startswith('Held back') else 'nc' if ans.startswith('Not checked') else 'na')
         badge=(span or state_html(st)).replace('class="mk ','class="mark ',1)
-        detail=ans[len(head):].lstrip('.;').strip()
+        detail=ans[len(head):].lstrip('.;').strip(); detail=detail[:1].upper()+detail[1:]
         frm=', '.join(f'<a href="#q-{a}-{i}">{i}</a>' for i in src)
         items+=(f'<li class="key" id="k-{a}-{k.lower()}"><p class="kq">{q}</p><div class="km">{badge}</div><div class="ka">'
-                f'<p class="kh">{inline(head)}</p>'+(f'<p class="kd">{inline(detail)} <span class="kf">From {frm}</span></p>' if detail else f'<p class="kd"><span class="kf">From {frm}</span></p>')+
+                f'<p class="kh">{inline(head)}</p>'+(f'<p class="kd">{post(inline(detail),a)}'+(f' {says_link(C,a)}' if SAYSQ in src else '')+f' <span class="kf">From {frm}</span></p>' if detail else f'<p class="kd"><span class="kf">From {frm}</span></p>')+
                 ''.join(f'<p class="kc"><a class="mark corr" href="#r-{a}-corr" title="{CORRTIP}">Under review #{n}</a></p>' for n in dict.fromkeys(n for i in src for n in CORR.get(f,{}).get(i,[])))+
                 '</div></li>')
     keys=f'<h3 class="sech" id="k-{a}">Key questions</h3><ol class="keys">{items}</ol>'
