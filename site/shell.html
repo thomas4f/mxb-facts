@@ -272,8 +272,8 @@ thead th { font: 600 12px/1.3 var(--f-ui); letter-spacing: .05em; text-transform
 .tw table { min-width: 560px }
 .meta table { min-width: 0 } .meta thead { display: none } .meta td:first-child { color: var(--muted); width: 26%; white-space: nowrap }
 .mk, .tag { margin-right: 2px }
-/* Verdicts in the report text and the Money label share the mark style (above). Not checked and Not allowed are dashed and grey. */
-.tag.ok { color: var(--good) } .tag.bad { color: var(--bad) } .tag.part { color: var(--note) } .tag.nc, .tag.na { color: var(--muted) }
+/* Not checked and Not allowed tags are dashed and grey, as their marks are. */
+.tag.nc, .tag.na { color: var(--muted) }
 /* The Money label; what it means shows on hover. */
 .money { color: var(--note); cursor: help }
 .money.na { color: var(--muted) }
@@ -346,6 +346,12 @@ footer p { margin: 0 }
   .tw table:has(.qid) tr { padding: 10px 0; border-bottom: var(--border) } .tw table:has(.qid) tr:last-child { border-bottom: 0 }
   .tw table:has(.qid) td { border: 0; padding: 3px 12px } .tw table:has(.qid) td:first-child { font-weight: 600 }
   .tw table:has(.qid) td:nth-child(4) { font-size: 13px; color: var(--muted) } .tw table:has(.qid) td:nth-child(4)::before { content: "Evidence: "; font-weight: 600 }
+  /* "Says vs does" stacks the same way: the claim, its verdict, then the evidence. */
+  .says table { min-width: 0 } .says thead { display: none }
+  .says table, .says tbody, .says tr, .says td { display: block }
+  .says tr { padding: 10px 0; border-bottom: var(--border) } .says tr:last-child { border-bottom: 0 }
+  .says td { border: 0; padding: 3px 12px }
+  .says td:nth-child(3) { font-size: 13px; color: var(--muted) } .says td:nth-child(3)::before { content: "Evidence: "; font-weight: 600 }
   .meta td:first-child { white-space: normal; width: 34% }
 }
 /* An open correction: neutral and dashed, like everything still open. */

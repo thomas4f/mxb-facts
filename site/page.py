@@ -18,11 +18,9 @@ MAINT=('<p class="maint"><strong>Made by the maintainer of MXB Facts.</strong> t
        '(<a href="https://github.com/thomas4f/mxb-facts#conflict-of-interest">conflict of interest</a>).</p>')
 
 def post(h,anchor):
-    # What every piece of a tool's page gets after its Markdown is HTML: links open in a new tab, "Says vs does" verdicts
-    # become tags, {+} {~} {!} become marks, and {lim:n} and {q:ID} (blocks() writes them) become the tool's own links.
+    # What every piece of a tool's page gets after its Markdown is HTML: links open in a new tab, {+} {~} {!} become marks,
+    # and {lim:n} and {q:ID} (blocks() writes them) become the tool's own links.
     h=h.replace('<a href="http','<a target="_blank" rel="noopener" href="http')
-    for word,cls in [("Doesn't match","bad"),("Partly","part"),("Matches","ok"),("Not checked","nc"),("Not allowed","na")]:
-        h=re.sub(r'<strong>'+re.escape(word)+r'(\.?)</strong>(\.)?', r'<span class="tag '+cls+'">'+word+'</span>', h)
     MK={'+':'good','~':'note','!':'concern'}
     h=re.sub(r'\{([+~!])\} ?', lambda m:state_html(MK[m.group(1)])+' ', h)
     h=re.sub(r'<li>\{lim:(\d+)\} ',lambda m:f'<li id="lim-{anchor}-{m.group(1)}">',h)
@@ -43,6 +41,17 @@ def table(head,rows,cls=''):
     # A table from cells that are already HTML, laid out as Markdown's tables are.
     return (f'<div class="tw{cls}"><table>\n<thead>\n<tr>\n'+''.join(f'<th>{c}</th>\n' for c in head)+'</tr>\n</thead>\n<tbody>\n'
             +''.join('<tr>\n'+''.join(f'<td>{c}</td>\n' for c in r)+'</tr>\n' for r in rows)+'</tbody>\n</table></div>')
+# "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
+# words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
+# after its own ("Matches, as far as checked").
+SAYS={'Matches':('good','What it does matches what its docs say'),'Partly':('note','Only part of what its docs say matches what it does'),
+      "Doesn't match":('concern','What it does differs from what its docs say; T2 says whether that costs points'),
+      'Not checked':('nc','Not checked; the evidence says why'),'Not allowed':('na','The licence forbids checking this')}
+def says_verdict(v):
+    # One "Says vs does" verdict as a mark.
+    w=next((w for w in SAYS if v==w or v.startswith(w+',')),None)
+    assert w, 'a "What it says vs what it does" verdict must start with '+', '.join(SAYS)+': '+v
+    return state_html(SAYS[w][0],SAYS[w][1],inner=esc(v))
 def blocks(C,bl,a,area=None):
     # A section's blocks (text, lists, limits, tables) as HTML. In an area section a Concern line or row shows as its
     # costliest answer does ("Concern", "Major", "Off by default", "On request"); Good and Note show as they are.
@@ -54,8 +63,9 @@ def blocks(C,bl,a,area=None):
         if 'table' in b:
             # A row's mark gets its own first column, as in the answer tables; a table whose rows carry no mark has no such column.
             cols=b['table']; marked=any(r.get('mark') for r in b['rows'])
-            # An Evidence column is set smaller, as in the answer tables.
-            out.append(table((['Mark'] if marked else [])+cols,[([f'<span class="mcol">{mark(r)}</span>'] if marked else [])+[f'<span class="ev">{cell(r[c])}</span>' if c=='Evidence' else cell(r[c]) for c in cols] for r in b['rows']]))
+            # An Evidence column is set smaller, as in the answer tables; a Verdict ("Says vs does") is drawn as a mark.
+            out.append(table((['Mark'] if marked else [])+cols,[([f'<span class="mcol">{mark(r)}</span>'] if marked else [])+[f'<span class="ev">{cell(r[c])}</span>' if c=='Evidence' else
+                             f'<span class="mcol">{says_verdict(r[c])}</span>' if c=='Verdict' else cell(r[c]) for c in cols] for r in b['rows']],' says' if 'Verdict' in cols else ''))
         elif 'list' in b: out.append(markdown.markdown('\n'.join('- '+i for i in b['list'])))
         elif 'limits' in b:
             # Each limit gets an anchor ({lim:n}) and links the answers it affects ({q:ID}); post() turns both into links for the tool.
