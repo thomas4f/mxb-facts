@@ -1,0 +1,47 @@
+$ pyinst.py code pkg/main.pyc_raw candidate_game_dirs find_game App.scan App.choose_game
+=== candidate_game_dirs (line 23)
+  24: BUILD_LIST | STORE_FAST roots
+  25: LOAD_GLOBAL Path | LOAD_GLOBAL os | LOAD_ATTR environ | LOAD_ATTR get | LOAD_CONST 'PROGRAMFILES(X86)' | LOAD_CONST 'C:\\Program Files (x86)' | CALL | CALL | STORE_FAST pf86
+  26: LOAD_GLOBAL Path | LOAD_GLOBAL os | LOAD_ATTR environ | LOAD_ATTR get | LOAD_CONST 'PROGRAMFILES' | LOAD_CONST 'C:\\Program Files' | CALL | CALL | STORE_FAST pf
+  28: LOAD_FAST_BORROW roots
+  29: LOAD_FAST_BORROW pf86 | LOAD_CONST 'Steam/steamapps/common/MX Bikes' | BINARY_OP /
+  30: LOAD_FAST_BORROW pf | LOAD_CONST 'Steam/steamapps/common/MX Bikes' | BINARY_OP /
+  31: LOAD_GLOBAL Path | LOAD_ATTR home | CALL | LOAD_CONST 'Steam/steamapps/common/MX Bikes' | BINARY_OP /
+  28: BUILD_LIST | BINARY_OP += | STORE_FAST roots
+  35: LOAD_FAST_BORROW pf86 | LOAD_CONST 'Steam/steamapps/libraryfolders.vdf' | BINARY_OP / | STORE_FAST vdf
+  37: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME re + eager | STORE_FAST re
+  38: LOAD_FAST_BORROW re | LOAD_ATTR findall | LOAD_CONST '"path"\\s+"([^"]+)"' | LOAD_FAST_BORROW vdf | LOAD_ATTR read_text | LOAD_CONST 'ignore' | LOAD_CONST ('errors',) | CALL_KW | CALL | GET_ITER | FOR_ITER to L2 | STORE_FAST raw
+  39: LOAD_FAST_BORROW roots | LOAD_ATTR append | LOAD_GLOBAL Path | LOAD_FAST_BORROW raw | CALL | LOAD_CONST 'steamapps/common/MX Bikes' | BINARY_OP / | CALL | JUMP_BACKWARD to L1
+  43: LOAD_FAST_BORROW roots | RETURN_VALUE | PUSH_EXC_INFO
+  40: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3
+  43: LOAD_FAST roots | RETURN_VALUE
+  40: RERAISE | RERAISE
+=== find_game (line 46)
+  47: LOAD_GLOBAL candidate_game_dirs | CALL | GET_ITER | FOR_ITER to L3 | STORE_FAST folder
+  48: LOAD_FAST_BORROW folder | LOAD_CONST 'mxbikes.exe' | BINARY_OP / | STORE_FAST exe
+  49: LOAD_FAST_BORROW exe | LOAD_ATTR is_file | CALL | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1
+  50: LOAD_FAST_BORROW exe | RETURN_VALUE
+  51: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.scan (line 257)
+  258: LOAD_GLOBAL find_game | CALL | LOAD_FAST_BORROW self | STORE_ATTR game
+  259: LOAD_FAST_BORROW self | LOAD_ATTR path_label | LOAD_ATTR configure | LOAD_FAST_BORROW self | LOAD_ATTR game_text | CALL | LOAD_CONST ('text',) | CALL_KW
+  260: LOAD_FAST_BORROW self | LOAD_ATTR refresh | CALL
+  261: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo
+  262: LOAD_GLOBAL APP
+  263: LOAD_FAST_BORROW self | LOAD_ATTR game | POP_JUMP_IF_FALSE to L1 | LOAD_CONST 'MX Bikes detected.'
+  261: CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  264: LOAD_CONST 'Could not detect MX Bikes. Use Choose Game Folder.'
+  261: CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.choose_game (line 267)
+  268: LOAD_GLOBAL filedialog | LOAD_ATTR askdirectory
+  269: LOAD_CONST 'Select the folder containing mxbikes.exe'
+  268: LOAD_CONST ('title',) | CALL_KW | STORE_FAST selected
+  271: LOAD_FAST_BORROW selected | POP_JUMP_IF_FALSE to L2
+  272: LOAD_GLOBAL Path | LOAD_FAST_BORROW selected | CALL | LOAD_CONST 'mxbikes.exe' | BINARY_OP / | STORE_FAST candidate
+  273: LOAD_FAST_BORROW candidate | LOAD_ATTR is_file | CALL | POP_JUMP_IF_FALSE to L1
+  274: LOAD_FAST_BORROW_LOAD_FAST_BORROW candidate, self | STORE_ATTR game
+  275: LOAD_FAST_BORROW self | LOAD_ATTR path_label | LOAD_ATTR configure | LOAD_FAST_BORROW self | LOAD_ATTR game_text | CALL | LOAD_CONST ('text',) | CALL_KW
+  276: LOAD_FAST_BORROW self | LOAD_ATTR refresh | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  278: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'That folder does not contain mxbikes.exe.' | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  271: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

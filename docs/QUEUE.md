@@ -27,7 +27,6 @@ Tools on file to analyse. The release named here is the one on file when the too
 |  | MXB App | 0.20.11 | Mod managers | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-app](https://github.com/Frostn1/mxb-app) | [mxbsecure.com/app](https://mxbsecure.com/app) | `mxb-app` |
 |  | MXB Coach | [v0.1.27](https://github.com/Frostn1/mxb-coach/releases/tag/v0.1.27) | Setup and coaching | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-coach](https://github.com/Frostn1/mxb-coach) | [mxbsecure.com/coach](https://mxbsecure.com/coach) | `mxb-coach` |
 |  | MXB DualSense Support | 1.0.0 | Controllers | "Slimerex" | None | None found | `mxb-dualsense` |
-|  | MXB FPS Booster | V1 (the zip's name) | Fixes and performance | "ts" | None | None found | `mxb-fps-booster` |
 |  | MXB Ragdoll | v1.0 | Gameplay and visuals | "BoredDev / mxbikesmods" | None | None found | `mxb-ragdoll` |
 |  | MXBMRP3 | The newest when it runs | HUD | GitHub user [thomas4f](https://github.com/thomas4f) (the maintainer) | [thomas4f/mxbmrp3](https://github.com/thomas4f/mxbmrp3) | [thomas4f.github.io/mxbmrp3](https://thomas4f.github.io/mxbmrp3/) | `mxbmrp3` |
 |  | MXBTT | [V1.0.0](https://github.com/DankMaps/MXBTT.com-Releases/releases/tag/V1.0.0) | HUD | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXBTT.com-Releases](https://github.com/DankMaps/MXBTT.com-Releases) | [mxbtt.com](https://mxbtt.com) | `mxbtt` |

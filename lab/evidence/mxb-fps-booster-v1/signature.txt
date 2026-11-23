@@ -1,0 +1,48 @@
+$ for f in 'MXB FPS Booster.exe' pkg/*.dll pkg/*.pyd pkg/psutil/*.pyd; do objdump -p "$f" | grep -E 'file format|Security Directory'; done
+MXB FPS Booster.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+pkg/VCRUNTIME140.dll:     file format pei-x86-64
+Entry 4 0000000000026a00 00004fb8 Security Directory
+pkg/libcrypto-3.dll:     file format pei-x86-64
+Entry 4 00000000005bac00 000036f8 Security Directory
+pkg/libffi-8.dll:     file format pei-x86-64
+Entry 4 0000000000006c00 00002f10 Security Directory
+pkg/libssl-3.dll:     file format pei-x86-64
+Entry 4 000000000013c200 000036f8 Security Directory
+pkg/libtommath.dll:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+pkg/python3.dll:     file format pei-x86-64
+Entry 4 000000000000f400 000036e0 Security Directory
+pkg/python315.dll:     file format pei-x86-64
+Entry 4 0000000000787e00 000036e0 Security Directory
+pkg/tcl90.dll:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+pkg/tcl9tk90.dll:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+pkg/zlib1.dll:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+pkg/_bz2.pyd:     file format pei-x86-64
+Entry 4 0000000000011a00 000036e0 Security Directory
+pkg/_ctypes.pyd:     file format pei-x86-64
+Entry 4 000000000001fc00 000036e0 Security Directory
+pkg/_decimal.pyd:     file format pei-x86-64
+Entry 4 000000000004c400 000036e0 Security Directory
+pkg/_hashlib.pyd:     file format pei-x86-64
+Entry 4 000000000000e600 000036e0 Security Directory
+pkg/_lzma.pyd:     file format pei-x86-64
+Entry 4 0000000000026800 000036e0 Security Directory
+pkg/_socket.pyd:     file format pei-x86-64
+Entry 4 0000000000012200 000036e0 Security Directory
+pkg/_ssl.pyd:     file format pei-x86-64
+Entry 4 000000000002d800 000036e0 Security Directory
+pkg/_tkinter.pyd:     file format pei-x86-64
+Entry 4 000000000000de00 000036e0 Security Directory
+pkg/_zstd.pyd:     file format pei-x86-64
+Entry 4 0000000000078400 000036e0 Security Directory
+pkg/select.pyd:     file format pei-x86-64
+Entry 4 0000000000004a00 000036e0 Security Directory
+pkg/unicodedata.pyd:     file format pei-x86-64
+Entry 4 00000000000b4800 000036e0 Security Directory
+pkg/psutil/_psutil_windows.pyd:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

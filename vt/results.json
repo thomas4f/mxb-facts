@@ -442,6 +442,38 @@
         "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096373938",
         "permalink": "https://www.virustotal.com/gui/file/eaad3a2a885eb88900ce06419424a9422413a61449b14af92f7054ce3042df2b"
       }
+    },
+    "mxb-fps-booster-v1.yaml": {
+      "97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4": {
+        "found": true,
+        "flagged": 3,
+        "engines": 67,
+        "flagged_by": [
+          "Bkav",
+          "DeepInstinct",
+          "SentinelOne"
+        ],
+        "last_scanned": "2026-11-22",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096747217",
+        "permalink": "https://www.virustotal.com/gui/file/97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4"
+      },
+      "00c571c7306180bc824e53ef9a4e859fecc63869cd038850eb84324d8a5b3c49": {
+        "found": true,
+        "flagged": 5,
+        "engines": 69,
+        "flagged_by": [
+          "APEX",
+          "Bkav",
+          "DeepInstinct",
+          "SentinelOne",
+          "Skyhigh"
+        ],
+        "last_scanned": "2026-11-21",
+        "looked_up": "2026-11-23",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45096747217",
+        "permalink": "https://www.virustotal.com/gui/file/00c571c7306180bc824e53ef9a4e859fecc63869cd038850eb84324d8a5b3c49"
+      }
     }
   }
 }

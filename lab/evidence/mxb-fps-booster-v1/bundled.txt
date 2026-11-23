@@ -1,0 +1,48 @@
+$ cd pkg; find . -type f ! -name '*.pyc_raw' ! -name PYZ.pyz ! -name base_library.zip | sort | while read f; do sha256sum "$f"; file -b "$f"; done
+d1f4225df2cd877dbf130d5668a021dce3f94118455ff5ec952061c30afc9ce7  ./VCRUNTIME140.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+2ae45b2ff932dc8a864c862d8150eb3f5b55e60e3e74ec554c4f52c4f1ad81e0  ./_bz2.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+8bb22628ae859877b1cf55381c1a8cf54bb0aa70c56295053bc3303262e21c87  ./_ctypes.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+93360ba1650bf5f1a673aac22d444ad2d33a039550926f325ad19dafd950e04c  ./_decimal.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+3cfb95355576805d6362b878d2207e254125887fce12ff8199becab34beb0694  ./_hashlib.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+d9033e94387aa70777d23514263d342486899256ffc14478be6bb1e6a0b05683  ./_lzma.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+ba52c110c0cbc429add306acccf86dd2f77c777a9db68df7cddfc4489e91bce7  ./_socket.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+a9c54ec4d115597880e0e44ff26b740328d0388a777dfb613d3aa2eb66b31e49  ./_ssl.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+3b4e3ba215fef3521fc72293afe52aa209e981c32e55ee94427032dcaecc26b7  ./_tkinter.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+a977471edf7b6712a9e89ada98b79b1973c79740632f820b67365f242b5e05cc  ./_zstd.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+75495fe0e079ab00d49be740d3c710a0b94e3f74f9648cb7cc9f768fc7f52319  ./libcrypto-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a  ./libffi-8.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+8957182a9c385bfd9f3f790921de2ddc614cf91f99edbed4e9e5446a46504e32  ./libssl-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+2d760fefb452665b6af8c8d9d29f3a8378f10fc0847cdd9938ea0cb5edf1d573  ./libtommath.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+0035450801bd7d938e9e146c5ec28e619cb5a5f4a18cdc53ac7e9734c7f94f78  ./psutil/_psutil_windows.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  ./pyi-contents-directory _internal
+empty
+e394c32bb9e2f0d813f4ed5b858ba717e54e3e6547cd36a8d8aaee66b9ca347f  ./python3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 2 sections
+9862572fd449f32a62c1eaec2c6750a9c9fa512f4c9c2ea0e66776cf9212b7c2  ./python315.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+d39e00967809d2d2cf8aea78f6fd39923cfb4ad426ccd19bbfe7163020dafffe  ./select.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+a1fb45f963b05cb083a97df1449c2023b484eb921d40a463da7501b0f60e0f70  ./tcl90.dll
+Zip archive, with extra data prepended
+31f625c52e65d29d126e710ed8bab2ec964cb770e4fc59bc329dfff02cb6ddcf  ./tcl9tk90.dll
+Zip archive, with extra data prepended
+ba69f643918cc520331c6a13d489d642131be23dd649d05e0cd1068fae92e76d  ./unicodedata.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+f07195206534ebb1fe75093d4ec6c54a7a9227281b0c09d2113465b71da9e900  ./zlib1.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+(exit 0)

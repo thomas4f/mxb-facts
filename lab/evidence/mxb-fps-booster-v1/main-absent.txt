@@ -1,0 +1,2 @@
+$ pyinst.py code pkg/main.pyc_raw | grep -nE 'IMPORT_NAME (socket|ssl|urllib|http|requests|winreg|ctypes|win32[a-z]*|ftplib|smtplib)\b|ATTR (urlopen|connect|sendall|OpenKey|SetValue|SetValueEx|CreateKey|kill|terminate|suspend|WriteProcessMemory|keybd_event|SendInput)\b'
+(exit 1)

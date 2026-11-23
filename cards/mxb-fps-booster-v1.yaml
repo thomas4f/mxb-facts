@@ -1,0 +1,427 @@
+tool: MXB FPS Booster
+version: V1
+summary: >-
+  A Windows app for MX Bikes that, when you click its buttons, switches Windows to the High performance power plan, starts the
+  game at Above normal priority, and installs or backs up plugin files. It makes no internet connection and has no updater.
+header:
+  What it is: >-
+    A closed-source Windows program, `MXB FPS Booster.exe`, a Python script packed with PyInstaller, that you run beside the
+    game. It finds MX Bikes through Steam's folders, shows the CPU and memory load, and has buttons for Gaming Mode (the Windows
+    power plan), launching the game, and installing or backing up files in the game's `plugins` folder. It is not a plugin.
+  In one line: App that switches the Windows power plan, launches MX Bikes and copies plugin files
+  Category: Fixes and performance
+  Author: ts (the name on its mxb-mods.com page)
+  Game: MX Bikes
+  mxb-mods.com: '[MXB_FPS_Booster_V1](https://mxb-mods.com/mxb_fps_booster_v1-2/), published 5 Nov 2026 by ts'
+  Homepage: None found
+  GitHub: None found
+  Version analysed: >-
+    V1: `MXB_FPS_Booster_V1.zip`, the only download on its mxb-mods.com page (published 5 Nov 2026), through
+    [MediaFire](https://www.mediafire.com/file/6cas28gcg5u2v56/MXB_FPS_Booster_V1.zip/file); the newest release in the inventory
+    (`registry/releases.json`, from that page). The program's own window says "v0.3". There are no tags or commits: the source
+    isn't public.
+  Analysed on: 23 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Closed source, and neither the release nor its mxb-mods.com page carries a licence or a clause against analysis, so the
+    release was examined without running it here: the zip's single program was unpacked with `tools/carchive.py` (PyInstaller),
+    every bundled program file listed with its type, hash and code-signing entry, and the tool's own script (`main.py`, Python
+    3.15 bytecode) read in full with Python 3.15's `dis` (not decompiled to source); every command is in
+    `lab/evidence/mxb-fps-booster-v1/run.sh`. The release was not rebuilt (no public source). A throwaway Windows Server 2025 machine with no GPU (Mesa
+    llvmpipe software OpenGL, not Windows on a real GPU), no game, no Steam and no keys started the program for 120 s, offline
+    behind a firewall block, under Process Monitor, and clicked nothing; the game wasn't run, as the tool isn't a plugin.
+    VirusTotal: hash lookups only (made before the analysis, 23 Nov 2026), nothing uploaded.
+files:
+  - name: MXB_FPS_Booster_V1.zip
+    sha256: 97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4
+    note: The download players get from its mxb-mods.com page, through MediaFire.
+  - name: MXB FPS Booster.exe
+    sha256: 00c571c7306180bc824e53ef9a4e859fecc63869cd038850eb84324d8a5b3c49
+    inside: MXB_FPS_Booster_V1.zip
+    note: >-
+      The program (PyInstaller, one file): its script `main.py`, Python 3.15.2, Tcl/Tk 9.0.4, OpenSSL 3.5.9 and psutil 7.2.2;
+      every file packed in it, with its SHA-256, is in `lab/evidence/mxb-fps-booster-v1/bundled.txt`.
+files_note: >-
+  The program isn't code-signed (`lab/evidence/mxb-fps-booster-v1/signature.txt`). The zip's hash matches the one the Windows machine ran
+  (`lab/results/mxb-fps-booster-v1/fps-booster-windows/machine.txt`), and the program's the one it started (`lab/results/mxb-fps-booster-v1/fps-booster-windows/plugins.sha256`).
+key:
+  K1: 'No malware found. 5 of 69 engines flag the program and 3 of 67 the zip.'
+  K2: 'No. It has no updater.'
+  K3: >-
+    Only when you click. Install From File can replace plugin files of the same name (after asking, with a backup), and Gaming Mode
+    switches the Windows power plan.
+  K4: 'No. It makes no internet connection.'
+  K5: 'No. It changes nothing in the game. Launch MX Bikes starts it, at Above normal priority with Gaming Mode on.'
+  K6: 'No. It opens no one''s content; it only copies plugin files when you ask.'
+  K7: 'No. Only the packed program is published.'
+  K8: 'Yes, as far as checked; the FPS gain its page claims wasn''t measured.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'No. Its script has no network code, and the run tried no connection.'
+areas:
+  Your PC and files: >-
+    No installer and no updater; on request it switches the Windows power plan and copies plugin files into the game's
+    `plugins` folder; not code-signed.
+  Your data: No internet connection; it reads Steam's library list and the names of running programs on your PC.
+  Your game: >-
+    A separate program, not a plugin; it can start the game and raise its process priority, and changes nothing in the game itself.
+  Creators' content: Doesn't unpack or share anyone's content; on request it copies the plugins folder as a backup.
+  Transparency: Closed source with no licence, published as a zip on MediaFire from an mxb-mods.com page.
+  Money: Free; nothing is sold and no donation is asked for.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: Install From File takes a `.dlo` or a `.zip` you pick and copies only `.dlo`, `.dll`, `.ini`,
+          `.json`, `.png`, `.jpg`, `.ttf` and `.otf` files into `plugins`, keeping the zip's folders. It skips files named
+          `proxy64.dlo`, `proxy_udp64.dlo`, `telemetry64.dlo` and `xinput64.dli`, and refuses a zip with an entry that points
+          outside the folder it unpacks to (`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`).
+        mark: note
+      - text: >-
+          Also found: while it runs, its packed files sit in a temporary folder (`AppData\Local\Temp\_MEI...`), as with any
+          PyInstaller program (`lab/results/mxb-fps-booster-v1/fps-booster-windows/outside.txt`).
+        mark: note
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"usually give a few 10- 30 more fps depending on what pc u got." (mxb-mods.com page)'
+            Verdict: Not checked
+            Evidence: >-
+              No run here has a real GPU (see Limits). What it changes is the power plan and, when it starts the game, the game's
+              priority (`lab/evidence/mxb-fps-booster-v1/power-plan.txt`, `lab/evidence/mxb-fps-booster-v1/launch.txt`); its own window says "No guaranteed FPS increase"
+              (`lab/evidence/mxb-fps-booster-v1/ui-text.txt`).
+          - Claim: >-
+              "MAKE SURE TO TURN OF GAME MODE WHEN GOING OTHER STUFF BECAUSE THE PROGRAM MAKES OTHER APPLICATIONS SLOWER."
+              (mxb-mods.com page)
+            Verdict: Not checked
+            Evidence: >-
+              Gaming Mode switches the power plan for all of Windows and raises only the game's priority; it lowers no other
+              program's priority (`lab/evidence/mxb-fps-booster-v1/power-plan.txt`, `lab/evidence/mxb-fps-booster-v1/launch.txt`). Whether other programs get slower wasn't measured.
+          - Claim: >-
+              "Uses the Windows High performance power plan while enabled and starts MX Bikes with Above normal process priority. It
+              does not close apps, change security settings, or edit the registry." (its window)
+            Verdict: Matches
+            Evidence: >-
+              It runs `powercfg /setactive SCHEME_MIN` (Windows' High performance plan) and sets Above normal priority on the game it
+              starts with Launch MX Bikes; its script imports no registry module and ends no program (`lab/evidence/mxb-fps-booster-v1/power-plan.txt`,
+              `lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`). The priority applies only to a game started
+              from its Launch MX Bikes button.
+          - Claim: '"Gaming Mode is off. Your previous power plan was restored." (its message)'
+            Verdict: Matches
+            Evidence: >-
+              Before switching, it reads the active plan with `powercfg /getactivescheme` and sets it back when you turn Gaming
+              Mode off or close its window (`lab/evidence/mxb-fps-booster-v1/power-plan.txt`).
+          - Claim: '"existing file(s) will be backed up before replacement. Continue?" (its message)'
+            Verdict: Matches
+            Evidence: >-
+              Each file it would replace is copied to `Documents\MXB FPS Booster Backups\pre_install_<date>` before the new
+              files are copied in, and only after you answer Yes (`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`).
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The run was on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real GPU,
+              without the game, so no frame rate or speed was measured.
+            questions: []
+          - text: >-
+              The run only started the program for 120 s and clicked nothing, on a machine without Steam or the game: Gaming Mode,
+              Launch MX Bikes, Install From File, Back Up Plugin Files and Open Plugins Folder weren't run. What they do rests on
+              its script's bytecode.
+            questions: [P4, P6, P7, P8, G6, G10, C5]
+          - text: >-
+              The run was stopped after 120 s rather than closed, so whether the temporary folder PyInstaller unpacks to is
+              removed when you close the program wasn't seen.
+            questions: [P8]
+          - text: >-
+              The program's script was read as bytecode with Python 3.15's `dis`, not decompiled to source. The code packed with
+              it (PyInstaller's start-up code, Python's standard library, Tcl/Tk and psutil) wasn't compared with those projects'
+              own releases; the answers rest on what the script calls.
+            questions: [P9]
+answers:
+  P1:
+    verdict: Partly
+    mark: note
+    text: >-
+      5 of 69 engines (APEX, Bkav, DeepInstinct, SentinelOne, Skyhigh) flag `MXB FPS Booster.exe` (last scanned 21 Nov 2026), and
+      3 of 67 (Bkav, DeepInstinct, SentinelOne) flag `MXB_FPS_Booster_V1.zip` (last scanned 22 Nov 2026). Both files are on
+      VirusTotal. The files packed inside the program were not looked up. Hash lookups on 23 Nov 2026; nothing uploaded.
+    evidence: >-
+      [MXB_FPS_Booster_V1.zip](https://www.virustotal.com/gui/file/97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4),
+      [MXB FPS Booster.exe](https://www.virustotal.com/gui/file/00c571c7306180bc824e53ef9a4e859fecc63869cd038850eb84324d8a5b3c49)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It has no updater; its script has no web address and no network code.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/main-money.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`.'
+  P4:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Install From File replaces files of the same name in the game's `plugins` folder, only after you pick the files and answer
+      Yes to "existing file(s) will be backed up before replacement", and copies each one to `Documents\MXB FPS Booster
+      Backups` first. It deletes no file but the temporary folder it unpacks a zip into; its script has no delete or rename call.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`, `lab/evidence/mxb-fps-booster-v1/main-files.txt`.'
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The program isn't code-signed, and it can't be traced to public source. (Python's own DLLs packed inside it carry a
+      signature entry; that doesn't sign the program.)
+    evidence: Empty Security Directory for `MXB FPS Booster.exe` (`lab/evidence/mxb-fps-booster-v1/signature.txt`).
+  P6:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Enable Gaming Mode switches the Windows power plan to High performance (`powercfg /setactive SCHEME_MIN`) for all of
+      Windows. Turning it off, or closing the program's window, sets back the plan it read before. Started and left alone, the run
+      wrote no registry value but Windows' own record that the program ran (`bam`).
+    evidence: '`lab/evidence/mxb-fps-booster-v1/power-plan.txt`; `lab/results/mxb-fps-booster-v1/fps-booster-windows/registry.txt`.'
+  P7:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Install From File copies the files you pick into the game's `plugins` folder, and Open Plugins Folder creates that folder if
+      it's missing. Nothing is written into the game's folders when you only start it.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/outside.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/files.diff`.'
+  P8:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      There is no installer or uninstaller. After the buttons you click, the plugin files it installed and its backups in
+      `Documents\MXB FPS Booster Backups` stay. With Gaming Mode on, the High performance plan stays if the program ends without
+      its window being closed (for example from Task Manager), because only turning Gaming Mode off or closing the window sets the
+      old plan back.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/power-plan.txt`, `lab/evidence/mxb-fps-booster-v1/plugin-install.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. Its script does what its window shows: power plan, game launch, plugin files, CPU and memory load. It
+      imports no network or registry module, and the bundled modules are Python's standard library, tkinter and psutil.
+    evidence: >-
+      `lab/evidence/mxb-fps-booster-v1/main.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/pyz.txt`, `lab/evidence/mxb-fps-booster-v1/carchive.txt`.
+  D1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its script imports no network module and holds no web address, and the run tried no connection. Python's network modules are
+      packed with it, as PyInstaller does, but the script doesn't use them.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-imports.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/main-money.txt`; `lab/results/mxb-fps-booster-v1/fps-booster-windows/network.txt`.'
+  D2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent; it makes no connection.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/network.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent, so no identifier is.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/network.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent, and it reads no other player's data.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/network.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: Its script opens no socket, so it runs no server.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      At start it reads Steam's `libraryfolders.vdf` to find the game. Every 1.5 s it reads the names of all running programs, to
+      see whether `mxbikes.exe` runs, and the CPU and memory load. None of it is other people's data, and it keeps none of it.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/game-find.txt`, `lab/evidence/mxb-fps-booster-v1/launch.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; it has no network code.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: It makes no connection, so there is nothing to switch off.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/network.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the mxb-mods.com page and the MediaFire download open without one.
+    evidence: '[mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/); `lab/evidence/mxb-fps-booster-v1/main-money.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It writes no data file of its own (only its unpacked program files, in a temporary folder) and opens no socket or shared
+      memory, so it shares nothing with other programs.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/main-files.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/outside.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It starts the game as a normal program and sets its priority; it writes nothing into the game's process.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: It doesn't touch the game's code or memory; its only change to the game's process is its priority.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game (G2), so it changes nothing online either.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: It reads only the names of running programs; it reads no program's memory.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It takes input only in its own window, for its buttons; it presses no keys.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/ui-text.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  G6:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Install From File, its Plugin Manager, can replace other plugins' files of the same name in `plugins` (after asking, with
+      a backup); installing plugins is that button's stated job. It doesn't touch other programs' memory.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`, `lab/evidence/mxb-fps-booster-v1/ui-text.txt`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It reads no keyboard through Windows; it has only its own window's buttons.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: It doesn't run in the game, so it sets no crash handler there.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; the run wrote no start-up entry and its script has no registry code.
+    evidence: '`lab/results/mxb-fps-booster-v1/fps-booster-windows/registry.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The tool is a separate program you start yourself, beside the game. Its Launch MX Bikes button starts `mxbikes.exe` from the
+      game folder directly (not through Steam).
+    evidence: '`lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/results/mxb-fps-booster-v1/fps-booster-windows/loaded.txt`.'
+  G11:
+    verdict: 'No'
+    mark: good
+    text: It isn't a plugin and loads nothing into the game.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/file.txt`, `lab/evidence/mxb-fps-booster-v1/launch.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check is got around; it changes nothing in the game.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/launch.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; it copies files as they are.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It extracts nothing from the game. Back Up Plugin Files copies the `plugins` folder as it is to `Documents\MXB FPS Booster
+      Backups`, on request.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; it has no network code.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
+  C4:
+    verdict: 'No'
+    mark: note
+    text: >-
+      It packs Python, Tcl/Tk, OpenSSL, libffi, zlib, psutil and PyInstaller's start-up code; the release has no credits or licence
+      texts for them.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/file.txt`, `lab/evidence/mxb-fps-booster-v1/carchive.txt`, `lab/evidence/mxb-fps-booster-v1/versions.txt`.'
+  C5:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Back Up Plugin Files copies every file in `plugins`, other people's plugins included; Install From File opens the zip you
+      pick. It opens no mod, paint, track or model when you only start it.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source of its script isn't public. Prebuilt program files: `MXB FPS Booster.exe` (PE32+ GUI program, x86-64,
+      PyInstaller), holding the script `main.py` (compiled, no public source) and `python315.dll`, `python3.dll` and 11
+      `.pyd` modules (Python 3.15.2), `tcl90.dll`, `tcl9tk90.dll` and `libtommath.dll` (Tcl/Tk 9.0.4),
+      `libcrypto-3.dll` and `libssl-3.dll` (OpenSSL 3.5.9), `libffi-8.dll`, `zlib1.dll`, `_psutil_windows.pyd` (psutil
+      7.2.2) and `VCRUNTIME140.dll` (Microsoft's C runtime).
+    evidence: '`file` on each (`lab/evidence/mxb-fps-booster-v1/file.txt`, `lab/evidence/mxb-fps-booster-v1/bundled.txt`), `lab/evidence/mxb-fps-booster-v1/versions.txt`; [mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/) (a MediaFire download only).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing its window or page says on these questions differs from what was found; the claims are in "What it says vs what it
+      does".
+    evidence: '`lab/evidence/mxb-fps-booster-v1/ui-text.txt`, `lab/evidence/mxb-fps-booster-v1/power-plan.txt`, `lab/evidence/mxb-fps-booster-v1/plugin-install.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release is a zip on MediaFire; there is no public source or build.
+    evidence: '[mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: No code history or changelog is public; there is one release.
+    evidence: '[mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/); `lab/evidence/mxb-fps-booster-v1/file.txt`.'
+  T6:
+    verdict: Not checked
+    text: >-
+      No source or build files are public, so how its dependencies are pinned can't be read; the release packs psutil 7.2.2.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/versions.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: Neither the release nor its mxb-mods.com page has a licence.
+    evidence: '`unzip -l` of the zip (`lab/evidence/mxb-fps-booster-v1/file.txt`); [mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-money.txt`; [mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/).'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; its script has no shop or payment link.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Neither the program nor its mxb-mods.com page asks for donations.
+    evidence: '`lab/evidence/mxb-fps-booster-v1/main-money.txt`; [mxb-mods.com page](https://mxb-mods.com/mxb_fps_booster_v1-2/).'
+history:
+  - date: 23 Nov 2026
+    change: First card, for V1.

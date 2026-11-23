@@ -1,0 +1,32 @@
+$ pyinst.py code pkg/main.pyc_raw | grep -nE 'copy2|copytree|mkdir|extractall|unlink|remove|rmtree|rename|write_|read_text|BACKUP_ROOT|Documents|libraryfolders|plugins'
+14:  15: LOAD_NAME Path | LOAD_ATTR home | CALL | LOAD_CONST 'Documents' | BINARY_OP / | LOAD_CONST 'MXB FPS Booster Backups' | BINARY_OP / | STORE_NAME BACKUP_ROOT
+38:  35: LOAD_FAST_BORROW pf86 | LOAD_CONST 'Steam/steamapps/libraryfolders.vdf' | BINARY_OP / | STORE_FAST vdf
+40:  38: LOAD_FAST_BORROW re | LOAD_ATTR findall | LOAD_CONST '"path"\\s+"([^"]+)"' | LOAD_FAST_BORROW vdf | LOAD_ATTR read_text | LOAD_CONST 'ignore' | LOAD_CONST ('errors',) | CALL_KW | CALL | GET_ITER | FOR_ITER to L2 | STORE_FAST raw
+82:  252: LOAD_CONST <code App.plugins_dir> | MAKE_FUNCTION | STORE_NAME plugins_dir
+85:  280: LOAD_CONST <code App.open_plugins> | MAKE_FUNCTION | STORE_NAME open_plugins
+86:  288: LOAD_CONST <code App.backup_plugins> | MAKE_FUNCTION | STORE_NAME backup_plugins
+183:  177: LOAD_FAST_BORROW game_row | LOAD_CONST 'OPEN PLUGINS FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR open_plugins
+218:  218: LOAD_CONST "Install a plugin package (.zip or .dlo) into the game's plugins folder. Only install files from sources you trust. There is no official MXB FPS Booster plugin download available yet."
+229:  231: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'BACK UP PLUGIN FILES' | LOAD_FAST_BORROW self | LOAD_ATTR backup_plugins
+233:  234: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'OPEN PLUGINS FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR open_plugins
+248:=== App.plugins_dir (line 252)
+251:  255: LOAD_FAST_BORROW self | LOAD_ATTR game | LOAD_ATTR parent | LOAD_CONST 'plugins' | BINARY_OP / | RETURN_VALUE
+274:=== App.open_plugins (line 280)
+275:  281: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST folder
+279:  285: LOAD_FAST_BORROW folder | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+281:=== App.backup_plugins (line 288)
+282:  289: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST folder
+284:  291: LOAD_GLOBAL messagebox | LOAD_ATTR showwarning | LOAD_GLOBAL APP | LOAD_CONST 'MX Bikes plugins folder not found.' | CALL
+286:  293: LOAD_GLOBAL BACKUP_ROOT | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+287:  294: LOAD_GLOBAL BACKUP_ROOT | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST 'plugins_%Y%m%d_%H%M%S' | CALL | BINARY_OP / | STORE_FAST destination
+288:  296: LOAD_GLOBAL shutil | LOAD_ATTR copytree | LOAD_FAST_BORROW_LOAD_FAST_BORROW folder, destination | CALL
+294:  302: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST target
+297:  305: LOAD_FAST_BORROW target | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+317:  333: LOAD_GLOBAL BACKUP_ROOT | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+318:  334: LOAD_GLOBAL BACKUP_ROOT | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST 'pre_install_%Y%m%d_%H%M%S' | CALL | BINARY_OP / | STORE_FAST backup
+322:  338: LOAD_FAST_BORROW output | LOAD_ATTR parent | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+323:  339: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW destination, output | CALL | JUMP_BACKWARD to L17
+325:  342: LOAD_FAST_BORROW destination | LOAD_ATTR parent | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+326:  343: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW source, destination | CALL | JUMP_BACKWARD to L20
+349:  367: LOAD_FAST_BORROW archive | LOAD_ATTR extractall | LOAD_FAST_BORROW temp | CALL
+(exit 0)
