@@ -1,0 +1,31 @@
+$ cd "$SRC" && grep -nE 'Retire|Backup|Copy-Item|Move-Item|Remove-Item|Unblock-File|CreateShortcut|HKCU|HKLM|Set-ItemProperty|New-ItemProperty|Startup|Run\b|steam://|testing.dfm' install/Install.ps1 install/Uninstall.ps1 launcher/MXDirtLauncher.ps1 | cut -c1-260
+install/Install.ps1:11:    $roots=@(); try{ $s=(Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath; if($s){ $s=$s -replace '/','\'; $roots+=$s
+install/Install.ps1:21:    Get-ChildItem $Here -Recurse -File -ErrorAction SilentlyContinue | Unblock-File -ErrorAction SilentlyContinue
+install/Install.ps1:31:    function Backup($f){ if(Test-Path $f){ Copy-Item $f $B -Recurse -Force } }
+install/Install.ps1:32:    function Retire($f){ if(Test-Path $f){ Move-Item $f $B -Force } }
+install/Install.ps1:35:    foreach($n in 'mxb_reflex_active.dlo','mxb_reflex_renderer.dlo','living_dirt.dlo','mxb_reflex_runtime_probe.dlo','mxb_publication_probe.dlo','mxb_scoped_render_probe.dlo'){ Retire "$P\$n" }
+install/Install.ps1:37:    foreach($n in 'mx_dirt.dlo','mx_dirt_render.dlo','mx_dirt.ini','mx_dirt_render.ini'){ Backup "$P\$n" }
+install/Install.ps1:38:    Copy-Item "$Here\plugins\mx_dirt.dlo","$Here\plugins\mx_dirt_render.dlo" $P -Force
+install/Install.ps1:40:    foreach($n in 'mx_dirt.ini','mx_dirt_render.ini'){ if(-not (Test-Path "$P\$n")){ Copy-Item "$Here\plugins\$n" $P } }
+install/Install.ps1:42:    New-Item -ItemType Directory -Force "$P\mx_dirt_data" | Out-Null; Copy-Item "$Here\plugins\mx_dirt_data\*" "$P\mx_dirt_data\" -Force
+install/Install.ps1:44:    $L="$P\mx_dirt_launcher"; Backup $L; New-Item -ItemType Directory -Force $L | Out-Null
+install/Install.ps1:45:    Copy-Item "$Here\launcher\*" $L -Recurse -Force
+install/Install.ps1:47:        $ws=New-Object -ComObject WScript.Shell; $lnk=$ws.CreateShortcut("$([Environment]::GetFolderPath('Desktop'))\MX Dirt Mod.lnk")
+install/Install.ps1:51:    Say "MX Dirt Mod installed in:`n$P`n`nBackup of replaced files:`n$B`n`nOpen 'MX Dirt Mod' on your desktop to change settings.$warn"
+install/Uninstall.ps1:14:            try{ $s=(Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath; if($s){ $s=$s -replace '/','\'; $roots+=$s
+install/Uninstall.ps1:22:    if(-not $GameDir){ throw 'MX Bikes folder not found. Run: Uninstall.ps1 -GameDir "<your MX Bikes folder>"' }
+install/Uninstall.ps1:26:    foreach($n in 'mx_dirt.dlo','mx_dirt_render.dlo','mx_dirt.ini','mx_dirt_render.ini','mx_dirt.jsonl','mx_dirt_render.log','mx_dirt_launcher','mx_dirt_soft','mx_dirt_terrain','mx_dirt_data','mx_dirt_presets','mx_dirt_tracks'){ if(Tes
+install/Uninstall.ps1:27:    $lnk="$([Environment]::GetFolderPath('Desktop'))\MX Dirt Mod.lnk"; if(Test-Path $lnk){ Move-Item $lnk $B -Force }
+launcher/MXDirtLauncher.ps1:8:      [string]$BackupDir="$([Environment]::GetFolderPath('MyDocuments'))\PiBoSo\MX Bikes\mx_dirt_mod_backups",
+launcher/MXDirtLauncher.ps1:17:    $roots=@(); try{ $s=(Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath; if($s){ $s=$s -replace '/','\'; $roots+=$s
+launcher/MXDirtLauncher.ps1:25:     if(-not (Test-Path "$GameDir\plugins\mx_dirt.ini") -and -not (Test-Path "$GameDir\plugins\mxb_reflex_active.ini")){ throw "The dirt mod is not installed in:`n$GameDir`n`nRun Install.cmd from the release first." } }
+launcher/MXDirtLauncher.ps1:58:    catch{ [IO.File]::WriteAllLines($path,$new,$Enc); Remove-Item $tmp -Force -ErrorAction SilentlyContinue }
+launcher/MXDirtLauncher.ps1:126:Row 'Track' $track 'Tracks with saved wear (testing.dfm). Reset moves the file to a backup folder - nothing is deleted.'
+launcher/MXDirtLauncher.ps1:148:    Get-ChildItem $ProfileDir -Recurse -Filter testing.dfm -ErrorAction SilentlyContinue | Sort-Object LastWriteTime -Descending |
+launcher/MXDirtLauncher.ps1:176:    if(-not $script:BackedUp){ $d="$BackupDir\settings-$stamp";New-Item -ItemType Directory -Force $d | Out-Null
+launcher/MXDirtLauncher.ps1:177:        foreach($k in $Ini.Keys){ Copy-Item $Ini[$k] $d }; $script:BackedUp=$true }
+launcher/MXDirtLauncher.ps1:214:        Start-Process 'steam://rungameid/655500'; $f.Close() }catch{ [Windows.Forms.MessageBox]::Show("Could not start:`n$($_.Exception.Message)",'MX Dirt Mod','OK','Error') | Out-Null } })
+launcher/MXDirtLauncher.ps1:218:    if($ask -and [Windows.Forms.MessageBox]::Show("Start '$n' fresh next time?`n`nIts saved wear is moved to:`n$BackupDir\track-wear",'Reset track wear','OKCancel','Question') -ne 'OK'){return}
+launcher/MXDirtLauncher.ps1:219:    $d="$BackupDir\track-wear";New-Item -ItemType Directory -Force $d | Out-Null
+launcher/MXDirtLauncher.ps1:220:    Move-Item $p "$d\$n-$(Get-Date -Format 'yyyyMMdd-HHmmss').dfm"
+(exit 0)

@@ -1,0 +1,3 @@
+$ cd "$SRC" && grep -rniE 'socket|winsock|wininet|winhttp|urlmon|https?://|Invoke-WebRequest|Invoke-RestMethod|WebClient|Net\.Http|steam://' src install launcher
+launcher/MXDirtLauncher.ps1:214:        Start-Process 'steam://rungameid/655500'; $f.Close() }catch{ [Windows.Forms.MessageBox]::Show("Could not start:`n$($_.Exception.Message)",'MX Dirt Mod','OK','Error') | Out-Null } })
+(exit 0)

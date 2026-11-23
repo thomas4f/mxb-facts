@@ -1,0 +1,15 @@
+$ cd "$SRC" && grep -rn '9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291' src SUPPORTED_EXE.txt; grep -n 'executable_hash\|verified_image' src/render/mxdirt_render_host.c | head -8
+src/core/mx_dirt.c:66:static const char ra_exe_sha[]="9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291";
+src/core/mxdirt_runstop_origin.h:32:       "9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291"))return MXB_RUNSTOP_BUILD;
+src/core/mxdirt_frame_snapshot.c:9:static const char image_sha[]="9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291";
+src/core/mxdirt_bootstrap_origin.h:19:  !q->verified_sha256||strcmp(q->verified_sha256,"9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291"))return 0;
+src/core/mxdirt_transport.c:21:static const char transport_sha[]="9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291";
+SUPPORTED_EXE.txt:1:9e792d7aed1dc40df11eea51d1a6d0519daec7be2b65609905df8c9de804a291  mxbikes.exe (Steam build 23566986)
+63:static int verified_image,content_ready,hooks_wanted,slots_attempted,slots_ok,retire_pending,shutdown_pending;
+207: if(!verified_image||atomic(&foreign)||GetCurrentThreadId()!=lifecycle_thread||atomic(&inflight)||atomic(&running)||call_owned||surface_owned)return 0;
+353:static int executable_hash(const wchar_t *path){
+384: verified_image=executable_hash(path);
+390: mark(verified_image?A_START:A_HASH_FAIL,(uintptr_t)image_base,image_size);
+393: if(!verified_image||(!hooks_wanted&&!surface_enabled)){mark(A_GATE_FAIL,(uintptr_t)verified_image,(uintptr_t)hooks_wanted);flush_log(0);return startup_fail(error);}
+412: if(!content_ready||!verified_image||!data||size<(int)sizeof(e)||atomic(&foreign)||!configuration()||
+(exit 0)

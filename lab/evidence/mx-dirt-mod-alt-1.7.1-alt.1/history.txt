@@ -1,0 +1,17 @@
+$ cd "$SRC" && git log --date=short --format='%h %ad %an: %s' HEAD
+c5ed04c 2026-11-19 Fran Milesi: Docs (ES/EN): README, NOTICE, development log, diagrams
+7f140d6 2026-11-19 Fran Milesi: MX Dirt Mod Alt 1.7.1-alt.1: in-game menu, track tools, lean erosion, real tyres
+5c300cc 2026-11-16 kadenball: MX Dirt Mod 1.7.1: stutter fix, no box around the bike
+e7adef5 2026-11-13 kadenball: MX Dirt Mod 1.7.0: depth shading, live settings, Realistic default
+a1fdbdc 2026-11-12 kadenball: Launcher: a look distance of 60 m stays 60 m
+79f77a7 2026-11-12 kadenball: MX Dirt Mod 1.6.0: dirt drawn twice as far, lighter on the frame
+4b78d47 2026-11-11 kadenball: MX Dirt Mod 1.5.1: remove the separate tyre-mark band
+af9e546 2026-11-11 kadenball: MX Dirt Mod 1.5.0: experimental online wear, livelier soft layer
+aae673f 2026-11-11 kadenball: MX Dirt Mod 1.4.1: much faster dirt look
+690d3cb 2026-11-09 kadenball: MX Dirt Mod 1.4.0: saved soil state and Arcade preset
+bad429a 2026-11-09 kadenball: MX Dirt Mod 1.3.0: soft layer tied to the dirt sim
+7568162 2026-11-08 kadenball: Routed jump faces and calmer corner exits
+6fda046 2026-11-08 kadenball: README: step-by-step manual install, update and uninstall
+09678af 2026-11-08 kadenball: MX Dirt Mod 1.2.0: live wear level (Low / Medium)
+83e0794 2026-11-08 kadenball: MX Dirt Mod 1.1.0
+(exit 0)

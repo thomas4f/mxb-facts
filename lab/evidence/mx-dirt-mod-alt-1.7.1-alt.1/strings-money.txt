@@ -1,0 +1,13 @@
+$ { strings -n 6 plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo README.txt NOTICE.txt install/Install.ps1 launcher/MXDirtLauncher.ps1; strings -el -n 6 plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo README.txt NOTICE.txt install/Install.ps1 launcher/MXDirtLauncher.ps1; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+1665:n alternativa de **[MX Dirt Mod](https://github.com/kadenball/mx-dirt-mod)** de **kadenball** para MX Bikes.
+1666:> An alternative version of **[MX Dirt Mod](https://github.com/kadenball/mx-dirt-mod)** by **kadenball** for MX Bikes.
+1667:![license](https://img.shields.io/badge/license-GPL--3.0-blue) ![base](https://img.shields.io/badge/based%20on-MX%20Dirt%20Mod%201.7.1-8a5a2b) ![game](https://img.shields.io/badge/MX%20Bikes-Steam%20build%2023566986-555)
+1687: [kadenball](https://github.com/kadenball/mx-dirt-mod), GPL-3.0. Autor del mod original y de todo lo que este fork no toca.
+1689: Fran Milesi ([FMilesi-Cloud](https://github.com/FMilesi-Cloud)), con ayuda de Claude (Anthropic) para el an
+1949:s [Zig](https://ziglang.org/) 0.13 o m
+1968: [kadenball](https://github.com/kadenball/mx-dirt-mod), GPL-3.0. Author of the original mod and of everything this fork does not touch.
+1970: Fran Milesi ([FMilesi-Cloud](https://github.com/FMilesi-Cloud)), with help from Claude (Anthropic) for the analysis, code and documentation.
+2111:You need [Zig](https://ziglang.org/) 0.13 or newer.
+2122:(<https://github.com/kadenball/mx-dirt-mod>), licensed under the GNU General Public License v3.0.
+2130:(<https://github.com/kadenball/mx-dirt-mod>), con licencia GNU General Public License v3.0.
+(exit 0)

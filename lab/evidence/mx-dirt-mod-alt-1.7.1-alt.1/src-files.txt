@@ -1,0 +1,56 @@
+$ cd "$SRC" && grep -rnoE '(fopen|_wfopen|CreateFileW|CreateDirectoryA|DeleteFileA|MoveFileExA|WritePrivateProfileStringA|FindFirstFileA)\([^;]{0,100}' src; grep -rnE 'RA_TERRAIN_DIR|RA_LAPS_DIR|mx_dirt_soft|mx_dirt_laps|mxb_reflex_ghosts|mx_dirt_presets|mx_dirt_tracks|overhaul.ini|mxbmrp3_data|bikes\\\\|tyres\\\\' src | grep -v '^\s*//' | cut -c1-220
+src/render/mxdirt_render_content.c:129:_wfopen(log,L"wb")
+src/render/mxdirt_render_host.c:356:CreateFileW(path,GENERIC_READ,FILE_SHARE_READ|FILE_SHARE_WRITE|FILE_SHARE_DELETE,NULL,OPEN_EXISTING,FILE_ATTRIBU
+src/core/mxdirt_session.c:314:fopen(tmp,"wb")
+src/core/mxdirt_session.c:315:MoveFileExA(tmp,path,MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH)
+src/core/mxdirt_session.c:319:fopen(path,"rb")
+src/core/mxdirt_session.c:326:fopen(tmp,"wb")
+src/core/mxdirt_session.c:327:MoveFileExA(tmp,path,MOVEFILE_REPLACE_EXISTING|MOVEFILE_WRITE_THROUGH)
+src/core/mxdirt_session.c:332:fopen(path,"rb")
+src/core/mxdirt_bike.inc:35:fopen(path,"rb")
+src/core/mxdirt_bike.inc:59:FindFirstFileA(pat,&f)
+src/core/mx_dirt.c:354:fopen(path,"rb")
+src/core/mx_dirt.c:452:CreateDirectoryA(rel,NULL)
+src/core/mx_dirt.c:456:fopen(path,"wb")
+src/core/mx_dirt.c:1037:fopen(logpath,"w")
+src/core/mxb_dirt_ghost.h:36:fopen(path,"wb")
+src/core/mxb_dirt_ghost.h:42:fopen(path,"rb")
+src/core/mxdirt_menu.inc:119:WritePrivateProfileStringA(section,key,b,path)
+src/core/mxdirt_menu.inc:130:CreateDirectoryA(out,NULL)
+src/core/mxdirt_menu.inc:147:FindFirstFileA(p,&f)
+src/core/mxdirt_menu.inc:164:DeleteFileA(glob)
+src/core/mxdirt_menu.inc:207:DeleteFileA(p))menu_say(TR("Perfil borrado (vale desde la proxima carga)","Profile deleted (from the next load)"
+src/core/mxdirt_menu.inc:210:WritePrivateProfileStringA("rendering","ruts","0",menu_oh_ini)
+src/core/mxdirt_menu.inc:210:WritePrivateProfileStringA("rendering","physical","0",menu_oh_ini)
+src/core/mxdirt_menu.inc:361:FindFirstFileA(f,&d)
+src/core/mxdirt_laps.inc:20:CreateDirectoryA(rel,NULL)
+src/core/mxdirt_laps.inc:23:CreateDirectoryA(out,NULL)
+src/core/mxdirt_laps.inc:44:MoveFileExA(tmp,j->path,MOVEFILE_REPLACE_EXISTING))DeleteFileA(tmp)
+src/core/mxdirt_laps.inc:78:FindFirstFileA(pattern,&fd)
+src/core/mx_dirt.ini:71:; Save every valid lap to plugins\mx_dirt_laps\<track>\ (laps from pre-release builds in
+src/core/mx_dirt.ini:72:; plugins\mxb_reflex_ghosts\<track>\ are still read when a track has no new laps).
+src/core/mx_dirt.ini:94:; plugins\mx_dirt_soft\<track>\.
+src/core/mxdirt_bike.inc:58:  char pat[MAX_PATH];if(snprintf(pat,MAX_PATH,"%sbikes\\%s\\*.cfg",roots[r],bike)>=MAX_PATH)continue;
+src/core/mxdirt_bike.inc:60:  do{char p[MAX_PATH];size_t n;if(snprintf(p,MAX_PATH,"%sbikes\\%s\\%s",roots[r],bike,f.cFileName)>=MAX_PATH)continue;
+src/core/mxdirt_bike.inc:66:  char cfg[MAX_PATH];size_t n;if(snprintf(cfg,MAX_PATH,"%styres\\%s\\%s.cfg",roots[r],set,set)>=MAX_PATH)continue;
+src/core/mxdirt_bike.inc:71:   char tp[MAX_PATH];if(snprintf(tp,MAX_PATH,"%styres\\%s\\%s",roots[r],set,file)<MAX_PATH&&ra_tyre_file(tp,&width[w],&knobs[w],&slip[w]))found++;}
+src/core/mx_dirt.c:34:#define RA_LAPS_DIR "mx_dirt_laps"
+src/core/mx_dirt.c:35:#define RA_OLD_LAPS_DIR "mxb_reflex_ghosts"
+src/core/mx_dirt.c:36:#define RA_TERRAIN_DIR "mx_dirt_terrain"
+src/core/mx_dirt.c:98:#define RA_SOFT_DIR "mx_dirt_soft"
+src/core/mx_dirt.c:451: char rel[MAX_PATH]="plugins\\" RA_TERRAIN_DIR,path[MAX_PATH],track[100];size_t k=0;
+src/core/mx_dirt.c:473:/* plugins\mx_dirt_soft\<track>\layer.msl */
+src/core/mx_dirt.c:482:/* plugins\mx_dirt_soft\<track>\soil.mss: the dirt sim's soil state (MX Bikes saves only heights) */
+src/core/mxdirt_menu.inc:109:    snprintf(menu_oh_ini,MAX_PATH,"%soverhaul\\overhaul.ini",p)>=MAX_PATH)return 0;
+src/core/mxdirt_menu.inc:129:/* ---- presets: plugins\mx_dirt_presets\<name>.ini, [soil] + [renderer] ---- */
+src/core/mxdirt_menu.inc:131:static int menu_preset_path(char *out,const char *name){char d[MAX_PATH];return menu_folder(d,"mx_dirt_presets")&&snprintf(out,MAX_PATH,"%s\\%s.ini",d,name)<MAX_PATH;}
+src/core/mxdirt_menu.inc:143: char d[MAX_PATH],p[MAX_PATH];menu_npresets=0;if(!menu_folder(d,"mx_dirt_presets"))return;
+src/core/mxdirt_menu.inc:152:/* ---- per-track profiles: plugins\mx_dirt_tracks\<track>.ini; _global.ini keeps the settings a profile replaced ---- */
+src/core/mxdirt_menu.inc:154: char d[MAX_PATH],t[100];size_t j=0;if(!menu_folder(d,"mx_dirt_tracks"))return 0;
+src/core/mxdirt_menu.inc:358: {static const char *const tries[]={"mx_dirt_data\\menu.fnt","mxbmrp3_data\\fonts\\Inter-Regular.fnt"};font_name[0]=0;
+src/core/mxdirt_laps.inc:4: *   plugins\mx_dirt_laps\<track>\<lap ms>_<date>.dghost
+src/core/mxdirt_laps.inc:7: * by pre-release development builds in plugins\mxb_reflex_ghosts\<track>\ are read instead
+src/core/mxdirt_laps.inc:57:  if(ra_lap_dir(RA_LAPS_DIR,dir,sizeof(dir),1)&&snprintf(path,sizeof(path),"%s\\%07d_%04u%02u%02u-%02u%02u%02u.dghost",dir,lap.lap_time_ms,
+src/core/mxdirt_laps.inc:89: char dir[MAX_PATH];unsigned count=0;const char *source=RA_LAPS_DIR;
+src/core/mxdirt_laps.inc:90: if(ra_lap_dir(RA_LAPS_DIR,dir,sizeof(dir),0))count=ra_lap_list(dir,ra_lap_names);
+(exit 0)

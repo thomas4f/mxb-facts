@@ -19,6 +19,7 @@ from page import (
 CARDS=[  # (card file, page anchor), alphabetical
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
     ('maxhud-2.2.7.yaml', 'maxhud'),
+    ('mx-dirt-mod-alt-1.7.1-alt.1.yaml', 'mx-dirt-mod-alt'),
     ('mxb-damage-1.3.0.yaml', 'mxb-damage'),
     ('mxb-discord-rpc-2024-10-06.yaml', 'mxb-discord-rpc'),
     ('mxb-fps-booster-v1.yaml', 'mxb-fps-booster'),
