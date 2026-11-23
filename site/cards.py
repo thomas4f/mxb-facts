@@ -4,7 +4,7 @@ data beside the cards: the registry (registry/*.json) and the VirusTotal lookups
 """
 import datetime, json, jsonschema, os, re, subprocess, urllib.parse
 from rules import (
-    ANS, AREAN, DNA, HEADER, HELD, KEYS, KMODE, NOPARTLY, ONREQ, QIDS, QMARK, QTXT, RANK, ROOT, SECOND,
+    ANS, AREAN, DNA, HEADER, HELD, KEYS, KMODE, KNAMES, NOPARTLY, ONREQ, QIDS, QMARK, QTXT, RANK, ROOT, SECOND,
     SCHEMA, SECTIONS, SYM, ans_md, charges, concern_span, heldq, money, verdict)
 def glance(A,G,held=()):
     # What each area shows: a scored area's score (rules/scores.md), and the Money label from M1 and M2. A tool that isn't
@@ -28,6 +28,9 @@ def key_answers(f,d,rows,A,SETS,held):
         else:
             assert re.match(r'Not (checked|allowed)\. ',ans), f+': '+k+': its sources carry no mark, so it starts "Not checked." or "Not allowed."'
             mk=None
+        # A source the key question must name (scoring.yaml, names): while it is a Concern by default, the answer says so in those words.
+        for q,w in KNAMES[k].items():
+            assert not (A[q][0]=='!' and A[q][1] in ('Yes','No','Partly')) or w in ans.lower(), f+': '+k+': '+q+' is a Concern, so the answer must say "'+w+'"'
         head=re.match(r'[^.;]+',ans).group(0)
         assert len(head)<=24, f+': '+k+': the first part, before "." or ";", is the short answer and must fit 24 characters'
         # A Concern key answer shows the costliest of its Concern sources, like the answers, lines and rows do.

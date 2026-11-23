@@ -59,6 +59,8 @@ assert {'What it says vs what it does','Limits of this analysis'}<=set(SECTIONS)
 # The tables in rules/questions.md and rules/template.md are written from these two files, between their markers, so they read well on
 # GitHub and on the site but are never edited by hand. Locally the build rewrites them; in CI (CI is set) it fails while one is out of date.
 PARTLYW={None:'Note','concern':'Concern','never':'None'}
+# The Partly cell: its mark, and what Partly means on that question where scoring.yaml says (partly_means).
+def partly_cell(x): return PARTLYW[x.get('partly')]+(': '+x['partly_means'] if x.get('partly_means') else '')
 def yes_cell(x): return x['yes_mark']+('; Note if only on request' if x.get('note_on_request') else '')+('; a second check must confirm it' if x.get('second_check') else '')
 def cell(t): return str(t).replace('|','\\|').replace('<','&lt;')
 def row(*cells): return '| '+' | '.join(cell(c) for c in cells)+' |'
@@ -70,7 +72,7 @@ def gen_tables():
     return {'questions.md':{
         'keys':['| Key | Key question | Short | From | Mark |','|---|---|---|---|---|']+[row(k,x['question'],x['short'],', '.join(x['from']),x['mark'].capitalize()) for k,x in SC['keys'].items()],
         'p1':['| P1 | When |','|---|---|','| No | no engine flagged any release file |',f'| Partly | fewer than 1 in {n} engines flagged a file |',f'| Yes | 1 in {n} or more flagged a file |'],
-        'questions':['| ID | Area | Question | Yes | No | Partly |','|---|---|---|---|---|---|']+[row(i,ar[i[0]]['name'],x['text'],yes_cell(x),x['no_mark'],PARTLYW[x.get('partly')]) for i,x in q.items()],
+        'questions':['| ID | Area | Question | Yes | No | Partly |','|---|---|---|---|---|---|']+[row(i,ar[i[0]]['name'],x['text'],yes_cell(x),x['no_mark'],partly_cell(x)) for i,x in q.items()],
         'tags':['| From | Answer | Tag | Kind |','|---|---|---|---|']+[row(x['from'],x['answer'],x['tag']+(f' (not when {" or ".join(w.replace(" yes"," is Yes").replace(" no"," is No") for w in x["unless"])})' if 'unless' in x else ''),x['kind']) for x in SC['tags']]},
       'template.md':{
         'header':['| | |','|---|---|']+[hrow(k) for k in HEADER],
@@ -116,7 +118,7 @@ def verdict(ans):
     return m.group(1),{'Yes, not by default':'Opt','Yes, on request':'Req'}.get(m.group(2),m.group(2))
 QS=[];QMARK={};QCELL={};ONREQ=set();MK={'Good':'+','Note':'~','Concern':'!'}
 for _i,_x in SC['questions'].items():
-    assert re.fullmatch(r'[A-Z]\d+',_i) and _i[0] in SC['areas'] and set(_x)<={'text','yes_mark','no_mark','partly','doesnt_apply','note_on_request','second_check'} and _x.get('partly') in (None,'concern','never'), 'rules/scoring.yaml: question '+_i+' is malformed'
+    assert re.fullmatch(r'[A-Z]\d+',_i) and _i[0] in SC['areas'] and set(_x)<={'text','yes_mark','no_mark','partly','partly_means','doesnt_apply','note_on_request','second_check'} and _x.get('partly') in (None,'concern','never'), 'rules/scoring.yaml: question '+_i+' is malformed'
     QS.append((_i,SC['areas'][_i[0]]['name'],_x['text']))
     QCELL[_i]={'Yes':yes_cell(_x),'No':_x['no_mark']}
     QMARK[_i]={v:{MK[w] for w in re.findall(r'Good|Note|Concern',c)} for v,c in QCELL[_i].items()}
@@ -126,6 +128,8 @@ for _i,_x in SC['questions'].items():
     ONREQ.update({_i} if _x.get('note_on_request') else ())
     assert all(QMARK[_i].values()), 'rules/scoring.yaml: '+_i+' has a mark cell with no mark'
 PARTLYC={i for i,x in SC['questions'].items() if x.get('partly')=='concern'}
+# What Partly means on a question, where scoring.yaml gives it: shown beside every Partly answer on that question.
+PMEANS={i:x['partly_means'] for i,x in SC['questions'].items() if x.get('partly_means')}
 # second_check: a Yes needs a second check with another method, named with its evidence on the answer.
 SECOND={i for i,x in SC['questions'].items() if x.get('second_check')}
 for q in PARTLYC: QMARK[q]['Partly']={'!'}
@@ -150,6 +154,9 @@ def money(A,held=()):
     return 'Not checked'
 KEYS=[(k,x['question'],x['short'],x['from']) for k,x in SC['keys'].items()]
 KMODE={k:x['mark'].capitalize() for k,x in SC['keys'].items()}
+# names: a source question whose Concern the key answer must name, with the words it must hold.
+KNAMES={k:x.get('names',{}) for k,x in SC['keys'].items()}
+assert all(q in x['from'] and isinstance(w,str) and w for k,x in SC['keys'].items() for q,w in x.get('names',{}).items()), 'rules/scoring.yaml: a key question names a question it isn\'t built from'
 assert all(m in ('Strongest','Best') for m in KMODE.values()) and all(q in QCELL for k in KEYS for q in k[3]), 'rules/scoring.yaml: a key question has an unknown mark or source'
 assert len(KEYS)==10, 'rules/scoring.yaml: ten key questions (the site and the rules say "ten")'
 # The schema lists the key questions and the areas a card writes a one-line reason for; they follow rules/scoring.yaml.

@@ -22,12 +22,14 @@ virustotal:
   flagged_share: 0.1   # P1 is Yes when this share of engines or more flags a file, Partly below it, No when none does
 
 # The ten key questions. mark: strongest (Concern before Note before Good) or best (any one good answer settles it).
+# names: words the key answer must hold whenever that source question is a Concern by default, so one behaviour isn't hidden
+# behind another that shares the key question's mark.
 keys:
   K1: {question: "Do antivirus engines flag it, or did the analysis find signs of malware?", short: "Flagged or malware?", from: [P1, P9], mark: strongest}
   K2: {question: "Does it update itself without asking, or without checking the file?", short: "Updates unchecked?", from: [P2, P3], mark: strongest}
   K3: {question: "Can it delete or change files that aren't its own?", short: "Touches other files?", from: [P4, P6, P7], mark: strongest}
   K4: {question: "Does it send data about you?", short: "Sends your data?", from: [D2, D3], mark: strongest}
-  K5: {question: "Does it change the game, or get around one of its checks?", short: "Changes the game?", from: [G1, G2, G3, G12], mark: strongest}
+  K5: {question: "Does it change the game, or get around one of its checks?", short: "Changes the game?", from: [G1, G2, G3, G12], mark: strongest, names: {G12: gets around}}
   K6: {question: "Does it unlock, copy or share other people's content?", short: "Uses others' content?", from: [C1, C2, C3], mark: strongest}
   K7: {question: "Is the source code public?", short: "Open source?", from: [T1], mark: strongest}
   K8: {question: "Does it do what its docs say?", short: "Does what it says?", from: [T2], mark: strongest}
@@ -36,6 +38,8 @@ keys:
 
 # Every question, in area order. yes_mark and no_mark are the mark cells: the first mark applies unless the condition holds.
 # partly: concern (Partly is a Concern and costs points), or never (the question has no Partly); otherwise Partly is a Note.
+# partly_means: what Partly means on that question, where it isn't just "Yes for one part and No for the rest"; the tables and
+# every Partly answer on a card show it, so the question itself stays one plain question like the others.
 # doesnt_apply: true lets the answer be "Doesn't apply". note_on_request: true makes "Yes, on request" a Note and every other Yes a Concern.
 # Text may hold Markdown (`code`, links); the build escapes | and < for the tables.
 questions:
@@ -48,16 +52,18 @@ questions:
     yes_mark: Concern
     no_mark: Good
   P3:
-    text: "Are updates checked before they are installed? (Partly: a check from the same place as the file.)"
+    text: Are updates checked before they are installed?
     yes_mark: Good
     no_mark: Concern
     partly: concern
+    partly_means: the only check comes from the same place as the file
     doesnt_apply: true
   P4:
     text: Can it delete or overwrite files that aren't its own?
     yes_mark: Concern
     note_on_request: true   # "Yes, on request" is a Note, every other Yes a Concern; the build checks it
     no_mark: Good
+    partly_means: it only moves or renames such files and keeps them, so they can be put back
   P5:
     text: Are the release files code-signed?
     yes_mark: Good
@@ -69,7 +75,7 @@ questions:
     no_mark: Good
   P7:
     text: Does it write into the game's folders beyond its own plugin and settings?
-    yes_mark: Note; Concern if, by default, it changes the game's own files or adds content you didn't pick
+    yes_mark: Note; Concern if, by default, it adds content you didn't pick
     no_mark: Good
   P8:
     text: Does uninstalling leave changes behind?
@@ -131,10 +137,11 @@ questions:
     yes_mark: Concern
     no_mark: Good; Note if a tool it runs or installs by default does
   G3:
-    text: "Does it change the game while you're on online servers? (Partly: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends.)"
+    text: Does it change the game while you're on online servers?
     yes_mark: Concern
     no_mark: Good; Note if a tool it runs or installs by default does
     partly: concern
+    partly_means: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends
   G4:
     text: Does it read the game's memory outside the plugin interface?
     yes_mark: Note
@@ -147,6 +154,7 @@ questions:
     text: Does it change other plugins or tools, their files or their memory?
     yes_mark: Concern; Note if installing or updating that tool is its stated job
     no_mark: Good
+    partly_means: it only moves or renames their files and keeps them, so they can be put back
   G7:
     text: Does it read the keyboard through Windows, also while the game isn't focused?
     yes_mark: Note
@@ -301,7 +309,7 @@ tags:
 # in a group counts. A change to any number here is a new version: it rescores every card at once, and rules/scores.md,
 # "Changes to this rubric", gets a row.
 scores:
-  version: v2
+  version: v3
   # The tiers, set first; every cost below is one of them.
   tiers: {small: 5, low: 10, medium: 15, large: 25, severe: 40, malware: 100}
   # What a Concern by default costs, by question (by verdict where it differs). Every question that can be a Concern has one.

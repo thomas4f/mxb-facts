@@ -34,7 +34,7 @@ These help a reader at a glance. They follow fixed rules, so the same fact gets 
 
 **Each area is scored on its own**, out of 100, from fixed costs: [how scores are worked out](scores.md).
 
-- Notes cost nothing. Partly is a Note, except on P3 and G3, where it is a Concern. Moving or renaming a file that isn't the tool's own is a Note, as long as the file is kept and can be put back; deleting, corrupting or permanently disabling such a file counts as deleting or overwriting it (P4). A request that carries nothing about you or your game, such as an update check, is a Note.
+- Notes cost nothing. Partly is a Note, except on P3 and G3, where it is a Concern. Moving or renaming a file that isn't the tool's own is a Note, as long as the file is kept and can be put back; deleting, corrupting or permanently disabling such a file counts as deleting or overwriting it (P4). Changing the game's own files is counted under P4 only, so P7 costs points only for content added that you didn't pick. A request that carries nothing about you or your game, such as an update check, is a Note.
 - A tool the analysed tool runs or installs (for example FrostMod run by MXB App) has its own card and isn't counted here.
 - **Money** isn't scored, because paying for a tool isn't a risk in itself. Its label says what the tool costs, from the answers to M1 and M2, as in the table below.
 - Tags and scores are separate. A tag marks one answer worth attention; a tag that another tag already says is left out (a closed-source tool shows "Closed source", not also "Not traced to source").
@@ -49,6 +49,13 @@ These help a reader at a glance. They follow fixed rules, so the same fact gets 
 | Not allowed | No label above applies, because the licence forbids answering M1 or M2 | The tool's licence forbids the analysis, and the questions it does allow don't say what it costs |
 | Not checked | No label above applies, and M1 or M2 is not checked or held back | The analysis couldn't settle what it costs; the Money answers say why |
 <!-- /rules/scoring.yaml -->
+
+**How a comment is decided.** A mark or a cost follows from what the analysis can see, never from why the author did it: a crash fix and a cheat that change the same code get the same answer. So a comment that a score feels unfair is decided in this order, and the first step that fits is the one taken:
+
+1. **Context.** The fact and its mark are right, but players need more to read it well: the answer's text says more, with a Card history row, and the comment is "noted".
+2. **Correction.** The card applies the rules as they're written wrongly, or a fact on it is wrong: the answer is fixed, with a Card history row, and the comment is "fixed".
+3. **Wording.** A question reads differently from the rest, and no answer on any card changes: the wording is fixed, and no score moves.
+4. **Rubric change.** Only when all three hold: it turns on something the analysis can observe (not intent, and not a judgement such as "gives an advantage"), the reason holds for every tool, and the same pattern shows on two or more tools or the change fixes how something is counted. It is a new rubric version, decided with every card's old and new score in view ([scores.md](scores.md#changes-to-this-rubric)), never on what it does to one card. Otherwise the comment is "declined" with the reason.
 
 **Tools whose licence forbids analysing them.** When a tool's licence forbids reverse engineering, decompiling or similar analysis, its card covers only what is public: the release page, its README, changelog and licence, the update feed, file hashes, and whether the files are code-signed. Everything that would need looking inside the release is shown as **Not allowed**, quoting the licence clause. The tool isn't scored ("Not scored"). The card states the restriction and nothing more: it doesn't guess what the release does.
 

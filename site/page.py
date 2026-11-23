@@ -4,7 +4,7 @@ Everything here turns checked card data (cards.py) and the rules (rules.py) into
 """
 import json, markdown, math, re
 from rules import (
-    AREAK, AREAN, CONCERN, D, GCOST, GCOVER, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PFX, QCELL, QIDS, QTXT, ROOT, RUBRICV, SC,
+    AREAK, AREAN, CONCERN, D, GCOST, GCOVER, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PFX, PMEANS, QCELL, QIDS, QTXT, ROOT, RUBRICV, SC,
     SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagsof, verdict)
 from icons import group as icon_group
 from cards import COMMIT, CORR, CORRTIP, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, correction_link, esc, files_table
@@ -67,6 +67,8 @@ def answer_table(C,a,k):
         # Where the mark depends on a condition ("Concern; Note if …"), the line shows that rule, so a reader sees why it is the mark it is.
         mv=re.match(r'\{.\} (Yes|No)\b',ans); rule=QCELL[i].get(mv.group(1)) if mv else None
         mrule=f' <span class="mrule">Marked by the rule: {esc(rule)}.</span>' if rule and ' if ' in rule and not rule.endswith('Note if only on request') else ''
+        # Where Partly has its own meaning on a question (scoring.yaml, partly_means), a Partly answer says it.
+        if re.match(r'\{.\} Partly\b',ans) and PMEANS.get(i): mrule=f' <span class="mrule">Partly here means: {esc(PMEANS[i])}.</span>'
         # Each answer the score counts shows its cost, the same number the score uses: "−N", "±0" when another answer of the
         # same behaviour counts it, and an open answer (not checked, not allowed or held back) "−N" at its highest cost.
         cost=(f' <span class="gcost" title="Counted with {ch[1]}: the same behaviour">±0</span>' if ch[1] else
