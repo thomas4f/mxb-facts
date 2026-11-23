@@ -7,6 +7,7 @@ body:
     attributes:
       value: |
         Every comment is answered here in public, and shows on the answer it names until it is decided. If it changes the card, the card's "Card history" links this issue.
+        An answer that reads "Details withheld (rule 9)." is discussed privately instead: see SECURITY.md, so the details stay out of public issues.
   - type: input
     id: card
     attributes: { label: Card, description: "Tool and version, as on the card." }

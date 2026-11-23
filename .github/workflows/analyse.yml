@@ -9,6 +9,8 @@ name: Analyse a tool
 # public, it writes the question IDs to HOLD.txt and its report to HOLD.md, and nothing about it anywhere else; the run
 # then stops without a pull request, and the report reaches the maintainer encrypted, as a private draft security advisory
 # (the "advisory" job). Without .github/held-items.pem no report is kept, and the maintainer takes it up in a private session.
+# How a tool gets at creators' protected content goes to PROTECTED.md instead: sealed as its own advisory, never published,
+# while the card (which says only "Details withheld (rule 9).") still goes on to its pull request.
 #
 # The tool under test never runs where Claude runs. A short first pass ("plan") reads the release's licence and readme and
 # writes which files to run and how (tools/check_plan.py checks it); nothing runs when the licence forbids analysis (rule 6).
@@ -330,6 +332,14 @@ jobs:
             (the test, step by step), what it lets someone do, and a fix if one is plain. The workflow encrypts HOLD.md and
             files it as a private draft advisory for the maintainer; it never reaches a log. Then stop.
 
+            Protected content (rule 9, C1 to C3): how a tool gets at creators' protected content (the format, where a key is,
+            the code that does it, logs that show it) goes only into PROTECTED.md at the repository root, written like
+            HOLD.md; the card keeps the answer as step 10 says ("Details withheld (rule 9)."), and you finish the card. Say
+            nothing about the how in the card, lab/, a commit or your output: no answer links the file or lines that hold it,
+            and no run log that shows it is copied into lab/results (leave it out, and name it in PROTECTED.md). PROTECTED.md
+            lists those source paths and left-out files, so a reviewer can check the pull request for them. The workflow files
+            it as its own private draft advisory, never published.
+
             Don't commit or push; the workflow does that. Finish with python3 -I site/build.py, python3 -I tests/test_build.py
             and python3 -I tools/check_links.py passing.
         run: |
@@ -341,29 +351,39 @@ jobs:
         id: seal
         if: always()
         run: |
-          [ -f HOLD.txt ] || [ -f HOLD.md ] || exit 0
-          [ -f HOLD.md ] || echo "Claude wrote no report (HOLD.md) for the held item." > HOLD.md
+          [ -f HOLD.txt ] || [ -f HOLD.md ] || [ -f PROTECTED.md ] || exit 0
+          # How it gets at creators' protected content (rule 9): sealed the same way, while the card goes on to its pull request.
+          [ -f PROTECTED.md ] && echo "protected=true" >> "$GITHUB_OUTPUT"
+          if [ -f HOLD.txt ] && [ ! -f HOLD.md ]; then echo "Claude wrote no report (HOLD.md) for the held item." > HOLD.md; fi
           # The key as committed, never a copy the analysis could have changed in the checkout.
+          # Each kind is sealed on its own (held.cms, protected.cms), so a vulnerability published after its 30 days never
+          # carries the how of protected content with it.
           if git show HEAD:.github/held-items.pem > "$RUNNER_TEMP/held-items.pem" 2>/dev/null; then
-            { echo "Tool: $TOOL. Questions: $(tr '\n' ' ' < HOLD.txt 2>/dev/null). Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; echo; cat HOLD.md; } |
-              openssl cms -encrypt -aes256 -binary -outform DER -out "$RUNNER_TEMP/held.cms" "$RUNNER_TEMP/held-items.pem"
+            mkdir -p "$RUNNER_TEMP/held"
+            for f in HOLD.md PROTECTED.md; do
+              [ -f "$f" ] || continue
+              kind=$([ "$f" = HOLD.md ] && echo held || echo protected)
+              { echo "Tool: $TOOL. Questions: $(tr '\n' ' ' < HOLD.txt 2>/dev/null). Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; echo; cat "$f"; } |
+                openssl cms -encrypt -aes256 -binary -outform DER -out "$RUNNER_TEMP/held/$kind.cms" "$RUNNER_TEMP/held-items.pem"
+            done
             echo "held=true" >> "$GITHUB_OUTPUT"
           fi
-          shred -u HOLD.md
+          for f in HOLD.md PROTECTED.md; do [ -f "$f" ] && shred -u "$f"; done; true
         env:
           TOOL: ${{ inputs.tool }}
       - if: always() && steps.seal.outputs.held == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
-        with: { name: held, path: "${{ runner.temp }}/held.cms", retention-days: 1 }
+        with: { name: held, path: "${{ runner.temp }}/held/", retention-days: 1 }
       - name: Report
         if: always()
         env:
           OUTCOME: ${{ steps.claude.outcome }}
           SEALED: ${{ steps.seal.outputs.held }}
+          PROTECTED: ${{ steps.seal.outputs.protected }}
         run: |
-          # Claude's last message, unless an item is held back (rule 9): then nothing it said is shown.
+          # Claude's last message, unless something is held back (rule 9): then nothing it said is shown.
           out="$RUNNER_TEMP/claude-execution-output.json"
-          if [ ! -f HOLD.txt ] && [ -f "$out" ]; then
+          if [ ! -f HOLD.txt ] && [ "$PROTECTED" != true ] && [ -f "$out" ]; then
             msg=$(python3 -I -c 'import json,sys; r=[x for x in json.load(open(sys.argv[1])) if x.get("type")=="result"]; print(str(r[-1].get("result") or r[-1].get("errors") or "")[:3000] if r else "")' "$out" || true)
             { echo "### Claude's last message"; echo; echo "$msg"; } >> "$GITHUB_STEP_SUMMARY"
             echo "Claude's last message: $msg"
@@ -374,6 +394,20 @@ jobs:
             else
               echo "::error::The analysis found an item to hold back (rule 9). No pull request, and no report kept (.github/held-items.pem is missing); take it up in a private session."
             fi
+            exit 1
+          fi
+          # A card that withholds the how needs its sealed report, and a report needs a card that withholds it (rule 9).
+          withheld=$(git status --porcelain -- cards | awk '{print $NF}' | xargs -r grep -l 'Withheld (rule 9)\.' || true)
+          if [ -n "$withheld" ] && [ "$PROTECTED" != true ]; then
+            echo "::error::$withheld withholds the how (rule 9), but Claude wrote no PROTECTED.md report. No pull request."
+            exit 1
+          fi
+          if [ "$PROTECTED" = true ] && [ -z "$withheld" ]; then
+            echo "::error::Claude wrote a PROTECTED.md report, but no card withholds anything (rule 9). No pull request; take it up in a private session."
+            exit 1
+          fi
+          if [ "$PROTECTED" = true ] && [ "$SEALED" != true ]; then
+            echo "::error::The analysis withheld how the tool gets at protected content (rule 9), but no report was kept (.github/held-items.pem is missing). No pull request; take it up in a private session."
             exit 1
           fi
           if [ -f STOP.txt ]; then
@@ -395,7 +429,7 @@ jobs:
       - name: Save the changes
         id: save
         run: |
-          git add -A -- . ':!.github/workflows' ':!HOLD.txt' ':!HOLD.md' ':!STOP.txt'
+          git add -A -- . ':!.github/workflows' ':!HOLD.txt' ':!HOLD.md' ':!PROTECTED.md' ':!STOP.txt'
           if git diff --cached --quiet; then echo "No change to any card."; exit 0; fi
           git diff --cached --binary > "$RUNNER_TEMP/analysis.patch"
           echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -423,15 +457,21 @@ jobs:
         run: |
           umask 077
           printf '%s\n' "$HELD_ITEMS_KEY" > "$RUNNER_TEMP/key.pem"
-          openssl cms -decrypt -inform DER -in "$RUNNER_TEMP/held/held.cms" -inkey "$RUNNER_TEMP/key.pem" -out "$RUNNER_TEMP/held.md"
+          # One draft advisory per kind: a vulnerability (its line is published after 30 days at most) and how the tool gets at
+          # creators' protected content (never published). Neither advisory itself is ever published.
+          for kind in held protected; do
+            [ -f "$RUNNER_TEMP/held/$kind.cms" ] || continue
+            openssl cms -decrypt -inform DER -in "$RUNNER_TEMP/held/$kind.cms" -inkey "$RUNNER_TEMP/key.pem" -out "$RUNNER_TEMP/held.md"
+            if [ $kind = held ]; then title="HELD, rule 9, never publish"; else title="PROTECTED, rule 9, never publish"; fi
+            python3 -I -c 'import json,sys; print(json.dumps({"summary": sys.argv[3] + ": " + sys.argv[1], "description": open(sys.argv[2]).read(),
+              "vulnerabilities": [{"package": {"ecosystem": "other", "name": sys.argv[1]}}]}))' "$TOOL" "$RUNNER_TEMP/held.md" "$title" > "$RUNNER_TEMP/advisory.json"
+            shred -u "$RUNNER_TEMP/held.md"
+            curl -sf -o /dev/null -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+              "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/security-advisories" --data @"$RUNNER_TEMP/advisory.json"
+            shred -u "$RUNNER_TEMP/advisory.json"
+            echo "Filed a draft security advisory ($title) for $TOOL (Security > Advisories)."
+          done
           shred -u "$RUNNER_TEMP/key.pem"
-          python3 -I -c 'import json,sys; print(json.dumps({"summary": "HELD, rule 9, never publish: " + sys.argv[1], "description": open(sys.argv[2]).read(),
-            "vulnerabilities": [{"package": {"ecosystem": "other", "name": sys.argv[1]}}]}))' "$TOOL" "$RUNNER_TEMP/held.md" > "$RUNNER_TEMP/advisory.json"
-          shred -u "$RUNNER_TEMP/held.md"
-          curl -sf -o /dev/null -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
-            "$GITHUB_API_URL/repos/$GITHUB_REPOSITORY/security-advisories" --data @"$RUNNER_TEMP/advisory.json"
-          shred -u "$RUNNER_TEMP/advisory.json"
-          echo "Filed a draft security advisory for $TOOL (Security > Advisories)."
   pull-request:
     needs: [analyse, vt-lookup]
     if: always() && needs.analyse.outputs.changed == 'true'
