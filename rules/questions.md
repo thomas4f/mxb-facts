@@ -32,12 +32,12 @@ Each answer starts with a mark, then one of these verdicts, then a short reason.
 - **Yes** or **No**: with the tool's default settings, as it installs. "By default" means without any choice you make: no setting you turn on, no folder you pick, no button you click.
 - **Yes, not by default.** It happens only after a choice that isn't the default: a setting you turn on, a folder you pick, a mode you start. The answer names the choice. So a question never says "by default" itself: the verdict does.
 - **Yes, on request.** It happens only when you start that very action, each time: a button you click, a dialog you confirm.
-- **Partly**: Yes for one part of what the question asks and No for the rest, with default settings; the answer names both parts. The table's Partly column gives its mark: a Note, or a Concern on P3, where it costs points. For P4 and G6, Partly means it only moves or renames such files and keeps them, so they can be put back. Where the column says None, the question has no Partly: a tool connects, runs in the game, opens other people's content or costs money, or it doesn't; any part of the release whose source isn't public makes T1 No, and any claim its code contradicts makes T2 Yes. For T1, prebuilt program files (executables, libraries, plugins, native modules) in the release or the repository count as public source only when their source at that exact version is public (the tool's own source at the commit, or a named open-source project and version, such as an Electron or NSIS release), or when they are the runtime of the platform the tool runs on (Windows, Steam, the game), named on the line. Any other prebuilt file makes T1 No. The T1 answer lists every prebuilt file found and where its source is; data files such as images and fonts aren't program files.
+- **Partly**: Yes for one part of what the question asks and No for the rest, with default settings; the answer names both parts. The table's Partly column gives its mark: a Note, or a Concern on P3 and G3, where it costs points. For P4 and G6, Partly means it only moves or renames such files and keeps them, so they can be put back. Where the column says None, the question has no Partly: a tool connects, runs in the game, opens other people's content or costs money, or it doesn't; any part of the release whose source isn't public makes T1 No, and any claim its code contradicts makes T2 Yes. For T1, prebuilt program files (executables, libraries, plugins, native modules) in the release or the repository count as public source only when their source at that exact version is public (the tool's own source at the commit, or a named open-source project and version, such as an Electron or NSIS release), or when they are the runtime of the platform the tool runs on (Windows, Steam, the game), named on the line. Any other prebuilt file makes T1 No. The T1 answer lists every prebuilt file found and where its source is; data files such as images and fonts aren't program files.
 - **Not checked.** or **Not allowed.** with the reason, when we didn't check, or the tool's licence forbids the analysis. **Doesn't apply.** only for P3, when there is no updater.
 
 The mark comes from the table, not from judgement, so the same answer gets the same mark on every card. The Yes and No columns give the mark for that verdict; where a cell names a condition, the first mark applies unless the condition holds. "Yes, not by default" and "Yes, on request" take the Yes column's mark; where a cell says "Note if only on request", "Yes, on request" is a Note and every other Yes a Concern, and the build checks that. For the other conditions the card's answer says why the condition holds, and the build checks only that the mark is one the cell allows. **Partly** takes the mark in its column. "Not checked", "Not allowed" and "Doesn't apply" carry no mark.
 
-Only Concerns by default cost points (see "Marks and scores" in the template); "Yes, not by default" and "Yes, on request" never do, and Partly does only on P3.
+Only Concerns by default cost points (see "Marks and scores" in the template); "Yes, not by default" and "Yes, on request" never do, and Partly does only on P3 and G3.
 
 "Traced" means the release files can be tied to the public source: T3 or T4 is Yes. A hash the author publishes doesn't count.
 
@@ -79,7 +79,7 @@ Areas, and the questions within each area, are listed most critical first: what 
 | D10 | Your data | Does it share your game data with other programs on your PC? | Note; Concern if any program can read your identifiers or other riders' data from it | Good | Note |
 | G1 | Your game | Does it inject code into the game from another program? | Concern | Good | Note |
 | G2 | Your game | Does it change the game's code or memory (hooks, patches, pointer swaps, writing records)? | Concern | Good; Note if a tool it runs or installs by default does | Note |
-| G3 | Your game | Does it change the game while you're on online servers? | Concern | Good; Note if a tool it runs or installs by default does | Note |
+| G3 | Your game | Does it change the game while you're on online servers? (Partly: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends.) | Concern | Good; Note if a tool it runs or installs by default does | Concern |
 | G4 | Your game | Does it read the game's memory outside the plugin interface? | Note | Good | Note |
 | G5 | Your game | Does it take over the game window's input, or press keys for you? | Concern; Note if it only takes input for its own menu or for buttons you click | Good | Note |
 | G6 | Your game | Does it change other plugins or tools, their files or their memory? | Concern; Note if installing or updating that tool is its stated job | Good | Note |
@@ -143,6 +143,7 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 | G1 | Yes | Injects into the game | Critical |
 | G2 | Yes | Changes game memory | Critical |
 | G3 | Yes | Changes the game online | Critical |
+| G3 | Partly | Changes what you see online | Critical |
 | G12 | Yes | Gets around a game check | Critical |
 | G5 | Yes | Presses keys for you | Critical |
 | G6 | Yes | Changes other plugins | Critical |

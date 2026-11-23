@@ -131,9 +131,10 @@ questions:
     yes_mark: Concern
     no_mark: Good; Note if a tool it runs or installs by default does
   G3:
-    text: Does it change the game while you're on online servers?
+    text: "Does it change the game while you're on online servers? (Partly: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends.)"
     yes_mark: Concern
     no_mark: Good; Note if a tool it runs or installs by default does
+    partly: concern
   G4:
     text: Does it read the game's memory outside the plugin interface?
     yes_mark: Note
@@ -275,6 +276,7 @@ tags:
   - {from: G1, answer: "Yes", tag: Injects into the game, kind: Critical}
   - {from: G2, answer: "Yes", tag: Changes game memory, kind: Critical}
   - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical}
+  - {from: G3, answer: "Partly", tag: Changes what you see online, kind: Critical}
   - {from: G12, answer: "Yes", tag: Gets around a game check, kind: Critical}
   - {from: G5, answer: "Yes", tag: Presses keys for you, kind: Critical}
   - {from: G6, answer: "Yes", tag: Changes other plugins, kind: Critical}
@@ -299,7 +301,7 @@ tags:
 # in a group counts. A change to any number here is a new version: it rescores every card at once, and rules/scores.md,
 # "Changes to this rubric", gets a row.
 scores:
-  version: v1
+  version: v2
   # The tiers, set first; every cost below is one of them.
   tiers: {small: 5, low: 10, medium: 15, large: 25, severe: 40, malware: 100}
   # What a Concern by default costs, by question (by verdict where it differs). Every question that can be a Concern has one.
@@ -324,7 +326,7 @@ scores:
     D10: small
     G1: large
     G2: large
-    G3: severe
+    G3: {"Yes": severe, Partly: low}
     G5: medium
     G6: large
     G9: small

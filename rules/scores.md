@@ -24,10 +24,10 @@ The costs come in tiers, set first:
 <!-- /rules/scoring.yaml -->
 
 - **small:** it only limits how far you can check, or it is expected and has little effect (not signed, no licence, starts with Windows).
-- **low:** it changes or reads something it doesn't own, in a way that stays on your PC and is easy to undo or stops when the tool does (changes game files, reads other people's data).
+- **low:** it changes or reads something it doesn't own, in a way that stays on your PC and is easy to undo or stops when the tool does (changes game files, reads other people's data, changes only what you see while you're online).
 - **medium:** something you didn't ask for that stays on your PC and can be undone (installs updates without asking, takes over input).
 - **large:** a lasting or wider effect: on Windows, on other tools, on creators' work, or data that becomes public; or the source isn't public, so every other answer rests on weaker evidence.
-- **severe:** by default, data tied to you or other people leaves your PC, protected content is shared, the game is changed online or its protection got around, other files are deleted, or updates run with no check.
+- **severe:** by default, data tied to you or other people leaves your PC, protected content is shared, the game's play is changed online (physics, timing, lap data or what it sends) or its protection got around, other files are deleted, or updates run with no check.
 - **malware:** signs of malware take the area to 0, and the result reads "Signs of malware" in place of a score.
 
 Each question that can be a Concern has one cost:
@@ -55,7 +55,7 @@ Each question that can be a Concern has one cost:
 | D10 | Your data | Does it share your game data with other programs on your PC? | 5 |
 | G1 | Your game | Does it inject code into the game from another program? | 25 |
 | G2 | Your game | Does it change the game's code or memory (hooks, patches, pointer swaps, writing records)? | 25 |
-| G3 | Your game | Does it change the game while you're on online servers? | 40 |
+| G3 | Your game | Does it change the game while you're on online servers? (Partly: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends.) | Yes: 40, Partly: 10 |
 | G5 | Your game | Does it take over the game window's input, or press keys for you? | 15 |
 | G6 | Your game | Does it change other plugins or tools, their files or their memory? | 25 |
 | G9 | Your game | Does it start with Windows? | 5 |
@@ -128,3 +128,4 @@ Each card gets five badges, shown under "For the tool's author" on its page: thr
 | Date | Change |
 |---|---|
 | 21 Nov 2026 | v1, the rubric the site launches with. |
+| 23 Nov 2026 | v2: G3 gains a Partly answer, for a tool that changes only what you see on your own screen while you're online (not physics, timing, lap data or what the game sends); it costs 10 (low), a Yes still costs 40 (severe), and both are counted with G1 and G2. Scores: FIXXER's Controller Rumble 1.0 85 → 85, MaXHUD 2.2.7 85 → 85, MXB Damage 1.3.0 69 → 78, MXB Discord RPC 2024-10-06 71 → 71, MXB FPS Booster V1 85 → 85. |

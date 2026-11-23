@@ -367,11 +367,12 @@ answers:
       glDrawRangeElements "REDIRECTED to mxb_damage.dlo" after the frames and untouched after unload
       (`lab/results/mxb-damage-1.3.0/menu-crash-windows/host.log`).
   G3:
-    verdict: 'Yes'
+    verdict: Partly
     mark: concern
     text: >-
       The redirects are made at every event, with no condition but the bike filter in settings.ini, and the plugin has code for other riders in
-      multiplayer; nothing in it turns it off on a server. Not seen on a server (see Limits).
+      multiplayer; nothing in it turns it off on a server. What they change is how bikes are drawn on your screen (bent and dirty): no
+      change to physics, bike files or what the game sends was found (G2, P7, D2). Not seen on a server (see Limits).
     evidence: >-
       Log "every bike allowed (settings.ini [bikes]) -> plugin on", then the redirects
       (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/mxb_damage-logs-log_20261122_210349.txt`); text "multiplayer: rider #%d crashed …",
@@ -542,3 +543,6 @@ answers:
 history:
   - date: 22 Nov 2026
     change: First card, for 1.3.0.
+  - date: 23 Nov 2026
+    change: >-
+      G3 is now Partly (it changes only what you see online), after the question gained that answer in rubric v2; score 69 to 78.

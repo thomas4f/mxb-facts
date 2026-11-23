@@ -34,7 +34,7 @@ These help a reader at a glance. They follow fixed rules, so the same fact gets 
 
 **Each area is scored on its own**, out of 100, from fixed costs: [how scores are worked out](scores.md).
 
-- Notes cost nothing. Partly is a Note, except on P3, where it is a Concern. Moving or renaming a file that isn't the tool's own is a Note, as long as the file is kept and can be put back; deleting, corrupting or permanently disabling such a file counts as deleting or overwriting it (P4). A request that carries nothing about you or your game, such as an update check, is a Note.
+- Notes cost nothing. Partly is a Note, except on P3 and G3, where it is a Concern. Moving or renaming a file that isn't the tool's own is a Note, as long as the file is kept and can be put back; deleting, corrupting or permanently disabling such a file counts as deleting or overwriting it (P4). A request that carries nothing about you or your game, such as an update check, is a Note.
 - A tool the analysed tool runs or installs (for example FrostMod run by MXB App) has its own card and isn't counted here.
 - **Money** isn't scored, because paying for a tool isn't a risk in itself. Its label says what the tool costs, from the answers to M1 and M2, as in the table below.
 - Tags and scores are separate. A tag marks one answer worth attention; a tag that another tag already says is left out (a closed-source tool shows "Closed source", not also "Not traced to source").
