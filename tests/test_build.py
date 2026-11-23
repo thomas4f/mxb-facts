@@ -97,9 +97,9 @@ A = with_(D3=('!', 'Yes'))
 sp = B['concern_span'](['D3'], A, B['charges'](A), 'D')
 check('a severe Concern is filled', sp and 'bad hi' in sp[1], sp)
 
-# Partly on P3 is a Concern; other Partly answers are Notes.
-check('P3 Partly can only be a Concern', B['QMARK']['P3']['Partly'] == {'!'})
-check('other Partly answers are Notes', all(B['QMARK'][q]['Partly'] == {'~'} for q in B['QIDS'] if q != 'P3'))
+# Partly on P3 and G3 is a Concern; other Partly answers are Notes.
+check('P3 and G3 Partly can only be a Concern', B['QMARK']['P3']['Partly'] == {'!'} and B['QMARK']['G3']['Partly'] == {'!'})
+check('other Partly answers are Notes', all(B['QMARK'][q]['Partly'] == {'~'} for q in B['QIDS'] if q not in ('P3', 'G3')))
 
 # A choice you make never costs points (rule 5), but shows as an optional tag.
 A = with_(G2=('!', 'Opt'), P4=('~', 'Req'))
@@ -289,6 +289,7 @@ g = G(D3=('!', 'Yes'))
 check('one severe finding: area 60, score 76', g['score'] == 76 and B['gtext'](g) == '76 / 100', g)
 check('questions in one group count once (D2 with D3)', G(D2=('!', 'Yes'), D3=('!', 'Yes'))['score'] == 76)
 check('the others in a group show where they are counted', dict((q, top) for q, _c, top, _o in G(G2=('!', 'Yes'), G3=('!', 'Yes'))['areas']['Your game'][1])['G2'] == 'G3')
+check('changing only what you see online (G3 Partly) costs 10, a Yes 40, each counted with G2', G(G3=('!', 'Partly'))['areas']['Your game'][0] == 90 and G(G3=('!', 'Yes'))['areas']['Your game'][0] == 60 and G(G2=('!', 'Yes'), G3=('!', 'Partly'))['areas']['Your game'][0] == 75)
 check('two severe findings in one area cost more than one in each of two areas', G(D3=('!', 'Yes'), D4=('!', 'Yes'))['score'] < G(D3=('!', 'Yes'), G3=('!', 'Yes'))['score'])
 check('an area stops at 0', G(D3=('!', 'Yes'), D4=('!', 'Yes'), D5=('!', 'Yes'), D7=('!', 'Yes'))['areas']['Your data'][0] == 0)
 check('a release traced by either check costs nothing for the other (T3 No, T4 Yes)', G(T3=('!', 'No'), T4=('+', 'Yes'))['score'] == 100)
