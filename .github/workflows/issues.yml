@@ -38,6 +38,10 @@ jobs:
           gh label create "tool:$SLUG" --repo "$GITHUB_REPOSITORY" --color ededed --description "Issues about this tool" --force
           gh issue edit "$ISSUE" --repo "$GITHUB_REPOSITORY" --add-label "tool:$SLUG"
   corrections:
+    # After the labels: the check finds a correction by its "correction" and "tool:<slug>" labels, which a new issue only
+    # has once the label job is done. On closed and reopened, the label job is skipped and this runs straight away.
+    needs: label
+    if: ${{ !cancelled() }}
     runs-on: ubuntu-latest
     permissions:
       contents: read

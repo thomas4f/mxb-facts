@@ -492,6 +492,13 @@ answers:
     mark: good
     text: Neither the plugin nor its README asks for donations.
     evidence: '`lab/evidence/mxbfix-0.1.8/strings-money.txt`; [README.md](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/README.md).'
+corrections:
+- issue: 21
+  kind: correction
+  questions:
+  - P4
+  opened: 23 Nov 2026
+  status: open
 history:
 - date: 23 Nov 2026
   change: First card, for mxbfix 0.1.8.
