@@ -115,6 +115,7 @@ jobs:
       - name: Check the plan
         id: check
         run: |
+          set -o pipefail  # a plan that fails the check stops the run here, not on the Windows machine
           python3 -I tools/check_plan.py "$RUNNER_TEMP/plan.json" | tee -a "$GITHUB_STEP_SUMMARY"
           python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no"))' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2

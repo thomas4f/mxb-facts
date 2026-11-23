@@ -11,8 +11,8 @@ import json, re, sys
 NAME = re.compile(r'^[a-z0-9][a-z0-9-]{0,39}$')
 SHA = re.compile(r'^[0-9a-f]{64}$')
 SAFE = re.compile(r'^[A-Za-z0-9 _.+()\[\]\\/-]{1,200}$')
-# The keys lab/real-game/windows/run.ps1 can press (xdotool's names), alone or joined with + (ctrl+r).
-KEY = re.compile(r'^((ctrl|shift|alt)\+){0,2}(Up|Down|Left|Right|Escape|Return|space|F([1-9]|1[0-2])|[a-z])$')
+# The keys lab/real-game/windows/run.ps1 can press (xdotool's names; its $scan table), alone or joined with + (ctrl+r).
+KEY = re.compile(r'^((ctrl|shift|alt)\+){0,2}(Up|Down|Left|Right|Escape|Return|space|Tab|BackSpace|Caps_Lock|Insert|Delete|Home|End|Prior|Next|F([1-9]|1[0-2])|[a-z0-9])$')
 KEYS = {'game', 'files', 'realgame', 'cases', 'apps', 'note'}
 
 
