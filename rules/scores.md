@@ -37,7 +37,7 @@ Each question that can be a Concern has one cost:
 |---|---|---|---|
 | P1 | Your PC and files | Do antivirus engines flag the release files (VirusTotal hash lookups)? | 15 |
 | P2 | Your PC and files | Does it install updates without asking? | 15 |
-| P3 | Your PC and files | Are updates checked before they are installed? (Partly: a check from the same place as the file.) | No: 40, Partly: 15 |
+| P3 | Your PC and files | Are updates checked before they are installed? | No: 40, Partly: 15 |
 | P4 | Your PC and files | Can it delete or overwrite files that aren't its own? | 40 |
 | P5 | Your PC and files | Are the release files code-signed? | 5 |
 | P6 | Your PC and files | Does it change Windows settings or the registry beyond its own entries? | 25 |
@@ -55,7 +55,7 @@ Each question that can be a Concern has one cost:
 | D10 | Your data | Does it share your game data with other programs on your PC? | 5 |
 | G1 | Your game | Does it inject code into the game from another program? | 25 |
 | G2 | Your game | Does it change the game's code or memory (hooks, patches, pointer swaps, writing records)? | 25 |
-| G3 | Your game | Does it change the game while you're on online servers? (Partly: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends.) | Yes: 40, Partly: 10 |
+| G3 | Your game | Does it change the game while you're on online servers? | Yes: 40, Partly: 10 |
 | G5 | Your game | Does it take over the game window's input, or press keys for you? | 15 |
 | G6 | Your game | Does it change other plugins or tools, their files or their memory? | 25 |
 | G9 | Your game | Does it start with Windows? | 5 |
@@ -129,3 +129,4 @@ Each card gets five badges, shown under "For the tool's author" on its page: thr
 |---|---|
 | 21 Nov 2026 | v1, the rubric the site launches with. |
 | 23 Nov 2026 | v2: G3 gains a Partly answer, for a tool that changes only what you see on your own screen while you're online (not physics, timing, lap data or what the game sends); it costs 10 (low), a Yes still costs 40 (severe), and both are counted with G1 and G2. Scores: FIXXER's Controller Rumble 1.0 85 → 85, MaXHUD 2.2.7 85 → 85, MXB Damage 1.3.0 69 → 78, MXB Discord RPC 2024-10-06 71 → 71, MXB FPS Booster V1 85 → 85. |
+| 23 Nov 2026 | v3: P7 is a Concern by default only when the tool adds content you didn't pick. Changing the game's own files is a Note on P7, because P4 (deleting or overwriting files that aren't the tool's own) already counts it; before, one file change cost both. Scores: FIXXER's Controller Rumble 1.0 85 → 85, MaXHUD 2.2.7 85 → 85, MX Dirt Mod 1.7.1 83 → 83, MX Dirt Mod Alt 1.7.1-alt.1 85 → 85, MXB Damage 1.3.0 78 → 78, MXB Discord RPC 2024-10-06 71 → 71, MXB FPS Booster V1 85 → 85, MXBFix 0.1.8 62 → 68. |

@@ -41,7 +41,8 @@ files_note: The plugin isn't code-signed (`lab/evidence/mxbfix-0.1.8/signature.t
 key:
   K1: No malware found. Neither release file is on VirusTotal yet, so no engine has scanned them; the release rebuilds from its public source.
   K2: No. It installs an update only when you click Install, and refuses a download whose signature doesn't check out.
-  K3: Yes; by default it rewrites damaged ghost lap (trainer) files in your profile, after backing each one up, and they stay changed if you remove it.
+  K3: Yes; by default it rewrites damaged ghost lap (trainer) files in your profile, keeping a copy of the first version it repairs, and they stay changed
+    if you remove it.
   K4: Yes, after its setup; once you press Continue there, with the box ticked to start with, it sends crash reports with your PC, server, track and bike
     and a random install ID, and daily crash counts.
   K5: Yes; it changes a few instructions of the game's code in memory, physics checks included, also on servers. Only on the game build it was written for.
@@ -139,8 +140,8 @@ sections:
     - Claim: '"It doesn''t change the game''s program files. The fixes are applied in memory each time the game starts. The only game files it changes are
         damaged trainer (ghost lap) files, after backing each one up." (README)'
       Verdict: Matches
-      Evidence: Code changes go through `VirtualProtect` in memory only (`lab/evidence/mxbfix-0.1.8/src-patches.txt`); trainer files are backed up before
-        they are rewritten ([fix_trainer_repair.c lines 141-162](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L141-L162)).
+      Evidence: Code changes go through `VirtualProtect` in memory only (`lab/evidence/mxbfix-0.1.8/src-patches.txt`); each trainer file is backed up before
+        its first repair; a copy already kept is never replaced, so a later version of the same file isn't ([fix_trainer_repair.c lines 141-162](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L141-L162)).
     - Claim: '"Each code fix only turns on if the game''s code is exactly what it was written for." (README)'
       Verdict: Matches
       Evidence: '[fixes.c lines 48-121](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes.c#L48-L121); each fix checks
@@ -227,7 +228,8 @@ answers:
     verdict: 'Yes'
     mark: concern
     text: By default, at every start it checks the trainer (ghost lap) files in `profiles\*\trainers` and rewrites a damaged one with its junk bytes zeroed,
-      after saving the original once to `mxbfix\backups\trainers`. It deletes only its own files (old dumps, its temporary files).
+      after saving a copy to `mxbfix\backups\trainers` the first time it repairs that file. It never replaces a copy it already kept, so when a later
+      version of the same file is repaired, no copy of that version is kept. It deletes only its own files (old dumps, its temporary files).
     evidence: '[fix_trainer_repair.c lines 114-166](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L114-L166),
       [fix_trainer_repair.c lines 168-213](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L168-L213),
       [crash.c lines 1097-1126](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/crash.c#L1097-L1126); `lab/evidence/mxbfix-0.1.8/src-others.txt`.'
@@ -244,7 +246,7 @@ answers:
       against `lab/results/mxbfix-0.1.8/baseline-windows/registry.txt`.'
   P7:
     verdict: 'Yes'
-    mark: concern
+    mark: note
     text: 'By default it rewrites damaged trainer files in the game''s `profiles` folder (P4). Beyond that it writes its own: `plugins\mxbfix_data` (its
       font and the backup of an updated plugin) and its folder `Documents\PiBoSo\MX Bikes\mxbfix`.'
     evidence: '[fix_trainer_repair.c lines 168-213](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_trainer_repair.c#L168-L213),
@@ -254,7 +256,7 @@ answers:
     verdict: 'Yes'
     mark: concern
     text: Removing it as its README says (`mxbfix.dlo` and `plugins\mxbfix_data`) leaves its `Documents\PiBoSo\MX Bikes\mxbfix` folder (settings, logs,
-      reports, dumps, trainer backups) and `%TEMP%\mxbfix`, and repaired trainer files stay changed; the originals are in its backup folder.
+      reports, dumps, trainer backups) and `%TEMP%\mxbfix`, and repaired trainer files stay changed; the first version of each is in its backup folder.
     evidence: '[README.md lines 91-94](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/README.md#L91-L94); `lab/evidence/mxbfix-0.1.8/run-writes.txt`;
       [alive.c lines 23-39](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/alive.c#L23-L39).'
   P9:
@@ -350,7 +352,9 @@ answers:
     verdict: 'Yes'
     mark: concern
     text: 'The patches stay on when you ride on a server, and two of them change physics code: a NaN position takes the "off the map" path in the terrain
-      lookups, and a fence contact with a NaN depth is dropped. For every ordinary value the result is the same, by its source.'
+      lookups, and a fence contact with a NaN depth is dropped. Each swaps the two operands of one comparison and its jump (`ja` to `jb`), so a NaN
+      now takes the exit an off-map position or a skipped contact already takes; for every other value, the patched bytes give the same result as the
+      game''s. Not run on a server here (see Limits).'
     evidence: '[fix_ground_nan_guard.c lines 1-35](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_ground_nan_guard.c#L1-L35),
       [fix_fence_contact_nan.c lines 1-21](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes/fix_fence_contact_nan.c#L1-L21);
       [fixes.c lines 123-138](https://github.com/xAmped/mxbfix/blob/90740b49b5486f64e2b48abccc86dd61d1ace200/src/fixes.c#L123-L138) (no server condition).'
@@ -498,13 +502,25 @@ corrections:
   questions:
   - P4
   opened: 23 Nov 2026
-  status: open
+  status: noted
+  closed: 23 Nov 2026
+  reason: P4 stays Yes, since it rewrites a later version of a file with no copy of that version; the answer now says so. Why it does it doesn't change
+    the mark.
 - issue: 23
   kind: correction
   questions:
   - G3
   opened: 23 Nov 2026
-  status: open
+  status: noted
+  closed: 23 Nov 2026
+  reason: G3 stays Yes, since the patches change physics code on servers; the answer now says exactly what they change. Showing that a change only
+    removes a crash needs the source, so no closed tool could get the same answer.
 history:
 - date: 23 Nov 2026
   change: First card, for mxbfix 0.1.8.
+- date: 23 Nov 2026
+  change: P4, K3, P8 and the README check say that it keeps a copy of the first version of each trainer file it repairs, not of later versions, after
+    [#21](https://github.com/thomas4f/mxb-facts/issues/21); the answers and score stay the same.
+- date: 23 Nov 2026
+  change: G3 says what the two physics patches change (one comparison each; the same result for every value but NaN), after [#23](https://github.com/thomas4f/mxb-facts/issues/23);
+    the answer and score stay the same.

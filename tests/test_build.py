@@ -374,5 +374,26 @@ _A = {**benign(), 'T1': ('!', 'No'), 'T6': ('!', 'No')}
 check('a covered Concern keeps its Concern mark at no cost', shown('T6', '!', 'No', _A) in ('concern', 'major') and B['scored'](_A)['areas']['Transparency'][0] == 75)
 check('signs of malware is its own result, never an ordinary Major', B['scored']({**benign(), 'P9': ('!', 'Yes')})['kind'] == 'malware' and shown('P9', '!', 'Yes') == 'malware')
 
+# partly_means: the question table's Partly cell gives the meaning, and so does every Partly answer on a card (page.py).
+_pm = {q: x['partly_means'] for q, x in B['SC']['questions'].items() if x.get('partly_means')}
+check('partly_means shows in the Partly cell of the question table', _pm and all(B['partly_cell'](B['SC']['questions'][q]).endswith(': ' + m) for q, m in _pm.items()), _pm)
+check('no question text holds its own Partly definition', not any('(Partly' in x['text'] for x in B['SC']['questions'].values()))
+# names: K5 must say "gets around" while G12 is a Concern, so getting around a game check isn't hidden behind a memory change.
+def _key5(text, **ch):
+    A = with_(**ch)
+    rows = {q: '{' + (A[q][0] or ' ') + '} ' + {'Opt': 'Yes, not by default', 'Req': 'Yes, on request'}.get(A[q][1], A[q][1]) + '. x' for q in A}
+    d = {'key': {k: 'No. x' for k, *_r in B['KEYS']}}
+    d['key']['K5'] = text
+    try:
+        B['key_answers']('test', d, rows, A, B['charges'](A), set())
+        return True
+    except AssertionError:
+        return False
+check('K5 must name G12 while it is a Concern', not _key5('Yes; it patches memory.', G2=('!', 'Yes'), G12=('!', 'Yes'))
+      and _key5('Yes; it patches memory and gets around a check.', G2=('!', 'Yes'), G12=('!', 'Yes'))
+      and _key5('Yes; it patches memory.', G2=('!', 'Yes')))
+# v3: changing the game's own files is counted under P4 only, so P7 never repeats it.
+check('P7 is a Concern only for content you did not pick', 'changes the game' not in B['SC']['questions']['P7']['yes_mark'])
+
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)
