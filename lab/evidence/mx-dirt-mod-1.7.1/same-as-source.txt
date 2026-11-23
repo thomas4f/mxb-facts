@@ -1,0 +1,13 @@
+$ for p in 'install/Install.ps1:install/Install.ps1' 'install/Uninstall.ps1:install/Uninstall.ps1' 'launcher/MX Dirt Mod.cmd:launcher/MX Dirt Mod.cmd' 'launcher/MXDirtLauncher.ps1:launcher/MXDirtLauncher.ps1' 'plugins/mx_dirt.ini:src/core/mx_dirt.ini' 'plugins/mx_dirt_render.ini:src/render/mx_dirt_render.ini' 'Install.cmd:install/Install.cmd' 'Uninstall.cmd:install/Uninstall.cmd' 'LICENSE:LICENSE' 'README.txt:README.md' 'SUPPORTED_EXE.txt:SUPPORTED_EXE.txt'; do a="${p%%:*}"; b="${p##*:}"; cmp "$a" "$SRC/$b" && echo "same: $a = $b at the commit"; done
+same: install/Install.ps1 = install/Install.ps1 at the commit
+same: install/Uninstall.ps1 = install/Uninstall.ps1 at the commit
+same: launcher/MX Dirt Mod.cmd = launcher/MX Dirt Mod.cmd at the commit
+same: launcher/MXDirtLauncher.ps1 = launcher/MXDirtLauncher.ps1 at the commit
+same: plugins/mx_dirt.ini = src/core/mx_dirt.ini at the commit
+same: plugins/mx_dirt_render.ini = src/render/mx_dirt_render.ini at the commit
+same: Install.cmd = install/Install.cmd at the commit
+same: Uninstall.cmd = install/Uninstall.cmd at the commit
+same: LICENSE = LICENSE at the commit
+same: README.txt = README.md at the commit
+same: SUPPORTED_EXE.txt = SUPPORTED_EXE.txt at the commit
+(exit 0)

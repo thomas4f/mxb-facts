@@ -1,0 +1,5 @@
+1160609 content_ready dirt_material=1 strength=135 loose=55 fade=75..100 soft_layer=1
+1160609 audit exe_hash_mismatch code=2 thread=7540 tick=1160609 a=0x7ff6b9890000 b=0x69000 slot=4294967295 reason=0
+1160609 audit gate_fail code=3 thread=7540 tick=1160609 a=0x0 b=0x1 slot=4294967295 reason=0
+1160609 lifecycle event=7 generation=0
+1160609 scene_retired

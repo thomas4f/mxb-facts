@@ -1,0 +1,6 @@
+$ for f in plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo; do objdump -p $f | grep -E 'file format|Security Directory'; done
+plugins/mx_dirt.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+plugins/mx_dirt_render.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

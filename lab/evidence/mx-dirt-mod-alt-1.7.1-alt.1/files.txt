@@ -1,0 +1,23 @@
+$ sha256sum MX-Dirt-Mod-Alt-1.7.1-alt.1.zip MX-Dirt-Mod-Alt-1.7.1-alt.1.sha256.txt plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo plugins/mx_dirt.ini plugins/mx_dirt_render.ini plugins/mx_dirt_data/white.tga Install.cmd Uninstall.cmd install/Install.ps1 install/Uninstall.ps1 launcher/MXDirtLauncher.ps1 'launcher/MX Dirt Mod.cmd' README.txt NOTICE.txt LICENSE SUPPORTED_EXE.txt; cat MX-Dirt-Mod-Alt-1.7.1-alt.1.sha256.txt
+519a65ac9c33457c916e59282411b1fcf14cb34ce08b4e78f03030193a64bea4  MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+18f90dbe6d1c95fbe23bd602089f8735e4c2c8a91afc9bbe952c15090af9f3e0  MX-Dirt-Mod-Alt-1.7.1-alt.1.sha256.txt
+1cc95aab56cea10344adcf705464b5fcc3e3c81644e6f4d5a6f3f289e0004ce9  plugins/mx_dirt.dlo
+d83821b2e449f9580db8bc978eef735cfce7de412c7ad09c3a45cdb43dd07859  plugins/mx_dirt_render.dlo
+488f1793cc3a09270aec7ea78b2ae479c5f2bb8e2474f104966318e7f7dc3589  plugins/mx_dirt.ini
+5c4ec82f8cdec54445ef84543038255417e83bfd1996e99fef68dfc3ba5308cb  plugins/mx_dirt_render.ini
+92517ad5296b8b5d36cfaed3bcf8fe7eacfd809f16599d576bd10f4f32583395  plugins/mx_dirt_data/white.tga
+da31aa93ff73c5fdf20e0185dd8114972debee25fa8e5a659671f438b162c39f  Install.cmd
+af75cec63f2b6a8a0aa392a36e32363170f8da136d5ae6d8ae033fedbf29afe5  Uninstall.cmd
+067df2dd1acdb1c37d772158dfe480c8e0a9c062827bb9c91f3f2a846d04f720  install/Install.ps1
+4da08fee3abacf4c05306c65111b3403b501e9e095c7a8055c8325e89fec66a3  install/Uninstall.ps1
+74afffc8cef848e9d2af5161cb4688e730575c5a10c2cf31059ecd360fb26855  launcher/MXDirtLauncher.ps1
+5c95eb371b09dae729ae53e4ff8a1446a317bb1625a057a0cd9771f150488379  launcher/MX Dirt Mod.cmd
+7af894bc15623231d1ef9708c85063d5f9287e34a6b8354f515138b81a79b6ae  README.txt
+feae1f8101f5095558996be32403f5c96e0b1b4ce3f68a9a4fbb6bf155a0fd33  NOTICE.txt
+230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809  LICENSE
+afbc59f97295e7e8dd0e6b980eaaf0d25dadc03fe66c6e4db4953c7986562be4  SUPPORTED_EXE.txt
+1cc95aab56cea10344adcf705464b5fcc3e3c81644e6f4d5a6f3f289e0004ce9  mx_dirt.dlo
+488f1793cc3a09270aec7ea78b2ae479c5f2bb8e2474f104966318e7f7dc3589  mx_dirt.ini
+d83821b2e449f9580db8bc978eef735cfce7de412c7ad09c3a45cdb43dd07859  mx_dirt_render.dlo
+5c4ec82f8cdec54445ef84543038255417e83bfd1996e99fef68dfc3ba5308cb  mx_dirt_render.ini
+(exit 0)

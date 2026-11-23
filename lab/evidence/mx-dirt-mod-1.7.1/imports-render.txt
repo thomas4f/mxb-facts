@@ -1,0 +1,19 @@
+$ iat.py plugins/mx_dirt_render.dlo | grep -E 'VirtualProtect|VirtualAlloc|VirtualQuery|FlushInstructionCache|ReadProcessMemory|CreateProcessW|GetAsyncKeyState|GetForegroundWindow|SetForegroundWindow|FindWindowW|CreateFileW|BCrypt'
+0x18003e3b0  USER32.dll!FindWindowW
+0x18003e3b8  USER32.dll!GetAsyncKeyState
+0x18003e3c0  USER32.dll!GetForegroundWindow
+0x18003e3d8  USER32.dll!SetForegroundWindow
+0x18003e3f0  bcrypt.dll!BCryptCloseAlgorithmProvider
+0x18003e3f8  bcrypt.dll!BCryptCreateHash
+0x18003e400  bcrypt.dll!BCryptDestroyHash
+0x18003e408  bcrypt.dll!BCryptFinishHash
+0x18003e410  bcrypt.dll!BCryptHashData
+0x18003e418  bcrypt.dll!BCryptOpenAlgorithmProvider
+0x18003e550  KERNEL32.dll!CreateFileW
+0x18003e558  KERNEL32.dll!CreateProcessW
+0x18003e570  KERNEL32.dll!FlushInstructionCache
+0x18003e620  KERNEL32.dll!ReadProcessMemory
+0x18003e640  KERNEL32.dll!VirtualAlloc
+0x18003e648  KERNEL32.dll!VirtualProtect
+0x18003e650  KERNEL32.dll!VirtualQuery
+(exit 0)

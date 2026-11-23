@@ -1,0 +1,14 @@
+$ for r in ride ride-launcher-key; do echo "== $r against the baseline"; diff <(sed -E 's/textures\\[a-z0-9]{8}/textures\\<random>/' "$RES/baseline-windows/outside.txt" | sort -u) <(sed -E 's/textures\\[a-z0-9]{8}/textures\\<random>/' "$RES/$r-windows/outside.txt" | sort -u); done
+== ride against the baseline
+== ride-launcher-key against the baseline
+26a27,30
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots  NAME COLLISION
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots  SUCCESS
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots\screen000.tga  SUCCESS
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots\screen001.tga  SUCCESS
+60a65,68
+> mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots\screen000.tga  FAST IO DISALLOWED
+> mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots\screen000.tga  SUCCESS
+> mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots\screen001.tga  FAST IO DISALLOWED
+> mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\hrsshots\screen001.tga  SUCCESS
+(exit 1)

@@ -1,0 +1,2 @@
+$ for f in plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo; do iat.py $f; done | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|SendInput|keybd_event|mouse_event|SetWindowsHookEx|ShellExecute|WinExec|RegSetValue|RegCreateKey|RegOpenKey|WriteProcessMemory|OpenProcess|CreateRemoteThread|CreateFileMapping|LoadLibrary|SetUnhandledExceptionFilter|AddVectoredExceptionHandler'
+(exit 1)

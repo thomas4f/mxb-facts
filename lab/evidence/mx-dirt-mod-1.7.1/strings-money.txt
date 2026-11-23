@@ -1,0 +1,3 @@
+$ { strings -n 6 plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo README.txt launcher/MXDirtLauncher.ps1; strings -el -n 6 plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo README.txt launcher/MXDirtLauncher.ps1; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+1665:You need [Zig](https://ziglang.org/) 0.13 or newer on `PATH`; it is used as the C compiler. In PowerShell:
+(exit 0)

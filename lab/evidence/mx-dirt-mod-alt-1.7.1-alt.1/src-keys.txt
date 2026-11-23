@@ -1,0 +1,8 @@
+$ cd "$SRC" && grep -rnE 'GetAsyncKeyState|GetForegroundWindow' src | cut -c1-240
+src/render/mxdirt_render_content.c:87: if(!rc_key)return;const int down=(GetAsyncKeyState(rc_key)&0x8000)!=0;
+src/render/mxdirt_render_content.c:88: if(down&&!rc_key_down){DWORD pid=0;HWND front=GetForegroundWindow();if(front&&GetWindowThreadProcessId(front,&pid)&&pid==GetCurrentProcessId())rc_launcher();}
+src/core/mxdirt_menu.inc:215:static int menu_edge(int vk){int d=(GetAsyncKeyState(vk)&0x8000)!=0,e=d&&!menu_down[vk];menu_down[vk]=(unsigned char)d;return e;}
+src/core/mxdirt_menu.inc:216:static int menu_held(int vk){return (GetAsyncKeyState(vk)&0x8000)!=0;}
+src/core/mxdirt_menu.inc:253: *hover=-1;HWND w=GetForegroundWindow();POINT c;RECT r;
+src/core/mxdirt_menu.inc:373: DWORD pid=0;HWND front=GetForegroundWindow();const int ours=front&&GetWindowThreadProcessId(front,&pid)&&pid==GetCurrentProcessId();
+(exit 0)

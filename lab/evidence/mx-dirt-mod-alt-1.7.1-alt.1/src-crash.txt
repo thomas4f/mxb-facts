@@ -1,0 +1,2 @@
+$ cd "$SRC" && grep -rnE 'SetUnhandledExceptionFilter|AddVectoredExceptionHandler|__try' src
+(exit 1)

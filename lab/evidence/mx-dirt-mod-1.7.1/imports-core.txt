@@ -1,0 +1,16 @@
+$ iat.py plugins/mx_dirt.dlo | grep -E 'VirtualProtect|VirtualAlloc|VirtualQuery|FlushInstructionCache|CreateThread|DeleteFileA|MoveFileExA|CreateDirectoryA|Crypt'
+0x180066680  ADVAPI32.dll!CryptAcquireContextA
+0x180066688  ADVAPI32.dll!CryptCreateHash
+0x180066690  ADVAPI32.dll!CryptDestroyHash
+0x180066698  ADVAPI32.dll!CryptGetHashParam
+0x1800666a0  ADVAPI32.dll!CryptHashData
+0x1800666a8  ADVAPI32.dll!CryptReleaseContext
+0x180066800  KERNEL32.dll!CreateDirectoryA
+0x180066808  KERNEL32.dll!CreateThread
+0x180066818  KERNEL32.dll!DeleteFileA
+0x180066840  KERNEL32.dll!FlushInstructionCache
+0x1800668c0  KERNEL32.dll!MoveFileExA
+0x180066900  KERNEL32.dll!VirtualAlloc
+0x180066910  KERNEL32.dll!VirtualProtect
+0x180066918  KERNEL32.dll!VirtualQuery
+(exit 0)

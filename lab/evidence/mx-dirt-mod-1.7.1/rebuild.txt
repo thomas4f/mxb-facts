@@ -1,0 +1,113 @@
+$ H=$PWD && cd $W && curl -sSfLO https://ziglang.org/download/0.16.0/zig-x86_64-linux-0.16.0.tar.xz && echo '70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00  zig-x86_64-linux-0.16.0.tar.xz' | sha256sum -c && tar xf zig-x86_64-linux-0.16.0.tar.xz && Z=$W/zig-x86_64-linux-0.16.0/zig && $Z version && export ZIG_GLOBAL_CACHE_DIR=$W/gc ZIG_LOCAL_CACHE_DIR=$W/lc && F='-shared -target x86_64-windows-gnu -std=c11 -O2 -msse2 -Wall -Wextra -Werror -ffp-contract=off -fno-fast-math -fms-extensions' && (cd "$SRC" && grep -nE "'-shared'|-luser32|-lopengl32" build.ps1 build_render.ps1 && $Z cc $F -I src/core -I src/shared src/core/mx_dirt.c src/core/mxdirt_session.c src/core/mxdirt_contact.c src/core/mxdirt_wheel_sample.c src/core/mxdirt_frame_snapshot.c src/core/mxdirt_height_field.c src/core/mxdirt_height_publication.c src/core/mxdirt_publication_hooks.c src/core/mxdirt_transport.c src/core/mxdirt_native_height.c src/core/mxdirt_patches.c -luser32 -ladvapi32 -o $W/mx_dirt.dll && $Z cc $F -I src/shared -I src/render src/render/mxdirt_render_host.c src/render/mxdirt_render_content.c src/render/mxdirt_terrain_scope.c src/render/mxdirt_dirt.c src/render/mxdirt_dirt_gl.c -lopengl32 -lgdi32 -luser32 -lbcrypt -o $W/mx_dirt_render.dll) && cd "$H" && sha256sum $W/mx_dirt.dll $W/mx_dirt_render.dll plugins/mx_dirt.dlo plugins/mx_dirt_render.dlo && for p in mx_dirt mx_dirt_render; do echo "== $p: sizes, then every differing byte (offset, release, rebuild; octal)"; stat -c '%s %n' plugins/$p.dlo $W/$p.dll; cmp -l plugins/$p.dlo $W/$p.dll; echo "== $p: sections (name, size) release, then rebuild"; objdump -h plugins/$p.dlo | awk '/^ +[0-9]/{print $2,$3,$6}'; objdump -h $W/$p.dll | awk '/^ +[0-9]/{print $2,$3,$6}'; echo "== $p: the .text section (code) compared"; objcopy -O binary -j .text plugins/$p.dlo $W/a.bin; objcopy -O binary -j .text $W/$p.dll $W/b.bin; cmp $W/a.bin $W/b.bin && echo '.text identical'; done; echo '== the two differing constants in mx_dirt.dlo (file offset 0x5f3a0 and 0x5f3c0), release then rebuild'; xxd -s 0x5f3a0 -l 48 plugins/mx_dirt.dlo; xxd -s 0x5f3a0 -l 48 $W/mx_dirt.dll; echo '== the code that loads them: 80-bit x87 loads (fldt), in runtime code the source has no long double for'; objdump -d plugins/mx_dirt.dlo | grep -E 'fldt .*# 0x180060b[a-c]0'; grep -rc 'long double' "$SRC/src" | grep -v ':0$' || echo 'no long double in src/'
+zig-x86_64-linux-0.16.0.tar.xz: OK
+0.16.0
+build.ps1:45:$flags = @('cc', '-shared', '-target', 'x86_64-windows-gnu', '-std=c11', '-O2', '-msse2',
+build.ps1:48:$libs = @('-luser32', '-ladvapi32')
+build_render.ps1:28:$cc=@('cc','-shared','-target','x86_64-windows-gnu','-std=c11','-O2','-msse2',
+build_render.ps1:30:    '-I',(Join-Path $R 'src\shared'),'-I',$S) + $units + @('-lopengl32','-lgdi32','-luser32','-lbcrypt','-o',$out)
+4303d5030436da2889644c1f98d53847095e92c8ccfd4d5d1bbecda241c6330a  /tmp/tmp.eaYa3qYzwC/mx_dirt.dll
+33b3ccec2cfdb0105a87252a7a530cb34842434695e82c04a067149689b67384  /tmp/tmp.eaYa3qYzwC/mx_dirt_render.dll
+527d75c3c6dd709308c2bf104a61e36dd321fa05ffee329006cb06d2d5016e0e  plugins/mx_dirt.dlo
+b199fda79938864bfc895c4f2b0f9f8a805a513480c397a3dc8f63618e9eaae6  plugins/mx_dirt_render.dlo
+== mx_dirt: sizes, then every differing byte (offset, release, rebuild; octal)
+440832 plugins/mx_dirt.dlo
+440832 /tmp/tmp.eaYa3qYzwC/mx_dirt.dll
+   129 140 275
+   130  76 272
+   131  16 147
+   132 140 122
+390049   0 204
+390050 150 144
+390081   0 204
+390082 150 144
+429061 140 275
+429062  76 272
+429063  16 147
+429064 140 122
+429089 140 275
+429090  76 272
+429091  16 147
+429092 140 122
+429117  30  53
+429118 272 160
+429119  10  50
+429120 307 245
+429121 172 325
+429122 101  43
+429123 260 374
+429124  64  52
+== mx_dirt: sections (name, size) release, then rebuild
+.text 0005a256 00000400
+.rdata 0000e260 0005a800
+.buildid 0000005c 00068c00
+.data 00000200 00068e00
+.pdata 00002418 00069000
+.tls 00000010 0006b600
+.reloc 00000120 0006b800
+.text 0005a256 00000400
+.rdata 0000e260 0005a800
+.buildid 0000005c 00068c00
+.data 00000200 00068e00
+.pdata 00002418 00069000
+.tls 00000010 0006b600
+.reloc 00000120 0006b800
+== mx_dirt: the .text section (code) compared
+.text identical
+== mx_dirt_render: sizes, then every differing byte (offset, release, rebuild; octal)
+270336 plugins/mx_dirt_render.dlo
+270336 /tmp/tmp.eaYa3qYzwC/mx_dirt_render.dll
+   129 331 253
+   130 123 337
+   131  42 112
+   132 302 322
+226097   0 204
+226098 150 144
+226129   0 204
+226130 150 144
+261125 331 253
+261126 123 337
+261127  42 112
+261128 302 322
+261153 331 253
+261154 123 337
+261155  42 112
+261156 302 322
+261181  41 331
+261182 256   0
+261183 330  76
+261184 155 360
+261185  73 235
+261186 207 147
+261187 376 320
+261188 341 321
+== mx_dirt_render: sections (name, size) release, then rebuild
+.text 00032736 00000400
+.rdata 0000ce8c 00032c00
+.buildid 00000063 0003fc00
+.data 00000200 0003fe00
+.pdata 00001aac 00040000
+.tls 00000010 00041c00
+.reloc 00000094 00041e00
+.text 00032736 00000400
+.rdata 0000ce8c 00032c00
+.buildid 00000063 0003fc00
+.data 00000200 0003fe00
+.pdata 00001aac 00040000
+.tls 00000010 00041c00
+.reloc 00000094 00041e00
+== mx_dirt_render: the .text section (code) compared
+.text identical
+== the two differing constants in mx_dirt.dlo (file offset 0x5f3a0 and 0x5f3c0), release then rebuild
+0005f3a0: 0068 def9 33f3 04b5 fe5f 0000 0000 0000  .h..3...._......
+0005f3b0: 0000 0000 0000 0080 0020 0000 0000 0000  ......... ......
+0005f3c0: 0068 def9 33f3 04b5 c11f 0000 0000 0000  .h..3...........
+0005f3a0: 8464 def9 33f3 04b5 fe5f 0000 0000 0000  .d..3...._......
+0005f3b0: 0000 0000 0000 0080 0020 0000 0000 0000  ......... ......
+0005f3c0: 8464 def9 33f3 04b5 c11f 0000 0000 0000  .d..3...........
+== the code that loads them: 80-bit x87 loads (fldt), in runtime code the source has no long double for
+   1800376d4:	db 2d c6 94 02 00    	fldt   0x294c6(%rip)        # 0x180060ba0
+   1800376e6:	db 2d d4 94 02 00    	fldt   0x294d4(%rip)        # 0x180060bc0
+   180037880:	db 2d 2a 93 02 00    	fldt   0x2932a(%rip)        # 0x180060bb0
+   18003788e:	db 2d 2c 93 02 00    	fldt   0x2932c(%rip)        # 0x180060bc0
+no long double in src/
+(exit 0)

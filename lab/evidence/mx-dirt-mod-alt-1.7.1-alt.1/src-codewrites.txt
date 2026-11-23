@@ -1,0 +1,19 @@
+$ cd "$SRC" && grep -rnE 'VirtualProtect|InterlockedCompareExchangePointer\(slot' src
+src/render/mxdirt_render_host.c:121: DWORD old;if(!VirtualProtect((void*)address,5,PAGE_EXECUTE_READWRITE,&old))return 0;
+src/render/mxdirt_render_host.c:124: DWORD ignored;if(!VirtualProtect((void*)address,5,old,&ignored))mark(A_PROTECTION,address,2);
+src/render/mxdirt_render_host.c:129: if(!VirtualProtect((void*)slot,sizeof(void*),PAGE_READWRITE,&old))return 0;
+src/render/mxdirt_render_host.c:130: void *prior=InterlockedCompareExchangePointer(slot,value,expected);
+src/render/mxdirt_render_host.c:131: DWORD ignored;if(!VirtualProtect((void*)slot,sizeof(void*),old,&ignored))mark(A_PROTECTION,(uintptr_t)slot,3);
+src/render/mxdirt_render_host.c:213: DWORD old;if(!VirtualProtect(relay_page,4096,PAGE_READWRITE,&old))return 0;
+src/render/mxdirt_render_host.c:217: if(!VirtualProtect(relay_page,4096,PAGE_EXECUTE_READ,&old)||!FlushInstructionCache(GetCurrentProcess(),relay_page,4096))return 0;
+src/core/mx_dirt.c:744: DWORD old;if(!VirtualProtect(to,n,PAGE_EXECUTE_READWRITE,&old))return 0;
+src/core/mx_dirt.c:746: DWORD ignored;int protected_again=VirtualProtect(to,n,old,&ignored)!=0;
+src/core/mx_dirt.c:767:  DWORD old;if(!VirtualProtect(relay,4096,PAGE_EXECUTE_READ,&old)){VirtualFree(relay,0,MEM_RELEASE);return 0;}
+src/core/mxdirt_patches.c:39:    DWORD old;if(!VirtualProtect(p,n,PAGE_EXECUTE_READWRITE,&old))return 0;
+src/core/mxdirt_patches.c:41:    DWORD ignored;return VirtualProtect(p,n,old,&ignored)!=0&&flushed;
+src/core/mxdirt_patches.c:84:        if(!VirtualProtect(relay,4096,PAGE_READWRITE,&old)){*why="trampoline_protect";return MXDIRT_PATCHES_FAILED;}
+src/core/mxdirt_patches.c:86:        if(!VirtualProtect(relay,4096,PAGE_EXECUTE_READ,&old)){*why="trampoline_protect";return MXDIRT_PATCHES_FAILED;}
+src/core/mxdirt_transport.c:67: if(memcmp(address,before,n))return 0;DWORD old,ignored;if(!VirtualProtect(address,n,PAGE_EXECUTE_READWRITE,&old))return 0;
+src/core/mxdirt_transport.c:69: int protected_again=VirtualProtect(address,n,old,&ignored)!=0;return flushed&&protected_again;
+src/core/mxdirt_transport.h:107:   Uses guarded CAS for slots, VirtualProtect/FlushInstructionCache for code. */
+(exit 0)

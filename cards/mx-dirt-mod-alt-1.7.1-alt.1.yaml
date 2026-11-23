@@ -1,0 +1,509 @@
+tool: MX Dirt Mod Alt
+version: 1.7.1-alt.1
+summary: >-
+  Two MX Bikes plugins that simulate the soil under your tyres, wear ruts and bumps into the track while you ride and shade the
+  worn ground, by patching and hooking fixed places in one Steam build of the game. Its source is public under GPL-3.0 and the
+  release rebuilds from it; on any other game build both plugins switch themselves off, as they did in every run here.
+header:
+  What it is: >-
+    A fork of kadenball's MX Dirt Mod: a core plugin (`mx_dirt.dlo`) that simulates the soil and writes the worn ground into the
+    game's terrain, and a render plugin (`mx_dirt_render.dlo`) that shades it, both for `plugins`, with an in-game menu on F8.
+    The zip also holds PowerShell scripts that install and remove it and a settings window (launcher).
+  In one line: Plugins that wear ruts into the track by patching one MX Bikes build
+  Category: Gameplay and visuals
+  Author: Fran Milesi (GitHub [FMilesi-Cloud](https://github.com/FMilesi-Cloud)); based on MX Dirt Mod by kadenball
+  Game: MX Bikes
+  mxb-mods.com: None found (searched 19 Nov 2026)
+  Homepage: None found
+  GitHub: '[FMilesi-Cloud/mx-dirt-mod-alt](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt)'
+  Version analysed: >-
+    [v1.7.1-alt.1](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/releases/tag/v1.7.1-alt.1), the GitHub release of 19 Nov
+    2026 (the newest in `registry/releases.json`): `MX-Dirt-Mod-Alt-1.7.1-alt.1.zip` and its `.sha256.txt`.
+  Source commit: >-
+    [c5ed04c72bdbab7b00fd594ce7525e7a1914f797](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/tree/c5ed04c72bdbab7b00fd594ce7525e7a1914f797)
+    (tag v1.7.1-alt.1, "Docs (ES/EN): README, NOTICE, development log, diagrams", 19 Nov 2026).
+  Analysed on: 23 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Open source under GPL-3.0, so nothing forbids analysis: the source and scripts were read at the commit, the two plugins
+    were rebuilt with Zig 0.13.0 and compared byte by byte with the release (they match apart from the link time stamp and build
+    ID), every other file in the zip was compared with the repository, and the plugins' imports, text and code-signing entry were
+    read (`objdump -p`, `strings`). Every command is in `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/run.sh`. A throwaway Windows Server 2025 machine with no GPU (Mesa
+    llvmpipe software OpenGL, not Windows on a real GPU) and no keys ran both plugins in the MX Bikes demo (beta21e), offline
+    behind a firewall block, under Process Monitor: the bare demo as baseline, a 120 s ride, and a ride pressing F8 and the
+    menu keys; then the plugin test host with the bystander plugin, with and without a crash and hotkeys. The demo is not the
+    one Steam build the plugins accept, so in every run both switched themselves off at Startup and none of their game changes
+    ran (see Limits). The install, uninstall and launcher scripts were read, not run. VirusTotal: hash lookups only (made
+    before the analysis, 23 Nov 2026), nothing uploaded.
+files:
+  - name: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 519a65ac9c33457c916e59282411b1fcf14cb34ce08b4e78f03030193a64bea4
+    note: The download players get from the GitHub release.
+  - name: MX-Dirt-Mod-Alt-1.7.1-alt.1.sha256.txt
+    sha256: 18f90dbe6d1c95fbe23bd602089f8735e4c2c8a91afc9bbe952c15090af9f3e0
+    note: The author's list of the plugins' and settings' SHA-256, from the same release; it matches the files.
+  - name: plugins\mx_dirt.dlo
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 1cc95aab56cea10344adcf705464b5fcc3e3c81644e6f4d5a6f3f289e0004ce9
+    note: The core plugin (soil simulation, terrain writes, F8 menu).
+  - name: plugins\mx_dirt_render.dlo
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: d83821b2e449f9580db8bc978eef735cfce7de412c7ad09c3a45cdb43dd07859
+    note: The render plugin (shading of the worn ground).
+  - name: plugins\mx_dirt.ini
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 488f1793cc3a09270aec7ea78b2ae479c5f2bb8e2474f104966318e7f7dc3589
+    note: The core plugin's settings.
+  - name: plugins\mx_dirt_render.ini
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 5c4ec82f8cdec54445ef84543038255417e83bfd1996e99fef68dfc3ba5308cb
+    note: The render plugin's settings.
+  - name: plugins\mx_dirt_data\white.tga
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 92517ad5296b8b5d36cfaed3bcf8fe7eacfd809f16599d576bd10f4f32583395
+    note: The menu's 2x2 sprite.
+  - name: Install.cmd
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: da31aa93ff73c5fdf20e0185dd8114972debee25fa8e5a659671f438b162c39f
+    note: Starts `install\Install.ps1` with PowerShell.
+  - name: Uninstall.cmd
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: af75cec63f2b6a8a0aa392a36e32363170f8da136d5ae6d8ae033fedbf29afe5
+    note: Starts `install\Uninstall.ps1` with PowerShell.
+  - name: install\Install.ps1
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 067df2dd1acdb1c37d772158dfe480c8e0a9c062827bb9c91f3f2a846d04f720
+    note: The installer script.
+  - name: install\Uninstall.ps1
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 4da08fee3abacf4c05306c65111b3403b501e9e095c7a8055c8325e89fec66a3
+    note: The uninstaller script.
+  - name: launcher\MXDirtLauncher.ps1
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 74afffc8cef848e9d2af5161cb4688e730575c5a10c2cf31059ecd360fb26855
+    note: The settings window (PowerShell).
+  - name: launcher\MX Dirt Mod.cmd
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 5c95eb371b09dae729ae53e4ff8a1446a317bb1625a057a0cd9771f150488379
+    note: Starts the settings window.
+  - name: README.txt
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 7af894bc15623231d1ef9708c85063d5f9287e34a6b8354f515138b81a79b6ae
+    note: The repository's README.md.
+  - name: NOTICE.txt
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: feae1f8101f5095558996be32403f5c96e0b1b4ce3f68a9a4fbb6bf155a0fd33
+    note: The repository's NOTICE.md (credits).
+  - name: LICENSE
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: 230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809
+    note: GPL-3.0.
+  - name: SUPPORTED_EXE.txt
+    inside: MX-Dirt-Mod-Alt-1.7.1-alt.1.zip
+    sha256: afbc59f97295e7e8dd0e6b980eaaf0d25dadc03fe66c6e4db4953c7986562be4
+    note: The SHA-256 of the one `mxbikes.exe` the plugins accept (Steam build 23566986).
+files_note: >-
+  Neither plugin is code-signed (`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/signature.txt`). Every file in the zip other than the plugins is the repository's file at
+  the commit, three of them with other line endings (`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/zip-vs-source.txt`). The hashes match the zip the Windows machine ran
+  (`lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/machine.txt`, `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/plugins.sha256`).
+key:
+  K1: No malware found. No engine flagged the three files VirusTotal knows; the zip, both plugins and most scripts aren't on VirusTotal.
+  K2: No. It has no updater.
+  K3: 'Only on request; its installer moves other plugins'' files to a backup folder, and a menu row writes two settings in Graphics Overhaul''s file.'
+  K4: No. It makes no connection and sends nothing.
+  K5: 'Yes; on the one Steam build it accepts, it patches and hooks the game''s code and writes into its terrain. Online only if you turn on its experimental online wear.'
+  K6: 'Reads, doesn''t copy; it reads bike and tyre files and the game''s loaded tyres and terrain. A debug setting, off by default, saves a track''s terrain to a file.'
+  K7: Yes, GPL-3.0; the whole release is built from the public source.
+  K8: 'Yes, as far as checked; its docs say openly that it patches the game, and its claims match the code and the runs.'
+  K9: 'Yes; the plugins aren''t signed, but rebuilding them from the source gives the same files apart from the link time stamp.'
+  K10: No. Neither plugin nor any script connects to the internet.
+areas:
+  Your PC and files: Writes its own files in `plugins`; its installer moves other dirt plugins out, and the game's saved track wear keeps its ruts after removal.
+  Your data: Makes no connection; it reads bike and tyre files and, if present, Graphics Overhaul's settings and rain value.
+  Your game: Patches and hooks one Steam build's code and writes the worn ground into its terrain; offline only unless you turn on online wear.
+  Creators' content: Reads unpacked bikes' tyre files and the game's loaded tyre and terrain data; a debug option saves a track's terrain.
+  Transparency: GPL-3.0 with the full source public, and the plugins rebuild to the release apart from the link time stamp; no CI build.
+  Money: Free; no shop and no donation request.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: the installer clears Windows' "downloaded from the internet" mark from every file of the unpacked release before
+          it copies them, and puts a desktop shortcut that starts the launcher with PowerShell's execution policy set to Bypass
+          ([Install.ps1 line 21](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Install.ps1#L21), [Install.ps1 lines 45-50](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Install.ps1#L45-L50)).
+        mark: note
+      - text: >-
+          Also found: the worn track is held in the game's own terrain, which the game saves as its track wear (`testing.dfm` in your
+          profile); the launcher's "Reset" moves that file to a backup folder, and the uninstaller leaves it
+          ([MXDirtLauncher.ps1 line 126](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/launcher/MXDirtLauncher.ps1#L126), [MXDirtLauncher.ps1 lines 215-221](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/launcher/MXDirtLauncher.ps1#L215-L221),
+          [Uninstall.ps1 lines 1-4](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Uninstall.ps1#L1-L4)). Not seen here: the plugins never ran on the demo.
+        mark: note
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: both plugins hash `mxbikes.exe` at start and switch themselves off unless it is the one Steam build named in
+          `SUPPORTED_EXE.txt`; in all four Windows runs the demo didn't match, and both returned -1 from Startup
+          ([mx_dirt.c line 1024](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L1024), [mxdirt_render_host.c lines 352-365](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_host.c#L352-L365);
+          `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/plugins-windows/host.log`, `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/mx_dirt_render.log`).
+        mark: good
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"The mod patches and reads fixed places in this exact mxbikes.exe. With any other version it stays inactive and the game runs normally" (SUPPORTED_EXE.txt)'
+            Verdict: Matches
+            Evidence: >-
+              Both plugins check the SHA-256 and return -1 from Startup otherwise ([mx_dirt.c line 1024](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L1024));
+              on the demo both stayed off and the rides ran like the baseline (`lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/mx_dirt_render.log`, `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/plugins-windows/host.log`).
+          - Claim: '"Each tyre''s width read from the game''s memory (encrypted OEM bikes)" and "Official telemetry ... Official API data, no reverse engineering" (README)'
+            Verdict: Matches
+            Evidence: >-
+              Telemetry comes from the plugin function RunTelemetry; the tyre width is read at fixed offsets of the game's wheel
+              definition ([mxdirt_bike.inc lines 1-6](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_bike.inc#L1-L6), [lines 121-133](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_bike.inc#L121-L133)).
+          - Claim: '"Everything it replaces is backed up to Documents\PiBoSo\MX Bikes\mx_dirt_mod_backups" (README, installing)'
+            Verdict: Matches
+            Evidence: '[Install.ps1 lines 29-43](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Install.ps1#L29-L43); existing `.ini` files are kept, not replaced.'
+          - Claim: '"In-game menu (F8): Replaces the PowerShell launcher" (README)'
+            Verdict: Partly
+            Evidence: >-
+              The F8 menu has the settings, but the installer still installs the launcher and puts its desktop shortcut
+              ([Install.ps1 lines 44-50](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Install.ps1#L44-L50)). The menu draws only with a font the release doesn't ship
+              ([mxdirt_menu.inc lines 352-366](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_menu.inc#L352-L366)).
+          - Claim: '"Online is still experimental"; `online_wear=0`: "offline Testing only (default)" (README, mx_dirt.ini)'
+            Verdict: Matches
+            Evidence: '[mx_dirt.c lines 1064-1067](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L1064-L1067), [mx_dirt.ini lines 118-124](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.ini#L118-L124).'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX
+              Bikes demo, offline.
+            questions: []
+          - text: >-
+              Both plugins accept only one Steam build of `mxbikes.exe`; the demo isn't it, so in every run they switched off at
+              Startup and none of their patches, hooks, terrain writes, menu or files ran. What they do on that build rests on the
+              source, which the release was rebuilt from. Running it would need the Steam game.
+            questions: [P4, P7, P8, D6, G2, G4, G5, G6, G7, C2, C5]
+          - text: >-
+              The install, uninstall and launcher scripts (PowerShell) weren't run; what they do rests on reading them. The plan
+              didn't press Enter on any menu row, set `launcher_key`, or turn on `online_wear` or `dump_terrain`.
+            questions: [P4, P6, P8, G6, G10]
+          - text: >-
+              The game's own save of the worn track (`testing.dfm`) rests on the tool's own scripts and docs; the game wasn't seen
+              saving it.
+            questions: [P7, P8]
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No engine flagged a file VirusTotal knows: `Install.cmd` 0 of 61, `Uninstall.cmd` 0 of 61, `LICENSE` 0 of 61. The zip,
+      the `.sha256.txt`, both plugins and the other files in the zip are not on VirusTotal (hash lookup on 23 Nov 2026); nothing
+      uploaded.
+    evidence: '[MX-Dirt-Mod-Alt-1.7.1-alt.1.zip](https://www.virustotal.com/gui/file/519a65ac9c33457c916e59282411b1fcf14cb34ce08b4e78f03030193a64bea4), [MX-Dirt-Mod-Alt-1.7.1-alt.1.sha256.txt](https://www.virustotal.com/gui/file/18f90dbe6d1c95fbe23bd602089f8735e4c2c8a91afc9bbe952c15090af9f3e0), [mx_dirt.dlo](https://www.virustotal.com/gui/file/1cc95aab56cea10344adcf705464b5fcc3e3c81644e6f4d5a6f3f289e0004ce9), [mx_dirt_render.dlo](https://www.virustotal.com/gui/file/d83821b2e449f9580db8bc978eef735cfce7de412c7ad09c3a45cdb43dd07859), [Install.cmd](https://www.virustotal.com/gui/file/da31aa93ff73c5fdf20e0185dd8114972debee25fa8e5a659671f438b162c39f), [Uninstall.cmd](https://www.virustotal.com/gui/file/af75cec63f2b6a8a0aa392a36e32363170f8da136d5ae6d8ae033fedbf29afe5), [LICENSE](https://www.virustotal.com/gui/file/230184f60bae2feaf244f10a8bac053c8ff33a183bcc365b4d8b876d2b7f4809)'
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It has no updater; nothing in the plugins or scripts goes online.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/strings-urls.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`.'
+  P4:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Only after an action you start: the installer moves six other plugin files, among them `living_dirt.dlo` (the separate Living
+      Dirt plugin) and earlier test builds, to a backup folder, and replaces `mx_dirt.dlo` and `mx_dirt_render.dlo` (also the
+      original MX Dirt Mod's names) after copying them there; the F8 menu's Overhaul row writes `ruts=0` and `physical=0` into
+      Graphics Overhaul's `overhaul.ini`; the launcher's "Reset" moves the game's `testing.dfm` to a backup. By default the
+      plugins write only their own files.
+    evidence: >-
+      [Install.ps1 lines 29-43](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Install.ps1#L29-L43), [mxdirt_menu.inc lines 208-211](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_menu.inc#L208-L211),
+      [MXDirtLauncher.ps1 lines 215-221](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/launcher/MXDirtLauncher.ps1#L215-L221); `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-files.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/scripts.txt`.
+  P5:
+    verdict: 'No'
+    mark: note
+    text: Neither plugin is code-signed; they can be traced to the public source by a rebuild (T4).
+    evidence: Empty Security Directory (`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/signature.txt`); `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/rebuild.txt`.
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugins import no registry function. The installer and launcher only read Steam's folder from the registry; the
+      installer adds a desktop shortcut and clears the download mark on the release's own files.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/scripts.txt`.'
+  P7:
+    verdict: Partly
+    mark: note
+    text: >-
+      The plugins write only their own files in `plugins` (`mx_dirt.jsonl`, `mx_dirt_render.log`, and the folders
+      `mx_dirt_laps`, `mx_dirt_soft`, `mx_dirt_presets`, `mx_dirt_tracks`); but the worn ground they write into the game's terrain
+      is what the game saves as its own track wear (`testing.dfm`), per the tool's scripts.
+    evidence: >-
+      `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-files.txt`; [MXDirtLauncher.ps1 line 126](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/launcher/MXDirtLauncher.ps1#L126), [Uninstall.ps1 lines 1-4](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Uninstall.ps1#L1-L4).
+  P8:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      `Uninstall.cmd` moves the plugins, settings and data folders to a backup folder, but leaves your recorded laps
+      (`plugins\mx_dirt_laps`), the backup folders in `Documents\PiBoSo\MX Bikes\mx_dirt_mod_backups`, and the game's saved
+      track wear with the mod's ruts; plugins the installer moved out (such as `living_dirt.dlo`) aren't put back.
+    evidence: '[Uninstall.ps1 lines 1-4](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Uninstall.ps1#L1-L4), [lines 24-27](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Uninstall.ps1#L24-L27); [Install.ps1 line 35](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Install.ps1#L35).'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The code that patches the game is in the public source, described in its docs, and the release is that
+      source rebuilt; the plugins have no network code and start no program by default.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/rebuild.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-notable.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-codewrites.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/readme-claims.txt`.'
+  D1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No connections: the plugins import no network function and the source and scripts have none; the launcher's only address is
+      `steam://rungameid/655500`, which hands starting the game to Steam. None in the Windows runs either.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`; `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/network.txt`, `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/f8-menu-windows/network.txt`.'
+  D2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent; there is no network code.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: No identifier is sent; there is no network code.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing is sent. With online wear on, it reads other riders' positions from the plugin function RaceTrackPosition to wear
+      the track on your PC only.
+    evidence: '[mx_dirt.c lines 1126-1140](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L1126-L1140); `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: No server; no socket function is imported or used.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads the game's and your unpacked mods' bike and tyre files (`bikes\<bike>\*.cfg`, `tyres\...`) for tyre sizes; when its
+      menu runs, Graphics Overhaul's `overhaul.ini` and its exported rain value; and it names the MXB-MRP3 plugin's font for its
+      menu if that is installed. No personal data.
+    evidence: >-
+      [mxdirt_bike.inc lines 39-78](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_bike.inc#L39-L78), [mxdirt_menu.inc lines 168-195](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_menu.inc#L168-L195),
+      [mxdirt_menu.inc lines 352-366](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_menu.inc#L352-L366); `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-files.txt`.
+  D7:
+    verdict: 'No'
+    mark: good
+    text: Nothing is published; there is no network code.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: It makes no connection, so there is nothing to switch off.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/network.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; it makes no connection.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No shared memory or socket. The core plugin exports two functions its own render plugin calls inside the game, giving the
+      soil state and timings, not identifiers; its logs hold the track, bike and settings.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/mx_dirt.dlo.objdump-p.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-getprocaddress.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: Both run as plugins the game loads; nothing writes into the game from another program.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`; `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/loaded.txt`.'
+  G2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      On the one Steam build it accepts, by default, at each track load in Testing: the core plugin rewrites two instruction
+      sequences in the game's terrain code (offsets 0x1f61e6 and 0x1f1f65, put back when the track closes), hooks the game's
+      terrain hand-over calls and writes the worn heights into the game's terrain grid; the render plugin redirects the game's
+      terrain draw call and three OpenGL function pointers the game keeps to its own code (wrapping another plugin's pointer if
+      one is already there). `enabled=0` in each plugin's `.ini` turns it off.
+    evidence: >-
+      [mxdirt_patches.c lines 7-10](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_patches.c#L7-L10),
+      [lines 58-108](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_patches.c#L58-L108),
+      [mx_dirt.c lines 1071-1075](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L1071-L1075),
+      [mx_dirt.c lines 913-921](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L913-L921),
+      [mx_dirt.c lines 743-749](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L743-L749),
+      [mxdirt_render_host.c lines 1-12](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_host.c#L1-L12),
+      [lines 116-131](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_host.c#L116-L131),
+      [lines 161-192](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_host.c#L161-L192);
+      `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-codewrites.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-notable.txt`.
+  G3:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      Only with `online_wear=1` (marked experimental): then it also runs in online races and wears the track from where the game
+      says each bike is, which changes the ground your bike rides on. With the default `online_wear=0` both plugins stay off in
+      online races and patch nothing.
+    evidence: >-
+      [mx_dirt.c lines 1064-1067](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L1064-L1067), [mxdirt_render_host.c lines 107-115](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_host.c#L107-L115),
+      [mx_dirt.ini lines 118-124](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.ini#L118-L124).
+  G4:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads the game's terrain grids and, for packed bikes, the tyre size at fixed offsets of the game's wheel definition, from
+      the game's memory.
+    evidence: '[mxdirt_bike.inc lines 121-133](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_bike.inc#L121-L133), [mx_dirt.c lines 449-460](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L449-L460).'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads F8 and, while its menu is open, the arrows, Tab, Enter, Delete, letters and the mouse, for its own menu; reading
+      them doesn't take them from the game, and nothing presses keys or clicks.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-keys.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`.'
+  G6:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      Only after an action you start: the installer moves other plugins (`living_dirt.dlo` and earlier test builds) out of
+      `plugins`, and the F8 menu's Overhaul row writes two settings into Graphics Overhaul's `overhaul.ini`. By default it only
+      calls Overhaul's exported rain value and wraps an OpenGL pointer Overhaul set in the game, calling it on.
+    evidence: '[Install.ps1 line 35](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/install/Install.ps1#L35), [mxdirt_menu.inc lines 208-211](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_menu.inc#L208-L211), [mxdirt_render_host.c lines 161-192](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_host.c#L161-L192).'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: Both plugins count a key only while the game's own window is in front.
+    evidence: '[mxdirt_menu.inc lines 368-375](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_menu.inc#L368-L375), [mxdirt_render_content.c lines 86-90](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_content.c#L86-L90); `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-keys.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: No crash handler; neither plugin imports SetUnhandledExceptionFilter or AddVectoredExceptionHandler, and the source has none.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-crash.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; the installer adds only a desktop shortcut.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/scripts.txt`.'
+  G10:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      The launcher is a PowerShell window you start from its desktop shortcut. The render plugin can start it with a key you set
+      in `launcher_key`, empty in the shipped settings, so off by default.
+    evidence: '[mxdirt_render_content.c lines 73-90](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mxdirt_render_content.c#L73-L90), [mx_dirt_render.ini lines 38-40](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/render/mx_dirt_render.ini#L38-L40); `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/settings.txt`.'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: Both `.dlo` files are game plugins, loaded by the game from `plugins`.
+    evidence: Export the game's plugin functions (`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/mx_dirt.dlo.objdump-p.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/mx_dirt_render.dlo.objdump-p.txt`); loaded in `lab/results/mx-dirt-mod-alt-1.7.1-alt.1/ride-windows/loaded.txt`.
+  G12:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It gets around no check of the game; the only version check is its own, which keeps it off on any other build.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-exehash.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-codewrites.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; for packed bikes it reads tyre sizes the game has already loaded.
+    evidence: '[mxdirt_bike.inc lines 121-133](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_bike.inc#L121-L133).'
+  C2:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      Only with the debug setting `dump_terrain=1`: it then saves each track's terrain heights, read from the game's memory, to
+      `plugins\mx_dirt_terrain\<track>.mxt`.
+    evidence: '[mx_dirt.c lines 445-461](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.c#L445-L461), [mx_dirt.ini lines 126-128](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mx_dirt.ini#L126-L128).'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; there is no network code.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-network.txt`.'
+  C4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Its README and NOTICE credit kadenball's MX Dirt Mod (GPL-3.0), whose code it ships; no other third-party code was found.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/thirdparty.txt`.'
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It opens unpacked bikes' `.cfg` and `.tyre` files, in the game folder and your mods folder, and reads the loaded track's
+      terrain and packed bikes' tyre data in the game's memory.
+    evidence: '[mxdirt_bike.inc lines 39-78](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_bike.inc#L39-L78), [lines 121-133](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/blob/c5ed04c72bdbab7b00fd594ce7525e7a1914f797/src/core/mxdirt_bike.inc#L121-L133).'
+  T1:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The prebuilt files in the release are the two plugins (PE32+ x86-64), built from the repository's source at the commit (T4);
+      the repository holds no prebuilt program file.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/file.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/repo-files.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/rebuild.txt`.'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: What its docs say on these questions matches the code and the runs; see "What it says vs what it does".
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/readme-claims.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release files were uploaded by hand; the repository has no build workflow.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/repo-files.txt`.'
+  T4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Rebuilt from the commit with Zig 0.13.0 and the build scripts' commands: both plugins are byte for byte the release's,
+      except the link time stamp (twice) and the build ID the linker derives from the file, 16 bytes each.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/rebuild.txt` (`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/rebuild.sh`, `lab/evidence/pe_cmp.py`).'
+  T5:
+    verdict: Partly
+    mark: note
+    text: >-
+      The history is public but one commit per release: kadenball's releases 1.1.0 to 1.7.1, then one commit with all of this
+      fork's changes and one with its docs; `docs/DEVELOPMENT.md` describes the development.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/history.txt`.'
+  T6:
+    verdict: Partly
+    mark: note
+    text: >-
+      It uses no third-party library, but the build tool is named as "Zig 0.13 or newer", not an exact version; the rebuild that
+      matches the release used Zig 0.13.0.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/readme-claims.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/rebuild.txt`.'
+  T7:
+    verdict: 'Yes'
+    mark: good
+    text: GPL-3.0, in the repository and the release.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/zip-vs-source.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/thirdparty.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the release's only links are GitHub pages, Zig's site and a badge image.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Neither the release nor the repository asks for donations.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/strings-money.txt`.'
+history:
+  - date: 23 Nov 2026
+    change: First card, for v1.7.1-alt.1.
