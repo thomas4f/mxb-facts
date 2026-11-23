@@ -1,0 +1,25 @@
+$ cd "$SRC" && grep -nE 'tags:|uses:|cargo build|choco install|msbuild mxbo|files:' .github/workflows/release.yml; ls rust-toolchain rust-toolchain.toml overlay/rust-toolchain.toml 2>&1; git ls-files | grep -E 'Cargo.lock$'; grep -nE '^(ureq|wry|zip|sha2|rusqlite) =' overlay/Cargo.toml
+5:    tags: ["v*"]
+15:      - uses: actions/checkout@v4
+17:      - uses: microsoft/setup-msbuild@v2
+19:      - uses: dtolnay/rust-toolchain@stable
+21:      - uses: Swatinem/rust-cache@v2
+26:        run: msbuild mxbo.vcxproj /p:Configuration=Release /p:Platform=x64 /m
+45:        run: cargo build --release --manifest-path overlay/Cargo.toml
+48:        run: choco install innosetup -y --no-progress
+53:      - uses: actions/upload-artifact@v4
+62:        uses: softprops/action-gh-release@v2
+64:          files: |
+ls: cannot access 'rust-toolchain': No such file or directory
+ls: cannot access 'rust-toolchain.toml': No such file or directory
+ls: cannot access 'overlay/rust-toolchain.toml': No such file or directory
+motos-ui/Cargo.lock
+overlay/Cargo.lock
+review/Cargo.lock
+web-preview/Cargo.lock
+28:ureq = "2.12"
+29:wry = "0.57"
+31:sha2 = "0.10"
+32:zip = { version = "0.6", default-features = false, features = ["deflate"] }
+34:rusqlite = { version = "0.32", features = ["bundled"] }
+(exit 0)

@@ -1,0 +1,20 @@
+$ iat.py zip/Holeshot-HUD.exe | grep -E 'RegSetValueExW|RegDeleteValueW|GetAsyncKeyState|ClipCursor|SetWindowPos|OpenProcess|TerminateProcess|CreateToolhelp32Snapshot|Module32FirstW|IcmpSendEcho|GetExtendedTcpTable|WSAStartup|OpenFileMappingW|XInputGetState|CreateProcessW|ShellExecuteW'; echo '--- absent:'; iat.py zip/Holeshot-HUD.exe | grep -E 'WriteProcessMemory|ReadProcessMemory|VirtualAllocEx|CreateRemoteThread|SetWindowsHookEx|SendInput|keybd_event|mouse_event' || echo 'none of: WriteProcessMemory, ReadProcessMemory, VirtualAllocEx, CreateRemoteThread, SetWindowsHookEx, SendInput, keybd_event, mouse_event'
+0x1406bb608  kernel32.dll!TerminateProcess
+0x1406bb650  kernel32.dll!OpenProcess
+0x1406bb6c0  kernel32.dll!OpenFileMappingW
+0x1406bb6d8  kernel32.dll!CreateToolhelp32Snapshot
+0x1406bb718  kernel32.dll!Module32FirstW
+0x1406bb958  kernel32.dll!CreateProcessW
+0x1406bba98  shell32.dll!ShellExecuteW
+0x1406bbad0  user32.dll!GetAsyncKeyState
+0x1406bbb00  user32.dll!ClipCursor
+0x1406bbb10  user32.dll!SetWindowPos
+0x1406bb050  ADVAPI32.dll!RegDeleteValueW
+0x1406bb058  ADVAPI32.dll!RegSetValueExW
+0x1406bbd40  ws2_32.dll!WSAStartup
+0x1406bb4b0  iphlpapi.dll!IcmpSendEcho
+0x1406bb4c0  iphlpapi.dll!GetExtendedTcpTable
+0x1406bbdc0  xinput1_4.dll!XInputGetState
+--- absent:
+none of: WriteProcessMemory, ReadProcessMemory, VirtualAllocEx, CreateRemoteThread, SetWindowsHookEx, SendInput, keybd_event, mouse_event
+(exit 0)

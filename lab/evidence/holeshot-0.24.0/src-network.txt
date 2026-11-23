@@ -1,0 +1,21 @@
+$ cd "$SRC" && grep -rnE 'ureq::|\.post\(|IcmpSendEcho\(|FALLBACK: u32|TcpListener::bind|Access-Control-Allow-Origin|HOME_URL: &str|mxb-ranked.com/Rider|cbrservers.com/player|holeshot-hud.vercel.app' overlay/src --include=*.rs | grep -v '/tests/'
+overlay/src/presence.rs:458:        let agent = ureq::AgentBuilder::new()
+overlay/src/presence.rs:468:                .post(&url)
+overlay/src/presence.rs:481:                .post(&url)
+overlay/src/ping.rs:14:const FALLBACK: u32 = u32::from_ne_bytes([1, 1, 1, 1]);
+overlay/src/ping.rs:75:        IcmpSendEcho(
+overlay/src/plugin.rs:379:    format!("https://mxb-ranked.com/Rider/{}", steam_guid(steam_id64))
+overlay/src/plugin.rs:388:    format!("https://www.cbrservers.com/player/{}", steam_guid(steam_id64))
+overlay/src/stream/mod.rs:1533:        match TcpListener::bind(("127.0.0.1", port)) {
+overlay/src/stream/mod.rs:1752:        "HTTP/1.1 200 OK\r\nContent-Type: application/json; charset=utf-8\r\nContent-Length: {}\r\nCache-Control: no-store\r\nAccess-Control-Allow-Origin: *\r\nConnection: close\r\n\r\n",
+overlay/src/update.rs:211:    let agent = ureq::AgentBuilder::new()
+overlay/src/update.rs:222:            ureq::Error::Status(404, _) => "No release has been published yet.".into(),
+overlay/src/update.rs:525:    let agent = ureq::AgentBuilder::new()
+overlay/src/feedback.rs:16:const FEEDBACK_URL: &str = "https://holeshot-hud.vercel.app/api/feedback";
+overlay/src/feedback.rs:644:    let agent = ureq::AgentBuilder::new()
+overlay/src/feedback.rs:649:        .post(&url)
+overlay/src/feedback.rs:1078:    let agent = ureq::AgentBuilder::new()
+overlay/src/feedback.rs:1083:        .post(&url)
+overlay/src/feedback.rs:1110:    let agent = ureq::AgentBuilder::new()
+overlay/src/settings/mymxb.rs:25:const HOME_URL: &str = "https://mymxb.com/";
+(exit 0)

@@ -1,0 +1,12 @@
+$ cd "$SRC" && grep -nE 'define MXBO_(SHM|CMD)_NAME |char name\[MXBO_NAME\]|serverName|eventGuid' src/shm/mxbo_shm.h; grep -nE 'CreateFileMappingW|nullptr,$' src/shm_writer.cpp
+13:#define MXBO_SHM_NAME L"Local\\MXBOHudV19"
+16:#define MXBO_CMD_NAME L"Local\\MXBOHudCmdV1"
+40:    char name[MXBO_NAME];
+62:    char name[MXBO_NAME];
+164:    char serverName[MXBO_TRACK_NAME];
+165:    char eventGuid[MXBO_GUID];
+21:    m_map = CreateFileMappingW(
+23:        nullptr,
+67:    m_cmdMap = CreateFileMappingW(
+69:        nullptr,
+(exit 0)

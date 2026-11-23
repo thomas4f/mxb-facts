@@ -1,0 +1,8 @@
+$ for p in 'Install.ps1:installer/install.ps1' 'Install.bat:installer/install.bat' 'Install-Plugin.ps1:installer/install-plugin.ps1' 'Uninstall.ps1:installer/uninstall.ps1' 'Uninstall.bat:installer/uninstall.bat' 'README.txt:installer/README.txt'; do a="${p%%:*}"; b="${p##*:}"; cmp -s <(tr -d '\r' < "zip/$a") <(tr -d '\r' < "$SRC/$b") && echo "same apart from line endings: zip/$a = $b at the commit"; done
+same apart from line endings: zip/Install.ps1 = installer/install.ps1 at the commit
+same apart from line endings: zip/Install.bat = installer/install.bat at the commit
+same apart from line endings: zip/Install-Plugin.ps1 = installer/install-plugin.ps1 at the commit
+same apart from line endings: zip/Uninstall.ps1 = installer/uninstall.ps1 at the commit
+same apart from line endings: zip/Uninstall.bat = installer/uninstall.bat at the commit
+same apart from line endings: zip/README.txt = installer/README.txt at the commit
+(exit 0)

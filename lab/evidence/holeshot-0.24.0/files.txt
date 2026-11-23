@@ -1,0 +1,12 @@
+$ sha256sum Holeshot-HUD-0.24.0-windows-x64.zip HoleshotHUD-Setup.exe zip/*
+6fc20a6367a6bd5d6f27dbabec73978645615fe96bb36458b9272bc8ae7b728c  Holeshot-HUD-0.24.0-windows-x64.zip
+8faa862dc2b081d6e56b223b06fefecee84e02adee00d3d96ffc9dbd785b2846  HoleshotHUD-Setup.exe
+f33c16d76d343902ed6d5ca02649cb007519977491518104ef62a313b839a9c1  zip/Holeshot-HUD.dlo
+bf2a1d9ca2fc99ff4eafa369d04ffd02f1074aa7f3856741e3171dada2b46cfb  zip/Holeshot-HUD.exe
+24b9f5d087c8cf64ab5eee830a26693b4ebc9e4be2b591f8eb70c46c37d50de6  zip/Install-Plugin.ps1
+4640ea10b04ff0ccfa138b36f41bf39020235ce813a71e92971b93b821258b1a  zip/Install.bat
+2bcd5adf57843c6fb3f35122f0ccadb9f0ca7a614e2d16c8fe50afbc71e7a1a0  zip/Install.ps1
+34c19f948a3086a32c03fcdb463d4ed0a7966d062b5f39b7992e8b56923062dc  zip/README.txt
+2d0e85e92f493825293373b2a79023e7a94149bc5d00df79b58e1f3e206adfe7  zip/Uninstall.bat
+1c167c607b276fbbac24005f01474ccb159b6ff2f333a38ccc31599aabf7ac61  zip/Uninstall.ps1
+(exit 0)

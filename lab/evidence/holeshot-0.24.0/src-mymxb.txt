@@ -1,0 +1,14 @@
+$ cd "$SRC" && grep -nE 'adsbygoogle|mymxb-ad-hide|node.remove\(\)|with_initialization_script|open-browser' overlay/src/settings/mymxb.rs | head -12
+90:    "ins.adsbygoogle,.google-auto-placed,[id^='div-gpt-ad']," +
+99:    if (!parent || document.getElementById("mymxb-ad-hide")) return;
+101:    style.id = "mymxb-ad-hide";
+123:    if (node.classList && node.classList.contains("adsbygoogle")) return true;
+129:    !!(node && node.closest && node.closest("ins.adsbygoogle, .google-auto-placed, [id^='div-gpt-ad']"));
+131:    if (!node || node.nodeType !== 1 || node.id === "mymxb-ad-hide") return;
+133:      node.remove();
+139:    if (adUrl(src)) node.remove();
+144:      .querySelectorAll("ins.adsbygoogle, .google-auto-placed, [id^='div-gpt-ad'], iframe, script, img")
+203:        if (window.ipc && blockedUrl) window.ipc.postMessage("open-browser " + blockedUrl);
+414:        .with_initialization_script(format!("{READY_SCRIPT}{AD_BLOCK_SCRIPT}{BLOCKED_NOTICE_SCRIPT}"))
+438:            } else if let Some(url) = body.strip_prefix("open-browser ") {
+(exit 0)

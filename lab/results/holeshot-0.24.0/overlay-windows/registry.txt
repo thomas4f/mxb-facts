@@ -1,0 +1,6 @@
+Holeshot-HUD.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Run  SUCCESS
+Holeshot-HUD.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+Holeshot-HUD.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+Holeshot-HUD.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Holeshot HUD  NAME NOT FOUND
+Holeshot-HUD.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Holeshot HUD game  NAME NOT FOUND
+Holeshot-HUD.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-overlay\release\Holeshot-HUD-0.24.0-windows-x64.zip\Holeshot-HUD.exe  SUCCESS
