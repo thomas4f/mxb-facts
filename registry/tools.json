@@ -209,7 +209,7 @@
     "author": "ts",
     "github": null,
     "homepage": null,
-    "cards": [],
+    "cards": ["mxb-fps-booster-v1.yaml"],
     "mxb-mods": {
       "post": 196428,
       "tied_by": "97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4"

@@ -1,0 +1,2 @@
+$ pyinst.py code pkg/main.pyc_raw | grep -niE 'https?://|www\.|shop|donat|paypal|ko-?fi|patreon|buy |price|premium'
+(exit 1)

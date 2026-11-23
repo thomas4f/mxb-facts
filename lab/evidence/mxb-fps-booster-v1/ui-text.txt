@@ -1,0 +1,32 @@
+$ pyinst.py code pkg/main.pyc_raw App._ui | grep -E 'LOAD_CONST .[A-Z][A-Za-z ]'
+  145: LOAD_FAST_BORROW header | LOAD_CONST 'MXB' | LOAD_CONST '#ff4545' | LOAD_CONST '#101114'
+  148: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW header | LOAD_CONST ' FPS BOOSTER' | LOAD_CONST 'Title.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_CONST ('side',) | CALL_KW
+  150: LOAD_FAST_BORROW header | LOAD_CONST 'PERFORMANCE + PLUGIN MANAGER'
+  160: LOAD_FAST_BORROW self | LOAD_ATTR panel | LOAD_FAST_BORROW metrics | LOAD_CONST 'CPU LOAD' | LOAD_CONST '--' | LOAD_CONST 'Live system usage' | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW self | STORE_ATTR cpu
+  161: LOAD_FAST_BORROW self | LOAD_ATTR panel | LOAD_FAST_BORROW metrics | LOAD_CONST 'RAM LOAD' | LOAD_CONST '--' | LOAD_CONST 'Live memory usage' | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW self | STORE_ATTR ram
+  162: LOAD_FAST_BORROW self | LOAD_ATTR panel | LOAD_FAST_BORROW metrics | LOAD_CONST 'MX BIKES' | LOAD_CONST 'CHECKING' | LOAD_CONST 'Game detection' | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW self | STORE_ATTR status
+  164: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | LOAD_CONST 'Panel.TFrame' | LOAD_SMALL_INT | LOAD_CONST ('style', 'padding') | CALL_KW | STORE_FAST game
+  166: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW game | LOAD_CONST 'GAME INSTALLATION' | LOAD_CONST 'PanelTitle.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST ('anchor',) | CALL_KW
+  167: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW_LOAD_FAST_BORROW game, self | LOAD_ATTR game_text | CALL | LOAD_CONST 'Muted.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR path_label
+  170: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW game | LOAD_CONST 'Panel.TFrame' | LOAD_CONST ('style',) | CALL_KW | STORE_FAST game_row
+  172: LOAD_GLOBAL ttk | LOAD_ATTR Button | LOAD_FAST_BORROW game_row | LOAD_CONST 'SCAN AGAIN' | LOAD_FAST_BORROW self | LOAD_ATTR scan | LOAD_CONST ('text', 'command') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_CONST (0, 7) | LOAD_CONST ('side', 'padx') | CALL_KW
+  174: LOAD_FAST_BORROW game_row | LOAD_CONST 'CHOOSE GAME FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR choose_game
+  177: LOAD_FAST_BORROW game_row | LOAD_CONST 'OPEN PLUGINS FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR open_plugins
+  180: LOAD_FAST_BORROW game_row | LOAD_CONST 'LAUNCH MX BIKES' | LOAD_CONST 'Green.TButton' | LOAD_FAST_BORROW self | LOAD_ATTR launch
+  184: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | LOAD_CONST 'Panel.TFrame' | LOAD_SMALL_INT | LOAD_CONST ('style', 'padding') | CALL_KW | STORE_FAST performance
+  187: LOAD_FAST_BORROW performance | LOAD_CONST 'GAMING MODE' | LOAD_CONST 'PanelTitle.TLabel'
+  192: LOAD_CONST 'Uses the Windows High performance power plan while enabled and starts MX Bikes with Above normal process priority. It does not close apps, change security settings, or edit the registry. High performance can use more battery and produce more heat.'
+  197: LOAD_CONST 'Muted.TLabel' | LOAD_CONST 850
+  200: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW performance | LOAD_CONST 'Panel.TFrame' | LOAD_CONST ('style',) | CALL_KW | STORE_FAST performance_row
+  203: LOAD_FAST_BORROW performance_row | LOAD_CONST 'ENABLE GAMING MODE'
+  204: LOAD_CONST 'Green.TButton' | LOAD_FAST_BORROW self | LOAD_ATTR toggle_gaming_mode
+  208: LOAD_FAST_BORROW performance_row | LOAD_CONST 'OFF' | LOAD_CONST 'Muted.TLabel'
+  212: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | LOAD_CONST 'Panel.TFrame' | LOAD_SMALL_INT | LOAD_CONST ('style', 'padding') | CALL_KW | STORE_FAST plugin
+  214: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW plugin | LOAD_CONST 'PLUGIN MANAGER' | LOAD_CONST 'PanelTitle.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST ('anchor',) | CALL_KW
+  218: LOAD_CONST "Install a plugin package (.zip or .dlo) into the game's plugins folder. Only install files from sources you trust. There is no official MXB FPS Booster plugin download available yet."
+  222: LOAD_CONST 'Muted.TLabel' | LOAD_CONST 850
+  225: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW plugin | LOAD_CONST 'Panel.TFrame' | LOAD_CONST ('style',) | CALL_KW | STORE_FAST plugin_row
+  228: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'INSTALL FROM FILE' | LOAD_FAST_BORROW self | LOAD_ATTR install_from_file
+  231: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'BACK UP PLUGIN FILES' | LOAD_FAST_BORROW self | LOAD_ATTR backup_plugins
+  234: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'OPEN PLUGINS FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR open_plugins
+(exit 0)

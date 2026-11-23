@@ -1,0 +1,482 @@
+$ pyinst.py code pkg/main.pyc_raw
+=== <module> (line 1)
+  1: LOAD_SMALL_INT | LOAD_CONST ('annotations',) | IMPORT_NAME __future__ | IMPORT_FROM annotations | STORE_NAME annotations
+  3: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME os | STORE_NAME os
+  4: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME re | STORE_NAME re
+  5: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME subprocess | STORE_NAME subprocess
+  6: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME shutil | STORE_NAME shutil
+  7: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME time | STORE_NAME time
+  8: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME zipfile | STORE_NAME zipfile
+  9: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME tempfile | STORE_NAME tempfile
+  10: LOAD_SMALL_INT | LOAD_CONST ('Path',) | IMPORT_NAME pathlib | IMPORT_FROM Path | STORE_NAME Path
+  11: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME tkinter | STORE_NAME tk
+  12: LOAD_SMALL_INT | LOAD_CONST ('ttk', 'messagebox', 'filedialog') | IMPORT_NAME tkinter | IMPORT_FROM ttk | STORE_NAME ttk | IMPORT_FROM messagebox | STORE_NAME messagebox | IMPORT_FROM filedialog | STORE_NAME filedialog
+  14: LOAD_CONST 'MXB FPS BOOSTER' | STORE_NAME APP
+  15: LOAD_NAME Path | LOAD_ATTR home | CALL | LOAD_CONST 'Documents' | BINARY_OP / | LOAD_CONST 'MXB FPS Booster Backups' | BINARY_OP / | STORE_NAME BACKUP_ROOT
+  18: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME psutil + eager | STORE_NAME psutil
+  23: LOAD_CONST <code candidate_game_dirs> | MAKE_FUNCTION | STORE_NAME candidate_game_dirs
+  46: LOAD_CONST <code find_game> | MAKE_FUNCTION | STORE_NAME find_game
+  54: LOAD_CONST <code get_active_power_plan> | MAKE_FUNCTION | STORE_NAME get_active_power_plan
+  71: LOAD_CONST <code set_power_plan> | MAKE_FUNCTION | STORE_NAME set_power_plan
+  81: LOAD_BUILD_CLASS | LOAD_CONST <code App> | MAKE_FUNCTION | LOAD_CONST 'App' | CALL | STORE_NAME App
+  507: LOAD_NAME __name__ | LOAD_CONST '__main__' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L2
+  508: LOAD_NAME tk | LOAD_ATTR Tk | CALL | STORE_NAME root
+  509: LOAD_NAME App | LOAD_NAME root | CALL
+  510: LOAD_NAME root | LOAD_ATTR mainloop | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  507: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  19: LOAD_NAME ImportError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3
+  20: LOAD_COMMON_CONSTANT None | STORE_NAME psutil | JUMP_BACKWARD_NO_INTERRUPT to L1
+  19: RERAISE | RERAISE
+=== candidate_game_dirs (line 23)
+  24: BUILD_LIST | STORE_FAST roots
+  25: LOAD_GLOBAL Path | LOAD_GLOBAL os | LOAD_ATTR environ | LOAD_ATTR get | LOAD_CONST 'PROGRAMFILES(X86)' | LOAD_CONST 'C:\\Program Files (x86)' | CALL | CALL | STORE_FAST pf86
+  26: LOAD_GLOBAL Path | LOAD_GLOBAL os | LOAD_ATTR environ | LOAD_ATTR get | LOAD_CONST 'PROGRAMFILES' | LOAD_CONST 'C:\\Program Files' | CALL | CALL | STORE_FAST pf
+  28: LOAD_FAST_BORROW roots
+  29: LOAD_FAST_BORROW pf86 | LOAD_CONST 'Steam/steamapps/common/MX Bikes' | BINARY_OP /
+  30: LOAD_FAST_BORROW pf | LOAD_CONST 'Steam/steamapps/common/MX Bikes' | BINARY_OP /
+  31: LOAD_GLOBAL Path | LOAD_ATTR home | CALL | LOAD_CONST 'Steam/steamapps/common/MX Bikes' | BINARY_OP /
+  28: BUILD_LIST | BINARY_OP += | STORE_FAST roots
+  35: LOAD_FAST_BORROW pf86 | LOAD_CONST 'Steam/steamapps/libraryfolders.vdf' | BINARY_OP / | STORE_FAST vdf
+  37: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME re + eager | STORE_FAST re
+  38: LOAD_FAST_BORROW re | LOAD_ATTR findall | LOAD_CONST '"path"\\s+"([^"]+)"' | LOAD_FAST_BORROW vdf | LOAD_ATTR read_text | LOAD_CONST 'ignore' | LOAD_CONST ('errors',) | CALL_KW | CALL | GET_ITER | FOR_ITER to L2 | STORE_FAST raw
+  39: LOAD_FAST_BORROW roots | LOAD_ATTR append | LOAD_GLOBAL Path | LOAD_FAST_BORROW raw | CALL | LOAD_CONST 'steamapps/common/MX Bikes' | BINARY_OP / | CALL | JUMP_BACKWARD to L1
+  43: LOAD_FAST_BORROW roots | RETURN_VALUE | PUSH_EXC_INFO
+  40: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3
+  43: LOAD_FAST roots | RETURN_VALUE
+  40: RERAISE | RERAISE
+=== find_game (line 46)
+  47: LOAD_GLOBAL candidate_game_dirs | CALL | GET_ITER | FOR_ITER to L3 | STORE_FAST folder
+  48: LOAD_FAST_BORROW folder | LOAD_CONST 'mxbikes.exe' | BINARY_OP / | STORE_FAST exe
+  49: LOAD_FAST_BORROW exe | LOAD_ATTR is_file | CALL | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1
+  50: LOAD_FAST_BORROW exe | RETURN_VALUE
+  51: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== get_active_power_plan (line 54)
+  55: LOAD_GLOBAL subprocess | LOAD_ATTR run
+  56: LOAD_CONST 'powercfg' | LOAD_CONST '/getactivescheme' | BUILD_LIST
+  57: LOAD_COMMON_CONSTANT True
+  58: LOAD_COMMON_CONSTANT True
+  59: LOAD_COMMON_CONSTANT True
+  60: LOAD_GLOBAL getattr | LOAD_GLOBAL subprocess | LOAD_CONST 'CREATE_NO_WINDOW' | LOAD_SMALL_INT | CALL
+  55: LOAD_CONST ('capture_output', 'text', 'check', 'creationflags') | CALL_KW | STORE_FAST result
+  62: LOAD_GLOBAL re | LOAD_ATTR search
+  63: LOAD_CONST '([0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12})'
+  64: LOAD_FAST_BORROW result | LOAD_ATTR stdout
+  62: CALL | STORE_FAST match
+  66: LOAD_FAST_BORROW match | POP_JUMP_IF_TRUE to L1
+  67: LOAD_GLOBAL RuntimeError | LOAD_CONST 'Could not read the current Windows power plan.' | CALL | RAISE_VARARGS
+  68: LOAD_FAST_BORROW match | LOAD_ATTR group | LOAD_SMALL_INT | CALL | RETURN_VALUE
+=== set_power_plan (line 71)
+  72: LOAD_GLOBAL subprocess | LOAD_ATTR run
+  73: LOAD_CONST 'powercfg' | LOAD_CONST '/setactive' | LOAD_FAST_BORROW guid | BUILD_LIST
+  74: LOAD_COMMON_CONSTANT True
+  75: LOAD_COMMON_CONSTANT True
+  76: LOAD_COMMON_CONSTANT True
+  77: LOAD_GLOBAL getattr | LOAD_GLOBAL subprocess | LOAD_CONST 'CREATE_NO_WINDOW' | LOAD_SMALL_INT | CALL
+  72: LOAD_CONST ('capture_output', 'text', 'check', 'creationflags') | CALL_KW | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App (line 81)
+  81: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'App' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__
+  82: LOAD_CONST <code App.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  99: LOAD_CONST <code App._style> | MAKE_FUNCTION | STORE_NAME _style
+  129: LOAD_CONST <code App.panel> | MAKE_FUNCTION | STORE_NAME panel
+  138: LOAD_CONST <code App._ui> | MAKE_FUNCTION | STORE_NAME _ui
+  246: LOAD_CONST <code App.game_text> | MAKE_FUNCTION | STORE_NAME game_text
+  252: LOAD_CONST <code App.plugins_dir> | MAKE_FUNCTION | STORE_NAME plugins_dir
+  257: LOAD_CONST <code App.scan> | MAKE_FUNCTION | STORE_NAME scan
+  267: LOAD_CONST <code App.choose_game> | MAKE_FUNCTION | STORE_NAME choose_game
+  280: LOAD_CONST <code App.open_plugins> | MAKE_FUNCTION | STORE_NAME open_plugins
+  288: LOAD_CONST <code App.backup_plugins> | MAKE_FUNCTION | STORE_NAME backup_plugins
+  301: LOAD_CONST <code App.safe_install_files> | MAKE_FUNCTION | STORE_NAME safe_install_files
+  347: LOAD_CONST <code App.install_from_file> | MAKE_FUNCTION | STORE_NAME install_from_file
+  373: LOAD_CONST <code App.toggle_gaming_mode> | MAKE_FUNCTION | STORE_NAME toggle_gaming_mode
+  403: LOAD_CONST (False,) | LOAD_CONST <code App.disable_gaming_mode> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME disable_gaming_mode
+  421: LOAD_CONST <code App.launch> | MAKE_FUNCTION | STORE_NAME launch
+  451: LOAD_CONST <code App.is_game_running> | MAKE_FUNCTION | STORE_NAME is_game_running
+  473: LOAD_CONST <code App.refresh> | MAKE_FUNCTION | STORE_NAME refresh
+  501: LOAD_CONST <code App.on_close> | MAKE_FUNCTION | STORE_NAME on_close | LOAD_CONST ('cpu', 'game', 'game_process', 'gaming_button', 'gaming_mode', 'gaming_status', 'launch_button', 'original_power_plan', 'path_label', 'ram', 'root', 'status') | STORE_NAME __static_attributes__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.__init__ (line 82)
+  83: LOAD_FAST_BORROW_LOAD_FAST_BORROW root, self | STORE_ATTR root
+  84: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR title | LOAD_GLOBAL APP | CALL
+  85: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR geometry | LOAD_CONST '940x700' | CALL
+  86: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR minsize | LOAD_CONST 850 | LOAD_CONST 650 | CALL
+  87: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR configure | LOAD_CONST '#101114' | LOAD_CONST ('bg',) | CALL_KW
+  89: LOAD_GLOBAL find_game | CALL | LOAD_FAST_BORROW self | STORE_ATTR game
+  90: LOAD_COMMON_CONSTANT False | LOAD_FAST_BORROW self | STORE_ATTR gaming_mode
+  91: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR original_power_plan
+  92: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR game_process
+  94: LOAD_FAST_BORROW self | LOAD_ATTR _style | CALL
+  95: LOAD_FAST_BORROW self | LOAD_ATTR _ui | CALL
+  96: LOAD_FAST_BORROW self | LOAD_ATTR refresh | CALL
+  97: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR protocol | LOAD_CONST 'WM_DELETE_WINDOW' | LOAD_FAST_BORROW self | LOAD_ATTR on_close | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App._style (line 99)
+  100: LOAD_GLOBAL ttk | LOAD_ATTR Style | CALL | STORE_FAST s
+  101: LOAD_FAST_BORROW s | LOAD_ATTR theme_use | LOAD_CONST 'clam' | CALL
+  102: LOAD_FAST_BORROW s | LOAD_ATTR configure | LOAD_CONST '.' | LOAD_CONST ('Segoe UI', 10) | LOAD_CONST ('font',) | CALL_KW
+  103: LOAD_FAST_BORROW s | LOAD_ATTR configure | LOAD_CONST 'TFrame' | LOAD_CONST '#101114' | LOAD_CONST ('background',) | CALL_KW
+  104: LOAD_FAST_BORROW s | LOAD_ATTR configure | LOAD_CONST 'Panel.TFrame' | LOAD_CONST '#191b20' | LOAD_CONST ('background',) | CALL_KW
+  105: LOAD_FAST_BORROW s | LOAD_ATTR configure | LOAD_CONST 'TLabel' | LOAD_CONST '#101114' | LOAD_CONST '#eeeeef' | LOAD_CONST ('background', 'foreground') | CALL_KW
+  106: LOAD_FAST_BORROW s | LOAD_ATTR configure | LOAD_CONST 'Muted.TLabel' | LOAD_CONST '#191b20' | LOAD_CONST '#a8abb3' | LOAD_CONST ('background', 'foreground') | CALL_KW
+  107: LOAD_FAST_BORROW s | LOAD_ATTR configure
+  108: LOAD_CONST 'Title.TLabel' | LOAD_CONST '#101114' | LOAD_CONST '#fff'
+  109: LOAD_CONST ('Segoe UI', 22, 'bold')
+  107: LOAD_CONST ('background', 'foreground', 'font') | CALL_KW
+  111: LOAD_FAST_BORROW s | LOAD_ATTR configure
+  112: LOAD_CONST 'PanelTitle.TLabel' | LOAD_CONST '#191b20' | LOAD_CONST '#fff'
+  113: LOAD_CONST ('Segoe UI', 11, 'bold')
+  111: LOAD_CONST ('background', 'foreground', 'font') | CALL_KW
+  115: LOAD_FAST_BORROW s | LOAD_ATTR configure
+  116: LOAD_CONST 'Metric.TLabel' | LOAD_CONST '#191b20' | LOAD_CONST '#ff4545'
+  117: LOAD_CONST ('Segoe UI', 21, 'bold')
+  115: LOAD_CONST ('background', 'foreground', 'font') | CALL_KW
+  119: LOAD_FAST_BORROW s | LOAD_ATTR configure
+  120: LOAD_CONST 'TButton' | LOAD_SMALL_INT | LOAD_CONST '#30333b' | LOAD_CONST '#fff'
+  121: LOAD_CONST ('Segoe UI', 9, 'bold')
+  119: LOAD_CONST ('padding', 'background', 'foreground', 'font') | CALL_KW
+  123: LOAD_FAST_BORROW s | LOAD_ATTR map | LOAD_CONST 'TButton' | LOAD_CONST ('active', '#454954') | BUILD_LIST | LOAD_CONST ('background',) | CALL_KW
+  124: LOAD_FAST_BORROW s | LOAD_ATTR configure | LOAD_CONST 'Red.TButton' | LOAD_SMALL_INT | LOAD_CONST '#d92d35' | LOAD_CONST '#fff' | LOAD_CONST ('padding', 'background', 'foreground') | CALL_KW
+  125: LOAD_FAST_BORROW s | LOAD_ATTR map | LOAD_CONST 'Red.TButton' | LOAD_CONST ('active', '#f0444c') | BUILD_LIST | LOAD_CONST ('background',) | CALL_KW
+  126: LOAD_FAST_BORROW s | LOAD_ATTR configure | LOAD_CONST 'Green.TButton' | LOAD_SMALL_INT | LOAD_CONST '#168a45' | LOAD_CONST '#fff' | LOAD_CONST ('padding', 'background', 'foreground') | CALL_KW
+  127: LOAD_FAST_BORROW s | LOAD_ATTR map | LOAD_CONST 'Green.TButton' | LOAD_CONST ('active', '#20a957') | BUILD_LIST | LOAD_CONST ('background',) | CALL_KW | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.panel (line 129)
+  130: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW parent | LOAD_CONST 'Panel.TFrame' | LOAD_SMALL_INT | LOAD_CONST ('style', 'padding') | CALL_KW | STORE_FAST frame
+  131: LOAD_FAST_BORROW frame | LOAD_ATTR grid | LOAD_SMALL_INT | LOAD_FAST_BORROW col | LOAD_CONST 'nsew' | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_CONST ('row', 'column', 'sticky', 'padx', 'pady') | CALL_KW
+  132: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW_LOAD_FAST_BORROW frame, title | LOAD_CONST 'PanelTitle.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST ('anchor',) | CALL_KW
+  133: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW_LOAD_FAST_BORROW frame, value | LOAD_CONST 'Metric.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | STORE_FAST value_label
+  134: LOAD_FAST_BORROW value_label | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST (12, 1) | LOAD_CONST ('anchor', 'pady') | CALL_KW
+  135: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW_LOAD_FAST_BORROW frame, subtitle | LOAD_CONST 'Muted.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST ('anchor',) | CALL_KW
+  136: LOAD_FAST_BORROW value_label | RETURN_VALUE
+=== App._ui (line 138)
+  139: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_SMALL_INT | LOAD_CONST ('padding',) | CALL_KW | STORE_FAST outer
+  140: LOAD_FAST_BORROW outer | LOAD_ATTR pack | LOAD_CONST 'both' | LOAD_COMMON_CONSTANT True | LOAD_CONST ('fill', 'expand') | CALL_KW
+  142: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | CALL | STORE_FAST header
+  143: LOAD_FAST_BORROW header | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_CONST (0, 14) | LOAD_CONST ('fill', 'pady') | CALL_KW
+  144: LOAD_GLOBAL ttk | LOAD_ATTR Label
+  145: LOAD_FAST_BORROW header | LOAD_CONST 'MXB' | LOAD_CONST '#ff4545' | LOAD_CONST '#101114'
+  146: LOAD_CONST ('Segoe UI', 25, 'bold')
+  144: LOAD_CONST ('text', 'foreground', 'background', 'font') | CALL_KW
+  147: LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_CONST ('side',) | CALL_KW
+  148: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW header | LOAD_CONST ' FPS BOOSTER' | LOAD_CONST 'Title.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_CONST ('side',) | CALL_KW
+  149: LOAD_GLOBAL ttk | LOAD_ATTR Label
+  150: LOAD_FAST_BORROW header | LOAD_CONST 'PERFORMANCE + PLUGIN MANAGER'
+  151: LOAD_CONST '#a8abb3' | LOAD_CONST '#101114'
+  152: LOAD_CONST ('Segoe UI', 8, 'bold')
+  149: LOAD_CONST ('text', 'foreground', 'background', 'font') | CALL_KW
+  153: LOAD_ATTR pack | LOAD_CONST 'right' | LOAD_SMALL_INT | LOAD_CONST ('side', 'pady') | CALL_KW
+  155: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | CALL | STORE_FAST metrics
+  156: LOAD_FAST_BORROW metrics | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_CONST ('fill',) | CALL_KW
+  157: LOAD_GLOBAL range | LOAD_SMALL_INT | CALL | GET_ITER | FOR_ITER to L2 | STORE_FAST col
+  158: LOAD_FAST_BORROW metrics | LOAD_ATTR columnconfigure | LOAD_FAST_BORROW col | LOAD_SMALL_INT | LOAD_CONST ('weight',) | CALL_KW | JUMP_BACKWARD to L1
+  160: LOAD_FAST_BORROW self | LOAD_ATTR panel | LOAD_FAST_BORROW metrics | LOAD_CONST 'CPU LOAD' | LOAD_CONST '--' | LOAD_CONST 'Live system usage' | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW self | STORE_ATTR cpu
+  161: LOAD_FAST_BORROW self | LOAD_ATTR panel | LOAD_FAST_BORROW metrics | LOAD_CONST 'RAM LOAD' | LOAD_CONST '--' | LOAD_CONST 'Live memory usage' | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW self | STORE_ATTR ram
+  162: LOAD_FAST_BORROW self | LOAD_ATTR panel | LOAD_FAST_BORROW metrics | LOAD_CONST 'MX BIKES' | LOAD_CONST 'CHECKING' | LOAD_CONST 'Game detection' | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW self | STORE_ATTR status
+  164: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | LOAD_CONST 'Panel.TFrame' | LOAD_SMALL_INT | LOAD_CONST ('style', 'padding') | CALL_KW | STORE_FAST game
+  165: LOAD_FAST_BORROW game | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_SMALL_INT | LOAD_CONST ('fill', 'pady') | CALL_KW
+  166: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW game | LOAD_CONST 'GAME INSTALLATION' | LOAD_CONST 'PanelTitle.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST ('anchor',) | CALL_KW
+  167: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW_LOAD_FAST_BORROW game, self | LOAD_ATTR game_text | CALL | LOAD_CONST 'Muted.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR path_label
+  168: LOAD_FAST_BORROW self | LOAD_ATTR path_label | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST (7, 10) | LOAD_CONST ('anchor', 'pady') | CALL_KW
+  170: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW game | LOAD_CONST 'Panel.TFrame' | LOAD_CONST ('style',) | CALL_KW | STORE_FAST game_row
+  171: LOAD_FAST_BORROW game_row | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_CONST ('fill',) | CALL_KW
+  172: LOAD_GLOBAL ttk | LOAD_ATTR Button | LOAD_FAST_BORROW game_row | LOAD_CONST 'SCAN AGAIN' | LOAD_FAST_BORROW self | LOAD_ATTR scan | LOAD_CONST ('text', 'command') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_CONST (0, 7) | LOAD_CONST ('side', 'padx') | CALL_KW
+  173: LOAD_GLOBAL ttk | LOAD_ATTR Button
+  174: LOAD_FAST_BORROW game_row | LOAD_CONST 'CHOOSE GAME FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR choose_game
+  173: LOAD_CONST ('text', 'command') | CALL_KW
+  175: LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_SMALL_INT | LOAD_CONST ('side', 'padx') | CALL_KW
+  176: LOAD_GLOBAL ttk | LOAD_ATTR Button
+  177: LOAD_FAST_BORROW game_row | LOAD_CONST 'OPEN PLUGINS FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR open_plugins
+  176: LOAD_CONST ('text', 'command') | CALL_KW
+  178: LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_SMALL_INT | LOAD_CONST ('side', 'padx') | CALL_KW
+  179: LOAD_GLOBAL ttk | LOAD_ATTR Button
+  180: LOAD_FAST_BORROW game_row | LOAD_CONST 'LAUNCH MX BIKES' | LOAD_CONST 'Green.TButton' | LOAD_FAST_BORROW self | LOAD_ATTR launch
+  179: LOAD_CONST ('text', 'style', 'command') | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR launch_button
+  182: LOAD_FAST_BORROW self | LOAD_ATTR launch_button | LOAD_ATTR pack | LOAD_CONST 'right' | LOAD_CONST ('side',) | CALL_KW
+  184: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | LOAD_CONST 'Panel.TFrame' | LOAD_SMALL_INT | LOAD_CONST ('style', 'padding') | CALL_KW | STORE_FAST performance
+  185: LOAD_FAST_BORROW performance | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_CONST (0, 10) | LOAD_CONST ('fill', 'pady') | CALL_KW
+  186: LOAD_GLOBAL ttk | LOAD_ATTR Label
+  187: LOAD_FAST_BORROW performance | LOAD_CONST 'GAMING MODE' | LOAD_CONST 'PanelTitle.TLabel'
+  186: LOAD_CONST ('text', 'style') | CALL_KW
+  188: LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST ('anchor',) | CALL_KW
+  189: LOAD_GLOBAL ttk | LOAD_ATTR Label
+  190: LOAD_FAST_BORROW performance
+  192: LOAD_CONST 'Uses the Windows High performance power plan while enabled and starts MX Bikes with Above normal process priority. It does not close apps, change security settings, or edit the registry. High performance can use more battery and produce more heat.'
+  197: LOAD_CONST 'Muted.TLabel' | LOAD_CONST 850
+  189: LOAD_CONST ('text', 'style', 'wraplength') | CALL_KW
+  198: LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST (5, 10) | LOAD_CONST ('anchor', 'pady') | CALL_KW
+  200: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW performance | LOAD_CONST 'Panel.TFrame' | LOAD_CONST ('style',) | CALL_KW | STORE_FAST performance_row
+  201: LOAD_FAST_BORROW performance_row | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_CONST ('fill',) | CALL_KW
+  202: LOAD_GLOBAL ttk | LOAD_ATTR Button
+  203: LOAD_FAST_BORROW performance_row | LOAD_CONST 'ENABLE GAMING MODE'
+  204: LOAD_CONST 'Green.TButton' | LOAD_FAST_BORROW self | LOAD_ATTR toggle_gaming_mode
+  202: LOAD_CONST ('text', 'style', 'command') | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR gaming_button
+  206: LOAD_FAST_BORROW self | LOAD_ATTR gaming_button | LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_CONST ('side',) | CALL_KW
+  207: LOAD_GLOBAL ttk | LOAD_ATTR Label
+  208: LOAD_FAST_BORROW performance_row | LOAD_CONST 'OFF' | LOAD_CONST 'Muted.TLabel'
+  207: LOAD_CONST ('text', 'style') | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR gaming_status
+  210: LOAD_FAST_BORROW self | LOAD_ATTR gaming_status | LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_SMALL_INT | LOAD_CONST ('side', 'padx') | CALL_KW
+  212: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW outer | LOAD_CONST 'Panel.TFrame' | LOAD_SMALL_INT | LOAD_CONST ('style', 'padding') | CALL_KW | STORE_FAST plugin
+  213: LOAD_FAST_BORROW plugin | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_CONST (0, 10) | LOAD_CONST ('fill', 'pady') | CALL_KW
+  214: LOAD_GLOBAL ttk | LOAD_ATTR Label | LOAD_FAST_BORROW plugin | LOAD_CONST 'PLUGIN MANAGER' | LOAD_CONST 'PanelTitle.TLabel' | LOAD_CONST ('text', 'style') | CALL_KW | LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST ('anchor',) | CALL_KW
+  215: LOAD_GLOBAL ttk | LOAD_ATTR Label
+  216: LOAD_FAST_BORROW plugin
+  218: LOAD_CONST "Install a plugin package (.zip or .dlo) into the game's plugins folder. Only install files from sources you trust. There is no official MXB FPS Booster plugin download available yet."
+  222: LOAD_CONST 'Muted.TLabel' | LOAD_CONST 850
+  215: LOAD_CONST ('text', 'style', 'wraplength') | CALL_KW
+  223: LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST (5, 10) | LOAD_CONST ('anchor', 'pady') | CALL_KW
+  225: LOAD_GLOBAL ttk | LOAD_ATTR Frame | LOAD_FAST_BORROW plugin | LOAD_CONST 'Panel.TFrame' | LOAD_CONST ('style',) | CALL_KW | STORE_FAST plugin_row
+  226: LOAD_FAST_BORROW plugin_row | LOAD_ATTR pack | LOAD_CONST 'x' | LOAD_CONST ('fill',) | CALL_KW
+  227: LOAD_GLOBAL ttk | LOAD_ATTR Button
+  228: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'INSTALL FROM FILE' | LOAD_FAST_BORROW self | LOAD_ATTR install_from_file
+  227: LOAD_CONST ('text', 'command') | CALL_KW
+  229: LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_CONST (0, 8) | LOAD_CONST ('side', 'padx') | CALL_KW
+  230: LOAD_GLOBAL ttk | LOAD_ATTR Button
+  231: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'BACK UP PLUGIN FILES' | LOAD_FAST_BORROW self | LOAD_ATTR backup_plugins
+  230: LOAD_CONST ('text', 'command') | CALL_KW
+  232: LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_SMALL_INT | LOAD_CONST ('side', 'padx') | CALL_KW
+  233: LOAD_GLOBAL ttk | LOAD_ATTR Button
+  234: LOAD_FAST_BORROW plugin_row | LOAD_CONST 'OPEN PLUGINS FOLDER' | LOAD_FAST_BORROW self | LOAD_ATTR open_plugins
+  233: LOAD_CONST ('text', 'command') | CALL_KW
+  235: LOAD_ATTR pack | LOAD_CONST 'left' | LOAD_SMALL_INT | LOAD_CONST ('side', 'padx') | CALL_KW
+  237: LOAD_GLOBAL ttk | LOAD_ATTR Label
+  238: LOAD_FAST_BORROW outer
+  240: LOAD_CONST 'v0.3  •  No guaranteed FPS increase  •  Back up before changing mods'
+  242: LOAD_CONST '#898c94' | LOAD_CONST '#101114'
+  243: LOAD_CONST ('Segoe UI', 8)
+  237: LOAD_CONST ('text', 'foreground', 'background', 'font') | CALL_KW
+  244: LOAD_ATTR pack | LOAD_CONST 'w' | LOAD_CONST (12, 0) | LOAD_CONST ('anchor', 'pady') | CALL_KW | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.game_text (line 246)
+  248: LOAD_FAST_BORROW self | LOAD_ATTR game | POP_JUMP_IF_FALSE to L1 | LOAD_GLOBAL str | LOAD_FAST_BORROW self | LOAD_ATTR game | CALL
+  247: RETURN_VALUE
+  249: LOAD_CONST 'MX Bikes not detected. Scan again or select its installation folder.'
+  247: RETURN_VALUE
+=== App.plugins_dir (line 252)
+  253: LOAD_FAST_BORROW self | LOAD_ATTR game | POP_JUMP_IF_TRUE to L1
+  254: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  255: LOAD_FAST_BORROW self | LOAD_ATTR game | LOAD_ATTR parent | LOAD_CONST 'plugins' | BINARY_OP / | RETURN_VALUE
+=== App.scan (line 257)
+  258: LOAD_GLOBAL find_game | CALL | LOAD_FAST_BORROW self | STORE_ATTR game
+  259: LOAD_FAST_BORROW self | LOAD_ATTR path_label | LOAD_ATTR configure | LOAD_FAST_BORROW self | LOAD_ATTR game_text | CALL | LOAD_CONST ('text',) | CALL_KW
+  260: LOAD_FAST_BORROW self | LOAD_ATTR refresh | CALL
+  261: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo
+  262: LOAD_GLOBAL APP
+  263: LOAD_FAST_BORROW self | LOAD_ATTR game | POP_JUMP_IF_FALSE to L1 | LOAD_CONST 'MX Bikes detected.'
+  261: CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  264: LOAD_CONST 'Could not detect MX Bikes. Use Choose Game Folder.'
+  261: CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.choose_game (line 267)
+  268: LOAD_GLOBAL filedialog | LOAD_ATTR askdirectory
+  269: LOAD_CONST 'Select the folder containing mxbikes.exe'
+  268: LOAD_CONST ('title',) | CALL_KW | STORE_FAST selected
+  271: LOAD_FAST_BORROW selected | POP_JUMP_IF_FALSE to L2
+  272: LOAD_GLOBAL Path | LOAD_FAST_BORROW selected | CALL | LOAD_CONST 'mxbikes.exe' | BINARY_OP / | STORE_FAST candidate
+  273: LOAD_FAST_BORROW candidate | LOAD_ATTR is_file | CALL | POP_JUMP_IF_FALSE to L1
+  274: LOAD_FAST_BORROW_LOAD_FAST_BORROW candidate, self | STORE_ATTR game
+  275: LOAD_FAST_BORROW self | LOAD_ATTR path_label | LOAD_ATTR configure | LOAD_FAST_BORROW self | LOAD_ATTR game_text | CALL | LOAD_CONST ('text',) | CALL_KW
+  276: LOAD_FAST_BORROW self | LOAD_ATTR refresh | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  278: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'That folder does not contain mxbikes.exe.' | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  271: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.open_plugins (line 280)
+  281: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST folder
+  282: LOAD_FAST_BORROW folder | POP_JUMP_IF_TRUE to L1
+  283: LOAD_GLOBAL messagebox | LOAD_ATTR showwarning | LOAD_GLOBAL APP | LOAD_CONST 'Detect or select MX Bikes first.' | CALL
+  284: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  285: LOAD_FAST_BORROW folder | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  286: LOAD_GLOBAL os | LOAD_ATTR startfile | LOAD_FAST_BORROW folder | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== App.backup_plugins (line 288)
+  289: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST folder
+  290: LOAD_FAST_BORROW folder | POP_JUMP_IF_FALSE to L1 | LOAD_FAST_BORROW folder | LOAD_ATTR exists | CALL | POP_JUMP_IF_TRUE to L2
+  291: LOAD_GLOBAL messagebox | LOAD_ATTR showwarning | LOAD_GLOBAL APP | LOAD_CONST 'MX Bikes plugins folder not found.' | CALL
+  292: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  293: LOAD_GLOBAL BACKUP_ROOT | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  294: LOAD_GLOBAL BACKUP_ROOT | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST 'plugins_%Y%m%d_%H%M%S' | CALL | BINARY_OP / | STORE_FAST destination
+  296: LOAD_GLOBAL shutil | LOAD_ATTR copytree | LOAD_FAST_BORROW_LOAD_FAST_BORROW folder, destination | CALL
+  297: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo | LOAD_GLOBAL APP | LOAD_CONST 'Plugin backup created:\n' | LOAD_FAST_BORROW destination | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  298: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST exc
+  299: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'Backup failed:\n' | LOAD_FAST exc | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  298: RERAISE | RERAISE
+=== App.safe_install_files (line 301)
+  302: LOAD_FAST_BORROW self | LOAD_ATTR plugins_dir | CALL | STORE_FAST target
+  303: LOAD_FAST_BORROW target | POP_JUMP_IF_TRUE to L1
+  304: LOAD_GLOBAL RuntimeError | LOAD_CONST 'Select MX Bikes installation first.' | CALL | RAISE_VARARGS
+  305: LOAD_FAST_BORROW target | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  307: BUILD_SET | LOAD_CONST frozenset({'xinput64.dli', 'telemetry64.dlo', 'proxy_udp64.dlo', 'proxy64.dlo'}) | SET_UPDATE | STORE_FAST protected
+  311: BUILD_SET | LOAD_CONST frozenset({'.ttf', '.json', '.ini', '.otf', '.dlo', '.jpg', '.png', '.dll'}) | SET_UPDATE | STORE_FAST supported
+  312: BUILD_LIST | STORE_FAST planned
+  314: LOAD_FAST files | GET_ITER | FOR_ITER to L11 | STORE_FAST src
+  315: LOAD_FAST_BORROW src | LOAD_ATTR relative_to | LOAD_FAST_BORROW source_root | CALL | STORE_FAST relative
+  316: LOAD_GLOBAL any | LOAD_COMMON_CONSTANT <built-in function any> | IS_OP is | POP_JUMP_IF_FALSE to L6 | LOAD_CONST <code App.safe_install_files.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW relative | LOAD_ATTR parts | CALL | FOR_ITER to L5 | POP_JUMP_IF_TRUE to L4 | JUMP_BACKWARD to L3 | LOAD_COMMON_CONSTANT True | JUMP_FORWARD to L7 | LOAD_COMMON_CONSTANT False | JUMP_FORWARD to L7 | LOAD_CONST <code App.safe_install_files.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW relative | LOAD_ATTR parts | CALL | CALL | POP_JUMP_IF_FALSE to L8
+  317: JUMP_BACKWARD to L2
+  318: LOAD_FAST_BORROW src | LOAD_ATTR name | LOAD_ATTR lower | CALL | LOAD_FAST_BORROW protected | CONTAINS_OP in | POP_JUMP_IF_TRUE to L9 | LOAD_FAST_BORROW src | LOAD_ATTR suffix | LOAD_ATTR lower | CALL | LOAD_FAST_BORROW supported | CONTAINS_OP not in | POP_JUMP_IF_FALSE to L10
+  319: JUMP_BACKWARD to L2
+  320: LOAD_FAST_BORROW planned | LOAD_ATTR append | LOAD_FAST_BORROW_LOAD_FAST_BORROW src, target | LOAD_FAST_BORROW relative | BINARY_OP / | BUILD_TUPLE | CALL | JUMP_BACKWARD to L2
+  322: LOAD_FAST_BORROW planned | POP_JUMP_IF_TRUE to L12
+  323: LOAD_GLOBAL RuntimeError | LOAD_CONST 'No supported plugin files were found in that package.' | CALL | RAISE_VARARGS
+  325: LOAD_FAST planned | LOAD_FAST_AND_CLEAR _ | LOAD_FAST_AND_CLEAR destination | BUILD_LIST | GET_ITER | FOR_ITER to L15 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST _, destination | LOAD_FAST_BORROW destination | LOAD_ATTR exists | CALL | POP_JUMP_IF_TRUE to L14 | JUMP_BACKWARD to L13 | LOAD_FAST_BORROW destination | LIST_APPEND | JUMP_BACKWARD to L13 | STORE_FAST conflicts | STORE_FAST _ | STORE_FAST destination
+  326: LOAD_FAST_BORROW conflicts | POP_JUMP_IF_FALSE to L16 | LOAD_GLOBAL messagebox | LOAD_ATTR askyesno
+  327: LOAD_GLOBAL APP
+  328: LOAD_GLOBAL len | LOAD_FAST_BORROW conflicts | CALL | FORMAT_SIMPLE | LOAD_CONST ' existing file(s) will be backed up before replacement. Continue?' | BUILD_STRING
+  326: CALL | POP_JUMP_IF_TRUE to L16
+  330: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  332: LOAD_FAST_BORROW conflicts | POP_JUMP_IF_FALSE to L19
+  333: LOAD_GLOBAL BACKUP_ROOT | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  334: LOAD_GLOBAL BACKUP_ROOT | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST 'pre_install_%Y%m%d_%H%M%S' | CALL | BINARY_OP / | STORE_FAST backup
+  335: LOAD_FAST conflicts | GET_ITER | FOR_ITER to L18 | STORE_FAST destination
+  336: LOAD_FAST_BORROW destination | LOAD_ATTR relative_to | LOAD_FAST_BORROW target | CALL | STORE_FAST relative
+  337: LOAD_FAST_BORROW_LOAD_FAST_BORROW backup, relative | BINARY_OP / | STORE_FAST output
+  338: LOAD_FAST_BORROW output | LOAD_ATTR parent | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  339: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW destination, output | CALL | JUMP_BACKWARD to L17
+  341: LOAD_FAST planned | GET_ITER | FOR_ITER to L21 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST source, destination
+  342: LOAD_FAST_BORROW destination | LOAD_ATTR parent | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True | LOAD_CONST ('parents', 'exist_ok') | CALL_KW
+  343: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW source, destination | CALL | JUMP_BACKWARD to L20
+  345: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo | LOAD_GLOBAL APP | LOAD_CONST 'Installed ' | LOAD_GLOBAL len | LOAD_FAST_BORROW planned | CALL | FORMAT_SIMPLE | LOAD_CONST ' file(s) into:\n' | LOAD_FAST_BORROW target | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  325: STORE_FAST destination | STORE_FAST _ | RERAISE
+=== App.safe_install_files.<locals>.<genexpr> (line 316)
+  316: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST_LOAD_FAST part, part | LOAD_CONST ('..', '') | CONTAINS_OP in | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== App.install_from_file (line 347)
+  348: LOAD_GLOBAL filedialog | LOAD_ATTR askopenfilename
+  349: LOAD_CONST 'Choose plugin .zip or .dlo'
+  350: LOAD_CONST ('Plugin packages', '*.zip *.dlo') | LOAD_CONST ('All files', '*.*') | BUILD_LIST
+  348: LOAD_CONST ('title', 'filetypes') | CALL_KW | STORE_FAST chosen
+  352: LOAD_FAST_BORROW chosen | POP_JUMP_IF_TRUE to L1
+  353: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  356: LOAD_GLOBAL Path | LOAD_FAST_BORROW chosen | CALL | STORE_FAST source
+  357: LOAD_FAST_BORROW source | LOAD_ATTR suffix | LOAD_ATTR lower | CALL | LOAD_CONST '.dlo' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L2
+  358: LOAD_FAST_BORROW self | LOAD_ATTR safe_install_files | LOAD_FAST_BORROW source | BUILD_LIST | LOAD_FAST_BORROW source | LOAD_ATTR parent | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  359: LOAD_FAST_BORROW source | LOAD_ATTR suffix | LOAD_ATTR lower | CALL | LOAD_CONST '.zip' | COMPARE_OP bool(==) | EXTENDED_ARG | POP_JUMP_IF_FALSE to L10
+  360: LOAD_GLOBAL tempfile | LOAD_ATTR TemporaryDirectory | CALL | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL | STORE_FAST temporary
+  361: LOAD_GLOBAL Path | LOAD_FAST_BORROW temporary | CALL | LOAD_ATTR resolve | CALL | STORE_FAST temp
+  362: LOAD_GLOBAL zipfile | LOAD_ATTR ZipFile | LOAD_FAST_BORROW source | CALL | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL | STORE_FAST archive
+  363: LOAD_FAST_BORROW archive | LOAD_ATTR infolist | CALL | GET_ITER | FOR_ITER to L5 | STORE_FAST member
+  364: LOAD_FAST_BORROW_LOAD_FAST_BORROW temp, member | LOAD_ATTR filename | BINARY_OP / | LOAD_ATTR resolve | CALL | STORE_FAST destination
+  365: LOAD_GLOBAL str | LOAD_FAST_BORROW destination | CALL | LOAD_ATTR startswith | LOAD_GLOBAL str | LOAD_FAST_BORROW temp | CALL | LOAD_GLOBAL os | LOAD_ATTR sep | BINARY_OP + | CALL | POP_JUMP_IF_FALSE to L4 | JUMP_BACKWARD to L3
+  366: LOAD_GLOBAL RuntimeError | LOAD_CONST 'The ZIP contains an unsafe path.' | CALL | RAISE_VARARGS
+  367: LOAD_FAST_BORROW archive | LOAD_ATTR extractall | LOAD_FAST_BORROW temp | CALL
+  362: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  368: LOAD_FAST_BORROW temp | LOAD_ATTR rglob | LOAD_CONST '*' | CALL | LOAD_FAST_AND_CLEAR item | BUILD_LIST | GET_ITER | FOR_ITER to L9 | STORE_FAST_LOAD_FAST item, item | LOAD_ATTR is_file | CALL | POP_JUMP_IF_TRUE to L8 | JUMP_BACKWARD to L7 | LOAD_FAST_BORROW item | LIST_APPEND | JUMP_BACKWARD to L7 | STORE_FAST files | STORE_FAST item
+  369: LOAD_FAST_BORROW self | LOAD_ATTR safe_install_files | LOAD_FAST_BORROW_LOAD_FAST_BORROW files, temp | CALL
+  360: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  359: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  362: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L11 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L6 | RERAISE
+  368: STORE_FAST item | RERAISE
+  360: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L12 | RERAISE | LOAD_COMMON_CONSTANT None | RETURN_VALUE | RERAISE | PUSH_EXC_INFO
+  370: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L13 | STORE_FAST exc
+  371: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'Installation failed:\n' | LOAD_FAST exc | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  370: RERAISE | RERAISE
+=== App.toggle_gaming_mode (line 373)
+  374: LOAD_FAST_BORROW self | LOAD_ATTR gaming_mode | POP_JUMP_IF_FALSE to L1
+  375: LOAD_FAST_BORROW self | LOAD_ATTR disable_gaming_mode | CALL
+  376: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  379: LOAD_GLOBAL get_active_power_plan | CALL | STORE_FAST current_plan
+  381: LOAD_GLOBAL set_power_plan | LOAD_CONST 'SCHEME_MIN' | CALL
+  382: LOAD_FAST_BORROW_LOAD_FAST_BORROW current_plan, self | STORE_ATTR original_power_plan
+  383: LOAD_COMMON_CONSTANT True | LOAD_FAST_BORROW self | STORE_ATTR gaming_mode
+  384: LOAD_FAST_BORROW self | LOAD_ATTR gaming_button | LOAD_ATTR configure | LOAD_CONST 'DISABLE GAMING MODE' | LOAD_CONST 'Red.TButton' | LOAD_CONST ('text', 'style') | CALL_KW
+  385: LOAD_FAST_BORROW self | LOAD_ATTR gaming_status | LOAD_ATTR configure | LOAD_CONST 'ON — HIGH PERFORMANCE' | LOAD_CONST ('text',) | CALL_KW
+  386: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo
+  387: LOAD_GLOBAL APP
+  388: LOAD_CONST 'Gaming Mode is enabled.\n\nWindows is using the High performance power plan. MX Bikes will be started with Above normal priority.'
+  386: CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  392: LOAD_GLOBAL subprocess | LOAD_ATTR CalledProcessError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST exc
+  393: LOAD_FAST exc | LOAD_ATTR stderr | POP_JUMP_IF_TRUE to L2 | LOAD_FAST exc | LOAD_ATTR stdout | POP_JUMP_IF_TRUE to L2 | LOAD_GLOBAL str | LOAD_FAST exc | CALL | LOAD_ATTR strip | CALL | STORE_FAST details
+  394: LOAD_GLOBAL messagebox | LOAD_ATTR showerror
+  395: LOAD_GLOBAL APP
+  396: LOAD_CONST 'Windows could not switch to the High performance power plan.\n\n'
+  397: LOAD_FAST details | FORMAT_SIMPLE | LOAD_CONST '\n\nNo other system settings were changed.'
+  396: BUILD_STRING
+  394: CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  400: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4 | STORE_FAST exc
+  401: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'Could not enable Gaming Mode:\n' | LOAD_FAST exc | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  400: RERAISE | RERAISE
+=== App.disable_gaming_mode (line 403)
+  405: LOAD_FAST_BORROW self | LOAD_ATTR original_power_plan | POP_JUMP_IF_FALSE to L1
+  406: LOAD_GLOBAL set_power_plan | LOAD_FAST_BORROW self | LOAD_ATTR original_power_plan | CALL
+  407: LOAD_COMMON_CONSTANT False | LOAD_FAST_BORROW self | STORE_ATTR gaming_mode
+  408: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR original_power_plan
+  409: LOAD_FAST_BORROW self | LOAD_ATTR gaming_button | LOAD_ATTR configure | LOAD_CONST 'ENABLE GAMING MODE' | LOAD_CONST 'Green.TButton' | LOAD_CONST ('text', 'style') | CALL_KW
+  410: LOAD_FAST_BORROW self | LOAD_ATTR gaming_status | LOAD_ATTR configure | LOAD_CONST 'OFF' | LOAD_CONST ('text',) | CALL_KW
+  411: LOAD_FAST_BORROW quiet | POP_JUMP_IF_TRUE to L2
+  412: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo | LOAD_GLOBAL APP | LOAD_CONST 'Gaming Mode is off. Your previous power plan was restored.' | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  411: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  413: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST exc
+  414: LOAD_GLOBAL messagebox | LOAD_ATTR showerror
+  415: LOAD_GLOBAL APP
+  416: LOAD_CONST 'Could not restore the previous Windows power plan.\nYou can select it again in Windows Settings.\n\n'
+  418: LOAD_FAST exc | FORMAT_SIMPLE
+  416: BUILD_STRING
+  414: CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  413: RERAISE | RERAISE
+=== App.launch (line 421)
+  422: LOAD_FAST_BORROW self | LOAD_ATTR game | POP_JUMP_IF_TRUE to L1
+  423: LOAD_GLOBAL messagebox | LOAD_ATTR showwarning | LOAD_GLOBAL APP | LOAD_CONST 'Select MX Bikes first.' | CALL
+  424: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  427: LOAD_GLOBAL subprocess | LOAD_ATTR Popen
+  428: LOAD_GLOBAL str | LOAD_FAST_BORROW self | LOAD_ATTR game | CALL | BUILD_LIST
+  429: LOAD_GLOBAL str | LOAD_FAST_BORROW self | LOAD_ATTR game | LOAD_ATTR parent | CALL
+  427: LOAD_CONST ('cwd',) | CALL_KW | STORE_FAST process
+  431: LOAD_FAST_BORROW_LOAD_FAST_BORROW process, self | STORE_ATTR game_process
+  433: LOAD_FAST_BORROW self | LOAD_ATTR gaming_mode | POP_JUMP_IF_FALSE to L2 | LOAD_GLOBAL psutil | POP_JUMP_IF_FALSE to L2
+  435: LOAD_GLOBAL psutil | LOAD_ATTR Process | LOAD_FAST_BORROW process | LOAD_ATTR pid | CALL | LOAD_ATTR nice | LOAD_GLOBAL psutil | LOAD_ATTR ABOVE_NORMAL_PRIORITY_CLASS | CALL
+  439: LOAD_GLOBAL messagebox | LOAD_ATTR showinfo
+  440: LOAD_GLOBAL APP
+  441: LOAD_CONST 'MX Bikes is starting.\n'
+  444: LOAD_FAST_BORROW self | LOAD_ATTR gaming_mode | POP_JUMP_IF_FALSE to L3 | LOAD_GLOBAL psutil | POP_JUMP_IF_FALSE to L3
+  443: LOAD_CONST 'Above normal process priority was requested.' | JUMP_FORWARD to L4
+  445: LOAD_CONST 'For process priority support, install psutil; the game will still launch.'
+  441: BINARY_OP +
+  439: CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  436: LOAD_GLOBAL psutil | LOAD_ATTR Error | LOAD_GLOBAL OSError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L5
+  437: JUMP_BACKWARD_NO_INTERRUPT to L2
+  436: RERAISE | RERAISE | PUSH_EXC_INFO
+  448: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L6 | STORE_FAST exc
+  449: LOAD_GLOBAL messagebox | LOAD_ATTR showerror | LOAD_GLOBAL APP | LOAD_CONST 'Could not launch game:\n' | LOAD_FAST exc | FORMAT_SIMPLE | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST exc | DELETE_FAST exc | RERAISE
+  448: RERAISE | RERAISE
+=== App.is_game_running (line 451)
+  452: LOAD_GLOBAL psutil | POP_JUMP_IF_FALSE to L5
+  454: LOAD_GLOBAL any | LOAD_COMMON_CONSTANT <built-in function any> | IS_OP is | POP_JUMP_IF_FALSE to L4 | LOAD_CONST <code App.is_game_running.<locals>.<genexpr>> | MAKE_FUNCTION
+  456: LOAD_GLOBAL psutil | LOAD_ATTR process_iter | LOAD_CONST 'name' | BUILD_LIST | CALL
+  454: CALL | FOR_ITER to L3 | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT True | RETURN_VALUE | LOAD_COMMON_CONSTANT False | RETURN_VALUE | LOAD_CONST <code App.is_game_running.<locals>.<genexpr>> | MAKE_FUNCTION
+  456: LOAD_GLOBAL psutil | LOAD_ATTR process_iter | LOAD_CONST 'name' | BUILD_LIST | CALL
+  454: CALL | CALL | RETURN_VALUE
+  463: LOAD_GLOBAL subprocess | LOAD_ATTR run
+  464: BUILD_LIST | LOAD_CONST ('tasklist', '/FI', 'IMAGENAME eq mxbikes.exe', '/NH') | LIST_EXTEND
+  465: LOAD_COMMON_CONSTANT True | LOAD_COMMON_CONSTANT True
+  466: LOAD_GLOBAL getattr | LOAD_GLOBAL subprocess | LOAD_CONST 'CREATE_NO_WINDOW' | LOAD_SMALL_INT | CALL
+  467: LOAD_SMALL_INT
+  463: LOAD_CONST ('capture_output', 'text', 'creationflags', 'timeout') | CALL_KW | STORE_FAST result
+  469: LOAD_CONST 'mxbikes.exe' | LOAD_FAST_BORROW result | LOAD_ATTR stdout | LOAD_ATTR lower | CALL | CONTAINS_OP in | RETURN_VALUE | PUSH_EXC_INFO
+  458: LOAD_GLOBAL psutil | LOAD_ATTR Error | LOAD_GLOBAL OSError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L6
+  459: JUMP_BACKWARD_NO_INTERRUPT to L5
+  458: RERAISE | RERAISE | PUSH_EXC_INFO
+  470: LOAD_GLOBAL OSError | LOAD_GLOBAL subprocess | LOAD_ATTR SubprocessError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L7
+  471: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+  470: RERAISE | RERAISE
+=== App.is_game_running.<locals>.<genexpr> (line 454)
+  456: LOAD_FAST .0 | GET_ITER
+  454: RETURN_GENERATOR
+  456: FOR_ITER to L3 | STORE_FAST process
+  455: LOAD_FAST_BORROW process | LOAD_ATTR info | LOAD_ATTR get | LOAD_CONST 'name' | CALL | POP_JUMP_IF_TRUE to L2 | LOAD_COMMON_CONSTANT '' | LOAD_ATTR lower | CALL | LOAD_CONST 'mxbikes.exe' | COMPARE_OP == | YIELD_VALUE | JUMP_BACKWARD to L1
+  456: LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== App.refresh (line 473)
+  474: LOAD_FAST_BORROW self | LOAD_ATTR is_game_running | CALL | STORE_FAST running
+  476: LOAD_GLOBAL psutil | POP_JUMP_IF_FALSE to L1
+  478: LOAD_FAST_BORROW self | LOAD_ATTR cpu | LOAD_ATTR configure | LOAD_GLOBAL psutil | LOAD_ATTR cpu_percent | LOAD_COMMON_CONSTANT None | LOAD_CONST ('interval',) | CALL_KW | LOAD_CONST '.0f' | FORMAT_WITH_SPEC | LOAD_CONST '%' | BUILD_STRING | LOAD_CONST ('text',) | CALL_KW
+  479: LOAD_FAST_BORROW self | LOAD_ATTR ram | LOAD_ATTR configure | LOAD_GLOBAL psutil | LOAD_ATTR virtual_memory | CALL | LOAD_ATTR percent | LOAD_CONST '.0f' | FORMAT_WITH_SPEC | LOAD_CONST '%' | BUILD_STRING | LOAD_CONST ('text',) | CALL_KW | JUMP_FORWARD to L2
+  484: LOAD_FAST_BORROW self | LOAD_ATTR cpu | LOAD_ATTR configure | LOAD_CONST 'N/A' | LOAD_CONST ('text',) | CALL_KW
+  485: LOAD_FAST_BORROW self | LOAD_ATTR ram | LOAD_ATTR configure | LOAD_CONST 'N/A' | LOAD_CONST ('text',) | CALL_KW
+  487: LOAD_FAST_BORROW self | LOAD_ATTR status | LOAD_ATTR configure
+  488: LOAD_FAST_BORROW running | POP_JUMP_IF_FALSE to L3 | LOAD_CONST 'RUNNING' | JUMP_FORWARD to L5 | LOAD_FAST_BORROW self | LOAD_ATTR game | POP_JUMP_IF_FALSE to L4 | LOAD_CONST 'FOUND' | JUMP_FORWARD to L5 | LOAD_CONST 'NOT FOUND'
+  487: LOAD_CONST ('text',) | CALL_KW
+  490: LOAD_FAST_BORROW running | POP_JUMP_IF_FALSE to L6
+  491: LOAD_FAST_BORROW self | LOAD_ATTR launch_button | LOAD_ATTR configure
+  492: LOAD_CONST 'MX BIKES RUNNING' | LOAD_CONST 'Red.TButton' | LOAD_CONST 'disabled'
+  491: LOAD_CONST ('text', 'style', 'state') | CALL_KW | JUMP_FORWARD to L7
+  495: LOAD_FAST_BORROW self | LOAD_ATTR launch_button | LOAD_ATTR configure
+  496: LOAD_CONST 'LAUNCH MX BIKES' | LOAD_CONST 'Green.TButton' | LOAD_CONST 'normal'
+  495: LOAD_CONST ('text', 'style', 'state') | CALL_KW
+  499: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR after | LOAD_CONST 1500 | LOAD_FAST_BORROW self | LOAD_ATTR refresh | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  480: LOAD_GLOBAL psutil | LOAD_ATTR Error | LOAD_GLOBAL OSError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L8
+  481: LOAD_FAST self | LOAD_ATTR cpu | LOAD_ATTR configure | LOAD_CONST 'N/A' | LOAD_CONST ('text',) | CALL_KW
+  482: LOAD_FAST self | LOAD_ATTR ram | LOAD_ATTR configure | LOAD_CONST 'N/A' | LOAD_CONST ('text',) | CALL_KW | JUMP_BACKWARD_NO_INTERRUPT to L2
+  480: RERAISE | RERAISE
+=== App.on_close (line 501)
+  502: LOAD_FAST_BORROW self | LOAD_ATTR gaming_mode | POP_JUMP_IF_FALSE to L1
+  503: LOAD_FAST_BORROW self | LOAD_ATTR disable_gaming_mode | LOAD_COMMON_CONSTANT True | LOAD_CONST ('quiet',) | CALL_KW
+  504: LOAD_FAST_BORROW self | LOAD_ATTR root | LOAD_ATTR destroy | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

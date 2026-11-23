@@ -1,0 +1,37 @@
+$ rm -rf pkg; python3 -I "$TOOLS/carchive.py" 'MXB FPS Booster.exe' pkg
+pyver 315 entries at 12694926
+m struct 292
+m pyimod01_archive 5035
+m pyimod02_importers 32409
+m pyimod03_ctypes 6656
+m pyimod04_pywin32 1689
+s pyiboot01_bootstrap 2049
+s pyi_rth_inspect 2921
+s pyi_rth__tkinter 836
+s main 28546
+b VCRUNTIME140.dll 178616
+b _bz2.pyd 86240
+b _ctypes.pyd 144096
+b _decimal.pyd 326368
+b _hashlib.pyd 72928
+b _lzma.pyd 171744
+b _socket.pyd 88288
+b _ssl.pyd 200416
+b _tkinter.pyd 70880
+b _zstd.pyd 506592
+b base_library.zip 1425082
+b libcrypto-3.dll 6021880
+b libffi-8.dll 39696
+b libssl-3.dll 1308920
+b libtommath.dll 81408
+b psutil\_psutil_windows.pyd 70656
+b python3.dll 76512
+b python315.dll 7910624
+b select.pyd 32992
+b tcl90.dll 3369299
+b tcl9tk90.dll 2138360
+b unicodedata.pyd 753376
+b zlib1.dll 102912
+o pyi-contents-directory _internal 0
+z PYZ.pyz 2008708
+(exit 0)

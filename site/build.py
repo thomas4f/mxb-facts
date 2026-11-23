@@ -20,6 +20,7 @@ CARDS=[  # (card file, page anchor), alphabetical
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
     ('maxhud-2.2.7.yaml', 'maxhud'),
     ('mxb-damage-1.3.0.yaml', 'mxb-damage'),
+    ('mxb-fps-booster-v1.yaml', 'mxb-fps-booster'),
 ]
 # The dropdowns of the hand-started workflows (GitHub can only offer a fixed list), written like the rules tables. Both offer
 # the tools in registry/tools.json, never the cards: a new card then never changes a workflow file, which the "Analyse a
