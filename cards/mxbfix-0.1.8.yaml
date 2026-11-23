@@ -499,6 +499,12 @@ corrections:
   - P4
   opened: 23 Nov 2026
   status: open
+- issue: 23
+  kind: correction
+  questions:
+  - G3
+  opened: 23 Nov 2026
+  status: open
 history:
 - date: 23 Nov 2026
   change: First card, for mxbfix 0.1.8.
