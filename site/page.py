@@ -138,7 +138,8 @@ FOLDS={'How AI is used':'who does the work, model and effort, the prompt, why ru
 # For card writers: what a card holds and how it is written, in one fold, after the reader's parts.
 WRITERS=('Sections','Wording')
 parts=re.split(r'(?=<h3>)',tpl)
-open_=[x for x in parts if not x.startswith('<h3>') or x.startswith('<h3>Rules</h3>')]
+# The rules are a numbered list like the steps above them (.flow).
+open_=[x.replace('<ol>','<ol class="flow">',1) if x.startswith('<h3>Rules</h3>') else x for x in parts if not x.startswith('<h3>') or x.startswith('<h3>Rules</h3>')]
 folded={re.match(r'<h3>(.*?)</h3>',x).group(1):x for x in parts if x.startswith('<h3>') and not x.startswith('<h3>Rules</h3>')}
 assert set(folded)==set(FOLDS), 'template.md: its sections no longer match the folds in build.py: '+', '.join(sorted(set(folded)^set(FOLDS)))
 # How scores are worked out (rules/scores.md) folds straight after "Marks and scores", so the costs sit beside the marks.
@@ -251,7 +252,8 @@ def report(C,a,gl):
             ar=SC['areas'][k]['name']; states,body=answer_table(C,a,k); got+=states
             for b in bl:
                 if 'table' in b: body+=f'\n<details class="sub"><summary>{FOLDNAME[tuple(b["table"])]} ({len(b["rows"])})</summary>\n{blocks(C,[b],a,k)}\n</details>'
-            rest=[b for b in bl if 'table' not in b]
+            # The lines no answer covers sit under one "Also found" heading, so a line's own "Also found: " isn't repeated.
+            rest=[dict(b,text=(lambda t:t[:1].upper()+t[1:])(b['text'][len('Also found: '):])) if b.get('text','').startswith('Also found: ') else b for b in bl if 'table' not in b]
             if rest: body+='\n<p><strong>Also found</strong></p>\n'+blocks(C,rest,a,k)
             side=(f'<span class="ascore">{gl[ar]}</span>' if ar in CONCERN else money_html(gl[ar]))+f'<span class="awhy">{post(cell(d["areas"][ar]),a)}</span>'
             secs.append((AREAK[ar],title,ar,side,body))
@@ -409,7 +411,7 @@ def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False):
         mk,head,ans,span=C['key'][k]
         st={'+':'good','~':'note','!':'concern'}.get(mk) or ('held' if ans.startswith('Held back') else 'nc' if ans.startswith('Not checked') else 'na')
         badge=(span or state_html(st)).replace('class="mk ','class="mark ',1)
-        detail=ans[len(head):].lstrip('.;').strip()
+        detail=ans[len(head):].lstrip('.;').strip(); detail=detail[:1].upper()+detail[1:]
         frm=', '.join(f'<a href="#q-{a}-{i}">{i}</a>' for i in src)
         items+=(f'<li class="key" id="k-{a}-{k.lower()}"><p class="kq">{q}</p><div class="km">{badge}</div><div class="ka">'
                 f'<p class="kh">{inline(head)}</p>'+(f'<p class="kd">{post(inline(detail),a)}'+(f' {says_link(C,a)}' if SAYSQ in src else '')+f' <span class="kf">From {frm}</span></p>' if detail else f'<p class="kd"><span class="kf">From {frm}</span></p>')+

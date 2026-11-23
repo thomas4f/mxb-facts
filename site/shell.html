@@ -114,7 +114,7 @@ pre code { padding: 0; background: none }
 /* Index */
 .sech { font: 700 13px/1.2 var(--f-ui); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 }
 /* The hint beside a score heading (GNOTE in site/page.py): on the heading's line, on the tools list and on every tool page. */
-.sech .gnote { margin-left: 6px; font: 400 13px/1 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--muted) }
+.sech .gnote { margin-left: 6px; font: 400 14px/1 var(--f-ui); letter-spacing: 0; text-transform: none; color: var(--muted) }
 .intro { display: flex; flex-direction: column; gap: 14px; padding: var(--pad-card) }
 .intro p { margin: 0; max-width: 62ch }
 /* The two boxes under the headline read as a pair: full-width text at the legend's size, and each box's closing note at its foot, level with the other's. */
@@ -176,7 +176,7 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 @media (max-width: 860px) { .hgrid { grid-template-columns: minmax(0, 1fr) } }
 .hmeta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 20px; margin: 0; font-size: 14px; flex: 1; align-content: start; padding: 12px 14px; background: var(--sunk); border-radius: var(--r-ctl) } .hmeta div { display: grid; grid-template-columns: 7.6em minmax(0, 1fr); gap: 6px; min-width: 0 } .hmeta dt { white-space: nowrap } .hmeta dt { color: var(--muted) } .hmeta dd { margin: 0; overflow-wrap: break-word; min-width: 0 }
 @media (max-width: 520px) { .hmeta { grid-template-columns: minmax(0, 1fr) } }
-.gopen { flex: 1 0 100%; margin: 0; padding-top: 12px; border-top: var(--border); font: 500 .85rem/1.4 var(--f-ui); color: var(--muted) }
+.gopen { flex: 1 0 100%; margin: 0; padding-top: 12px; border-top: var(--border); font: 400 14px/1.4 var(--f-ui); color: var(--muted) }
 .scorecard { display: flex; gap: 20px; align-items: stretch; flex-wrap: wrap; flex: 1; padding: var(--pad-card); background: var(--surface); border: var(--border); border-radius: var(--r-card) }
 
 .abars { flex: 1; min-width: 220px; display: flex; flex-direction: column; justify-content: space-between; gap: 6px; min-height: 144px }
@@ -194,10 +194,10 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 /* The tags as the third card: one finding per line. */
 .tagcard { flex: 1 }
 .tagcard .tags { align-content: flex-start }
-.hcol { display: flex; flex-direction: column; gap: 10px; min-width: 0 } .hcol > .intro, .hcol > .facts { flex: 1 } .tool .hcol > .sech { margin: 12px 0 0 }
+.hcol { display: flex; flex-direction: column; gap: 14px; min-width: 0 } .hcol > .intro, .hcol > .facts { flex: 1 } .tool .hcol > .sech { margin: 12px 0 0 }
 .facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); align-content: start; gap: 7px 20px; margin: 0; font-size: 15px }
 .facts div { display: contents } .facts dt { color: var(--muted) } .facts dd { margin: 0; min-width: 0; overflow-wrap: anywhere }
-.tool .sech { margin-top: 36px; margin-bottom: 12px }
+.tool .sech { margin-top: 36px; margin-bottom: 0 } /* the view's 14px gap is the space under every heading */
 .keys { list-style: none; margin: 0; padding: 0; counter-reset: k }
 .key { counter-increment: k; display: grid; grid-template-columns: minmax(0, 2fr) 112px minmax(0, 3fr); gap: 4px 28px; padding: 12px 20px; border-top: var(--border) }
 .key:first-child { border-top: 0 }
@@ -288,6 +288,8 @@ td:has(> .report-it) { width: 1%; padding-left: 0 }
 .plink { position: absolute; left: -22px; top: .2em; width: 14px; height: 14px; background: var(--muted); opacity: 0; -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m6.5 9.5l3-3m-2.5-2 1.2-1.2a2.5 2.5 0 0 1 3.5 3.5L10.5 8m-1.5 3.5l-1.2 1.2a2.5 2.5 0 0 1-3.5-3.5L5.5 8' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='m6.5 9.5l3-3m-2.5-2 1.2-1.2a2.5 2.5 0 0 1 3.5 3.5L10.5 8m-1.5 3.5l-1.2 1.2a2.5 2.5 0 0 1-3.5-3.5L5.5 8' fill='none' stroke='%23000' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E") center / contain no-repeat; cursor: pointer }
 .haslink { position: relative }
 td:has(> .qid), .tw table:has(.qid) thead th:first-child { padding-left: 32px }
+/* Every answer table keeps the same columns, so the marks and the evidence line up from one area to the next (wide screens; phones stack them). */
+@media (min-width: 900px) { .tw table:has(.qid) { table-layout: fixed; width: 100% } .tw table:has(.qid) th:nth-child(1) { width: 24% } .tw table:has(.qid) th:nth-child(2) { width: 172px } .tw table:has(.qid) th:nth-child(4) { width: 30% } .tw table:has(.qid) th:nth-child(5) { width: 44px } }
 .ev { font-size: 13px; line-height: 1.45 }
 .qid > .plink { left: -24px; top: 1px }
 .tool .key { padding-left: 40px }
@@ -316,7 +318,12 @@ table.mx { min-width: 640px }
 .mxbar .av { font-weight: 700; text-align: right; font-variant-numeric: tabular-nums } .mxbar .at { height: 8px; border-radius: 4px; background: var(--sunk); overflow: hidden } .mxbar .at i { display: block; height: 100%; background: var(--muted); border-radius: 4px }
 .mx a.money, .mx a.mark { text-decoration: none }
 details.more { border-top: var(--border); padding-top: 16px }
-details.more > summary { cursor: pointer; font: 700 17px var(--f-ui) }
+.flow + details.more { margin-top: 16px }
+details.more > summary { cursor: pointer; font: 700 17px var(--f-ui); list-style: none }
+/* Every fold opens with the same grey arrow as the report's sections. */
+details.more > summary::-webkit-details-marker { display: none }
+details.more > summary::before { content: "▸"; font-size: 12px; color: var(--muted); transition: transform .15s; display: inline-block; width: 12px; margin-right: 8px }
+details.more[open] > summary::before { transform: rotate(90deg) }
 details.more > summary span { font: 400 14px var(--f-ui); color: var(--muted); margin-left: 6px }
 details.more[open] > summary { margin-bottom: 12px }
 .view { display: flex; flex-direction: column; gap: 14px; min-width: 0 }
