@@ -261,48 +261,50 @@ money:
 # Front-page tags, each from one answer. kind: Critical, Positive, or None (no tag: the label says which tag covers it).
 # unless: a list of "<question> yes", "<question> no" or "<question> partly"; any of them leaves the tag out, because another tag
 # or answer says it (a closed-source tool shows only "Closed source"; a release a matching rebuild traces isn't "Not traced").
+# icon: the Lucide icon (site/icons.py) the tag shows, one per tag and none a mark's or state's own, so the icon says what the
+# tag is about and its colour how much it costs.
 tags:
-  - {from: P9, answer: "Yes", tag: Signs of malware, kind: Critical}
-  - {from: P1, answer: "Yes", tag: Flagged by antivirus, kind: Critical}
-  - {from: P2, answer: "Yes", tag: Updates without asking, kind: Critical}
-  - {from: P3, answer: "No", tag: Unchecked updates, kind: Critical}
-  - {from: P3, answer: "Partly", tag: Updates partly checked, kind: Critical}
-  - {from: P4, answer: "Yes", tag: Deletes others' files, kind: Critical}
-  - {from: P5, answer: "No", tag: Not signed or traceable, kind: Critical}
-  - {from: P6, answer: "Yes", tag: Changes Windows settings, kind: Critical}
-  - {from: P7, answer: "Yes", tag: Changes game files, kind: Critical}
-  - {from: P8, answer: "Yes", tag: Leaves changes behind, kind: Critical}
-  - {from: D2, answer: "Yes", tag: Sends your data, kind: Critical}
-  - {from: D3, answer: "Yes", tag: Sends an identifier, kind: Critical}
-  - {from: D4, answer: "Yes", tag: Sends other players' data, kind: Critical}
-  - {from: D5, answer: "Yes", tag: Open local web server, kind: Critical}
-  - {from: D6, answer: "Yes", tag: Reads other people's data, kind: Critical}
-  - {from: D7, answer: "Yes", tag: Publishes user data, kind: Critical}
-  - {from: D8, answer: "No", tag: No off switch, kind: Critical}
-  - {from: D9, answer: "Yes", tag: Needs an online account, kind: Critical}
-  - {from: D10, answer: "Yes", tag: Shares identifiers locally, kind: Critical}
-  - {from: G1, answer: "Yes", tag: Injects into the game, kind: Critical}
-  - {from: G2, answer: "Yes", tag: Changes game memory, kind: Critical}
-  - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical}
-  - {from: G3, answer: "Partly", tag: Changes what you see online, kind: Critical}
-  - {from: G12, answer: "Yes", tag: Gets around a game check, kind: Critical}
-  - {from: G5, answer: "Yes", tag: Presses keys for you, kind: Critical}
-  - {from: G6, answer: "Yes", tag: Changes other plugins, kind: Critical}
-  - {from: G9, answer: "Yes", tag: Starts with Windows, kind: Critical}
-  - {from: C1, answer: "Yes", tag: Decrypts protected content, kind: Critical}
-  - {from: C2, answer: "Yes", tag: Copies others' content, kind: Critical}
-  - {from: C3, answer: "Yes", tag: Shares unprotected content, kind: Critical}
-  - {from: T7, answer: "No", tag: No open-source licence, kind: Critical, unless: [T1 no]}
-  - {from: T1, answer: "No", tag: Closed source, kind: Critical}
-  - {from: T2, answer: "Yes", tag: Docs contradict code, kind: Critical}
-  - {from: T3, answer: "No", tag: Not traced to source, kind: Critical, unless: [T1 no, T4 yes]}
+  - {from: P9, answer: "Yes", tag: Signs of malware, kind: Critical, icon: bug}
+  - {from: P1, answer: "Yes", tag: Flagged by antivirus, kind: Critical, icon: shield-x}
+  - {from: P2, answer: "Yes", tag: Updates without asking, kind: Critical, icon: refresh-cw}
+  - {from: P3, answer: "No", tag: Unchecked updates, kind: Critical, icon: refresh-cw-off}
+  - {from: P3, answer: "Partly", tag: Updates partly checked, kind: Critical, icon: refresh-ccw-dot}
+  - {from: P4, answer: "Yes", tag: Deletes others' files, kind: Critical, icon: trash-2}
+  - {from: P5, answer: "No", tag: Not signed or traceable, kind: Critical, icon: badge-x}
+  - {from: P6, answer: "Yes", tag: Changes Windows settings, kind: Critical, icon: monitor-cog}
+  - {from: P7, answer: "Yes", tag: Changes game files, kind: Critical, icon: folder-pen}
+  - {from: P8, answer: "Yes", tag: Leaves changes behind, kind: Critical, icon: footprints}
+  - {from: D2, answer: "Yes", tag: Sends your data, kind: Critical, icon: send}
+  - {from: D3, answer: "Yes", tag: Sends an identifier, kind: Critical, icon: fingerprint}
+  - {from: D4, answer: "Yes", tag: Sends other players' data, kind: Critical, icon: users}
+  - {from: D5, answer: "Yes", tag: Open local web server, kind: Critical, icon: server}
+  - {from: D6, answer: "Yes", tag: Reads other people's data, kind: Critical, icon: file-search}
+  - {from: D7, answer: "Yes", tag: Publishes user data, kind: Critical, icon: megaphone}
+  - {from: D8, answer: "No", tag: No off switch, kind: Critical, icon: power-off}
+  - {from: D9, answer: "Yes", tag: Needs an online account, kind: Critical, icon: circle-user}
+  - {from: D10, answer: "Yes", tag: Shares identifiers locally, kind: Critical, icon: share-2}
+  - {from: G1, answer: "Yes", tag: Injects into the game, kind: Critical, icon: syringe}
+  - {from: G2, answer: "Yes", tag: Changes game memory, kind: Critical, icon: memory-stick}
+  - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical, icon: globe}
+  - {from: G3, answer: "Partly", tag: Changes what you see online, kind: Critical, icon: scan-eye}
+  - {from: G12, answer: "Yes", tag: Gets around a game check, kind: Critical, icon: shield-off}
+  - {from: G5, answer: "Yes", tag: Presses keys for you, kind: Critical, icon: keyboard}
+  - {from: G6, answer: "Yes", tag: Changes other plugins, kind: Critical, icon: puzzle}
+  - {from: G9, answer: "Yes", tag: Starts with Windows, kind: Critical, icon: rocket}
+  - {from: C1, answer: "Yes", tag: Decrypts protected content, kind: Critical, icon: key-round}
+  - {from: C2, answer: "Yes", tag: Copies others' content, kind: Critical, icon: copy}
+  - {from: C3, answer: "Yes", tag: Shares unprotected content, kind: Critical, icon: lock-open}
+  - {from: T7, answer: "No", tag: No open-source licence, kind: Critical, icon: scale, unless: [T1 no]}
+  - {from: T1, answer: "No", tag: Closed source, kind: Critical, icon: file-lock}
+  - {from: T2, answer: "Yes", tag: Docs contradict code, kind: Critical, icon: book-x}
+  - {from: T3, answer: "No", tag: Not traced to source, kind: Critical, icon: route-off, unless: [T1 no, T4 yes]}
   - {from: T4, answer: "No", tag: "Covered by \"Not traced to source\", \"Not signed or traceable\" or \"Closed source\": the answer is also No when there is no public source to rebuild from", kind: None}
-  - {from: T6, answer: "No", tag: Dependencies not pinned, kind: Critical}
-  - {from: T1, answer: "Yes", tag: Open source, kind: Positive}
-  - {from: T3, answer: "Yes", tag: Built from public source, kind: Positive}
-  - {from: T4, answer: "Yes", tag: Rebuild matches source, kind: Positive}
-  - {from: P5, answer: "Yes", tag: Code-signed, kind: Positive}
-  - {from: D1, answer: "No", tag: No internet connections, kind: Positive}
+  - {from: T6, answer: "No", tag: Dependencies not pinned, kind: Critical, icon: pin-off}
+  - {from: T1, answer: "Yes", tag: Open source, kind: Positive, icon: code-xml}
+  - {from: T3, answer: "Yes", tag: Built from public source, kind: Positive, icon: workflow}
+  - {from: T4, answer: "Yes", tag: Rebuild matches source, kind: Positive, icon: git-compare}
+  - {from: P5, answer: "Yes", tag: Code-signed, kind: Positive, icon: badge-check}
+  - {from: D1, answer: "No", tag: No internet connections, kind: Positive, icon: wifi-off}
 
 # The overall score (rules/scores.md, which explains it; the build writes its tables from here). Each area starts at 100 and every
 # answer that is a Concern by default takes off its cost; questions in one group describe one behaviour, so only the highest cost

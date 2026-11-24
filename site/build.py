@@ -9,9 +9,9 @@ prints what the change does to each card compared with CHANGES_BASE (default HEA
 import datetime, glob, json, os, re, shutil, subprocess, sys, yaml
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))  # rules.py, cards.py and page.py sit beside this file
 from rules import (
-    AREAK, AREAN, CATS, CONCERN, D, GCOST, RUBRICV, GSC, GT, STATES, OUT, QS, ROOT, SC, charges, concern_span, goodwhen,
-    scored, gtext, load_yaml, sround, stale_refs, state_html, tagsof, verdict)
-from icons import mask_url
+    AREAK, AREAN, CATS, CONCERN, D, GCOST, RUBRICV, GSC, GT, STATES, OUT, QS, ROOT, SC, TAGICON, charges, concern_span, goodwhen,
+    scored, gtext, load_yaml, sround, stale_refs, state_html, tagcls, tagsof, verdict)
+from icons import LICENCE as ICON_LICENCE, mask_url
 from cards import CORRFORM, JUDGE, MM, REG, REPO, SITES, SLUG, VT, check_card, esc, glance, strings
 from page import (
     BADGES, COMMIT, GNOTE, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
@@ -213,7 +213,13 @@ iconcss=('.mark::before, .mk::before { flex: none } '
          +' '.join(f'.mark{_sel(c)}::before, .mk{_sel(c)}::before'
                    +f' {{ width: 11px; height: 11px; border-radius: 0; box-shadow: none; background: currentColor; -webkit-mask: {mask_url(ic)} center / contain no-repeat; mask: {mask_url(ic)} center / contain no-repeat }}'
                    for k,(_l,c,ic,_m) in STATES.items())
+         # Then each tag's own icon (TAGICON in rules.py), after the states' so it wins over the colour's icon.
+         +' '.join(f' .mark.ti.ti-{ic}::before {{ -webkit-mask: {mask_url(ic)} center / contain no-repeat; mask: {mask_url(ic)} center / contain no-repeat }}' for ic in TAGICON.values())
          +' '.join(f' .g-{k} .gicon {{ display: block; width: calc(var(--gs) * .42); height: calc(var(--gs) * .42); background: #fff; -webkit-mask: {mask_url(STATES[k][2])} center / contain no-repeat; mask: {mask_url(STATES[k][2])} center / contain no-repeat }}' for k in ('malware','notscored')))
+# The icons' licence goes with them into the built page, as their licence asks.
+shell=shell.replace('<meta charset="utf-8">','<meta charset="utf-8">\n<!--\n'+ICON_LICENCE+'-->',1)
+# The legend's example tags show their own icons, like the tags they stand for.
+shell=re.sub(r'\{\{TI:([^}]+)\}\}',lambda m:tagcls(m.group(1)),shell)
 out=(shell.replace('{{ICONCSS}}',iconcss).replace('{{FILTERS}}',filters).replace('{{GNOTE}}',f'<small class="gnote">{GNOTE}</small>').replace('{{MARKS}}',marks).replace('{{PICKER}}',picker).replace('{{INDEX}}',('<ul class="tlist">'+''.join(h for _k,h in sorted(rowsh))+'</ul>') if rowsh else '<p class="pending">No tool is analysed yet. The first analyses are under way.</p>').replace('{{TOOLS}}','\n'.join(views))
      .replace('{{MATRIX}}',''.join(mx)).replace('{{TPL}}',tpl).replace('{{PROMPT}}',prm).replace('{{AUTHORS}}',authors))
 assert '{{' not in out

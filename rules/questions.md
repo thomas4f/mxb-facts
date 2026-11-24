@@ -119,47 +119,47 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 - Three tags come from the card itself: "<n> held back" (the Held back row), "<n> not checked" (answers "Not checked", not counting those held back) and "Licence forbids analysis" (any answer "Not allowed"). A tool shows "No critical findings" only when it has no critical tag, every question is answered and nothing is held back.
 
 <!-- rules/scoring.yaml: tags. Edit that file, not this table: the build writes it. -->
-| From | Answer | Tag | Kind |
-|---|---|---|---|
-| P9 | Yes | Signs of malware | Critical |
-| P1 | Yes | Flagged by antivirus | Critical |
-| P2 | Yes | Updates without asking | Critical |
-| P3 | No | Unchecked updates | Critical |
-| P3 | Partly | Updates partly checked | Critical |
-| P4 | Yes | Deletes others' files | Critical |
-| P5 | No | Not signed or traceable | Critical |
-| P6 | Yes | Changes Windows settings | Critical |
-| P7 | Yes | Changes game files | Critical |
-| P8 | Yes | Leaves changes behind | Critical |
-| D2 | Yes | Sends your data | Critical |
-| D3 | Yes | Sends an identifier | Critical |
-| D4 | Yes | Sends other players' data | Critical |
-| D5 | Yes | Open local web server | Critical |
-| D6 | Yes | Reads other people's data | Critical |
-| D7 | Yes | Publishes user data | Critical |
-| D8 | No | No off switch | Critical |
-| D9 | Yes | Needs an online account | Critical |
-| D10 | Yes | Shares identifiers locally | Critical |
-| G1 | Yes | Injects into the game | Critical |
-| G2 | Yes | Changes game memory | Critical |
-| G3 | Yes | Changes the game online | Critical |
-| G3 | Partly | Changes what you see online | Critical |
-| G12 | Yes | Gets around a game check | Critical |
-| G5 | Yes | Presses keys for you | Critical |
-| G6 | Yes | Changes other plugins | Critical |
-| G9 | Yes | Starts with Windows | Critical |
-| C1 | Yes | Decrypts protected content | Critical |
-| C2 | Yes | Copies others' content | Critical |
-| C3 | Yes | Shares unprotected content | Critical |
-| T7 | No | No open-source licence (not when T1 is No) | Critical |
-| T1 | No | Closed source | Critical |
-| T2 | Yes | Docs contradict code | Critical |
-| T3 | No | Not traced to source (not when T1 is No or T4 is Yes) | Critical |
-| T4 | No | Covered by "Not traced to source", "Not signed or traceable" or "Closed source": the answer is also No when there is no public source to rebuild from | None |
-| T6 | No | Dependencies not pinned | Critical |
-| T1 | Yes | Open source | Positive |
-| T3 | Yes | Built from public source | Positive |
-| T4 | Yes | Rebuild matches source | Positive |
-| P5 | Yes | Code-signed | Positive |
-| D1 | No | No internet connections | Positive |
+| From | Answer | Tag | Kind | Icon |
+|---|---|---|---|---|
+| P9 | Yes | Signs of malware | Critical | bug |
+| P1 | Yes | Flagged by antivirus | Critical | shield-x |
+| P2 | Yes | Updates without asking | Critical | refresh-cw |
+| P3 | No | Unchecked updates | Critical | refresh-cw-off |
+| P3 | Partly | Updates partly checked | Critical | refresh-ccw-dot |
+| P4 | Yes | Deletes others' files | Critical | trash-2 |
+| P5 | No | Not signed or traceable | Critical | badge-x |
+| P6 | Yes | Changes Windows settings | Critical | monitor-cog |
+| P7 | Yes | Changes game files | Critical | folder-pen |
+| P8 | Yes | Leaves changes behind | Critical | footprints |
+| D2 | Yes | Sends your data | Critical | send |
+| D3 | Yes | Sends an identifier | Critical | fingerprint |
+| D4 | Yes | Sends other players' data | Critical | users |
+| D5 | Yes | Open local web server | Critical | server |
+| D6 | Yes | Reads other people's data | Critical | file-search |
+| D7 | Yes | Publishes user data | Critical | megaphone |
+| D8 | No | No off switch | Critical | power-off |
+| D9 | Yes | Needs an online account | Critical | circle-user |
+| D10 | Yes | Shares identifiers locally | Critical | share-2 |
+| G1 | Yes | Injects into the game | Critical | syringe |
+| G2 | Yes | Changes game memory | Critical | memory-stick |
+| G3 | Yes | Changes the game online | Critical | globe |
+| G3 | Partly | Changes what you see online | Critical | scan-eye |
+| G12 | Yes | Gets around a game check | Critical | shield-off |
+| G5 | Yes | Presses keys for you | Critical | keyboard |
+| G6 | Yes | Changes other plugins | Critical | puzzle |
+| G9 | Yes | Starts with Windows | Critical | rocket |
+| C1 | Yes | Decrypts protected content | Critical | key-round |
+| C2 | Yes | Copies others' content | Critical | copy |
+| C3 | Yes | Shares unprotected content | Critical | lock-open |
+| T7 | No | No open-source licence (not when T1 is No) | Critical | scale |
+| T1 | No | Closed source | Critical | file-lock |
+| T2 | Yes | Docs contradict code | Critical | book-x |
+| T3 | No | Not traced to source (not when T1 is No or T4 is Yes) | Critical | route-off |
+| T4 | No | Covered by "Not traced to source", "Not signed or traceable" or "Closed source": the answer is also No when there is no public source to rebuild from | None |  |
+| T6 | No | Dependencies not pinned | Critical | pin-off |
+| T1 | Yes | Open source | Positive | code-xml |
+| T3 | Yes | Built from public source | Positive | workflow |
+| T4 | Yes | Rebuild matches source | Positive | git-compare |
+| P5 | Yes | Code-signed | Positive | badge-check |
+| D1 | No | No internet connections | Positive | wifi-off |
 <!-- /rules/scoring.yaml -->

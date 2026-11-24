@@ -6,6 +6,7 @@ Nothing here reads a card file: tests/test_build.py checks these functions with 
 """
 import json, os, re
 import yaml
+from icons import LUCIDE
 ROOT=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))+'/'
 D=ROOT+'cards/'
 RULESDIR=ROOT+'rules/'
@@ -73,7 +74,7 @@ def gen_tables():
         'keys':['| Key | Key question | Short | From | Mark |','|---|---|---|---|---|']+[row(k,x['question'],x['short'],', '.join(x['from']),x['mark'].capitalize()) for k,x in SC['keys'].items()],
         'p1':['| P1 | When |','|---|---|','| No | no engine flagged any release file |',f'| Partly | fewer than 1 in {n} engines flagged a file |',f'| Yes | 1 in {n} or more flagged a file |'],
         'questions':['| ID | Area | Question | Yes | No | Partly |','|---|---|---|---|---|---|']+[row(i,ar[i[0]]['name'],x['text'],yes_cell(x),x['no_mark'],partly_cell(x)) for i,x in q.items()],
-        'tags':['| From | Answer | Tag | Kind |','|---|---|---|---|']+[row(x['from'],x['answer'],x['tag']+(f' (not when {" or ".join(w.replace(" yes"," is Yes").replace(" no"," is No") for w in x["unless"])})' if 'unless' in x else ''),x['kind']) for x in SC['tags']]},
+        'tags':['| From | Answer | Tag | Kind | Icon |','|---|---|---|---|---|']+[row(x['from'],x['answer'],x['tag']+(f' (not when {" or ".join(w.replace(" yes"," is Yes").replace(" no"," is No") for w in x["unless"])})' if 'unless' in x else ''),x['kind'],x.get('icon','')) for x in SC['tags']]},
       'template.md':{
         'header':['| | |','|---|---|']+[hrow(k) for k in HEADER],
         'money':['| Label | Shown when | What it means |','|---|---|---|']+[row(l,money_when(l),x['means']) for l,x in MLAB.items()]},
@@ -178,7 +179,7 @@ def ans_md(a):
     return mark_md(a)+v+('. '+a['text'] if a.get('text') else '')+(' Second check: '+a['second_check'] if a.get('second_check') else '')
 # Front-page tags: each from one answer, by the tags in rules/scoring.yaml, never picked by hand.
 TAGS=[(x['from'],x['answer'],x['tag'],x['kind']) for x in SC['tags']]
-assert all({'from','answer','tag','kind'}<=set(x)<={'from','answer','tag','kind','unless'} and x['answer'] in ('Yes','No','Partly') and x['kind'] in ('Critical','Positive','None') for x in SC['tags']), 'rules/scoring.yaml: a tag is malformed (answer is Yes, No or Partly, kind is Critical, Positive or None, and maybe unless)'
+assert all({'from','answer','tag','kind'}<=set(x)<={'from','answer','tag','kind','unless','icon'} and ('icon' in x)==(x['kind']!='None') and x['answer'] in ('Yes','No','Partly') and x['kind'] in ('Critical','Positive','None') for x in SC['tags']), 'rules/scoring.yaml: a tag is malformed (answer is Yes, No or Partly, kind is Critical, Positive or None, an icon unless kind is None, and maybe unless)'
 assert TAGS and all(q in QIDS for q,v,_l,k in TAGS), 'rules/scoring.yaml: a tag names an unknown question'
 UNLESS={(x['from'],x['answer']):unless(x['unless']) for x in SC['tags'] if 'unless' in x}
 # No gap between marks and tags: every answer the mark table can make a Concern has a tag row (or a row saying why it has none).
@@ -242,6 +243,14 @@ STATES={
     'notscored':('Not scored','notscored','circle-slash','No number is given: the licence forbids the analysis, or the malware check (P9) wasn\'t done'),
 }
 SCLS={cls:k for k,(_l,cls,_i,_m) in STATES.items()}
+# Each tag's own icon (rules/scoring.yaml, tags): what the tag is about, while its colour says what it costs. One icon per tag,
+# none of them a state's, each drawn in site/icons.py.
+TAGICON={x['tag']:x['icon'] for x in SC['tags'] if 'icon' in x}
+_ti=list(TAGICON.values())
+assert len(set(_ti))==len(_ti), 'rules/scoring.yaml: two tags share an icon: '+', '.join(sorted({i for i in _ti if _ti.count(i)>1}))
+assert not set(_ti)&{x[2] for x in STATES.values()}, 'rules/scoring.yaml: a tag uses a state\'s icon: '+', '.join(sorted(set(_ti)&{x[2] for x in STATES.values()}))
+assert not set(_ti)-set(LUCIDE), 'rules/scoring.yaml: no drawing in site/icons.py for these tag icons: '+', '.join(sorted(set(_ti)-set(LUCIDE)))
+def tagcls(label): return ' ti ti-'+TAGICON[label]
 def state_of(html):
     # The state a mark's HTML shows, from its classes.
     m=re.search(r'class="(?:mk|mark) ([^"]*)"',html); return SCLS.get(m.group(1)) if m else None
