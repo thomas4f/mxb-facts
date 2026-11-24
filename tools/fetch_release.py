@@ -27,6 +27,7 @@ MEGA = re.compile(r'^https://mega\.(?:nz|co\.nz)/(?:file/([A-Za-z0-9_-]{8})#([A-
 FOLDER = re.compile(r'^https://mega\.(?:nz|co\.nz)/(?:folder/([A-Za-z0-9_-]{8})#([A-Za-z0-9_-]{22})(?:/file/([A-Za-z0-9_-]{8}))?'
                     r'|#F!([A-Za-z0-9_-]{8})!([A-Za-z0-9_-]{22})(?:!([A-Za-z0-9_-]{8}))?)$')
 API = 'https://g.api.mega.co.nz/cs'
+UA = 'mxb-facts-fetch/1.0'  # a generic name, as tools/mxbmods_fetch.py sends: mxb-mods.com refuses Python's own (403)
 NAME = re.compile(r'[^A-Za-z0-9._+ ()-]')
 
 
@@ -119,7 +120,7 @@ def fetch(url, folder):
         return mega_folder_file(fid, fkey, handle, folder)
     assert url.startswith('https://'), 'only https downloads: ' + url
     path = os.path.join(folder, clean(url.split('?')[0].split('#')[0]))
-    with urllib.request.urlopen(url, timeout=300) as r:
+    with urllib.request.urlopen(urllib.request.Request(url, headers={'User-Agent': UA}), timeout=300) as r:
         return path, save(r, path)
 
 
