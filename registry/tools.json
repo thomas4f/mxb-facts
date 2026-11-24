@@ -21,6 +21,17 @@
       "note": "Not on mxb-mods.com (none found by search on 19 Nov 2026; the maintainer confirmed it isn't uploaded there)"
     }
   },
+  "dirt-gear": {
+    "name": "Dirt Gear",
+    "author": "Dirt Graphic Studios",
+    "github": "Dirt-Graphic-Studios/Dirt-Gear",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 197697,
+      "tied_by": "github.com/Dirt-Graphic-Studios/Dirt-Gear"
+    }
+  },
   "fixxers-rumble": {
     "name": "FIXXER's Controller Rumble",
     "author": "FIXXER 1001",

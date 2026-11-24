@@ -18,6 +18,7 @@ on:
           - all
           - akit-studio
           - coremx
+          - dirt-gear
           - fixxers-rumble
           - frost-converter
           - frostmod

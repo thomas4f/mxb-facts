@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-11-22",
+  "fetched": "2026-11-24",
   "source": "https://mxb-mods.com/wp-json/wp/v2/posts",
   "note": "Each excerpt is quoted from the tool's mxb-mods.com page as published, not verified.",
   "tools": {
@@ -13,6 +13,19 @@
       "categories": [
         "Code Mods",
         "Other"
+      ],
+      "still_tied": true
+    },
+    "dirt-gear": {
+      "post": 197697,
+      "link": "https://mxb-mods.com/dirt-gear-2/",
+      "title": "DIRT GEAR",
+      "excerpt": "Dirt Gear: MX Bikes rider gear editor (Windows) Design custom rider gear from any creator’s PSD template without Photoshop. Pick colourways, add your logos (they sit under the template’s shading), and add your name and number with bundled race fonts, outlines, gradients and letter spacing. Recolour logos with solid or gradient overlays. Check your design…",
+      "published": "2026-11-13",
+      "updated": "2026-11-17",
+      "categories": [
+        "Other",
+        "Tools"
       ],
       "still_tied": true
     },
