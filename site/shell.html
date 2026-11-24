@@ -140,7 +140,7 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 .rels table { min-width: 0 } .rels th, .rels td { white-space: nowrap; vertical-align: top } .rels td:last-child { width: 100% }
 .hsub { display: block; margin-top: 2px; font: 600 13px var(--f-ui); color: var(--muted) }
 .hcmp { color: var(--accent); text-decoration: none } .hcmp::before { content: "⇄ " }
-.pk .tv { font: 400 12px var(--f-mono); color: var(--muted) } .chg .same { color: var(--muted); list-style: none; margin-left: -20px; margin-top: 4px }
+.pk .tv { font: 400 12px var(--f-mono); color: var(--muted) } .pk[hidden], .pk .tv[hidden] { display: none } .chg .same { color: var(--muted); list-style: none; margin-left: -20px; margin-top: 4px }
 .flow { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 72ch }
 .flow li::marker { font: 600 13px var(--f-mono); color: var(--muted) }
 .flow b { font-weight: 600 }
@@ -445,7 +445,7 @@ table.goodw td:first-child { width: 68% }
   <section class="view" id="compare" data-view>
     <h2 class="sech">Compare tools</h2>
     <div class="intro">
-      <p>Every answer side by side, with the area scores, for different tools or two releases of one tool. Hover for the short answer; click to jump to it with its evidence.</p>
+      <p>Every answer side by side, with the area scores, for different tools or two releases of one tool (tick a tool to see its earlier releases). Hover for the short answer; click to jump to it with its evidence.</p>
     </div>
       <div class="picker" role="group" aria-label="Tools to compare">{{PICKER}}</div>
       <p class="pickhint" id="pickhint">Pick two or more tools above to compare them.</p>
@@ -642,8 +642,13 @@ table.goodw td:first-child { width: 68% }
   var boxes = document.querySelectorAll('.picker input'), rowboxes = document.querySelectorAll('[data-cmp]');
   var cmpgo = document.querySelector('.cmpgo');
   function pick() {
-    var on = {}; var n = 0;
-    Array.prototype.forEach.call(boxes, function (b) { if (b.checked) { on[b.value] = true; n++; } });
+    var on = {}; var n = 0, open = {};
+    Array.prototype.forEach.call(boxes, function (b) { if (b.checked) { on[b.value] = true; n++; open[b.parentNode.getAttribute('data-rel')] = true; } });
+    // A tool's earlier releases (and the newest chip's version) show only while one of its releases is ticked.
+    Array.prototype.forEach.call(document.querySelectorAll('.picker [data-rel]'), function (l) {
+      var o = !!open[l.getAttribute('data-rel')], v = l.querySelector('.tv');
+      if (l.classList.contains('pkold')) l.hidden = !o; else if (v) v.hidden = !o;
+    });
     Array.prototype.forEach.call(document.querySelectorAll('table.mx [data-t]'), function (c) { c.hidden = !on[c.getAttribute('data-t')]; });
     Array.prototype.forEach.call(rowboxes, function (b) { b.checked = !!on[b.getAttribute('data-cmp')]; });
     document.getElementById('mxwrap').hidden = n < 1;
