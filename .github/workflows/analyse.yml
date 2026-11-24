@@ -94,10 +94,10 @@ on:
         description: "Only these questions, e.g. P4, D5 (leave empty for a full analysis; needs a card, same release)"
         default: ""
       version:
-        description: "The release to analyse (leave empty: the newest in registry/releases.json, or the card's release)"
+        description: "The release to analyse (leave empty: the tool's latest GitHub release, looked up when the run starts; with none, the newest in registry/releases.json)"
         default: ""
       release:
-        description: "Link to that release or its download page (leave empty to take it from registry/releases.json)"
+        description: "Link to that release or its download page (leave empty together with version, for the same lookup)"
         default: ""
       skip_upload:
         description: "Skip upload: don't upload release files VirusTotal has no record of (the hash lookups still run)"
@@ -114,18 +114,41 @@ jobs:
     outputs:
       runs: ${{ steps.check.outputs.runs }}
       licence: ${{ steps.check.outputs.licence }}
+      version: ${{ steps.release.outputs.version }}
+      release: ${{ steps.release.outputs.release }}
+      source: ${{ steps.release.outputs.source }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with: { persist-credentials: false }
       - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065 # v5
         with: { python-version: "3.12" }
       - run: pip install -r requirements.txt claude-agent-sdk==0.2.187 cryptography==44.0.2
-      - name: Plan the Windows run with Claude
+      # With version and release empty, the tool's latest GitHub release, looked up now (tools/releases_fetch.py --latest),
+      # so a release out since the last "Update inventory" run needs no typing. A tool with no GitHub release keeps them
+      # empty, and the analysis takes the newest release in registry/releases.json. A partial check keeps its card's release.
+      # Every later job reads the release from here, so the plan, the card and the pull request name the same one.
+      - name: Pick the release
+        id: release
         env:
           TOOL: ${{ inputs.tool }}
           QUESTIONS: ${{ inputs.questions }}
           VERSION: ${{ inputs.version }}
           RELEASE: ${{ inputs.release }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          if [ -z "$QUESTIONS" ] && [ -z "$VERSION" ] && [ -z "$RELEASE" ]; then
+            out=$(python3 -I tools/releases_fetch.py --latest "$TOOL")
+          else
+            out=$(printf 'version=%s\nrelease=%s\nsource=input\n' "$VERSION" "$RELEASE")
+          fi
+          printf '%s\n' "$out" >> "$GITHUB_OUTPUT"
+          printf '## Release\n\n```\n%s\n```\n' "$out" >> "$GITHUB_STEP_SUMMARY"
+      - name: Plan the Windows run with Claude
+        env:
+          TOOL: ${{ inputs.tool }}
+          QUESTIONS: ${{ inputs.questions }}
+          VERSION: ${{ steps.release.outputs.version }}
+          RELEASE: ${{ steps.release.outputs.release }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PROMPT: |
             Plan the Windows run for an MXB Facts analysis. This is a short first pass: don't analyse the tool, don't write
@@ -341,8 +364,9 @@ jobs:
         env:
           TOOL: ${{ inputs.tool }}
           QUESTIONS: ${{ inputs.questions }}
-          VERSION: ${{ inputs.version }}
-          RELEASE: ${{ inputs.release }}
+          VERSION: ${{ needs.plan.outputs.version }}
+          RELEASE: ${{ needs.plan.outputs.release }}
+          SOURCE: ${{ needs.plan.outputs.source }}
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           PROMPT: |
             Analyse one tool for MXB Facts, in this repository's checkout, from the published prompt.
@@ -355,7 +379,8 @@ jobs:
             VERSION and RELEASE. A partial check of a tool without a card isn't possible: write that to STOP.txt and stop.
             A new release always gets a full analysis, because its code may have changed anywhere.
 
-            Which release: if VERSION and RELEASE are set, analyse that release. If they are empty, look up the tool in
+            Which release: if VERSION and RELEASE are set, analyse that release (SOURCE is "github" when they are the
+            tool's latest GitHub release, looked up when this run started, and "input" when they were typed in). If they are empty, look up the tool in
             registry/releases.json (written by the "Update inventory" workflow) and take the newest release there, by date,
             and say where it was found. For a re-check, if no release there has a file that isn't on the card, re-run the
             release the card names (its "Version analysed" row and files). Use the places the registry entry names (github,
@@ -538,7 +563,7 @@ jobs:
           done
           shred -u "$RUNNER_TEMP/key.pem"
   pull-request:
-    needs: [analyse, vt-lookup]
+    needs: [plan, analyse, vt-lookup]
     if: always() && needs.analyse.outputs.changed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -559,7 +584,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           TOOL: ${{ inputs.tool }}
           QUESTIONS: ${{ inputs.questions }}
-          VERSION: ${{ inputs.version }}
+          VERSION: ${{ needs.plan.outputs.version }}
           CHECKS: ${{ needs.analyse.outputs.checks }}
         run: |
           # The patch is applied, not run; workflow files are left out again (the run's token can't push those). The build

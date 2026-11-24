@@ -31,6 +31,11 @@ the releases newer than their card are also written there as JSON, for tools/rec
 
 The "Update inventory" workflow runs it every Monday, after tools/mxbmods_fetch.py.
 By hand:  python3 -I tools/releases_fetch.py
+
+With --latest <tool>, it only looks up that tool's latest GitHub release, at the time it runs, and prints
+version=<tag>, release=<release page> and source=github, as the "Analyse a tool" workflow reads them; for a tool
+with no "github" repo, or one with no published release, it prints them empty and source=registry, and the analysis
+then takes the newest release in registry/releases.json. Nothing is written.
 """
 import datetime, hashlib, html, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request, urllib.robotparser
 
@@ -312,5 +317,19 @@ def describe(rel):
     return ', '.join(str(b) for b in bits if b)
 
 
+def latest(slug):
+    """The tool's latest GitHub release, looked up now, as the lines the "Analyse a tool" workflow reads."""
+    e = json.load(open(REG)).get(slug)
+    if e is None:
+        sys.exit('not in registry/tools.json: ' + slug)
+    rel = from_github(e['github']) if e.get('github') else None
+    if rel is None:
+        return 'version=\nrelease=\nsource=registry\n'
+    return 'version=%s\nrelease=%s\nsource=github\n' % (rel['version'], rel['url'])
+
+
 if __name__ == '__main__':
-    main()
+    if sys.argv[1:2] == ['--latest'] and len(sys.argv) == 3:
+        sys.stdout.write(latest(sys.argv[2]))
+    else:
+        main()
