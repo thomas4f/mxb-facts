@@ -1,0 +1,76 @@
+$ objdump -d 'gpbmods_hud64.dlo' | awk -v a=180002900 -v b=180002a24 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180002903:	f2 48 0f 2a c0       	cvtsi2sd %rax,%xmm0
+   180002908:	f2 0f 5e f0          	divsd  %xmm0,%xmm6
+   18000290c:	eb 04                	jmp    0x180002912
+   18000290e:	66 0f 57 f6          	xorpd  %xmm6,%xmm6
+   180002912:	ff 15 f8 20 07 00    	call   *0x720f8(%rip)        # 0x180074a10
+   180002918:	c7 45 e0 00 00 00 00 	movl   $0x0,-0x20(%rbp)
+   18000291f:	48 85 c0             	test   %rax,%rax
+   180002922:	74 21                	je     0x180002945
+   180002924:	48 8d 55 e0          	lea    -0x20(%rbp),%rdx
+   180002928:	48 89 c1             	mov    %rax,%rcx
+   18000292b:	ff 15 ef 20 07 00    	call   *0x720ef(%rip)        # 0x180074a20
+   180002931:	8b 7d e0             	mov    -0x20(%rbp),%edi
+   180002934:	ff 15 96 22 07 00    	call   *0x72296(%rip)        # 0x180074bd0
+   18000293a:	45 31 e4             	xor    %r12d,%r12d
+   18000293d:	39 c7                	cmp    %eax,%edi
+   18000293f:	41 0f 94 c4          	sete   %r12b
+   180002943:	eb 03                	jmp    0x180002948
+   180002945:	45 31 e4             	xor    %r12d,%r12d
+   180002948:	66 0f 28 c6          	movapd %xmm6,%xmm0
+   18000294c:	f2 0f 5c 05 24 67 07 	subsd  0x76724(%rip),%xmm0        # 0x180079078
+   180002953:	00 
+   180002954:	f2 0f 10 0d a4 76 04 	movsd  0x476a4(%rip),%xmm1        # 0x18004a000
+   18000295b:	00 
+   18000295c:	66 0f 2e c8          	ucomisd %xmm0,%xmm1
+   180002960:	76 0e                	jbe    0x180002970
+   180002962:	48 83 3d 2e 42 12 00 	cmpq   $0x0,0x12422e(%rip)        # 0x180126b98
+   180002969:	00 
+   18000296a:	0f 85 a9 00 00 00    	jne    0x180002a19
+   180002970:	f2 0f 11 35 00 67 07 	movsd  %xmm6,0x76700(%rip)        # 0x180079078
+   180002977:	00 
+   180002978:	ff 15 92 20 07 00    	call   *0x72092(%rip)        # 0x180074a10
+   18000297e:	c7 45 20 00 00 00 00 	movl   $0x0,0x20(%rbp)
+   180002985:	48 85 c0             	test   %rax,%rax
+   180002988:	74 49                	je     0x1800029d3
+   18000298a:	49 89 c7             	mov    %rax,%r15
+   18000298d:	48 8d 55 20          	lea    0x20(%rbp),%rdx
+   180002991:	48 89 c1             	mov    %rax,%rcx
+   180002994:	ff 15 86 20 07 00    	call   *0x72086(%rip)        # 0x180074a20
+   18000299a:	8b 7d 20             	mov    0x20(%rbp),%edi
+   18000299d:	ff 15 2d 22 07 00    	call   *0x7222d(%rip)        # 0x180074bd0
+   1800029a3:	39 c7                	cmp    %eax,%edi
+   1800029a5:	75 2c                	jne    0x1800029d3
+   1800029a7:	48 8d 55 e0          	lea    -0x20(%rbp),%rdx
+   1800029ab:	4c 89 f9             	mov    %r15,%rcx
+   1800029ae:	ff 15 4c 20 07 00    	call   *0x7204c(%rip)        # 0x180074a00
+   1800029b4:	85 c0                	test   %eax,%eax
+   1800029b6:	74 1b                	je     0x1800029d3
+   1800029b8:	81 7d e8 80 02 00 00 	cmpl   $0x280,-0x18(%rbp)
+   1800029bf:	7c 12                	jl     0x1800029d3
+   1800029c1:	81 7d ec e0 01 00 00 	cmpl   $0x1e0,-0x14(%rbp)
+   1800029c8:	7c 09                	jl     0x1800029d3
+   1800029ca:	4c 89 3d c7 41 12 00 	mov    %r15,0x1241c7(%rip)        # 0x180126b98
+   1800029d1:	eb 0c                	jmp    0x1800029df
+   1800029d3:	4c 8b 3d be 41 12 00 	mov    0x1241be(%rip),%r15        # 0x180126b98
+   1800029da:	4d 85 ff             	test   %r15,%r15
+   1800029dd:	74 64                	je     0x180002a43
+   1800029df:	4c 89 f9             	mov    %r15,%rcx
+   1800029e2:	ff 15 40 20 07 00    	call   *0x72040(%rip)        # 0x180074a28
+   1800029e8:	85 c0                	test   %eax,%eax
+   1800029ea:	74 57                	je     0x180002a43
+   1800029ec:	48 8b 0d a5 41 12 00 	mov    0x1241a5(%rip),%rcx        # 0x180126b98
+   1800029f3:	48 8d 55 e0          	lea    -0x20(%rbp),%rdx
+   1800029f7:	ff 15 03 20 07 00    	call   *0x72003(%rip)        # 0x180074a00
+   1800029fd:	85 c0                	test   %eax,%eax
+   1800029ff:	74 42                	je     0x180002a43
+   180002a01:	8b 45 e8             	mov    -0x18(%rbp),%eax
+   180002a04:	8b 4d ec             	mov    -0x14(%rbp),%ecx
+   180002a07:	2b 45 e0             	sub    -0x20(%rbp),%eax
+   180002a0a:	89 05 08 01 11 00    	mov    %eax,0x110108(%rip)        # 0x180112b18
+   180002a10:	2b 4d e4             	sub    -0x1c(%rbp),%ecx
+   180002a13:	89 0d 03 01 11 00    	mov    %ecx,0x110103(%rip)        # 0x180112b1c
+   180002a19:	45 85 e4             	test   %r12d,%r12d
+   180002a1c:	74 49                	je     0x180002a67
+   180002a1e:	48 8b 3d d3 1f 07 00 	mov    0x71fd3(%rip),%rdi        # 0x1800749f8
+(exit 0)

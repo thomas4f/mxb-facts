@@ -1,0 +1,14 @@
+$ grep -nE 'ko-fi|Ko-fi|donar|premium|comprar|precio|patreon|paypal' win/Pitbox/gpbmods/comunidad.py win/Pitbox/gpbmods/mods_pitbox.py win/Pitbox/gpbmods/webapp.py win/Pitbox/GUIDE.html README.md
+win/Pitbox/gpbmods/comunidad.py:4:"comunidad": {"discord": "…", "donar": {"plataforma": "…", "url": "…"}}), que manda sobre lo de aquí. La
+win/Pitbox/gpbmods/comunidad.py:5:plataforma de donaciones es Ko-fi (también se aceptan enlaces de GitHub Sponsors): su nombre se saca
+win/Pitbox/gpbmods/comunidad.py:13:COMUNIDAD = {"discord": "https://discord.gg/xJPBru6DR", "donar": {"plataforma": "Ko-fi", "url": "https://ko-fi.com/cristianboni22"}}
+win/Pitbox/gpbmods/comunidad.py:18:    "donar": [(("github.com",), "/sponsors/", "GitHub Sponsors"), (("ko-fi.com",), "/", "Ko-fi")],
+win/Pitbox/gpbmods/comunidad.py:24:    """Nombre de la plataforma («Discord», «GitHub Sponsors», «Ko-fi») si `url` es una dirección permitida
+win/Pitbox/gpbmods/mods_pitbox.py:106:        if re.match(r"/(file|file_premium)/\w+", ruta, re.I):
+win/Pitbox/gpbmods/webapp.py:3570:                "donar": bool(enl["donar"]), "donar_texto": texto(enl["donar"]),
+win/Pitbox/gpbmods/webapp.py:3571:                "donar_plataforma": comunidad.plataforma("donar", enl["donar"])}
+win/Pitbox/gpbmods/webapp.py:3575:        clave: «discord» | «donar»."""
+win/Pitbox/GUIDE.html:90:    <li><b>Community</b>: <b>Friends &amp; alerts</b> and <b>Discord &amp; Ko-fi</b>.</li>
+README.md:59:- Si te gusta Pitbox, puedes invitarme a un café en Ko-fi: **https://ko-fi.com/cristianboni22**
+README.md:113:- If you like Pitbox, you can buy me a coffee on Ko-fi: **https://ko-fi.com/cristianboni22**
+(exit 0)

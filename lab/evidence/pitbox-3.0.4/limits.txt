@@ -1,0 +1,73 @@
+$ sed -n '1,12p;39,44p;120,123p;202,230p' win/Pitbox/gpbmods/compartidos.py; echo '== web/index.html'; sed -n '6293,6302p;11814,11822p' win/Pitbox/gpbmods/web/index.html
+"""Límites compartidos de las motos cifradas y biblioteca de reglajes compartidos (cliente del ranking mundial).
+
+Límites (siempre, no es opcional; se avisa una vez y se explica en Ajustes): se suben de forma ANÓNIMA los rangos
+vistos en los reglajes que el JUEGO ha guardado de las motos cifradas (nunca los que escribe Pitbox o el asistente:
+ver limites.reglajes_moto), por moto, categoría y `version_moto` = SHA-256 del fichero que define la moto (otra
+versión del .pkz no comparte límites): sin alias, sin sesión, sin id de instalación, sin reglajes; solo un token
+aleatorio propio (`limites_token`) que sirve para contar instalaciones distintas. Solo se sube cuando cambia algo
+(`limites_enviados`) y no antes de que se haya enseñado el aviso (`limites_aviso_visto`): hasta entonces queda en
+cola (la página lo enseña ~20 s después de abrir y, al verlo, sincroniza enseguida). Todos descargan los límites de sus motos cifradas (oficiales del administrador o confirmados
+por la comunidad) y se escriben en <PiBoSo>/asistente_limites/<moto>.txt para el plugin del juego (ver limites.py),
+completos y con la huella de la versión de la moto para la que valen.
+
+def _token() -> str:
+    t = ajustes.cargar().get("limites_token")
+    if not isinstance(t, str) or not _TOKEN.match(t):
+        t = secrets.token_urlsafe(32)
+        rm._guardar(limites_token=t)
+    return t
+def subir_limites(moto_id: str, categoria: str, version_moto: str, rangos: dict) -> dict:
+    cuerpo = {"token": _token(), "moto_id": moto_id, "categoria": categoria, "version_moto": _version_ok(version_moto),
+              "rangos": {str(p): [int(a), int(b)] for p, (a, b) in sorted(rangos.items())}}
+    return rm._json_ok(rm._peticion("POST", rm._url(ajustes.cargar()), "/v1/limites", cuerpo))
+def sincronizar_limites(paths, contenido) -> Sincronizacion:
+    """Para cada moto cifrada instalada: sube sus rangos (siempre, si han cambiado; solo de reglajes guardados por el
+    juego) y descarga los oficiales o confirmados al fichero del plugin, completos y con la huella de la versión
+    instalada. Si no hay red, para enseguida y no toca los ficheros que ya hubiera."""
+    res = Sincronizacion()
+    piboso = getattr(paths, "piboso_dir", None)
+    if not piboso:
+        return res
+    datos = ajustes.cargar()
+    enviados = dict(datos.get("limites_enviados") or {})
+    cuentas = dict(datos.get("limites_ayudantes") or {})
+    subir = bool(datos.get("limites_aviso_visto"))   # hasta que se vea el aviso, la subida queda en cola
+    for m in [x for x in getattr(contenido, "motos", []) if x.cifrada]:
+        res.motos += 1
+        cat = categoria_de(m)
+        huella_antes = limites.huella_moto(paths, m.id)
+        version = sha256_moto(paths, m.id)
+        # sin .pkz/.cfg no se sabe qué versión es; si cambia mientras se lee, ya se hará la próxima vez
+        if version is None or huella_antes is None or limites.huella_moto(paths, m.id) != huella_antes:
+            continue
+        propios = limites.vistos(paths, m.id)
+        try:
+            rangos = limites.rangos_para_compartir(paths, m.id)
+            clave = f"{m.id.casefold()}|{cat.casefold()}|{version}"
+            huella = _huella(sorted(rangos.items()))
+            if subir and rangos and enviados.get(clave) != huella:
+                subir_limites(m.id, cat, version, rangos)
+                enviados[clave] = huella
+                res.subidos += 1
+== web/index.html
+  // Aviso (una sola vez, informativo) de que los límites de las motos cifradas se comparten siempre.
+  async function avisoLimites() {
+    let a;
+    try { a = await api().ajustes(); } catch (e) { return; }
+    if (!a.aviso_limites) return;
+    if (dlgs.abierto || state.busy) { setTimeout(avisoLimites, 60000); return; }
+    modal(`<div class="dbody"><h3 id="dlgT">${esc(t("Límites de las motos cifradas"))}</h3><p>${esc(a.texto_limites)}</p>
+      <p class="note">${esc(t("Puedes volver a leerlo en Ajustes."))}</p></div>
+      <div class="dacts"><button class="btn pri" data-close data-cancel>${esc(t("Entendido"))}</button></div>`,
+      () => { api().limites_aviso_visto().catch(() => {}); });
+    // Ranking mundial: si participas, las vueltas nuevas se suben solas al abrir y cada 10 minutos.
+    const subirSolo = () => { if (!state.busy) api().ranking_auto().catch(() => {}); };
+    setTimeout(subirSolo, 8000);
+    setInterval(subirSolo, 600000);
+    // Límites de las motos cifradas: se descargan solos al abrir y cada hora (en silencio).
+    const limitesSolo = () => api().limites_auto().catch(() => {});
+    setTimeout(limitesSolo, 15000);
+    setInterval(limitesSolo, 3600000);
+    setTimeout(avisoLimites, 20000);
+(exit 0)

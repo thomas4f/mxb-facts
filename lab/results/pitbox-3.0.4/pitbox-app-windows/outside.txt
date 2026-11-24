@@ -1,0 +1,688 @@
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\crashpad_1868_OSGPEDFGYTPLHFHX  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1828.3412.879095728813964881  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.12404241515953722102  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.13394027441425995278  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.16066545739237346951  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.3277868030406387317  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.3407211588699916005  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.6275713641044983936  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.12064727972432792093  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.13576682694450573394  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.16457704846595660740  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.17193152216690171571  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.7184766627608387871  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.868766377043904702  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.9663901054420837469  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\LOCAL\mojo.6900.9564.15149089679495452809  SUCCESS
+msedgewebview2.exe  CreateFile  \Device\NamedPipe\wkssvc  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\RUNNER~1\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js  PATH NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\RUNNER~1\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir\the-real-index  PATH NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\RUNNER~1\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir\the-real-index  PATH NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\RUNNER~1\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir\the-real-index  PATH NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\RUNNER~1\AppData\Local\Temp\tmpwg6mqesp\EBWebView\SmartScreen\RemoteData  PATH NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\0243a381-cca9-4b79-9436-87e3e704fd26.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\2f346f05-f8f8-4613-8ffe-aef0f2b105ad.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4053d106-8a79-49fe-95ff-1aaace1684b7.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\482e6069-70c2-407d-90ff-62ae04a81da4.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4a4d35da-c1f9-4374-9285-19becae2c504.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4ab01f60-7f66-4b9b-9110-601f3346b882.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4e93c334-d197-4086-a4ae-271343aed574.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\6865ce2d-9500-4c09-b3ac-c1d668ff45d2.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\809ce560-992e-4538-8636-234359e5f85f.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\84bd3f16-2a9a-4eda-bb4e-25f27d4a3867.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\915ee1bc-d720-4206-817d-3bf9a7df01fb.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\AutoLaunchProtocolsComponent  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\b150121f-afca-47e9-8c07-735719d547c5.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics-spare.pma  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics-spare.pma.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics\0ab4256f-eeb2-40bc-9af1-98f198202d0d.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics\BrowserMetrics-6B05EFC2-74C.pma  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics\BrowserMetrics-6B05EFC2-74C.pma  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\CertificateRevocation  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\4612ba1f-eaed-4622-9743-82aa0cc4d9dd.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\47063eda-98c8-42a5-8cce-c6969890c115.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\e4a282ce-b75f-42bd-b1a6-657e78dcbeb1.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.json  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.json  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.json5f4c1ae0-7dfa-4144-9459-e2dc8ad03272.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.json9e8a96ac-2188-4c43-94a4-10af21a18fee.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.jsoncfbabe73-165b-47a1-9049-db49f0f02d66.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad  NAME COLLISION
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\attachments  NAME COLLISION
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\attachments  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\metadata  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\reports  NAME COLLISION
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\reports  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\settings.dat  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\settings.dat  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\throttle_store.dat  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\throttle_store.dat  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\d78c30f4-d1ab-45ae-9516-e4994d4394aa.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\10092464-9870-4be2-9281-a1a78fbf3f85.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\2e336848-9f39-4fef-bd4f-752a5e5b3f61.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\35735abf-2b91-4c41-8461-2b8827912086.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\402aa516-4d6a-44c5-9a96-4aa74958261b.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\414953a5-5612-4a81-9bf0-c38a3459d7c9.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\95f455ac-9fd7-477e-b93a-3be61d8a85ac.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\AutofillAiModelCache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\AutofillAiModelCache\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\AutofillAiModelCache\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\AutofillStrikeDatabase  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\AutofillStrikeDatabase\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\AutofillStrikeDatabase\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\blob_storage  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\blob_storage\028084bd-ba0a-45b2-8c7a-b4402431dd06  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\BookmarkMergedSurfaceOrdering  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\BookmarkMergedSurfaceOrdering7dffe7cc-2c3c-467f-bff6-99c551731bae.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\BudgetDatabase  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\BudgetDatabase\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\BudgetDatabase\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Cache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Cache\Cache_Data  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Cache\No_Vary_Search  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ClientCertificates  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ClientCertificates\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ClientCertificates\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache  NAME COLLISION
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir\96f52f79-e709-4f83-8883-1b7ff5a0e278.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir\the-real-index  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir\3569643a-d1fb-4b4a-bb17-33332b65f6c1.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir\the-real-index  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\commerce_subscription_db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\commerce_subscription_db\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\commerce_subscription_db\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\declarative_performance_observer.db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\declarative_performance_observer.db-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\discount_infos_db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\discount_infos_db\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\discount_infos_db\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\discounts_db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\discounts_db\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\discounts_db\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\EdgeSessions  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\EdgeSessions\SessionRestoreLog  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\d9717a40-27bb-4cf3-89b0-ac9563bd491a.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\8455da06-cc5a-4e56-800d-0de06c78238b.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\cd15a4da-473e-4047-a9dd-e48c89c2efd3.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ExtensionActivityEdge  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ExtensionActivityEdge-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Favicons  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Favicons-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\favorites_diagnostic.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\History  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\History-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\4b9487f5-8c7d-4e23-a93a-bd5203259e2f.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data For Account  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data For Account-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\78ab855c-79af-4e0d-94d4-6007d58b47d4.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\ad6b2277-d0dd-483b-9023-c9f59f9f026d.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\b430634f-b88a-400e-91a2-0df4a25fadaf.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\bcdc6c05-d606-4506-9710-c13f7b8bff11.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Cookies  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Cookies-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Device Bound Sessions  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Device Bound Sessions-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Network Persistent State  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Network Persistent Statebb147eea-ca58-4a4c-8a61-10c8a9d8b5e5.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\NetworkDataMigrated  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reports  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reports  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reports  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reports35b0347c-fde5-48b8-b450-cc2b8e155418.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reportsd19e9cc2-59e1-4ebf-9097-7f14a5631cb3.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Sdch Dictionaries  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Sdch Dictionaries60b63675-85cc-4370-8a15-6ea44c525362.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Trust Tokens  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Trust Tokens-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\optimization_guide_hint_cache_store  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\optimization_guide_hint_cache_store\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\optimization_guide_hint_cache_store\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\parcel_tracking_db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\parcel_tracking_db\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\parcel_tracking_db\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\PersistentOriginTrials  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\PersistentOriginTrials\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\PersistentOriginTrials\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferences  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferences  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferences  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferences3752a11a-c91a-4bcc-aac7-f3cee5de4886.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferences50d9116b-9f09-4bab-a10b-c151f6214f46.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferencesc030fbb5-004e-44fa-bb2f-6ba6d7d4e936.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferencescbd6d433-d545-4faf-9103-8f8d9786071f.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\README  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Secure Preferences  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Secure Preferences5de03dd5-8f85-4d9b-9cc7-9a3d054839ee.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ServerCertificate  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ServerCertificate-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\settings_diagnostic.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir\affe2574-f380-4869-90ec-76aab58ac5f9.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir\the-real-index  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\db-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\6b85e201-251c-419e-bfb3-5b85d8f4331b.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\06787cb1-0296-4a7a-9eb8-e4f6f9c26cbb.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\b80f3335-1b21-49b0-a382-a56fdf2bc622.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\000001.dbtmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\000003.log  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\6078bdf0-0f38-4f17-9959-94fb37552736.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\CURRENT  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\LOCK  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\LOG  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Vpn Tokens  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Vpn Tokens-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Web Data  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Web Data-journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache  NAME COLLISION
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\18aae271-e61e-4566-b95c-0bb1abbdc79e.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\806445a8-01e4-42f9-b1d0-addd730ffc48.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\e23674c1-b02e-4d13-b755-608c423334a2.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.json  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.json  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.json4d2feb30-7aaf-4c5f-9695-467cd2dd498d.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.jsonbc9ce7c4-e17e-41df-9ae1-0d4d3e1ae130.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\f057d078-cbc4-45df-9916-0e8de6dfe9ae.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GPUPersistentCache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GPUPersistentCache\DawnGraphiteCache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GPUPersistentCache\DawnGraphiteCache\OMXJKWSVDDS6L3YMYJJRNHVYDBSO7SEM  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GPUPersistentCache\DawnGraphiteCache\OMXJKWSVDDS6L3YMYJJRNHVYDBSO7SEM\cache.db  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GPUPersistentCache\DawnGraphiteCache\OMXJKWSVDDS6L3YMYJJRNHVYDBSO7SEM\cache.db-wal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GPUPersistentCache\DawnGraphiteCache\OMXJKWSVDDS6L3YMYJJRNHVYDBSO7SEM\cache.journal  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_0  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_1  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_2  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_3  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\hyphen-data  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Last Version  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State22fd2993-e3b2-4de4-a983-ef234d82a5bc.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State53a573bc-0725-4ce3-bbf8-d5a1d894557f.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State716afb91-eda5-4275-a53b-7ee5b01b5d13.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State7ad5f788-efe0-4c06-abae-a219308d54f3.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local Stateaeb05507-31fe-4410-aa9b-97631fce1701.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local Stateffbb5d17-81e0-4444-8851-f516a50593be.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\lockfile  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\MEIPreload  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\OriginTrials  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\PKIMetadata  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ProvenanceData  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ProvenanceDataAllowList  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ProvenanceDataTensors  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_0  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_1  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_2  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_3  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\index  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\SmartScreen  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\SmartScreen\RemoteData  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\SmartScreen\RemoteData\edgeSettings  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\SmartScreen\RemoteData\edgeSettings_2.0-0  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Speech Recognition  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Subresource Filter  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Subresource Filter\Unindexed Rules  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Trust Protection Lists  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\TrustTokenKeyCommitments  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Variations  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV2  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV2  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV2  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV23c1e953a-b7ff-4e09-a436-97be6ab6d923.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV29706cea7-97ca-4764-b5b8-cb9867f82d3c.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV2  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV2  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV2  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV221fd8fb3-0b86-4a87-9f37-6c8ad66c9b5e.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV2f73cfd2c-317f-4755-a240-ef4cb301c8e4.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2  NAME NOT FOUND
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2  PRIVILEGE NOT HELD
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV26e9de74e-a5b2-49f7-8870-673480306213.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2a3b6ede7-8e2e-4205-8a4e-bd8d0ec22b10.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2e9a0bf50-b5c6-4cc4-bf39-ed04039c024b.tmp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\WidevineCdm  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1058187411  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1058187411\manifest.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1058187411\protocols.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\_metadata  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\_metadata\verified_contents.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\keys.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\LICENSE  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\manifest.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_2106474160  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_2106474160\manifest.json  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_1050597333  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_1050597333\fb6dd03b-99d7-4cc8-a878-91c8e655c2d3  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_110401335  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_110401335\5087cff5-02d3-45cf-aeeb-a5ea284d97f8  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_2085193249  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_2085193249\fef489f0-c0aa-4886-ba2b-137e93d55624  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\scoped_dir1868_1184001902  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\scoped_dir1868_1436662461  SUCCESS
+msedgewebview2.exe  CreateFile  C:\Windows\SystemTemp\scoped_dir1868_1826233380  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\0243a381-cca9-4b79-9436-87e3e704fd26.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\2f346f05-f8f8-4613-8ffe-aef0f2b105ad.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4053d106-8a79-49fe-95ff-1aaace1684b7.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\482e6069-70c2-407d-90ff-62ae04a81da4.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4a4d35da-c1f9-4374-9285-19becae2c504.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4ab01f60-7f66-4b9b-9110-601f3346b882.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\4e93c334-d197-4086-a4ae-271343aed574.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\6865ce2d-9500-4c09-b3ac-c1d668ff45d2.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\809ce560-992e-4538-8636-234359e5f85f.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\84bd3f16-2a9a-4eda-bb4e-25f27d4a3867.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\915ee1bc-d720-4206-817d-3bf9a7df01fb.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\b150121f-afca-47e9-8c07-735719d547c5.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics\0ab4256f-eeb2-40bc-9af1-98f198202d0d.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\4612ba1f-eaed-4622-9743-82aa0cc4d9dd.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\47063eda-98c8-42a5-8cce-c6969890c115.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\e4a282ce-b75f-42bd-b1a6-657e78dcbeb1.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\d78c30f4-d1ab-45ae-9516-e4994d4394aa.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\10092464-9870-4be2-9281-a1a78fbf3f85.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\2e336848-9f39-4fef-bd4f-752a5e5b3f61.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\35735abf-2b91-4c41-8461-2b8827912086.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\402aa516-4d6a-44c5-9a96-4aa74958261b.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\414953a5-5612-4a81-9bf0-c38a3459d7c9.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\95f455ac-9fd7-477e-b93a-3be61d8a85ac.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir\96f52f79-e709-4f83-8883-1b7ff5a0e278.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir\3569643a-d1fb-4b4a-bb17-33332b65f6c1.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\d9717a40-27bb-4cf3-89b0-ac9563bd491a.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\8455da06-cc5a-4e56-800d-0de06c78238b.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\cd15a4da-473e-4047-a9dd-e48c89c2efd3.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\4b9487f5-8c7d-4e23-a93a-bd5203259e2f.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\78ab855c-79af-4e0d-94d4-6007d58b47d4.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\ad6b2277-d0dd-483b-9023-c9f59f9f026d.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\b430634f-b88a-400e-91a2-0df4a25fadaf.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\bcdc6c05-d606-4506-9710-c13f7b8bff11.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir\affe2574-f380-4869-90ec-76aab58ac5f9.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\6b85e201-251c-419e-bfb3-5b85d8f4331b.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\06787cb1-0296-4a7a-9eb8-e4f6f9c26cbb.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\b80f3335-1b21-49b0-a382-a56fdf2bc622.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\6078bdf0-0f38-4f17-9959-94fb37552736.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\18aae271-e61e-4566-b95c-0bb1abbdc79e.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\806445a8-01e4-42f9-b1d0-addd730ffc48.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\e23674c1-b02e-4d13-b755-608c423334a2.tmp  SUCCESS
+msedgewebview2.exe  SetDispositionInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\f057d078-cbc4-45df-9916-0e8de6dfe9ae.tmp  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics-spare.pma.tmp  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics\BrowserMetrics-6B05EFC2-74C.pma  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\settings.dat  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\throttle_store.dat  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\declarative_performance_observer.db-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ExtensionActivityEdge-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Favicons-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\History-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data For Account-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Cookies-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Device Bound Sessions-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Trust Tokens-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ServerCertificate-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\db-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Vpn Tokens-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Web Data-journal  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_1  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\index  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_1  SUCCESS
+msedgewebview2.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\index  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\BrowserMetrics-spare.pma.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.jsoncfbabe73-165b-47a1-9049-db49f0f02d66.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\BookmarkMergedSurfaceOrdering7dffe7cc-2c3c-467f-bff6-99c551731bae.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Network Persistent Statebb147eea-ca58-4a4c-8a61-10c8a9d8b5e5.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reports35b0347c-fde5-48b8-b450-cc2b8e155418.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Sdch Dictionaries60b63675-85cc-4370-8a15-6ea44c525362.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferencescbd6d433-d545-4faf-9103-8f8d9786071f.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Secure Preferences5de03dd5-8f85-4d9b-9cc7-9a3d054839ee.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\000001.dbtmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.json4d2feb30-7aaf-4c5f-9695-467cd2dd498d.tmp  NAME COLLISION
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.jsonbc9ce7c4-e17e-41df-9ae1-0d4d3e1ae130.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State716afb91-eda5-4275-a53b-7ee5b01b5d13.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV29706cea7-97ca-4764-b5b8-cb9867f82d3c.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV221fd8fb3-0b86-4a87-9f37-6c8ad66c9b5e.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2e9a0bf50-b5c6-4cc4-bf39-ed04039c024b.tmp  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1058187411  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_2106474160  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_1050597333\fb6dd03b-99d7-4cc8-a878-91c8e655c2d3  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_110401335\5087cff5-02d3-45cf-aeeb-a5ea284d97f8  SUCCESS
+msedgewebview2.exe  SetRenameInformationFile  C:\Windows\SystemTemp\msedgeedge_BITS_1868_2085193249\fef489f0-c0aa-4886-ba2b-137e93d55624  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\crashpad_1868_OSGPEDFGYTPLHFHX  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1828.3412.879095728813964881  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.12404241515953722102  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.13394027441425995278  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.16066545739237346951  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.3277868030406387317  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.3407211588699916005  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.6275713641044983936  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.12064727972432792093  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.13576682694450573394  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.16457704846595660740  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.17193152216690171571  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.7184766627608387871  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.868766377043904702  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.8700.9663901054420837469  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.6900.9564.15149089679495452809  SUCCESS
+msedgewebview2.exe  WriteFile  \Device\NamedPipe\wkssvc  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.json5f4c1ae0-7dfa-4144-9459-e2dc8ad03272.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.json9e8a96ac-2188-4c43-94a4-10af21a18fee.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\component_crx_cache\metadata.jsoncfbabe73-165b-47a1-9049-db49f0f02d66.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\settings.dat  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\settings.dat  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Crashpad\throttle_store.dat  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\BookmarkMergedSurfaceOrdering7dffe7cc-2c3c-467f-bff6-99c551731bae.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\js\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Code Cache\wasm\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\declarative_performance_observer.db  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\declarative_performance_observer.db  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\declarative_performance_observer.db-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\declarative_performance_observer.db-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\EdgeSessions\SessionRestoreLog  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Rules\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension Scripts\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Extension State\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ExtensionActivityEdge  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ExtensionActivityEdge  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ExtensionActivityEdge-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ExtensionActivityEdge-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Favicons  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Favicons  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Favicons-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Favicons-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\favorites_diagnostic.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\History  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\History  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\History-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\History-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Local Storage\leveldb\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data For Account  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data For Account  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data For Account-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data For Account-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Login Data-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Cookies  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Cookies  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Cookies-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Cookies-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Device Bound Sessions  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Device Bound Sessions  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Device Bound Sessions-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Device Bound Sessions-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Network Persistent Statebb147eea-ca58-4a4c-8a61-10c8a9d8b5e5.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reports35b0347c-fde5-48b8-b450-cc2b8e155418.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\SCT Auditing Pending Reportsd19e9cc2-59e1-4ebf-9097-7f14a5631cb3.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Sdch Dictionaries60b63675-85cc-4370-8a15-6ea44c525362.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Trust Tokens  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Trust Tokens  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Trust Tokens-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Network\Trust Tokens-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferences3752a11a-c91a-4bcc-aac7-f3cee5de4886.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferences50d9116b-9f09-4bab-a10b-c151f6214f46.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferencesc030fbb5-004e-44fa-bb2f-6ba6d7d4e936.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Preferencescbd6d433-d545-4faf-9103-8f8d9786071f.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\README  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Secure Preferences5de03dd5-8f85-4d9b-9cc7-9a3d054839ee.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ServerCertificate  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ServerCertificate  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ServerCertificate-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\ServerCertificate-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\settings_diagnostic.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\cache\index-dir\temp-index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\db  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\db  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\db-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Shared Dictionary\db-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\shared_proto_db\metadata\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Site Characteristics Database\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\000001.dbtmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\000003.log  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\000003.log  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\LOG  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\LOG  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\MANIFEST-000001  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Sync Data\LevelDB\MANIFEST-000001  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Vpn Tokens  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Vpn Tokens  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Vpn Tokens-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Vpn Tokens-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Web Data  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Web Data  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Web Data-journal  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Default\Web Data-journal  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.json4d2feb30-7aaf-4c5f-9695-467cd2dd498d.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\extensions_crx_cache\metadata.jsonbc9ce7c4-e17e-41df-9ae1-0d4d3e1ae130.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_0  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_1  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_2  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\data_3  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\index  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\GrShaderCache\index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Last Version  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State22fd2993-e3b2-4de4-a983-ef234d82a5bc.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State53a573bc-0725-4ce3-bbf8-d5a1d894557f.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State716afb91-eda5-4275-a53b-7ee5b01b5d13.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local State7ad5f788-efe0-4c06-abae-a219308d54f3.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local Stateaeb05507-31fe-4410-aa9b-97631fce1701.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Local Stateffbb5d17-81e0-4444-8851-f516a50593be.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_0  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_1  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_2  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\data_3  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\index  FAST IO DISALLOWED
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\ShaderCache\index  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\SmartScreen\RemoteData\edgeSettings  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\SmartScreen\RemoteData\edgeSettings_2.0-0  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\Variations  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV23c1e953a-b7ff-4e09-a436-97be6ab6d923.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsRuntimeSeedV29706cea7-97ca-4764-b5b8-cb9867f82d3c.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV221fd8fb3-0b86-4a87-9f37-6c8ad66c9b5e.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSafeSeedV2f73cfd2c-317f-4755-a240-ef4cb301c8e4.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV26e9de74e-a5b2-49f7-8870-673480306213.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2a3b6ede7-8e2e-4205-8a4e-bd8d0ec22b10.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp\EBWebView\VariationsSeedV2e9a0bf50-b5c6-4cc4-bf39-ed04039c024b.tmp  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1058187411\manifest.json  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1058187411\protocols.json  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\_metadata\verified_contents.json  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\keys.json  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\LICENSE  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_1538622214\manifest.json  SUCCESS
+msedgewebview2.exe  WriteFile  C:\Windows\SystemTemp\msedge_chrome_Unpacker_BeginUnzipping1868_2106474160\manifest.json  SUCCESS
+powershell.exe  CreateFile  \Device\NamedPipe\srvsvc  SUCCESS
+powershell.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches  NAME COLLISION
+powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches\{AFBF9F1A-8EE8-4C77-AF34-C647E37CA0D9}.1.ver0x0000000000000000.db  NAME NOT FOUND
+powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-NonInteractive  SUCCESS
+powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_4cueyb3i.vpr.ps1  SUCCESS
+powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_jnip4xyy.syw.psm1  SUCCESS
+powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming  NAME COLLISION
+powershell.exe  CreateFile  C:\Users\runneradmin\Desktop\Pitbox.lnk  SUCCESS
+powershell.exe  CreateFile  C:\Windows\System32\CatRoot  NAME COLLISION
+powershell.exe  CreateFile  C:\Windows\System32\catroot2  NAME COLLISION
+powershell.exe  WriteFile  \Device\NamedPipe\srvsvc  SUCCESS
+powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-NonInteractive  SUCCESS
+powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_4cueyb3i.vpr.ps1  SUCCESS
+powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_jnip4xyy.syw.psm1  SUCCESS
+powershell.exe  WriteFile  C:\Users\runneradmin\Desktop\Pitbox.lnk  SUCCESS
+python.exe  CreateFile  \Device\NamedPipe  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Local\GPBMods  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Local\GPBMods\cache  PATH NOT FOUND
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Local\GPBMods\cache  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\f78xf0h7  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\tmpwg6mqesp  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming  NAME COLLISION
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods  NAME COLLISION
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\asistente_version.txt  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.482afsmf.tmp  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.55o6tm57.tmp  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.gvic_ntl.tmp  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.nwm26iy6.tmp  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.x6kj9_c9.tmp  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\gpbmods.log  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\integridad_cache.tmp  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\solo_activo.lock  SUCCESS
+python.exe  CreateFile  C:\Users\runneradmin\Desktop  NAME COLLISION
+python.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.482afsmf.tmp  SUCCESS
+python.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.55o6tm57.tmp  SUCCESS
+python.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.gvic_ntl.tmp  SUCCESS
+python.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.nwm26iy6.tmp  SUCCESS
+python.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.x6kj9_c9.tmp  SUCCESS
+python.exe  SetRenameInformationFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\integridad_cache.tmp  SUCCESS
+python.exe  WriteFile  \Device\NamedPipe  SUCCESS
+python.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.1868.3320.12404241515953722102  SUCCESS
+python.exe  WriteFile  \Device\NamedPipe\LOCAL\mojo.6900.9564.15149089679495452809  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\f78xf0h7  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\asistente_version.txt  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.482afsmf.tmp  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.55o6tm57.tmp  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.gvic_ntl.tmp  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.nwm26iy6.tmp  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\config.x6kj9_c9.tmp  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\gpbmods.log  FAST IO DISALLOWED
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\gpbmods.log  SUCCESS
+python.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\GPBMods\integridad_cache.tmp  SUCCESS
+tasklist.exe  WriteFile  \Device\NamedPipe  SUCCESS

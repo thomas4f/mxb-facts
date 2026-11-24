@@ -1,0 +1,2 @@
+$ for f in gpbmods_hud64.dlo asistente_reglaje64.dlo; do iat.py $f; done | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|SendInput|keybd_event|mouse_event|SetWindowsHookEx|CreateProcess|ShellExecute|WinExec|RegSetValue|RegCreateKey|RegOpenKey|WriteProcessMemory|ReadProcessMemory|OpenProcess|CreateRemoteThread|LoadLibrary|GetProcAddress|AddVectoredExceptionHandler|SetUnhandledExceptionFilter'
+(exit 1)

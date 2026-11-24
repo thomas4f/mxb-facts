@@ -509,7 +509,7 @@
     "author": "cristianboni22",
     "github": "cristianboni22/pitbox",
     "homepage": null,
-    "cards": [],
+    "cards": ["pitbox-3.0.4.yaml"],
     "gpb-mods": {
       "post": 5412,
       "tied_by": "github.com/cristianboni22/pitbox"

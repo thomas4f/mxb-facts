@@ -1,0 +1,36 @@
+$ sed -n '1,22p;614,625p' win/Pitbox/gpbmods/informe.py
+"""«Enviar informe de fallo»: junta los registros, los anonimiza, los enseña y (si el usuario confirma) los manda.
+
+Qué se junta (solo lo último de cada registro, nunca archivos enteros):
+  - el registro de Pitbox (``gpbmods.log`` en la carpeta de ajustes) y ``registro.txt`` (el del .bat «Si algo falla
+    (con registro)», junto al programa) si existe;
+  - el del asistente de reglaje (``<PiBoSo>/asistente_reglaje.log``) y el del HUD
+    (``<PiBoSo>/gpbmods_hud/gpbmods_hud.log``);
+  - la versión de Pitbox, el sistema (Windows o Linux y su versión), el idioma y si se encontró el juego;
+  - «Carpeta de mods» (``seccion_mods``): si está en OneDrive, cuántos archivos están solo en la nube, cuántas motos
+    hay enteras y cuáles a medias, lo que les falta (piloto, neumáticos) y lo que encontró la revisión automática
+    (revision_mods.py). Así un «no me salen las motos» llega con la causa;
+  - lo que el usuario quiera contar (opcional) y, si se abrió desde un error, el texto de ese error.
+
+Anonimización (``anonimizar``), siempre ANTES de enseñar nada: la carpeta personal pasa a «~», el nombre de usuario
+a «<usuario>», el nombre del PC a «<equipo>»; se quitan IPs, correos, ids de Steam y números largos, UUIDs (el id de
+instalación del ranking es una credencial), tokens («Bearer …», «token=…», cadenas aleatorias largas), los valores de
+las direcciones con «?clave=valor», SIDs de Windows, MACs y los nicks de tus amigos (avisos). Tu alias (del ranking y
+de tus perfiles del juego) también se quita, salvo que marques «incluir mi alias». Todo junto cabe en 60 KB.
+
+Nada se envía solo: ``preparar`` devuelve el informe y el texto exacto que se enseña; ``enviar`` manda ese mismo
+informe (sin volver a leer nada) a POST /v1/informe del servidor de Pitbox, que lo publica en el foro 🐞-fallos-bugs
+del Discord. El servidor vuelve a buscar secretos y rechaza el informe si encuentra alguno: ``quedan_secretos`` usa
+    """Manda el informe ya preparado (y enseñado). {"hilo", "enlace", "guardado"} o ErrorInforme."""
+    import requests
+
+    from . import conectividad, ranking_mundial
+
+    if quedan_secretos(textos_libres(datos)):
+        raise ErrorInforme(_t("El informe aún tiene algo que parece una clave o un dato personal. Vuelve a prepararlo."))
+    base = (url or ajustes.cargar().get("ranking_url") or ranking_mundial.URL_RANKING).strip().rstrip("/")
+    try:
+        r = requests.post(base + "/v1/informe", json=datos, timeout=TIMEOUT,
+                          headers={"User-Agent": ranking_mundial.USER_AGENT, "Accept": "application/json"})
+    except requests.RequestException as e:
+(exit 0)

@@ -1,0 +1,10 @@
+$ $H/imports_at.sh gpbmods_hud64.dlo VirtualProtect VirtualQuery DeleteFileA MoveFileExA CopyFileA
+VirtualProtect (import slot 0x180074c20): 1800213ca: 1800216b4: 180049c00: 
+VirtualQuery (import slot 0x180074c28): 180021652: 180049c10: 
+DeleteFileA (import slot 0x180074bb8): 18000161c: 1800017a3: 180049b40: 
+MoveFileExA (import slot 0x180074bf8): 1800015c5: 180001789: 180049b90: 
+CopyFileA (import slot 0x180074b98): 180001389: 180049b10: 
+"Unknown pseudo relocation protocol version %d." at 0x18006aeba, loaded by: 18002157e: 
+"Unknown pseudo relocation bit size %d." at 0x18006aeec, loaded by: 18002156e: 
+"%d bit pseudo relocation at %p out of range, targeting %p, yielding the value %p." at 0x18006af16, loaded by: 18002155b: 
+(exit 0)

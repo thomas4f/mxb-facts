@@ -1,0 +1,27 @@
+$ grep -nE 'subprocess\.(Popen|run)\(|popen=subprocess|OpenProcess\(|SendInput|keybd_event|WriteProcessMemory|ReadProcessMemory|CreateRemoteThread|SetWindowsHookEx|GetAsyncKeyState|RegisterHotKey' win/Pitbox/gpbmods_app.py win/Pitbox/gpbmods/*.py win/Pitbox/gpbmods/hosts/*.py
+win/Pitbox/gpbmods/actualizar.py:527:            subprocess.run([str(pip), "install", "-q", "-r", str(req)], timeout=600, capture_output=True)
+win/Pitbox/gpbmods/anadir.py:205:        proc = subprocess.run([str(sevenzip), "l", "-ba", "-slt", "-sccUTF-8", str(ruta)], capture_output=True, text=True,
+win/Pitbox/gpbmods/aplicar_windows.py:250:            h = k.OpenProcess(Windows.PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+win/Pitbox/gpbmods/aplicar_windows.py:308:        h = self.k.OpenProcess(self.SYNCHRONIZE, False, int(pid))
+win/Pitbox/gpbmods/aplicar_windows.py:332:            h = self.k.OpenProcess(self.PROCESS_QUERY_LIMITED_INFORMATION, False, pid)
+win/Pitbox/gpbmods/aplicar_windows.py:355:        h = self.k.OpenProcess(self.PROCESS_TERMINATE | self.SYNCHRONIZE | self.PROCESS_QUERY_LIMITED_INFORMATION,
+win/Pitbox/gpbmods/archive.py:78:    proc = subprocess.run([str(sevenzip), "l", "-slt", "-sccUTF-8", str(archive)], capture_output=True, text=True,
+win/Pitbox/gpbmods/archive.py:122:    proc = subprocess.run(
+win/Pitbox/gpbmods/game.py:33:        return subprocess.run(cmd, capture_output=True, text=True, encoding="oem" if _windows() else None,
+win/Pitbox/gpbmods/game.py:104:        subprocess.Popen(["notify-send", "-a", "Pitbox", title, body])
+win/Pitbox/gpbmods/game.py:160:    subprocess.Popen(cmd, **kwargs)
+win/Pitbox/gpbmods/instalacion.py:381:        out = subprocess.run(["xdg-user-dir", "DESKTOP"], capture_output=True, text=True, timeout=5).stdout.strip()
+win/Pitbox/gpbmods/instalacion.py:617:        subprocess.run(["powershell", "-NoProfile", "-Command", ps], env=env, capture_output=True, timeout=30,
+win/Pitbox/gpbmods/instalacion.py:631:        subprocess.run(["gio", "set", str(destino), "metadata::trusted", "true"], capture_output=True, timeout=10)
+win/Pitbox/gpbmods/pistas.py:190:def abrir(clave: str, paths, carpeta: Path | None = None, popen=subprocess.Popen, espera: float = ESPERA_ARRANQUE_S,
+win/Pitbox/gpbmods/plataforma.py:257:        r = subprocess.run(["xdg-user-dir", nombre], capture_output=True, text=True, timeout=5)
+win/Pitbox/gpbmods/publicar.py:362:            subprocess.Popen(["open", str(p)])
+win/Pitbox/gpbmods/publicar.py:364:            subprocess.Popen(["xdg-open", str(p)], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+win/Pitbox/gpbmods/sala_propia.py:788:def lanzar_cliente(paths, args: list[str], popen=subprocess.Popen) -> bool:
+win/Pitbox/gpbmods/sala_propia.py:1168:        h = k.OpenProcess(0x1000, False, int(pid))   # PROCESS_QUERY_LIMITED_INFORMATION
+win/Pitbox/gpbmods/sala_propia.py:1389:             popen=subprocess.Popen, upnp=None, aviso=None, esperar: bool = False) -> ProcesoSala:
+win/Pitbox/gpbmods/sala_propia.py:1963:def arrancar_solo(cfg: ConfigSala, paths=None, popen=subprocess.Popen, aviso=None) -> ProcesoSala:
+win/Pitbox/gpbmods/sala_propia.py:2185:def lanzar_vigilante(p: ProcesoSala, visto: bool = False, popen=subprocess.Popen) -> None:
+win/Pitbox/gpbmods/steam_cliente.py:144:        return subprocess.run(cmd, capture_output=True, text=True, errors="replace", timeout=10,
+win/Pitbox/gpbmods/steam_cliente.py:202:def _lanzar(cmd: list[str], popen=subprocess.Popen) -> None:
+(exit 0)

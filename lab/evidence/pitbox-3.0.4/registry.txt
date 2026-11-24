@@ -1,0 +1,41 @@
+$ grep -nE 'winreg|HKEY|CurrentVersion.Run|Startup|schtasks|RegSetValue|SetValueEx' win/Pitbox/gpbmods_app.py win/Pitbox/gpbmods/*.py win/Pitbox/gpbmods/hosts/*.py; sed -n '157,175p' win/Pitbox/gpbmods/steam_cliente.py; sed -n '238,250p' win/Pitbox/gpbmods/plataforma.py
+win/Pitbox/gpbmods/plataforma.py:242:        import winreg
+win/Pitbox/gpbmods/plataforma.py:244:        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Valve\Steam") as k:
+win/Pitbox/gpbmods/plataforma.py:245:            ruta = winreg.QueryValueEx(k, "SteamPath")[0]
+win/Pitbox/gpbmods/plataforma.py:247:                exe = winreg.QueryValueEx(k, "SteamExe")[0]
+win/Pitbox/gpbmods/steam_cliente.py:159:        import winreg
+win/Pitbox/gpbmods/steam_cliente.py:161:        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, clave) as k:
+win/Pitbox/gpbmods/steam_cliente.py:162:            return winreg.QueryValueEx(k, valor)[0]
+def _registro(clave: str, valor: str):
+    try:
+        import winreg
+
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, clave) as k:
+            return winreg.QueryValueEx(k, valor)[0]
+    except (ImportError, OSError):
+        return None
+
+
+def listo_windows(registro=_registro) -> bool:
+    """ActiveProcess\\pid ≠ 0: el cliente ya ha abierto su canal con los juegos."""
+    try:
+        return int(registro(r"Software\Valve\Steam\ActiveProcess", "pid") or 0) != 0
+    except (TypeError, ValueError):
+        return False
+
+
+def exe_windows(paths, registro=_registro) -> str:
+
+
+def _windows_registro_steam() -> tuple[Path | None, Path | None]:
+    try:
+        import winreg
+
+        with winreg.OpenKey(winreg.HKEY_CURRENT_USER, r"Software\Valve\Steam") as k:
+            ruta = winreg.QueryValueEx(k, "SteamPath")[0]
+            try:
+                exe = winreg.QueryValueEx(k, "SteamExe")[0]
+            except OSError:
+                exe = str(Path(ruta) / "steam.exe")
+        return Path(ruta), Path(exe)
+(exit 0)

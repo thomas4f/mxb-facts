@@ -1,0 +1,134 @@
+host: D:\a\_temp\mxbfacts\run-assistant-keys\gpbikes.exe
+GL: Mesa | llvmpipe (LLVM 23.1.5, 256 bits) | 4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+== host import table check (before plugins)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+loaded release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo (mod id 'gpbikes')
+loaded victim.dlo (mod id 'victim')
+Startup(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo) -> 0
+Startup(victim.dlo) -> -1
+== host import table check (after Startup)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+DrawInit(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo) -> 0, 0 sprites, 2 fonts
+  font asistente_reglaje/fuente.fnt
+  font asistente_reglaje/fuente_fija.fnt
+Draw(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo): 0 quads, 0 strings
+Draw(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo): 8 quads, 14 strings
+  string "SETUP ASSISTANT" at 0.304,0.108
+  string "KTM 450 SX-F · Test Track" at 0.304,0.138
+  string "Edit setup" at 0.308,0.172
+  string "not available" at 0.698,0.176
+  string "Based on my data" at 0.308,0.206
+  string "no laps" at 0.698,0.210
+  string "What do you feel on the bike?" at 0.308,0.240
+  string "My lap data" at 0.308,0.282
+  string "0 laps" at 0.698,0.286
+  string "Compare with the previous setup" at 0.308,0.316
+  string "How it works" at 0.308,0.350
+  string "Delete my data" at 0.308,0.392
+  string "Arrows: choose · Right: enter · Ctrl+arrows: move" at 0.302,0.438
+  string "F8 close" at 0.698,0.438
+Draw(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo): 4 quads, 5 strings
+  string "BASED ON MY DATA" at 0.304,0.108
+  string "Measured over your last 0 laps · KTM 450 SX-F" at 0.304,0.138
+  string "No data yet." at 0.302,0.172
+  string "Do 2 or 3 full laps and come back here." at 0.302,0.202
+  string "Left: back" at 0.698,0.250
+Draw(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo): 8 quads, 14 strings
+  string "SETUP ASSISTANT" at 0.304,0.108
+  string "KTM 450 SX-F · Test Track" at 0.304,0.138
+  string "Edit setup" at 0.308,0.172
+  string "not available" at 0.698,0.176
+  string "Based on my data" at 0.308,0.206
+  string "no laps" at 0.698,0.210
+  string "What do you feel on the bike?" at 0.308,0.240
+  string "My lap data" at 0.308,0.282
+  string "0 laps" at 0.698,0.286
+  string "Compare with the previous setup" at 0.308,0.316
+  string "How it works" at 0.308,0.350
+  string "Delete my data" at 0.308,0.392
+  string "Arrows: choose · Right: enter · Ctrl+arrows: move" at 0.302,0.438
+  string "F8 close" at 0.698,0.438
+Draw(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo): 0 quads, 0 strings
+direct HUD draw saw viewport 0,0 1280x720, draw FBO 0
+frames 800, avg 15.78 ms, worst 85.27 ms
+== host import table check (after frames)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+== bystander plugin (victim.dlo) import table
+  import glOrtho    untouched
+  import glBegin    untouched
+  import glViewport untouched
+== bystander plugin (victim.dlo) pointer table
+  glOrtho          untouched
+  glFrustum        untouched
+  glLoadIdentity   untouched
+  glDrawElements   untouched
+  glViewport       untouched
+  glScissor        untouched
+  glReadPixels     untouched
+  glBegin          untouched
+FreeLibrary victim.dlo
+FreeLibrary release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo
+== host import table check (after unload)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+host: clean exit
+exit=0

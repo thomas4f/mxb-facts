@@ -1,0 +1,63 @@
+$ sed -n '1,61p' win/Pitbox/gpbmods/acceso.py
+"""Acceso obligatorio a Pitbox: hay que cumplir cuatro pasos para poder usar nada más.
+
+1. Entrar con **Steam** (ranking_mundial.steam_iniciar…).
+2. Tener el **Discord vinculado** (botón «Vincular con Discord»: OAuth2; o el código de /vincular) y seguir en el servidor.
+3. **Participar en los récords**: alias, en el ranking público y participando en este PC (ranking_activo).
+4. Compartir la **telemetría** de las mejores vueltas.
+
+Lo dice el servidor (GET /v1/acceso, ranking-mundial/src/acceso.ts), que también comprueba con el bot si sigues en el
+servidor de Discord (con caché de 24 h). Mientras falte algo, la página enseña la pantalla de acceso en vez de Pitbox
+(solo quedan Cuenta, Comunidad, el idioma y «Salir de Pitbox»).
+
+Sin bloquear a nadie por accidente: la última comprobación buena se guarda aquí (ajuste «acceso_ultimo»: la fecha y
+una huella SHA-256 de la sesión de Steam, nunca la sesión). Si luego no se llega al servidor (sin internet, el bloqueo
+de LaLiga a Cloudflare, el servidor caído o saturado) o Discord no se puede consultar, Pitbox sigue abierto con un
+aviso durante GRACIA_S (7 días) desde esa comprobación. Solo vale para la misma sesión de Steam. Una respuesta del
+servidor que diga que falta algo (te has salido del Discord, has desvinculado, has borrado tus datos…) la borra y
+apunta ese «no» (ajuste «acceso_no»: fecha y huella): se bloquea al momento y ninguna comprobación anterior a ese «no»
+(p. ej. una que estaba en marcha a la vez y dijo «sí») devuelve la gracia.
+
+Un verificado que está en privado: el servidor responde «migrar» (y nunca lo cambia en el GET); aquí se deja
+«ranking_publico» en False para que el «Participar» del paso 3 mande el POST que lo pasa a público (el servidor
+apunta la fecha). La fecha del consentimiento de la telemetría se copia del servidor; si no la dice, no se apunta.
+Otros ajustes: «acceso_aviso_migrado» (de versiones anteriores; se dice en «Novedades»).
+"""
+from __future__ import annotations
+
+import hashlib
+import time
+
+from . import ajustes, comunidad, conectividad
+from . import ranking_mundial as rm
+from .i18n import N_, t as _t
+
+GRACIA_S = 7 * 86400
+MARGEN_RELOJ_S = 300           # una comprobación «del futuro» (reloj cambiado) no vale
+CLAVE = "acceso_ultimo"
+CLAVE_NO = "acceso_no"         # el último «no» definitivo del servidor: {huella, momento}
+PASOS = ("steam", "discord", "ranking", "telemetria")
+
+TEXTO_PUBLICO = N_("Lo que se ve públicamente dentro de Pitbox y en su Discord: tu alias, tu país, tu foto de perfil, "
+                   "tus tiempos por vuelta (circuito y moto) y la telemetría de tus mejores vueltas.")
+TEXTO_OBLIGATORIO = N_("Participar en los récords mundiales y compartir tu telemetría es obligatorio para usar Pitbox, "
+                       "igual que entrar con Steam y estar en el Discord de Pitbox con tu cuenta vinculada.")
+TEXTO_BORRAR = N_("Puedes borrar todo cuando quieras con «Borrar mis datos»: se borran del servidor tu alias, tus "
+                  "vueltas, tu telemetría y tu foto, y se desvincula tu Discord. Después Pitbox se vuelve a bloquear "
+                  "hasta que completes otra vez los pasos.")
+TEXTO_STEAM = N_("De Steam no se guarda nada: ni tu ID, ni tu nombre, ni tu foto. Solo una huella cifrada (HMAC) para "
+                 "reconocerte en otro PC.")
+TEXTO_TELEMETRIA = N_("Se comparte la telemetría completa de tus mejores vueltas: todos los datos de la moto que graba el "
+                      "asistente (velocidad, mandos, motor, suspensiones, ruedas y neumáticos, chasis, electrónica y tu "
+                      "trazada) para que otros pilotos puedan compararse contigo. No lleva ningún dato personal ni de tu "
+                      "PC. Es obligatorio para usar Pitbox: para dejar de compartirla hay que borrar tus datos.")
+SIN_DISCORD = N_("Vincula tu Discord: pulsa «Vincular con Discord» y autoriza en el navegador.")
+FUERA_DISCORD = N_("Ya no estás en el servidor de Discord de Pitbox. Vuelve a unirte para seguir usando Pitbox.")
+DISCORD_SIN_COMPROBAR = N_("Ahora mismo no se puede comprobar si sigues en el Discord de Pitbox. Vuelve a intentarlo en "
+                           "unos minutos.")
+VETADO = N_("Tu participación en el ranking está suspendida, así que no puedes usar Pitbox. Si crees que es un error, "
+            "escríbenos en el Discord de Pitbox.")
+OBLIGATORIO_NO = N_("Salir en el ranking público y compartir tu telemetría es obligatorio para usar Pitbox. Si no "
+                    "quieres participar, borra tus datos en Cuenta.")
+
+(exit 0)

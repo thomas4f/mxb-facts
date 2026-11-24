@@ -1,0 +1,216 @@
+msedgewebview2.exe  RegCreateKey  HKCU\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeUpdate\ClientState\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\BLBeacon  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\PreferenceMACs\Default  NAME NOT FOUND
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\PreferenceMACs\Default  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\StabilityMetrics  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\IdentityCRL\Immersive\production\Property  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Network\Location Awareness  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\ClosedCaptioning  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Connections  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\DevicePolicy\AllowTelemetry  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Edition\DevicePolicy\AllowTelemetry  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store\AllowTelemetry  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\DataCollection  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\Windows\DataCollection  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EdgeUpdate\ClientStateMedium\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Control\Class\{4D36E96E-E325-11CE-BFC1-08002BE10318}\0000  REPARSE
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Control\Class\{4D36E96E-E325-11CE-BFC1-08002BE10318}\0000  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+msedgewebview2.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings  NAME NOT FOUND
+msedgewebview2.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\schedule_to_flush_to_disk  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeUpdate\ClientState\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\dr  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeUpdate\ClientState\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\lastrun  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\BLBeacon\failed_count  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\BLBeacon\state  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\BLBeacon\version  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\browser.show_home_button  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\default_search_provider_data.template_url_data  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\edge.services.account_id  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\edge.services.last_username  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\enterprise_signin.policy_recovery_token  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.install.initiallist  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.install.initialprovidername  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings\dgiklkfkllikcanfonkcabmbdfmgleag  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings\mhjfbmdgcfjbbpaeojofohoefgiehjai  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.ui.developer_mode  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\google.services.last_signed_in_username  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\homepage  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\homepage_is_newtabpage  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\media.cdm.origin_data  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\media.storage_id_salt  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\pinned_tabs  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\prefs.preference_reset_time  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\safebrowsing.incidents_sent  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\schedule_to_flush_to_disk  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\search_provider_overrides  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\session.restore_on_startup  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\session.startup_urls  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\StabilityMetrics\user_experience_metrics.stability.exited_cleanly  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\UsageStatsInSample  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Property\0018801AE665180E  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}\ApplicationFlags  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}\DeviceId  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}\DeviceTicket  SUCCESS
+msedgewebview2.exe  RegSetValue  HKLM\SOFTWARE\Wow6432Node\Microsoft\EdgeUpdate\ClientStateMedium\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\urlstats  SUCCESS
+msedgewebview2.exe  RegSetValue  HKLM\SOFTWARE\Wow6432Node\Microsoft\EdgeUpdate\ClientStateMedium\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\usagestats  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Classes\Local Settings\MuiCache\1b4  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E  NAME NOT FOUND
+powershell.exe  RegCreateKey  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E  REPARSE
+powershell.exe  RegCreateKey  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\SmartCardRoot  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\AuthRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\FlightRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\SmartCardRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\TestSignRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Desktop\NameSpace\DelegateFolders  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegDeleteKey  HKCU\Software\Classes\Local Settings\MuiCache\1a8  SUCCESS
+powershell.exe  RegDeleteKey  HKCU\Software\Classes\Local Settings\MuiCache\1a8\52C64B7E  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\System32\ci.dll,-100  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\System32\ci.dll,-101  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\system32\dnsapi.dll,-103  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\System32\fveui.dll,-843  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\System32\fveui.dll,-844  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\system32\NgcRecovery.dll,-100  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe,-124  SUCCESS
+powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\System32\wuaueng.dll,-400  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+powershell.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC3475  SUCCESS
+python.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS
+python.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+python.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+python.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-pitbox-app\release\Pitbox-Windows-3.0.4.zip\Pitbox\python\python.exe  SUCCESS
+tasklist.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS

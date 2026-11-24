@@ -1,0 +1,71 @@
+$ sed -n '1,24p;174,181p' win/Pitbox/gpbmods/amigos.py; echo '== webapp.py'; sed -n '2736,2771p' win/Pitbox/gpbmods/webapp.py
+"""Amigos de Pitbox: el cliente de /v1/amigos del servidor del ranking (ranking-mundial/src/amigos.ts).
+
+- Solo con la sesión de Steam de «Cuenta» (la misma que el ranking). Steam es solo quién eres detrás de tu alias: no se
+  importan amigos de Steam, no se usa la Web API de Steam ni se enlazan perfiles de Steam. Cada piloto es su id
+  público del ranking (18 hex) y su alias.
+- Buscar por el principio del alias, mandar, cancelar, aceptar y rechazar solicitudes, quitar y bloquear.
+- Presencia: cada `PRESENCIA_CADA_S` Pitbox manda un latido (en línea y, si quieres, en qué sala estás); caduca sola
+  en el servidor a los 10 min. Solo la ven tus amigos aceptados.
+- Ajustes locales (config.json): «Mostrar a mis amigos en qué sala estoy» (`amigos_mostrar_sala`, por defecto sí) y
+  «Aparecer desconectado» (`amigos_desconectado`, por defecto no). «Que me puedan encontrar» se guarda en el servidor.
+
+`sala_para_presencia` decide qué sala decir: la que has abierto desde Pitbox (mientras el juego siga abierto) o, si
+no, la de la lista de salas donde sale tu nick (el del perfil del juego o tu alias).
+"""
+from __future__ import annotations
+
+import re
+import time
+from typing import Callable
+
+from . import ajustes, ranking_mundial as rm
+from .i18n import N_, t as _t
+
+PRESENCIA_CADA_S = 180          # latido y lista de amigos cada 3 min (el servidor la da por caducada a los 10)
+def latido(en_linea: bool, sala: str = "", enlace: str = "") -> None:
+    url, sesion = _sesion()
+    cuerpo: dict = {"en_linea": bool(en_linea)}
+    if en_linea and sala:
+        cuerpo["sala"] = sala[:100]
+        if _enlace(enlace):
+            cuerpo["enlace"] = enlace
+    rm._json_ok(rm._peticion("POST", url, "/v1/amigos/presencia", cuerpo, sesion=sesion))
+== webapp.py
+    def _presencia(self) -> tuple:
+        """(en_linea, sala, enlace) que hay que decir ahora según los ajustes."""
+        cfg = amigos.config()
+        if cfg["desconectado"]:
+            return (False, "", "")
+        if not cfg["mostrar_sala"]:
+            return (True, "", "")
+        vig = self._vigilante
+        try:
+            sala, enlace = amigos.sala_para_presencia(
+                self._unido, game.is_running(), self._salas(),
+                vig.pilotos_conocidos if vig is not None else (lambda s: None), self._mis_nicks())
+        except Exception:   # noqa: BLE001
+            sala, enlace = "", ""
+        return (True, sala, enlace)
+
+    def _refrescar_amigos(self, latido: bool = True) -> None:
+        """Latido de presencia (si tienes amigos) y lista de amigos. Sin Steam o sin alias, nada (sin red)."""
+        disp = amigos.disponible()
+        if not (disp["steam"] and disp["alias"]):
+            cambio = self._amigos is not None
+            self._amigos, self._amigos_error, self._amigos_latido = None, "", None
+            if cambio:
+                self._amigos_cambiaron()
+            return
+        try:
+            self._amigos = amigos.lista()
+            self._amigos_error, self._amigos_hora = "", time.time()
+            # Latido solo si tienes amigos (nadie más lo puede ver). «Desconectado» se manda una vez (borra la
+            # presencia); en línea, en cada vuelta (si no, caduca sola a los 10 min).
+            if latido and self._amigos["amigos"]:
+                pres = self._presencia()
+                with self._latido_lock:
+                    if not self._amigos_cerrando and (pres[0] or self._amigos_latido != pres):
+                        amigos.latido(*pres)
+                        self._amigos_latido = pres
+(exit 0)

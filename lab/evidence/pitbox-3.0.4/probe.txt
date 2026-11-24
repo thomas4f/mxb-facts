@@ -1,0 +1,26 @@
+$ sed -n '1,10p;30,31p;47,54p' win/Pitbox/gpbmods/conectividad.py; echo '== servers.py'; sed -n '17p' win/Pitbox/gpbmods/servers.py; echo '== catalog.py'; sed -n '15p' win/Pitbox/gpbmods/catalog.py
+"""¿Llega Pitbox a su servidor? Distingue «no hay internet» de «tu conexión bloquea el servidor de Pitbox».
+
+Durante los partidos de LaLiga algunas operadoras españolas bloquean IP de Cloudflare, donde está el Worker
+(ranking, reglajes compartidos, subida de vueltas, actualizaciones): conectar con él da tiempo agotado o conexión
+rechazada mientras el resto de internet funciona. Cuando una petición al Worker falla así, se prueba un sitio que
+NO está en Cloudflare (SONDA, GitHub, 3 s; el resultado vale 2 min):
+  - la sonda responde → «bloqueado»: el aviso explica el bloqueo y qué hacer (esperar, datos del móvil, WARP);
+  - la sonda tampoco → «sin_conexion»: el mensaje de siempre («Comprueba la conexión a internet»).
+Un 4xx/5xx o una respuesta lenta (ReadTimeout) NO cuentan: el servidor sí ha contestado.
+Cualquier respuesta buena del Worker vuelve a «ok». La página se entera con el evento «conexion» (al_cambiar).
+SONDA = "https://api.github.com/zen"   # fuera de Cloudflare; responde rápido y sin datos de nadie
+TIMEOUT_SONDA = 3.0
+def _sondear() -> bool:
+    try:
+        r = requests.get(SONDA, timeout=TIMEOUT_SONDA, allow_redirects=False,
+                         headers={"User-Agent": "Pitbox", "Accept": "text/plain"})
+        r.close()
+        return True   # cualquier respuesta (también 403 por límite de peticiones) es que hay internet
+    except requests.RequestException:
+        return False
+== servers.py
+SERVERS_URL = "https://stats.gp-bikes.com/servers.php"
+== catalog.py
+API = "https://gpb-mods.com/wp-json/wp/v2/posts"
+(exit 0)

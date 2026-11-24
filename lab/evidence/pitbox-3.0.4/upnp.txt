@@ -1,0 +1,22 @@
+$ grep -n -i 'upnp' win/Pitbox/gpbmods/sala_propia.py | head -20
+11:internet: hay que abrir el puerto (UDP) en el router, a mano o con UPnP (`abrir_puerto_upnp`).
+37:    abrir_puerto_upnp(puerto) -> MapeoUPnP ;  cerrar_puerto_upnp(mapeo)
+41:Errores: SalaError (mensaje listo para enseñar). UPnPError es una SalaError.
+111:class UPnPError(SalaError):
+162:    upnp: bool = True                    # intentar abrir el puerto en el router al arrancar
+845:# ---------- UPnP IGD (abrir el puerto en el router) ----------
+849:    "urn:schemas-upnp-org:device:InternetGatewayDevice:1",
+850:    "urn:schemas-upnp-org:device:InternetGatewayDevice:2",
+851:    "urn:schemas-upnp-org:service:WANIPConnection:1",
+852:    "urn:schemas-upnp-org:service:WANPPPConnection:1",
+855:SIN_UPNP = N_("Tu router no ha respondido a UPnP (puede que lo tenga desactivado). Abre a mano el puerto {puerto} "
+860:class MapeoUPnP:
+881:    """URLs (LOCATION) de las puertas de enlace UPnP que contestan en la red local. Solo se aceptan URLs de la red
+931:    """XML del router: sin DOCTYPE (ni entidades), que no le hace falta a UPnP."""
+933:        raise UPnPError(_t("El router ha enviado una respuesta UPnP no válida."))
+958:    raise UPnPError(_t("El router tiene UPnP, pero no deja abrir puertos (no ofrece WANIPConnection)."))
+970:    except urllib.error.HTTPError as e:   # los errores UPnP vienen como HTTP 500 con <errorCode>
+976:        raise UPnPError(_error_upnp(int(codigo.group(1)) if codigo else e.code)) from None
+978:        raise UPnPError(_t("El router no responde a UPnP ({error}).", error=e)) from None
+982:        raise UPnPError(_t("El router ha enviado una respuesta UPnP no válida.")) from None
+(exit 0)

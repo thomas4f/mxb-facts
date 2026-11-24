@@ -1,0 +1,148 @@
+$ grep -nE 'rmtree|\.unlink\(|os\.remove|send2trash' win/Pitbox/gpbmods/*.py; echo '== mis_mods.py'; sed -n '1,22p;49p;488,500p' win/Pitbox/gpbmods/mis_mods.py; echo '== mods_al_dia.py'; sed -n '1,30p' win/Pitbox/gpbmods/mods_al_dia.py
+win/Pitbox/gpbmods/actualizar.py:301:            destino.unlink(missing_ok=True)
+win/Pitbox/gpbmods/actualizar.py:304:            destino.unlink(missing_ok=True)
+win/Pitbox/gpbmods/actualizar.py:307:            destino.unlink(missing_ok=True)
+win/Pitbox/gpbmods/actualizar.py:311:        destino.unlink(missing_ok=True)
+win/Pitbox/gpbmods/actualizar.py:440:        shutil.rmtree(anterior)
+win/Pitbox/gpbmods/actualizar.py:501:            (carpeta / viejo).unlink(missing_ok=True)
+win/Pitbox/gpbmods/actualizar.py:523:    shutil.rmtree(trabajo, ignore_errors=True)
+win/Pitbox/gpbmods/actualizar.py:567:        shutil.rmtree(trabajo, ignore_errors=True)
+win/Pitbox/gpbmods/actualizar.py:577:        archivo.unlink()
+win/Pitbox/gpbmods/actualizar.py:580:        shutil.rmtree(trabajo, ignore_errors=True)
+win/Pitbox/gpbmods/actualizar.py:591:        shutil.rmtree(trabajo, ignore_errors=True)
+win/Pitbox/gpbmods/actualizar.py:594:        shutil.rmtree(trabajo, ignore_errors=True)
+win/Pitbox/gpbmods/actualizar.py:671:        lanzado.unlink(missing_ok=True)
+win/Pitbox/gpbmods/actualizar.py:686:            reg.unlink()
+win/Pitbox/gpbmods/actualizar.py:708:    shutil.rmtree(inst / ".anterior", ignore_errors=True)
+win/Pitbox/gpbmods/actualizar.py:719:                shutil.rmtree(h, ignore_errors=True)
+win/Pitbox/gpbmods/actualizar.py:721:                h.unlink()
+win/Pitbox/gpbmods/ajustes.py:139:                os.unlink(tmp)
+win/Pitbox/gpbmods/aplicar_windows.py:460:        en_curso.unlink()
+win/Pitbox/gpbmods/avisos.py:792:                os.unlink(tmp)
+win/Pitbox/gpbmods/avisos.py:818:                self.ruta.unlink()
+win/Pitbox/gpbmods/ficheros.py:3:En Windows, rmtree/unlink fallan con «Acceso denegado» si un archivo tiene el atributo de solo lectura (muchos mods
+win/Pitbox/gpbmods/ficheros.py:72:def _rmtree(p, onexc) -> None:
+win/Pitbox/gpbmods/ficheros.py:74:        shutil.rmtree(p, onexc=onexc)
+win/Pitbox/gpbmods/ficheros.py:76:        shutil.rmtree(p, onerror=onexc)
+win/Pitbox/gpbmods/ficheros.py:80:    """Para rmtree(onexc=…): quita el solo lectura y reintenta lo que falló, una vez.
+win/Pitbox/gpbmods/ficheros.py:89:    if not isinstance(exc, BaseException):   # pragma: no cover (rmtree siempre pasa el error)
+win/Pitbox/gpbmods/ficheros.py:92:    if funcion in (os.unlink, os.remove, os.rmdir):
+win/Pitbox/gpbmods/ficheros.py:100:            _rmtree(ruta, lambda f, r, e: quitar_solo_lectura(f, r, e, vistos))
+win/Pitbox/gpbmods/ficheros.py:117:        _rmtree(p, quitar_solo_lectura)
+win/Pitbox/gpbmods/ficheros.py:120:            p.unlink()
+win/Pitbox/gpbmods/ficheros.py:123:            p.unlink()
+win/Pitbox/gpbmods/ficheros.py:212:def desbloquear(carpeta: Path, quitar=os.remove) -> int:
+win/Pitbox/gpbmods/graficos.py:270:    c.unlink()
+win/Pitbox/gpbmods/imagenes.py:275:        destino.unlink(missing_ok=True)
+win/Pitbox/gpbmods/imagenes.py:278:        destino.unlink(missing_ok=True)
+win/Pitbox/gpbmods/imagenes.py:281:        destino.unlink(missing_ok=True)
+win/Pitbox/gpbmods/imagenes.py:298:        f.unlink(missing_ok=True)
+win/Pitbox/gpbmods/imagenes.py:355:        tmp.unlink(missing_ok=True)
+win/Pitbox/gpbmods/instalacion.py:146:                g.unlink()
+win/Pitbox/gpbmods/instalacion.py:283:                f.unlink()
+win/Pitbox/gpbmods/instalacion.py:540:        prueba.unlink()
+win/Pitbox/gpbmods/instalacion.py:593:        viejo.unlink(missing_ok=True)
+win/Pitbox/gpbmods/instalacion.py:704:                viejo.unlink(missing_ok=True)
+win/Pitbox/gpbmods/integridad.py:109:        viejo.unlink(missing_ok=True)
+win/Pitbox/gpbmods/integridad.py:191:        _ruta_cache().unlink(missing_ok=True)
+win/Pitbox/gpbmods/limites.py:732:            ruta.unlink()
+win/Pitbox/gpbmods/mis_mods.py:16:Borrar = mover a la papelera del sistema si está `send2trash` (opcional, no va en los paquetes) o, si no,
+win/Pitbox/gpbmods/mis_mods.py:520:    """La función send2trash si está instalada (opcional); None si no."""
+win/Pitbox/gpbmods/mis_mods.py:522:        from send2trash import send2trash   # type: ignore
+win/Pitbox/gpbmods/mis_mods.py:525:    return send2trash
+win/Pitbox/gpbmods/mis_mods.py:693:        _borrar_sin_errores(d)              # rmtree no entra en los enlaces ni en las uniones: los quita
+win/Pitbox/gpbmods/mods_al_dia.py:359:            self.diario.unlink()
+win/Pitbox/gpbmods/mods_al_dia.py:367:        Path(m).unlink(missing_ok=True)
+win/Pitbox/gpbmods/mods_al_dia.py:381:    diario.unlink(missing_ok=True)
+win/Pitbox/gpbmods/mods_al_dia.py:498:        (archivada / MANIFIESTO).unlink()
+win/Pitbox/gpbmods/mods_al_dia.py:569:        (paths.cache_dir / CACHE).unlink()
+win/Pitbox/gpbmods/mods_al_dia.py:726:        (carpeta / MANIFIESTO).unlink(missing_ok=True)
+win/Pitbox/gpbmods/mods_pitbox.py:344:            viejo.unlink(missing_ok=True)
+win/Pitbox/gpbmods/mods_pitbox.py:530:            Path(a).unlink(missing_ok=True) if Path(a).is_file() else None
+win/Pitbox/gpbmods/mods_pitbox.py:534:        f.unlink(missing_ok=True)
+win/Pitbox/gpbmods/mods_pitbox.py:546:        f.unlink(missing_ok=True)
+win/Pitbox/gpbmods/mods_pitbox.py:606:        shutil.rmtree(f.parent, ignore_errors=True) if f.parent.name.startswith("mod-") else f.unlink(missing_ok=True)
+win/Pitbox/gpbmods/pinturas.py:443:        shutil.rmtree(raiz)
+win/Pitbox/gpbmods/publicar.py:180:        tmp.unlink(missing_ok=True)
+win/Pitbox/gpbmods/publicar.py:339:                f.unlink(missing_ok=True)
+win/Pitbox/gpbmods/ranking_mundial.py:1387:            viejo.unlink(missing_ok=True)
+win/Pitbox/gpbmods/ranking_mundial.py:1406:            viejo.unlink(missing_ok=True)
+win/Pitbox/gpbmods/reglajes.py:135:        os.unlink(origen)
+win/Pitbox/gpbmods/sala_propia.py:481:        _archivo_plantilla(nombre).unlink()
+win/Pitbox/gpbmods/sala_propia.py:713:            enlace.unlink()
+win/Pitbox/gpbmods/sala_propia.py:1204:            ruta.unlink()
+win/Pitbox/gpbmods/sala_propia.py:1368:        (Path(cwd) / log).unlink()
+win/Pitbox/gpbmods/sala_propia.py:1972:        (Path(paths.game_dir) / SOLO_LOG).unlink()
+win/Pitbox/gpbmods/servers.py:364:            os.unlink(tmp)
+win/Pitbox/gpbmods/vueltas.py:467:                    ruta.unlink()
+win/Pitbox/gpbmods/vueltas.py:479:                ruta.unlink()
+win/Pitbox/gpbmods/webapp.py:3679:            viejo.unlink(missing_ok=True)   # el paquete anterior de este borrador (con otro nombre)
+== mis_mods.py
+"""Mis mods: todo lo que hay instalado, cuánto ocupa, y borrarlo (con vuelta atrás) para liberar espacio.
+
+Qué se lista (solo lectura; nada fuera de estas cuatro carpetas se toca nunca):
+
+    raíz «mods»       la carpeta de mods del juego: tracks/, bikes/, tyres/, rider/{riders,helmets,animations}/, misc/…
+                      y las copias «*.gpbmods-bak-*» que quedaron de una instalación cortada
+    raíz «versiones»  <mods>/../GPBMods_versiones/<clave>/<versión>/ (las versiones guardadas de «Mods al día»)
+    raíz «copias»     <caché>/copias/<fecha>/ (lo que Pitbox reemplazó fichero a fichero al instalar)
+    raíz «papelera»   <mods>/../Eliminados de Pitbox/ (lo borrado desde aquí, para poder recuperarlo)
+
+Cada elemento lleva un id «<raíz>:<ruta relativa>»; borrar solo acepta ids de la última lista y vuelve a
+comprobar la ruta: nada de «..», ni rutas absolutas, ni enlaces simbólicos por el camino (el propio
+elemento sí puede ser un enlace: se mueve el enlace, nunca lo enlazado), ni los plugins de Pitbox, ni
+el contenido del propio juego, ni con GP Bikes abierto (tiene los ficheros en uso).
+
+Borrar = mover a la papelera del sistema si está `send2trash` (opcional, no va en los paquetes) o, si no,
+a «Eliminados de Pitbox», junto a la carpeta de mods (mismo disco: es instantáneo) con un
+«eliminado.json» que dice de dónde vino, para «Recuperar». El espacio se libera al «Vaciar».
+
+Los tamaños se calculan en un hilo (sin seguir enlaces) y se guardan en <caché>/mis_mods_tamanos.json
+con una firma (fecha de la carpeta y de sus subcarpetas directas) para no recorrer el disco cada vez.
+"""
+PROTEGIDOS = {"asistente_reglaje64.dlo", "asistente_reglaje", "gpbmods_hud64.dlo", "gpbmods_hud", "plugins"}
+    padre_real, raiz_real = _norm(ruta.parent), _norm(raiz)
+    if not _dentro(padre_real, raiz_real):
+        raise MisModsError(_t("«{nombre}» está fuera de la carpeta de mods: no se toca.", nombre=ruta.name))
+    juego = getattr(paths, "game_dir", None) if paths is not None else None
+    if juego and str(juego) not in ("", "."):
+        juego_real = _norm(juego)
+        if padre_real == juego_real or _dentro(padre_real, os.path.join(juego_real, "plugins")) \
+                or ruta.name.casefold() in DEL_JUEGO and _dentro(padre_real, juego_real):
+            raise MisModsError(_t("«{nombre}» es parte del propio juego: no se borra.", nombre=ruta.name))
+
+
+def _parsear_id(id_: str) -> tuple[str, str]:
+    raiz, sep, rel = str(id_ or "").partition(":")
+== mods_al_dia.py
+"""Mods al día: avisa de versiones nuevas en gpb-mods.com y las instala SIN perder la anterior.
+
+Por qué guardar la anterior: muchas salas online siguen pidiendo la versión vieja de un circuito o
+de un pack de motos. Los circuitos suelen llevar la versión en el nombre de la carpeta
+(«Misano Circuit v1.0» y «Misano Circuit v1.1» conviven en tracks/), pero los packs de motos usan
+los MISMOS nombres de carpeta entre versiones (bikes/Moto3_2026_KTM_RC250GP; la versión solo va en
+`cat=` del .ini), así que no caben a la vez en la carpeta de mods.
+
+Archivo de versiones (junto a la carpeta de mods, fuera de ella para que el juego no lo cargue)::
+
+    <mods>/../GPBMods_versiones/
+        instalados.json                     qué instaló esta función (post de gpb-mods.com y versión)
+        .operacion.json                     diario de una operación a medias (solo si se cortó)
+        <clave>/<versión>/manifiesto.json   qué rutas eran ("bikes/Moto3_2026_KTM_RC250GP", …)
+        <clave>/<versión>/bikes/…           los ficheros, con la misma estructura que en mods
+
+API para la interfaz (todas las funciones que tocan disco lanzan `JuegoAbierto` con GP Bikes abierto
+y `ModsAlDiaError` con un mensaje en español listo para mostrar):
+
+    buscar(paths, refrescar=False) -> list[Actualizacion]
+        Mods instalados con versión nueva en gpb-mods.com. Sin red si el índice está en caché (24 h).
+    instalar(paths, act, engine, answers=None) -> engine.Result
+        Mismo protocolo que Engine.install: si devuelve "needs_answer" (navegador, confirmar descarga…)
+        se vuelve a llamar con `question.payload | {respuesta}` en `answers`. La pregunta "overwrite"
+        nunca llega a la interfaz: aquí se responde archivando la versión vieja.
+    versiones_guardadas(paths) -> list[VersionGuardada]
+    activar_version(paths, nombre, version) -> str        (mensaje para mostrar)
+    version_necesaria(sala, paths=None) -> (clave, version) | None
+    versiones_necesarias(sala, paths=None) -> list[(clave, version)]
+    reparar(paths) -> bool        (deshace una operación cortada a medias; se llama sola)
+(exit 0)

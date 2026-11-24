@@ -1,0 +1,11 @@
+$ $H/imports_at.sh asistente_reglaje64.dlo VirtualProtect VirtualQuery DeleteFileA MoveFileExA RemoveDirectoryA remove
+VirtualProtect (import slot 0x1800f4da8): 180020bfa: 180020ee4: 1800483d0: 
+VirtualQuery (import slot 0x1800f4db0): 180020e82: 1800483e0: 
+DeleteFileA (import slot 0x1800f4d10): 1800016db: 1800018fa: 18000193f: 180001954: 1800022b4: 180002d95: 180004153: 1800048e2: 1800482b0: 
+MoveFileExA (import slot 0x1800f4d88): 1800018e1: 1800048d3: 1800052e0: 180048370: 
+RemoveDirectoryA (import slot 0x1800f4d90): 1800021cc: 180048380: 
+remove (import slot 0x1800f4b68): 180048050: 
+"Unknown pseudo relocation protocol version %d." at 0x1800eb35a, loaded by: 180020dae: 
+"Unknown pseudo relocation bit size %d." at 0x1800eb38c, loaded by: 180020d9e: 
+"%d bit pseudo relocation at %p out of range, targeting %p, yielding the value %p." at 0x1800eb3b6, loaded by: 180020d8b: 
+(exit 0)

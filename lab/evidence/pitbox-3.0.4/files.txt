@@ -1,0 +1,16 @@
+$ sha256sum Pitbox-Windows-3.0.4.zip Pitbox-Linux-3.0.4.tar.gz actualizacion.json actualizacion.json.sig gpbmods_hud64.dlo asistente_reglaje64.dlo win/Pitbox/gpbmods_app.py win/Pitbox/Instalar.bat win/Pitbox/integridad.json win/Pitbox/vendor/7z/7z.exe win/Pitbox/python/python.exe lin/Pitbox/requirements.txt lin/Pitbox/hud/gpbmods_hud64.dlo lin/Pitbox/asistente/asistente_reglaje64.dlo
+4f58df6c82845d181779854aaddaf64f9af29e3b9d5b617e9bbe964f4675d776  Pitbox-Windows-3.0.4.zip
+45619e401d7d0662a1d945f3651d91b4623cb327f3994a28df9cba35c92f08ab  Pitbox-Linux-3.0.4.tar.gz
+dbbbe144d8f9641a1fbbb99ad54a33b06d530d40d795888fc91a5cf21cb70c1b  actualizacion.json
+ef47a970bea5e897d77e1892a750cdf4f2a1743f03f26d0b3386cf997c939d9b  actualizacion.json.sig
+bd2b0af56a4bd4c471409e65a947ef829625fee3d691e96a00157a8513ddaa43  gpbmods_hud64.dlo
+2f6a3454bb27e28f4f6bc5f2367c6ed8687fe036bca1167dd7a6d47a5a495bf4  asistente_reglaje64.dlo
+32ef7791605ecf6120fb54a0f9af05b5787854fafcbce1b726a3b9beb3b39c7d  win/Pitbox/gpbmods_app.py
+9ded5964f331ad7a0e0b7f54f322ab80e17ea8153b064efdd03848dd355db0b0  win/Pitbox/Instalar.bat
+0a276c58c31d985baef91ac24ddfcc2417b2d357905736c945352f52d510218e  win/Pitbox/integridad.json
+4cd7d776c686427226a151789d2d61f0b2ed2c392148cc4e69c0238362fafecf  win/Pitbox/vendor/7z/7z.exe
+4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a  win/Pitbox/python/python.exe
+d20a1163084de0782fc3ef7ef086f8701374795c1ad934ce8dec0c3d3e0f4cff  lin/Pitbox/requirements.txt
+bd2b0af56a4bd4c471409e65a947ef829625fee3d691e96a00157a8513ddaa43  lin/Pitbox/hud/gpbmods_hud64.dlo
+2f6a3454bb27e28f4f6bc5f2367c6ed8687fe036bca1167dd7a6d47a5a495bf4  lin/Pitbox/asistente/asistente_reglaje64.dlo
+(exit 0)

@@ -1,0 +1,77 @@
+$ sed -n '1,13p;54,57p;112,113p;125,133p' win/Pitbox/gpbmods/servidor_fondo.py; echo '== ranking_mundial.py'; sed -n '28,33p;916,925p;981,998p' win/Pitbox/gpbmods/ranking_mundial.py; echo '== webapp.py'; sed -n '5052,5062p' win/Pitbox/gpbmods/webapp.py
+"""Servidor local que entrega el fondo de pantalla a la página.
+
+La página la sirve pywebview desde su propio servidor (http://127.0.0.1:<puerto>/index.html, con la carpeta web/
+como raíz): desde ahí ni WebKitGTK ni WebView2 dejan cargar un file:// de otra carpeta, y un vídeo de cientos de MB
+no puede ir en base64. Este servidor, también solo en 127.0.0.1 y con un puerto propio, entrega UN archivo (el fondo
+publicado) bajo una ruta con un código al azar, con rangos de bytes (los <video> los piden para avanzar y repetir).
+
+- Solo GET y HEAD, solo la ruta exacta publicada, y solo con Host 127.0.0.1/localhost (contra DNS rebinding).
+- Cada conexión tiene TIEMPO_ESPERA_S para pedir y leer, y como mucho atiende MAX_CONEXIONES a la vez (las demás
+  se cierran sin abrir hilo): nada de un hilo por cada conexión que se queda colgada.
+- Access-Control-Allow-Origin: * para que la página pueda pintar el fotograma quieto de una imagen animada en un
+  <canvas> sin «ensuciarlo» (la página está en otro puerto, es otro origen). La ruta lleva un código al azar.
+"""
+class ServidorFondo:
+    def __init__(self):
+        self._token = secrets.token_urlsafe(18)
+        self._ruta: Path | None = None
+        self._httpd = _Servidor(("127.0.0.1", 0), Manejador)
+        threading.Thread(target=self._httpd.serve_forever, name="servidor-fondo", daemon=True).start()
+    def _responder_sin_red(self, h: BaseHTTPRequestHandler, cuerpo: bool) -> None:
+        puerto = h.server.server_address[1]
+        host = (h.headers.get("Host") or "").strip().lower()
+        if host not in (f"127.0.0.1:{puerto}", f"localhost:{puerto}"):
+            return self._error(h, 403)
+        ruta, mime = self._actual()
+        camino = h.path.split("?", 1)[0]
+        if ruta is None or camino != f"/{self._token}/{quote(ruta.name)}":
+            return self._error(h, 404)
+== ranking_mundial.py
+sube y decide el servidor, que también la ignora si no mejora). Las demás se dan por procesadas.
+El juego da el circuito como «<carpeta>/<trazado>»: se manda circuito = carpeta y trazado aparte ('' = el normal).
+
+«Entrar con Steam»: Steam solo confirma quién eres en su web (OpenID); el servidor guarda una huella cifrada,
+nunca el ID de Steam, el nombre ni la foto. Con sesión, todas las llamadas identifican al piloto por ella
+(«Authorization: Bearer …») en vez de por el id de instalación, y así el mismo perfil sirve en cualquier PC.
+class _ManejadorLocal(http.server.BaseHTTPRequestHandler):
+    """Recibe en http://127.0.0.1:<puerto>/steam la vuelta del navegador (código o error) y la pasa al login."""
+    server_version = "GPBMods"
+    sys_version = ""
+
+    def do_GET(self):  # noqa: N802 (nombre impuesto por http.server)
+        login: _LoginLocal = self.server.login   # type: ignore[attr-defined]
+        partes = urllib.parse.urlsplit(self.path)
+        q = urllib.parse.parse_qs(partes.query)
+        uno = lambda k: (q.get(k) or [""])[0]
+class _LoginLocal:
+    """Un «Entrar con Steam» (ruta /steam) o «Vincular con Discord» (/discord) en curso: servidor HTTP temporal en
+    127.0.0.1 (puerto libre al azar) y el verificador secreto (PKCE) que solo conoce este Pitbox."""
+
+    def __init__(self, ruta: str = "/steam"):
+        self.ruta = ruta
+        self.verificador = secrets.token_urlsafe(32)   # 256 bits, 43 caracteres base64url
+        self.reto = base64.urlsafe_b64encode(hashlib.sha256(self.verificador.encode()).digest()).rstrip(b"=").decode()
+        self.estado = ""
+        self.resultado: dict | None = None
+        self.listo = threading.Event()
+        self.servidor = http.server.ThreadingHTTPServer(("127.0.0.1", 0), _ManejadorLocal)
+        self.servidor.daemon_threads = True
+        self.servidor.login = self   # type: ignore[attr-defined]
+        self.puerto = self.servidor.server_address[1]
+        self._hilo = threading.Thread(target=self.servidor.serve_forever, kwargs={"poll_interval": 0.2}, daemon=True)
+        self._hilo.start()
+
+== webapp.py
+
+def main() -> None:
+    bridge = Bridge()
+    window = webview.create_window(
+        "Pitbox",
+        url=str(WEB_DIR / "index.html"),
+        js_api=Api(bridge),
+        width=1180,
+        height=720,
+        min_size=(860, 520),
+        background_color="#0d0f12",
+(exit 0)

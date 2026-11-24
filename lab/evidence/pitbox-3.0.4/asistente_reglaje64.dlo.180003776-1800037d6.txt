@@ -1,0 +1,26 @@
+$ objdump -d 'asistente_reglaje64.dlo' | awk -v a=180003776 -v b=1800037d6 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180003776:	ff 15 b4 13 0f 00    	call   *0xf13b4(%rip)        # 0x1800f4b30
+   18000377c:	c7 85 90 04 00 00 00 	movl   $0x0,0x490(%rbp)
+   180003783:	00 00 00 
+   180003786:	48 85 c0             	test   %rax,%rax
+   180003789:	74 18                	je     0x1800037a3
+   18000378b:	48 8d 95 90 04 00 00 	lea    0x490(%rbp),%rdx
+   180003792:	48 89 c1             	mov    %rax,%rcx
+   180003795:	ff 15 9d 13 0f 00    	call   *0xf139d(%rip)        # 0x1800f4b38
+   18000379b:	8b b5 90 04 00 00    	mov    0x490(%rbp),%esi
+   1800037a1:	eb 02                	jmp    0x1800037a5
+   1800037a3:	31 f6                	xor    %esi,%esi
+   1800037a5:	ff 15 8d 15 0f 00    	call   *0xf158d(%rip)        # 0x1800f4d38
+   1800037ab:	45 31 ed             	xor    %r13d,%r13d
+   1800037ae:	89 b5 2c 0d 00 00    	mov    %esi,0xd2c(%rbp)
+   1800037b4:	89 85 24 0d 00 00    	mov    %eax,0xd24(%rbp)
+   1800037ba:	39 c6                	cmp    %eax,%esi
+   1800037bc:	75 3a                	jne    0x1800037f8
+   1800037be:	48 8b 35 63 13 0f 00 	mov    0xf1363(%rip),%rsi        # 0x1800f4b28
+   1800037c5:	b9 11 00 00 00       	mov    $0x11,%ecx
+   1800037ca:	ff d6                	call   *%rsi
+   1800037cc:	0f b7 f8             	movzwl %ax,%edi
+   1800037cf:	b9 10 00 00 00       	mov    $0x10,%ecx
+   1800037d4:	ff d6                	call   *%rsi
+   1800037d6:	0f b7 c0             	movzwl %ax,%eax
+(exit 0)

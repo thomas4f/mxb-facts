@@ -1,0 +1,205 @@
+host: D:\a\_temp\mxbfacts\run-both-crash-helmet\gpbikes.exe
+GL: Mesa | llvmpipe (LLVM 23.1.5, 256 bits) | 4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+== host import table check (before plugins)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+loaded plugins\gpbmods_hud64.dlo (mod id 'gpbikes')
+loaded release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo (mod id 'gpbikes')
+loaded victim.dlo (mod id 'victim')
+Startup(plugins\gpbmods_hud64.dlo) -> 0
+Startup(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo) -> 0
+Startup(victim.dlo) -> -1
+== host import table check (after Startup)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+DrawInit(plugins\gpbmods_hud64.dlo) -> 0, 2 sprites, 2 fonts
+  sprite gpbmods_hud/marca.tga
+  sprite gpbmods_hud/sombra.tga
+  font gpbmods_hud/fuente_texto.fnt
+  font gpbmods_hud/fuente_num.fnt
+DrawInit(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo) -> 0, 0 sprites, 2 fonts
+  font asistente_reglaje/fuente.fnt
+  font asistente_reglaje/fuente_fija.fnt
+Draw(plugins\gpbmods_hud64.dlo): 64 quads, 40 strings
+  string "TESTING" at 0.029,0.039
+  string "SUNNY · AIR 22° · TRACK 0°" at 0.029,0.066
+  string "vs YOUR BEST" at 0.657,0.035
+  string "—" at 0.657,0.048
+  string "OUT LAP" at 0.342,0.060
+  string "0:00.000" at 0.381,0.029
+  string "P1" at 0.339,0.109
+  string "--.---" at 0.352,0.106
+  string "P2" at 0.506,0.109
+  string "--.---" at 0.520,0.106
+  string "BEST" at 0.340,0.141
+  string "-:--.---" at 0.360,0.140
+  string "-:--.---" at 0.660,0.140
+  string "LAST" at 0.613,0.141
+  string "BIKE STATUS" at 0.718,0.630
+  string "ENGINE" at 0.718,0.664
+  string "80°" at 0.974,0.661
+  string "FUEL" at 0.718,0.689
+  string "5.0 L" at 0.974,0.685
+  string "LEAN ANGLE" at 0.553,0.522
+  string "20° L" at 0.695,0.513
+  string "MAX LEFT" at 0.559,0.662
+  string "0.0°" at 0.645,0.658
+  string "session 0.0°" at 0.689,0.663
+  string "MAX RIGHT" at 0.559,0.692
+  string "0.0°" at 0.645,0.687
+  string "session 0.0°" at 0.689,0.693
+  string "3" at 0.647,0.745
+  string "54" at 0.791,0.747
+  string "KM/H" at 0.791,0.854
+  string "RPM" at 0.973,0.862
+  string "8 000" at 0.956,0.859
+  string "THROTTLE" at 0.625,0.902
+  string "0" at 0.793,0.899
+  string "FRONT BRAKE" at 0.805,0.902
+  string "0" at 0.973,0.899
+  string "CLUTCH" at 0.625,0.932
+  string "0" at 0.793,0.929
+  string "REAR BRAKE" at 0.805,0.932
+  string "0" at 0.973,0.929
+Draw(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo): 0 quads, 0 strings
+Draw(plugins\gpbmods_hud64.dlo): 65 quads, 40 strings
+  string "TESTING" at 0.029,0.039
+  string "SUNNY · AIR 22° · TRACK 0°" at 0.029,0.066
+  string "vs YOUR BEST" at 0.657,0.035
+  string "—" at 0.657,0.048
+  string "OUT LAP" at 0.342,0.060
+  string "0:00.300" at 0.381,0.029
+  string "P1" at 0.339,0.109
+  string "--.---" at 0.352,0.106
+  string "P2" at 0.506,0.109
+  string "--.---" at 0.520,0.106
+  string "BEST" at 0.340,0.141
+  string "-:--.---" at 0.360,0.140
+  string "-:--.---" at 0.660,0.140
+  string "LAST" at 0.613,0.141
+  string "BIKE STATUS" at 0.718,0.630
+  string "ENGINE" at 0.718,0.664
+  string "80°" at 0.974,0.661
+  string "FUEL" at 0.718,0.689
+  string "5.0 L" at 0.974,0.685
+  string "LEAN ANGLE" at 0.553,0.522
+  string "20° L" at 0.695,0.513
+  string "MAX LEFT" at 0.559,0.662
+  string "20.0°" at 0.645,0.658
+  string "session 20.0°" at 0.689,0.663
+  string "MAX RIGHT" at 0.559,0.692
+  string "0.0°" at 0.645,0.687
+  string "session 0.0°" at 0.689,0.693
+  string "3" at 0.647,0.745
+  string "54" at 0.791,0.747
+  string "KM/H" at 0.791,0.854
+  string "RPM" at 0.973,0.862
+  string "9 600" at 0.956,0.859
+  string "THROTTLE" at 0.625,0.902
+  string "0" at 0.793,0.899
+  string "FRONT BRAKE" at 0.805,0.902
+  string "0" at 0.973,0.899
+  string "CLUTCH" at 0.625,0.932
+  string "0" at 0.793,0.929
+  string "REAR BRAKE" at 0.805,0.932
+  string "0" at 0.973,0.929
+Draw(release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo): 8 quads, 14 strings
+  string "SETUP ASSISTANT" at 0.304,0.108
+  string "KTM 450 SX-F · Test Track" at 0.304,0.138
+  string "Edit setup" at 0.308,0.172
+  string "not available" at 0.698,0.176
+  string "Based on my data" at 0.308,0.206
+  string "no laps" at 0.698,0.210
+  string "What do you feel on the bike?" at 0.308,0.240
+  string "My lap data" at 0.308,0.282
+  string "0 laps" at 0.698,0.286
+  string "Compare with the previous setup" at 0.308,0.316
+  string "How it works" at 0.308,0.350
+  string "Delete my data" at 0.308,0.392
+  string "Arrows: choose · Right: enter · Ctrl+arrows: move" at 0.302,0.438
+  string "F8 close" at 0.698,0.438
+Draw(plugins\gpbmods_hud64.dlo): 2 quads, 1 strings
+  string "HUD hidden · F6 to show it" at 0.500,0.117
+Draw(plugins\gpbmods_hud64.dlo): 0 quads, 0 strings
+direct HUD draw saw viewport 0,0 1280x720, draw FBO 0
+frames 600, avg 15.91 ms, worst 92.82 ms
+== host import table check (after frames)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+== bystander plugin (victim.dlo) import table
+  import glOrtho    untouched
+  import glBegin    untouched
+  import glViewport untouched
+== bystander plugin (victim.dlo) pointer table
+  glOrtho          untouched
+  glFrustum        untouched
+  glLoadIdentity   untouched
+  glDrawElements   untouched
+  glViewport       untouched
+  glScissor        untouched
+  glReadPixels     untouched
+  glBegin          untouched
+FreeLibrary victim.dlo
+FreeLibrary release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo
+FreeLibrary plugins\gpbmods_hud64.dlo
+== host import table check (after unload)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+host: clean exit
+exit=0

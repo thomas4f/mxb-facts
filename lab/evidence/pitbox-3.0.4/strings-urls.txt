@@ -1,0 +1,2 @@
+$ for f in gpbmods_hud64.dlo asistente_reglaje64.dlo; do { strings -n 5 $f; strings -el -n 5 $f; } | grep -niE 'https?://|www\.|\.(com|net|org|io)\b|ws2_32|wininet|winhttp|socket'; done
+(exit 1)

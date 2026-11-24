@@ -1,0 +1,29 @@
+$ grep -n '^CLAVE_PUBLICA' win/Pitbox/gpbmods/actualizar.py; k=$(sed -n 's/^CLAVE_PUBLICA = "\([0-9a-f]*\)"/\1/p' win/Pitbox/gpbmods/actualizar.py); python3 -I $H/../ed25519_sig.py $k actualizacion.json actualizacion.json.sig; python3 -I $H/../ed25519_sig.py $k win/Pitbox/integridad.json win/Pitbox/integridad.json.sig; cat actualizacion.json; grep -A2 -E '"(asistente/asistente_reglaje64.dlo|hud/gpbmods_hud64.dlo)"' win/Pitbox/integridad.json
+53:CLAVE_PUBLICA = "04976bafdc6518927075032205a5bdf571d88d46c2a86cab84884a7714afc94b"
+actualizacion.json: valid Ed25519 signature (64 bytes) for key 04976bafdc6518927075032205a5bdf571d88d46c2a86cab84884a7714afc94b
+win/Pitbox/integridad.json: valid Ed25519 signature (64 bytes) for key 04976bafdc6518927075032205a5bdf571d88d46c2a86cab84884a7714afc94b
+{
+  "version": "3.0.4",
+  "fecha": "2026-11-20",
+  "notas": "Pitbox 3.0.4, con lo que pedisteis en el Discord: la torre de posiciones del HUD se actualiza en tiempo real en carrera; los que se van del servidor se quedan con su tiempo; las caídas se ven en el mapa y en la torre; el estado de la moto enseña el consumo por vuelta; y arreglado «Posición y rivales», que no salía en algunas ligas.",
+  "paquetes": {
+    "windows": {
+      "archivo": "Pitbox-Windows-3.0.4.zip",
+      "tamano": 22217268,
+      "sha256": "4f58df6c82845d181779854aaddaf64f9af29e3b9d5b617e9bbe964f4675d776"
+    },
+    "linux": {
+      "archivo": "Pitbox-Linux-3.0.4.tar.gz",
+      "tamano": 6411552,
+      "sha256": "45619e401d7d0662a1d945f3651d91b4623cb327f3994a28df9cba35c92f08ab"
+    }
+  }
+}
+"asistente/asistente_reglaje64.dlo": {
+"sha256": "2f6a3454bb27e28f4f6bc5f2367c6ed8687fe036bca1167dd7a6d47a5a495bf4",
+"tamano": 1054720
+--
+"hud/gpbmods_hud64.dlo": {
+"sha256": "bd2b0af56a4bd4c471409e65a947ef829625fee3d691e96a00157a8513ddaa43",
+"tamano": 510464
+(exit 0)

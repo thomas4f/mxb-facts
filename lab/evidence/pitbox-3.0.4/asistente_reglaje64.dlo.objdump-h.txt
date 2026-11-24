@@ -1,0 +1,21 @@
+$ objdump -h 'asistente_reglaje64.dlo'
+
+asistente_reglaje64.dlo:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         00047486  0000000180001000  0000000180001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        000aea1c  0000000180049000  0000000180049000  00047a00  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .buildid      00000068  00000001800f8000  00000001800f8000  000f6600  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .data         00000200  00000001800f9000  00000001800f9000  000f6800  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .pdata        00001f2c  00000001804ff000  00000001804ff000  000f6a00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .tls          00000010  0000000180501000  0000000180501000  000f8a00  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .reloc        00008aa4  0000000180502000  0000000180502000  000f8c00  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)

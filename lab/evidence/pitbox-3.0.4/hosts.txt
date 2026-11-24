@@ -1,0 +1,8 @@
+$ for h in gpbmods-ranking.secundariac2003.workers.dev gpb-mods.com stats.gp-bikes.com api.github.com github.com; do printf '%s: ' $h; getent ahostsv4 $h | awk '{print $1}' | sort -u | tr '\n' ' '; echo; done; date -u +%F
+gpbmods-ranking.secundariac2003.workers.dev: 104.21.16.12 172.67.209.193 
+gpb-mods.com: 104.21.14.154 172.67.203.202 
+stats.gp-bikes.com: 45.131.60.38 
+api.github.com: 140.82.114.5 
+github.com: 140.82.112.3 
+2026-11-24
+(exit 0)
