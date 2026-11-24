@@ -1,0 +1,3 @@
+$ cd "$SRC" && git ls-files | wc -l && git ls-files -z | xargs -0 file | grep -vE 'Python script|ASCII text|UTF-8 text|JSON|PNG image|SVG|font|Font|MS Windows icon|empty|HTML|JavaScript|public key' ; git ls-files -z | xargs -0 file | grep -E 'PE32|ELF|Mach-O|archive|compiled|executable,' | grep -v 'Python script'
+138
+(exit 1)

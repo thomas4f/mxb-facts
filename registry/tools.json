@@ -26,7 +26,9 @@
     "author": "Dirt Graphic Studios",
     "github": "Dirt-Graphic-Studios/Dirt-Gear",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "dirt-gear-1.1.1.yaml"
+    ],
     "mxb-mods": {
       "post": 197697,
       "tied_by": "github.com/Dirt-Graphic-Studios/Dirt-Gear"

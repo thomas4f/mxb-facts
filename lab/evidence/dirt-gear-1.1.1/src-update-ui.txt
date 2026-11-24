@@ -1,0 +1,17 @@
+$ cd "$SRC" && grep -noE 'setTimeout\(\(\)=>checkUpdates\(false\),4000\)|versionBtn.\)\.onclick=[^;]*;[^;]*;|checkNow.\)\.onclick=[^;]*;|checkOnStart.\)\.onchange=[^}]*}' source/static/app.js; grep -nE 'checkOnStart|Download and install|Skip this version' source/static/index.html | cut -c1-220; grep -nE "check_on_start|skip_version" source/app.py
+214:setTimeout(()=>checkUpdates(false),4000)
+390:versionBtn').onclick=()=>{$('aboutDialog').showModal();checkUpdates(true)};
+392:checkNow').onclick=()=>checkUpdates(true);
+393:checkOnStart').onchange=async()=>{try{await api('update/settings',{check_on_start:$('checkOnStart').checked}
+36:<div id="updateBar" class="update-bar" hidden role="status"><span class="update-dot"></span><span id="updateText">A new version is available</span><button id="updateNotes" class="text-btn">What’s new</button><span c
+155: <label class="checkline"><input id="checkOnStart" type="checkbox" checked> Check for updates when Dirt Gear starts</label>
+156: <div class="dialog-footer"><button id="checkNow">Check for updates</button><button id="aboutInstall" class="primary" hidden>Download and install</button></div></dialog>
+669:    if not manual and not settings.get('check_on_start', True):
+671:                       available=False, check_on_start=False)
+673:    result['check_on_start'] = settings.get('check_on_start', True)
+675:                             settings.get('skip_version') == result.get('latest'))
+685:    if 'check_on_start' in data:
+686:        changes['check_on_start'] = bool(data['check_on_start'])
+687:    if 'skip_version' in data:
+688:        changes['skip_version'] = str(data['skip_version'] or '')[:20]
+(exit 0)

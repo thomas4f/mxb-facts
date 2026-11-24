@@ -1,0 +1,12 @@
+$ cd "$SRC" && grep -nE 'winreg|HKEY|RegSetValue|CurrentVersion.Run|schtasks|Startup|OpenProcess|WriteProcessMemory|ReadProcessMemory|VirtualProtect|CreateRemoteThread|SetWindowsHookEx|GetAsyncKeyState|keybd_event|SendInput|mxbikes\.exe|subprocess|Popen|ie4uinit|SHChangeNotify|powershell' source/*.py build/installer.py
+source/app.py:14:import subprocess
+source/app.py:713:    subprocess.Popen([str(installer), '--update', '--target', str(target), '--wait-pid', str(os.getpid())],
+build/installer.py:9:import subprocess
+build/installer.py:51:    subprocess.run(['powershell.exe', '-NoProfile', '-NonInteractive', '-Command', script],
+build/installer.py:56:    result = subprocess.run(
+build/installer.py:57:        ['powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
+build/installer.py:80:        ctypes.windll.shell32.SHChangeNotify(0x08000000, 0x0000, None, None)  # SHCNE_ASSOCCHANGED
+build/installer.py:84:        subprocess.run(['ie4uinit.exe', '-show'], capture_output=True, timeout=20)
+build/installer.py:186:    handle = kernel32.OpenProcess(0x00100000, False, pid)  # SYNCHRONIZE
+build/installer.py:206:        subprocess.Popen([str(executable)], cwd=str(executable.parent),
+(exit 0)

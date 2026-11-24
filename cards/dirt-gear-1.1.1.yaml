@@ -1,0 +1,578 @@
+tool: Dirt Gear
+version: 1.1.1
+summary: >-
+  A Windows editor that turns a creator's rider-gear PSD template into a paint (`.pnt`) for MX Bikes, with your colours,
+  logos, name and number. Its open source matches the release; it checks GitHub for a new version when its window opens
+  and installs one only when you click, after checking its signature.
+header:
+  What it is: >-
+    A Windows app (Python, packed with PyInstaller) that opens a gear PSD, lets you add logos, a name and a number under
+    the template's shading, and packs a `.pnt` paint, which it can put into the game's rider paints folder. Its window is
+    a page from its own server on `127.0.0.1`, drawn by Microsoft's WebView2. It comes as one setup file that installs it
+    for your Windows account; it is not a plugin.
+  In one line: Windows editor that makes MX Bikes rider-gear paints from creators' PSD templates
+  Category: Content creation
+  Author: Dirt Graphic Studios (GitHub organisation)
+  Game: MX Bikes
+  mxb-mods.com: '[DIRT GEAR](https://mxb-mods.com/dirt-gear-2/), published 13 Nov 2026, updated 17 Nov 2026'
+  Homepage: None found
+  GitHub: '[Dirt-Graphic-Studios/Dirt-Gear](https://github.com/Dirt-Graphic-Studios/Dirt-Gear)'
+  Version analysed: >-
+    1.1.1: the GitHub release [v1.1.1](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/tag/v1.1.1) (13 Nov
+    2026), `Dirt-Gear-Setup-1.1.1.exe`, with `update.json` and `update.json.sig`, the signed feed its updater reads. It is
+    the newest release on GitHub, read on 24 Nov 2026; the inventory (`registry/releases.json`) has no entry for the tool
+    yet.
+  Source commit: >-
+    [e407acd9e39393d7a7d1ddc295fe00056f9df7d5](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/tree/e407acd9e39393d7a7d1ddc295fe00056f9df7d5)
+    ("v1.1.1: move to the Dirt Graphic Studios organisation", 13 Nov 2026), the commit tag `v1.1.1` points to.
+  Analysed on: 24 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    No licence was found, so nothing forbids the analysis. The source was read at the commit. The setup's and the
+    program's PyInstaller archives were unpacked with `tools/carchive.py`, without running them, and the tool's five
+    Python files, compiled with Python 3.12, were compared with the code packed in the release (`lab/evidence/pycmp.py`);
+    the data files, the bootloader's code and pywebview's DLLs were compared with the source and with the published
+    PyInstaller and pywebview packages. The whole release was not rebuilt (T4). Every command is in
+    `lab/evidence/dirt-gear-1.1.1/run.sh`. A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software
+    OpenGL, not Windows on a real GPU), no game, no Steam and no keys ran the setup three ways under Process Monitor, with
+    the run folder's programs blocked by the firewall: with no options for 30 s (its Yes/No box, not clicked), with
+    `--quiet` (install), and with `--update` (install, then start Dirt Gear), and clicked nothing. VirusTotal: hash lookups
+    only, made before the analysis (24 Nov 2026), nothing uploaded.
+files:
+  - name: Dirt-Gear-Setup-1.1.1.exe
+    sha256: 35101904445a9729b57af0f166ff422c8d94293163c29442c0c696f30902b628
+    note: >-
+      The release's download: a one-file PyInstaller program (the installer, `build/installer.py`) with the program
+      folder inside as `payload.zip`.
+  - name: payload.zip
+    sha256: 35b5133bab0d22fa5789196d7b238d8d757c1648973d52ff044bdc15f8a87d43
+    inside: Dirt-Gear-Setup-1.1.1.exe
+    note: >-
+      The program folder the setup installs (1,557 files): `Dirt Gear.exe`, `_internal\` (Python 3.12.10 and its packages,
+      the page, the fonts), README, CHANGELOG and VERSION. Every program file in it, with its SHA-256 and type, is in
+      `lab/evidence/dirt-gear-1.1.1/bundled.txt`.
+  - name: Dirt Gear.exe
+    sha256: 7e26585a330b710948a550823d95c0d7bdcc8a68727784c193cdea4b637dc353
+    inside: Dirt-Gear-Setup-1.1.1.exe
+    note: The program (PyInstaller), from `payload.zip`, with `app.py` and the tool's other modules packed in.
+files_note: >-
+  Neither the setup nor the program is code-signed (`lab/evidence/dirt-gear-1.1.1/signature.txt`). The setup's hash
+  matches the one the Windows machine ran (`lab/results/dirt-gear-1.1.1/quiet-install-windows/machine.txt`). The release's
+  `update.json` (SHA-256 6b059fbbba88b8b90aa020e73fe1ed3693b0af1420bca3907b277538f16eadf1) names the setup's size and
+  SHA-256, and `update.json.sig` (f4a9b3fba32c5864f6753264a3d540ee9f380795ff2f027f4c61abe500359f38) signs it
+  (`lab/evidence/dirt-gear-1.1.1/update-manifest.txt`).
+key:
+  K1: 'No; no malware found. The setup isn''t on VirusTotal yet, so no engine has looked at it.'
+  K2: >-
+    No. It installs a new version only when you click Download and install, and only after the signature and the file's
+    SHA-256 check out.
+  K3: >-
+    Only when you confirm. Pack & install replaces a paint of the same name in the game's paints folder after asking;
+    otherwise it writes only its own files and the paints you pack.
+  K4: 'No. The only thing it sends off your PC is the update check to GitHub.'
+  K5: 'No. It doesn''t run in or touch the game; it writes paint files the game loads.'
+  K6: >-
+    On request. It opens the creator's PSD you pick, and a project you save keeps a copy of that PSD; it unlocks and shares
+    nothing.
+  K7: 'Yes. The full source is public, and the release''s code matches it.'
+  K8: 'Yes, as far as checked.'
+  K9: >-
+    Yes. Not code-signed, but GitHub Actions built the release from the public commit, and its Python code matches the
+    source.
+  K10: 'Yes. When its window opens it asks GitHub for the latest release; a switch turns that off.'
+areas:
+  Your PC and files: >-
+    Installs for your account with two shortcuts and no uninstaller; updates only when you click, after a signature and
+    hash check; not code-signed, and not on VirusTotal yet.
+  Your data: >-
+    An update check to GitHub when its window opens, with a switch; its local server answers only its own window.
+  Your game: A separate program that writes the paints you pack into the game's paints folder; it doesn't touch the game.
+  Creators' content: >-
+    Opens the gear PSDs you pick and keeps a copy in projects you save; ships fonts, some marked "All rights reserved",
+    without their licences.
+  Transparency: >-
+    Full source public and built by GitHub Actions from the commit; the release's Python code matches it; no licence.
+  Money: Free; nothing is sold and there are no donation links.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: the setup takes options it doesn't show: `--quiet` installs without asking, `--update` installs
+          silently and then starts Dirt Gear (the in-app updater uses it), and `--target` picks another folder
+          ([installer.py lines 210-226](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/build/installer.py#L210-L226);
+          `lab/results/dirt-gear-1.1.1/quiet-install-windows/host.log`).
+        mark: note
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: >-
+              A request for the latest release (`/repos/Dirt-Graphic-Studios/Dirt-Gear/releases/latest`), with the
+              User-Agent `Dirt-Gear-Updater`; when a newer version is out, also its `update.json` and `update.json.sig`
+            Where to: '`api.github.com` and GitHub''s release downloads, HTTPS'
+            When: 4 s after its window opens, and each time you click Check for updates or the version button
+            Switch: Check for updates when Dirt Gear starts (About box, opened by the version button)
+          - What: The new setup file
+            Where to: GitHub's release downloads, HTTPS
+            When: Only when you click Download and install
+            Switch: Don't click it
+          - What: Your browser opens the release page
+            Where to: '`github.com`'
+            When: Only when you click Open download page (a release without a signature)
+            Switch: Don't click it
+          - What: Its window's requests to its own server
+            Where to: '`127.0.0.1`, a random port, with a random token made at each start'
+            When: While it is open
+            Switch: None needed; nothing leaves your PC
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks:
+      - text: >-
+          Also found: it ships 58 fonts in `_internal\fonts` for names and numbers; three name a maker's copyright, and two
+          of those add "All rights reserved" (one is a "DEMO" font). The release and the repository have no licence or credit
+          for any of them; only the window's own brand font comes with its licence (`brand-OFL.txt`)
+          (`lab/evidence/dirt-gear-1.1.1/fonts.txt`, `lab/evidence/dirt-gear-1.1.1/thirdparty.txt`).
+        mark: note
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "It installs for your Windows account (no admin needed) and adds Desktop and Start menu shortcuts."
+              ([README.md](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/README.md#L7))
+            Verdict: Matches
+            Evidence: >-
+              The quiet install put the program in `%LOCALAPPDATA%\Programs\Dirt Gear` and wrote `Dirt Gear.lnk` on the
+              Desktop and in the Start menu (`lab/results/dirt-gear-1.1.1/quiet-install-windows/outside.txt`;
+              [installer.py lines 101-154](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/build/installer.py#L101-L154)).
+          - Claim: >-
+              "Moto Gear's own folder isn't changed, so both apps can live side by side."
+              ([README.md](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/README.md#L9))
+            Verdict: Matches
+            Evidence: >-
+              On the first start, and only if Dirt Gear's own folder doesn't exist yet, it copies Moto Gear's Projects, Logos
+              and Layouts; nothing in its code writes to Moto Gear's folder
+              ([app.py lines 1305-1328](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1305-L1328);
+              `lab/evidence/dirt-gear-1.1.1/src-files.txt`).
+          - Claim: >-
+              "From v1.0.2 Dirt Gear checks for new versions when it starts and offers Download and install. You can skip a
+              version, or turn the check off by clicking the version label (top left)."
+              ([README.md](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/README.md#L13))
+            Verdict: Partly
+            Evidence: >-
+              The check, the Download and install button, Skip this version and the switch are there. Clicking the version
+              label opens the About box with the switch "Check for updates when Dirt Gear starts", and it also asks GitHub
+              at once, so turning the check off this way makes one check
+              ([app.js line 390](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/static/app.js#L390);
+              `lab/evidence/dirt-gear-1.1.1/src-update-ui.txt`).
+          - Claim: >-
+              "The app installs only when the signature matches the public key built into it and the download matches the
+              size and SHA-256."
+              ([updater.py lines 7-10](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/updater.py#L7-L10))
+            Verdict: Matches
+            Evidence: >-
+              [updater.py lines 82-166](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/updater.py#L82-L166),
+              [app.py lines 702-725](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L702-L725);
+              the release's feed verifies with that key (`lab/evidence/dirt-gear-1.1.1/update-manifest.txt`).
+          - Claim: >-
+              "It builds the app and installer, clean-installs it, runs the backend tests against the installed copy, and
+              then publishes" the setup on the Releases page.
+              ([README.md](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/README.md#L44))
+            Verdict: Matches
+            Evidence: >-
+              [release.yml lines 45-147](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/.github/workflows/release.yml#L45-L147);
+              the release was published by `github-actions` from the commit (`lab/evidence/dirt-gear-1.1.1/release-page.txt`).
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real
+              GPU, without the game or Steam, and nothing was clicked: no PSD was opened, and Pack & install, the exports,
+              saving a project, pasting and the in-app update weren't run. What they do rests on the source, which the
+              release's code matches.
+            questions: [P4, P7, D6, C2, C5]
+          - text: >-
+              The run that installed and started Dirt Gear recorded only its first 5 s (12:35:04 to 12:35:09), while
+              WebView2 was starting, so its window, the update check (made 4 s after the window's page loads) and any
+              connection of Microsoft's WebView2 runtime weren't seen. The update check rests on the source.
+            questions: [D1, D8]
+          - text: >-
+              Process Monitor records the registry values that were written, not the ones they replaced, so whether the
+              values Windows' `ie4uinit.exe` wrote during the install differed from what was there before wasn't seen.
+            questions: [P6]
+          - text: >-
+              The release wasn't rebuilt: the comparison covers the tool's own Python code and data files, the bootloader's
+              code and pywebview's DLLs; the other packed packages' compiled files weren't tied to their builds.
+            questions: [T4]
+          - text: >-
+              `payload.zip` and `Dirt Gear.exe` weren't among the VirusTotal lookups (the lookups took what 7-Zip unpacks,
+              and it doesn't unpack PyInstaller archives), and the setup isn't on VirusTotal yet.
+            questions: [P1]
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No engine has flagged a release file, because none has looked at one: `Dirt-Gear-Setup-1.1.1.exe` is not on
+      VirusTotal (hash lookup on 24 Nov 2026). `payload.zip` and `Dirt Gear.exe` inside it weren't looked up (Limits).
+      Nothing uploaded.
+    evidence: >-
+      [Dirt-Gear-Setup-1.1.1.exe](https://www.virustotal.com/gui/file/35101904445a9729b57af0f166ff422c8d94293163c29442c0c696f30902b628),
+      [payload.zip](https://www.virustotal.com/gui/file/35b5133bab0d22fa5789196d7b238d8d757c1648973d52ff044bdc15f8a87d43),
+      [Dirt Gear.exe](https://www.virustotal.com/gui/file/7e26585a330b710948a550823d95c0d7bdcc8a68727784c193cdea4b637dc353)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      A newer version shows a bar with Download and install (Open download page for a release without a signature) and
+      Skip this version; nothing is downloaded or installed until you click. It then warns that unsaved changes will be lost,
+      downloads the setup, closes, and the setup replaces the program folder and starts Dirt Gear again.
+    evidence: >-
+      [app.js lines 370-387](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/static/app.js#L370-L387),
+      [app.py lines 702-725](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L702-L725),
+      [installer.py lines 193-207](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/build/installer.py#L193-L207).
+  P3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Before it offers to install, it checks the release's `update.json` against its Ed25519 signature (`update.json.sig`)
+      with the public key built into the program, and that the feed names this version, a setup in the release and its
+      SHA-256; the download must then match that size and SHA-256 or it is deleted. The signing key isn't in the release,
+      so a changed file on GitHub alone fails the check. The v1.1.1 feed verifies with the key at the commit.
+    evidence: >-
+      [updater.py lines 82-166](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/updater.py#L82-L166);
+      `lab/evidence/dirt-gear-1.1.1/update-manifest.txt`, `lab/evidence/dirt-gear-1.1.1/same-as-source.txt`.
+  P4:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Pack & install replaces a paint of the same name in the rider model's paints folder only after you confirm
+      "… already exists for … Replace it?", and Export and Save write the file you pick in Windows' save box. Everything
+      else it writes, replaces or deletes is its own: its program folder (the setup replaces it on an update), its folder in
+      `%LOCALAPPDATA%\Dirt Gear` (it empties `updates\` at each start) and its temporary folder. Moto Gear's library is
+      copied, not moved.
+    evidence: >-
+      [app.py lines 1390-1413](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1390-L1413),
+      [app.py lines 1271-1288](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1271-L1288),
+      [app.js line 210](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/static/app.js#L210);
+      `lab/evidence/dirt-gear-1.1.1/src-files.txt`, `lab/evidence/dirt-gear-1.1.1/src-game.txt`.
+  P5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      Neither the setup nor the program is code-signed; GitHub Actions built them from the public commit (T3), and their
+      Python code matches the source (T4).
+    evidence: Empty Security Directory for each (`lab/evidence/dirt-gear-1.1.1/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its code writes no registry value. To refresh shortcut icons, the setup calls Windows' `SHChangeNotify`, which counts
+      up Explorer's `GlobalAssocChangedCounter`, and starts Windows' `ie4uinit.exe -show`; in the runs that Windows tool wrote
+      its own Internet Explorer and Active Setup values, and the other writes were Windows' own (the app-use record `bam`,
+      the Internet zone values every program using Windows' web stack writes).
+    evidence: >-
+      `lab/evidence/dirt-gear-1.1.1/src-absent.txt`;
+      `lab/results/dirt-gear-1.1.1/quiet-install-windows/registry.txt`,
+      `lab/results/dirt-gear-1.1.1/install-and-start-windows/registry.txt`,
+      `lab/results/dirt-gear-1.1.1/installer-window-windows/registry.txt`.
+  P7:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Pack & install in MX Bikes writes the paint you made, `<name>.pnt`, into `rider\riders\<model>\paints` in the game's
+      mods folder (the folder `global.ini` names, or `Documents\PiBoSo\MX Bikes\mods`). It writes nothing else there, and
+      nothing in the game's own folder.
+    evidence: >-
+      [app.py lines 1365-1413](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1365-L1413);
+      `lab/evidence/dirt-gear-1.1.1/src-game.txt`, `lab/evidence/dirt-gear-1.1.1/src-files.txt`.
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      There is no uninstaller and no entry in Windows' installed apps: you remove `%LOCALAPPDATA%\Programs\Dirt Gear` and the
+      two `Dirt Gear.lnk` shortcuts by hand, and `%LOCALAPPDATA%\Dirt Gear` (settings, projects, logos, layouts) and the
+      paints you packed stay. It keeps nothing of its own in Windows' settings.
+    evidence: >-
+      [installer.py lines 101-154](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/build/installer.py#L101-L154);
+      `lab/evidence/dirt-gear-1.1.1/src-absent.txt`, `lab/evidence/dirt-gear-1.1.1/src-files.txt`;
+      `lab/results/dirt-gear-1.1.1/quiet-install-windows/outside.txt`.
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The tool's five Python files in the release compile to the same code as the source at the commit,
+      and the bootloader's code is PyInstaller 6.22.3's. The source does what its window shows: it edits the PSD, writes
+      paints and projects, checks GitHub for a version, and starts only PowerShell (shortcuts), `ie4uinit.exe` (icons) and
+      the verified setup.
+    evidence: >-
+      `lab/evidence/dirt-gear-1.1.1/same-as-source.txt`, `lab/evidence/dirt-gear-1.1.1/bootloader.txt`,
+      `lab/evidence/dirt-gear-1.1.1/src-absent.txt`, `lab/evidence/dirt-gear-1.1.1/src-network.txt`;
+      `lab/results/dirt-gear-1.1.1/install-and-start-windows/procmon.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      4 s after its window opens it asks `api.github.com` for the latest release over HTTPS, and fetches the signed feed
+      when a newer one is out; the setup is downloaded only on Download and install. The runs saw no connection, but the one
+      that started Dirt Gear ended before the check (Limits).
+    evidence: >-
+      [updater.py lines 25-27](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/updater.py#L25-L27),
+      [updater.py lines 98-134](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/updater.py#L98-L134),
+      [app.js line 214](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/static/app.js#L214);
+      `lab/evidence/dirt-gear-1.1.1/src-network.txt`; `lab/results/dirt-gear-1.1.1/install-and-start-windows/network.txt`.
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Only the plain update check leaves your PC: a request for the tool's latest release, with the User-Agent
+      `Dirt-Gear-Updater` and no version. Your PSDs, designs and paints stay on your PC.
+    evidence: >-
+      [updater.py lines 66-73](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/updater.py#L66-L73);
+      `lab/evidence/dirt-gear-1.1.1/src-network.txt`.
+  D3:
+    verdict: 'No'
+    mark: good
+    text: The update check carries no identifier, and the tool makes none it sends; its random token stays on your PC.
+    evidence: >-
+      [updater.py lines 66-73](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/updater.py#L66-L73);
+      `lab/evidence/dirt-gear-1.1.1/src-network.txt`, `lab/evidence/dirt-gear-1.1.1/src-server.txt`.
+  D4:
+    verdict: 'No'
+    mark: good
+    text: It reads no other players' data and sends nothing about anyone.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-network.txt`, `lab/evidence/dirt-gear-1.1.1/src-reads.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its window's server listens only on `127.0.0.1` (a random port), refuses any request that doesn't name `127.0.0.1` or
+      `localhost` as its host, and answers `/api/` only with the random token made at each start and from its own page;
+      without the token another website gets only the page's own files.
+    evidence: >-
+      [app.py lines 78-97](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L78-L97),
+      [app.py lines 1521-1524](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1521-L1524);
+      `lab/evidence/dirt-gear-1.1.1/src-server.txt`.
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads the game's `global.ini` in `Documents\PiBoSo\MX Bikes` for the mods folder and lists the rider models that
+      have a paints folder; it reads Windows' fonts, copies Moto Gear's library once (Projects, Logos, Layouts) and reads the
+      clipboard when you paste. None of it is other people's data.
+    evidence: >-
+      [app.py lines 1365-1382](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1365-L1382);
+      `lab/evidence/dirt-gear-1.1.1/src-reads.txt`, `lab/evidence/dirt-gear-1.1.1/src-game.txt`.
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; the update check only reads.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-network.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The check at start has a switch, "Check for updates when Dirt Gear starts" in the About box; every other connection
+      happens only when you click.
+    evidence: >-
+      [app.py lines 665-678](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L665-L678);
+      `lab/evidence/dirt-gear-1.1.1/src-update-ui.txt`.
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the download and the app need none.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/strings-money.txt`, `lab/evidence/dirt-gear-1.1.1/src-network.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It shares nothing with other programs: its local server needs the token only its window has, and its files are its
+      own designs and settings.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-server.txt`, `lab/evidence/dirt-gear-1.1.1/src-files.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It doesn't open or write into the game's process; it never looks for the game running.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-absent.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: It doesn't touch the game's code or memory.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-absent.txt`.'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game (G2); the paints it packs are ordinary `.pnt` files the game loads after a restart.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-absent.txt`, `lab/evidence/dirt-gear-1.1.1/src-game.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: It doesn't read the game's memory; it reads only the game's `global.ini` and folder names (D6).
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-absent.txt`, `lab/evidence/dirt-gear-1.1.1/src-game.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It takes input only in its own window; its code holds no function to press keys or read them elsewhere.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-absent.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: It changes no other plugin or tool; Moto Gear's folder is only read (D6).
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-files.txt`, `lab/evidence/dirt-gear-1.1.1/src-reads.txt`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It reads no keys through Windows; its shortcuts work only in its own window.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-absent.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: It doesn't run in the game, so it sets no crash handler there.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/bundled.txt`, `lab/evidence/dirt-gear-1.1.1/src-absent.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; its code writes no registry value, and the runs wrote no start-up entry.
+    evidence: >-
+      `lab/evidence/dirt-gear-1.1.1/src-absent.txt`; `lab/results/dirt-gear-1.1.1/quiet-install-windows/registry.txt`,
+      `lab/results/dirt-gear-1.1.1/install-and-start-windows/registry.txt`.
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: The tool is a separate program you open yourself; it doesn't need the game running.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/file.txt`; `lab/results/dirt-gear-1.1.1/install-and-start-windows/loaded.txt`.'
+  G11:
+    verdict: 'No'
+    mark: good
+    text: It ships no plugin and loads nothing into the game.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/bundled.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check is got around; it writes paint files in the game's own format.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-absent.txt`, `lab/evidence/dirt-gear-1.1.1/src-game.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; it opens ordinary PSD files with psd-tools and writes paints in the game's `.pnt` format.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/same-as-source.txt`, `lab/evidence/dirt-gear-1.1.1/versions.txt`.'
+  C2:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      Save for later and Portable project write a project file (`.dirtgear`, a zip) that holds a full copy of the PSD you
+      opened, usually a creator's gear template, with your added artwork. The paints and TGAs it exports are your design
+      rendered on that template, as its job is.
+    evidence: >-
+      [app.py lines 1336-1344](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1336-L1344),
+      [app.py lines 1416-1463](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L1416-L1463).
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; the only thing it sends off your PC is the update check.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-network.txt`.'
+  C4:
+    verdict: Partly
+    mark: note
+    text: >-
+      The licence files of the packages pip installs with one (Flask, Werkzeug, NumPy, SciPy, scikit-image, psd-tools,
+      cryptography and others) are copied into `_internal`, and the brand font has its OFL; nothing credits Python, Pillow,
+      pywebview, pythonnet, aggdraw, OpenSSL or PyInstaller, and the repository has no credits file.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/thirdparty.txt`, `lab/evidence/dirt-gear-1.1.1/versions.txt`.'
+  C5:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Open PSD opens the gear PSD you pick, which the README describes as "a creator's gear PSD"; it reads all its layers to
+      show and render them. In the game it reads only the names of the rider model folders, not their files.
+    evidence: >-
+      [app.py lines 735-744](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/source/app.py#L735-L744),
+      [README.md](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/README.md#L3);
+      `lab/evidence/dirt-gear-1.1.1/src-game.txt`.
+  T1:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The tool's own code is public at the commit and the release's matches it (T4); the repository holds no prebuilt
+      program file. Prebuilt program files in the release: the setup and `Dirt Gear.exe` (PE32+ GUI programs, x86-64,
+      PyInstaller 6.22.3's bootloader); `python312.dll`, `python3.dll` and Python's `.pyd` modules (Python 3.12.10);
+      compiled modules of NumPy 2.5.3, SciPy 1.18.1, scikit-image 0.26.0, Pillow 12.3.0, psd-tools 1.19.0, MarkupSafe 3.0.4,
+      cryptography 50.0.2, cffi 2.1.1 and aggdraw 1.4.1, with the OpenBLAS DLLs of the NumPy and SciPy packages;
+      `libcrypto-3.dll` and `libssl-3.dll` (OpenSSL 3.0.16), `libffi-8.dll`; `Python.Runtime.dll` (pythonnet 3.2.1) and two
+      `ClrLoader.dll` (clr_loader, used by pythonnet); pywebview 6.2.1's `webview\lib` (its two `WebBrowserInterop` DLLs,
+      and Microsoft's WebView2 SDK files `Microsoft.Web.WebView2.Core.dll`, `Microsoft.Web.WebView2.WinForms.dll` and three
+      `WebView2Loader.dll`, the interface to Windows' WebView2 runtime); and Microsoft's C runtime (`VCRUNTIME140.dll`,
+      `VCRUNTIME140_1.dll`, `MSVCP140.dll`, `ucrtbase.dll`, `api-ms-win-*.dll`).
+    evidence: >-
+      `file` on each (`lab/evidence/dirt-gear-1.1.1/file.txt`, `lab/evidence/dirt-gear-1.1.1/bundled.txt`),
+      `lab/evidence/dirt-gear-1.1.1/versions.txt`, `lab/evidence/dirt-gear-1.1.1/bootloader.txt`,
+      `lab/evidence/dirt-gear-1.1.1/pywebview-lib.txt`, `lab/evidence/dirt-gear-1.1.1/repo-files.txt`.
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      What its README and code comments say on these questions matches its code; one line on switching the update check off
+      is only partly right (see "What it says vs what it does").
+    evidence: '`lab/evidence/dirt-gear-1.1.1/src-update-ui.txt`, `lab/evidence/dirt-gear-1.1.1/update-manifest.txt`; `lab/results/dirt-gear-1.1.1/quiet-install-windows/outside.txt`.'
+  T3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The "Build & release" workflow builds the program and the setup on GitHub's Windows machines when `VERSION.txt`
+      changes on main, tests the installed copy, and publishes the release with the tag at the commit it built; release
+      v1.1.1 was published by `github-actions` from the commit.
+    evidence: >-
+      [release.yml lines 6-147](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/blob/e407acd9e39393d7a7d1ddc295fe00056f9df7d5/.github/workflows/release.yml#L6-L147);
+      `lab/evidence/dirt-gear-1.1.1/release-page.txt`.
+  T4:
+    verdict: Partly
+    mark: note
+    text: >-
+      Not rebuilt whole, but matched: the tool's five Python files (`app.py`, `updater.py`, `packing.py`, `fastpreview.py`
+      and the setup's `installer.py`) compiled with Python 3.12 give the same code as the release, all but the file path;
+      the page, fonts, update key and icon are the source's files (text files with Windows line ends); and the bootloader's
+      code and pywebview's DLLs are those of PyInstaller 6.22.3 and pywebview 6.2.1. The other packed packages' compiled
+      files weren't tied to their builds.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/same-as-source.txt`, `lab/evidence/dirt-gear-1.1.1/bootloader.txt`, `lab/evidence/dirt-gear-1.1.1/pywebview-lib.txt`.'
+  T5:
+    verdict: Partly
+    mark: note
+    text: >-
+      The public history up to the commit has 16 commits on 4 days, from 29 Oct to 13 Nov 2026; most are named for a version
+      ("Dirt Gear v1.0.4: …"), so the work between releases is mostly not in it.
+    evidence: '[Commits up to the commit](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/commits/e407acd9e39393d7a7d1ddc295fe00056f9df7d5); `lab/evidence/dirt-gear-1.1.1/history.txt`.'
+  T6:
+    verdict: Partly
+    mark: note
+    text: >-
+      `source/requirements.txt` pins psd-tools, Flask, Pillow, NumPy and pywebview to exact versions but not cryptography; the
+      workflow installs the newest pip, PyInstaller, SciPy, scikit-image and aggdraw, and takes its actions by version tag.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/deps.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: The repository and the release have no licence file, and the README names none.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/thirdparty.txt`, `lab/evidence/dirt-gear-1.1.1/repo-files.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold or unlocked in this release.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: It has no donation or support link.
+    evidence: '`lab/evidence/dirt-gear-1.1.1/strings-money.txt`.'
+history:
+  - date: 24 Nov 2026
+    change: First card, for 1.1.1.

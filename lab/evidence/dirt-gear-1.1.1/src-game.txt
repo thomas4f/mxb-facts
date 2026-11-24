@@ -1,0 +1,52 @@
+$ cd "$SRC" && sed -n '1365,1413p' source/app.py; grep -noE '.{0,60}already exists for .{0,60}' source/static/app.js
+def rider_paint_folders():
+    """Find the rider paint folders in MX Bikes' configured mods directory."""
+    documents = [Path.home()/'Documents',
+                 Path(os.environ.get('OneDrive', str(Path.home()/'OneDrive')))/'Documents']
+    for directory in documents:
+        settings = directory/'PiBoSo/MX Bikes/global.ini'
+        if not settings.is_file():
+            continue
+        config = configparser.ConfigParser(interpolation=None)
+        config.read(settings, encoding='utf-8-sig')
+        mods = config.get('mods', 'folder', fallback='').strip()
+        if not mods:
+            mods = str(settings.parent/'mods')
+        riders = Path(mods)/'rider/riders'
+        if riders.is_dir():
+            return {model.name: model/'paints' for model in riders.iterdir()
+                    if model.is_dir() and (model/'paints').is_dir()}
+    return {}
+
+
+@app.get('/api/game/paint-folders')
+def game_paint_folders():
+    return jsonify(models=sorted(rider_paint_folders(), key=str.casefold))
+
+
+@app.post('/api/game/install-pnt')
+def install_game_pnt():
+    with LOCK:
+        doc = require_doc()
+        request_data = request.get_json()
+        model = request_data.get('model', '')
+        folders = rider_paint_folders()
+        if model not in folders:
+            raise ValueError('Choose an available MX Bikes rider model.')
+        doc.update(request_data['state'])
+        textures = doc.textures()
+        packed = pack_pnt(doc.state['name'], textures)
+        if set(read_pnt(packed)) != set(textures):
+            raise ValueError('PNT verification failed')
+        destination = folders[model]/(safe_name(doc.state['name'])+'.pnt')
+        if destination.exists() and not request_data.get('replace'):
+            return jsonify(exists=True, filename=destination.name)
+        temporary = destination.with_name(destination.name+'.dirt-gear-tmp')
+        try:
+            temporary.write_bytes(packed)
+            temporary.replace(destination)
+        finally:
+            temporary.unlink(missing_ok=True)
+        return jsonify(saved=str(destination), filename=destination.name, model=model)
+210:son();if(response.exists){if(!confirm(`${response.filename} already exists for ${model}. Replace it?`))return;response=await(await api('gam
+(exit 0)

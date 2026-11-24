@@ -1,0 +1,17 @@
+$ rm -rf app; python3 -I "$TOOLS/carchive.py" 'payload/Dirt Gear.exe' app
+pyver 312 entries at 21762482
+m struct 289
+m pyimod01_archive 4826
+m pyimod02_importers 32114
+m pyimod03_ctypes 6130
+m pyimod04_pywin32 1614
+s pyiboot01_bootstrap 1921
+s pyi_rth_inspect 2700
+s pyi_rth_pkgutil 1509
+s pyi_rth_multiprocessing 2303
+s pyi_rth_setuptools 998
+s pyi_rth_cryptography_openssl 459
+s app 122677
+o pyi-contents-directory _internal 0
+z PYZ.pyz 21682824
+(exit 0)

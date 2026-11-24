@@ -1,0 +1,4 @@
+$ cd "$SRC" && grep -niE 'gumroad|donat|paypal|ko-?fi|patreon|premium|price|lemon|buy|licen[cs]e key|unlock|subscri|discord\.gg' source/*.py source/static/*.html source/static/*.js README.md
+source/app.py:983:        kernel32.GlobalUnlock.argtypes = [ctypes.c_void_p]
+source/app.py:999:                                kernel32.GlobalUnlock(handle)
+(exit 0)

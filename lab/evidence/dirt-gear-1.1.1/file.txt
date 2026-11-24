@@ -1,0 +1,6 @@
+$ file Dirt-Gear-Setup-1.1.1.exe 'payload/Dirt Gear.exe' setup/payload.zip; unzip -l setup/payload.zip | tail -1
+Dirt-Gear-Setup-1.1.1.exe: PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+payload/Dirt Gear.exe:     PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+setup/payload.zip:         Zip archive data, at least v2.0 to extract, compression method=deflate
+217385808                     1557 files
+(exit 0)

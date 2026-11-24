@@ -1,0 +1,7 @@
+$ curl -sSL https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/tag/v1.1.1 | python3 -I -c 'import re,sys; d=sys.stdin.read(); t=re.sub(r"<[^>]+>|\s+", " ", d); i=t.find("released this"); print(t[i-60:i+40].strip()); print(sorted(set(re.findall(r"/commit/[0-9a-f]{40}", d)))); '; curl -sSL https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/expanded_assets/v1.1.1 | grep -oE 'releases/download/v1\.1\.1/[^"]+' | sort -u
+View all tags                         github-actions  released this   13 Nov 01:47
+['/commit/e407acd9e39393d7a7d1ddc295fe00056f9df7d5']
+releases/download/v1.1.1/Dirt-Gear-Setup-1.1.1.exe
+releases/download/v1.1.1/update.json
+releases/download/v1.1.1/update.json.sig
+(exit 0)
