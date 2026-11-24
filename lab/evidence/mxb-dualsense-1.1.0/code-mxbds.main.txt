@@ -1,0 +1,205 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.main
+=== <module> (line 1)
+  1: LOAD_CONST 'Console program: MX Bikes -> DualSense adaptive triggers (L2 brake, R2 throttle).\n\nSince F3 the actual logic lives in core.py (ModCore). This file only handles: start, the\nconsole display, the numpad keys in tuning mode and a clean shutdown.\n\nStart:  python src/mxbds/main.py\n        python src/mxbds/main.py --tune   (adjust values live with the numpad)\nStop:   Ctrl+C  (L2 and R2 go back to normal)\n\n        python src/mxbds/main.py --install-hud / --uninstall-hud   (optional in-game HUD plugin)\n\nPer record (100 times per second), the first one that applies:\n  L2: landing (kick) -> wheel locked (stutter) -> gear change (clunk) -> grip limit (warning)\n      -> rough ground (whoops, Motocross only) -> brake lever\n  R2: landing (kick) -> gear change (clunk) -> rear wheel spins (rumble) -> limiter (hum) -> throttle spring\nNo game, menu, pause, crash -> both normal (in tuning mode the brake lever stays on to feel it).\n' | STORE_NAME __doc__
+  19: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME argparse | STORE_NAME argparse
+  20: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME sys | STORE_NAME sys
+  21: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME time | STORE_NAME time
+  22: LOAD_SMALL_INT | LOAD_CONST ('Path',) | IMPORT_NAME pathlib | IMPORT_FROM Path | STORE_NAME Path
+  25: LOAD_NAME __package__ | LOAD_CONST (None, '') | CONTAINS_OP in | POP_JUMP_IF_FALSE to L1
+  26: LOAD_NAME sys | LOAD_ATTR path | LOAD_ATTR insert | LOAD_SMALL_INT | LOAD_NAME str | LOAD_NAME Path | LOAD_NAME __file__ | CALL | LOAD_ATTR resolve | CALL | LOAD_ATTR parent | LOAD_ATTR parent | CALL | CALL
+  28: LOAD_SMALL_INT | LOAD_CONST ('__version__',) | IMPORT_NAME mxbds | IMPORT_FROM __version__ | STORE_NAME __version__
+  29: LOAD_SMALL_INT | LOAD_CONST ('settings', 'telemetry') | IMPORT_NAME mxbds | IMPORT_FROM settings | STORE_NAME settings | IMPORT_FROM telemetry | STORE_NAME telemetry
+  30: LOAD_SMALL_INT | LOAD_CONST ('GAME_RIDING', 'ModCore') | IMPORT_NAME mxbds.core | IMPORT_FROM GAME_RIDING | STORE_NAME GAME_RIDING | IMPORT_FROM ModCore | STORE_NAME ModCore
+  31: LOAD_SMALL_INT | LOAD_CONST ('DsxClient',) | IMPORT_NAME mxbds.dsx | IMPORT_FROM DsxClient | STORE_NAME DsxClient
+  32: LOAD_SMALL_INT | LOAD_CONST ('MODE_HOTKEY_TEXT', 'ComboKey', 'NumpadKeys') | IMPORT_NAME mxbds.hotkeys | IMPORT_FROM MODE_HOTKEY_TEXT | STORE_NAME MODE_HOTKEY_TEXT | IMPORT_FROM ComboKey | STORE_NAME ComboKey | IMPORT_FROM NumpadKeys | STORE_NAME NumpadKeys
+  34: LOAD_NAME __version__ | STORE_NAME VERSION
+  35: LOAD_CONST 0.2 | STORE_NAME DISPLAY_EVERY
+  37: LOAD_CONST 'Tuning mode - numpad keys (they also work while MX Bikes is in the foreground):\n  8 / 2  brake lever firmer / softer        4 / 6  free play shorter / longer\n  9 / 3  stutter stronger / weaker          7 / 1  stutter faster / slower\n  5      1.5 s stutter preview              0      save (settings.ini)\nIn the menu and while paused the brake feel stays on so you can feel it while standing.' | STORE_NAME TUNING_HELP
+  44: LOAD_SMALL_INT | STORE_NAME STATUS_WIDTH
+  47: LOAD_CONST <code status_line.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code status_line> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME status_line
+  57: LOAD_CONST <code apply_key.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code apply_key> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME apply_key
+  76: LOAD_CONST <code catch_window_close.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code catch_window_close> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME catch_window_close
+  100: LOAD_CONST <code hud_setup.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code hud_setup> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME hud_setup
+  124: LOAD_CONST <code main.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code main> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME main
+  205: LOAD_NAME __name__ | LOAD_CONST '__main__' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L2
+  206: LOAD_NAME sys | LOAD_ATTR exit | LOAD_NAME main | CALL | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  205: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== status_line.__annotate__ (line 47)
+  47: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'l2_value' | LOAD_GLOBAL float | LOAD_CONST 'l2_text' | LOAD_GLOBAL str | LOAD_CONST 'throttle' | LOAD_GLOBAL float | LOAD_CONST 'r2_text' | LOAD_GLOBAL str | LOAD_CONST 'speed' | LOAD_GLOBAL float | LOAD_CONST 'wheel_front'
+  48: LOAD_GLOBAL float
+  47: LOAD_CONST 'wheel_rear'
+  48: LOAD_GLOBAL float
+  47: LOAD_CONST 'ground_front'
+  48: LOAD_GLOBAL bool
+  47: LOAD_CONST 'ground_rear'
+  48: LOAD_GLOBAL bool
+  47: LOAD_CONST 'return'
+  48: LOAD_GLOBAL str
+  47: BUILD_MAP | RETURN_VALUE
+=== status_line (line 47)
+  51: LOAD_FAST_BORROW ground_front | POP_JUMP_IF_FALSE to L1 | LOAD_CONST 'F' | JUMP_FORWARD to L2 | LOAD_CONST '-' | LOAD_FAST_BORROW ground_rear | POP_JUMP_IF_FALSE to L3 | LOAD_CONST 'R' | JUMP_FORWARD to L4 | LOAD_CONST '-' | BINARY_OP + | STORE_FAST ground
+  52: LOAD_CONST 'L2 ' | LOAD_FAST_BORROW l2_value | LOAD_SMALL_INT | BINARY_OP * | LOAD_CONST '3.0f' | FORMAT_WITH_SPEC | LOAD_CONST '% ' | LOAD_FAST_BORROW l2_text | LOAD_CONST '24.24s' | FORMAT_WITH_SPEC | LOAD_CONST '| R2 ' | LOAD_FAST_BORROW throttle | LOAD_SMALL_INT | BINARY_OP * | LOAD_CONST '3.0f' | FORMAT_WITH_SPEC | LOAD_CONST '% ' | LOAD_FAST_BORROW r2_text | LOAD_CONST '13.13s' | FORMAT_WITH_SPEC | LOAD_CONST '| '
+  53: LOAD_FAST_BORROW speed | LOAD_CONST 3.6 | BINARY_OP * | LOAD_CONST '5.1f' | FORMAT_WITH_SPEC | LOAD_CONST ' km/h | Wheel ' | LOAD_FAST_BORROW wheel_front | LOAD_CONST 3.6 | BINARY_OP * | LOAD_CONST '5.1f' | FORMAT_WITH_SPEC | LOAD_CONST '/' | LOAD_FAST_BORROW wheel_rear | LOAD_CONST 3.6 | BINARY_OP * | LOAD_CONST '5.1f' | FORMAT_WITH_SPEC | LOAD_CONST ' | Ground ' | LOAD_FAST_BORROW ground | FORMAT_SIMPLE
+  52: BUILD_STRING | STORE_FAST line
+  54: LOAD_FAST_BORROW line | LOAD_COMMON_CONSTANT None | LOAD_GLOBAL STATUS_WIDTH | BINARY_SLICE | LOAD_GLOBAL STATUS_WIDTH | FORMAT_SIMPLE | LOAD_CONST 's' | BUILD_STRING | FORMAT_WITH_SPEC | RETURN_VALUE
+=== apply_key.__annotate__ (line 57)
+  57: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'digit' | LOAD_GLOBAL int | LOAD_CONST 's' | LOAD_GLOBAL settings | LOAD_ATTR Settings | LOAD_CONST 'return' | LOAD_GLOBAL str | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== apply_key (line 57)
+  None: MAKE_CELL s
+  60: LOAD_SMALL_INT | LOAD_CONST 'Lever firmer' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  61: LOAD_SMALL_INT | LOAD_CONST 'Lever softer' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  62: LOAD_SMALL_INT | LOAD_CONST 'Free play shorter' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  63: LOAD_SMALL_INT | LOAD_CONST 'Free play longer' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  64: LOAD_SMALL_INT | LOAD_CONST 'Stutter stronger' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  65: LOAD_SMALL_INT | LOAD_CONST 'Stutter weaker' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  66: LOAD_SMALL_INT | LOAD_CONST 'Stutter faster' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  67: LOAD_SMALL_INT | LOAD_CONST 'Stutter slower' | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code apply_key.<locals>.<lambda>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_TUPLE
+  59: BUILD_MAP | STORE_FAST actions
+  69: LOAD_FAST_BORROW_LOAD_FAST_BORROW digit, actions | CONTAINS_OP in | POP_JUMP_IF_FALSE to L1
+  70: LOAD_FAST_BORROW_LOAD_FAST_BORROW actions, digit | BINARY_OP [] | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST text, action
+  71: LOAD_FAST_BORROW action | CALL
+  72: LOAD_FAST_BORROW text | RETURN_VALUE
+  73: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 60)
+  None: COPY_FREE_VARS
+  60: LOAD_DEREF s | LOAD_ATTR lever_firmer | LOAD_SMALL_INT | CALL | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 61)
+  None: COPY_FREE_VARS
+  61: LOAD_DEREF s | LOAD_ATTR lever_firmer | LOAD_COMMON_CONSTANT -1 | CALL | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 62)
+  None: COPY_FREE_VARS
+  62: LOAD_DEREF s | LOAD_ATTR free_play_longer | LOAD_COMMON_CONSTANT -1 | CALL | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 63)
+  None: COPY_FREE_VARS
+  63: LOAD_DEREF s | LOAD_ATTR free_play_longer | LOAD_SMALL_INT | CALL | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 64)
+  None: COPY_FREE_VARS
+  64: LOAD_DEREF s | LOAD_ATTR stutter_stronger | LOAD_SMALL_INT | CALL | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 65)
+  None: COPY_FREE_VARS
+  65: LOAD_DEREF s | LOAD_ATTR stutter_stronger | LOAD_COMMON_CONSTANT -1 | CALL | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 66)
+  None: COPY_FREE_VARS
+  66: LOAD_DEREF s | LOAD_ATTR stutter_faster | LOAD_SMALL_INT | CALL | RETURN_VALUE
+=== apply_key.<locals>.<lambda> (line 67)
+  None: COPY_FREE_VARS
+  67: LOAD_DEREF s | LOAD_ATTR stutter_faster | LOAD_CONST -2 | CALL | RETURN_VALUE
+=== catch_window_close.__annotate__ (line 76)
+  76: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'dsx' | LOAD_GLOBAL DsxClient | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== catch_window_close (line 76)
+  None: MAKE_CELL dsx | MAKE_CELL window_events
+  83: LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L1
+  84: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  85: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  88: BUILD_SET | LOAD_CONST frozenset({1, 2, 5, 6}) | SET_UPDATE | STORE_DEREF window_events
+  90: LOAD_FAST_BORROW ctypes | LOAD_ATTR WINFUNCTYPE | LOAD_FAST_BORROW ctypes | LOAD_ATTR c_bool | LOAD_FAST_BORROW ctypes | LOAD_ATTR c_uint | CALL
+  91: LOAD_FAST_BORROW dsx | LOAD_FAST_BORROW window_events | BUILD_TUPLE | LOAD_CONST <code catch_window_close.<locals>.handler> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure
+  90: CALL
+  91: STORE_FAST handler
+  96: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR kernel32 | LOAD_ATTR SetConsoleCtrlHandler | LOAD_FAST_BORROW handler | LOAD_COMMON_CONSTANT True | CALL
+  97: LOAD_FAST_BORROW handler | LOAD_GLOBAL catch_window_close | STORE_ATTR handler | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== catch_window_close.<locals>.handler (line 90)
+  None: COPY_FREE_VARS
+  92: LOAD_FAST_BORROW event | LOAD_DEREF window_events | CONTAINS_OP in | POP_JUMP_IF_FALSE to L1
+  93: LOAD_DEREF dsx | LOAD_ATTR normal | LOAD_COMMON_CONSTANT True | LOAD_CONST ('now',) | CALL_KW
+  94: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+=== hud_setup.__annotate__ (line 100)
+  100: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'uninstall' | LOAD_GLOBAL bool | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== hud_setup (line 100)
+  102: LOAD_SMALL_INT | LOAD_CONST ('install',) | IMPORT_NAME mxbds + eager | IMPORT_FROM install | STORE_FAST install
+  103: LOAD_FAST_BORROW install | LOAD_ATTR find_game_folder | CALL | STORE_FAST game
+  104: LOAD_FAST_BORROW game | POP_JUMP_IF_NOT_NONE to L1
+  105: LOAD_GLOBAL print | LOAD_CONST 'ERROR: MX Bikes folder not found (Steam library).' | CALL
+  106: LOAD_SMALL_INT | RETURN_VALUE
+  107: LOAD_FAST_BORROW game | LOAD_CONST 'plugins' | BINARY_OP / | STORE_FAST plugins
+  108: LOAD_FAST_BORROW uninstall | POP_JUMP_IF_FALSE to L2 | LOAD_CONST 'Remove the in-game HUD plugin from ' | LOAD_FAST_BORROW plugins | FORMAT_SIMPLE | LOAD_CONST '?' | BUILD_STRING | JUMP_FORWARD to L3
+  109: LOAD_CONST 'Copy the in-game HUD plugin into ' | LOAD_FAST_BORROW plugins | FORMAT_SIMPLE | LOAD_CONST '?' | BUILD_STRING
+  108: STORE_FAST question
+  110: LOAD_GLOBAL input | LOAD_FAST_BORROW question | FORMAT_SIMPLE | LOAD_CONST ' [y/N] ' | BUILD_STRING | CALL | LOAD_ATTR strip | CALL | LOAD_ATTR lower | CALL | LOAD_CONST ('y', 'yes') | CONTAINS_OP not in | POP_JUMP_IF_FALSE to L4
+  111: LOAD_GLOBAL print | LOAD_CONST 'Nothing changed.' | CALL
+  112: LOAD_SMALL_INT | RETURN_VALUE
+  114: LOAD_FAST_BORROW uninstall | POP_JUMP_IF_FALSE to L5 | LOAD_FAST_BORROW install | LOAD_ATTR uninstall | LOAD_FAST_BORROW game | CALL | JUMP_FORWARD to L6 | LOAD_FAST_BORROW install | LOAD_ATTR install | LOAD_FAST_BORROW game | CALL | STORE_FAST files
+  118: LOAD_FAST files | GET_ITER | FOR_ITER to L10 | STORE_FAST f
+  119: LOAD_GLOBAL print | LOAD_FAST_BORROW uninstall | POP_JUMP_IF_FALSE to L8 | LOAD_CONST 'removed  ' | JUMP_FORWARD to L9 | LOAD_CONST 'written  ' | LOAD_GLOBAL str | LOAD_FAST_BORROW f | CALL | BINARY_OP + | CALL | JUMP_BACKWARD to L7
+  120: LOAD_GLOBAL print | LOAD_FAST_BORROW uninstall | POP_JUMP_IF_FALSE to L11 | LOAD_CONST 'Done.' | JUMP_FORWARD to L12 | LOAD_CONST 'Done. Start MX Bikes and the mod - the HUD shows while riding.' | CALL
+  121: LOAD_SMALL_INT | RETURN_VALUE | PUSH_EXC_INFO
+  115: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L13 | STORE_FAST e
+  116: LOAD_GLOBAL print | LOAD_CONST 'ERROR: ' | LOAD_FAST e | FORMAT_SIMPLE | LOAD_CONST '\n  -> Close MX Bikes and try again.' | BUILD_STRING | CALL
+  117: LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | LOAD_SMALL_INT | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RERAISE
+  115: RERAISE | RERAISE
+=== main.__annotate__ (line 124)
+  124: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== main (line 124)
+  125: LOAD_GLOBAL argparse | LOAD_ATTR ArgumentParser | LOAD_CONST 'MX Bikes -> DualSense adaptive triggers (via DSX)' | LOAD_CONST ('description',) | CALL_KW | STORE_FAST parser
+  126: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--dsx-port' | LOAD_GLOBAL int | LOAD_COMMON_CONSTANT None | LOAD_CONST 'DSX UDP port (default: from the DSX file, otherwise 6969)' | LOAD_CONST ('type', 'default', 'help') | CALL_KW
+  127: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--telemetry-port' | LOAD_GLOBAL int | LOAD_GLOBAL telemetry | LOAD_ATTR DEFAULT_PORT | LOAD_CONST 'proxy_udp UDP port (default 30001)' | LOAD_CONST ('type', 'default', 'help') | CALL_KW
+  128: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--tune' | LOAD_CONST 'store_true' | LOAD_CONST 'tuning mode: adjust values live with the numpad' | LOAD_CONST ('action', 'help') | CALL_KW
+  129: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--install-hud' | LOAD_CONST 'store_true' | LOAD_CONST 'copy the in-game HUD plugin into MX Bikes (asks first)' | LOAD_CONST ('action', 'help') | CALL_KW
+  130: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--uninstall-hud' | LOAD_CONST 'store_true' | LOAD_CONST 'remove the in-game HUD plugin from MX Bikes (asks first)' | LOAD_CONST ('action', 'help') | CALL_KW
+  131: LOAD_FAST_BORROW parser | LOAD_ATTR parse_args | CALL | STORE_FAST args
+  132: LOAD_FAST_BORROW args | LOAD_ATTR install_hud | POP_JUMP_IF_TRUE to L1 | LOAD_FAST_BORROW args | LOAD_ATTR uninstall_hud | POP_JUMP_IF_FALSE to L2
+  133: LOAD_GLOBAL hud_setup | LOAD_FAST_BORROW args | LOAD_ATTR uninstall_hud | LOAD_CONST ('uninstall',) | CALL_KW | RETURN_VALUE
+  136: LOAD_GLOBAL sys | LOAD_ATTR stdout | LOAD_ATTR reconfigure | LOAD_COMMON_CONSTANT True | LOAD_CONST ('line_buffering',) | CALL_KW
+  140: LOAD_FAST_BORROW args | LOAD_ATTR tune | POP_JUMP_IF_FALSE to L4 | LOAD_GLOBAL NumpadKeys | CALL | JUMP_FORWARD to L5 | LOAD_COMMON_CONSTANT None | STORE_FAST keys
+  141: LOAD_FAST_BORROW keys | POP_JUMP_IF_NONE to L6 | LOAD_FAST_BORROW keys | LOAD_ATTR available | POP_JUMP_IF_TRUE to L6
+  142: LOAD_GLOBAL print | LOAD_CONST 'Note: tuning mode only works on Windows.\n' | CALL
+  143: LOAD_COMMON_CONSTANT None | STORE_FAST keys
+  146: LOAD_GLOBAL ModCore | LOAD_FAST_BORROW args | LOAD_ATTR dsx_port | LOAD_FAST_BORROW args | LOAD_ATTR telemetry_port
+  147: LOAD_CONST <code main.<locals>.<lambda>> | MAKE_FUNCTION | LOAD_FAST_BORROW keys | LOAD_COMMON_CONSTANT None | IS_OP is not
+  146: LOAD_CONST ('dsx_port', 'telemetry_port', 'report', 'feel_while_stopped') | CALL_KW | STORE_FAST core
+  152: LOAD_GLOBAL catch_window_close | LOAD_FAST_BORROW core | LOAD_ATTR dsx | CALL
+  153: LOAD_FAST_BORROW core | LOAD_ATTR settings | STORE_FAST s
+  155: LOAD_GLOBAL print | LOAD_CONST 'MXB DualSense Support Mod ' | LOAD_GLOBAL VERSION | FORMAT_SIMPLE | LOAD_CONST ' running. Ctrl+C to quit.' | BUILD_STRING | CALL
+  156: LOAD_GLOBAL print | LOAD_CONST '  Telemetry: 127.0.0.1:' | LOAD_FAST_BORROW args | LOAD_ATTR telemetry_port | FORMAT_SIMPLE | LOAD_CONST '   DSX: ' | LOAD_FAST_BORROW core | LOAD_ATTR dsx | LOAD_ATTR target | LOAD_SMALL_INT | BINARY_OP [] | FORMAT_SIMPLE | LOAD_CONST ':' | LOAD_FAST_BORROW core | LOAD_ATTR dsx | LOAD_ATTR target | LOAD_SMALL_INT | BINARY_OP [] | FORMAT_SIMPLE | BUILD_STRING | CALL
+  157: LOAD_GLOBAL print | LOAD_CONST '  Settings: ' | LOAD_FAST_BORROW s | LOAD_ATTR text | CALL | FORMAT_SIMPLE | LOAD_CONST '\n' | BUILD_STRING | CALL
+  158: LOAD_FAST_BORROW keys | POP_JUMP_IF_NONE to L7
+  159: LOAD_GLOBAL print | LOAD_GLOBAL TUNING_HELP | LOAD_CONST '\n' | BINARY_OP + | CALL
+  161: LOAD_GLOBAL print | LOAD_CONST '  Mode: detected from the bike - ' | LOAD_GLOBAL MODE_HOTKEY_TEXT | FORMAT_SIMPLE | LOAD_CONST ' switches Supermoto/Motocross by hand.\n' | BUILD_STRING | CALL
+  162: LOAD_GLOBAL ComboKey | LOAD_GLOBAL ord | LOAD_CONST 'M' | CALL | CALL | STORE_FAST mode_key
+  163: LOAD_FAST_BORROW core | LOAD_ATTR start | CALL
+  164: LOAD_CONST 0.0 | STORE_FAST shown
+  167: LOAD_GLOBAL time | LOAD_ATTR monotonic | CALL | STORE_FAST t
+  169: LOAD_FAST_BORROW mode_key | LOAD_ATTR pressed | CALL | POP_JUMP_IF_FALSE to L9
+  170: LOAD_FAST_BORROW core | LOAD_ATTR toggle_mode | CALL
+  173: LOAD_FAST_BORROW keys | POP_JUMP_IF_NONE to L15
+  174: LOAD_FAST_BORROW keys | LOAD_ATTR newly_pressed | CALL | GET_ITER | FOR_ITER to L14 | STORE_FAST digit
+  175: LOAD_FAST_BORROW digit | LOAD_SMALL_INT | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L11
+  177: LOAD_GLOBAL settings | LOAD_ATTR save | LOAD_FAST_BORROW s | CALL
+  178: LOAD_GLOBAL print | LOAD_CONST '\n>> Saved to ' | LOAD_GLOBAL settings | LOAD_ATTR FILE | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ': ' | LOAD_FAST_BORROW s | LOAD_ATTR text | CALL | FORMAT_SIMPLE | BUILD_STRING | CALL | JUMP_BACKWARD to L10
+  182: LOAD_FAST_BORROW digit | LOAD_SMALL_INT | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L12
+  183: LOAD_FAST_BORROW core | LOAD_ATTR test_feel | CALL
+  184: LOAD_GLOBAL print | LOAD_CONST '\n>> Stutter preview ...' | CALL | JUMP_BACKWARD to L10
+  186: LOAD_GLOBAL apply_key | LOAD_FAST_BORROW_LOAD_FAST_BORROW digit, s | CALL | STORE_FAST text
+  187: LOAD_FAST_BORROW text | POP_JUMP_IF_TRUE to L13 | JUMP_BACKWARD to L10
+  188: LOAD_GLOBAL print | LOAD_CONST '\n>> ' | LOAD_FAST_BORROW text | FORMAT_SIMPLE | LOAD_CONST ': ' | LOAD_FAST_BORROW s | LOAD_ATTR text | CALL | FORMAT_SIMPLE | BUILD_STRING | CALL | JUMP_BACKWARD to L10
+  190: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, shown | BINARY_OP - | LOAD_GLOBAL DISPLAY_EVERY | COMPARE_OP bool(>=) | POP_JUMP_IF_FALSE to L16
+  191: LOAD_FAST t | STORE_FAST shown
+  192: LOAD_FAST_BORROW core | LOAD_ATTR status | CALL | STORE_FAST st
+  193: LOAD_FAST_BORROW st | LOAD_ATTR game | LOAD_GLOBAL GAME_RIDING | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L16
+  194: LOAD_GLOBAL print | LOAD_GLOBAL status_line | LOAD_FAST_BORROW st | LOAD_ATTR l2_value | LOAD_FAST_BORROW st | LOAD_ATTR l2_text | LOAD_FAST_BORROW st | LOAD_ATTR r2_value | LOAD_FAST_BORROW st | LOAD_ATTR r2_text | LOAD_FAST_BORROW st | LOAD_ATTR speed
+  195: LOAD_FAST_BORROW st | LOAD_ATTR wheel_front | LOAD_FAST_BORROW st | LOAD_ATTR wheel_rear | LOAD_FAST_BORROW st | LOAD_ATTR ground_front | LOAD_FAST_BORROW st | LOAD_ATTR ground_rear
+  194: CALL
+  195: LOAD_CONST '\r'
+  194: LOAD_CONST ('end',) | CALL_KW
+  196: LOAD_GLOBAL time | LOAD_ATTR sleep | LOAD_CONST 0.02 | CALL | EXTENDED_ARG | JUMP_BACKWARD to L8 | PUSH_EXC_INFO
+  137: LOAD_GLOBAL AttributeError | LOAD_GLOBAL ValueError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L17
+  138: EXTENDED_ARG | JUMP_BACKWARD_NO_INTERRUPT to L3
+  137: RERAISE | RERAISE | PUSH_EXC_INFO
+  148: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L18
+  149: LOAD_GLOBAL print | LOAD_CONST 'ERROR: port ' | LOAD_FAST args | LOAD_ATTR telemetry_port | FORMAT_SIMPLE | LOAD_CONST ' is in use. Is tools/telemetry_test.py or tools/record.py still running? Please close it first.' | BUILD_STRING | CALL
+  151: LOAD_SMALL_INT | RETURN_VALUE
+  148: RERAISE | RERAISE | PUSH_EXC_INFO
+  179: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L19 | STORE_FAST error
+  181: LOAD_GLOBAL print | LOAD_CONST '\n>> Saving failed (' | LOAD_FAST error | FORMAT_SIMPLE | LOAD_CONST '). Values apply until you quit.' | BUILD_STRING | CALL | LOAD_COMMON_CONSTANT None | STORE_FAST error | DELETE_FAST error | EXTENDED_ARG | JUMP_BACKWARD to L10 | LOAD_COMMON_CONSTANT None | STORE_FAST error | DELETE_FAST error | RERAISE
+  179: RERAISE | RERAISE | PUSH_EXC_INFO
+  197: LOAD_GLOBAL KeyboardInterrupt | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L20
+  198: LOAD_GLOBAL print | LOAD_CONST '\n\nShutting down ...' | CALL | JUMP_FORWARD to L21
+  197: RERAISE | RERAISE
+  200: LOAD_FAST core | LOAD_ATTR stop | CALL
+  201: LOAD_GLOBAL print | LOAD_CONST 'L2 and R2 are back to normal. Bye!' | CALL
+  202: LOAD_SMALL_INT | RETURN_VALUE | PUSH_EXC_INFO
+  200: LOAD_FAST core | LOAD_ATTR stop | CALL
+  201: LOAD_GLOBAL print | LOAD_CONST 'L2 and R2 are back to normal. Bye!' | CALL | RERAISE | RERAISE
+=== main.<locals>.<lambda> (line 147)
+  147: LOAD_GLOBAL print | LOAD_CONST '\n' | LOAD_FAST_BORROW text | FORMAT_SIMPLE | BUILD_STRING | CALL | RETURN_VALUE
+(exit 0)

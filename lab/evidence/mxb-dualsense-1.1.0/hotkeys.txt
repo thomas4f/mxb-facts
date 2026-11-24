@@ -1,0 +1,128 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.hotkeys; pyinst.py pyzcode pkg/PYZ.pyz mxbds.gui.app main 'main.<locals>.watch_hotkey'
+=== <module> (line 1)
+  1: LOAD_CONST 'Read numpad keys globally - even while MX Bikes is in the foreground (D2).\n\nUses the Windows function GetAsyncKeyState (no admin rights needed).\nOnly returns "freshly pressed" keys, so one key press = one step.\nOnly active in tuning mode (main.py --tune).\n' | STORE_NAME __doc__
+  8: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME sys | STORE_NAME sys
+  10: LOAD_SMALL_INT | STORE_NAME VK_NUMPAD0
+  13: LOAD_BUILD_CLASS | LOAD_CONST <code NumpadKeys> | MAKE_FUNCTION | LOAD_CONST 'NumpadKeys' | CALL | STORE_NAME NumpadKeys
+  40: LOAD_SMALL_INT | LOAD_SMALL_INT | STORE_NAME VK_SHIFT | STORE_NAME VK_CONTROL
+  41: LOAD_CONST 'Ctrl + Shift + H' | STORE_NAME HUD_HOTKEY_TEXT
+  42: LOAD_CONST 'Ctrl + Shift + M' | STORE_NAME MODE_HOTKEY_TEXT
+  45: LOAD_BUILD_CLASS | LOAD_CONST <code ComboKey> | MAKE_FUNCTION | LOAD_CONST 'ComboKey' | CALL | STORE_NAME ComboKey | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== NumpadKeys (line 13)
+  None: MAKE_CELL __classdict__
+  13: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'NumpadKeys' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  14: LOAD_CONST <code NumpadKeys.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  21: LOAD_NAME property
+  22: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code NumpadKeys.available.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code NumpadKeys.available> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate
+  21: CALL
+  22: STORE_NAME available
+  25: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code NumpadKeys.newly_pressed.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code NumpadKeys.newly_pressed> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME newly_pressed | LOAD_CONST ('_pressed', '_user32') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== NumpadKeys.__init__ (line 14)
+  15: LOAD_GLOBAL set | CALL | LOAD_FAST_BORROW self | STORE_ATTR _pressed
+  16: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _user32
+  17: LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L1
+  18: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  19: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR user32 | LOAD_FAST_BORROW self | STORE_ATTR _user32 | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  17: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== NumpadKeys.available.__annotate__ (line 22)
+  None: COPY_FREE_VARS
+  22: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== NumpadKeys.available (line 21)
+  23: LOAD_FAST_BORROW self | LOAD_ATTR _user32 | LOAD_COMMON_CONSTANT None | IS_OP is not | RETURN_VALUE
+=== NumpadKeys.newly_pressed.__annotate__ (line 25)
+  None: COPY_FREE_VARS
+  25: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS list | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | BINARY_OP [] | BUILD_MAP | RETURN_VALUE
+=== NumpadKeys.newly_pressed (line 25)
+  27: LOAD_FAST_BORROW self | LOAD_ATTR _user32 | POP_JUMP_IF_NOT_NONE to L1
+  28: BUILD_LIST | RETURN_VALUE
+  29: BUILD_LIST | STORE_FAST new
+  30: LOAD_GLOBAL range | LOAD_SMALL_INT | CALL | GET_ITER | FOR_ITER to L5 | STORE_FAST digit
+  31: LOAD_GLOBAL bool | LOAD_FAST_BORROW self | LOAD_ATTR _user32 | LOAD_ATTR GetAsyncKeyState | LOAD_GLOBAL VK_NUMPAD0 | LOAD_FAST_BORROW digit | BINARY_OP + | CALL | LOAD_CONST 32768 | BINARY_OP & | CALL | STORE_FAST down
+  32: LOAD_FAST_BORROW down | POP_JUMP_IF_FALSE to L3 | LOAD_FAST_BORROW_LOAD_FAST_BORROW digit, self | LOAD_ATTR _pressed | CONTAINS_OP not in | POP_JUMP_IF_FALSE to L3
+  33: LOAD_FAST_BORROW new | LOAD_ATTR append | LOAD_FAST_BORROW digit | CALL
+  34: LOAD_FAST_BORROW self | LOAD_ATTR _pressed | LOAD_ATTR add | LOAD_FAST_BORROW digit | CALL | JUMP_BACKWARD to L2
+  35: LOAD_FAST_BORROW down | POP_JUMP_IF_FALSE to L4 | JUMP_BACKWARD to L2
+  36: LOAD_FAST_BORROW self | LOAD_ATTR _pressed | LOAD_ATTR discard | LOAD_FAST_BORROW digit | CALL | JUMP_BACKWARD to L2
+  37: LOAD_FAST_BORROW new | RETURN_VALUE
+=== ComboKey (line 45)
+  None: MAKE_CELL __classdict__
+  45: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'ComboKey' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  46: LOAD_CONST 'A global key combination (default Ctrl+Shift+H), e.g. to switch the in-game HUD on/off (F7).\n\npressed() returns True once per press. Works while MX Bikes is in the foreground.\nOn other systems than Windows it never fires.\n' | STORE_NAME __doc__
+  52: LOAD_NAME ord | LOAD_CONST 'H' | CALL | LOAD_NAME VK_CONTROL | LOAD_NAME VK_SHIFT | BUILD_TUPLE | LOAD_COMMON_CONSTANT None | BUILD_TUPLE | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ComboKey.__init__.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ComboKey.__init__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME __init__
+  60: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ComboKey.pressed.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ComboKey.pressed> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME pressed | LOAD_CONST ('_down', '_user32', 'key', 'modifiers') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ComboKey.__init__.__annotate__ (line 52)
+  None: COPY_FREE_VARS
+  52: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'key' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'modifiers' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS tuple | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST Ellipsis | BUILD_TUPLE | BINARY_OP [] | BUILD_MAP | RETURN_VALUE
+=== ComboKey.__init__ (line 52)
+  53: LOAD_FAST_BORROW_LOAD_FAST_BORROW key, modifiers | LOAD_FAST_BORROW self | STORE_ATTR key | LOAD_FAST_BORROW self | STORE_ATTR modifiers
+  54: LOAD_COMMON_CONSTANT False | LOAD_FAST_BORROW self | STORE_ATTR _down
+  55: LOAD_FAST_BORROW_LOAD_FAST_BORROW user32, self | STORE_ATTR _user32
+  56: LOAD_FAST_BORROW self | LOAD_ATTR _user32 | POP_JUMP_IF_NOT_NONE to L2 | LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L1
+  57: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  58: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR user32 | LOAD_FAST_BORROW self | STORE_ATTR _user32 | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  56: LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ComboKey.pressed.__annotate__ (line 60)
+  None: COPY_FREE_VARS
+  60: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== ComboKey.pressed (line 60)
+  None: MAKE_CELL self
+  61: LOAD_DEREF self | LOAD_ATTR _user32 | POP_JUMP_IF_NOT_NONE to L1
+  62: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+  63: LOAD_GLOBAL all | LOAD_COMMON_CONSTANT <built-in function all> | IS_OP is | POP_JUMP_IF_FALSE to L5 | LOAD_FAST_BORROW self | BUILD_TUPLE | LOAD_CONST <code ComboKey.pressed.<locals>.<genexpr>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_LIST | LOAD_DEREF self | LOAD_ATTR modifiers | LIST_EXTEND | LOAD_DEREF self | LOAD_ATTR key | LIST_APPEND | CALL_INTRINSIC_1 INTRINSIC_LIST_TO_TUPLE | CALL | FOR_ITER to L4 | POP_JUMP_IF_FALSE to L3 | JUMP_BACKWARD to L2 | LOAD_COMMON_CONSTANT False | JUMP_FORWARD to L6 | LOAD_COMMON_CONSTANT True | JUMP_FORWARD to L6 | LOAD_FAST_BORROW self | BUILD_TUPLE | LOAD_CONST <code ComboKey.pressed.<locals>.<genexpr>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_LIST | LOAD_DEREF self | LOAD_ATTR modifiers | LIST_EXTEND | LOAD_DEREF self | LOAD_ATTR key | LIST_APPEND | CALL_INTRINSIC_1 INTRINSIC_LIST_TO_TUPLE | CALL | CALL | STORE_FAST down
+  64: LOAD_FAST down | POP_JUMP_IF_FALSE to L7 | LOAD_DEREF self | LOAD_ATTR _down | UNARY_NOT | STORE_FAST fresh
+  65: LOAD_FAST_BORROW down | LOAD_DEREF self | STORE_ATTR _down
+  66: LOAD_FAST_BORROW fresh | RETURN_VALUE
+=== ComboKey.pressed.<locals>.<genexpr> (line 63)
+  None: COPY_FREE_VARS
+  63: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST k | LOAD_GLOBAL bool | LOAD_DEREF self | LOAD_ATTR _user32 | LOAD_ATTR GetAsyncKeyState | LOAD_FAST_BORROW k | CALL | LOAD_CONST 32768 | BINARY_OP & | CALL | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== main (line 86)
+  None: MAKE_CELL api | MAKE_CELL args | MAKE_CELL stop_keys | MAKE_CELL window
+  87: LOAD_GLOBAL argparse | LOAD_ATTR ArgumentParser | LOAD_CONST 'MXB DualSense Support - control center' | LOAD_CONST ('description',) | CALL_KW | STORE_FAST parser
+  88: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--dsx-port' | LOAD_GLOBAL int | LOAD_COMMON_CONSTANT None | LOAD_CONST ('type', 'default') | CALL_KW
+  89: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--telemetry-port' | LOAD_GLOBAL int | LOAD_GLOBAL telemetry | LOAD_ATTR DEFAULT_PORT | LOAD_CONST ('type', 'default') | CALL_KW
+  90: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--no-autostart' | LOAD_CONST 'store_true' | LOAD_CONST "don't start the mod when the window opens" | LOAD_CONST ('action', 'help') | CALL_KW
+  91: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--no-anim' | LOAD_CONST 'store_true' | LOAD_CONST 'Live page without the trigger animation (FPS check)' | LOAD_CONST ('action', 'help') | CALL_KW
+  92: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--auto-close' | LOAD_GLOBAL float | LOAD_COMMON_CONSTANT None | LOAD_CONST 'SECONDS' | LOAD_GLOBAL argparse | LOAD_ATTR SUPPRESS | LOAD_CONST ('type', 'default', 'metavar', 'help') | CALL_KW
+  93: LOAD_FAST_BORROW parser | LOAD_ATTR parse_args | CALL | STORE_DEREF args
+  95: LOAD_GLOBAL webview2_installed | CALL | POP_JUMP_IF_TRUE to L1
+  97: LOAD_GLOBAL tell_user | LOAD_CONST 'The control center needs the Microsoft Edge WebView2 Runtime, which seems to be missing on this PC (common on Windows 10).\n\nYes = open the download page (choose "Evergreen Bootstrapper"), install it and start the mod again.\nNo = try to start anyway.\n\nThe console version works without it: MXB-DualSense-Support.exe --console'
+  100: LOAD_COMMON_CONSTANT True
+  97: LOAD_CONST ('yes_no',) | CALL_KW | POP_JUMP_IF_FALSE to L1
+  101: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME webbrowser + eager | STORE_FAST webbrowser
+  102: LOAD_FAST_BORROW webbrowser | LOAD_ATTR open | LOAD_GLOBAL WEBVIEW2_URL | CALL
+  103: LOAD_SMALL_INT | RETURN_VALUE
+  105: LOAD_GLOBAL ControlApi | LOAD_DEREF args | LOAD_ATTR dsx_port | LOAD_DEREF args | LOAD_ATTR telemetry_port | LOAD_DEREF args | LOAD_ATTR no_anim | UNARY_NOT | LOAD_CONST ('dsx_port', 'telemetry_port', 'animation') | CALL_KW | STORE_DEREF api
+  106: LOAD_DEREF args | LOAD_ATTR no_autostart | POP_JUMP_IF_TRUE to L2
+  107: LOAD_DEREF api | LOAD_ATTR start | CALL
+  109: LOAD_GLOBAL webview | LOAD_ATTR create_window | LOAD_GLOBAL TITLE | LOAD_GLOBAL str | LOAD_GLOBAL web_folder | CALL | LOAD_CONST 'index.html' | BINARY_OP / | CALL | LOAD_DEREF api
+  110: LOAD_CONST 1180 | LOAD_CONST 780 | LOAD_CONST (760, 560)
+  111: LOAD_CONST '#0B1120'
+  109: LOAD_CONST ('url', 'js_api', 'width', 'height', 'min_size', 'background_color') | CALL_KW | STORE_DEREF window
+  112: LOAD_DEREF window | LOAD_ATTR events | LOAD_ATTR closed | LOAD_DEREF api | LOAD_ATTR shutdown | BINARY_OP += | STORE_ATTR closed
+  113: LOAD_DEREF window | LOAD_DEREF api | STORE_ATTR _window
+  116: LOAD_GLOBAL threading | LOAD_ATTR Event | CALL | STORE_DEREF stop_keys
+  118: LOAD_FAST_BORROW api | LOAD_FAST_BORROW stop_keys | BUILD_TUPLE | LOAD_CONST <code main.<locals>.watch_hotkey> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_FAST watch_hotkey
+  126: LOAD_GLOBAL threading | LOAD_ATTR Thread | LOAD_FAST_BORROW watch_hotkey | LOAD_CONST 'mxbds-hotkey' | LOAD_COMMON_CONSTANT True | LOAD_CONST ('target', 'name', 'daemon') | CALL_KW | LOAD_ATTR start | CALL
+  128: LOAD_FAST_BORROW args | LOAD_FAST_BORROW window | BUILD_TUPLE | LOAD_CONST <code main.<locals>.after_start> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_FAST after_start
+  133: LOAD_GLOBAL use_own_taskbar_icon | CALL
+  135: LOAD_GLOBAL webview | LOAD_ATTR start | LOAD_FAST_BORROW after_start | LOAD_CONST 'edgechromium' | LOAD_COMMON_CONSTANT True | LOAD_GLOBAL str | LOAD_GLOBAL web_folder | CALL | LOAD_CONST 'icon.ico' | BINARY_OP / | CALL | LOAD_CONST ('gui', 'private_mode', 'icon') | CALL_KW
+  142: LOAD_DEREF stop_keys | LOAD_ATTR set | CALL
+  143: LOAD_DEREF api | LOAD_ATTR shutdown | CALL
+  144: LOAD_SMALL_INT | RETURN_VALUE | PUSH_EXC_INFO
+  136: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST error
+  137: LOAD_DEREF api | LOAD_ATTR shutdown | CALL
+  138: LOAD_GLOBAL tell_user | LOAD_CONST 'The control center window could not open (' | LOAD_GLOBAL type | LOAD_FAST error | CALL | LOAD_ATTR __name__ | FORMAT_SIMPLE | LOAD_CONST ': ' | LOAD_FAST error | FORMAT_SIMPLE | LOAD_CONST ').\n\nInstall or repair the Microsoft Edge WebView2 Runtime ('
+  139: LOAD_GLOBAL WEBVIEW2_URL | FORMAT_SIMPLE | LOAD_CONST '), or use the console version: MXB-DualSense-Support.exe --console'
+  138: BUILD_STRING | CALL
+  141: LOAD_COMMON_CONSTANT None | STORE_FAST error | DELETE_FAST error | LOAD_SMALL_INT | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST error | DELETE_FAST error | RERAISE
+  136: RERAISE | RERAISE
+=== main.<locals>.watch_hotkey (line 118)
+  None: COPY_FREE_VARS
+  119: LOAD_GLOBAL ComboKey | CALL | LOAD_GLOBAL ComboKey | LOAD_GLOBAL ord | LOAD_CONST 'M' | CALL | CALL | STORE_FAST_STORE_FAST mode_key, key
+  120: LOAD_DEREF stop_keys | LOAD_ATTR wait | LOAD_CONST 0.05 | CALL | POP_JUMP_IF_TRUE to L4
+  121: LOAD_FAST_BORROW key | LOAD_ATTR pressed | CALL | POP_JUMP_IF_FALSE to L2
+  122: LOAD_DEREF api | LOAD_ATTR toggle_hud | CALL
+  123: LOAD_FAST_BORROW mode_key | LOAD_ATTR pressed | CALL | POP_JUMP_IF_TRUE to L3 | JUMP_BACKWARD to L1
+  124: LOAD_DEREF api | LOAD_ATTR toggle_mode | CALL | JUMP_BACKWARD to L1
+  120: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

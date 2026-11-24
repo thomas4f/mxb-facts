@@ -1,0 +1,29 @@
+$ unzip -l 1795198224-mxb-dualsense-support-1.1.0.zip; file zip/MXB-DualSense-Support.exe pkg/hud_plugin/mxbds_hud64.dlo
+Archive:  1795198224-mxb-dualsense-support-1.1.0.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     1066  2026-11-20 16:17   licenses\bottle-0.13.4-LICENSE
+     1123  2026-11-20 16:17   licenses\cffi-2.1.1-LICENSE
+     1079  2026-11-20 16:17   licenses\clr_loader-0.3.1-LICENSE
+     1487  2026-11-20 16:17   licenses\Microsoft.Web.WebView2-1.0.3856.49-LICENSE.txt
+     3894  2026-11-20 16:17   licenses\Microsoft.Web.WebView2-1.0.3856.49-NOTICE.txt
+     1515  2026-11-20 16:17   licenses\proxy_tools-0.1.0-LICENSE.txt
+     1543  2026-11-20 16:17   licenses\pycparser-3.12-LICENSE
+    35407  2026-11-20 16:17   licenses\Python-3.15.1-LICENSE.txt
+     5096  2026-11-20 16:17   licenses\pythonnet-3.2.1-AUTHORS.md
+     1104  2026-11-20 16:17   licenses\pythonnet-3.2.1-LICENSE
+     1518  2026-11-20 16:17   licenses\pywebview-6.2.1-LICENSE
+      561  2026-11-20 16:17   licenses\README.txt
+    13936  2026-11-20 16:17   licenses\typing_extensions-4.16.0-LICENSE
+     3542  2026-11-20 16:02   CHANGELOG.txt
+     3728  2026-11-15 02:28   CREDITS.txt
+  1975825  2026-11-20 15:40   How-to-Setup-MXB-DualSense.pdf
+     1065  2026-11-15 02:32   LICENSE.txt
+ 14122699  2026-11-20 16:17   MXB-DualSense-Support.exe
+     4380  2026-11-14 18:23   OFL-Inter.txt
+     7678  2026-11-20 16:02   README.txt
+---------                     -------
+ 16188246                     20 files
+zip/MXB-DualSense-Support.exe:  PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+pkg/hud_plugin/mxbds_hud64.dlo: PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+(exit 0)

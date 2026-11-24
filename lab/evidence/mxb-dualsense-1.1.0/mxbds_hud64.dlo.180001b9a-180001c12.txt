@@ -1,0 +1,28 @@
+$ objdump -d pkg/hud_plugin/mxbds_hud64.dlo | awk -v a=180001b9a -v b=180001c12 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180001b9a:	b9 02 02 00 00       	mov    $0x202,%ecx
+   180001b9f:	48 8d 54 24 40       	lea    0x40(%rsp),%rdx
+   180001ba4:	ff 15 b6 e6 00 00    	call   *0xe6b6(%rip)        # 0x180010260
+   180001baa:	85 c0                	test   %eax,%eax
+   180001bac:	0f 85 9d 00 00 00    	jne    0x180001c4f
+   180001bb2:	bb 02 00 00 00       	mov    $0x2,%ebx
+   180001bb7:	41 b8 11 00 00 00    	mov    $0x11,%r8d
+   180001bbd:	8b d3                	mov    %ebx,%edx
+   180001bbf:	8b cb                	mov    %ebx,%ecx
+   180001bc1:	ff 15 a1 e6 00 00    	call   *0xe6a1(%rip)        # 0x180010268
+   180001bc7:	48 89 05 32 84 01 00 	mov    %rax,0x18432(%rip)        # 0x18001a000
+   180001bce:	48 83 f8 ff          	cmp    $0xffffffffffffffff,%rax
+   180001bd2:	74 7b                	je     0x180001c4f
+   180001bd4:	0f 57 c0             	xorps  %xmm0,%xmm0
+   180001bd7:	b9 32 75 00 00       	mov    $0x7532,%ecx
+   180001bdc:	0f 11 44 24 28       	movups %xmm0,0x28(%rsp)
+   180001be1:	66 89 5c 24 28       	mov    %bx,0x28(%rsp)
+   180001be6:	ff 15 8c e6 00 00    	call   *0xe68c(%rip)        # 0x180010278
+   180001bec:	b9 01 00 00 7f       	mov    $0x7f000001,%ecx
+   180001bf1:	66 89 44 24 2a       	mov    %ax,0x2a(%rsp)
+   180001bf6:	ff 15 84 e6 00 00    	call   *0xe684(%rip)        # 0x180010280
+   180001bfc:	48 8b 0d fd 83 01 00 	mov    0x183fd(%rip),%rcx        # 0x18001a000
+   180001c03:	48 8d 54 24 28       	lea    0x28(%rsp),%rdx
+   180001c08:	41 b8 10 00 00 00    	mov    $0x10,%r8d
+   180001c0e:	89 44 24 2c          	mov    %eax,0x2c(%rsp)
+   180001c12:	ff 15 78 e6 00 00    	call   *0xe678(%rip)        # 0x180010290
+(exit 0)

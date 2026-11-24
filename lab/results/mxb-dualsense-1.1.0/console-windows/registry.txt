@@ -1,0 +1,2 @@
+MXB-DualSense-Support.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS
+MXB-DualSense-Support.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-console\release\1795198224-mxb-dualsense-support-1.1.0.zip\MXB-DualSense-Support.exe  SUCCESS

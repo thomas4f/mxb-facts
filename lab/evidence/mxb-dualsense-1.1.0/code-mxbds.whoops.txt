@@ -1,0 +1,56 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.whoops
+=== <module> (line 1)
+  1: LOAD_CONST 'Whoops feedback (plan step H6): rough ground is felt lightly on L2 - Motocross mode only.\n\n"Roughness" = how much the fork speed jumps around over the last WINDOW seconds\n(standard deviation of susp_vel_front). Smooth ground or a steady fork gives ~0.\nFrom the MX recording (FEASIBILITY.md, H1): MX p50 0.23 / p75 0.38 / p90 0.58 m/s,\nSupermoto final ride p90 0.34 m/s -> start around 0.45 m/s.\n\nThe window only counts with the front wheel on the ground; after a jump it starts empty again,\nso the landing itself (which has its own kick) does not count as rough ground.\n' | STORE_NAME __doc__
+  12: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME math | STORE_NAME math
+  13: LOAD_SMALL_INT | LOAD_CONST ('deque',) | IMPORT_NAME collections | IMPORT_FROM deque | STORE_NAME deque
+  15: LOAD_CONST 0.3 | STORE_NAME WINDOW
+  16: LOAD_CONST 0.25 | STORE_NAME MIN_FILL
+  17: LOAD_CONST 2.5 | STORE_NAME FULL_FACTOR
+  18: LOAD_SMALL_INT | STORE_NAME WHOOPS_HZ
+  19: LOAD_SMALL_INT | STORE_NAME WHOOPS_FORCE_MIN
+  22: LOAD_BUILD_CLASS | LOAD_CONST <code Whoops> | MAKE_FUNCTION | LOAD_CONST 'Whoops' | CALL | STORE_NAME Whoops
+  49: LOAD_CONST <code force.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code force> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME force | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Whoops (line 22)
+  None: MAKE_CELL __classdict__
+  22: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'Whoops' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  23: LOAD_CONST <code Whoops.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  26: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Whoops.reset.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Whoops.reset> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME reset
+  30: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Whoops.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Whoops.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME update | LOAD_CONST ('_samples', 'roughness') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Whoops.__init__ (line 23)
+  24: LOAD_FAST_BORROW self | LOAD_ATTR reset | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Whoops.reset.__annotate__ (line 26)
+  None: COPY_FREE_VARS
+  26: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== Whoops.reset (line 26)
+  27: LOAD_GLOBAL deque | CALL | LOAD_FAST_BORROW self | STORE_ATTR _samples
+  28: LOAD_CONST 0.0 | LOAD_FAST_BORROW self | STORE_ATTR roughness | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Whoops.update.__annotate__ (line 30)
+  None: COPY_FREE_VARS
+  30: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 't' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'ground_front' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'susp_vel_front' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'start' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | BUILD_MAP | RETURN_VALUE
+=== Whoops.update (line 30)
+  None: MAKE_CELL mean
+  32: LOAD_FAST_BORROW ground_front | POP_JUMP_IF_TRUE to L1
+  33: LOAD_FAST_BORROW self | LOAD_ATTR reset | CALL
+  34: LOAD_CONST 0.0 | RETURN_VALUE
+  35: LOAD_FAST_BORROW self | LOAD_ATTR _samples | LOAD_ATTR append | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, susp_vel_front | BUILD_TUPLE | CALL
+  36: LOAD_FAST_BORROW self | LOAD_ATTR _samples | POP_JUMP_IF_FALSE to L3 | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _samples | LOAD_SMALL_INT | BINARY_OP [] | LOAD_SMALL_INT | BINARY_OP [] | BINARY_OP - | LOAD_GLOBAL WINDOW | COMPARE_OP bool(>) | POP_JUMP_IF_FALSE to L3
+  37: LOAD_FAST_BORROW self | LOAD_ATTR _samples | LOAD_ATTR popleft | CALL | JUMP_BACKWARD to L2
+  38: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _samples | LOAD_SMALL_INT | BINARY_OP [] | LOAD_SMALL_INT | BINARY_OP [] | BINARY_OP - | LOAD_GLOBAL MIN_FILL | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L4
+  39: LOAD_CONST 0.0 | LOAD_FAST_BORROW self | STORE_ATTR roughness
+  40: LOAD_CONST 0.0 | RETURN_VALUE
+  41: LOAD_FAST_BORROW self | LOAD_ATTR _samples | LOAD_FAST_AND_CLEAR _ | LOAD_FAST_AND_CLEAR v | BUILD_LIST | GET_ITER | FOR_ITER to L6 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST _, v | LOAD_FAST_BORROW v | LIST_APPEND | JUMP_BACKWARD to L5 | STORE_FAST values | STORE_FAST _ | STORE_FAST v
+  42: LOAD_GLOBAL sum | LOAD_FAST_BORROW values | CALL | LOAD_GLOBAL len | LOAD_FAST_BORROW values | CALL | BINARY_OP / | STORE_DEREF mean
+  43: LOAD_GLOBAL math | LOAD_ATTR sqrt | LOAD_GLOBAL sum | LOAD_FAST_BORROW mean | BUILD_TUPLE | LOAD_CONST <code Whoops.update.<locals>.<genexpr>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_FAST_BORROW values | CALL | CALL | LOAD_GLOBAL len | LOAD_FAST_BORROW values | CALL | BINARY_OP / | CALL | LOAD_FAST_BORROW self | STORE_ATTR roughness
+  44: LOAD_FAST_BORROW self | LOAD_ATTR roughness | LOAD_FAST_BORROW start | COMPARE_OP bool(<=) | POP_JUMP_IF_FALSE to L7
+  45: LOAD_CONST 0.0 | RETURN_VALUE
+  46: LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW self | LOAD_ATTR roughness | LOAD_FAST_BORROW start | BINARY_OP - | LOAD_FAST_BORROW start | LOAD_GLOBAL FULL_FACTOR | LOAD_CONST 1.0 | BINARY_OP - | BINARY_OP * | BINARY_OP / | CALL | RETURN_VALUE
+  41: STORE_FAST v | STORE_FAST _ | RERAISE
+=== Whoops.update.<locals>.<genexpr> (line 43)
+  None: COPY_FREE_VARS
+  43: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST_LOAD_FAST v, v | LOAD_DEREF mean | BINARY_OP - | LOAD_SMALL_INT | BINARY_OP ** | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== force.__annotate__ (line 49)
+  49: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'share' | LOAD_GLOBAL float | LOAD_CONST 'force_max' | LOAD_GLOBAL int | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== force (line 49)
+  51: LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW share | CALL | CALL | STORE_FAST share
+  52: LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL round | LOAD_GLOBAL WHOOPS_FORCE_MIN | LOAD_FAST_BORROW force_max | LOAD_GLOBAL WHOOPS_FORCE_MIN | BINARY_OP - | LOAD_FAST_BORROW share | BINARY_OP * | BINARY_OP + | CALL | CALL | CALL | RETURN_VALUE
+(exit 0)

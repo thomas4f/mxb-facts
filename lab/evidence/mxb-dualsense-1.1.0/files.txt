@@ -1,0 +1,6 @@
+$ sha256sum 1795198224-mxb-dualsense-support-1.1.0.zip zip/MXB-DualSense-Support.exe pkg/hud_plugin/mxbds_hud64.dlo pkg/hud_plugin/mxbds_hud/Inter-SemiBold.fnt
+4b5250f746f1ff6e7a80843839ef06a537e44775cadc6aef3c87ad6af75438f6  1795198224-mxb-dualsense-support-1.1.0.zip
+d15e36b2ab507e751429126a8cda9a4327a099d819ca4929dd8569af9155bf78  zip/MXB-DualSense-Support.exe
+7166e06ffb80ae283d364c5aeb415d40151880824d13b7eef9b84247836d50b4  pkg/hud_plugin/mxbds_hud64.dlo
+39d09a316f65ce46edc07f741666372b8ba4f0c45d620afea44828b520bee8cc  pkg/hud_plugin/mxbds_hud/Inter-SemiBold.fnt
+(exit 0)

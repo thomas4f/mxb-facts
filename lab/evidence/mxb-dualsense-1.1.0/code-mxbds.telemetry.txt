@@ -1,0 +1,394 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.telemetry
+=== <module> (line 1)
+  1: LOAD_CONST 'Telemetry receiver: reads the packets of PiBoSo\'s proxy_udp plugin.\n\nFormat (see FEASIBILITY.md, A3):\n  "data\\0" + int status + int time in ms   (13 byte header)\n  + SPluginsBikeData_t from mxb_api.h        (188 bytes)\nStatus: 0 = not on track, 1 = paused, 2 = riding.\n' | STORE_NAME __doc__
+  9: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME math | STORE_NAME math
+  10: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME socket | STORE_NAME socket
+  11: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME struct | STORE_NAME struct
+  12: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME time | STORE_NAME time
+  13: LOAD_SMALL_INT | LOAD_CONST ('dataclass',) | IMPORT_NAME dataclasses | IMPORT_FROM dataclass | STORE_NAME dataclass
+  15: LOAD_CONST 30001 | STORE_NAME DEFAULT_PORT
+  16: LOAD_CONST b'data\x00' | STORE_NAME HEADER_TAG
+  17: LOAD_CONST '<ii' | STORE_NAME HEADER_FORMAT
+  18: LOAD_SMALL_INT | STORE_NAME HEADER_SIZE
+  22: BUILD_LIST
+  23: LOAD_CONST ('rpm', 'i')
+  22: LIST_APPEND
+  23: LOAD_CONST ('engine_temp', 'f')
+  22: LIST_APPEND
+  23: LOAD_CONST ('water_temp', 'f')
+  22: LIST_APPEND
+  23: LOAD_CONST ('gear', 'i')
+  22: LIST_APPEND
+  24: LOAD_CONST ('fuel', 'f')
+  22: LIST_APPEND
+  24: LOAD_CONST ('speedometer', 'f')
+  22: LIST_APPEND
+  25: LOAD_CONST ('pos_x', 'f')
+  22: LIST_APPEND
+  25: LOAD_CONST ('pos_y', 'f')
+  22: LIST_APPEND
+  25: LOAD_CONST ('pos_z', 'f')
+  22: LIST_APPEND
+  26: LOAD_CONST ('vel_x', 'f')
+  22: LIST_APPEND
+  26: LOAD_CONST ('vel_y', 'f')
+  22: LIST_APPEND
+  26: LOAD_CONST ('vel_z', 'f')
+  22: LIST_APPEND
+  27: LOAD_CONST ('acc_x', 'f')
+  22: LIST_APPEND
+  27: LOAD_CONST ('acc_y', 'f')
+  22: LIST_APPEND
+  27: LOAD_CONST ('acc_z', 'f')
+  22: LIST_APPEND
+  28: LOAD_NAME range | LOAD_SMALL_INT | CALL | LOAD_FAST_AND_CLEAR i | BUILD_LIST | GET_ITER | FOR_ITER to L2 | STORE_FAST i | LOAD_CONST 'rot' | LOAD_FAST_BORROW i | FORMAT_SIMPLE | BUILD_STRING | LOAD_CONST 'f' | BUILD_TUPLE | LIST_APPEND | JUMP_BACKWARD to L1 | STORE_FAST i
+  22: LIST_EXTEND
+  29: LOAD_CONST ('yaw', 'f')
+  22: LIST_APPEND
+  29: LOAD_CONST ('pitch', 'f')
+  22: LIST_APPEND
+  29: LOAD_CONST ('roll', 'f')
+  22: LIST_APPEND
+  30: LOAD_CONST ('yaw_v', 'f')
+  22: LIST_APPEND
+  30: LOAD_CONST ('pitch_v', 'f')
+  22: LIST_APPEND
+  30: LOAD_CONST ('roll_v', 'f')
+  22: LIST_APPEND
+  31: LOAD_CONST ('susp_front', 'f')
+  22: LIST_APPEND
+  31: LOAD_CONST ('susp_rear', 'f')
+  22: LIST_APPEND
+  32: LOAD_CONST ('susp_vel_front', 'f')
+  22: LIST_APPEND
+  32: LOAD_CONST ('susp_vel_rear', 'f')
+  22: LIST_APPEND
+  33: LOAD_CONST ('crashed', 'i')
+  22: LIST_APPEND
+  33: LOAD_CONST ('steer', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('throttle', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('brake_front', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('brake_rear', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('clutch', 'f')
+  22: LIST_APPEND
+  35: LOAD_CONST ('wheel_front', 'f')
+  22: LIST_APPEND
+  35: LOAD_CONST ('wheel_rear', 'f')
+  22: LIST_APPEND
+  36: LOAD_CONST ('material_front', 'i')
+  22: LIST_APPEND
+  36: LOAD_CONST ('material_rear', 'i')
+  22: LIST_APPEND
+  37: LOAD_CONST ('pressure_front', 'f')
+  22: LIST_APPEND
+  37: LOAD_CONST ('pressure_rear', 'f')
+  22: LIST_APPEND
+  38: LOAD_CONST ('steer_torque', 'f')
+  22: LIST_APPEND | STORE_NAME BIKE_FIELDS
+  40: LOAD_NAME BIKE_FIELDS | LOAD_FAST_AND_CLEAR n | LOAD_FAST_AND_CLEAR _ | BUILD_LIST | GET_ITER | FOR_ITER to L4 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST n, _ | LOAD_FAST_BORROW n | LIST_APPEND | JUMP_BACKWARD to L3 | STORE_FAST _ | STORE_FAST n | STORE_NAME BIKE_NAMES
+  41: LOAD_CONST '<' | LOAD_COMMON_CONSTANT '' | LOAD_ATTR join | LOAD_CONST <code <genexpr>> | MAKE_FUNCTION | LOAD_NAME BIKE_FIELDS | CALL | CALL | BINARY_OP + | STORE_NAME BIKE_FORMAT
+  42: LOAD_NAME struct | LOAD_ATTR calcsize | LOAD_NAME BIKE_FORMAT | CALL | STORE_NAME BIKE_SIZE
+  43: LOAD_NAME HEADER_SIZE | LOAD_NAME BIKE_SIZE | BINARY_OP + | STORE_NAME PACKET_SIZE
+  45: LOAD_SMALL_INT | STORE_NAME STATUS_RIDING
+  48: BUILD_MAP
+  49: LOAD_CONST 'motor_temp' | LOAD_CONST 'engine_temp'
+  48: MAP_ADD
+  49: LOAD_CONST 'wasser_temp' | LOAD_CONST 'water_temp'
+  48: MAP_ADD
+  49: LOAD_CONST 'gang' | LOAD_CONST 'gear'
+  48: MAP_ADD
+  49: LOAD_CONST 'sprit' | LOAD_CONST 'fuel'
+  48: MAP_ADD
+  50: LOAD_CONST 'tacho' | LOAD_CONST 'speedometer'
+  48: MAP_ADD
+  50: LOAD_CONST 'feder_vorne' | LOAD_CONST 'susp_front'
+  48: MAP_ADD
+  50: LOAD_CONST 'feder_hinten' | LOAD_CONST 'susp_rear'
+  48: MAP_ADD
+  51: LOAD_CONST 'feder_v_vorne' | LOAD_CONST 'susp_vel_front'
+  48: MAP_ADD
+  51: LOAD_CONST 'feder_v_hinten' | LOAD_CONST 'susp_vel_rear'
+  48: MAP_ADD
+  51: LOAD_CONST 'gestuerzt' | LOAD_CONST 'crashed'
+  48: MAP_ADD
+  52: LOAD_CONST 'lenkung' | LOAD_CONST 'steer'
+  48: MAP_ADD
+  52: LOAD_CONST 'gas' | LOAD_CONST 'throttle'
+  48: MAP_ADD
+  52: LOAD_CONST 'bremse_vorne' | LOAD_CONST 'brake_front'
+  48: MAP_ADD
+  52: LOAD_CONST 'bremse_hinten' | LOAD_CONST 'brake_rear'
+  48: MAP_ADD
+  53: LOAD_CONST 'kupplung' | LOAD_CONST 'clutch'
+  48: MAP_ADD
+  53: LOAD_CONST 'rad_vorne' | LOAD_CONST 'wheel_front'
+  48: MAP_ADD
+  53: LOAD_CONST 'rad_hinten' | LOAD_CONST 'wheel_rear'
+  48: MAP_ADD
+  54: LOAD_CONST 'material_vorne' | LOAD_CONST 'material_front' | LOAD_CONST 'material_hinten' | LOAD_CONST 'material_rear'
+  55: LOAD_CONST 'druck_vorne' | LOAD_CONST 'pressure_front' | LOAD_CONST 'druck_hinten' | LOAD_CONST 'pressure_rear' | LOAD_CONST 'lenkmoment' | LOAD_CONST 'steer_torque'
+  48: BUILD_MAP | DICT_UPDATE | STORE_NAME LEGACY_FIELD_NAMES
+  59: LOAD_NAME dataclass
+  60: LOAD_BUILD_CLASS | LOAD_CONST <code BikeData> | MAKE_FUNCTION | LOAD_CONST 'BikeData' | CALL
+  59: CALL
+  60: STORE_NAME BikeData
+  88: LOAD_CONST b'evnt\x00' | STORE_NAME EVENT_TAG
+  91: LOAD_NAME dataclass
+  92: LOAD_BUILD_CLASS | LOAD_CONST <code EventData> | MAKE_FUNCTION | LOAD_CONST 'EventData' | CALL
+  91: CALL
+  92: STORE_NAME EventData
+  111: LOAD_CONST <code read_event.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code read_event> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME read_event
+  141: LOAD_CONST <code read_raw.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code read_raw> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME read_raw
+  150: LOAD_CONST <code read_packet.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code read_packet> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME read_packet
+  180: LOAD_BUILD_CLASS | LOAD_CONST <code TelemetryReceiver> | MAKE_FUNCTION | LOAD_CONST 'TelemetryReceiver' | CALL | STORE_NAME TelemetryReceiver | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  28: STORE_FAST i | RERAISE
+  40: STORE_FAST _ | STORE_FAST n | RERAISE
+=== <genexpr> (line 41)
+  41: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST _, t | LOAD_FAST_BORROW t | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== BikeData (line 59)
+  None: MAKE_CELL __classdict__
+  59: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'BikeData' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  61: LOAD_CONST 'One record from the game. Speeds in m/s, pedals 0 to 1.' | STORE_NAME __doc__
+  76: LOAD_CONST 0.0 | STORE_NAME susp_front
+  77: LOAD_SMALL_INT | STORE_NAME material_front
+  78: LOAD_SMALL_INT | STORE_NAME material_rear
+  79: LOAD_CONST 0.0 | STORE_NAME susp_vel_front
+  80: LOAD_SMALL_INT | STORE_NAME rpm
+  81: LOAD_SMALL_INT | STORE_NAME gear
+  83: LOAD_NAME property
+  84: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code BikeData.riding.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code BikeData.riding> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate
+  83: CALL
+  84: STORE_NAME riding
+  59: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code BikeData.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_NAME __annotate_func__ | LOAD_CONST () | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== BikeData.riding.__annotate__ (line 84)
+  None: COPY_FREE_VARS
+  84: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== BikeData.riding (line 83)
+  85: LOAD_FAST_BORROW self | LOAD_ATTR status | LOAD_GLOBAL STATUS_RIDING | COMPARE_OP == | POP_JUMP_IF_FALSE to L1 | LOAD_FAST_BORROW self | LOAD_ATTR crashed | UNARY_NOT | RETURN_VALUE
+=== BikeData.__annotate__ (line 59)
+  None: COPY_FREE_VARS
+  59: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | BUILD_MAP
+  62: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'status'
+  59: STORE_SUBSCR
+  63: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'time_ms'
+  59: STORE_SUBSCR
+  64: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'brake_front'
+  59: STORE_SUBSCR
+  65: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'brake_rear'
+  59: STORE_SUBSCR
+  66: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'pressure_front'
+  59: STORE_SUBSCR
+  67: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'pressure_rear'
+  59: STORE_SUBSCR
+  68: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'throttle'
+  59: STORE_SUBSCR
+  69: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'wheel_front'
+  59: STORE_SUBSCR
+  70: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'wheel_rear'
+  59: STORE_SUBSCR
+  71: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'speedometer'
+  59: STORE_SUBSCR
+  72: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'speed'
+  59: STORE_SUBSCR
+  73: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'ground_front'
+  59: STORE_SUBSCR
+  74: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'ground_rear'
+  59: STORE_SUBSCR
+  75: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'crashed'
+  59: STORE_SUBSCR
+  76: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'susp_front'
+  59: STORE_SUBSCR
+  77: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'material_front'
+  59: STORE_SUBSCR
+  78: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'material_rear'
+  59: STORE_SUBSCR
+  79: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'susp_vel_front'
+  59: STORE_SUBSCR
+  80: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'rpm'
+  59: STORE_SUBSCR
+  81: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'gear'
+  59: STORE_SUBSCR | RETURN_VALUE
+=== EventData (line 91)
+  None: MAKE_CELL __classdict__
+  91: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'EventData' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  93: LOAD_CONST 'Bike and track info from the "evnt" packet (only with info = 1 in proxy_udp.ini).\n\nLayout worked out from Slimerex\'s capture (FEASIBILITY.md, E4): like SPluginsBikeEvent_t\nfrom mxb_api.h, but strings tightly packed (each up to its \\0) and without server fields.\nWe deliberately never read the rider name.\n' | STORE_NAME __doc__
+  91: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code EventData.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_NAME __annotate_func__ | LOAD_CONST () | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== EventData.__annotate__ (line 91)
+  None: COPY_FREE_VARS
+  91: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | BUILD_MAP
+  99: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'bike_id'
+  91: STORE_SUBSCR
+  100: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'bike_name'
+  91: STORE_SUBSCR
+  101: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'gears'
+  91: STORE_SUBSCR
+  102: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'max_rpm'
+  91: STORE_SUBSCR
+  103: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'limiter_rpm'
+  91: STORE_SUBSCR
+  104: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'shift_rpm'
+  91: STORE_SUBSCR
+  105: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'susp_travel_front'
+  91: STORE_SUBSCR
+  106: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'susp_travel_rear'
+  91: STORE_SUBSCR
+  107: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'category'
+  91: STORE_SUBSCR
+  108: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'track'
+  91: STORE_SUBSCR | RETURN_VALUE
+=== read_event.__annotate__ (line 111)
+  111: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'data' | LOAD_GLOBAL bytes | LOAD_CONST 'return' | LOAD_GLOBAL EventData | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== read_event (line 111)
+  None: MAKE_CELL data | MAKE_CELL pos
+  113: LOAD_DEREF data | LOAD_ATTR startswith | LOAD_GLOBAL EVENT_TAG | CALL | POP_JUMP_IF_TRUE to L1
+  114: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  116: LOAD_GLOBAL len | LOAD_GLOBAL EVENT_TAG | CALL | STORE_DEREF pos
+  118: LOAD_CONST <code read_event.<locals>.text.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW data | LOAD_FAST_BORROW pos | BUILD_TUPLE | LOAD_CONST <code read_event.<locals>.text> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST text
+  125: LOAD_FAST_BORROW text | CALL
+  126: LOAD_FAST_BORROW text | CALL | LOAD_FAST_BORROW text | CALL | STORE_FAST_STORE_FAST bike_name, bike_id
+  127: LOAD_GLOBAL struct | LOAD_ATTR unpack_from | LOAD_CONST '<4i' | LOAD_DEREF data | LOAD_DEREF pos | CALL | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST gears, max_rpm | STORE_FAST_STORE_FAST limiter, shift
+  128: LOAD_DEREF pos | LOAD_SMALL_INT | BINARY_OP += | STORE_DEREF pos
+  129: LOAD_GLOBAL struct | LOAD_ATTR unpack_from | LOAD_CONST '<7f' | LOAD_DEREF data | LOAD_DEREF pos | CALL | STORE_FAST values
+  130: LOAD_DEREF pos | LOAD_SMALL_INT | BINARY_OP += | STORE_DEREF pos
+  131: LOAD_FAST_BORROW text | CALL | LOAD_FAST_BORROW text | CALL | LOAD_FAST_BORROW text | CALL | STORE_FAST_STORE_FAST track, _track_id | STORE_FAST category
+  134: LOAD_FAST_BORROW bike_id | POP_JUMP_IF_FALSE to L2 | LOAD_FAST_BORROW limiter | LOAD_SMALL_INT | COMPARE_OP bool(<=) | POP_JUMP_IF_FALSE to L3
+  135: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  136: LOAD_GLOBAL EventData | LOAD_FAST_BORROW_LOAD_FAST_BORROW bike_id, bike_name | LOAD_FAST_BORROW_LOAD_FAST_BORROW gears, max_rpm
+  137: LOAD_FAST_BORROW_LOAD_FAST_BORROW limiter, shift | LOAD_FAST_BORROW values | LOAD_SMALL_INT | BINARY_OP []
+  138: LOAD_FAST_BORROW values | LOAD_SMALL_INT | BINARY_OP [] | LOAD_FAST_BORROW_LOAD_FAST_BORROW category, track
+  136: LOAD_CONST ('bike_id', 'bike_name', 'gears', 'max_rpm', 'limiter_rpm', 'shift_rpm', 'susp_travel_front', 'susp_travel_rear', 'category', 'track') | CALL_KW | RETURN_VALUE | PUSH_EXC_INFO
+  132: LOAD_GLOBAL ValueError | LOAD_GLOBAL struct | LOAD_ATTR error | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4
+  133: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  132: RERAISE | RERAISE
+=== read_event.<locals>.text.__annotate__ (line 118)
+  118: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL str | BUILD_MAP | RETURN_VALUE
+=== read_event.<locals>.text (line 118)
+  None: COPY_FREE_VARS
+  120: LOAD_DEREF data | LOAD_ATTR index | LOAD_CONST b'\x00' | LOAD_DEREF pos | CALL | STORE_FAST end
+  121: LOAD_DEREF data | LOAD_DEREF pos | LOAD_FAST_BORROW end | BINARY_SLICE | LOAD_ATTR decode | LOAD_CONST 'latin-1' | CALL | STORE_FAST value
+  122: LOAD_FAST_BORROW end | LOAD_SMALL_INT | BINARY_OP + | STORE_DEREF pos
+  123: LOAD_FAST_BORROW value | RETURN_VALUE
+=== read_raw.__annotate__ (line 141)
+  141: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'data' | LOAD_GLOBAL bytes | LOAD_CONST 'return' | LOAD_GLOBAL tuple | LOAD_GLOBAL int | LOAD_GLOBAL int | LOAD_GLOBAL dict | BUILD_TUPLE | BINARY_OP [] | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== read_raw (line 141)
+  143: LOAD_GLOBAL len | LOAD_FAST_BORROW data | CALL | LOAD_GLOBAL PACKET_SIZE | COMPARE_OP bool(<) | POP_JUMP_IF_TRUE to L1 | LOAD_FAST_BORROW data | LOAD_ATTR startswith | LOAD_GLOBAL HEADER_TAG | CALL | POP_JUMP_IF_TRUE to L2
+  144: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  145: LOAD_GLOBAL struct | LOAD_ATTR unpack_from | LOAD_GLOBAL HEADER_FORMAT | LOAD_FAST_BORROW data | LOAD_GLOBAL len | LOAD_GLOBAL HEADER_TAG | CALL | CALL | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST status, time_ms
+  146: LOAD_GLOBAL dict | LOAD_GLOBAL zip | LOAD_GLOBAL BIKE_NAMES | LOAD_GLOBAL struct | LOAD_ATTR unpack_from | LOAD_GLOBAL BIKE_FORMAT | LOAD_FAST_BORROW data | LOAD_GLOBAL HEADER_SIZE | CALL | CALL | CALL | STORE_FAST values
+  147: LOAD_FAST_BORROW_LOAD_FAST_BORROW status, time_ms | LOAD_FAST_BORROW values | BUILD_TUPLE | RETURN_VALUE
+=== read_packet.__annotate__ (line 150)
+  150: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'data' | LOAD_GLOBAL bytes | LOAD_CONST 'return' | LOAD_GLOBAL BikeData | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== read_packet (line 150)
+  152: LOAD_GLOBAL read_raw | LOAD_FAST_BORROW data | CALL | STORE_FAST raw
+  153: LOAD_FAST_BORROW raw | POP_JUMP_IF_NOT_NONE to L1
+  154: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  155: LOAD_FAST_BORROW raw | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST status, time_ms | STORE_FAST w
+  156: LOAD_GLOBAL BikeData | LOAD_CONST () | BUILD_MAP | LOAD_CONST 'status'
+  157: LOAD_FAST_BORROW status | MAP_ADD
+  156: LOAD_CONST 'time_ms'
+  158: LOAD_FAST_BORROW time_ms | MAP_ADD
+  156: LOAD_CONST 'brake_front'
+  159: LOAD_FAST_BORROW w | LOAD_CONST 'brake_front' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'brake_rear'
+  160: LOAD_FAST_BORROW w | LOAD_CONST 'brake_rear' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'pressure_front'
+  161: LOAD_FAST_BORROW w | LOAD_CONST 'pressure_front' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'pressure_rear'
+  162: LOAD_FAST_BORROW w | LOAD_CONST 'pressure_rear' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'throttle'
+  163: LOAD_FAST_BORROW w | LOAD_CONST 'throttle' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'wheel_front'
+  164: LOAD_FAST_BORROW w | LOAD_CONST 'wheel_front' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'wheel_rear'
+  165: LOAD_FAST_BORROW w | LOAD_CONST 'wheel_rear' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'speedometer'
+  166: LOAD_FAST_BORROW w | LOAD_CONST 'speedometer' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'speed'
+  167: LOAD_GLOBAL math | LOAD_ATTR sqrt | LOAD_FAST_BORROW w | LOAD_CONST 'vel_x' | BINARY_OP [] | LOAD_SMALL_INT | BINARY_OP ** | LOAD_FAST_BORROW w | LOAD_CONST 'vel_y' | BINARY_OP [] | LOAD_SMALL_INT | BINARY_OP ** | BINARY_OP + | LOAD_FAST_BORROW w | LOAD_CONST 'vel_z' | BINARY_OP [] | LOAD_SMALL_INT | BINARY_OP ** | BINARY_OP + | CALL | MAP_ADD
+  156: LOAD_CONST 'ground_front'
+  168: LOAD_FAST_BORROW w | LOAD_CONST 'material_front' | BINARY_OP [] | LOAD_SMALL_INT | COMPARE_OP != | MAP_ADD
+  156: LOAD_CONST 'ground_rear'
+  169: LOAD_FAST_BORROW w | LOAD_CONST 'material_rear' | BINARY_OP [] | LOAD_SMALL_INT | COMPARE_OP != | MAP_ADD
+  156: LOAD_CONST 'crashed'
+  170: LOAD_FAST_BORROW w | LOAD_CONST 'crashed' | BINARY_OP [] | LOAD_SMALL_INT | COMPARE_OP != | MAP_ADD
+  156: LOAD_CONST 'susp_front'
+  171: LOAD_FAST_BORROW w | LOAD_CONST 'susp_front' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'material_front'
+  172: LOAD_FAST_BORROW w | LOAD_CONST 'material_front' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'material_rear'
+  173: LOAD_FAST_BORROW w | LOAD_CONST 'material_rear' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'susp_vel_front'
+  174: LOAD_FAST_BORROW w | LOAD_CONST 'susp_vel_front' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'rpm'
+  175: LOAD_FAST_BORROW w | LOAD_CONST 'rpm' | BINARY_OP [] | MAP_ADD
+  156: LOAD_CONST 'gear'
+  176: LOAD_FAST_BORROW w | LOAD_CONST 'gear' | BINARY_OP [] | MAP_ADD
+  156: CALL_FUNCTION_EX | RETURN_VALUE
+=== TelemetryReceiver (line 180)
+  None: MAKE_CELL __classdict__
+  180: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'TelemetryReceiver' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  181: LOAD_CONST 'Listens to proxy_udp and always returns the newest record.' | STORE_NAME __doc__
+  183: LOAD_NAME DEFAULT_PORT | LOAD_CONST 1.0 | BUILD_TUPLE | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code TelemetryReceiver.__init__.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code TelemetryReceiver.__init__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME __init__
+  190: LOAD_CONST (0.1,) | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code TelemetryReceiver.read.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code TelemetryReceiver.read> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME read
+  203: LOAD_CONST (0.1,) | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code TelemetryReceiver.read_all.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code TelemetryReceiver.read_all> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME read_all
+  224: LOAD_NAME property
+  225: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code TelemetryReceiver.has_data.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code TelemetryReceiver.has_data> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate
+  224: CALL
+  225: STORE_NAME has_data
+  230: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code TelemetryReceiver.close.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code TelemetryReceiver.close> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME close | LOAD_CONST ('_last_packet', '_sock', 'event', 'timeout') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== TelemetryReceiver.__init__.__annotate__ (line 183)
+  None: COPY_FREE_VARS
+  183: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'port' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'timeout' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | BUILD_MAP | RETURN_VALUE
+=== TelemetryReceiver.__init__ (line 183)
+  184: LOAD_FAST_BORROW_LOAD_FAST_BORROW timeout, self | STORE_ATTR timeout
+  185: LOAD_GLOBAL socket | LOAD_ATTR socket | LOAD_GLOBAL socket | LOAD_ATTR AF_INET | LOAD_GLOBAL socket | LOAD_ATTR SOCK_DGRAM | CALL | LOAD_FAST_BORROW self | STORE_ATTR _sock
+  186: LOAD_FAST_BORROW self | LOAD_ATTR _sock | LOAD_ATTR bind | LOAD_CONST '127.0.0.1' | LOAD_FAST_BORROW port | BUILD_TUPLE | CALL
+  187: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _last_packet
+  188: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR event | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== TelemetryReceiver.read.__annotate__ (line 190)
+  None: COPY_FREE_VARS
+  190: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'wait' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS BikeData | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== TelemetryReceiver.read (line 190)
+  196: LOAD_COMMON_CONSTANT None | STORE_FAST newest
+  197: LOAD_FAST_BORROW self | LOAD_ATTR read_all | LOAD_FAST_BORROW wait | CALL | GET_ITER | FOR_ITER to L3 | STORE_FAST raw
+  198: LOAD_GLOBAL read_packet | LOAD_FAST_BORROW raw | CALL | STORE_FAST d
+  199: LOAD_FAST_BORROW d | POP_JUMP_IF_NOT_NONE to L2 | JUMP_BACKWARD to L1
+  200: LOAD_FAST d | STORE_FAST newest | JUMP_BACKWARD to L1
+  201: LOAD_FAST_BORROW newest | RETURN_VALUE
+=== TelemetryReceiver.read_all.__annotate__ (line 203)
+  None: COPY_FREE_VARS
+  203: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'wait' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS list | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bytes | BINARY_OP [] | BUILD_MAP | RETURN_VALUE
+=== TelemetryReceiver.read_all (line 203)
+  205: BUILD_LIST | STORE_FAST packets
+  206: LOAD_FAST_BORROW self | LOAD_ATTR _sock | LOAD_ATTR settimeout | LOAD_FAST_BORROW wait | CALL
+  209: LOAD_FAST_BORROW self | LOAD_ATTR _sock | LOAD_ATTR recv | LOAD_CONST 2048 | CALL | STORE_FAST raw
+  214: LOAD_FAST_BORROW raw | LOAD_ATTR startswith | LOAD_GLOBAL HEADER_TAG | CALL | POP_JUMP_IF_FALSE to L2
+  215: LOAD_FAST_BORROW packets | LOAD_ATTR append | LOAD_FAST_BORROW raw | CALL
+  216: LOAD_GLOBAL time | LOAD_ATTR monotonic | CALL | LOAD_FAST_BORROW self | STORE_ATTR _last_packet | JUMP_FORWARD to L3
+  217: LOAD_FAST_BORROW raw | LOAD_ATTR startswith | LOAD_GLOBAL EVENT_TAG | CALL | POP_JUMP_IF_FALSE to L3
+  218: LOAD_GLOBAL read_event | LOAD_FAST_BORROW raw | CALL | STORE_FAST ev
+  219: LOAD_FAST_BORROW ev | POP_JUMP_IF_NONE to L3
+  220: LOAD_FAST_BORROW_LOAD_FAST_BORROW ev, self | STORE_ATTR event
+  221: LOAD_FAST_BORROW self | LOAD_ATTR _sock | LOAD_ATTR settimeout | LOAD_SMALL_INT | CALL | JUMP_BACKWARD to L1 | PUSH_EXC_INFO
+  210: LOAD_GLOBAL socket | LOAD_ATTR timeout | LOAD_GLOBAL BlockingIOError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4
+  222: LOAD_FAST packets | RETURN_VALUE
+  212: LOAD_GLOBAL ConnectionResetError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L5
+  213: JUMP_BACKWARD to L1
+  212: RERAISE | RERAISE
+=== TelemetryReceiver.has_data.__annotate__ (line 225)
+  None: COPY_FREE_VARS
+  225: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== TelemetryReceiver.has_data (line 224)
+  227: LOAD_FAST_BORROW self | LOAD_ATTR _last_packet | LOAD_COMMON_CONSTANT None | IS_OP is not | POP_JUMP_IF_FALSE to L1
+  228: LOAD_GLOBAL time | LOAD_ATTR monotonic | CALL | LOAD_FAST_BORROW self | LOAD_ATTR _last_packet | BINARY_OP - | LOAD_FAST_BORROW self | LOAD_ATTR timeout | COMPARE_OP <
+  227: RETURN_VALUE
+=== TelemetryReceiver.close.__annotate__ (line 230)
+  None: COPY_FREE_VARS
+  230: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== TelemetryReceiver.close (line 230)
+  231: LOAD_FAST_BORROW self | LOAD_ATTR _sock | LOAD_ATTR close | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

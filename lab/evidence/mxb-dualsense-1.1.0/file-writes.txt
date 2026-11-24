@@ -1,0 +1,48 @@
+$ { pyinst.py code pkg/mxb_dualsense.pyc_raw; for m in $(pyinst.py pyz pkg/PYZ.pyz | grep -E '^mxbds'); do pyinst.py pyzcode pkg/PYZ.pyz $m; done; } | grep -nE 'ATTR (copy2|write_bytes|write_text|replace|unlink|rmdir|mkdir)\b|backup|settings\.ini|_base_folder|STORE_NAME FILE|PLUGIN_NAME|DATA_DIR|FONT_NAME|INI_NAME'
+415:  175: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _status | CALL
+1172:  1: LOAD_CONST "Game setup for the setup assistant (F8): find MX Bikes, check and fix proxy_udp.ini.\n\nThe mod gets its data from proxy_udp64.dlo, which ships with MX Bikes. It only needs a few\nlines in <MX Bikes>/proxy_udp.ini. This module\n  - finds the game folder (saved choice first, then the Steam libraries),\n  - compares proxy_udp.ini with what the mod needs,\n  - writes the missing values - only when the user confirmed it, and always after a backup.\nLines and keys we don't need stay exactly as they are.\n" | STORE_NAME __doc__
+1179:  19: LOAD_CONST 'proxy_udp.ini' | STORE_NAME INI_NAME
+1241:  80: LOAD_FAST_BORROW game | LOAD_GLOBAL INI_NAME | BINARY_OP / | STORE_FAST path
+1314:  149: LOAD_FAST_BORROW game | LOAD_GLOBAL INI_NAME | BINARY_OP / | STORE_FAST path
+1319:  154: LOAD_CONST 'changed' | LOAD_COMMON_CONSTANT False | LOAD_CONST 'backup' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+1321:  156: LOAD_COMMON_CONSTANT None | STORE_FAST backup
+1323:  158: LOAD_FAST_BORROW path | LOAD_ATTR with_name | LOAD_GLOBAL INI_NAME | FORMAT_SIMPLE | LOAD_CONST '.backup-' | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST '%Y%m%d-%H%M%S' | CALL | FORMAT_SIMPLE | BUILD_STRING | CALL | STORE_FAST backup
+1325:  160: LOAD_FAST_BORROW backup | LOAD_ATTR exists | CALL | POP_JUMP_IF_FALSE to L8
+1327:  162: LOAD_FAST_BORROW path | LOAD_ATTR with_name | LOAD_GLOBAL INI_NAME | FORMAT_SIMPLE | LOAD_CONST '.backup-' | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST '%Y%m%d-%H%M%S' | CALL | FORMAT_SIMPLE | LOAD_CONST '-' | LOAD_FAST_BORROW n | FORMAT_SIMPLE | BUILD_STRING | CALL | STORE_FAST backup | JUMP_BACKWARD to L7
+1328:  163: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW path, backup | CALL
+1329:  164: LOAD_FAST_BORROW new | LOAD_ATTR replace | LOAD_CONST '\r\n' | LOAD_CONST '\n' | CALL | LOAD_ATTR replace | LOAD_CONST '\n' | LOAD_FAST_BORROW newline | CALL | LOAD_ATTR encode | LOAD_FAST_BORROW encoding | LOAD_CONST 'surrogateescape' | LOAD_CONST ('errors',) | CALL_KW | STORE_FAST data
+1331:  166: LOAD_FAST_BORROW tmp | LOAD_ATTR write_bytes | LOAD_FAST_BORROW data | CALL
+1332:  167: LOAD_GLOBAL os | LOAD_ATTR replace | LOAD_FAST_BORROW_LOAD_FAST_BORROW tmp, path | CALL
+1333:  168: LOAD_CONST 'changed' | LOAD_COMMON_CONSTANT True | LOAD_CONST 'backup' | LOAD_FAST_BORROW backup | POP_JUMP_IF_FALSE to L10 | LOAD_GLOBAL str | LOAD_FAST_BORROW backup | CALL | BUILD_MAP | RETURN_VALUE | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+1415:  50: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | LOAD_FAST_BORROW self | STORE_ATTR _saved
+1425:  62: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | LOAD_FAST_BORROW self | LOAD_ATTR _report
+1593:  183: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | LOAD_FAST_BORROW self | STORE_ATTR _saved
+1610:  190: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _saved | CALL | LOAD_FAST_BORROW self | STORE_ATTR _settings
+1657:  224: LOAD_FAST_BORROW self | LOAD_ATTR _core | LOAD_ATTR set_settings | LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+1780:  336: LOAD_FAST self | LOAD_ATTR _report | LOAD_CONST 'proxy_udp.ini updated' | LOAD_FAST_BORROW done | LOAD_CONST 'backup' | BINARY_OP [] | POP_JUMP_IF_FALSE to L3 | LOAD_CONST ' (backup: ' | LOAD_GLOBAL Path | LOAD_FAST_BORROW done | LOAD_CONST 'backup' | BINARY_OP [] | CALL | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ')' | BUILD_STRING | JUMP_FORWARD to L4 | LOAD_COMMON_CONSTANT '' | BINARY_OP +
+2188:  14: LOAD_CONST 'mxbds_hud64.dlo' | STORE_NAME PLUGIN_NAME
+2189:  15: LOAD_CONST 'mxbds_hud' | STORE_NAME DATA_DIR
+2190:  16: LOAD_CONST 'Inter-SemiBold.fnt' | STORE_NAME FONT_NAME
+2209:  28: LOAD_FAST_BORROW src | LOAD_GLOBAL PLUGIN_NAME | BINARY_OP / | LOAD_ATTR exists | CALL | POP_JUMP_IF_FALSE to L1 | LOAD_FAST_BORROW src | LOAD_GLOBAL PLUGIN_NAME | BINARY_OP / | JUMP_FORWARD to L2 | LOAD_FAST_BORROW src | LOAD_CONST 'bin' | BINARY_OP / | LOAD_GLOBAL PLUGIN_NAME | BINARY_OP / | STORE_FAST dlo
+2210:  29: LOAD_FAST_BORROW src | LOAD_GLOBAL DATA_DIR | BINARY_OP / | LOAD_GLOBAL FONT_NAME | BINARY_OP / | LOAD_ATTR exists | CALL | POP_JUMP_IF_FALSE to L3 | LOAD_FAST_BORROW src | LOAD_GLOBAL DATA_DIR | BINARY_OP / | LOAD_GLOBAL FONT_NAME | BINARY_OP / | JUMP_FORWARD to L4 | LOAD_FAST_BORROW src | LOAD_CONST 'data' | BINARY_OP / | LOAD_GLOBAL DATA_DIR | BINARY_OP / | LOAD_GLOBAL FONT_NAME | BINARY_OP / | STORE_FAST font
+2226:  49: LOAD_FAST_BORROW libraries | LOAD_ATTR append | LOAD_GLOBAL Path | LOAD_FAST_BORROW match | LOAD_ATTR group | LOAD_SMALL_INT | CALL | LOAD_ATTR replace | LOAD_CONST '\\\\' | LOAD_CONST '\\' | CALL | CALL | CALL | JUMP_BACKWARD to L3
+2255:  71: LOAD_FAST_BORROW game | LOAD_CONST 'plugins' | BINARY_OP / | LOAD_GLOBAL PLUGIN_NAME | BINARY_OP / | LOAD_ATTR exists | CALL | RETURN_VALUE
+2259:  76: LOAD_FAST_BORROW game | LOAD_CONST 'plugins' | BINARY_OP / | LOAD_GLOBAL PLUGIN_NAME | BINARY_OP / | STORE_FAST installed
+2276:  94: LOAD_FAST_BORROW plugins | LOAD_GLOBAL DATA_DIR | BINARY_OP / | LOAD_ATTR mkdir | LOAD_COMMON_CONSTANT True | LOAD_CONST ('exist_ok',) | CALL_KW
+2277:  95: LOAD_FAST_BORROW plugins | LOAD_GLOBAL PLUGIN_NAME | BINARY_OP / | LOAD_FAST_BORROW plugins | LOAD_GLOBAL DATA_DIR | BINARY_OP / | LOAD_GLOBAL FONT_NAME | BINARY_OP / | BUILD_LIST | STORE_FAST written
+2278:  96: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW dlo, written | LOAD_SMALL_INT | BINARY_OP [] | CALL
+2279:  97: LOAD_GLOBAL shutil | LOAD_ATTR copy2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW font, written | LOAD_SMALL_INT | BINARY_OP [] | CALL
+2286:  105: LOAD_FAST_BORROW plugins | LOAD_GLOBAL PLUGIN_NAME | BINARY_OP / | LOAD_FAST_BORROW plugins | LOAD_GLOBAL DATA_DIR | BINARY_OP / | LOAD_GLOBAL FONT_NAME | BINARY_OP / | BUILD_TUPLE | GET_ITER | FOR_ITER to L3 | STORE_FAST f
+2288:  107: LOAD_FAST_BORROW f | LOAD_ATTR unlink | CALL
+2290:  109: LOAD_FAST_BORROW plugins | LOAD_GLOBAL DATA_DIR | BINARY_OP / | STORE_FAST data
+2292:  111: LOAD_FAST_BORROW data | LOAD_ATTR rmdir | CALL
+2576:  37: LOAD_CONST 'Tuning mode - numpad keys (they also work while MX Bikes is in the foreground):\n  8 / 2  brake lever firmer / softer        4 / 6  free play shorter / longer\n  9 / 3  stutter stronger / weaker          7 / 1  stutter faster / slower\n  5      1.5 s stutter preview              0      save (settings.ini)\nIn the menu and while paused the brake feel stays on so you can feel it while standing.' | STORE_NAME TUNING_HELP
+2846:  1: LOAD_CONST 'Settings for the trigger feel: load, save, adjust in tuning mode (D2).\n\nSaved to settings.ini in the project folder (or next to the .exe) - settings only,\nno ride data. If the file is missing, the defaults from brake.py / lockup.py /\neffects.py apply. An old einstellungen.ini (before the English migration) is still read.\n' | STORE_NAME __doc__
+2853:  17: LOAD_CONST <code _base_folder.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code _base_folder> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _base_folder
+2854:  28: LOAD_NAME _base_folder | CALL | LOAD_CONST 'settings.ini' | BINARY_OP / | STORE_NAME FILE
+2855:  29: LOAD_NAME _base_folder | CALL | LOAD_CONST 'einstellungen.ini' | BINARY_OP / | STORE_NAME LEGACY_FILE
+2891:=== _base_folder.__annotate__ (line 17)
+2893:=== _base_folder (line 17)
+3131:  208: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST base | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL Settings | CALL | CALL | STORE_FAST s
+3394:  85: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW d | BUILD_TUPLE | BUILD_MAP | LOAD_FAST_BORROW changes | DICT_MERGE | CALL_FUNCTION_EX | RETURN_VALUE
+(exit 0)

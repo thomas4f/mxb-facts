@@ -1,0 +1,4 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.gui
+=== <module> (line 1)
+  1: LOAD_CONST 'Control center (phase F): the mod in its own app window (pywebview + local HTML).' | STORE_NAME __doc__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

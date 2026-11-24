@@ -1,0 +1,5 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds
+=== <module> (line 1)
+  1: LOAD_CONST 'mxbds - MXB DualSense Support: DualSense adaptive triggers for MX Bikes via DSX.' | STORE_NAME __doc__
+  3: LOAD_CONST '1.1.0' | STORE_NAME __version__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

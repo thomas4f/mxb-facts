@@ -1,0 +1,11 @@
+$ objdump -d pkg/hud_plugin/mxbds_hud64.dlo | grep -nE '# 0x180010078|# 0x180010000'; objdump -d pkg/hud_plugin/mxbds_hud64.dlo | awk -v a=180006cf7 -v b=180006d12 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+7375:   180006d01:	ff 15 71 93 00 00    	call   *0x9371(%rip)        # 0x180010078
+7377:   180006d0c:	ff 15 ee 92 00 00    	call   *0x92ee(%rip)        # 0x180010000
+   180006cf7:	ff 15 6b 94 00 00    	call   *0x946b(%rip)        # 0x180010168
+   180006cfd:	33 c9                	xor    %ecx,%ecx
+   180006cff:	8b f8                	mov    %eax,%edi
+   180006d01:	ff 15 71 93 00 00    	call   *0x9371(%rip)        # 0x180010078
+   180006d07:	48 8d 4c 24 58       	lea    0x58(%rsp),%rcx
+   180006d0c:	ff 15 ee 92 00 00    	call   *0x92ee(%rip)        # 0x180010000
+   180006d12:	85 c0                	test   %eax,%eax
+(exit 0)

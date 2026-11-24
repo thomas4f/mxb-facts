@@ -6,6 +6,7 @@ usage: pyinst.py code <module.pyc_raw> [<function> ...]   every function of the 
                                                           constants (all functions, or only those named, by qualified name)
        pyinst.py pyz <PYZ.pyz>                            every module in the PYZ archive (the bundled Python modules)
        pyinst.py consts <PYZ.pyz> <module>                the text constants of one module in the PYZ archive
+       pyinst.py pyzcode <PYZ.pyz> <module> [<function> ...]  like code, for a module in the PYZ archive
 
 Must run under the Python version the program bundles (its pythonXY.dll), because bytecode changes between versions. It only
 loads code objects with marshal and lists them with dis; it never executes them.
@@ -51,6 +52,10 @@ if cmd == 'code':
 elif cmd == 'pyz':
     for name in sorted(pyz(sys.argv[2])[1]):
         print(name)
+elif cmd == 'pyzcode':
+    d, toc = pyz(sys.argv[2])
+    _, pos, ln = toc[sys.argv[3]]
+    show(marshal.loads(zlib.decompress(d[pos:pos + ln])), set(sys.argv[4:]))
 elif cmd == 'consts':
     d, toc = pyz(sys.argv[2])
     _, pos, ln = toc[sys.argv[3]]

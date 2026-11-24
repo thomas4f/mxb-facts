@@ -1,0 +1,202 @@
+MXB-DualSense-Support.exe  CreateFile  \Device\NamedPipe  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_asyncio.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_bz2.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_cffi_backend.cp315-win_amd64.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ctypes.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_decimal.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_elementtree.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_hashlib.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_lzma.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_multiprocessing.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_overlapped.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_queue.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_socket.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ssl.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_uuid.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_wmi.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_zstd.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\base_library.zip  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\amd64  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\amd64\ClrLoader.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\x86  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\x86\ClrLoader.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\app.js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\fonts  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\fonts\InterVariable.woff2  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\icon.ico  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\index.html  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\mark.svg  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\style.css  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin\mxbds_hud  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin\mxbds_hud\Inter-SemiBold.fnt  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin\mxbds_hud64.dlo  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libcrypto-3.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libffi-8.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libssl-3.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pyexpat.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\python315.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.deps.json  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.xml  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\select.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\setuptools  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\setuptools\_vendor  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\setuptools\_vendor\jaraco  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\setuptools\_vendor\jaraco\text  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\setuptools\_vendor\jaraco\text\Lorem ipsum.txt  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\unicodedata.pyd  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140_1.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\api.js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\customize.js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\finish.js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\lib  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\lib\dom_json.js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\lib\polyfill.js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\state.js  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\Microsoft.Web.WebView2.Core.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\Microsoft.Web.WebView2.WinForms.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\pywebview-android.jar  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-arm64  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-arm64\native  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-arm64\native\WebView2Loader.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x64  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x64\native  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x64\native\WebView2Loader.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x86  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x86\native  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x86\native\WebView2Loader.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\WebBrowserInterop.x64.dll  SUCCESS
+MXB-DualSense-Support.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\WebBrowserInterop.x86.dll  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_bz2.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ctypes.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_hashlib.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_lzma.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_queue.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_socket.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ssl.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_wmi.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_zstd.pyd  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libcrypto-3.dll  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libffi-8.dll  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libssl-3.dll  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\python315.dll  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140_1.dll  SUCCESS
+MXB-DualSense-Support.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  \Device\NamedPipe  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_asyncio.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_asyncio.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_bz2.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_bz2.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_cffi_backend.cp315-win_amd64.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_cffi_backend.cp315-win_amd64.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ctypes.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ctypes.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_decimal.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_decimal.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_elementtree.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_elementtree.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_hashlib.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_hashlib.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_lzma.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_lzma.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_multiprocessing.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_multiprocessing.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_overlapped.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_overlapped.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_queue.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_queue.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_socket.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_socket.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ssl.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_ssl.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_uuid.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_uuid.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_wmi.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_wmi.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_zstd.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\_zstd.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\base_library.zip  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\base_library.zip  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\amd64\ClrLoader.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\amd64\ClrLoader.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\x86\ClrLoader.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\clr_loader\ffi\dlls\x86\ClrLoader.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\app.js  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\app.js  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\fonts\InterVariable.woff2  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\fonts\InterVariable.woff2  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\icon.ico  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\icon.ico  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\index.html  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\index.html  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\mark.svg  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\style.css  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\gui_web\style.css  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin\mxbds_hud\Inter-SemiBold.fnt  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin\mxbds_hud\Inter-SemiBold.fnt  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin\mxbds_hud64.dlo  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\hud_plugin\mxbds_hud64.dlo  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libcrypto-3.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libcrypto-3.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libffi-8.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libffi-8.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libssl-3.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\libssl-3.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pyexpat.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pyexpat.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\python315.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\python315.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.deps.json  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.deps.json  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.xml  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\pythonnet\runtime\Python.Runtime.xml  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\select.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\select.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\setuptools\_vendor\jaraco\text\Lorem ipsum.txt  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\unicodedata.pyd  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\unicodedata.pyd  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140_1.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140_1.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\VCRUNTIME140.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\api.js  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\api.js  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\customize.js  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\customize.js  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\finish.js  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\lib\dom_json.js  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\lib\dom_json.js  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\lib\polyfill.js  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\lib\polyfill.js  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\js\state.js  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\Microsoft.Web.WebView2.Core.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\Microsoft.Web.WebView2.Core.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\Microsoft.Web.WebView2.WinForms.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\Microsoft.Web.WebView2.WinForms.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\pywebview-android.jar  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\pywebview-android.jar  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-arm64\native\WebView2Loader.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-arm64\native\WebView2Loader.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x64\native\WebView2Loader.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x64\native\WebView2Loader.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x86\native\WebView2Loader.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\runtimes\win-x86\native\WebView2Loader.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\WebBrowserInterop.x64.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\WebBrowserInterop.x64.dll  SUCCESS
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\WebBrowserInterop.x86.dll  FAST IO DISALLOWED
+MXB-DualSense-Support.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\_MEI0000039c2\webview\lib\WebBrowserInterop.x86.dll  SUCCESS

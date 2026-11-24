@@ -1,0 +1,78 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.hotkeys
+=== <module> (line 1)
+  1: LOAD_CONST 'Read numpad keys globally - even while MX Bikes is in the foreground (D2).\n\nUses the Windows function GetAsyncKeyState (no admin rights needed).\nOnly returns "freshly pressed" keys, so one key press = one step.\nOnly active in tuning mode (main.py --tune).\n' | STORE_NAME __doc__
+  8: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME sys | STORE_NAME sys
+  10: LOAD_SMALL_INT | STORE_NAME VK_NUMPAD0
+  13: LOAD_BUILD_CLASS | LOAD_CONST <code NumpadKeys> | MAKE_FUNCTION | LOAD_CONST 'NumpadKeys' | CALL | STORE_NAME NumpadKeys
+  40: LOAD_SMALL_INT | LOAD_SMALL_INT | STORE_NAME VK_SHIFT | STORE_NAME VK_CONTROL
+  41: LOAD_CONST 'Ctrl + Shift + H' | STORE_NAME HUD_HOTKEY_TEXT
+  42: LOAD_CONST 'Ctrl + Shift + M' | STORE_NAME MODE_HOTKEY_TEXT
+  45: LOAD_BUILD_CLASS | LOAD_CONST <code ComboKey> | MAKE_FUNCTION | LOAD_CONST 'ComboKey' | CALL | STORE_NAME ComboKey | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== NumpadKeys (line 13)
+  None: MAKE_CELL __classdict__
+  13: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'NumpadKeys' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  14: LOAD_CONST <code NumpadKeys.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  21: LOAD_NAME property
+  22: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code NumpadKeys.available.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code NumpadKeys.available> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate
+  21: CALL
+  22: STORE_NAME available
+  25: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code NumpadKeys.newly_pressed.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code NumpadKeys.newly_pressed> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME newly_pressed | LOAD_CONST ('_pressed', '_user32') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== NumpadKeys.__init__ (line 14)
+  15: LOAD_GLOBAL set | CALL | LOAD_FAST_BORROW self | STORE_ATTR _pressed
+  16: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _user32
+  17: LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L1
+  18: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  19: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR user32 | LOAD_FAST_BORROW self | STORE_ATTR _user32 | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  17: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== NumpadKeys.available.__annotate__ (line 22)
+  None: COPY_FREE_VARS
+  22: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== NumpadKeys.available (line 21)
+  23: LOAD_FAST_BORROW self | LOAD_ATTR _user32 | LOAD_COMMON_CONSTANT None | IS_OP is not | RETURN_VALUE
+=== NumpadKeys.newly_pressed.__annotate__ (line 25)
+  None: COPY_FREE_VARS
+  25: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS list | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | BINARY_OP [] | BUILD_MAP | RETURN_VALUE
+=== NumpadKeys.newly_pressed (line 25)
+  27: LOAD_FAST_BORROW self | LOAD_ATTR _user32 | POP_JUMP_IF_NOT_NONE to L1
+  28: BUILD_LIST | RETURN_VALUE
+  29: BUILD_LIST | STORE_FAST new
+  30: LOAD_GLOBAL range | LOAD_SMALL_INT | CALL | GET_ITER | FOR_ITER to L5 | STORE_FAST digit
+  31: LOAD_GLOBAL bool | LOAD_FAST_BORROW self | LOAD_ATTR _user32 | LOAD_ATTR GetAsyncKeyState | LOAD_GLOBAL VK_NUMPAD0 | LOAD_FAST_BORROW digit | BINARY_OP + | CALL | LOAD_CONST 32768 | BINARY_OP & | CALL | STORE_FAST down
+  32: LOAD_FAST_BORROW down | POP_JUMP_IF_FALSE to L3 | LOAD_FAST_BORROW_LOAD_FAST_BORROW digit, self | LOAD_ATTR _pressed | CONTAINS_OP not in | POP_JUMP_IF_FALSE to L3
+  33: LOAD_FAST_BORROW new | LOAD_ATTR append | LOAD_FAST_BORROW digit | CALL
+  34: LOAD_FAST_BORROW self | LOAD_ATTR _pressed | LOAD_ATTR add | LOAD_FAST_BORROW digit | CALL | JUMP_BACKWARD to L2
+  35: LOAD_FAST_BORROW down | POP_JUMP_IF_FALSE to L4 | JUMP_BACKWARD to L2
+  36: LOAD_FAST_BORROW self | LOAD_ATTR _pressed | LOAD_ATTR discard | LOAD_FAST_BORROW digit | CALL | JUMP_BACKWARD to L2
+  37: LOAD_FAST_BORROW new | RETURN_VALUE
+=== ComboKey (line 45)
+  None: MAKE_CELL __classdict__
+  45: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'ComboKey' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  46: LOAD_CONST 'A global key combination (default Ctrl+Shift+H), e.g. to switch the in-game HUD on/off (F7).\n\npressed() returns True once per press. Works while MX Bikes is in the foreground.\nOn other systems than Windows it never fires.\n' | STORE_NAME __doc__
+  52: LOAD_NAME ord | LOAD_CONST 'H' | CALL | LOAD_NAME VK_CONTROL | LOAD_NAME VK_SHIFT | BUILD_TUPLE | LOAD_COMMON_CONSTANT None | BUILD_TUPLE | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ComboKey.__init__.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ComboKey.__init__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME __init__
+  60: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ComboKey.pressed.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ComboKey.pressed> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME pressed | LOAD_CONST ('_down', '_user32', 'key', 'modifiers') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ComboKey.__init__.__annotate__ (line 52)
+  None: COPY_FREE_VARS
+  52: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'key' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'modifiers' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS tuple | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST Ellipsis | BUILD_TUPLE | BINARY_OP [] | BUILD_MAP | RETURN_VALUE
+=== ComboKey.__init__ (line 52)
+  53: LOAD_FAST_BORROW_LOAD_FAST_BORROW key, modifiers | LOAD_FAST_BORROW self | STORE_ATTR key | LOAD_FAST_BORROW self | STORE_ATTR modifiers
+  54: LOAD_COMMON_CONSTANT False | LOAD_FAST_BORROW self | STORE_ATTR _down
+  55: LOAD_FAST_BORROW_LOAD_FAST_BORROW user32, self | STORE_ATTR _user32
+  56: LOAD_FAST_BORROW self | LOAD_ATTR _user32 | POP_JUMP_IF_NOT_NONE to L2 | LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L1
+  57: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  58: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR user32 | LOAD_FAST_BORROW self | STORE_ATTR _user32 | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  56: LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ComboKey.pressed.__annotate__ (line 60)
+  None: COPY_FREE_VARS
+  60: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== ComboKey.pressed (line 60)
+  None: MAKE_CELL self
+  61: LOAD_DEREF self | LOAD_ATTR _user32 | POP_JUMP_IF_NOT_NONE to L1
+  62: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+  63: LOAD_GLOBAL all | LOAD_COMMON_CONSTANT <built-in function all> | IS_OP is | POP_JUMP_IF_FALSE to L5 | LOAD_FAST_BORROW self | BUILD_TUPLE | LOAD_CONST <code ComboKey.pressed.<locals>.<genexpr>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_LIST | LOAD_DEREF self | LOAD_ATTR modifiers | LIST_EXTEND | LOAD_DEREF self | LOAD_ATTR key | LIST_APPEND | CALL_INTRINSIC_1 INTRINSIC_LIST_TO_TUPLE | CALL | FOR_ITER to L4 | POP_JUMP_IF_FALSE to L3 | JUMP_BACKWARD to L2 | LOAD_COMMON_CONSTANT False | JUMP_FORWARD to L6 | LOAD_COMMON_CONSTANT True | JUMP_FORWARD to L6 | LOAD_FAST_BORROW self | BUILD_TUPLE | LOAD_CONST <code ComboKey.pressed.<locals>.<genexpr>> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | BUILD_LIST | LOAD_DEREF self | LOAD_ATTR modifiers | LIST_EXTEND | LOAD_DEREF self | LOAD_ATTR key | LIST_APPEND | CALL_INTRINSIC_1 INTRINSIC_LIST_TO_TUPLE | CALL | CALL | STORE_FAST down
+  64: LOAD_FAST down | POP_JUMP_IF_FALSE to L7 | LOAD_DEREF self | LOAD_ATTR _down | UNARY_NOT | STORE_FAST fresh
+  65: LOAD_FAST_BORROW down | LOAD_DEREF self | STORE_ATTR _down
+  66: LOAD_FAST_BORROW fresh | RETURN_VALUE
+=== ComboKey.pressed.<locals>.<genexpr> (line 63)
+  None: COPY_FREE_VARS
+  63: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST k | LOAD_GLOBAL bool | LOAD_DEREF self | LOAD_ATTR _user32 | LOAD_ATTR GetAsyncKeyState | LOAD_FAST_BORROW k | CALL | LOAD_CONST 32768 | BINARY_OP & | CALL | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+(exit 0)

@@ -206,7 +206,9 @@
     "author": "Slimerex",
     "github": null,
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "mxb-dualsense-1.1.0.yaml"
+    ],
     "mxb-mods": {
       "post": 197978,
       "tied_by": "1795198224-mxb-dualsense-support-1.1.0.zip"

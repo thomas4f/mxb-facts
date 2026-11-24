@@ -1,0 +1,10 @@
+$ grep -nE 'confirmBox|api\.(install_hud|uninstall_hud|fix_proxy|choose_game_folder)' pkg/gui_web/app.js
+601:function confirmBox(title, text, pre, okLabel) {
+758:    const ok = await confirmBox(updating ? "Update in-game HUD?" : "Install in-game HUD?",
+761:    if (ok) renderHud(await api.install_hud(true));
+764:    const ok = await confirmBox("Uninstall in-game HUD?",
+766:    if (ok) renderHud(await api.uninstall_hud(true));
+874:    renderSetup(await api.choose_game_folder());
+879:    const ok = await confirmBox("Set up proxy_udp.ini?",
+884:    if (ok) renderSetup(await api.fix_proxy(true));
+(exit 0)

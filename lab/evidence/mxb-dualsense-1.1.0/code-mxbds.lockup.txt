@@ -1,0 +1,269 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.lockup
+=== <module> (line 1)
+  1: LOAD_CONST "Lock-up detection for the front and rear wheel, plus the grip-limit warning.\n\nA wheel counts as locked when it turns clearly slower than the bike is moving - but only if\n  - the bike is fast enough (no false alarm when standing still),\n  - this wheel is being braked,\n  - the wheel touches the ground (no false alarm on jumps),\n  - it lasts a minimum time (no false alarm from short glitches).\n\nThe numbers are calibrated with Slimerex's recordings and tuned in the game (FEASIBILITY.md C2, D3).\n" | STORE_NAME __doc__
+  12: LOAD_SMALL_INT | LOAD_CONST ('dataclass', 'field') | IMPORT_NAME dataclasses | IMPORT_FROM dataclass | STORE_NAME dataclass | IMPORT_FROM field | STORE_NAME field
+  14: LOAD_CONST 4.166666666666667 | STORE_NAME MIN_SPEED
+  15: LOAD_CONST 0.3 | STORE_NAME SLIP
+  16: LOAD_CONST 0.05 | STORE_NAME MIN_BRAKE
+  17: LOAD_CONST 0.03 | STORE_NAME MIN_DURATION
+  20: LOAD_CONST 0.15 | STORE_NAME HOLD
+  22: LOAD_CONST 0.05 | STORE_NAME AIR_AFTER
+  29: LOAD_SMALL_INT | STORE_NAME STUTTER_HZ_SLOW
+  30: LOAD_SMALL_INT | STORE_NAME STUTTER_HZ_FAST
+  31: LOAD_CONST 5.555555555555555 | STORE_NAME STUTTER_SPEED_FROM
+  32: LOAD_CONST 30.555555555555554 | STORE_NAME STUTTER_SPEED_TO
+  33: LOAD_SMALL_INT | STORE_NAME STUTTER_HZ_STEP
+  35: LOAD_SMALL_INT | STORE_NAME STUTTER_FORCE_MIN
+  36: LOAD_SMALL_INT | STORE_NAME STUTTER_FORCE_MAX
+  42: LOAD_CONST 0.15 | STORE_NAME WARN_FROM_FRONT
+  43: LOAD_CONST 0.12 | STORE_NAME WARN_FROM_REAR
+  44: LOAD_SMALL_INT | STORE_NAME WARN_HZ
+  46: LOAD_SMALL_INT | STORE_NAME WARN_FORCE_MIN
+  47: LOAD_SMALL_INT | STORE_NAME WARN_FORCE_MAX
+  48: LOAD_CONST 0.1 | STORE_NAME WARN_HOLD
+  51: LOAD_NAME SLIP | BUILD_TUPLE | LOAD_CONST <code warning_share.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code warning_share> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME warning_share
+  58: LOAD_NAME WARN_HZ
+  59: LOAD_NAME WARN_FORCE_MIN | LOAD_NAME WARN_FORCE_MAX
+  58: BUILD_TUPLE | LOAD_CONST <code warning_values.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code warning_values> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME warning_values
+  66: LOAD_NAME dataclass
+  67: LOAD_BUILD_CLASS | LOAD_CONST <code GripWarning> | MAKE_FUNCTION | LOAD_CONST 'GripWarning' | CALL
+  66: CALL
+  67: STORE_NAME GripWarning
+  102: LOAD_CONST <code slip.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code slip> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME slip
+  110: LOAD_NAME STUTTER_HZ_SLOW | LOAD_NAME STUTTER_HZ_FAST
+  111: LOAD_NAME STUTTER_FORCE_MIN | LOAD_NAME STUTTER_FORCE_MAX
+  109: BUILD_TUPLE | LOAD_CONST <code stutter_values.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code stutter_values> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME stutter_values
+  131: LOAD_NAME dataclass
+  132: LOAD_BUILD_CLASS | LOAD_CONST <code _Wheel> | MAKE_FUNCTION | LOAD_CONST '_Wheel' | CALL
+  131: CALL
+  132: STORE_NAME _Wheel
+  138: LOAD_NAME dataclass
+  139: LOAD_BUILD_CLASS | LOAD_CONST <code LockupDetector> | MAKE_FUNCTION | LOAD_CONST 'LockupDetector' | CALL
+  138: CALL
+  139: STORE_NAME LockupDetector | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== warning_share.__annotate__ (line 51)
+  51: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'slip_value' | LOAD_GLOBAL float | LOAD_CONST 'start' | LOAD_GLOBAL float | LOAD_CONST 'end' | LOAD_GLOBAL float | LOAD_CONST 'return' | LOAD_GLOBAL float | BUILD_MAP | RETURN_VALUE
+=== warning_share (line 51)
+  53: LOAD_FAST_BORROW_LOAD_FAST_BORROW slip_value, start | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L1
+  54: LOAD_CONST 0.0 | RETURN_VALUE
+  55: LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW_LOAD_FAST_BORROW slip_value, start | BINARY_OP - | LOAD_FAST_BORROW_LOAD_FAST_BORROW end, start | BINARY_OP - | BINARY_OP / | CALL | CALL | RETURN_VALUE
+=== warning_values.__annotate__ (line 58)
+  58: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'share' | LOAD_GLOBAL float | LOAD_CONST 'hz' | LOAD_GLOBAL int | LOAD_CONST 'force_min'
+  59: LOAD_GLOBAL int
+  58: LOAD_CONST 'force_max'
+  59: LOAD_GLOBAL int
+  58: LOAD_CONST 'return'
+  59: LOAD_GLOBAL tuple | LOAD_GLOBAL int | LOAD_GLOBAL int | BUILD_TUPLE | BINARY_OP []
+  58: BUILD_MAP | RETURN_VALUE
+=== warning_values (line 58)
+  61: LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW share | CALL | CALL | STORE_FAST share
+  62: LOAD_GLOBAL round | LOAD_FAST_BORROW_LOAD_FAST_BORROW force_min, force_max | LOAD_FAST_BORROW force_min | BINARY_OP - | LOAD_FAST_BORROW share | BINARY_OP * | BINARY_OP + | CALL | STORE_FAST force
+  63: LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_FAST_BORROW hz | CALL | CALL | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_FAST_BORROW force | CALL | CALL | BUILD_TUPLE | RETURN_VALUE
+=== GripWarning (line 66)
+  None: MAKE_CELL __classdict__
+  66: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'GripWarning' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  68: LOAD_CONST 'How close is a wheel to the grip limit? Returns 0..1 (0 = no warning).' | STORE_NAME __doc__
+  69: LOAD_NAME MIN_SPEED | STORE_NAME min_speed
+  70: LOAD_NAME MIN_BRAKE | STORE_NAME min_brake
+  71: LOAD_NAME WARN_FROM_FRONT | STORE_NAME from_front
+  72: LOAD_NAME WARN_FROM_REAR | STORE_NAME from_rear
+  73: LOAD_NAME SLIP | STORE_NAME lock_slip
+  74: LOAD_NAME WARN_HOLD | STORE_NAME hold
+  75: LOAD_CONST 0.0 | STORE_NAME _held
+  76: LOAD_CONST -1.0 | STORE_NAME _held_until
+  78: LOAD_CONST (True, True) | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code GripWarning.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code GripWarning.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME update
+  97: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code GripWarning.reset.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code GripWarning.reset> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME reset
+  66: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code GripWarning.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_NAME __annotate_func__ | LOAD_CONST ('_held', '_held_until') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== GripWarning.update.__annotate__ (line 78)
+  None: COPY_FREE_VARS
+  78: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 't' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'speed' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'wheel_front'
+  79: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  78: LOAD_CONST 'wheel_rear'
+  79: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  78: LOAD_CONST 'brake_front'
+  80: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  78: LOAD_CONST 'brake_rear'
+  80: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  78: LOAD_CONST 'ground_front'
+  81: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool
+  78: LOAD_CONST 'ground_rear'
+  81: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool
+  78: LOAD_CONST 'return'
+  81: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  78: BUILD_MAP | RETURN_VALUE
+=== GripWarning.update (line 78)
+  82: LOAD_CONST 0.0 | STORE_FAST share
+  83: LOAD_FAST_BORROW_LOAD_FAST_BORROW speed, self | LOAD_ATTR min_speed | COMPARE_OP bool(>=) | POP_JUMP_IF_FALSE to L2
+  84: LOAD_FAST_BORROW_LOAD_FAST_BORROW brake_front, self | LOAD_ATTR min_brake | COMPARE_OP bool(>=) | POP_JUMP_IF_FALSE to L1 | LOAD_FAST_BORROW ground_front | POP_JUMP_IF_FALSE to L1
+  85: LOAD_GLOBAL max | LOAD_FAST_BORROW share | LOAD_GLOBAL warning_share | LOAD_GLOBAL slip | LOAD_FAST_BORROW_LOAD_FAST_BORROW speed, wheel_front | CALL | LOAD_FAST_BORROW self | LOAD_ATTR from_front | LOAD_FAST_BORROW self | LOAD_ATTR lock_slip | CALL | CALL | STORE_FAST share
+  86: LOAD_FAST_BORROW_LOAD_FAST_BORROW brake_rear, self | LOAD_ATTR min_brake | COMPARE_OP bool(>=) | POP_JUMP_IF_FALSE to L2 | LOAD_FAST_BORROW ground_rear | POP_JUMP_IF_FALSE to L2
+  87: LOAD_GLOBAL max | LOAD_FAST_BORROW share | LOAD_GLOBAL warning_share | LOAD_GLOBAL slip | LOAD_FAST_BORROW_LOAD_FAST_BORROW speed, wheel_rear | CALL | LOAD_FAST_BORROW self | LOAD_ATTR from_rear | LOAD_FAST_BORROW self | LOAD_ATTR lock_slip | CALL | CALL | STORE_FAST share
+  88: LOAD_GLOBAL max | LOAD_FAST_BORROW_LOAD_FAST_BORROW brake_front, brake_rear | CALL | LOAD_FAST_BORROW self | LOAD_ATTR min_brake | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L3
+  89: LOAD_FAST_BORROW self | LOAD_ATTR reset | CALL
+  90: LOAD_CONST 0.0 | RETURN_VALUE
+  91: LOAD_FAST_BORROW share | LOAD_CONST 0.0 | COMPARE_OP bool(>) | POP_JUMP_IF_FALSE to L4
+  92: LOAD_FAST_BORROW_LOAD_FAST_BORROW share, self | STORE_ATTR _held
+  93: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR hold | BINARY_OP + | LOAD_FAST_BORROW self | STORE_ATTR _held_until
+  94: LOAD_FAST_BORROW share | RETURN_VALUE
+  95: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _held_until | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L5 | LOAD_FAST_BORROW self | LOAD_ATTR _held | RETURN_VALUE | LOAD_CONST 0.0 | RETURN_VALUE
+=== GripWarning.reset.__annotate__ (line 97)
+  None: COPY_FREE_VARS
+  97: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== GripWarning.reset (line 97)
+  98: LOAD_CONST 0.0 | LOAD_FAST_BORROW self | STORE_ATTR _held
+  99: LOAD_CONST -1.0 | LOAD_FAST_BORROW self | STORE_ATTR _held_until | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== GripWarning.__annotate__ (line 66)
+  None: COPY_FREE_VARS
+  66: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | BUILD_MAP
+  69: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'min_speed'
+  66: STORE_SUBSCR
+  70: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'min_brake'
+  66: STORE_SUBSCR
+  71: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'from_front'
+  66: STORE_SUBSCR
+  72: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'from_rear'
+  66: STORE_SUBSCR
+  73: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'lock_slip'
+  66: STORE_SUBSCR
+  74: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'hold'
+  66: STORE_SUBSCR
+  75: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST '_held'
+  66: STORE_SUBSCR
+  76: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST '_held_until'
+  66: STORE_SUBSCR | RETURN_VALUE
+=== slip.__annotate__ (line 102)
+  102: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'speed' | LOAD_GLOBAL float | LOAD_CONST 'wheel_speed' | LOAD_GLOBAL float | LOAD_CONST 'return' | LOAD_GLOBAL float | BUILD_MAP | RETURN_VALUE
+=== slip (line 102)
+  104: LOAD_FAST_BORROW speed | LOAD_CONST 0.1 | COMPARE_OP bool(<=) | POP_JUMP_IF_FALSE to L1
+  105: LOAD_CONST 0.0 | RETURN_VALUE
+  106: LOAD_FAST_BORROW_LOAD_FAST_BORROW speed, wheel_speed | BINARY_OP - | LOAD_FAST_BORROW speed | BINARY_OP / | RETURN_VALUE
+=== stutter_values.__annotate__ (line 109)
+  109: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'speed' | LOAD_GLOBAL float | LOAD_CONST 'slip_value' | LOAD_GLOBAL float | LOAD_CONST 'hz_slow'
+  110: LOAD_GLOBAL int
+  109: LOAD_CONST 'hz_fast'
+  110: LOAD_GLOBAL int
+  109: LOAD_CONST 'force_min'
+  111: LOAD_GLOBAL int
+  109: LOAD_CONST 'force_max'
+  111: LOAD_GLOBAL int
+  109: LOAD_CONST 'return'
+  111: LOAD_GLOBAL tuple | LOAD_GLOBAL int | LOAD_GLOBAL int | BUILD_TUPLE | BINARY_OP []
+  109: BUILD_MAP | RETURN_VALUE
+=== stutter_values (line 109)
+  118: LOAD_CONST <code stutter_values.<locals>.share> | MAKE_FUNCTION | STORE_FAST share
+  121: LOAD_FAST_BORROW share | LOAD_FAST_BORROW speed | LOAD_GLOBAL STUTTER_SPEED_FROM | LOAD_GLOBAL STUTTER_SPEED_TO | CALL | STORE_FAST a
+  122: LOAD_FAST_BORROW_LOAD_FAST_BORROW hz_slow, hz_fast | LOAD_FAST_BORROW hz_slow | BINARY_OP - | LOAD_FAST_BORROW a | BINARY_OP * | BINARY_OP + | STORE_FAST hz
+  123: LOAD_GLOBAL int | LOAD_GLOBAL round | LOAD_FAST_BORROW hz | LOAD_GLOBAL STUTTER_HZ_STEP | BINARY_OP / | CALL | LOAD_GLOBAL STUTTER_HZ_STEP | BINARY_OP * | CALL | STORE_FAST hz
+  124: LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_FAST_BORROW hz | CALL | CALL | STORE_FAST hz
+  126: LOAD_FAST_BORROW share | LOAD_FAST_BORROW slip_value | LOAD_GLOBAL SLIP | LOAD_CONST 1.0 | CALL | STORE_FAST s
+  127: LOAD_GLOBAL round | LOAD_FAST_BORROW_LOAD_FAST_BORROW force_min, force_max | LOAD_FAST_BORROW force_min | BINARY_OP - | LOAD_FAST_BORROW s | BINARY_OP * | BINARY_OP + | CALL | STORE_FAST force
+  128: LOAD_FAST_BORROW hz | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_FAST_BORROW force | CALL | CALL | BUILD_TUPLE | RETURN_VALUE
+=== stutter_values.<locals>.share (line 118)
+  119: LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW_LOAD_FAST_BORROW x, lo | BINARY_OP - | LOAD_FAST_BORROW_LOAD_FAST_BORROW hi, lo | BINARY_OP - | BINARY_OP / | CALL | CALL | RETURN_VALUE
+=== _Wheel (line 131)
+  None: MAKE_CELL __classdict__
+  131: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST '_Wheel' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  133: LOAD_COMMON_CONSTANT None | STORE_NAME since
+  134: LOAD_CONST -1.0 | STORE_NAME locked_until
+  135: LOAD_COMMON_CONSTANT None | STORE_NAME last_ground
+  131: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code _Wheel.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_NAME __annotate_func__ | LOAD_CONST () | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== _Wheel.__annotate__ (line 131)
+  None: COPY_FREE_VARS
+  131: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | BUILD_MAP
+  133: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'since'
+  131: STORE_SUBSCR
+  134: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'locked_until'
+  131: STORE_SUBSCR
+  135: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'last_ground'
+  131: STORE_SUBSCR | RETURN_VALUE
+=== LockupDetector (line 138)
+  None: MAKE_CELL __classdict__
+  138: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'LockupDetector' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  140: LOAD_NAME MIN_SPEED | STORE_NAME min_speed
+  141: LOAD_NAME SLIP | STORE_NAME slip
+  142: LOAD_NAME MIN_BRAKE | STORE_NAME min_brake
+  143: LOAD_NAME MIN_DURATION | STORE_NAME min_duration
+  144: LOAD_NAME HOLD | STORE_NAME hold
+  145: LOAD_NAME AIR_AFTER | STORE_NAME air_after
+  146: LOAD_NAME field | LOAD_NAME _Wheel | LOAD_CONST ('default_factory',) | CALL_KW | STORE_NAME _front
+  147: LOAD_NAME field | LOAD_NAME _Wheel | LOAD_CONST ('default_factory',) | CALL_KW | STORE_NAME _rear
+  149: LOAD_CONST (True, True) | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code LockupDetector.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code LockupDetector.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME update
+  161: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code LockupDetector.reset.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code LockupDetector.reset> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME reset
+  167: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code LockupDetector._check.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code LockupDetector._check> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _check
+  138: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code LockupDetector.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_NAME __annotate_func__ | LOAD_CONST () | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== LockupDetector.update.__annotate__ (line 149)
+  None: COPY_FREE_VARS
+  149: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 't' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'speed' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'wheel_front'
+  150: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  149: LOAD_CONST 'wheel_rear'
+  150: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  149: LOAD_CONST 'brake_front'
+  151: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  149: LOAD_CONST 'brake_rear'
+  151: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float
+  149: LOAD_CONST 'ground_front'
+  152: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool
+  149: LOAD_CONST 'ground_rear'
+  152: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool
+  149: LOAD_CONST 'return'
+  152: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS tuple | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_TUPLE | BINARY_OP []
+  149: BUILD_MAP | RETURN_VALUE
+=== LockupDetector.update (line 149)
+  157: LOAD_FAST_BORROW self | LOAD_ATTR _check | LOAD_FAST_BORROW self | LOAD_ATTR _front | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, speed | LOAD_FAST_BORROW_LOAD_FAST_BORROW wheel_front, brake_front | LOAD_FAST_BORROW ground_front | CALL | STORE_FAST f
+  158: LOAD_FAST_BORROW self | LOAD_ATTR _check | LOAD_FAST_BORROW self | LOAD_ATTR _rear | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, speed | LOAD_FAST_BORROW_LOAD_FAST_BORROW wheel_rear, brake_rear | LOAD_FAST_BORROW ground_rear | CALL | STORE_FAST r
+  159: LOAD_FAST_BORROW_LOAD_FAST_BORROW f, r | BUILD_TUPLE | RETURN_VALUE
+=== LockupDetector.reset.__annotate__ (line 161)
+  None: COPY_FREE_VARS
+  161: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== LockupDetector.reset (line 161)
+  162: LOAD_FAST_BORROW self | LOAD_ATTR _front | LOAD_FAST_BORROW self | LOAD_ATTR _rear | BUILD_TUPLE | GET_ITER | FOR_ITER to L2 | STORE_FAST wheel
+  163: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW wheel | STORE_ATTR since
+  164: LOAD_CONST -1.0 | LOAD_FAST_BORROW wheel | STORE_ATTR locked_until
+  165: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW wheel | STORE_ATTR last_ground | JUMP_BACKWARD to L1
+  162: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== LockupDetector._check.__annotate__ (line 167)
+  None: COPY_FREE_VARS
+  167: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'wheel' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS _Wheel | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== LockupDetector._check (line 167)
+  168: LOAD_FAST_BORROW ground | POP_JUMP_IF_FALSE to L1
+  169: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, wheel | STORE_ATTR last_ground
+  170: LOAD_FAST_BORROW wheel | LOAD_ATTR last_ground | LOAD_COMMON_CONSTANT None | IS_OP is not | POP_JUMP_IF_FALSE to L2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, wheel | LOAD_ATTR last_ground | BINARY_OP - | LOAD_FAST_BORROW self | LOAD_ATTR air_after | COMPARE_OP < | STORE_FAST on_ground
+  172: LOAD_FAST_BORROW_LOAD_FAST_BORROW speed, self | LOAD_ATTR min_speed | COMPARE_OP >= | POP_JUMP_IF_FALSE to L3
+  173: LOAD_FAST_BORROW_LOAD_FAST_BORROW brake, self | LOAD_ATTR min_brake | COMPARE_OP >=
+  172: POP_JUMP_IF_FALSE to L3
+  174: LOAD_FAST on_ground
+  172: POP_JUMP_IF_FALSE to L3
+  175: LOAD_GLOBAL abs | LOAD_FAST_BORROW wheel_speed | CALL | LOAD_FAST_BORROW speed | LOAD_CONST 1.0 | LOAD_FAST_BORROW self | LOAD_ATTR slip | BINARY_OP - | BINARY_OP * | COMPARE_OP <
+  171: STORE_FAST suspicious
+  177: LOAD_FAST_BORROW suspicious | POP_JUMP_IF_TRUE to L5
+  178: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW wheel | STORE_ATTR since
+  180: LOAD_FAST_BORROW_LOAD_FAST_BORROW brake, self | LOAD_ATTR min_brake | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L4
+  181: LOAD_CONST -1.0 | LOAD_FAST_BORROW wheel | STORE_ATTR locked_until
+  182: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, wheel | LOAD_ATTR locked_until | COMPARE_OP < | RETURN_VALUE
+  183: LOAD_FAST_BORROW wheel | LOAD_ATTR since | POP_JUMP_IF_NOT_NONE to L6
+  184: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, wheel | STORE_ATTR since
+  185: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, wheel | LOAD_ATTR locked_until | COMPARE_OP < | STORE_FAST still_locked
+  189: LOAD_FAST_BORROW still_locked | POP_JUMP_IF_TRUE to L7 | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, wheel | LOAD_ATTR since | BINARY_OP - | LOAD_FAST_BORROW self | LOAD_ATTR min_duration | COMPARE_OP bool(>=) | POP_JUMP_IF_FALSE to L8 | LOAD_FAST_BORROW ground | POP_JUMP_IF_FALSE to L8
+  190: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR hold | BINARY_OP + | LOAD_FAST_BORROW wheel | STORE_ATTR locked_until
+  191: LOAD_COMMON_CONSTANT True | RETURN_VALUE
+  192: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, wheel | LOAD_ATTR locked_until | COMPARE_OP < | RETURN_VALUE
+=== LockupDetector.__annotate__ (line 138)
+  None: COPY_FREE_VARS
+  138: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | BUILD_MAP
+  140: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'min_speed'
+  138: STORE_SUBSCR
+  141: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'slip'
+  138: STORE_SUBSCR
+  142: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'min_brake'
+  138: STORE_SUBSCR
+  143: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'min_duration'
+  138: STORE_SUBSCR
+  144: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'hold'
+  138: STORE_SUBSCR
+  145: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'air_after'
+  138: STORE_SUBSCR
+  146: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS _Wheel | LOAD_CONST '_front'
+  138: STORE_SUBSCR
+  147: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS _Wheel | LOAD_CONST '_rear'
+  138: STORE_SUBSCR | RETURN_VALUE
+(exit 0)

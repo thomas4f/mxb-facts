@@ -1,0 +1,116 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.hud
+=== <module> (line 1)
+  1: LOAD_CONST "In-game HUD feed (F1/F7): sends the current trigger state to the HUD plugin.\n\nThe plugin (plugin/mxbds_hud.c -> mxbds_hud64.dlo in <MX Bikes>/plugins) draws with the\ngame's own draw API, so the HUD is visible in exclusive fullscreen. This module only\nsends small UDP packets to 127.0.0.1:30002, about 30 per second. If the plugin is not\ninstalled, the packets simply go nowhere.\n\nPacket layout (80 bytes, little endian) - must match HudPacket in plugin/mxbds_hud.c.\nPulse animation (I11): the former reserved byte holds the forces that were sent to DSX\n(L2 low 4 bits, R2 high 4 bits), the last byte of each label holds the rhythm in Hz.\nLabels stay at most 22 characters, so an older plugin still reads them unchanged.\n" | STORE_NAME __doc__
+  14: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME socket | STORE_NAME socket
+  15: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME struct | STORE_NAME struct
+  17: LOAD_CONST 30002 | STORE_NAME PORT
+  18: LOAD_CONST 0.03333333333333333 | STORE_NAME SEND_EVERY
+  19: LOAD_CONST 1.5 | STORE_NAME AUTO_HIDE_AFTER
+  20: LOAD_CONST 0.2 | STORE_NAME FADE
+  22: LOAD_CONST '<4sffBBBBffff24s24s' | STORE_NAME PACKET_FORMAT
+  23: LOAD_NAME struct | LOAD_ATTR calcsize | LOAD_NAME PACKET_FORMAT | CALL | STORE_NAME PACKET_SIZE
+  24: LOAD_CONST b'MXH1' | STORE_NAME TAG
+  26: LOAD_CONST 'off' | LOAD_SMALL_INT | LOAD_CONST 'lever' | LOAD_SMALL_INT | LOAD_CONST 'warning' | LOAD_SMALL_INT | LOAD_CONST 'stutter' | LOAD_SMALL_INT | LOAD_CONST 'landing' | LOAD_SMALL_INT | LOAD_CONST 'clunk' | LOAD_SMALL_INT | LOAD_CONST 'test' | LOAD_SMALL_INT
+  27: LOAD_CONST 'whoops' | LOAD_SMALL_INT
+  26: BUILD_MAP | STORE_NAME L2_CODES
+  28: LOAD_CONST 'off' | LOAD_SMALL_INT | LOAD_CONST 'spring' | LOAD_SMALL_INT | LOAD_CONST 'shift' | LOAD_SMALL_INT | LOAD_CONST 'wheelspin' | LOAD_SMALL_INT | LOAD_CONST 'clunk' | LOAD_SMALL_INT | LOAD_CONST 'landing' | LOAD_SMALL_INT | BUILD_MAP | STORE_NAME R2_CODES
+  29: LOAD_CONST 'off' | LOAD_CONST 'lever' | BUILD_SET | STORE_NAME L2_IDLE
+  30: LOAD_CONST 'off' | LOAD_CONST 'spring' | BUILD_SET | STORE_NAME R2_IDLE
+  33: LOAD_CONST 'warning' | LOAD_CONST 'GRIP' | LOAD_CONST 'stutter' | LOAD_CONST 'LOCKUP' | LOAD_CONST 'landing' | LOAD_CONST 'LANDING' | LOAD_CONST 'clunk' | LOAD_CONST 'CLUNK' | LOAD_CONST 'test' | LOAD_CONST 'TEST'
+  34: LOAD_CONST 'whoops' | LOAD_CONST 'WHOOPS'
+  33: BUILD_MAP | STORE_NAME L2_LABEL
+  35: LOAD_CONST 'shift' | LOAD_CONST 'SHIFT!' | LOAD_CONST 'wheelspin' | LOAD_CONST 'SPIN' | LOAD_CONST 'clunk' | LOAD_CONST 'CLUNK' | LOAD_CONST 'landing' | LOAD_CONST 'LANDING' | BUILD_MAP | STORE_NAME R2_LABEL
+  38: LOAD_CONST ((0, 0), (0, 0)) | LOAD_CONST <code build_packet.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code build_packet> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME build_packet
+  56: LOAD_BUILD_CLASS | LOAD_CONST <code HudSender> | MAKE_FUNCTION | LOAD_CONST 'HudSender' | CALL | STORE_NAME HudSender | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== build_packet.__annotate__ (line 38)
+  38: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'l2' | LOAD_GLOBAL float | LOAD_CONST 'r2' | LOAD_GLOBAL float | LOAD_CONST 'l2_effect' | LOAD_GLOBAL str | LOAD_CONST 'r2_effect' | LOAD_GLOBAL str | LOAD_CONST 'visible' | LOAD_GLOBAL bool | LOAD_CONST 'x'
+  39: LOAD_GLOBAL float
+  38: LOAD_CONST 'y'
+  39: LOAD_GLOBAL float
+  38: LOAD_CONST 'scale'
+  39: LOAD_GLOBAL float
+  38: LOAD_CONST 'opacity'
+  39: LOAD_GLOBAL float
+  38: LOAD_CONST 'l2_pulse'
+  40: LOAD_GLOBAL tuple | LOAD_GLOBAL int | LOAD_GLOBAL int | BUILD_TUPLE | BINARY_OP []
+  38: LOAD_CONST 'r2_pulse'
+  40: LOAD_GLOBAL tuple | LOAD_GLOBAL int | LOAD_GLOBAL int | BUILD_TUPLE | BINARY_OP []
+  38: LOAD_CONST 'return'
+  40: LOAD_GLOBAL bytes
+  38: BUILD_MAP | RETURN_VALUE
+=== build_packet (line 38)
+  None: MAKE_CELL clamp
+  42: LOAD_CONST <code build_packet.<locals>.clamp.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code build_packet.<locals>.clamp> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_DEREF clamp
+  45: LOAD_CONST <code build_packet.<locals>.label.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW clamp | BUILD_TUPLE | LOAD_CONST <code build_packet.<locals>.label> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST label
+  49: LOAD_DEREF clamp | LOAD_FAST_BORROW l2_pulse | LOAD_SMALL_INT | BINARY_OP [] | LOAD_SMALL_INT | CALL | LOAD_DEREF clamp | LOAD_FAST_BORROW r2_pulse | LOAD_SMALL_INT | BINARY_OP [] | LOAD_SMALL_INT | CALL | LOAD_SMALL_INT | BINARY_OP << | BINARY_OP | | STORE_FAST forces
+  50: LOAD_GLOBAL struct | LOAD_ATTR pack | LOAD_GLOBAL PACKET_FORMAT | LOAD_GLOBAL TAG | LOAD_GLOBAL float | LOAD_FAST_BORROW l2 | CALL | LOAD_GLOBAL float | LOAD_FAST_BORROW r2 | CALL
+  51: LOAD_GLOBAL L2_CODES | LOAD_ATTR get | LOAD_FAST_BORROW l2_effect | LOAD_SMALL_INT | CALL | LOAD_GLOBAL R2_CODES | LOAD_ATTR get | LOAD_FAST_BORROW r2_effect | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW visible | POP_JUMP_IF_FALSE to L1 | LOAD_SMALL_INT | JUMP_FORWARD to L2 | LOAD_SMALL_INT | LOAD_FAST_BORROW forces
+  52: LOAD_GLOBAL float | LOAD_FAST_BORROW x | CALL | LOAD_GLOBAL float | LOAD_FAST_BORROW y | CALL | LOAD_GLOBAL float | LOAD_FAST_BORROW scale | CALL | LOAD_GLOBAL float | LOAD_FAST_BORROW opacity | CALL
+  53: LOAD_FAST_BORROW label | LOAD_GLOBAL L2_LABEL | LOAD_FAST_BORROW_LOAD_FAST_BORROW l2_effect, l2_pulse | LOAD_SMALL_INT | BINARY_OP [] | CALL | LOAD_FAST_BORROW label | LOAD_GLOBAL R2_LABEL | LOAD_FAST_BORROW_LOAD_FAST_BORROW r2_effect, r2_pulse | LOAD_SMALL_INT | BINARY_OP [] | CALL
+  50: CALL | RETURN_VALUE
+=== build_packet.<locals>.clamp.__annotate__ (line 42)
+  42: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'v' | LOAD_GLOBAL int | LOAD_CONST 'hi' | LOAD_GLOBAL int | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== build_packet.<locals>.clamp (line 42)
+  43: LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_GLOBAL min | LOAD_FAST_BORROW hi | LOAD_GLOBAL int | LOAD_FAST_BORROW v | CALL | CALL | CALL | RETURN_VALUE
+=== build_packet.<locals>.label.__annotate__ (line 45)
+  45: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'table' | LOAD_GLOBAL dict | LOAD_CONST 'effect' | LOAD_GLOBAL str | LOAD_CONST 'hz' | LOAD_GLOBAL int | LOAD_CONST 'return' | LOAD_GLOBAL bytes | BUILD_MAP | RETURN_VALUE
+=== build_packet.<locals>.label (line 45)
+  None: COPY_FREE_VARS
+  46: LOAD_FAST_BORROW table | LOAD_ATTR get | LOAD_FAST_BORROW effect | LOAD_COMMON_CONSTANT '' | CALL | LOAD_ATTR encode | LOAD_CONST 'ascii' | CALL | LOAD_CONST slice(None, 22, None) | BINARY_OP [] | STORE_FAST text
+  47: LOAD_FAST_BORROW text | LOAD_ATTR ljust | LOAD_SMALL_INT | LOAD_CONST b'\x00' | CALL | LOAD_GLOBAL bytes | LOAD_DEREF clamp | LOAD_FAST_BORROW hz | LOAD_SMALL_INT | CALL | BUILD_LIST | CALL | BINARY_OP + | RETURN_VALUE
+=== HudSender (line 56)
+  None: MAKE_CELL __classdict__
+  56: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'HudSender' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  57: LOAD_CONST 'Call update() from the mod loop; it sends at most 30 times per second.' | STORE_NAME __doc__
+  59: LOAD_NAME PORT | BUILD_TUPLE | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code HudSender.__init__.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code HudSender.__init__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME __init__
+  67: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code HudSender.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code HudSender.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME update
+  88: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code HudSender.hide.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code HudSender.hide> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME hide
+  94: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code HudSender.close.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code HudSender.close> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME close | LOAD_CONST ('_alpha', '_last_active', '_last_t', '_next', 'sock', 'target') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== HudSender.__init__.__annotate__ (line 59)
+  None: COPY_FREE_VARS
+  59: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'port' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | BUILD_MAP | RETURN_VALUE
+=== HudSender.__init__ (line 59)
+  60: LOAD_CONST '127.0.0.1' | LOAD_FAST_BORROW port | BUILD_TUPLE | LOAD_FAST_BORROW self | STORE_ATTR target
+  61: LOAD_GLOBAL socket | LOAD_ATTR socket | LOAD_GLOBAL socket | LOAD_ATTR AF_INET | LOAD_GLOBAL socket | LOAD_ATTR SOCK_DGRAM | CALL | LOAD_FAST_BORROW self | STORE_ATTR sock
+  62: LOAD_CONST 0.0 | LOAD_FAST_BORROW self | STORE_ATTR _next
+  63: LOAD_CONST -99.0 | LOAD_FAST_BORROW self | STORE_ATTR _last_active
+  64: LOAD_CONST 0.0 | LOAD_FAST_BORROW self | STORE_ATTR _alpha
+  65: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _last_t | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== HudSender.update.__annotate__ (line 67)
+  None: COPY_FREE_VARS
+  67: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 't' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== HudSender.update (line 67)
+  69: LOAD_FAST_BORROW self | LOAD_ATTR _last_t | POP_JUMP_IF_NOT_NONE to L1 | LOAD_CONST 0.0 | JUMP_FORWARD to L2 | LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _last_t | BINARY_OP - | CALL | STORE_FAST dt
+  70: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | STORE_ATTR _last_t
+  71: LOAD_FAST_BORROW st | LOAD_ATTR game | LOAD_CONST 'riding' | COMPARE_OP == | POP_JUMP_IF_TRUE to L3 | LOAD_FAST_BORROW st | LOAD_ATTR l2_effect | LOAD_CONST 'test' | COMPARE_OP == | STORE_FAST riding
+  72: LOAD_FAST_BORROW st | LOAD_ATTR l2_effect | LOAD_GLOBAL L2_IDLE | CONTAINS_OP not in | POP_JUMP_IF_TRUE to L4 | LOAD_FAST_BORROW st | LOAD_ATTR r2_effect | LOAD_GLOBAL R2_IDLE | CONTAINS_OP not in | POP_JUMP_IF_FALSE to L5
+  73: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | STORE_ATTR _last_active
+  74: LOAD_FAST_BORROW s | LOAD_ATTR hud_enabled | POP_JUMP_IF_FALSE to L6 | LOAD_FAST riding | POP_JUMP_IF_FALSE to L6 | LOAD_FAST_BORROW s | LOAD_ATTR hud_auto_hide | UNARY_NOT | POP_JUMP_IF_TRUE to L6 | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _last_active | BINARY_OP - | LOAD_GLOBAL AUTO_HIDE_AFTER | COMPARE_OP < | STORE_FAST show
+  75: LOAD_FAST_BORROW dt | LOAD_GLOBAL FADE | BINARY_OP / | STORE_FAST step
+  76: LOAD_FAST_BORROW show | POP_JUMP_IF_FALSE to L7 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW self | LOAD_ATTR _alpha | LOAD_FAST_BORROW step | BINARY_OP + | CALL | JUMP_FORWARD to L8 | LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_FAST_BORROW self | LOAD_ATTR _alpha | LOAD_FAST_BORROW step | BINARY_OP - | CALL | LOAD_FAST_BORROW self | STORE_ATTR _alpha
+  77: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _next | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L9
+  78: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  79: LOAD_FAST_BORROW t | LOAD_GLOBAL SEND_EVERY | BINARY_OP + | LOAD_FAST_BORROW self | STORE_ATTR _next
+  80: LOAD_GLOBAL build_packet | LOAD_FAST_BORROW st | LOAD_ATTR l2_value | LOAD_FAST_BORROW st | LOAD_ATTR r2_value | LOAD_FAST_BORROW st | LOAD_ATTR l2_effect | LOAD_FAST_BORROW st | LOAD_ATTR r2_effect | LOAD_FAST_BORROW self | LOAD_ATTR _alpha | LOAD_CONST 0.0 | COMPARE_OP >
+  81: LOAD_FAST_BORROW s | LOAD_ATTR hud_x | LOAD_FAST_BORROW s | LOAD_ATTR hud_y | LOAD_FAST_BORROW s | LOAD_ATTR hud_scale | LOAD_FAST_BORROW s | LOAD_ATTR hud_opacity | LOAD_FAST_BORROW self | LOAD_ATTR _alpha | BINARY_OP *
+  82: LOAD_FAST_BORROW st | LOAD_ATTR l2_hz | LOAD_FAST_BORROW st | LOAD_ATTR l2_force | BUILD_TUPLE | LOAD_FAST_BORROW st | LOAD_ATTR r2_hz | LOAD_FAST_BORROW st | LOAD_ATTR r2_force | BUILD_TUPLE
+  80: CALL | STORE_FAST packet
+  84: LOAD_FAST_BORROW self | LOAD_ATTR sock | LOAD_ATTR sendto | LOAD_FAST_BORROW_LOAD_FAST_BORROW packet, self | LOAD_ATTR target | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  85: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L10
+  86: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  85: RERAISE | RERAISE
+=== HudSender.hide.__annotate__ (line 88)
+  None: COPY_FREE_VARS
+  88: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== HudSender.hide (line 88)
+  90: LOAD_FAST_BORROW self | LOAD_ATTR sock | LOAD_ATTR sendto | LOAD_GLOBAL build_packet | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_CONST 'off' | LOAD_CONST 'off' | LOAD_COMMON_CONSTANT False | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW self | LOAD_ATTR target | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  91: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L1
+  92: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  91: RERAISE | RERAISE
+=== HudSender.close.__annotate__ (line 94)
+  None: COPY_FREE_VARS
+  94: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== HudSender.close (line 94)
+  95: LOAD_FAST_BORROW self | LOAD_ATTR hide | CALL
+  96: LOAD_FAST_BORROW self | LOAD_ATTR sock | LOAD_ATTR close | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

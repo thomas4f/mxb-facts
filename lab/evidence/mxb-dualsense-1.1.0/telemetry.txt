@@ -1,0 +1,82 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.telemetry | head -80
+=== <module> (line 1)
+  1: LOAD_CONST 'Telemetry receiver: reads the packets of PiBoSo\'s proxy_udp plugin.\n\nFormat (see FEASIBILITY.md, A3):\n  "data\\0" + int status + int time in ms   (13 byte header)\n  + SPluginsBikeData_t from mxb_api.h        (188 bytes)\nStatus: 0 = not on track, 1 = paused, 2 = riding.\n' | STORE_NAME __doc__
+  9: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME math | STORE_NAME math
+  10: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME socket | STORE_NAME socket
+  11: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME struct | STORE_NAME struct
+  12: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME time | STORE_NAME time
+  13: LOAD_SMALL_INT | LOAD_CONST ('dataclass',) | IMPORT_NAME dataclasses | IMPORT_FROM dataclass | STORE_NAME dataclass
+  15: LOAD_CONST 30001 | STORE_NAME DEFAULT_PORT
+  16: LOAD_CONST b'data\x00' | STORE_NAME HEADER_TAG
+  17: LOAD_CONST '<ii' | STORE_NAME HEADER_FORMAT
+  18: LOAD_SMALL_INT | STORE_NAME HEADER_SIZE
+  22: BUILD_LIST
+  23: LOAD_CONST ('rpm', 'i')
+  22: LIST_APPEND
+  23: LOAD_CONST ('engine_temp', 'f')
+  22: LIST_APPEND
+  23: LOAD_CONST ('water_temp', 'f')
+  22: LIST_APPEND
+  23: LOAD_CONST ('gear', 'i')
+  22: LIST_APPEND
+  24: LOAD_CONST ('fuel', 'f')
+  22: LIST_APPEND
+  24: LOAD_CONST ('speedometer', 'f')
+  22: LIST_APPEND
+  25: LOAD_CONST ('pos_x', 'f')
+  22: LIST_APPEND
+  25: LOAD_CONST ('pos_y', 'f')
+  22: LIST_APPEND
+  25: LOAD_CONST ('pos_z', 'f')
+  22: LIST_APPEND
+  26: LOAD_CONST ('vel_x', 'f')
+  22: LIST_APPEND
+  26: LOAD_CONST ('vel_y', 'f')
+  22: LIST_APPEND
+  26: LOAD_CONST ('vel_z', 'f')
+  22: LIST_APPEND
+  27: LOAD_CONST ('acc_x', 'f')
+  22: LIST_APPEND
+  27: LOAD_CONST ('acc_y', 'f')
+  22: LIST_APPEND
+  27: LOAD_CONST ('acc_z', 'f')
+  22: LIST_APPEND
+  28: LOAD_NAME range | LOAD_SMALL_INT | CALL | LOAD_FAST_AND_CLEAR i | BUILD_LIST | GET_ITER | FOR_ITER to L2 | STORE_FAST i | LOAD_CONST 'rot' | LOAD_FAST_BORROW i | FORMAT_SIMPLE | BUILD_STRING | LOAD_CONST 'f' | BUILD_TUPLE | LIST_APPEND | JUMP_BACKWARD to L1 | STORE_FAST i
+  22: LIST_EXTEND
+  29: LOAD_CONST ('yaw', 'f')
+  22: LIST_APPEND
+  29: LOAD_CONST ('pitch', 'f')
+  22: LIST_APPEND
+  29: LOAD_CONST ('roll', 'f')
+  22: LIST_APPEND
+  30: LOAD_CONST ('yaw_v', 'f')
+  22: LIST_APPEND
+  30: LOAD_CONST ('pitch_v', 'f')
+  22: LIST_APPEND
+  30: LOAD_CONST ('roll_v', 'f')
+  22: LIST_APPEND
+  31: LOAD_CONST ('susp_front', 'f')
+  22: LIST_APPEND
+  31: LOAD_CONST ('susp_rear', 'f')
+  22: LIST_APPEND
+  32: LOAD_CONST ('susp_vel_front', 'f')
+  22: LIST_APPEND
+  32: LOAD_CONST ('susp_vel_rear', 'f')
+  22: LIST_APPEND
+  33: LOAD_CONST ('crashed', 'i')
+  22: LIST_APPEND
+  33: LOAD_CONST ('steer', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('throttle', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('brake_front', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('brake_rear', 'f')
+  22: LIST_APPEND
+  34: LOAD_CONST ('clutch', 'f')
+  22: LIST_APPEND
+  35: LOAD_CONST ('wheel_front', 'f')
+  22: LIST_APPEND
+  35: LOAD_CONST ('wheel_rear', 'f')
+  22: LIST_APPEND
+(exit 0)
