@@ -135,7 +135,12 @@ pre code { padding: 0; background: none }
 .tags .mark { text-decoration: none }
 .tags a.mark:hover { background: var(--sunk) }
 button.more-opt, button.more-x { background: none; cursor: pointer }
-.chg { margin: 0; padding-left: 20px; font-size: 15px } .chg .same { color: var(--muted); list-style: none; margin-left: -20px; margin-top: 4px }
+.chg { margin: 0; padding-left: 20px; font-size: 15px }
+/* History: the tool's releases, newest first; this card's row says so, the others link their card and Compare. */
+.rels table { min-width: 0 } .rels th, .rels td { white-space: nowrap; vertical-align: top } .rels td:last-child { width: 100% }
+.hsub { display: block; margin-top: 2px; font: 600 13px var(--f-ui); color: var(--muted) }
+.hcmp { color: var(--accent); text-decoration: none } .hcmp::before { content: "⇄ " }
+.pk .tv { font: 400 12px var(--f-mono); color: var(--muted) } .chg .same { color: var(--muted); list-style: none; margin-left: -20px; margin-top: 4px }
 .flow { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 8px; max-width: 72ch }
 .flow li::marker { font: 600 13px var(--f-mono); color: var(--muted) }
 .flow b { font-weight: 600 }
@@ -440,7 +445,7 @@ table.goodw td:first-child { width: 68% }
   <section class="view" id="compare" data-view>
     <h2 class="sech">Compare tools</h2>
     <div class="intro">
-      <p>Every answer side by side, with the area scores. Hover for the short answer; click to jump to it with its evidence.</p>
+      <p>Every answer side by side, with the area scores, for different tools or two releases of one tool. Hover for the short answer; click to jump to it with its evidence.</p>
     </div>
       <div class="picker" role="group" aria-label="Tools to compare">{{PICKER}}</div>
       <p class="pickhint" id="pickhint">Pick two or more tools above to compare them.</p>
@@ -693,6 +698,12 @@ table.goodw td:first-child { width: 68% }
   Array.prototype.forEach.call(document.querySelectorAll('[data-pick]'), function (l) { l.addEventListener('click', function () {
     var b = document.getElementById('pk-' + l.getAttribute('data-pick')); if (b && !b.checked) { b.checked = true; pick(); }
   }); });
+  // "Compare with this" under a tool's History: Compare with just those two releases, showing only what differs.
+  Array.prototype.forEach.call(document.querySelectorAll('[data-cmpv]'), function (l) { l.addEventListener('click', function () {
+    var want = l.getAttribute('data-cmpv').split(',');
+    Array.prototype.forEach.call(boxes, function (b) { b.checked = want.indexOf(b.value) >= 0; });
+    mxdiff.checked = true; setq('diff', '1'); pick();
+  }); });
   // The sticky bars' heights (the top bar and the tool's contents bar), so jumps land clear of them.
   var topbar = document.querySelector('.top');
   function toph() {
@@ -734,11 +745,12 @@ table.goodw td:first-child { width: 68% }
     var links = {}; Array.prototype.forEach.call(r.querySelectorAll('.rlinks a'), function (a) { links[a.getAttribute('href').slice(1)] = a; });
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) {
       if (!e.isIntersecting) return;
-      Array.prototype.forEach.call(r.querySelectorAll('.rlinks a.on'), function (a) { a.classList.remove('on'); });
+      // A part with no link of its own (a section inside History) leaves the mark where it is.
       var a = links[e.target.id || e.target.getAttribute('data-for')]; if (!a) return;
+      Array.prototype.forEach.call(r.querySelectorAll('.rlinks a.on'), function (x) { x.classList.remove('on'); });
       a.classList.add('on'); var strip = a.parentNode; strip.scrollLeft = a.offsetLeft - strip.offsetLeft - 16;
     }); }, { rootMargin: '-30% 0px -65% 0px' });
-    Array.prototype.forEach.call(r.querySelectorAll('details.rsec, h3.sech[id]'), function (d) {
+    Array.prototype.forEach.call(r.querySelectorAll('details.rsec, details.full[id], h3.sech[id]'), function (d) {
       // Key findings and key questions: watch the heading and what follows it, so the link stays marked while either is read.
       io.observe(d); var n = d.nextElementSibling; if (d.tagName === 'H3' && n) { n.setAttribute('data-for', d.id); io.observe(n); }
     });
