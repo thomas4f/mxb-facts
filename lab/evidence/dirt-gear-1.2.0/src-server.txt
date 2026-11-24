@@ -1,0 +1,19 @@
+$ cd "$SRC" && grep -nE 'TOKEN|request\.host|origin|compare_digest|make_server|abort\(403\)' source/app.py
+38:TOKEN = secrets.token_urlsafe(32)
+83:    if request.host.split(':')[0] not in ('127.0.0.1', 'localhost'):
+84:        abort(403)
+86:        origin = request.headers.get('Origin')
+87:        if origin and origin != f'http://{request.host}':
+88:            abort(403)
+90:        if not secrets.compare_digest(candidate, TOKEN):
+91:            abort(403)
+155:    Strength blends from the original colours (0) to the overlay (1). Gradients
+209:            original = layer.numpy
+210:            def cached_numpy(channel=None, real_mask=True, _key=key, _read=original):
+1387:            'The original Moto Gear folder was not changed.\n', encoding='utf-8')
+1652:    global PORT, TOKEN, DOC, NATIVE_WINDOW
+1671:    from werkzeug.serving import make_server
+1672:    server = make_server('127.0.0.1', args.port, app, threaded=True)
+1674:    url = f'http://127.0.0.1:{PORT}/?token={TOKEN}'
+1676:        Path(args.session_file).write_text(json.dumps({'url':url,'token':TOKEN,'port':PORT}))
+(exit 0)

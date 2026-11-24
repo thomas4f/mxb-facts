@@ -1,0 +1,57 @@
+$ cat payload/_internal/premium_config.json; echo; cd "$SRC" && grep -nE "enabled|store_id. is None|coming soon|def (check|record|activate|_post|revalidate|status)|_post\(|platform\.node|customer_email|friend_hash\(text\) not in" source/premium.py; grep -nE 'premium' source/app.py; grep -noE "if\(!info\|\|!info\.enabled\)\{chip\.hidden=true;return\}|premiumBtn[^>]{0,30}hidden" source/static/app.js source/static/index.html
+{
+ "enabled": false,
+ "daily_limit": 5,
+ "price": "$5 USD / month",
+ "store_id": null,
+ "product_ids": [],
+ "checkout_url": ""
+}
+
+19:Everything is controlled by premium_config.json. When "enabled" is false
+44:DEFAULT_CONFIG = {'enabled': False, 'daily_limit': 5, 'price': '$5 USD / month',
+141:def _post(endpoint: str, fields: dict) -> dict:
+184:    return (platform.node() or 'PC')[:60]
+187:def activate(text: str) -> dict:
+192:        if friend_hash(text) not in friend_hashes():
+199:        raise ValueError('Premium subscriptions are coming soon. Friend codes already work.')
+203:        data = _post('activate', {'license_key': text, 'instance_name': instance_name()})
+211:                _post('deactivate', {'license_key': text, 'instance_id': instance})
+226:                               'email': (data.get('meta') or {}).get('customer_email', '')})
+235:                _post('deactivate', {'license_key': saved['key'], 'instance_id': saved['instance_id']})
+242:def revalidate() -> dict:
+249:        data = _post('validate', {'license_key': saved['key'], 'instance_id': saved.get('instance_id') or ''})
+323:def status() -> dict:
+329:    return {'enabled': bool(cfg['enabled']), 'premium': is_premium,
+333:            'remaining': None if (is_premium or not cfg['enabled']) else max(0, limit-used),
+337:def check(name: str):
+340:    if not cfg['enabled'] or premium_state()[0]:
+350:def record(name: str):
+352:    if not cfg['enabled'] or premium_state()[0]:
+33:import premium
+105:    if isinstance(exc, premium.LimitReached):
+106:        return jsonify(error=str(exc), limit=True, premium=premium_module().status()), 402
+719:# -- premium --------------------------------------------------------------
+720:def premium_module():
+721:    premium.setup(local_app_data()/APP_DATA_NAME)
+722:    return premium
+725:@app.get('/api/premium/status')
+726:def premium_status():
+727:    return jsonify(premium_module().status())
+730:@app.post('/api/premium/activate')
+731:def premium_activate():
+732:    return jsonify(premium_module().activate(str((request.get_json() or {}).get('key', ''))[:200]))
+735:@app.post('/api/premium/remove')
+736:def premium_remove():
+737:    return jsonify(premium_module().remove())
+740:@app.post('/api/premium/buy')
+741:def premium_buy():
+742:    url = premium_module().config()['checkout_url']
+1502:        premium_module().check(doc.state['name'])
+1516:        premium_module().record(doc.state['name'])
+1527:        premium_module().check(doc.state['name'])
+1535:            return download(packed, name+'.pnt', on_saved=lambda: premium_module().record(doc.state['name']))
+1542:                            on_saved=lambda: premium_module().record(doc.state['name']))
+source/static/app.js:412:if(!info||!info.enabled){chip.hidden=true;return}
+source/static/index.html:26:premiumBtn" class="plan-chip" hidden
+(exit 0)

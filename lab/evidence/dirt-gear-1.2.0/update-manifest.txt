@@ -1,0 +1,9 @@
+$ cat update.json; echo; base64 -d update.json.sig > "$W/sig.bin" && openssl pkeyutl -verify -pubin -inkey "$SRC/source/update_public_key.pem" -rawin -in update.json -sigfile "$W/sig.bin"
+{
+ "version": "1.2.0",
+ "file": "Dirt-Gear-Setup-1.2.0.exe",
+ "size": 103529063,
+ "sha256": "beb61dc284d92e3ecf9b8027f310aba9fa99d1d4c7d909e5d37325e1e44ddfe4"
+}
+Signature Verified Successfully
+(exit 0)

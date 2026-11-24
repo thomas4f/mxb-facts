@@ -1,0 +1,66 @@
+$ cd "$SRC" && echo '- repository:'; git ls-files | grep -iE '(^|/)[^/]*(licen|copying|notice|credit|third|OFL|FONTS\.md)[^/]*$' ; cd "$R" && echo '- installed folder:'; ls payload; sha256sum payload/THIRD-PARTY-NOTICES.txt; echo '- what THIRD-PARTY-NOTICES.txt names (one heading each):'; tr -d '\r' < payload/THIRD-PARTY-NOTICES.txt | grep -A1 -xE '={60,}' | grep -vxE '={60,}|--' ; grep -nE 'WebView2 SDK files|PyInstaller is licensed|OpenSSL' payload/THIRD-PARTY-NOTICES.txt
+- repository:
+LICENSE.txt
+docs/assets/brand-OFL.txt
+source/fonts/FONTS.md
+source/fonts/mx font 1 - Racing Sans One - OFL.txt
+source/static/brand-OFL.txt
+tools/third_party_notices.py
+- installed folder:
+CHANGELOG.md
+Dirt Gear.exe
+LICENSE.txt
+README.md
+THIRD-PARTY-NOTICES.txt
+VERSION.txt
+_internal
+494edd6d0d2acafd6bcd9482e9c41648ba0591c10621e28632490f4c558a0ffb  payload/THIRD-PARTY-NOTICES.txt
+- what THIRD-PARTY-NOTICES.txt names (one heading each):
+Dirt Gear is (c) Dirt Graphic Studios. It includes the software below, each under its own licence.
+aggdraw 1.4.1
+altgraph 0.17.5
+argcomplete 3.7.2
+attrs 26.1.0
+blinker 1.9.0
+bottle 0.13.4
+cffi 2.1.1
+click 8.5.1
+clr_loader 0.3.1
+colorama 0.4.6
+cryptography 50.0.2
+filelock 4.2.10
+Flask 3.1.3
+ImageIO 2.38.2
+itsdangerous 2.2.0
+Jinja2 3.1.6
+lazy-loader 0.6
+MarkupSafe 3.0.4
+networkx 3.7
+numpy 2.5.3
+packaging 26.3
+pefile 2024.8.26
+pillow 12.3.0
+pipx 1.18.16
+platformdirs 4.14.5
+proxy_tools 0.1.0
+psd-tools 1.19.0
+pycparser 3.12
+pyinstaller 6.22.3
+pyinstaller-hooks-contrib 2026.10
+pythonnet 3.2.1
+pywebview 6.2.1
+pywin32-ctypes 0.2.3
+scikit-image 0.26.0
+scipy 1.18.1
+tifffile 2026.11.16
+typing_extensions 4.16.0
+
+userpath 1.9.2
+Werkzeug 3.1.9
+Python 3.12.10 (and the libraries it bundles, such as OpenSSL and libffi)
+
+Microsoft Edge WebView2
+4940:PyInstaller is licensed under the terms of the GNU General Public License
+7941:Python 3.12.10 (and the libraries it bundles, such as OpenSSL and libffi)
+8648:  with Windows. The WebView2 SDK files bundled by pywebview
+(exit 0)

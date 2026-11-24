@@ -1,0 +1,23 @@
+$ cd "$SRC" && grep -nE 'winreg|HKEY|RegSetValue|SetValueEx|DeleteKey|CurrentVersion.Run|schtasks|Startup|OpenProcess|WriteProcessMemory|ReadProcessMemory|VirtualProtect|CreateRemoteThread|SetWindowsHookEx|GetAsyncKeyState|keybd_event|SendInput|mxbikes\.exe|subprocess|Popen|startfile|ie4uinit|SHChangeNotify|powershell' source/*.py build/installer.py
+source/app.py:15:import subprocess
+source/app.py:696:        os.startfile(str(path))  # noqa: S606 - a fixed, bundled text file
+source/app.py:770:    subprocess.Popen([str(installer), '--update', '--target', str(target), '--wait-pid', str(os.getpid())],
+source/uninstall.py:15:import subprocess
+source/uninstall.py:40:        out = subprocess.run(['powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
+source/uninstall.py:62:    import winreg
+source/uninstall.py:64:        winreg.DeleteKey(winreg.HKEY_CURRENT_USER, UNINSTALL_KEY)
+source/uninstall.py:89:    subprocess.Popen(['powershell.exe', '-NoProfile', '-NonInteractive', '-ExecutionPolicy', 'Bypass', '-Command', script],
+source/uninstall.py:91:                     stdin=subprocess.DEVNULL, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+build/installer.py:9:import subprocess
+build/installer.py:51:    subprocess.run(['powershell.exe', '-NoProfile', '-NonInteractive', '-Command', script],
+build/installer.py:56:    result = subprocess.run(
+build/installer.py:57:        ['powershell.exe', '-NoProfile', '-NonInteractive', '-Command',
+build/installer.py:80:        ctypes.windll.shell32.SHChangeNotify(0x08000000, 0x0000, None, None)  # SHCNE_ASSOCCHANGED
+build/installer.py:84:        subprocess.run(['ie4uinit.exe', '-show'], capture_output=True, timeout=20)
+build/installer.py:110:    import winreg
+build/installer.py:120:    with winreg.CreateKeyEx(winreg.HKEY_CURRENT_USER, UNINSTALL_KEY, 0, winreg.KEY_SET_VALUE) as key:
+build/installer.py:122:            winreg.SetValueEx(key, name, 0, winreg.REG_SZ, value)
+build/installer.py:124:            winreg.SetValueEx(key, name, 0, winreg.REG_DWORD, value)
+build/installer.py:217:    handle = kernel32.OpenProcess(0x00100000, False, pid)  # SYNCHRONIZE
+build/installer.py:237:        subprocess.Popen([str(executable)], cwd=str(executable.parent),
+(exit 0)

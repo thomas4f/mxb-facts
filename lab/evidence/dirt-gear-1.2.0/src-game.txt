@@ -1,0 +1,18 @@
+$ cd "$SRC" && grep -nE 'global\.ini|PiBoSo|rider/riders|paints|\.pnt|exists=True|replace' source/app.py | sed -n '1,40p'; grep -noE '.{0,60}already exists for .{0,60}' source/static/app.js
+662:    temporary.replace(path)
+992:        name=value.replace('\n',' ')
+1177:            temporary.replace(target)
+1319:    # Return this request's image directly, so another render cannot replace
+1339:        if extension.lower() == '.pnt':
+1472:        settings = directory/'PiBoSo/MX Bikes/global.ini'
+1480:        riders = Path(mods)/'rider/riders'
+1482:            return {model.name: model/'paints' for model in riders.iterdir()
+1483:                    if model.is_dir() and (model/'paints').is_dir()}
+1507:        destination = folders[model]/(safe_name(doc.state['name'])+'.pnt')
+1508:        if destination.exists() and not request_data.get('replace'):
+1509:            return jsonify(exists=True, filename=destination.name)
+1513:            temporary.replace(destination)
+1535:            return download(packed, name+'.pnt', on_saved=lambda: premium_module().record(doc.state['name']))
+1568:            temporary.replace(destination)
+218:son();if(response.exists){if(!confirm(`${response.filename} already exists for ${model}. Replace it?`))return;response=await(await api('gam
+(exit 0)

@@ -1,0 +1,12 @@
+$ cd "$W" && curl -sSLO https://files.pythonhosted.org/packages/3d/25/9491695c22c4842c5b3903b4dc172e0eecf67a27c0af34a71512c9b76a0a/pywebview-6.2.1-py3-none-any.whl && echo '9d07275f53894ab4d5e2e0e996227193e7187dec276d9b624dccbce029216b46  pywebview-6.2.1-py3-none-any.whl' | sha256sum -c && unzip -q -o pywebview-6.2.1-py3-none-any.whl 'webview/lib/*' && (cd webview/lib && find . -type f | sort | xargs sha256sum) > wheel.txt && (cd "$R/payload/_internal/webview/lib" && find . -type f | sort | xargs sha256sum) > release.txt && cat release.txt && diff wheel.txt release.txt && echo 'same files, same SHA-256 as pywebview 6.2.1'
+pywebview-6.2.1-py3-none-any.whl: OK
+8219a3135436c147f8eb02fb831e99596103eebc18b6d7b794ca93f4c67018a2  ./Microsoft.Web.WebView2.Core.dll
+c48f8d729dc531288d2c53a6241effe7922ed1b947850b2442008a945c098c48  ./Microsoft.Web.WebView2.WinForms.dll
+f6a646470f0e1058224a52e8e2e217501dca46939b30bfc9a5dd4dcdd43f088d  ./WebBrowserInterop.x64.dll
+4e527297fbea7c5a0419f3a6af307c2681787beb0bf0ef3fea849a7fd85a08dc  ./WebBrowserInterop.x86.dll
+3f9d3eeeda09ce58badbd742a981a463c067c339c8b4e70b404c00ebb4ec73a3  ./pywebview-android.jar
+0937030efc718f3da77c5e0978fb5046e381d0bb7b01acaad31a535a1b588a33  ./runtimes/win-arm64/native/WebView2Loader.dll
+eb5335edeaa6f2122c044e82aab2351dc8c9b4e0fe5e578c71922fb61be285e7  ./runtimes/win-x64/native/WebView2Loader.dll
+04814b2c59314c6452d61b821a4a3a5c5f8e8577b55b985f6a7a4b59f8907ec5  ./runtimes/win-x86/native/WebView2Loader.dll
+same files, same SHA-256 as pywebview 6.2.1
+(exit 0)

@@ -1,0 +1,5 @@
+Machine: Microsoft Windows Server 2025 Datacenter, video: Microsoft Hyper-V Video (no GPU). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: 97330813853e0e514a11ee16a47d4c6fe90148fae834649839afb30487cc8b0b.
+Release files (SHA-256):
+beb61dc284d92e3ecf9b8027f310aba9fa99d1d4c7d909e5d37325e1e44ddfe4  Dirt-Gear-Setup-1.2.0.exe
+2dfd76e04fe3ebfc44695f4c549b71cce5c7951e338c77c58d0c2bb498609330  update.json
+754f1956d12005f417d55213bfa474c284c0188eafd6ca46828c7f9cdfc20ab2  update.json.sig

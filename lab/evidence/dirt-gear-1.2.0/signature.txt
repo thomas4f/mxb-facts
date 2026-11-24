@@ -1,0 +1,8 @@
+$ for f in Dirt-Gear-Setup-1.2.0.exe 'payload/Dirt Gear.exe'; do echo "$f"; objdump -p "$f" | grep -E 'file format|Security Directory'; done
+Dirt-Gear-Setup-1.2.0.exe
+Dirt-Gear-Setup-1.2.0.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+payload/Dirt Gear.exe
+payload/Dirt Gear.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

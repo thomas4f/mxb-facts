@@ -1,0 +1,175 @@
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKCU\Software  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear  NAME NOT FOUND
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegCreateKey  HKLM\Software\Microsoft\Windows\CurrentVersion\Explorer  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\DisplayIcon  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\DisplayName  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\DisplayVersion  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\EstimatedSize  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\HelpLink  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\InstallLocation  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\NoModify  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\NoRepair  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\Publisher  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\QuietUninstallString  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\UninstallString  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear\URLInfoAbout  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\GlobalAssocChangedCounter  SUCCESS
+Dirt-Gear-Setup-1.2.0.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\WindowsPowerShell\v1.0\powershell.exe  SUCCESS
+ie4uinit.exe  RegCreateKey  HKCU\Software\Microsoft\Active Setup\Installed Components\{89820200-ECBD-11cf-8B85-00AA005B4383}  SUCCESS
+ie4uinit.exe  RegCreateKey  HKCU\Software\Microsoft\Internet Explorer\BrowserEmulation  SUCCESS
+ie4uinit.exe  RegCreateKey  HKCU\Software\Microsoft\Internet Explorer\Main  SUCCESS
+ie4uinit.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\CLSID\{871C5380-42A0-1069-A2EA-08002B30309D}\ShellFolder  SUCCESS
+ie4uinit.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\Software  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\Software\Clients\StartMenuInternet  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\Software\Clients\StartMenuInternet\IEXPLORE.EXE\InstallInfo  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\Software\Microsoft\Active Setup\Installed Components\{89820200-ECBD-11cf-8B85-00AA005B4383}  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\Software\Microsoft\Internet Explorer\Capabilities  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OC Manager  SUCCESS
+ie4uinit.exe  RegCreateKey  HKLM\Software\Microsoft\Windows\CurrentVersion\Setup\OC Manager\Subcomponents  NAME NOT FOUND
+ie4uinit.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OC Manager\Subcomponents  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Active Setup\Installed Components\{89820200-ECBD-11cf-8B85-00AA005B4383}\Locale  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Active Setup\Installed Components\{89820200-ECBD-11cf-8B85-00AA005B4383}\Version  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Internet Explorer\BrowserEmulation\CVListTTL  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Internet Explorer\Main\DisableFirstRunCustomize  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\CLSID\{871C5380-42A0-1069-A2EA-08002B30309D}\ShellFolder\Attributes  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+ie4uinit.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+ie4uinit.exe  RegSetValue  HKLM\SOFTWARE\Clients\StartMenuInternet\IEXPLORE.EXE\InstallInfo\IconsVisible  SUCCESS
+ie4uinit.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Active Setup\Installed Components\{89820200-ECBD-11cf-8B85-00AA005B4383}\IsInstalled  SUCCESS
+ie4uinit.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Internet Explorer\Capabilities\Hidden  SUCCESS
+ie4uinit.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\OC Manager\Subcomponents\IEAccess  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\SmartCardRoot  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\EnterpriseCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\AuthRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\FlightRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\SmartCardRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\TestSignRoot  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\CA  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\Disallowed  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\Root  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\trust  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+powershell.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Windows\System32\WindowsPowerShell\v1.0\powershell.exe  SUCCESS
