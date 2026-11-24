@@ -13,7 +13,9 @@ Reads registry/tools.json. Every tool is looked up in each place it publishes re
              drive.google.com (file name from the public page), mega.nz (size through Mega's
              public API; the name is encrypted, so it isn't kept), and any other URL (the file
              name, size and date the server gives, or, for a web page such as a forum topic, the
-             files it links to).
+             files it links to on its own site, else the first Mega, MediaFire or Google Drive file
+             link on it; a file on any other site, such as a runtime it asks players to install, is
+             left out).
 
 A file whose name, size or date changed since the last run is downloaded once to work out its
 SHA-256 (GitHub gives it, and Mega files are encrypted, so neither is downloaded). Nothing is
@@ -159,6 +161,24 @@ def from_mega(url):
             'files': [{'name': None, 'size': size, 'sha256': None, 'url': None}]}
 
 
+def page_links(page, text):
+    """The release files a web page links to: (files on the page's own site, newest first as the page lists them,
+    at most 5; Mega, MediaFire and Google Drive file links). A file on any other site is left out: it is what the
+    page asks players to install first (Microsoft's VC++ runtime on the MaXHUD forum topic, issue #27), not the
+    tool's release."""
+    own = urllib.parse.urlparse(page).hostname
+    links, hosted = [], []
+    for h in re.findall(r'href="([^"]+)"', text):
+        h = urllib.parse.urljoin(page, html.unescape(h))
+        if re.match(r'https://(?:mega\.nz/(?:file/|#!)|(?:www\.)?mediafire\.com/file/|drive\.google\.com/file/d/)', h):
+            if h not in hosted:
+                hosted.append(h)
+        elif (urllib.parse.urlparse(h).hostname == own and re.search(r'\.(zip|rar|7z|exe|dlo|msi)(\?|$)', h, re.I)
+              and h not in links and len(links) < 5):
+            links.append(h)
+    return links, hosted
+
+
 def from_link(url):
     with request(url) as r:
         kind = r.headers.get('Content-Type', '')
@@ -166,11 +186,12 @@ def from_link(url):
             # A web page (a forum topic, a homepage): the files it links to, newest link first as the page lists them.
             t = r.read(4 << 20).decode('utf-8', 'replace')
             time.sleep(1)
-            links = []
-            for h in re.findall(r'href="([^"]+)"', t):
-                h = urllib.parse.urljoin(r.url, html.unescape(h))
-                if re.search(r'\.(zip|rar|7z|exe|dlo|msi)(\?|$)', h, re.I) and h not in links and len(links) < 5:
-                    links.append(h)
+            links, hosted = page_links(r.url, t)
+            if not links and hosted:
+                # No file on the page's own site: read the first Mega, MediaFire or Google Drive file link instead.
+                rel = read_link(hosted[0])
+                rel['via'] = url
+                return rel
             return {'source': urllib.parse.urlparse(url).hostname, 'version': None, 'date': None, 'url': url,
                     'files': [{'name': name_of(h), 'size': None, 'sha256': None, 'url': h} for h in links]}
         cd = re.search(r'filename\*?=(?:UTF-8\'\')?"?([^";]+)', r.headers.get('Content-Disposition', ''))
