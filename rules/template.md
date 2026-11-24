@@ -118,5 +118,6 @@ How we work changes here; a change to scores is recorded in [scores.md](scores.m
 
 | Date | Change |
 |---|---|
+| 24 Nov 2026 | Rule 9: an analysis that finds a security problem to hold back no longer stops there. It finishes the card, with its "Held back" row, and reports every problem it finds; the "Analyse a tool" run then opens no pull request and sends the report and the finished card to the maintainer privately, sealed, until the author has been told. |
 | 24 Nov 2026 | A tool with a newer card: the newest card is the tool's page, in the tools list and Compare; each earlier card keeps its own page, at the address its successors link under "Earlier reports", and its badges (rule 2). |
 | 24 Nov 2026 | VirusTotal: the "Analyse a tool" run uploads each downloaded release file VirusTotal has no record of, by default, and looks it up again once it is scanned; before, only the maintainer uploaded, by hand. Never a private file or a file of a tool whose licence forbids analysis (rule 6); the run's "Skip upload" input turns it off ([`CLAUDE.md`](https://github.com/thomas4f/mxb-facts/blob/main/CLAUDE.md), "VirusTotal"). |
