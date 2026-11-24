@@ -1,0 +1,7 @@
+$ cd "$SRC" && grep -nE 'PackageReference|TargetFramework' MXBikesSetupDuperWPF/MXBikesSetupDuperWPF.csproj; git ls-tree -r --name-only 2e030e0873b043e5eab485ce9902761f999b9edf | grep -iE 'global\.json|packages\.lock\.json|Directory\.Build|nuget\.config|\.github/'; cd "$R" && strings -n 6 app/MX_Bikes_Setup_Duper.dll | grep -m1 -A1 -x 'PresentationBuildTasks'
+5:    <TargetFramework>net6.0-windows</TargetFramework>
+29:    <PackageReference Include="ModernWpfUI" Version="0.9.6" />
+30:    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+PresentationBuildTasks
+7.0.5.0
+(exit 0)

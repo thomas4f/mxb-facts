@@ -1,0 +1,18 @@
+$ cd "$SRC" && git log --format='%h %ad %s' --date=short 2e030e0873b043e5eab485ce9902761f999b9edf | cat; git log --format=%ad --date=short 2e030e0873b043e5eab485ce9902761f999b9edf | sort -u | wc -l
+2e030e0 2023-10-01 minor changes, added github link
+06d22b7 2023-09-30 changed update button default state to collapsed instead of visible
+9957068 2023-09-30 fixed prompt results, and added disabled state for copy button when there's no radio button checked
+a197a19 2023-09-29 minor labelling
+231ea2a 2023-09-29 added version control with github latest release
+0c9c663 2023-09-28 added missing icon
+1b1b905 2023-09-28 updated versioning
+8775673 2023-09-28 minor changes
+fd410a8 2023-09-27 added empty cbTargetTrack check
+d7f194b 2023-09-27 source track logic update
+3917896 2023-09-27 initial app release
+6855509 2023-09-27 laptop push test
+0db1c68 2023-09-27 base layout done
+534c51a 2023-09-27 Projektdateien hinzufügen.
+f2aac8e 2023-09-27 .gitattributes und .gitignore hinzufügen.
+5
+(exit 0)

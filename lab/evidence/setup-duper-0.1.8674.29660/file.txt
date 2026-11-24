@@ -1,0 +1,26 @@
+$ file MX_Bikes_Setup_Duper.exe app/MX_Bikes_Setup_Duper.dll app/ModernWpf.dll app/ModernWpf.Controls.dll app/Newtonsoft.Json.dll app/de-DE/ModernWpf.resources.dll; file app/*/*.dll | grep -c 'Mono/.Net assembly'; cat app/MX_Bikes_Setup_Duper.runtimeconfig.json
+MX_Bikes_Setup_Duper.exe:          PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+app/MX_Bikes_Setup_Duper.dll:      PE32+ executable for MS Windows 4.00 (GUI), x86-64 Mono/.Net assembly, 2 sections
+app/ModernWpf.dll:                 PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+app/ModernWpf.Controls.dll:        PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+app/Newtonsoft.Json.dll:           PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+app/de-DE/ModernWpf.resources.dll: PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+126
+{
+  "runtimeOptions": {
+    "tfm": "net6.0",
+    "frameworks": [
+      {
+        "name": "Microsoft.NETCore.App",
+        "version": "6.0.0"
+      },
+      {
+        "name": "Microsoft.WindowsDesktop.App",
+        "version": "6.0.0"
+      }
+    ],
+    "configProperties": {
+      "System.Reflection.Metadata.MetadataUpdater.IsSupported": false
+    }
+  }
+}(exit 0)

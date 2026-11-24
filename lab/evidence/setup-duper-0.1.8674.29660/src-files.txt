@@ -1,0 +1,8 @@
+$ cd "$SRC" && grep -nE 'File\.(Copy|Move|Delete|Write|Create|Replace|Open|AppendAll)|Directory\.(CreateDirectory|Delete|Move)|WritePrivateProfileString|StreamWriter|FileStream|\.Write\(' MXBikesSetupDuperWPF/MainWindow.xaml.cs
+77:        static extern long WritePrivateProfileString(string Section, string Key, string Value, string FilePath);
+96:            WritePrivateProfileString(Section ?? EXE, Key, Value, Path);
+483:                        Directory.CreateDirectory(targetBike);
+511:                        File.Copy(selectedSetupPath, @targetDest, true);
+550:                            Directory.CreateDirectory(@targetDest);
+553:                            File.Copy(selectedSetupPath, @Path.Join(targetDest, selectedSetup + ".stp"), true);
+(exit 0)

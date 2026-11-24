@@ -1,0 +1,46 @@
+$ cd "$W" && curl -sSL -o dotnet-install.sh https://dot.net/v1/dotnet-install.sh && bash dotnet-install.sh --version 7.0.302 --install-dir "$W/dotnet" >/dev/null 2>&1 && mkdir b && (cd "$SRC" && git archive 2e030e0873b043e5eab485ce9902761f999b9edf) | tar -x -C b && cd b && DOTNET_ROOT="$W/dotnet" DOTNET_CLI_TELEMETRY_OPTOUT=1 NUGET_PACKAGES="$W/nuget" "$W/dotnet/dotnet" publish MXBikesSetupDuperWPF/MXBikesSetupDuperWPF.csproj -c Release -r win-x64 --self-contained false -p:PublishSingleFile=true -p:EnableWindowsTargeting=true -o "$W/out" 2>&1 | grep -E ' error |->' | sed "s#$W#\$W#g"; cd "$R" && python3 -I "$E/netbundle.py" "$W/out/MX_Bikes_Setup_Duper.exe" "$W/reb" | awk 'NR>1{print $5, $6}' > "$W/reb.txt"; python3 -I "$E/netbundle.py" MX_Bikes_Setup_Duper.exe | awk 'NR>1{print $5, $6}' > "$W/rel.txt"; echo '- packed files whose SHA-256 differs (release, then rebuild):'; diff "$W/rel.txt" "$W/reb.txt"; echo "- $(wc -l < "$W/rel.txt") files in the release, $(wc -l < "$W/reb.txt") in the rebuild, $(comm -12 <(sort "$W/rel.txt") <(sort "$W/reb.txt") | wc -l) the same"; for j in deps runtimeconfig; do if [ "$(tr -d '\r' < app/MX_Bikes_Setup_Duper.$j.json | sha256sum)" = "$(sha256sum < "$W/reb/MX_Bikes_Setup_Duper.$j.json")" ]; then echo "same but CRLF: MX_Bikes_Setup_Duper.$j.json"; else echo "DIFFERENT: MX_Bikes_Setup_Duper.$j.json"; fi; done; echo '- MX_Bikes_Setup_Duper.dll:'; python3 -I "$E/dotnet_cmp.py" app/MX_Bikes_Setup_Duper.dll "$W/reb/MX_Bikes_Setup_Duper.dll" 0.1.8674.29660; echo '- the two programs, section by section (a build on Linux adds no .rsrc):'; python3 -I "$E/apphost_cmp.py" "$W/out/MX_Bikes_Setup_Duper.exe" MX_Bikes_Setup_Duper.exe
+  MXBikesSetupDuperWPF -> $W/b/MXBikesSetupDuperWPF/bin/Release/net6.0-windows/win-x64/MX_Bikes_Setup_Duper.dll
+  MXBikesSetupDuperWPF -> $W/out/
+- packed files whose SHA-256 differs (release, then rebuild):
+1,3c1,3
+< b5c639953747cce77b1d5e65a10ee0b71d305c8f5ffe02bb9e3c0bb6743aba83 MX_Bikes_Setup_Duper.dll
+< 31ad51d3e8ac5902f0d7448df852b8c8bd552fe9379b08d01c4742eae61fde6f MX_Bikes_Setup_Duper.deps.json
+< 1eca0f0c70070aa83bb609e4b749b26dcb4409784326032726394722224a098a MX_Bikes_Setup_Duper.runtimeconfig.json
+---
+> bcdd12c93b7d0b7fe85b07091b7e1ae92d3c3653c1d3b869c96fdf7a045df8c1 MX_Bikes_Setup_Duper.dll
+> 5f53b8546ebaa5c08109cf152d82dc5954ec961bd49988964b21861572fce1ba MX_Bikes_Setup_Duper.deps.json
+> 4c8a73c525364eac6cbe64191bc633ed1fc8c59db376660474f6834ce0b23800 MX_Bikes_Setup_Duper.runtimeconfig.json
+- 132 files in the release, 132 in the rebuild, 129 the same
+same but CRLF: MX_Bikes_Setup_Duper.deps.json
+same but CRLF: MX_Bikes_Setup_Duper.runtimeconfig.json
+- MX_Bikes_Setup_Duper.dll:
+0x000088    4 bytes  PE header TimeDateStamp
+0x002758    4 bytes  assembly version
+0x00458c   16 bytes  metadata #GUID heap (MVID)
+0x004eda    3 bytes  assembly version
+0x004ee0    2 bytes  assembly version
+0x004ee3    1 bytes  assembly version
+0x00f1b3    3 bytes  assembly version
+0x00f1b9    2 bytes  assembly version
+0x00f1bc    1 bytes  assembly version
+0x010540    4 bytes  debug entry 0 TimeDateStamp
+0x010578   16 bytes  debug entry 0: CodeView record (build ID, PDB path)
+0x01058c   15 bytes  debug entry 0: CodeView record (build ID, PDB path)
+0x01059c  113 bytes  debug entry 0: CodeView record (build ID, PDB path)
+0x010697   32 bytes  debug entry 1: PDB checksum record
+0x052c6c    1 bytes  assembly version
+0x052c6e    1 bytes  assembly version
+0x052c70    1 bytes  assembly version
+0x052c78    1 bytes  assembly version
+0x052c7a    1 bytes  assembly version
+0x052c7e    1 bytes  assembly version
+20 ranges differ, 339968 bytes compared; every difference is in a per-build field
+- the two programs, section by section (a build on Linux adds no .rsrc):
+.text      97792 bytes: same
+.rdata     37888 bytes: same
+.data       2560 bytes: 2 bytes differ, at file offsets 0x21669-0x2166a - all in those two fields
+.pdata      5632 bytes: same
+_RDATA       512 bytes: same
+.reloc      1024 bytes: same
+.rsrc     272384 bytes: only in the program
+(exit 0)

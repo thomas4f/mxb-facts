@@ -1,0 +1,5 @@
+$ cd "$SRC" && echo '- repository at the commit:'; git ls-tree -r --name-only 2e030e0873b043e5eab485ce9902761f999b9edf | grep -iE 'licen|copying|notice|credit|third|readme'; echo '- packed in the program:'; cd "$R" && find app -type f | grep -viE '\.dll$|\.json$'; grep -rniE 'ModernWpf|Newtonsoft|licen|credit' "$SRC/MXBikesSetupDuperWPF/MainWindow.xaml"
+- repository at the commit:
+- packed in the program:
+9:        xmlns:ui="http://schemas.modernwpf.com/2019"
+(exit 0)

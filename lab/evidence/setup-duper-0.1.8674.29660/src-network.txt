@@ -1,0 +1,14 @@
+$ cd "$SRC" && grep -nE 'Http|https?://|User-Agent|Process\.Start|WebClient|Socket|Dns' MXBikesSetupDuperWPF/MainWindow.xaml.cs MXBikesSetupDuperWPF/MainWindow.xaml MXBikesSetupDuperWPF/App.xaml.cs
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:23:using System.Net.Http;
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:34:        using (var client = new HttpClient())
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:36:            client.DefaultRequestHeaders.Add("User-Agent", "YourAppName");
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:38:            var apiUrl = $"https://api.github.com/repos/{GitHubRepoOwner}/{GitHubRepoName}/releases/latest";
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:233:            System.Diagnostics.Process.Start("explorer", "https://github.com/dmkrtz/MXBikesSetupDuperWPF/releases/latest");
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:243:            System.Diagnostics.Process.Start("explorer", "https://github.com/dmkrtz/MXBikesSetupDuperWPF");
+MXBikesSetupDuperWPF/MainWindow.xaml:2:        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+MXBikesSetupDuperWPF/MainWindow.xaml:3:        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+MXBikesSetupDuperWPF/MainWindow.xaml:4:        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+MXBikesSetupDuperWPF/MainWindow.xaml:5:        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+MXBikesSetupDuperWPF/MainWindow.xaml:9:        xmlns:ui="http://schemas.modernwpf.com/2019"
+MXBikesSetupDuperWPF/MainWindow.xaml:78:                        <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="This app was brought to you by insane (https://github.com/dmkrtz)"/>
+(exit 0)

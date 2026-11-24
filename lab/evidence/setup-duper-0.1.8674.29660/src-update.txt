@@ -1,0 +1,74 @@
+$ cd "$SRC" && sed -n '27,63p;134,164p;231,234p' MXBikesSetupDuperWPF/MainWindow.xaml.cs
+public class UpdateChecker
+{
+    private const string GitHubRepoOwner = "dmkrtz";
+    private const string GitHubRepoName = "MXBikesSetupDuperWPF";
+
+    public async Task<bool> IsUpdateAvailable(string currentVersion)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("User-Agent", "YourAppName");
+
+            var apiUrl = $"https://api.github.com/repos/{GitHubRepoOwner}/{GitHubRepoName}/releases/latest";
+
+            try
+            {
+                var response = await client.GetStringAsync(apiUrl);
+                var releaseInfo = JsonConvert.DeserializeObject<GitHubRelease>(response);
+
+                // Compare versions (you might need to parse the version strings appropriately)
+                var latestVersion = releaseInfo.TagName;
+                return Version.Parse(currentVersion) < Version.Parse(latestVersion);
+            }
+            catch (Exception ex)
+            {
+                // Handle errors (e.g., no internet connection, GitHub API limit exceeded, etc.)
+                Console.WriteLine($"Error checking for updates: {ex.Message}");
+                return false;
+            }
+        }
+    }
+}
+
+public class GitHubRelease
+{
+    [JsonProperty("tag_name")]
+    public string TagName { get; set; }
+}
+        public MainWindow()
+        {
+            InitializeComponent();
+
+            Version version = Assembly.GetExecutingAssembly().GetName().Version;
+            DateTime buildDate = new DateTime(2000, 1, 1)
+                                    .AddDays(version.Build).AddSeconds(version.Revision * 2);
+            displayableVersion = $"{version}";
+
+            CheckForUpdates(version.ToString());
+
+            initPiboso();
+        }
+
+        public async void CheckForUpdates(string currentVersion)
+        {
+            var updateChecker = new UpdateChecker();
+
+            if (await updateChecker.IsUpdateAvailable(currentVersion))
+            {
+                // Notify the user about the update
+                // You can show a dialog or display a notification
+                MessageBox.Show("Update available!");
+                tabControl.SelectedIndex = 1;
+                btnGetLatestVersion.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Debug.WriteLine("No update available.");
+            }
+        }
+        private void btnGetLatestVersion_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer", "https://github.com/dmkrtz/MXBikesSetupDuperWPF/releases/latest");
+        }
+(exit 0)

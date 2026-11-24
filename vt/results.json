@@ -850,6 +850,18 @@
         "permalink": "https://www.virustotal.com/gui/file/458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb"
       }
     },
+    "setup-duper-0.1.8674.29660.yaml": {
+      "235bcb1122e8ada26e469123a3aa4dd3c16da7de8a96b6bd70e98ba501e2003c": {
+        "found": true,
+        "flagged": 0,
+        "engines": 71,
+        "flagged_by": [],
+        "last_scanned": "2025-10-26",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45419521677",
+        "permalink": "https://www.virustotal.com/gui/file/235bcb1122e8ada26e469123a3aa4dd3c16da7de8a96b6bd70e98ba501e2003c"
+      }
+    },
     "suspension-tuner-1.4.1.yaml": {
       "58b8463c7e49f8e30268df4b78d7200668a721eb170b51c571f7962bb66af525": {
         "found": false,
