@@ -146,6 +146,14 @@ check('correction for "HoleShot 0.24.0" is labelled holeshot', issue_label.find(
 check('request for "MXB App" is labelled mxb-app', issue_label.find('### Tool name\n\nMXB App\n\n### Version\n\n1', reg) == ('analyse', 'mxb-app'))
 check('an unknown tool gets no tool label', issue_label.find('### Tool name\n\nSomething New\n', reg) == ('analyse', '-'))
 
+# A web page's release files are the ones on its own site; a runtime it links to elsewhere is not the tool's release (issue #27).
+import releases_fetch
+page = ('<a href="https://aka.ms/vs/16/release/vc_redist.x64.exe">VC++</a> <a href="/files/Tool-1.2.zip">zip</a> '
+        '<a href="https://mega.nz/file/abc#key">mirror</a> <a href="https://mega.nz/folder/xyz#key">folder</a>')
+check('a web page keeps only its own files and file-host links', releases_fetch.page_links('https://forum.example/topic?t=1', page)
+      == (['https://forum.example/files/Tool-1.2.zip'], ['https://mega.nz/file/abc#key']), releases_fetch.page_links('https://forum.example/topic?t=1', page))
+check('a page linking only to a runtime elsewhere has no release files', releases_fetch.page_links('https://forum.example/t', page.split(' <a href="/files')[0]) == ([], []))
+
 # A tag's "unless" leaves it out only for the answer it names, and a mistyped one stops the build.
 check('"unless" holds for its answer only', B['unless'](['T1 no'])(with_(T1=('!', 'No'))) and not B['unless'](['T1 no'])(with_(T1=('+', 'Yes'))))
 check('"unless" holds for any of its answers', B['unless'](['T1 no', 'T4 yes'])(with_(T4=('+', 'Yes'))) and not B['unless'](['T1 no', 'T4 yes'])(with_(T4=('!', 'No'))))
