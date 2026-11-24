@@ -202,9 +202,10 @@ _rng=lambda l:f'{l[0]}–{l[-1]} points' if len(l)>1 else f'{l[0]} points'
 _lo=[c for c in _cs if c<GT['severe']]; _hi=[c for c in _cs if c>=GT['severe']]
 assert _lo and _hi, 'rules/scoring.yaml: the legend needs costs below and at the severe tier'
 def _chip(k): return state_html(k).replace('class="mk ','class="mark ',1)
-def _rows(head,keys): return f'<li class="lgh">{head}</li>'+''.join(f'<li>{_chip(k)} <span>{STATES[k][3]}.</span></li>' for k in keys)
-marks=(f'<li><span class="marks">{"".join(_chip(k) for k in ("good","note","concern","major"))}</span> <span>Each answer\'s mark. In the default setup a Concern costs {_rng(_lo)} '
-       f'and a Major {_rng(_hi)}; Good and Note cost nothing.</span></li>'
+# One line per mark or state, each with its meaning; a Concern and a Major also say what they cost.
+_cost={'concern':f'In the default setup; costs {_rng(_lo)}','major':f'A major concern in the default setup; costs {_rng(_hi)}'}
+def _rows(head,keys): return f'<li class="lgh">{head}</li>'+''.join(f'<li>{_chip(k)} <span>{_cost.get(k,STATES[k][3])}.</span></li>' for k in keys)
+marks=(_rows("Each answer's mark",("good","note","concern","major"))
        +_rows('In grey: never a confirmed Concern',("off","req","dna","nc","held","na"))
        +_rows('In place of a score',("malware","notscored"))
        +'<li class="lgh">Tags and counts</li>')
