@@ -111,7 +111,8 @@ jobs:
             prints for it; `python3 -I tools/fetch_release.py get <link> <folder>` downloads any of them and prints its SHA-256) and SHA-256, a real-game run per sensible way to use the plugins (ride
             and press their hotkeys; the bare demo runs as the baseline on its own), a test-host case for what the real
             game can't do on cue (--crash, --helmet when a plugin reacts to them, the bystander plugin's checks, with
-            victim.dlo last), and the apps (.exe) that start without an account or the real game. Then stop.
+            victim.dlo last), and the apps (.exe) that start without an account or the real game. Every real-game run, case
+            and app needs a name of its own (no two alike, and never "baseline", the bare demo's). Then stop.
         run: |
           printf '%s' "$PROMPT" > "$RUNNER_TEMP/prompt.txt"
           python3 -I tools/agent_run.py "$RUNNER_TEMP/prompt.txt" "$RUNNER_TEMP/plan-output.json" 2
@@ -121,7 +122,8 @@ jobs:
           set -o pipefail  # a plan that fails the check stops the run here, not on the Windows machine
           python3 -I tools/check_plan.py "$RUNNER_TEMP/plan.json" | tee -a "$GITHUB_STEP_SUMMARY"
           python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no"))' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - if: ${{ !cancelled() }}  # kept when the check refuses it too, so the refused plan can be read
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: plan, path: "${{ runner.temp }}/plan.json", retention-days: 7 }
   # The release files the plan names, downloaded once (plain https links and MEGA file and folder links, tools/fetch_release.py) and
   # checked against their SHA-256, for the Windows run and the VirusTotal lookup. No key, and nothing downloaded is run.

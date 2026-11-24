@@ -27,7 +27,8 @@ def check(plan):
         assert re.match(r'^https://[^\s"\'`$]+$', f['url']) and len(f['url']) < 500, 'file url: ' + f['url']
         assert SHA.match(f['sha256']), 'sha256 of ' + f['url']
     names = ['baseline'] + [r.get('name') for r in games + cases + apps]
-    assert len(set(names)) == len(names), 'run names must differ, and "baseline" is the bare demo\'s'
+    twice = sorted({n for n in names if names.count(n) > 1}, key=str)
+    assert not twice, 'run names must differ across real-game runs, cases and apps, and "baseline" is the bare demo\'s; used more than once: %s' % ', '.join(map(str, twice))
     for r in games:
         assert set(r) <= {'name', 'ride', 'keys'} and NAME.match(str(r.get('name'))), 'real-game run: name, ride, keys'
         ride = r.get('ride', 30)
