@@ -4,7 +4,8 @@ usage: python3 -I tools/check_plan.py <plan.json>
 
 The plan comes from Claude's first pass, which has read untrusted release files, so only what the Windows run needs is
 let through: https release files with a SHA-256 each, plain names, host arguments without paths that leave the run
-folder, apps inside the release, and real-game runs with known key names. Prints the plan as Markdown (for the run's summary) and exits 1 when it isn't valid.
+folder, apps inside the release, real-game runs with known key names, and the licence read (allows, forbids or unclear),
+which decides whether the run may upload release files to VirusTotal (only "allows") and run anything (not "forbids"). Prints the plan as Markdown (for the run's summary) and exits 1 when it isn't valid.
 """
 import json, re, sys
 
@@ -16,13 +17,16 @@ SAFE = re.compile(r'^[A-Za-z0-9 _.,:!+()\[\]\\/-]{1,200}$')
 SWITCH = re.compile(r'^/[A-Za-z][A-Za-z0-9_-]{0,39}$')
 # The keys lab/real-game/windows/run.ps1 can press (xdotool's names; its $scan table), alone (ctrl too) or joined with + (ctrl+r).
 KEY = re.compile(r'^((ctrl|shift|alt)\+){0,2}(Up|Down|Left|Right|Escape|Return|space|Tab|BackSpace|Caps_Lock|Insert|Delete|Home|End|Prior|Next|F([1-9]|1[0-2])|[a-z0-9]|ctrl|shift|alt)$')
-KEYS = {'game', 'files', 'realgame', 'cases', 'apps', 'note'}
+KEYS = {'game', 'licence', 'files', 'realgame', 'cases', 'apps', 'note'}
+LICENCE = ('allows', 'forbids', 'unclear')
 
 
 def check(plan):
     assert set(plan) <= KEYS, 'unknown keys: %s' % sorted(set(plan) - KEYS)
     assert plan.get('game') in ('mxbikes', 'gpbikes'), 'game must be mxbikes or gpbikes'
+    assert plan.get('licence') in LICENCE, 'licence must be allows, forbids or unclear'
     files, games, cases, apps = (plan.get(k, []) for k in ('files', 'realgame', 'cases', 'apps'))
+    assert plan['licence'] != 'forbids' or not (games or cases or apps), 'nothing runs when the licence forbids analysis (rule 6)'
     assert len(files) <= 5 and len(games) <= 4 and len(cases) <= 6 and len(apps) <= 3, 'at most 5 files, 4 real-game runs, 6 cases and 3 apps'
     for f in files:
         assert set(f) == {'url', 'sha256'}, 'a file has url and sha256'
@@ -57,7 +61,7 @@ def main(path):
     except AssertionError as e:
         print('The plan for the Windows run is not valid: %s' % e)
         return 1
-    out = ['### Windows run plan', '', 'Game: %s' % plan['game'], '']
+    out = ['### Windows run plan', '', 'Game: %s. Licence: %s.' % (plan['game'], plan['licence']), '']
     out += ['- file: %s (`%s`)' % (f['url'], f['sha256']) for f in plan.get('files', [])]
     out += ['- real game `%s`: ride %ss%s' % (r['name'], r.get('ride', 30), ''.join(', %s at %ss' % (k[1], k[0]) for k in r.get('keys', []))) for r in plan.get('realgame', [])]
     out += ['- case `%s`: `%s`' % (c['name'], ' '.join(c['args'])) for c in plan.get('cases', [])]

@@ -134,6 +134,7 @@ tpl=tpl.replace('<table>','<div class="tw"><table>').replace('</table>','</table
 # How it works: the steps (in the page shell) and the rules stay open; every other part of the template is reference, each folded under its own name.
 FOLDS={'How AI is used':'who does the work, model and effort, the prompt, why runs differ',
        'Marks and scores':'how each fact is marked and each area is scored',
+       'Changes to these rules':'what changed in how we work, and when',
        'Sections':'',
        'Wording':''}
 # For card writers: what a card holds and how it is written, in one fold, after the reader's parts.
