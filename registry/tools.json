@@ -21,6 +21,17 @@
       "tied_by": "github.com/rare621/Core-MX"
     }
   },
+  "dazteamracing-server-manager": {
+    "name": "MX/GP Bikes Server Manager by DazTeamRacing",
+    "author": "DazTeamRacing",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 189679,
+      "tied_by": "mega.nz/file/TkRFhJQa"
+    }
+  },
   "dirt-gear": {
     "name": "Dirt Gear",
     "author": "Dirt Graphic Studios",
@@ -32,6 +43,17 @@
     "mxb-mods": {
       "post": 197697,
       "tied_by": "github.com/Dirt-Graphic-Studios/Dirt-Gear"
+    }
+  },
+  "drag-n-drop-creator": {
+    "name": "Drag n Drop Creator",
+    "author": "bh5o",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 137166,
+      "tied_by": "mediafire.com/file/8bv1khcxzngguv1"
     }
   },
   "fixxers-rumble": {
@@ -137,6 +159,17 @@
       "tied_by": "github.com/LeadingTrendTechnologies/HoleshotHUD"
     }
   },
+  "insanes-3d-viewer": {
+    "name": "iNsane's 3D Viewer",
+    "author": "insane",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 18926,
+      "tied_by": "uploads/3DViewer/dmkrtz3DViewer_v1.0.9151.32085.zip"
+    }
+  },
   "knee-down": {
     "name": "Knee Down",
     "author": "gsv-r",
@@ -175,6 +208,61 @@
       "https://forum.piboso.com/index.php?topic=79.0"
     ]
   },
+  "maxhud-gpb": {
+    "name": "MaXHUD (GP Bikes)",
+    "author": "HornetMaX",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 193,
+      "tied_by": "mega.nz/folder/dRsyARjI"
+    }
+  },
+  "maxtm": {
+    "name": "MaxTM",
+    "author": "HornetMaX",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 462,
+      "tied_by": "mega.nz/folder/UB91VRIS"
+    }
+  },
+  "mods-cleaner": {
+    "name": "MX Bikes Mods Cleaner",
+    "author": "nikomouk",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 175261,
+      "tied_by": "mediafire.com/file_premium/xsc2s75j0ihwtbf"
+    }
+  },
+  "mx-bike-mod-manager": {
+    "name": "MX Bike Mod Manager",
+    "author": "Noxo",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 180192,
+      "tied_by": "drive.google.com/file/d/1Y0gIyeM3Wd6ap0P3pOMiw2N87oteLXjt"
+    }
+  },
+  "mx-ctrl": {
+    "name": "MX Ctrl",
+    "author": "itswillyferret",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 184524,
+      "tied_by": "mediafire.com/file/ec7wptg4wx8xlc9"
+    }
+  },
   "mx-dirt-mod": {
     "name": "MX Dirt Mod",
     "author": "kadenball",
@@ -199,6 +287,17 @@
     "mxb-mods": {
       "post": null,
       "note": "No page found (searched 19 Nov 2026)"
+    }
+  },
+  "mx-shortcuts": {
+    "name": "MX Shortcuts",
+    "author": "itswillyferret",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 140394,
+      "tied_by": "gofile.io/d/v1IGTb"
     }
   },
   "mxb-app": {
@@ -247,6 +346,17 @@
       "tied_by": "github.com/starsssy/mxb-discord-rpc"
     }
   },
+  "mxb-dropper": {
+    "name": "MXB Dropper",
+    "author": "KST Design",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 180018,
+      "tied_by": "mediafire.com/file/rq8b4f7q5vuegaq"
+    }
+  },
   "mxb-dualsense": {
     "name": "MXB DualSense Support",
     "author": "Slimerex",
@@ -271,6 +381,17 @@
       "tied_by": "97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4"
     }
   },
+  "mxb-haptics-ps5": {
+    "name": "MXB_Haptics_PS5",
+    "author": "Sixze",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 185023,
+      "tied_by": "drive.google.com/file/d/1X32iypa3roRUWJFWBOd4kf1R97cEoUNi"
+    }
+  },
   "mxb-ragdoll": {
     "name": "MXB Ragdoll",
     "author": "BoredDev / mxbikesmods",
@@ -280,6 +401,28 @@
     "mxb-mods": {
       "post": 194769,
       "tied_by": "MXB-Ragdoll-v1.0.zip"
+    }
+  },
+  "mxb-server-configurator": {
+    "name": "MX Bikes Server Configurator",
+    "author": "insane",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 2074,
+      "tied_by": "uploads/MXBSC_0.9a.zip"
+    }
+  },
+  "mxb-studio": {
+    "name": "MXB Studio",
+    "author": "TannyGlover",
+    "github": null,
+    "homepage": "https://mxbstudio.com",
+    "cards": [],
+    "mxb-mods": {
+      "post": 191279,
+      "tied_by": "mediafire.com/file/ej7vcdtbtt6crd4"
     }
   },
   "mxbfix": {
@@ -326,6 +469,28 @@
       "tied_by": "github.com/daf0707pro-lgtm/MXPulse"
     }
   },
+  "mxtuner": {
+    "name": "MxTuner",
+    "author": "dfmc_dadogamer91",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 176823,
+      "tied_by": "mediafire.com/file/kf4kw0mdv4c7ze5"
+    }
+  },
+  "painthub": {
+    "name": "PaintHub",
+    "author": "OhTea",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 175704,
+      "tied_by": "mediafire.com/file/84hht91q4bhzfjs"
+    }
+  },
   "performance-lab": {
     "name": "Performance Lab by LMG x JCD",
     "author": "JahRacing",
@@ -359,6 +524,42 @@
       "tied_by": "github.com/bobby-rust/Pitkit"
     }
   },
+  "projectgpb2": {
+    "name": "ProjectGPB2",
+    "author": "X1mk_Z3",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 6392,
+      "tied_by": "1794501261-projectgpb2-v2.zip"
+    }
+  },
+  "resolute-server-manager": {
+    "name": "Resolute MXB Server Manager",
+    "author": "Resolute Kraken",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "downloads": [
+      "http://forum.mx-bikes.com/index.php?topic=3949.0"
+    ],
+    "mxb-mods": {
+      "post": 5737,
+      "tied_by": "forum.mx-bikes.com/index.php?topic=3949.0"
+    }
+  },
+  "resolute-track-builder-helper": {
+    "name": "Resolute MXB Track Builder Helper",
+    "author": "Resolute Kraken",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 5294,
+      "tied_by": "mediafire.com/file/317o3iwyof2o4a2"
+    }
+  },
   "rider-pov-plus": {
     "name": "Rider POV+",
     "author": "Finner24",
@@ -379,6 +580,28 @@
     "mxb-mods": {
       "post": 69721,
       "tied_by": "github.com/dmkrtz/MXBikesSetupDuperWPF"
+    }
+  },
+  "simhub-dash-gpb": {
+    "name": "Simhub Dash 2.0",
+    "author": "Gonzo46",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 3467,
+      "tied_by": "mega.nz/file/bc0UGRRa"
+    }
+  },
+  "studio-bw-skin-packer": {
+    "name": "Studio BW Skin Packer",
+    "author": "Phantomz",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 139208,
+      "tied_by": "mediafire.com/file/6db0d17r2g3tjbz"
     }
   },
   "suspension-tuner": {
@@ -403,6 +626,17 @@
     "mxb-mods": {
       "post": 192258,
       "tied_by": "github.com/Lilian1134/TrackRelief"
+    }
+  },
+  "tyre-changer": {
+    "name": "Tyre changer Tool (MX Bike Tool)",
+    "author": "Buck3ts41",
+    "github": null,
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 105406,
+      "tied_by": "mediafire.com/file/zpcul05ri6ia7b2"
     }
   }
 }

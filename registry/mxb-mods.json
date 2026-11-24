@@ -29,6 +29,19 @@
       ],
       "still_tied": true
     },
+    "dazteamracing-server-manager": {
+      "post": 189679,
+      "link": "https://mxb-mods.com/mx-gp-bikes-server-manager-by-dazteamracing/",
+      "title": "MX/GP BIKES SERVER MANAGER By DazTeamRacing",
+      "excerpt": "MX/GP Bikes Server Manager MX/GP Bikes Server Manager is a free Windows application designed to easily create and manage dedicated servers for both MX Bikes and GP Bikes. Main features: Run multiple servers simultaneously. Save and reuse complete server profiles. Select tracks, layouts, bike categories and individual bikes. Configure sessions, weather and gameplay options. Automatic…",
+      "published": "2026-08-24",
+      "updated": "2026-09-04",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "dirt-gear": {
       "post": 197697,
       "link": "https://mxb-mods.com/dirt-gear-2/",
@@ -36,6 +49,19 @@
       "excerpt": "Dirt Gear: MX Bikes rider gear editor (Windows) Design custom rider gear from any creator’s PSD template without Photoshop. Pick colourways, add your logos (they sit under the template’s shading), and add your name and number with bundled race fonts, outlines, gradients and letter spacing. Recolour logos with solid or gradient overlays. Check your design…",
       "published": "2026-11-13",
       "updated": "2026-11-17",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "drag-n-drop-creator": {
+      "post": 137166,
+      "link": "https://mxb-mods.com/drag-n-drop-creator/",
+      "title": "Drag n Drop Creator",
+      "excerpt": "Hello, today I am releasing a program that I’ve been working on. Actually me and ChatGPT been working on. I recently got tired of making my own drag and drops. The thing is, I do not know how to code. So I went to ChatGPT and we started cooking. I got all the necessary ones…",
+      "published": "2025-05-05",
+      "updated": "2026-03-05",
       "categories": [
         "Other",
         "Tools"
@@ -120,6 +146,19 @@
       ],
       "still_tied": true
     },
+    "insanes-3d-viewer": {
+      "post": 18926,
+      "link": "https://mxb-mods.com/insanes-3d-viewer/",
+      "title": "iNsane’s 3D Viewer",
+      "excerpt": "Model converter now available, see downloads section below! Big thanks to @GreenLenux for this awesome teaser video! please read What is it? The 3D Viewer makes it possible for content creators to easily access models that we use in the game (and I have access to) and preview them almost instantly, without the need to…",
+      "published": "2021-10-06",
+      "updated": "2025-01-20",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "libpnt": {
       "post": 175310,
       "link": "https://mxb-mods.com/libpnt/",
@@ -146,6 +185,45 @@
       ],
       "still_tied": null
     },
+    "mods-cleaner": {
+      "post": 175261,
+      "link": "https://mxb-mods.com/mx-bikes-mods-cleaner/",
+      "title": "MX Bikes Mods Cleaner",
+      "excerpt": "MX Bikes Mods Cleaner is a free Windows utility designed to help MX Bikes players safely clean their mods folder without guesswork. Over time, mods accumulate, especially bike paints, rider paints, and tracks. This tool lets you quickly identify what can be removed based on date ranges, preview everything before deletion, and clean up with…",
+      "published": "2025-12-24",
+      "updated": "2025-12-26",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "mx-bike-mod-manager": {
+      "post": 180192,
+      "link": "https://mxb-mods.com/mx-bike-mod-manager/",
+      "title": "MX Bike Mod Manager",
+      "excerpt": "🏍️ MX Bikes Mod Manager – Beta 1.0.0 Simple and fast installation & usage: 1️⃣ Install the software on your hard drive 2️⃣ Open the software 3️⃣ Select your mods folder: DocumentsPiBoSoMX Bikesmods 4️⃣ Drag and drop your .rar or .pkz files directly into the section where you want to install the mod (Tracks,…",
+      "published": "2026-03-11",
+      "updated": "2026-03-11",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "mx-ctrl": {
+      "post": 184524,
+      "link": "https://mxb-mods.com/mx-ctrl/",
+      "title": "MX Ctrl",
+      "excerpt": "MX Ctrl is the sleek, rebuilt successor to MX Shortcuts. It turns your controller into a fully functional mouse, letting you navigate menus without ever reaching for your desk. Play comfortably from the couch (if you’re insane…). INSTRUCTIONS: Download from the links below Extract to your desktop or desired folder Run the exe Click…",
+      "published": "2026-06-01",
+      "updated": "2026-06-04",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "mx-dirt-mod": {
       "post": 197551,
       "link": "https://mxb-mods.com/dirt-erode-overhall/",
@@ -156,6 +234,19 @@
       "categories": [
         "Other",
         "Others"
+      ],
+      "still_tied": true
+    },
+    "mx-shortcuts": {
+      "post": 140394,
+      "link": "https://mxb-mods.com/140394-2/",
+      "title": "MX Shortcuts: Powerful MX Bikes Hotkeys",
+      "excerpt": "MX Shortcuts – Quick hotkey Tool for MX Bikes A simple yet powerful tool that lets you instantly reset your track in MX Bikes with just one key press. Features a clean dark theme interface and controller support. Features • Quick Reset with “R” key • Controller support • Custom action sequences • Dark theme…",
+      "published": "2025-05-20",
+      "updated": "2025-09-20",
+      "categories": [
+        "Other",
+        "Tools"
       ],
       "still_tied": true
     },
@@ -211,6 +302,19 @@
       ],
       "still_tied": true
     },
+    "mxb-dropper": {
+      "post": 180018,
+      "link": "https://mxb-mods.com/mxb-dropper-v1/",
+      "title": "MXB Dropper V1",
+      "excerpt": "The Fastest Way to Install Mods for MX Bikes The goal of MXB Dropper is simple: give players a fast, clean, and easy way to install mods without manually digging through folders, remembering paths, or messing up file locations. No more dragging files around Windows Explorer trying to remember where every .pkz, .pnt, or gear…",
+      "published": "2026-03-07",
+      "updated": "2026-03-07",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "mxb-dualsense": {
       "post": 197978,
       "link": "https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/",
@@ -237,6 +341,19 @@
       ],
       "still_tied": true
     },
+    "mxb-haptics-ps5": {
+      "post": 185023,
+      "link": "https://mxb-mods.com/mxb_haptics_ps5/",
+      "title": "MXB_Haptics_PS5",
+      "excerpt": "MX Bikes doesn’t send any rumble to a controller – you ride the whole bike through your eyes alone. This little companion app fixes that for the PS5 DualSense. It reads the game’s live telemetry and turns it into real, physics-driven feedback, so you actually FEEL what the bike is doing. It’s not a generic…",
+      "published": "2026-06-12",
+      "updated": "2026-06-15",
+      "categories": [
+        "Other",
+        "Tweaks"
+      ],
+      "still_tied": true
+    },
     "mxb-ragdoll": {
       "post": 194769,
       "link": "https://mxb-mods.com/mx-bikes-ragdoll-v1-0-2/",
@@ -247,6 +364,32 @@
       "categories": [
         "Code Mods",
         "Other"
+      ],
+      "still_tied": true
+    },
+    "mxb-server-configurator": {
+      "post": 2074,
+      "link": "https://mxb-mods.com/mx-bikes-server-configurator/",
+      "title": "MX Bikes Server Configurator",
+      "excerpt": "Hello and welcome to the MX Bikes Server Configurator! This tool aims at making life easier and having a GUI to create server configs easily and fast! How to use it: 1. Open the app 2. Select your mxbikes.exe 3. Either click on “New Config” and select where to save it, or Browse for an…",
+      "published": "2019-07-15",
+      "updated": "2020-11-07",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "mxb-studio": {
+      "post": 191279,
+      "link": "https://mxb-mods.com/mxb-studio-create-your-entire-mx-bikes-track-in-one-app/",
+      "title": "MXB Studio – Create your Entire MX Bikes Track in One APP",
+      "excerpt": "Free download available! Download the app for windows here: https://mxbstudio.com/ Introducing MXB Studio! Track building for MX Bikes has never been this easy! MXB Studio brings the track-building workflow into one app. Shape terrain, build jumps, create ruts and braking bumps, texture, place objects, and set up race data while seeing your changes directly on…",
+      "published": "2026-10-01",
+      "updated": "2026-11-21",
+      "categories": [
+        "Other",
+        "Tools"
       ],
       "still_tied": true
     },
@@ -302,6 +445,32 @@
       ],
       "still_tied": true
     },
+    "mxtuner": {
+      "post": 176823,
+      "link": "https://mxb-mods.com/danj/",
+      "title": "MxTuner",
+      "excerpt": "EN: This tool was created to work on the .engn and .cfg files of motorcycles to increase the HP of the motorcycle, to increase the clutch grip, to set the suspension, to decrease the engine revs of the motorcycle at idle after changing the horsepower, to increase the weight of the frame, to improve the…",
+      "published": "2026-01-14",
+      "updated": "2026-01-19",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "painthub": {
+      "post": 175704,
+      "link": "https://mxb-mods.com/painthub/",
+      "title": "PaintHub",
+      "excerpt": "PaintHub is here! I have been testing a batch packer for a while now with some of the largest gear creators, and with great feedback and recent help from BatZupper I’m pleased to release of PaintHub. What’s different to PaintEd? – Doesn’t freeze – Processes faster – Batch Processing for multiple gearsets at once –…",
+      "published": "2025-12-31",
+      "updated": "2026-02-07",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "performance-lab": {
       "post": 190889,
       "link": "https://mxb-mods.com/performance-lab-by-lmg-x-jcd/",
@@ -322,6 +491,32 @@
       "excerpt": "If you’re having trouble with the new update, as a temporary workaround you can download an older version here and refuse the update when prompted: https://github.com/bobby-rust/Pitkit/releases/download/v0.4.5/PitKit-0.4.5.Setup.exe Features: Install directly from mxb-mods.com Installs: Bikes Bike paints Bike models Custom sounds Tires Tire models Tracks (allows creating and selecting track folders for organization) Riders Rider gear Rider…",
       "published": "2025-05-19",
       "updated": "2025-06-05",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "resolute-server-manager": {
+      "post": 5737,
+      "link": "https://mxb-mods.com/resolute-mxb-server-manager/",
+      "title": "Resolute MXB Server Manager v.1.5.23",
+      "excerpt": "I created this application to make it easier for users to configure and run dedicated MXB servers. See full details in the forum post. Standard Feature List: Configure one (1) MXB dedicated server. Start, restart, and stop the dedicated server. Auto-restart server on crash. Configurations are saved in application. Multiple languages (English, German, French, Spanish,…",
+      "published": "2020-11-08",
+      "updated": "2022-12-30",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "resolute-track-builder-helper": {
+      "post": 5294,
+      "link": "https://mxb-mods.com/resolute-mxb-track-builder-helper/",
+      "title": "Resolute MXB Track Builder Helper v.1.1.9",
+      "excerpt": "I created this application to help MXB track builders to create valid text files that are needed for the tracks. It will help new track builders avoid common mistakes and give experienced track builders a more streamlined build process. Feature List: Creates text files for: HMF, THT, AMB, SSC, INI, GFX, SHD. Validates heightmap for…",
+      "published": "2020-09-01",
+      "updated": "2025-07-07",
       "categories": [
         "Other",
         "Tools"
@@ -354,6 +549,19 @@
       ],
       "still_tied": true
     },
+    "studio-bw-skin-packer": {
+      "post": 139208,
+      "link": "https://mxb-mods.com/studio-bw-skin-packer/",
+      "title": "Studio BW Skin Packer",
+      "excerpt": "Hey Guys! Today I’m releasing the Studio BW Skin Packer. The Studio BW Skin Packer allows you to name your .tgas whatever you want. The program auto renames your .tgas to the correct name and packs your paints. Revolutionizing the Mx Bikes skin making landscape. So heres how you use it: Add Rows Click on…",
+      "published": "2025-05-14",
+      "updated": "2025-05-14",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "suspension-tuner": {
       "post": 191807,
       "link": "https://mxb-mods.com/suspension-tuner/",
@@ -374,6 +582,19 @@
       "excerpt": "TrackRelief turns real-world 1m LiDAR data into ready to use heightmaps and 3D meshes for your games. Search a place, draw a rectangle on the map, and it downloads the terrain and exports a 16-bit heightmap and terrain mesh. It also works with games like Assetto Corsa or BeamNG. Switzerland : 0.5–2m France : LiDAR…",
       "published": "2026-10-14",
       "updated": "2026-10-21",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "tyre-changer": {
+      "post": 105406,
+      "link": "https://mxb-mods.com/tyre-changer-tool/",
+      "title": "Tyre changer Tool",
+      "excerpt": "MX-Bike Tool whants to be a simple application that let you tweak and modify game files to change the way you play this game. For now it present only an option, but i plan on updating with other feature and new stuff. #Usage Pretty simple, select if you want to convert a bike to…",
+      "published": "2024-11-21",
+      "updated": "2024-11-21",
       "categories": [
         "Other",
         "Tools"

@@ -42,6 +42,32 @@
       ],
       "still_tied": true
     },
+    "maxhud-gpb": {
+      "post": 193,
+      "link": "https://gpb-mods.com/maxhud/",
+      "title": "MaxHUD – v2.2.7",
+      "excerpt": "This might be the most useful mod out there, MaxHud. It’s a mod which lets you add all types of things on your screen as a hud, fuel, tyre temperature, standings, delta (so you can see around the whole track if your improving or not), inputs, map and so many other things! You can decide…",
+      "published": "2021-10-16",
+      "updated": "2023-08-21",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "maxtm": {
+      "post": 462,
+      "link": "https://gpb-mods.com/maxtm-v2-5/",
+      "title": "MaxTM – v2.7",
+      "excerpt": "MaxTM by HornetMax MaxTM is a telemetry tool made by HornetMax. It wont be usefull for many players, but for very few it is very useful! If you are a bike modder and want to take a deep dive into the physics / handling of your mod, or your a player who wants to go…",
+      "published": "2021-12-22",
+      "updated": "2023-08-22",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
     "pitbox": {
       "post": 5412,
       "link": "https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/",
@@ -52,6 +78,32 @@
       "categories": [
         "Other",
         "Tools"
+      ],
+      "still_tied": true
+    },
+    "projectgpb2": {
+      "post": 6392,
+      "link": "https://gpb-mods.com/projectgpb2-2/",
+      "title": "ProjectGPB2",
+      "excerpt": "This project has so far been the most demanding, time consuming and money consuming mod i have made for GP Bikes to date. I would highly appreciate donations of any sort! my donation link can be found on my GPB Mods profile and in the official ProjectGPB2 discord! https://discord.gg/fDMedKv6S7 ProjectGPB2 is a plugin pack that changes…",
+      "published": "2026-11-10",
+      "updated": "2026-11-12",
+      "categories": [
+        "Other",
+        "Plugins"
+      ],
+      "still_tied": true
+    },
+    "simhub-dash-gpb": {
+      "post": 3467,
+      "link": "https://gpb-mods.com/simhub-dash-2-0-public/",
+      "title": "Simhub Dash 2.0 (public)",
+      "excerpt": "I realized I made some coding errors on the previous version (posted on the GPB discord). Should be fixed with this V2.0 one (EM and AW is now showing properly and the pit limiter light is working). Unfortunately, there are some stuff that GPB doesn’t send out so some lights are not functioning. The acronyms…",
+      "published": "2024-08-17",
+      "updated": "2024-08-17",
+      "categories": [
+        "Other",
+        "Plugins"
       ],
       "still_tied": true
     }
