@@ -14,7 +14,8 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
    the plan's SHA-256 and hands them on with a `release.json` listing them.
 3. The Windows job runs the plan's real-game runs (`../../real-game/windows/run.ps1`, with the bare demo as the
    baseline), then its cases and apps with `run.ps1`. It downloads Process Monitor and Mesa's software OpenGL (llvmpipe, the renderer the Wine
-   lab uses), takes the release files from the job above (`-Release`), each checked again against its SHA-256. Then, for each run, it:
+   lab uses), and, when the plan has apps, Microsoft's .NET Desktop Runtimes 6, 7 and 9 (the runner has 8, 10 and 11), so a
+   .NET app runs on the version it was built for; `machine.txt` lists the runtimes, takes the release files from the job above (`-Release`), each checked again against its SHA-256. Then, for each run, it:
    - makes a fresh run folder with the host, `victim.dlo`, the Mesa DLLs, the game's `plugins` folder (a folder named
      `plugins` in a release file, else the folder that holds its `.dlo` files) and the unpacked release under `release\`;
    - adds a firewall rule that blocks every program in the run folder from the internet, and logs dropped connections;
