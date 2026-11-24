@@ -232,7 +232,15 @@ jobs:
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with: { persist-credentials: false, sparse-checkout: tools }
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+      # Right after the job before uploads it, the hash list can still answer "not found" (seen 24 Nov 2026): wait, try again.
+      - id: hashes
+        continue-on-error: true
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: vt-hashes, path: "${{ runner.temp }}/vt" }
+      - if: steps.hashes.outcome == 'failure'
+        run: sleep 30
+      - if: steps.hashes.outcome == 'failure'
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: vt-hashes, path: "${{ runner.temp }}/vt" }
       - if: needs.plan.outputs.licence == 'allows' && !inputs.skip_upload
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
