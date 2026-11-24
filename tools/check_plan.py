@@ -48,6 +48,8 @@ def check(plan):
     for a in apps:
         assert set(a) <= {'name', 'exe', 'args', 'seconds'} and NAME.match(a['name']), 'app: name, exe, args, seconds'
         assert SAFE.match(a['exe']) and a['exe'].lower().endswith('.exe') and '..' not in a['exe'] and not re.match(r'^([A-Za-z]:|[\\/])', a['exe']), 'app exe: ' + a['exe']
+        # Each release file sits in a folder of its own name, so even a bare .exe is "<file>\\<file>" (seen 24 Nov 2026).
+        assert '\\' in a['exe'], 'app %s exe: %s is the release file\'s folder; name the file inside it, e.g. %s\\%s' % (a['name'], a['exe'], a['exe'], a['exe'].split('\\')[-1])
         for x in a.get('args', []):
             assert isinstance(x, str) and (SWITCH.match(x) or SAFE.match(x) and '..' not in x and not re.match(r'^([A-Za-z]:|[\\/])', x)), 'app %s argument: %r' % (a['name'], x)
         assert 10 <= int(a.get('seconds', 60)) <= 300, 'app seconds: 10 to 300'

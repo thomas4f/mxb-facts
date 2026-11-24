@@ -49,7 +49,7 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 - `cases`: the host's arguments for each plugin run (`../README.md`, "Running a plugin"), with paths inside the run
   folder: `plugins\<file>.dlo`. At most 6.
 - `apps`: an `.exe` that starts without an account or the real game, by its path under `release\` (`<release file
-  name>\<path inside it>`), run for `seconds` (10 to 300) and then stopped. At most 3.
+  name>\<path inside it>`; a release file that is itself an `.exe` is `<file>\<file>`), run for `seconds` (10 to 300) and then stopped. At most 3.
 
 ## Evidence
 

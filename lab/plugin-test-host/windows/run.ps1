@@ -84,7 +84,11 @@ function Invoke-Run($name, $exe, [string[]]$exeArgs, $seconds) {
           RedirectStandardOutput = "$o\host.log"; RedirectStandardError = "$work\$name-stderr.log" }
   # Start-Process joins the arguments with spaces, so one with a space (a --click text) is quoted to stay one argument.
   if ($exeArgs) { $sp.ArgumentList = $exeArgs | ForEach-Object { if ($_ -match '\s') { '"' + $_ + '"' } else { $_ } } }
-  $p = Start-Process @sp
+  # A run that can't start (a wrong path, a file Windows refuses) is written down, and the next run still goes ahead.
+  try { $p = Start-Process @sp } catch {
+    "could not start $exe`: $($_.Exception.Message)" | Add-Content "$o\host.log"
+    & $pm /Terminate; Start-Sleep 5; return
+  }
   if (-not $p.WaitForExit($seconds * 1000)) {
     & taskkill /T /F /PID $p.Id | Out-Null
     "stopped after $seconds seconds" | Add-Content "$o\host.log"
