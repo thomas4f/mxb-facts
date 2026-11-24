@@ -146,7 +146,9 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 .tq { flex: 1 1 220px; min-width: 0; font: 400 14px var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 6px 10px }
 .tq:focus-visible { outline: var(--focus); outline-offset: 1px }
 .tnone { color: var(--muted); padding: 12px 0 }
-.tbar > .filters { order: 3; flex-basis: 100% }
+.tbar > .filters { flex-basis: 100% }
+/* The list's heading line: Tools and the score hint on the left, Sort by on the right, since it orders what follows. */
+.thead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px }
 .tsort select { font: 500 14px var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 5px 8px }
 .picker { display: grid; grid-template-columns: max-content 1fr; gap: 10px 16px; align-items: start }
 .pkg { display: contents }
@@ -358,7 +360,6 @@ footer p { margin: 0 }
   /* Phones: name, description and byline, then the tags underneath. */
   .trow { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "g n n" "g d d" "a a c" "s s s"; grid-template-rows: none; gap: 4px 12px }
   .tcmp { align-self: center }
-  .tsort { flex: 1 1 100% } .tsort select { flex: 1 }
   .trow .tfind { margin-top: 8px }
 }
 @media (max-width: 620px) {
@@ -416,9 +417,9 @@ table.goodw td:first-child { width: 68% }
 
   <main>
   <section class="view" id="index" data-view>
-    <div class="tbar"><input type="search" id="tq" class="tq" placeholder="Search tools, authors, findings" aria-label="Search the tools"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div>
+    <div class="tbar"><input type="search" id="tq" class="tq" placeholder="Search tools, authors, findings" aria-label="Search the tools"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div></div>
+    <div class="thead"><h2 class="sech">Tools {{GNOTE}}</h2>
       <label class="tsort">Sort by <select id="tsort"><option value="name">Name</option><option value="score-hi">Score, highest first</option><option value="score-lo">Score, lowest first</option><option value="date">Newest analysis</option></select></label></div>
-    <h2 class="sech">Tools {{GNOTE}}</h2>
     <div>{{INDEX}}</div>
     <p class="tnone" id="tnone" hidden>No tool matches. Try fewer words, or another category.</p>
     <details class="more legbox"><summary>How to read the results <span>scores, tags and counts</span></summary>
