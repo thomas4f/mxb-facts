@@ -1,0 +1,8 @@
+$ cd "$SRC" && sha256sum LICENSE.txt && grep -nE 'All rights reserved|not open source|read the source|You may not|copy, modify|reverse|decompil' LICENSE.txt
+530f99bbe9cb75cf5e400a2a5084296cd032cabf3c21651eec9403781006c176  LICENSE.txt
+2:Copyright (c) 2026 Dirt Graphic Studios. All rights reserved.
+5:app does. It is not open source.
+9:  - read the source code, and build it yourself to check that it matches a
+13:You may not, without written permission from Dirt Graphic Studios:
+14:  - copy, modify, merge, publish, distribute, sublicense or sell the source
+(exit 0)

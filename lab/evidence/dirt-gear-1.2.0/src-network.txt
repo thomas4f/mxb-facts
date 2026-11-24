@@ -1,0 +1,41 @@
+$ cd "$SRC" && grep -nE 'urllib|urlopen|socket|requests\.|https?://|webbrowser|make_server|127\.0\.0\.1|localhost|connect-src|_post\(' source/*.py build/installer.py; grep -noE 'https?://[^"'\'' )]+' source/static/*.js source/static/*.html source/static/*.css | sort | uniq -c
+source/app.py:21:import webbrowser
+source/app.py:83:    if request.host.split(':')[0] not in ('127.0.0.1', 'localhost'):
+source/app.py:87:        if origin and origin != f'http://{request.host}':
+source/app.py:98:    response.headers['Content-Security-Policy'] = "default-src 'self'; img-src 'self' blob: data:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; object-src 'none'; frame-ancestors 'none'"
+source/app.py:745:    webbrowser.open(url)
+source/app.py:752:    page = result.get('page') or (f"https://github.com/{updater.update_repo()}/releases/latest" if updater.update_repo() else '')
+source/app.py:753:    if not page.startswith('https://github.com/'):
+source/app.py:755:    webbrowser.open(page)
+source/app.py:1671:    from werkzeug.serving import make_server
+source/app.py:1672:    server = make_server('127.0.0.1', args.port, app, threaded=True)
+source/app.py:1674:    url = f'http://127.0.0.1:{PORT}/?token={TOKEN}'
+source/premium.py:33:import urllib.error
+source/premium.py:34:import urllib.parse
+source/premium.py:35:import urllib.request
+source/premium.py:38:API = os.environ.get('DIRT_GEAR_LICENSE_API', 'https://api.lemonsqueezy.com').rstrip('/')
+source/premium.py:70:    merged['checkout_url'] = url if url.startswith('https://') else ''
+source/premium.py:141:def _post(endpoint: str, fields: dict) -> dict:
+source/premium.py:142:    body = urllib.parse.urlencode(fields).encode()
+source/premium.py:143:    request = urllib.request.Request(f'{API}/v1/licenses/{endpoint}', data=body, method='POST',
+source/premium.py:148:        with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+source/premium.py:150:    except urllib.error.HTTPError as exc:  # Lemon Squeezy answers errors with JSON too
+source/premium.py:203:        data = _post('activate', {'license_key': text, 'instance_name': instance_name()})
+source/premium.py:211:                _post('deactivate', {'license_key': text, 'instance_id': instance})
+source/premium.py:235:                _post('deactivate', {'license_key': saved['key'], 'instance_id': saved['instance_id']})
+source/premium.py:249:        data = _post('validate', {'license_key': saved['key'], 'instance_id': saved.get('instance_id') or ''})
+source/updater.py:22:import urllib.request
+source/updater.py:25:API = os.environ.get('DIRT_GEAR_UPDATE_API', 'https://api.github.com')
+source/updater.py:67:    request = urllib.request.Request(url, headers={'User-Agent': USER_AGENT,
+source/updater.py:69:    with urllib.request.urlopen(request, timeout=TIMEOUT) as response:
+source/updater.py:147:    request = urllib.request.Request(info['url'], headers={'User-Agent': USER_AGENT})
+source/updater.py:149:        with urllib.request.urlopen(request, timeout=60) as response, temporary.open('wb') as out:
+build/installer.py:117:        'URLInfoAbout': 'https://github.com/Dirt-Graphic-Studios/Dirt-Gear',
+build/installer.py:118:        'HelpLink': 'https://github.com/Dirt-Graphic-Studios/Dirt-Gear/issues',
+      1 source/static/style.css:88:http://www.w3.org/2000/svg
+      1 source/static/style.css:89:http://www.w3.org/2000/svg
+      1 source/static/style.css:91:http://www.w3.org/2000/svg
+      1 source/static/style.css:92:http://www.w3.org/2000/svg
+      1 source/static/style.css:95:http://www.w3.org/2000/svg
+      1 source/static/style.css:96:http://www.w3.org/2000/svg
+(exit 0)

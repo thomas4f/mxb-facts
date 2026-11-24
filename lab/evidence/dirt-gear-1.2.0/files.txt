@@ -1,0 +1,7 @@
+$ sha256sum Dirt-Gear-Setup-1.2.0.exe update.json update.json.sig setup/payload.zip 'payload/Dirt Gear.exe'
+beb61dc284d92e3ecf9b8027f310aba9fa99d1d4c7d909e5d37325e1e44ddfe4  Dirt-Gear-Setup-1.2.0.exe
+2dfd76e04fe3ebfc44695f4c549b71cce5c7951e338c77c58d0c2bb498609330  update.json
+754f1956d12005f417d55213bfa474c284c0188eafd6ca46828c7f9cdfc20ab2  update.json.sig
+06e005379ac3a7e2eed38bb99cd3cecd631b72170177283c204fd5581931847a  setup/payload.zip
+c5da4586c536b28c2219de2c60720b5f0efe58fe66bf9ead9710bd7d7061ae34  payload/Dirt Gear.exe
+(exit 0)

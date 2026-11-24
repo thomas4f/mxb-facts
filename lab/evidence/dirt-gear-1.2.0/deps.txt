@@ -1,0 +1,29 @@
+$ cd "$SRC" && cat source/requirements.txt build/requirements-build.txt; grep -nE 'pip install|uses:|python-version' .github/workflows/release.yml build/build.ps1; echo '- packages with a dist-info folder in the release that neither file names:'; ls "$R"/payload/_internal | grep -oE '^[A-Za-z_]+-[0-9][^/]*\.dist-info' | sed 's/-[0-9].*//' | tr 'A-Z_' 'a-z-' | sort -u | while read p; do grep -qiE "^$p(\[.*\])?==" source/requirements.txt build/requirements-build.txt || echo "$p"; done
+# Runtime packages bundled into Dirt Gear (exact versions, so builds are repeatable).
+psd-tools[composite]==1.19.0
+Flask==3.1.3
+Pillow==12.3.0
+numpy==2.5.3
+pywebview==6.2.1
+cryptography==50.0.2
+cffi==2.1.1
+MarkupSafe==3.0.4
+pythonnet==3.2.1
+scipy==1.18.1
+scikit-image==0.26.0
+aggdraw==1.4.1
+# Build-only tools (not bundled except PyInstaller's bootloader).
+pyinstaller==6.22.3
+.github/workflows/release.yml:23:      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
+.github/workflows/release.yml:25:      - uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5
+.github/workflows/release.yml:27:          python-version: '3.12'
+.github/workflows/release.yml:31:          python -m pip install -r source/requirements.txt -r build/requirements-build.txt
+.github/workflows/release.yml:192:        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02  # v4
+build/build.ps1:11:& $Py -m pip install -r source\requirements.txt -r build\requirements-build.txt
+- packages with a dist-info folder in the release that neither file names:
+attrs
+click
+imageio
+itsdangerous
+werkzeug
+(exit 0)

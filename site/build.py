@@ -19,6 +19,7 @@ from page import (
     money_html, prm, share_page, tagrow, tool, tpl)
 CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('dirt-gear-1.1.1.yaml', 'dirt-gear'),
+    ('dirt-gear-1.2.0.yaml', 'dirt-gear'),
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
     ('holeshot-0.24.0.yaml', 'holeshot'),
     ('maxhud-2.2.7.yaml', 'maxhud'),
