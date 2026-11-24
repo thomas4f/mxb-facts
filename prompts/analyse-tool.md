@@ -34,7 +34,7 @@ Analyse <tool name> <version> for MXB Facts. Release: <link to the release or do
 10. If you find a security problem that isn't public and fixed, leave its details off the card and tell me, so it can be reported privately to the tool's author (the "Analyse a tool" workflow files your report as a private draft security advisory for the maintainer). Add the "Held back" row (CLAUDE.md, rule 9): "<n> item(s) (rule 9): <question IDs>". The dates aren't written in the repository; the maintainer tracks them privately. Do the same for how a tool gets at creators' protected content (C1 to C3: decrypting, copying or passing on what a creator locked): report the how (the format, where a key is, the code that does it, logs that show it) the same way, but keep the answer: its verdict and mark, a few words on what it does and why, ending "Details withheld (rule 9).", evidence "Withheld (rule 9).", and one Limits line "How it <does that> is withheld (rule 9)." with no questions. Don't name the format or link the file or lines that hold the how anywhere on the card, and leave run logs that show it out of lab/ (name them in your report). It never gets a publish date, and it needs no "Held back" row.
 ```
 
-For a newer release of a tool that already has a card, add: `This is a re-check. The earlier card is cards/<file>. Write a new card file, keep the old one, and link it under "Earlier reports".`
+For a newer release of a tool that already has a card, add: `This is a re-check. The earlier card is cards/<file>. Write a new card file, keep the old one, and link it under "Earlier reports" as [<its version>](https://thomas4f.github.io/mxb-facts/#<its file name without .yaml>), with the links of the earlier card's own "Earlier reports" after it.`
 
 ## For authors
 

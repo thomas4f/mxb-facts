@@ -143,10 +143,12 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 .filters, .pks { display: flex; flex-wrap: wrap; gap: 6px }
 .tbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px } .tsort { font: 500 14px var(--f-ui); color: var(--muted); display: flex; align-items: center; gap: 8px }
 /* Search: matches a tool's name, version, one-line summary, author, category and tags, together with the category chips. */
-.tq { flex: 1 1 220px; max-width: 320px; font: 400 14px var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 6px 10px }
+.tq { flex: 1 1 220px; min-width: 0; font: 400 14px var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 6px 10px }
 .tq:focus-visible { outline: var(--focus); outline-offset: 1px }
 .tnone { color: var(--muted); padding: 12px 0 }
-.tbar > .filters { order: 3; flex-basis: 100% }
+.tbar > .filters { flex-basis: 100% }
+/* The list's heading line: Tools and the score hint on the left, Sort by on the right, since it orders what follows. */
+.thead { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 16px }
 .tsort select { font: 500 14px var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 5px 8px }
 .picker { display: grid; grid-template-columns: max-content 1fr; gap: 10px 16px; align-items: start }
 .pkg { display: contents }
@@ -165,10 +167,14 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 .pk input::before, .tcmp input::before { content: ""; width: 10px; height: 10px; background: var(--surface); transform: scale(0); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 12 5 5L20 6'/%3E%3C/svg%3E") center / contain no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23000' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m4 12 5 5L20 6'/%3E%3C/svg%3E") center / contain no-repeat }
 .pk input:checked, .tcmp input:checked { background: var(--accent); border-color: var(--accent) } .pk input:checked::before, .tcmp input:checked::before { transform: scale(1) }
 .pickhint { margin: 12px 0 0; color: var(--muted); font-size: 14px }
+/* Show only differences: a tick box like the pickers, above the table; it hides the rows where every ticked tool reads the same. */
+.mxopts { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-top: 20px }
+.mxopts:not([hidden]) + #mxwrap { margin-top: 12px }
+.mxsame { color: var(--muted); font-size: 14px }
 /* Compare from the tools list: a tick box on each row, and a bar that stays in view while tools are ticked. */
-/* Compare: its own column on the right of every row, the same place on each, so ticking several reads down one line. */
-.tcmp { grid-area: c; align-self: center; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); cursor: pointer; white-space: nowrap }
-.tcmp input { margin: 0; width: 16px; height: 16px } .tcmp:has(input:checked) { color: var(--accent) } .tcmp:has(input:focus-visible) { outline: var(--focus); outline-offset: 2px; border-radius: 4px }
+/* Compare: a chip like the pickers on Compare, top right of every row, level with the name, so ticking several reads down one line. */
+.tcmp { grid-area: c; align-self: start; display: inline-flex; align-items: center; gap: 6px; font: 13px/1.2 var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 4px 9px; cursor: pointer; white-space: nowrap }
+.tcmp input { margin: 0 } .tcmp:has(input:checked) { color: var(--accent); border-color: var(--accent) } .tcmp:has(input:focus-visible) { outline: var(--focus); outline-offset: 2px; border-radius: 4px }
 .cmpbar { position: sticky; bottom: 16px; z-index: 5; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; align-self: center; padding: 10px 14px; background: var(--surface); border: var(--border); border-radius: var(--r-card); box-shadow: 0 4px 18px rgba(0, 0, 0, .18); font: 14px/1.3 var(--f-ui) }
 .cmpgo { font-weight: 600; color: var(--bg); background: var(--accent); border-radius: var(--r-ctl); padding: 6px 12px; text-decoration: none }
 .cmpgo[aria-disabled="true"] { background: var(--sunk); color: var(--muted); pointer-events: none }
@@ -352,8 +358,8 @@ footer p { margin: 0 }
   .mx tbody th { min-width: 120px; max-width: 150px; font-size: 13px; padding: 8px }
   table.mx { min-width: 0 }
   /* Phones: name, description and byline, then the tags underneath. */
-  .trow { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "g n c" "g d d" "a a a" "s s s"; grid-template-rows: none; gap: 4px 12px }
-  .tcmp { align-self: start }
+  .trow { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "g n n" "g d d" "a a c" "s s s"; grid-template-rows: none; gap: 4px 12px }
+  .tcmp { align-self: center }
   .trow .tfind { margin-top: 8px }
 }
 @media (max-width: 620px) {
@@ -411,9 +417,9 @@ table.goodw td:first-child { width: 68% }
 
   <main>
   <section class="view" id="index" data-view>
-    <div class="tbar"><input type="search" id="tq" class="tq" placeholder="Search tools, authors, findings" aria-label="Search the tools"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div>
+    <div class="tbar"><input type="search" id="tq" class="tq" placeholder="Search tools, authors, findings" aria-label="Search the tools"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div></div>
+    <div class="thead"><h2 class="sech">Tools {{GNOTE}}</h2>
       <label class="tsort">Sort by <select id="tsort"><option value="name">Name</option><option value="score-hi">Score, highest first</option><option value="score-lo">Score, lowest first</option><option value="date">Newest analysis</option></select></label></div>
-    <h2 class="sech">Tools {{GNOTE}}</h2>
     <div>{{INDEX}}</div>
     <p class="tnone" id="tnone" hidden>No tool matches. Try fewer words, or another category.</p>
     <details class="more legbox"><summary>How to read the results <span>scores, tags and counts</span></summary>
@@ -438,6 +444,7 @@ table.goodw td:first-child { width: 68% }
     </div>
       <div class="picker" role="group" aria-label="Tools to compare">{{PICKER}}</div>
       <p class="pickhint" id="pickhint">Pick two or more tools above to compare them.</p>
+      <div class="mxopts" id="mxopts" hidden><label class="pk"><input type="checkbox" id="mxdiff"> Show only differences</label><span class="mxsame" id="mxsame" hidden>Every ticked tool gives the same answers.</span></div>
       <div class="wide bleed" id="mxwrap" hidden>{{MATRIX}}</div>
   </section>
 
@@ -640,7 +647,40 @@ table.goodw td:first-child { width: 68% }
     document.getElementById('cmpn').textContent = n === 1 ? '1 tool ticked. Tick one more to compare.' : n + ' tools ticked';
     cmpgo.textContent = n >= 2 ? 'Compare ' + n + ' tools' : 'Compare';
     if (n >= 2) cmpgo.removeAttribute('aria-disabled'); else cmpgo.setAttribute('aria-disabled', 'true');
+    document.getElementById('mxopts').hidden = n < 2;
+    same(n);
+    setq('tools', Object.keys(on).join(','));
   }
+  // The link keeps what Compare shows (?tools=a,b and ?diff=1), so a shared or reloaded link opens the same way.
+  function getq(k) { var m = location.search.match(new RegExp('(?:^|[?&])' + k + '=([^&]*)')); return m ? decodeURIComponent(m[1]) : ''; }
+  function setq(k, v) {
+    var q = location.search.replace(/^\?/, '').split('&').filter(function (p) { return p && p.split('=')[0] !== k; });
+    if (v) q.push(k + '=' + encodeURIComponent(v).replace(/%2C/g, ','));
+    var url = location.pathname + (q.length ? '?' + q.join('&') : '') + location.hash;
+    if (url !== location.pathname + location.search + location.hash) history.replaceState(null, '', url);
+  }
+  getq('tools').split(',').forEach(function (t) { var b = t && document.getElementById('pk-' + t); if (b && b.type === 'checkbox') b.checked = true; });
+  // Show only differences: off by default. A row is the same
+  // when every ticked tool's cell reads the same text with the same mark; an area heading folds away with all of its rows.
+  var mxdiff = document.getElementById('mxdiff');
+  mxdiff.checked = getq('diff') === '1';
+  function same(n) {
+    var only = mxdiff.checked && n >= 2, head = null, shown = 0, rest = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('table.mx tbody tr'), function (tr) {
+      if (tr.classList.contains('mxarea')) { if (head) head.hidden = only && !shown; head = tr; shown = 0; return; }
+      var seen = null, diff = false;
+      Array.prototype.forEach.call(tr.querySelectorAll('td[data-t]'), function (c) {
+        if (c.hidden) return;
+        var a = c.querySelector('a'), k = (a ? a.className : '') + '|' + c.textContent.trim();
+        if (seen === null) seen = k; else if (k !== seen) diff = true;
+      });
+      tr.hidden = only && !diff;
+      if (!tr.hidden) { shown++; rest++; }
+    });
+    if (head) head.hidden = only && !shown;
+    document.getElementById('mxsame').hidden = !only || rest > 0;
+  }
+  mxdiff.addEventListener('change', function () { setq('diff', mxdiff.checked ? '1' : ''); pick(); });
   Array.prototype.forEach.call(boxes, function (b) { b.addEventListener('change', pick); });
   Array.prototype.forEach.call(rowboxes, function (r) { r.addEventListener('change', function () {
     var b = document.getElementById('pk-' + r.getAttribute('data-cmp')); if (b) { b.checked = r.checked; pick(); }

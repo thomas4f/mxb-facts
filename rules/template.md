@@ -86,7 +86,7 @@ Header block:
 | Analysed on | Date |
 | Held back | Only while an item is held back under rule 9: "&lt;n> item(s) (rule 9): &lt;question IDs>". Those answers can't be Good. The dates (when the author was told, and the end, 30 days later at most) are kept privately by the maintainer, not in the repository |
 | Licence clause | Only when the licence forbids the analysis (rule 6): the clause, quoted, with a link to it or the SHA-256 of the file it is in. A card has this row if, and only if, an answer is "Not allowed"; that card gets "Not scored" in place of a score. A clause added in a later release applies from that release on; a card for an earlier release stays (rule 2) |
-| Earlier reports | Only when the tool has earlier cards: a link to each, newest first, so a reader can see what changed between releases |
+| Earlier reports | Only when the tool has earlier cards: a link to each, newest first, as [&lt;version>](https://thomas4f.github.io/mxb-facts/#&lt;card file without .yaml>), so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address |
 | Method | That the analysis was done by an AI assistant, and the model and effort it ran with; read the source at the commit; compared release files to source where possible; what was and wasn't run |
 <!-- /card.schema.json -->
 
@@ -118,4 +118,5 @@ How we work changes here; a change to scores is recorded in [scores.md](scores.m
 
 | Date | Change |
 |---|---|
+| 24 Nov 2026 | A tool with a newer card: the newest card is the tool's page, in the tools list and Compare; each earlier card keeps its own page, at the address its successors link under "Earlier reports", and its badges (rule 2). |
 | 24 Nov 2026 | VirusTotal: the "Analyse a tool" run uploads each downloaded release file VirusTotal has no record of, by default, and looks it up again once it is scanned; before, only the maintainer uploaded, by hand. Never a private file or a file of a tool whose licence forbids analysis (rule 6); the run's "Skip upload" input turns it off ([`CLAUDE.md`](https://github.com/thomas4f/mxb-facts/blob/main/CLAUDE.md), "VirusTotal"). |

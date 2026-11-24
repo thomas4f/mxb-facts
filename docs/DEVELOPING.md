@@ -103,7 +103,7 @@ flowchart LR
 4. Write `cards/<slug>-<version>.yaml`, add it to `CARDS` in `site/build.py` (alphabetical) and to `registry/tools.json`; run `python3 -I tools/mxbmods_fetch.py` if the tool has a mods-site page.
 5. Run the checks below until they pass, open a PR, and ask the maintainer to run the VirusTotal workflow with `pr`=N. Fill P1 from its comment, linking each file's VirusTotal entry.
 
-A newer release gets a new card file; the old one stays and is linked under "Earlier reports".
+A newer release gets a new card file; the old one stays and is linked under "Earlier reports". The newest card is the tool's page (in the tools list, Compare and `<site>/<tool>/`); each earlier one keeps a page at `#<card file without .yaml>`, with a line pointing to the newest, and its badges.
 
 ## Building and checking
 
