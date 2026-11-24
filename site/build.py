@@ -18,6 +18,7 @@ from page import (
     BADGES, COMMIT, GNOTE, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
     money_html, prm, share_page, tagrow, tool, tpl)
 CARDS=[  # (card file, page anchor), alphabetical
+    ('dirt-gear-1.1.1.yaml', 'dirt-gear'),
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
     ('holeshot-0.24.0.yaml', 'holeshot'),
     ('maxhud-2.2.7.yaml', 'maxhud'),

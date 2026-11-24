@@ -1,0 +1,55 @@
+$ cd "$SRC" && echo '- repository:'; git ls-files | grep -iE 'licen|copying|notice|credit|third' ; cd "$R" && echo '- installed folder:'; find payload -iname '*licen*' -o -iname '*copying*' -o -iname '*notice*' -o -iname '*OFL*' | sort; ls payload
+- repository:
+- installed folder:
+payload/_internal/attrs-26.1.0.dist-info/licenses
+payload/_internal/attrs-26.1.0.dist-info/licenses/LICENSE
+payload/_internal/click-8.5.0.dist-info/licenses
+payload/_internal/click-8.5.0.dist-info/licenses/LICENSE.txt
+payload/_internal/cryptography-50.0.2.dist-info/licenses
+payload/_internal/cryptography-50.0.2.dist-info/licenses/LICENSE
+payload/_internal/cryptography-50.0.2.dist-info/licenses/LICENSE.APACHE
+payload/_internal/cryptography-50.0.2.dist-info/licenses/LICENSE.BSD
+payload/_internal/flask-3.1.3.dist-info/licenses
+payload/_internal/flask-3.1.3.dist-info/licenses/LICENSE.txt
+payload/_internal/imageio-2.38.1.dist-info/licenses
+payload/_internal/imageio-2.38.1.dist-info/licenses/LICENSE
+payload/_internal/itsdangerous-2.2.0.dist-info/LICENSE.txt
+payload/_internal/markupsafe-3.0.4.dist-info/licenses
+payload/_internal/markupsafe-3.0.4.dist-info/licenses/LICENSE.txt
+payload/_internal/numpy-2.5.3.dist-info/licenses
+payload/_internal/numpy-2.5.3.dist-info/licenses/LICENSE.txt
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/_core/include/numpy/libdivide/LICENSE.txt
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/_core/src/common/pythoncapi-compat/COPYING
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/_core/src/highway/LICENSE
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/_core/src/multiarray/dragon4_LICENSE.txt
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/_core/src/npysort/x86-simd-sort/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/_core/src/umath/svml/LICENSE
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/fft/pocketfft/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/linalg/lapack_lite/LICENSE.txt
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/ma/LICENSE
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/random/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/random/src/distributions/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/random/src/mt19937/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/random/src/pcg64/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/random/src/philox/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/random/src/sfc64/LICENSE.md
+payload/_internal/numpy-2.5.3.dist-info/licenses/numpy/random/src/splitmix64/LICENSE.md
+payload/_internal/psd_tools-1.19.0.dist-info/licenses
+payload/_internal/psd_tools-1.19.0.dist-info/licenses/LICENSE
+payload/_internal/scikit_image-0.26.0.dist-info/LICENSE.txt
+payload/_internal/scipy-1.18.1.dist-info/LICENSE.txt
+payload/_internal/scipy/_lib/_uarray/LICENSE
+payload/_internal/scipy/fft/_duccfft/LICENSE.md
+payload/_internal/scipy/integrate/LICENSE_DOP
+payload/_internal/scipy/spatial/qhull_src/COPYING_QHULL.txt
+payload/_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses
+payload/_internal/setuptools/_vendor/importlib_metadata-8.7.1.dist-info/licenses/LICENSE
+payload/_internal/static/brand-OFL.txt
+payload/_internal/werkzeug-3.1.9.dist-info/licenses
+payload/_internal/werkzeug-3.1.9.dist-info/licenses/LICENSE.txt
+CHANGELOG.md
+Dirt Gear.exe
+README.md
+VERSION.txt
+_internal
+(exit 0)

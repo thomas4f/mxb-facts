@@ -1,0 +1,32 @@
+$ echo '- installer.py (in the installer):'; python3.12 -I "$OUT/../pycmp.py" raw setup/installer.pyc_raw "$SRC/build/installer.py"; echo '- app.py (in the program):'; python3.12 -I "$OUT/../pycmp.py" raw app/app.pyc_raw "$SRC/source/app.py"; for m in updater packing fastpreview; do echo "- $m.py (PYZ):"; python3.12 -I "$OUT/../pycmp.py" pyz app/PYZ.pyz $m "$SRC/source/$m.py"; done; echo '- data files:'; same() { if cmp -s "$1" "$2"; then echo "same: $1"; elif [ "$(tr -d '\r' < "$1" | sha256sum)" = "$(tr -d '\r' < "$2" | sha256sum)" ]; then echo "same but CRLF: $1"; else echo "DIFFERENT: $1"; fi; }; for f in $(cd "$SRC/source/static" && ls); do same payload/_internal/static/$f "$SRC/source/static/$f"; done; ls payload/_internal/static | wc -l; diff -rq payload/_internal/fonts "$SRC/source/fonts" && echo "same: all $(ls payload/_internal/fonts | wc -l) fonts"; same payload/_internal/update_public_key.pem "$SRC/source/update_public_key.pem"; same payload/_internal/icon.ico "$SRC/source/icon.ico"; same payload/_internal/VERSION.txt "$SRC/VERSION.txt"; same setup/VERSION.txt "$SRC/VERSION.txt"; for f in README.md CHANGELOG.md VERSION.txt; do same payload/$f "$SRC/$f"; done; echo '- update_repo.txt (written by the release workflow):'; cat payload/_internal/update_repo.txt; echo
+- installer.py (in the installer):
+MATCH
+- app.py (in the program):
+MATCH
+- updater.py (PYZ):
+MATCH
+- packing.py (PYZ):
+MATCH
+- fastpreview.py (PYZ):
+MATCH
+- data files:
+same but CRLF: payload/_internal/static/app.js
+same but CRLF: payload/_internal/static/brand-OFL.txt
+same: payload/_internal/static/brand.ttf
+same but CRLF: payload/_internal/static/icon.svg
+same but CRLF: payload/_internal/static/index.html
+same: payload/_internal/static/rider.json
+same but CRLF: payload/_internal/static/style.css
+same but CRLF: payload/_internal/static/viewer.js
+8
+same: all 58 fonts
+same but CRLF: payload/_internal/update_public_key.pem
+same: payload/_internal/icon.ico
+same but CRLF: payload/_internal/VERSION.txt
+same but CRLF: setup/VERSION.txt
+same but CRLF: payload/README.md
+same but CRLF: payload/CHANGELOG.md
+same but CRLF: payload/VERSION.txt
+- update_repo.txt (written by the release workflow):
+Dirt-Graphic-Studios/Dirt-Gear
+(exit 0)

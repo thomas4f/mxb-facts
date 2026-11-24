@@ -1,0 +1,16 @@
+$ cd "$SRC" && cat source/requirements.txt; grep -nE 'pip install|uses:|python-version' .github/workflows/release.yml build/build.ps1
+psd-tools[composite]==1.19.0
+Flask==3.1.3
+Pillow==12.3.0
+numpy==2.5.3
+pywebview==6.2.1
+cryptography
+.github/workflows/release.yml:22:      - uses: actions/checkout@v4
+.github/workflows/release.yml:24:      - uses: actions/setup-python@v5
+.github/workflows/release.yml:26:          python-version: '3.12'
+.github/workflows/release.yml:30:          python -m pip install --upgrade pip
+.github/workflows/release.yml:31:          python -m pip install -r source/requirements.txt pyinstaller scipy scikit-image aggdraw
+.github/workflows/release.yml:157:        uses: actions/upload-artifact@v4
+build/build.ps1:11:& $Py -m pip install --upgrade pip
+build/build.ps1:12:& $Py -m pip install -r source\requirements.txt pyinstaller scipy scikit-image aggdraw
+(exit 0)

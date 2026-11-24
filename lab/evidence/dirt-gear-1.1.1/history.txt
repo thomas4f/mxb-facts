@@ -1,0 +1,19 @@
+$ cd "$SRC" && git log --format='%h %ad %s' --date=short e407acd9e39393d7a7d1ddc295fe00056f9df7d5 | cat; git log --format=%ad --date=short e407acd9e39393d7a7d1ddc295fe00056f9df7d5 | sort -u | wc -l
+e407acd 2026-11-13 v1.1.1: move to the Dirt Graphic Studios organisation
+ea16efa 2026-10-31 Dirt Gear v1.1.0: colour overlay for logos, refreshed shortcut icons
+957ef56 2026-10-31 Colour overlay (solid + gradient) for added logos; undo keeps selection
+ff3d029 2026-10-30 Discord announcements: version-pinned logo URL so Discord doesn't show a cached old logo
+10a8fc6 2026-10-30 Dirt Gear v1.0.7: new chevron logo and Saira wordmark
+99d0e74 2026-10-30 Discord release announcements with full notes
+e0d12ad 2026-10-30 Release v1.0.6: summary release notes since Moto Gear v1.3
+32fd179 2026-10-30 Fix letter spacing size rounding (failed on Windows' basic text layout)
+d2526c1 2026-10-30 Dirt Gear v1.0.5: letter spacing for names and numbers
+52fe361 2026-10-30 Dirt Gear v1.0.4: layer effects in fast preview, ignore stale requests, pixel-less layers
+9cc4b93 2026-10-30 Release v1.0.3: first signed release through the in-app updater
+c13fbaf 2026-10-30 Dirt Gear v1.0.2: built-in signed updates (same flow as Optic / Moto Lines)
+9d4843a 2026-10-29 Dirt Gear v1.0.1: fast preview renderer, non-blocking layer toggles, shading detection
+a1fb191 2026-10-29 Release workflow: publish from VERSION.txt instead of pushed tags
+7fcb64c 2026-10-29 Add Windows build & release workflow
+bae47d5 2026-10-29 Dirt Gear v1.0 — redesigned successor to Moto Gear v1.3
+4
+(exit 0)

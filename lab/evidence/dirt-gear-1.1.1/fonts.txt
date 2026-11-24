@@ -1,0 +1,61 @@
+$ cd payload/_internal/fonts && ls | wc -l && for f in *; do printf '%s: %s\n' "$f" "$(file -b "$f" | grep -oE '(Copyright|\(c\)|©)[^,]{0,90}' | head -1)"; done
+58
+BYD-Font-Fasthouse-1.otf: 
+BYD-Font-KTM-1.otf: 
+BYD-Font-US-Army.otf: 
+BYD-Name-Font-BYD-New.otf: 
+BYD-Name-Font-Fasthouse-Logo-Font-1.otf: 
+BYD-Name-Font-Misfits-New.otf: 
+BYD-Name-Font-Race-New.otf: 
+BYD-Name-Font-Stock-New.otf: 
+BYD-Name-Font-Tag.otf: 
+BYD-Number-Font-Limited.otf: 
+BYD-Number-Font-Race.otf: 
+BYD-Number-Font-Shift.otf: 
+BYD-Number-Font-Stock-1.otf: 
+BYD-Number-Font-Stock-Special-1.otf: 
+BYD-Number-Font-UNYK.otf: 
+MxFont - Forward.otf: 
+MxFont - Graffiti.otf: 
+MxFont - Hybrid.otf: 
+MxFont - Phantom.otf: 
+MxFont - Racer.otf: 
+MxFont - Renen.otf: 
+MxFont - Speed.otf: 
+MxFont - Sport.otf: 
+MxFont - Tech.otf: 
+MxFont - Troy Lee Designs.otf: 
+MxFont - Ultra.otf: 
+MxFont-101.otf: 
+MxFont-102.otf: 
+MxFont-103.otf: 
+MxFont-104.otf: 
+MxFont-105.otf: 
+MxFont-106.otf: 
+MxFont-107.otf: 
+MxFont-108.otf: 
+MxFont-109.otf: 
+MxFont-110.otf: 
+MxFont-111.otf: 
+MxFont-112.otf: 
+MxFont-113.otf: 
+MxFont-114.otf: 
+MxFont-115.otf: 
+MxFont-116.otf: 
+MxFont-117.otf: 
+MxFont-118.otf: 
+MxFont-119.otf: 
+MxFont-120.otf: 
+MxFont-121.otf: 
+MxRegular-p76qD.ttf: 
+byd_number_font.otf: 
+mx font 1.2.ttf: Copyright (c) 2023 by Dharmas Studio. All rights reserved.Graphy DEMO FilledRegularVersion 1.000
+mx font 1.3.ttf: 
+mx font 1.4.ttf: 
+mx font 1.5.ttf: 
+mx font 1.ttf: Copyright (c) 2012
+mx font 2.ttf: 
+mx font 3.otf: 
+mx font 4.ttf: Copyright (c) 2021 by Zamroni Hamzah. All rights reserved.VarienRegularVersion 1.001;Fontself Ma
+mx fonts.otf: 
+(exit 0)

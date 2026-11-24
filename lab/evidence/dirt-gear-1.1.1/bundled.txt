@@ -1,0 +1,538 @@
+$ cd payload; find . -type f \( -iname '*.dll' -o -iname '*.pyd' -o -iname '*.exe' \) | sort | while read f; do sha256sum "$f"; file -b "$f"; done
+7e26585a330b710948a550823d95c0d7bdcc8a68727784c193cdea4b637dc353  ./Dirt Gear.exe
+PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde  ./_internal/MSVCP140.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+6731dce52baab0b96b0eeb3c664844b5b42c2168ea8668af2430e2fbdd2dfbd8  ./_internal/PIL/_avif.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+c8c519ec72bf75b2945b4fc4afa854af2fca8b970a403134f9ddda3e164d85e9  ./_internal/PIL/_imaging.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+c89c633ae1bf3f26a327d14ff688db66628e19c9866ab925479f27dcb60a2d6f  ./_internal/PIL/_imagingcms.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+77c6d37de41733df40fb36d9af47644989ac17da036515e759303969edb22c48  ./_internal/PIL/_imagingft.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+82ac45c41a008854d05f67deda298b65a7bed850d0d79a3af861ed583f6e7d62  ./_internal/PIL/_imagingmath.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+690cc1cae4a2dc8594a342b9241e691dcc89d81dad4cddcefdf285275365a2b1  ./_internal/PIL/_imagingtk.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+9823cebb84f425af3ac1e7437259bc176e7ad7e25d7fa829b0e1a3e55c11be70  ./_internal/PIL/_webp.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4  ./_internal/VCRUNTIME140.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8  ./_internal/VCRUNTIME140_1.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+c77de90cad749087a0c5dc5e19d78d24f6ef44e7e5ac19b8420cfc0cea62395d  ./_internal/_asyncio.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+65f610646d10d5babea080e060d244b546ec52c54012e5e937dc72dcc2e2e7bc  ./_internal/_bz2.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+9af5e4f68a41f26b726f2e9424f9d58a4f5666189f6a48be95f406b257102aec  ./_internal/_cffi_backend.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+0e56107a891100535f2da79d85a5ae65ff1227b4765bd108f8593ac1a1110d81  ./_internal/_ctypes.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+aeacfead2befcc0768063a037bb64bd32109ae09cb144e5f571b04dd7965db9d  ./_internal/_decimal.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+5009a9a53c03ef8387443b5cf6ce08e5c3a79727466a0b931c5bbca915bf89ca  ./_internal/_elementtree.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+03d233dbace599168eaffec823de6ed7beec8c2a4ebfe9b8a3d8e042a59af3ba  ./_internal/_hashlib.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+e3deecc1f59a3b811c608861decd84de1e8df8bafd5e2b39188861318c5a38cf  ./_internal/_lzma.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+2c636df7059cb0dd7e978dd735c7c5c8ddb09cf94754cf9e232296b96c5c545a  ./_internal/_multiprocessing.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+662126ff80c3a1b4cedf74074029c12ae4743e6d3b37376e39ac70aacb7d4d3c  ./_internal/_overlapped.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+48e76e0ad63f6932b4a77b5819f41c1e7595636ca8d9e824f0943a14b8bb5035  ./_internal/_queue.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+3efa4636cf9e350856f6927d67a4c2564bf9bd2758a00bbf17d3aece5b60016d  ./_internal/_socket.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+0bc527d2dbc50009f43b2ed5d5982c4f63f4b647647ffa9eda612dcda80f6040  ./_internal/_ssl.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+acce4f281d7ffb2dec0997527faf25b1df62ad7bd3032c568ddcf65c90edc867  ./_internal/_uuid.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+a980f1e7a29842bd946863fc2693fbeb555a9dc0f9e1630dfed9a2fcdef3ece2  ./_internal/_wmi.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+a6f99f5d646b1259794e1d496bbfb4a145a12c29dc86fe5302889577115f0c8c  ./_internal/aggdraw.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+88ace577a9c51061cb7d1a36babbbefa48212fadc838ffde98fdfff60de18386  ./_internal/api-ms-win-core-console-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+1bd81dfd19204b44662510d9054852fb77c9f25c1088d647881c9b976cc16818  ./_internal/api-ms-win-core-datetime-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+591358eb4d1531e9563ee0813e4301c552ce364c912ce684d16576eabf195dc3  ./_internal/api-ms-win-core-debug-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+d56ce7b1cd76108ad6c137326ec694a14c99d48c3d7b0ace8c3ff4d9bcee3ce8  ./_internal/api-ms-win-core-errorhandling-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+91d249d7bc0e38ef6bcb17158b1fdc6dd8888dc086615c9b8b750b87e52a5fb3  ./_internal/api-ms-win-core-fibers-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+fc9d86cec621383eab636ebc87ddd3f5c19a3cb2a33d97be112c051d0b275429  ./_internal/api-ms-win-core-fibers-l1-1-1.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+1ca895aba4e7435563a6b43e85eba67a0f8c74aa6a6a94d0fc48fa35535e2585  ./_internal/api-ms-win-core-file-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+4cadbc0c39da7c6722206fdcebd670abe5b8d261e7b041dd94f9397a89d1990d  ./_internal/api-ms-win-core-file-l1-2-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+93c624b366ba16c643fc8933070a26f03b073ad0cf7f80173266d67536c61989  ./_internal/api-ms-win-core-file-l2-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+39095f59c41d76ec81bb2723d646fde4c148e7cc3402f4980d2ade95cb9c84f9  ./_internal/api-ms-win-core-handle-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+8f105771b236dbcb859de271f0a6822ce1cb79c36988dd42c9e3f6f55c5f7eb9  ./_internal/api-ms-win-core-heap-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+53b25e753ca785bf8b695d89dde5818a318890211dc992a89146f16658f0b606  ./_internal/api-ms-win-core-interlocked-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+a9b13a1cd1b8c19b0c6b4afcd5bb0dd29c0e2288231ac9e6db8510094ce68ba6  ./_internal/api-ms-win-core-kernel32-legacy-l1-1-1.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+7f39ba298b41e4963047341288cab36b6a241835ee11ba4ad70f44dacd40906c  ./_internal/api-ms-win-core-libraryloader-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+6ee44dd0d8510dc024c9f7c79b1b9fa88c987b26b6beb6653ddd11751c34e5dc  ./_internal/api-ms-win-core-localization-l1-2-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+0512a35316ec9180437f86696a84c5c06a7e4e82e050055a656e5bf9fca206f9  ./_internal/api-ms-win-core-memory-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+c05f1fffe3b5a2738ea54ce9485cca026fb9635f982626fba1e1dcc531897273  ./_internal/api-ms-win-core-namedpipe-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+c4eca98c3c67b6395d5b005b00ac1eb0318b86b23aa71035a44c2b1602befba9  ./_internal/api-ms-win-core-processenvironment-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+5ccb89e93d67bc3288d4e84649c5346e66e15e3d7cd65d989daf3f4cb584be9a  ./_internal/api-ms-win-core-processthreads-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+4ad565a8ba3ef0ea8ab87221ad11f83ee0bc844ce236607958406663b407333e  ./_internal/api-ms-win-core-processthreads-l1-1-1.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+7809160932f44e59b021699f5bc68799eb7293ee1fa926d6fcca3c3445302e61  ./_internal/api-ms-win-core-profile-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+9dc1e91e71c7c054854bd1487cb4e6946d82c9f463430f1c4e8d1471005172b1  ./_internal/api-ms-win-core-rtlsupport-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+60fc31d2a0c634412f529dba76af3b9bf991352877c6dae528186d3935704cfd  ./_internal/api-ms-win-core-string-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+3a72b4f29f39a265d32ad12f0ce15dbf60129c840e10d84d427829ede45e78ad  ./_internal/api-ms-win-core-synch-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+efc1e4460984a73cf47a3def033af1c8f3b1dbc1a56cd27781d3aacf3e3330cb  ./_internal/api-ms-win-core-synch-l1-2-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+b203d862ddef1dd62bf623fc866c7f7a9c317c1c2ae30d1f52cb41f955b5698e  ./_internal/api-ms-win-core-sysinfo-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+2703635d835396afd0f138d7c73751afe7e33a24f4225d08c1690b0a371932c0  ./_internal/api-ms-win-core-sysinfo-l1-2-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+33f4fddc181066fce06b2227bded813f95e94ed1f3d785e982c6b6b56c510c57  ./_internal/api-ms-win-core-timezone-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+6eda016742a6171205a387a14b3c0b331841567740376f56768f8c151724207d  ./_internal/api-ms-win-core-util-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+b762061b688aae679afe788904d2c9970f74a7dac98f3b42463d08f25e483d3f  ./_internal/api-ms-win-crt-conio-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+ebb2ae5535a64f65daeab8235585114fc9dd2cf1a49f5852d446250b998b6ae4  ./_internal/api-ms-win-crt-convert-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+17d63275d00bdd8670422b95bd264c532998e0a1b041079e54fce4b6b7a55819  ./_internal/api-ms-win-crt-environment-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+9a9e2a65a281644e368d0f272b95ba5f6b445d1c35910d06056c5ebeb77402db  ./_internal/api-ms-win-crt-filesystem-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+bab9ac3ec83e380ae51e4295ef3bf2c738627812d3a49d1e713661abbc8dc57a  ./_internal/api-ms-win-crt-heap-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+bd14c67ea28e21d6257ad780a37122c9b5773f69e693f5db6bffaee4d839526e  ./_internal/api-ms-win-crt-locale-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+606d66d82db562ea7979179d06486a0f94d079941d26b80a1e2c49d29959df6f  ./_internal/api-ms-win-crt-math-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+1bc82bed6143d2bf1b6b08a7809f4a5e29317d6fddd338a7da3c0223522e4bbf  ./_internal/api-ms-win-crt-private-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+f6156b1020380ec4f0e48577ebedaaef5fb1ab1f337d8b4e72e6a33a7567a9cc  ./_internal/api-ms-win-crt-process-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+c5902934d026d7e15fbe9917d474f3322846a41a25e66f4b2b1f758801879f4b  ./_internal/api-ms-win-crt-runtime-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+a9c5a153d8c0286f9b41a2b1c65854ad9e6471b8755b7de87bae4470e60bcab6  ./_internal/api-ms-win-crt-stdio-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+25b8f83a7767211b11132775a0e27a45aa4ec8ab4e6572599f9c172ae3606b40  ./_internal/api-ms-win-crt-string-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+7c7f6393f06de11750adb09cc5698ae55cd9fb27b2e51e207286feb1b5b2b156  ./_internal/api-ms-win-crt-time-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+d8ba5f17b9ffcbf3aeaf3fa1da226832d2fa90f81acce0cd669464e76ce434ac  ./_internal/api-ms-win-crt-utility-l1-1-0.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 3 sections
+07f62bcb1b70320f221ffb2cfc5ce6133815195f3e7cdb8d833222506188c2ac  ./_internal/clr_loader/ffi/dlls/amd64/ClrLoader.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64 Mono/.Net assembly, 4 sections
+3128381d133f4ff746add70100cfef713ce2d78f2b12c02ec24ec453c5dfab0d  ./_internal/clr_loader/ffi/dlls/x86/ClrLoader.dll
+PE32 executable for MS Windows 6.00 (DLL), Intel i386 Mono/.Net assembly, 4 sections
+1d4332a447cab13dec8e3a533ad579e0e562b79e40822c931f33769758fc7156  ./_internal/cryptography/hazmat/bindings/_rust.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7  ./_internal/libcrypto-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a  ./_internal/libffi-8.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe  ./_internal/libssl-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+a1bf1fb566f920b5670dca3b31acb0148636cfff8aa8108d938f91550358b231  ./_internal/markupsafe/_speedups.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+ed4f167a5330424524f45258e7ca2c8d7f03c0cba1f30ee4985553ac1f88ecf8  ./_internal/numpy.libs/libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 11 sections
+a4c2229bdc2a2a630acdc095b4d86008e5c3e3bc7773174354f3da4f5beb9cde  ./_internal/numpy.libs/msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+8fdd39b1dcd81239b1fe0b10744afd76dc85c8575aa09429b392e323fb750f4b  ./_internal/numpy/_core/_multiarray_tests.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+a9d5c4202cf109bf24305f3f1180e0509aaf661ba850612bd75df7cfd9f928b8  ./_internal/numpy/_core/_multiarray_umath.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+3ed9c2f73c7dc165e41e98ecfd0a4f66481a5afec7e39148a2af317b9a4ff62e  ./_internal/numpy/fft/_pocketfft_umath.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+15884ab8ded82bc5f834e429a63cc9cfdcc24f61737a5c563efb2c2f274213a8  ./_internal/numpy/linalg/_umath_linalg.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+031cbd54dcbef2ff3fda13889879a6442f17c31df6d008154708b31d7582309c  ./_internal/numpy/random/_bounded_integers.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+8bd4fcd63a3f0643a81b4095a8221a4a3917dd86816ecbeea595db237071369f  ./_internal/numpy/random/_common.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+8dd9ad224065d8c38d99149d6816a519eb769b3e01210164b3bcb186e7d59479  ./_internal/numpy/random/_generator.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+9b3aff503e8872d6e6b71b2d41a5a1304c02092cb75f5387194c3fa98c1a5610  ./_internal/numpy/random/_mt19937.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+f68a6a65df54920f091c6745694fd7adacc7311d980a429c8217385b43f8df26  ./_internal/numpy/random/_pcg64.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+1872654c8ade0ed9e11ca3f1b2714154f39a0cef46416b48e40c7e96a6dc2018  ./_internal/numpy/random/_philox.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+958af4dd25196f436d67b681c64a8639f0ec5a98dbb37124859def7eb353c0ab  ./_internal/numpy/random/_sfc64.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+1e7a030cfd348ab125a681eaf21b227be145d8329430b8d521f9bde520390267  ./_internal/numpy/random/bit_generator.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+2dbf4488af25a9d6b2863b3eea53d4a39b692b3be579e970761730d310e8ea65  ./_internal/numpy/random/mtrand.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+91ca3d63c1bf6f7691f662678312f1b57a5b0a1ac707372fd99bf45d74e0e54f  ./_internal/psd_tools/compression/_rle.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+d615e193d1affcdbfe504e90d3621cbdcff94bf72b79d899126534507fd6d27a  ./_internal/pyexpat.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+fb975a606e7fbf74f64260e3f60c3490b4f74a183c0926fd6ed1ac4c52ac7b1c  ./_internal/python3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 2 sections
+9a0e3435aaa680d868150f87ab3e388ad2eebc22f87e036155c7b4eda8cd2120  ./_internal/python312.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+2ebd4492e28442ef1f1af587afe5b3a090c2ebfa220758ded4f1450f2a27f13a  ./_internal/pythonnet/runtime/Python.Runtime.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+197ee2fc9b4d071f7e048078cac741151a6585d871061cf5f88c0c73e31963a5  ./_internal/scipy.libs/libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 11 sections
+5d31b649995f6e9fb95e15f2ba35de18618347c33aee07b9b3eab506a2fdbd8f  ./_internal/scipy/_cyutility.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+4ba005064af61e94ad473f09ba67836523db6773458470a6d8d7e5c1234bbdac  ./_internal/scipy/_lib/_ccallback_c.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+227637208fefd2c1e41e57da4a161ed08c9b4a52dcb5e90f6a75f1a9f6afa4e0  ./_internal/scipy/_lib/_fpumode.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+d057138fc9d01171748bb0bbf627a98017b2d03c8e4ca4a45cbeb9b7ccddc5c7  ./_internal/scipy/_lib/_test_ccallback.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+52cef060143a058e12bfcaaf70e8007569182c1b8b0198eea09d030b4ca8c3f8  ./_internal/scipy/_lib/_test_deprecation_call.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+be5fbb8d5a93f84cbca45ebf9f47b5205471b0ac7b285fd55cadecd0882317ad  ./_internal/scipy/_lib/_test_deprecation_def.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+5b759f7df1ef9d0f61061ed528f6e9d0fe5c8938729ae9fcc26c557302403a23  ./_internal/scipy/_lib/_uarray/_uarray.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+a45ee93e69c84e9c198444df93b6f8ffc4ce09c852f3892137b5b6f6034bae6a  ./_internal/scipy/_lib/messagestream.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+15968b75c9f81d564f8158e8651a099703b7c44981334ea80aaf67502e5920cd  ./_internal/scipy/cluster/hierarchy/_hierarchy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+e3d0273bec8f079e1771169e86ac11e0cf2a9d4632130c0386e75a1a779cbcd0  ./_internal/scipy/cluster/hierarchy/_optimal_leaf_ordering.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+70b06cdc4c39ce88e1d8a4c83c98f03d0c65e4834ef7e277094ed6fd00d667d4  ./_internal/scipy/cluster/vq/_vq.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+18398ec2696b44bda1e57036be146534d916a01fdb82d6632c73472a2dfd49af  ./_internal/scipy/fft/_duccfft/pyduccfft.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+5e84598e17d04b2cd232c13bd5e5eca49e7136e78871db751878219c26951e0f  ./_internal/scipy/fftpack/convolve.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+63cc8187017f0bd2a5e33b7db7d487bb33ae264befb6861467994653dac1e3b1  ./_internal/scipy/integrate/_dop.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+8cec2d7783e804794aa7eecc6eb80e3380b350af35c92bc419b977ef35d901c1  ./_internal/scipy/integrate/_odepack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+03e0ed70dc1910b227f32676d4f4c8621f4b82ab45429e6f167dc582c4c67dd8  ./_internal/scipy/integrate/_quadpack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+b503483abdcadb40cfea257c54837258876238960f95db875f74af72ac005d46  ./_internal/scipy/integrate/_test_multivariate.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+3b858a16e3408b25b6d3ef03066aa222e3c50f96e0526966d715a5fb93e17e5d  ./_internal/scipy/integrate/_vode.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+608680528ee32e54e13316fdd191c6a94e4bf54c64e389bf2b9f59a0ec3f9c2d  ./_internal/scipy/interpolate/_dierckx.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+af4120e06472c88e2b44beb834a8e249ecc40de777a2d3d7f74508fa8292b8de  ./_internal/scipy/interpolate/_fitpack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+c3976f6cef4d797f6ad156435cba96782fd164695beb5d44dae2ebe138eb48d1  ./_internal/scipy/interpolate/_interpnd.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+a3ef6ca12445cc777e0d07da7890959509e96905701d87b97f368e045fd6bd0d  ./_internal/scipy/interpolate/_ppoly.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+d2392f5b85d9fbf0d3422ee8a531dd805fcb502d64ab04afb6cb0eb21e03b5f7  ./_internal/scipy/interpolate/_rbfinterp_pythran.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+430673f962ef25cdfe4587915541fc843ab77c99756af741d1cdf6c9dfe12cdf  ./_internal/scipy/interpolate/_rgi_cython.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+cdc0ccca43a3fccaa9f47d3e12066956cb2a4b27c9c7d7d45a6a167de9650e26  ./_internal/scipy/io/_fast_matrix_market/_fmm_core.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+929ab5a1bb59f8c1c824db0335b996cf82f6884966c5e5ea30ec5db7aaa700d0  ./_internal/scipy/io/matlab/_mio5_utils.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+f06907f32f6213fe5ceaabf0d3fbbd89871a3f77dfe2d75abf938fe001dc47d1  ./_internal/scipy/io/matlab/_mio_utils.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+43079658168a32e8372044ee3108c1d43cf0fd000b48647f3bb8970f387240e6  ./_internal/scipy/io/matlab/_streams.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+4ff2e41e64d34a0f34ca4363d48074451e1e9977bfc366bf0b80d4c2f4a50268  ./_internal/scipy/linalg/_batched_linalg.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+deab4aaecda674e2b45c4a19742da78dc03f624ce023846417b7a18a8339031f  ./_internal/scipy/linalg/_cythonized_array_utils.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+cd4acc7a49f36691c2aeaa128cbe2bcaa8f85ac71b8cf131ea58ef1291b00166  ./_internal/scipy/linalg/_decomp_interpolative.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+2bf6c314edd1a8bf354f238415f3295ae464fde97e1f276ca7efcdc177afe546  ./_internal/scipy/linalg/_decomp_update.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+4832bd6d4e8f9ba7317985fdfa8656e8661e98ce952ba757671e3c2d236d9389  ./_internal/scipy/linalg/_fblas.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+ea9fc3ba84abfb7bc1be930d94a237ae494df9ede89a919602d661b606f55138  ./_internal/scipy/linalg/_flapack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+ad0ec88336620b15d80f8588a212cade3700b90c329c90b26bb10c5d4b8579c8  ./_internal/scipy/linalg/_internal_matfuncs.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+6ac6bea5e09d9f07f9e986bc2edbe2b632cafacdfab9815865573427814a03e4  ./_internal/scipy/linalg/_linalg_pythran.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+ea95b4aa9018f7e059ce81047279d5f569d37ff6fb5eccf9da8511d115c4dc00  ./_internal/scipy/linalg/_matfuncs_sqrtm_triu.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+f7627f12ffc46542802ed6940a7c449589226548d32b8db6dd1c9abc04cd0671  ./_internal/scipy/linalg/_solve_toeplitz.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+3b74e06f76feab1041954f5b3efedee516bd1259cc97846338d9570ebd39c0a5  ./_internal/scipy/linalg/cython_blas.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+5f9f5128647dc62ebbf518b8f4993061b01497adf19cf26ffa1021f9db88ca5b  ./_internal/scipy/linalg/cython_lapack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+7d2a4993dc9f4697aeae47678115c397fa6e31445d977e0b7b793406ac9e1a27  ./_internal/scipy/ndimage/_ctest.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+d6a6faf1f4b6e82d1e41ff0f39223c1b40e6734fd77e9a76b6696fa97e0f3a21  ./_internal/scipy/ndimage/_cytest.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+24b51c516e9344dfe459f5fd3932d04049f6ab7f9a131e2789e27c69ea7157fd  ./_internal/scipy/ndimage/_nd_image.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+94e09844b8a3371f1b523a0aa2ce32ada0e3627456afd1e785c5a5e67849a27a  ./_internal/scipy/ndimage/_ni_label.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+77f996dd45d7f2aa4e563340015791c067cda9971bf55dbaebedc117e26e9dc1  ./_internal/scipy/ndimage/_rank_filter_1d.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+0f767a3aab13176da056fc89e7758e7f3cd79eff260d6a0977a2a96066d76ab9  ./_internal/scipy/odr/__odrpack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+f1932732b5384833a4d36b4ab715e79d36c941d538ad9379445ede7dca77c7ec  ./_internal/scipy/optimize/_bglu_dense.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+7ccd80c266d65fa2a15b7e11dd998f3a8e81937fafc48c9f1ba4786fc867a4d7  ./_internal/scipy/optimize/_direct.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+7b2ea108304b87833e64c3ba9e5e6e8e6421d0d2e8eda15ed5ea91a1d75ecc4a  ./_internal/scipy/optimize/_group_columns.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+e6beb8321a4905c9bd0ba0eec2dfa7e27d76a01ab7d0abeab81fcce9ae6732e1  ./_internal/scipy/optimize/_highspy/_core.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+8b3ca9f9f5c5c56152bcd757a44c574f2e9c907fda564ed9ff6a5552cdf0cfa6  ./_internal/scipy/optimize/_highspy/_highs_options.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+3ab8d1a5a2391952c66a4de2126c3f151c7efdaa2e8f340c465bf79b488a2739  ./_internal/scipy/optimize/_lbfgsb.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+34e851d39d8c07b071e1206752073b86d29e5cfb63001bc611805ac1d0db7772  ./_internal/scipy/optimize/_lsap.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+c7a2d232bc5d4e6afed937df153fb36d128f5c2416527f2eb7cc8306ab6bc970  ./_internal/scipy/optimize/_lsq/givens_elimination.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+24fe418dba91526e9aa41cd44902884ba42d63c67261c4c9cab514f608f0ebca  ./_internal/scipy/optimize/_minpack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+b6d7facc4f94f9c07bade87ad7e9a096a4b112a2ca56fea9b4bc19ded68d0959  ./_internal/scipy/optimize/_moduleTNC.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+8b63297bce9cb14ebf4d51ac87cdad1eb27ed3b6f6867524fe06554623baff1d  ./_internal/scipy/optimize/_pava_pybind.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+a108ab846bccb35169dc86b37c14e25a2ec4162b0235ea5282ba28ea057ff011  ./_internal/scipy/optimize/_slsqplib.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+5a24ca0f7984cfce5ab7b0de61bd4d4f61593d1da1817d4cd168061cee3bc99c  ./_internal/scipy/optimize/_trlib/_trlib.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+8d1797a4cf71c48e1c22d38dafeb4cdd9bf882d7c59a16b2d9670a1a0a1808c2  ./_internal/scipy/optimize/_zeros.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+3b699e1493de8ca3acd9a31eafacb5c2bdcd6f11dfb79f761628935d664ed9a6  ./_internal/scipy/optimize/cython_optimize/_zeros.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+54efee1488634c9367e17c4f7c93f2c7b204a1ec860a89e2c1f02855b8aa2106  ./_internal/scipy/signal/_max_len_seq_inner.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+275f93bef335982cd28089ef7f234585828f0fd6e4ee4400a467ebe768f0e2c3  ./_internal/scipy/signal/_peak_finding_utils.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+843010bbea19df62b4d79f63a443b219258e7722ca9865d4b592a4e27ebe80c1  ./_internal/scipy/signal/_sigtools.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+2ce1f4f1039e89a75d2d181c313ce80fac8eb285b8c33c0ca2ed8c4cb11f516c  ./_internal/scipy/signal/_sosfilt.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+f82ca6be35db51c0e5665e2f98a3b3699f7a5a654e205474a77d2214c335ffe5  ./_internal/scipy/signal/_spline.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+b4e7ccb7cf4cf5af0d0c774e1e64ffe8e525028df3be2755e6ef30c7d18ab9ff  ./_internal/scipy/signal/_upfirdn_apply.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+aed673d21bb62c5c21448c954439522629e6aeba99e031ca60f45731358d2162  ./_internal/scipy/sparse/_csparsetools.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+c582d431dcc2e3f6863de23c1ba875eb88a88b8ba9bda833c15cb0eba306010e  ./_internal/scipy/sparse/_sparsetools.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+ce057155684ca47b9d27c0f7385e272eae38ea433d642e5c357333cdc7528d04  ./_internal/scipy/sparse/csgraph/_flow.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+9023df3bdaeb6aedb9a10803c14e10cb12afdc58c29e82c753bb364426138a6f  ./_internal/scipy/sparse/csgraph/_matching.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+18425046fb2de5d66e0c2505ce117ffd8cdd2dc205dfa8b01764f4c2ebccc5ac  ./_internal/scipy/sparse/csgraph/_min_spanning_tree.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+573cf78e0d4a66fd11b49b2a33ed020503afb4aece6d703ad08e4830226b6418  ./_internal/scipy/sparse/csgraph/_reordering.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+c26246270d52776546da89396c8126c906d8b6fe9dfb9c011915e1cfa47f4a6c  ./_internal/scipy/sparse/csgraph/_shortest_path.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+d0f89d2f11afeea1d8ee26b2ff68daebbef7060306e6befc05cadca870a8b09b  ./_internal/scipy/sparse/csgraph/_tools.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+4051d206a9080264c95ed2c76e060abd2a7631b34f3a1a4f4fdf7cf0842ad8e1  ./_internal/scipy/sparse/csgraph/_traversal.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+44a265b0bf2b4c6e278799a0de9a34fd7cfffd595cb8733736765402781e18bc  ./_internal/scipy/sparse/linalg/_dsolve/_superlu.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+e984176605364e73cc249bbba86424e52da831e6a148b865c1def3690f3a696f  ./_internal/scipy/sparse/linalg/_eigen/arpack/_arpacklib.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+faf5c9659a05df0d712632f44baa6acc6537c3f4177eed2015839c701a1b70b1  ./_internal/scipy/sparse/linalg/_propack.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+c7ba13c929c2cc4cf29bec12c35176575dfcd7ab52af3ad850d8262bce0e1cab  ./_internal/scipy/spatial/_ckdtree.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+3f7567c238ca2970586ce8a7a22420053c009f9be1113cb2cb59ccbde2411b64  ./_internal/scipy/spatial/_distance_pybind.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+eb9331555f5e41913cf427588277fd54ae6abb6e84a67feb66e103efcf3d3967  ./_internal/scipy/spatial/_distance_wrap.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+e475c94dbb2e89a0349135be436579c718ba51a288709e183f33ba4a3a4c4698  ./_internal/scipy/spatial/_hausdorff.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+0fda7b02882cf95ac6e870b4472837366afe8bb45da148c9c7a91fe7f8678f47  ./_internal/scipy/spatial/_qhull.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+c77df5feaf55ab9c54ef5290e6d5af51e3b92729841ea9db1c6ea9f21410cc84  ./_internal/scipy/spatial/_voronoi.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+7243e5be688306c3c024aef4372e8b7cbcb17880edce50838815d55758eec7b1  ./_internal/scipy/spatial/transform/_rigid_transform_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+3f9c4835b41355056dfc8e9a0070931edd5f7866063ef9623338a20411f14cd9  ./_internal/scipy/spatial/transform/_rotation_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+b11317038aba00d901591974e3ff3866be148424300e7324684729af94f5d178  ./_internal/scipy/special/_comb.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+86df2b3aa07f1fb3fa2849d63a0cc133099a518bf164465360099b1f088c5fe5  ./_internal/scipy/special/_ellip_harm_2.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+3a0b65590282876be90bcbf6c4e7a0e407faab76f2cf8f99fb7adb715d136c65  ./_internal/scipy/special/_gufuncs.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+57218e37f6c0ac1da054745868e6e962e210013aa50d614c80850599a1ee9629  ./_internal/scipy/special/_specfun.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+7b8968e440aa7d613f0d90f5994f7c72268679409e0ea40685532452383a3cac  ./_internal/scipy/special/_special_ufuncs.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+eb45951f62eb87df00ec1142134fa1397016d2aa852428d1f6104ff8519c3c48  ./_internal/scipy/special/_test_internal.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+4ee53d84cd5fff84e7c82292aa3e986a91f0309b1952ae800fcb2af68fb2161d  ./_internal/scipy/special/_ufuncs.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+11a9cdb4608a02bfef01f68f73aa033ba0e6474a2d9527cd300f0410e9c87f46  ./_internal/scipy/special/_ufuncs_cxx.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+4f7b6a5e901044b8ee82bf45a09129598da71478c962e661127cee0549fb9e9f  ./_internal/scipy/special/cython_special.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+6bd2d42b8e6d22a1d4c4ec4af90aee02b8dc6fbaeb0acd62a6319c0797d4b3d5  ./_internal/scipy/stats/_ansari_swilk_statistics.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+6cd89cd9c564e82d07576ccfc7c9447df4ed2e4efce6060228ea6198dcb5d6e7  ./_internal/scipy/stats/_biasedurn.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+17265c24b0978d827b8366f706a54cb005fc8939422cbf0405443bbc66435b4a  ./_internal/scipy/stats/_levy_stable/levyst.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+46cd196028df91704be4ea927178425cb5d83b5041c8cd190163fe038c8ced29  ./_internal/scipy/stats/_qmc_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+9b9b0cc4916000266c426460d99c8f1bb9388727ba029bda6cf19d7c78cf607e  ./_internal/scipy/stats/_qmvnt_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+fcfeb902482d2ed3f1cf8733c0e86df4fa9210b51e18bd39b3b34b1e1bace8b9  ./_internal/scipy/stats/_rcont/rcont.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+ee5fcd62c8d7f327aaff3d43ee84ac95d5c507ffcfa795d2eeaba615a33f504a  ./_internal/scipy/stats/_sobol.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+93d050e77912aec0db0cae5d283298a3c0c69910e7e8918a2043e877a632d3a9  ./_internal/scipy/stats/_stats.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+94a6b599baacd810a57746517ffc56741a9173defd611983553204ffd3ad0128  ./_internal/scipy/stats/_stats_pythran.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+4cbd1e282d233975e2436e4aded18f57dc3c99c4ba69380d1fe6e3a18acaf316  ./_internal/scipy/stats/_unuran/unuran_wrapper.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 10 sections
+d4d7181b11db0bd22a6cd5cda6f8583d1f5c77615fd0a6ca33350619d6e0438a  ./_internal/select.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+50aeb1d81dd87062d8162f5155c0d02d4607b8ebdf8d98a22fca3741c12898f3  ./_internal/skimage/_shared/fast_exp.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+bbf43a358c758a7f3697980bbe802951789c6e584ccfe3d7de2b7ac34ad39807  ./_internal/skimage/_shared/geometry.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+ce2adeaf385ad7f08dc7decb1ccd14c394331c7abe5920cddd4708c33ed45314  ./_internal/skimage/_shared/interpolation.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+23edd8eab5b6cc25da1b7b29a175d3254a79ea36d4d70f17e7efb49e47c216a7  ./_internal/skimage/_shared/transform.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+b0ca75b580cdf55befde002ecfbe39603f1ed0aba1a25aaaf36baefb80996c3d  ./_internal/skimage/draw/_draw.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+207a68f6e9fc0145a5d417198d582521b5e488230e5f5e1daf4f5620a7087e70  ./_internal/skimage/feature/_canny_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+ad1195bd248624857902af2d802131e6803d9992be7fccb027e6990b501138cd  ./_internal/skimage/feature/_cascade.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+dbd85773dfe56fefed4c150b47d6a27321342afae889b0d805fc10252b4ad0c4  ./_internal/skimage/feature/_haar.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+e3075b067b08299012e086d0ceef729926bf5460265cabab0b3abf872ec77575  ./_internal/skimage/feature/_hessian_det_appx.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+212c6824be7f6c7c4b35bed8a75bf51cff9ecd38dcec1bf6af8a5fdeada2220b  ./_internal/skimage/feature/_hoghistogram.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+1ead7d843d56eb84badfea55c2d2510efcf2d0a4db1a2b3cadd0ad8091e1a1b5  ./_internal/skimage/feature/_sift.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+a0f4e0300679466d4c04027e2d5892bcfdd6b8e6e660bbb3a39ff0bc11150d36  ./_internal/skimage/feature/_texture.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+25f5baf0f4d01acb6662f9cbe07dac5c8edbd802fbff7f44ceeb4c9bea56f560  ./_internal/skimage/feature/brief_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+ae611f8d1d9d188196f987efeb0045ff3e1f146f2fc19188b261ec7ef41c10df  ./_internal/skimage/feature/censure_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+45b1058c47c4820aa17d101269971e495fed177b0cb97c23d6c37d8d973b13ba  ./_internal/skimage/feature/corner_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+1a5b92ca50c573fa9dcb4fe631e250325d465d7f787f9d2ff11ae613d7bda3a8  ./_internal/skimage/feature/orb_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+f7cfb242d242c9a9d8d18f06256db8003ae9e902c3782b3d839866e266f91fe5  ./_internal/skimage/filters/_multiotsu.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+83fbb294c3ee8a2847b7c0349c90c75faf2731c84938f265b04c65f5427637f1  ./_internal/skimage/filters/rank/bilateral_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+7cc27c1ab9c602a8935fb6571b09798957d1b773bde6ae53bb120fa448748142  ./_internal/skimage/filters/rank/core_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+a2f718a92cdd5b01f15b828d9f8daaf18179f1743ee36663bc250118f2b79a7a  ./_internal/skimage/filters/rank/core_cy_3d.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+fbf1b974572f04d2bbe1fde07bfa699cdc92b55cdc5a181a60875c6475630d49  ./_internal/skimage/filters/rank/generic_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+2629f1a566e5fdf3fb946c0e1f0b46da61556b8721da6d0966795dc1a55750a4  ./_internal/skimage/filters/rank/percentile_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+430b5a40ad9b7922261120f52f637b2fcfd9e99828b5ab8114785ed107572c4f  ./_internal/skimage/graph/_mcp.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+534c3c57673e8e43e5bf9d269aade3d0ea8ed9f0980bbba9023fbdd49ae7debf  ./_internal/skimage/graph/_ncut_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+5b03e00069403e633dbdf00243f558a94516b06d7fbc6ffb36b5365ceab976df  ./_internal/skimage/graph/_spath.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+1b1f9b192cc9d0d3159c87a7698e853aa066b59ea3479f07dad439043bbb7f06  ./_internal/skimage/graph/heap.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+d4721b8283744e7711ab36c434986fd08bd700bff66742801079de3b5acaa8c4  ./_internal/skimage/measure/_ccomp.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+8c5fb25f29439be2eab3af1b31136aa4288178c74855ae3390aca79b39ee39eb  ./_internal/skimage/measure/_find_contours_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+ec08b5e0043f97a8e02524040365a4b3af91cd221f45a6c1e4332fbbf4b83c05  ./_internal/skimage/measure/_marching_cubes_lewiner_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+f9da8dbd098db60e994bbc7b37f909e422015c263cca96d64d822b0456ba4d59  ./_internal/skimage/measure/_moments_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+f752a9fc72ac3564f92afea41808b549eb27225ec7ecaa73ac6ca174cd22a24a  ./_internal/skimage/measure/_pnpoly.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+8a09f3fff2defb8a9339e63cc2f760c017f333e565da69566d105a256d5bd8ed  ./_internal/skimage/morphology/_convex_hull.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+9130c97e0a7051614d3d995eee9587c5f94cef0daf819838b3a70d4135458ce4  ./_internal/skimage/morphology/_extrema_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+e2570839a51ddb1cefc4f99becbe198b08ba6c6fa38500a349bba41ba370b1a4  ./_internal/skimage/morphology/_flood_fill_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+ebd80fb8ff228be0984f040b84d73660b0875596465684c3bdbe4f44a25d9726  ./_internal/skimage/morphology/_grayreconstruct.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+e73c441491570388aef186adcc67ab02d1e4c63b776f770e19c5932d3193f428  ./_internal/skimage/morphology/_max_tree.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+c9924849e112abd8e7c1f1e461704af584f74f6ecc0d86b91e015c6668e5f17e  ./_internal/skimage/morphology/_misc_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+d6810284fdb4b5e38e21c9693982d32bfe2535276b6c3aca1c9c993393e79359  ./_internal/skimage/morphology/_skeletonize_lee_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+78387622d4f584c1680c389a7f3605ffde77505ce511156d99e96207fc1a65e0  ./_internal/skimage/morphology/_skeletonize_various_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+43d6c8a64ab0139224c8b1ddddecdabd3aea15381dc71ffe28180f45a02079ae  ./_internal/skimage/restoration/_denoise_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+7bdb615e1e48ef56fc84825e0fe9ef36cd177a33a7128df08df5493d3fe8078f  ./_internal/skimage/restoration/_inpaint.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+1a72e8fa638263de6e81c7e4e724d3ec3770a77113bb8e4f5b02b44525c9c8a5  ./_internal/skimage/restoration/_nl_means_denoising.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+4853c050dfbef9a697240c0a004c6f3215bae05538bc3c84eecf76ee96b8c61b  ./_internal/skimage/restoration/_rolling_ball_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+33e6f2ee56c0f4f16684e08e61d2c8e4d0bd37288e4779c01e24304a5ce4df9f  ./_internal/skimage/restoration/_unwrap_1d.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+9f17746dd17e4f2cf81cf21e6ea713dd1513ecf1fc5a63734d59626dc814ce1f  ./_internal/skimage/restoration/_unwrap_2d.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+2aea5198e5f199ee66f2adf0f2b4098af54cab2aab879b0e0abdd02e0503480d  ./_internal/skimage/restoration/_unwrap_3d.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+e3d50274a4d80ad2fb61d2f1a05a9f3fa9210997b00128d4165fd48fb2adcdeb  ./_internal/skimage/segmentation/_felzenszwalb_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+a14fdf4d649ef0c4f4ef700aac1ed15332b5edc561d62f82b1f9cfca96124d76  ./_internal/skimage/segmentation/_quickshift_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+803eb592aca2a3b93db6b4dbd9531e39b822c2e0c861f9488e22863da0565b21  ./_internal/skimage/segmentation/_slic.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+aafdf65b8bec7038f5095c60b86b9bba6298856269e5b6329be889896ce9324c  ./_internal/skimage/segmentation/_watershed_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+bfb04b0f40d4d3e9dffc91a60c053f9f9428fd0821188350f768e805db4243c2  ./_internal/skimage/transform/_hough_transform.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+ec3395629cda23597c34d4dba5242b60fa5a43546f94acb1c3336d38119a1ed4  ./_internal/skimage/transform/_radon_transform.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+70fed08664a2f542fe29e81a77b49e631525f54b67cd9f3f93055c437124b2d3  ./_internal/skimage/transform/_warps_cy.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+1011d0b658e69f9f05adecaf616a3e67d8abc595aeb27bdb9bae878d88f5cfd4  ./_internal/skimage/util/_remap.cp312-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+2e5fb14b7bf8540278f3614a12f0226e56a7cc9e64b81cbd976c6fcf2f71cbfb  ./_internal/ucrtbase.dll
+PE32+ executable for MS Windows 5.02 (DLL), x86-64, 8 sections
+208ee1cd3cbad0828433ca7246b05be2b1ff5569983d27d296c0b38888585488  ./_internal/unicodedata.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+8219a3135436c147f8eb02fb831e99596103eebc18b6d7b794ca93f4c67018a2  ./_internal/webview/lib/Microsoft.Web.WebView2.Core.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+c48f8d729dc531288d2c53a6241effe7922ed1b947850b2442008a945c098c48  ./_internal/webview/lib/Microsoft.Web.WebView2.WinForms.dll
+PE32 executable for MS Windows 6.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+f6a646470f0e1058224a52e8e2e217501dca46939b30bfc9a5dd4dcdd43f088d  ./_internal/webview/lib/WebBrowserInterop.x64.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+4e527297fbea7c5a0419f3a6af307c2681787beb0bf0ef3fea849a7fd85a08dc  ./_internal/webview/lib/WebBrowserInterop.x86.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+0937030efc718f3da77c5e0978fb5046e381d0bb7b01acaad31a535a1b588a33  ./_internal/webview/lib/runtimes/win-arm64/native/WebView2Loader.dll
+PE32+ executable for MS Windows 10.00 (DLL), ARM64, 8 sections
+eb5335edeaa6f2122c044e82aab2351dc8c9b4e0fe5e578c71922fb61be285e7  ./_internal/webview/lib/runtimes/win-x64/native/WebView2Loader.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+04814b2c59314c6452d61b821a4a3a5c5f8e8577b55b985f6a7a4b59f8907ec5  ./_internal/webview/lib/runtimes/win-x86/native/WebView2Loader.dll
+PE32 executable for MS Windows 10.00 (DLL), Intel i386, 7 sections
+(exit 0)

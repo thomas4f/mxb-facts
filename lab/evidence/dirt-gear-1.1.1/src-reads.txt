@@ -1,0 +1,17 @@
+$ cd "$SRC" && grep -nE 'WINDIR|Microsoft/Windows/Fonts|LEGACY_DATA_NAME|Moto Gear|grabclipboard|GetClipboardData|OpenClipboard|global\.ini' source/app.py
+56:    roots = [Path(os.environ.get('WINDIR', 'C:/Windows'))/'Fonts',
+57:             Path(os.environ.get('LOCALAPPDATA', str(Path.home()/'AppData/Local')))/'Microsoft/Windows/Fonts',
+979:        user32.GetClipboardData.restype = ctypes.c_void_p
+980:        user32.GetClipboardData.argtypes = [ctypes.c_uint]
+986:        if user32.OpenClipboard(None):
+989:                    handle = user32.GetClipboardData(user32.RegisterClipboardFormatW(fmt))
+1007:        image = ImageGrab.grabclipboard()
+1297:LEGACY_DATA_NAME = 'Moto Gear'
+1306:    """Copy (never move) a Moto Gear library into Dirt Gear on first run.
+1308:    Saved projects, logos and layouts carry across. The Moto Gear folder is
+1315:    old_root = local_app_data()/LEGACY_DATA_NAME
+1325:            'Projects, logos and layouts were copied from Moto Gear on first launch.\n'
+1326:            'The original Moto Gear folder was not changed.\n', encoding='utf-8')
+1328:        logging.exception('Could not copy the Moto Gear library')
+1370:        settings = directory/'PiBoSo/MX Bikes/global.ini'
+(exit 0)
