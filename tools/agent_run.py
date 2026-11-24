@@ -4,6 +4,7 @@ usage: python3 -I tools/agent_run.py <prompt file> <result file> [<spending limi
 
 The prompt runs with full tool access (the runner is thrown away afterwards, and the job has no write access to the
 repository) and the model, turn limit and spending limit below: a run stops with an error once it has cost MAX_BUDGET_USD.
+It may not start subagents (the Agent tool): working in parallel spent a whole budget before a card was written.
 Only the final result is written, as JSON, to <result file>: Claude's messages stay out of the log (rule 9). Exits 1 when
 the run ends with an error. The short first pass that plans the Windows run passes a lower spending limit.
 """
@@ -12,12 +13,13 @@ from claude_agent_sdk import ClaudeAgentOptions, ResultMessage, query
 
 MODEL = 'claude-opus-5-5'
 MAX_TURNS = 300
-MAX_BUDGET_USD = 10  # a full analysis has cost about $4
+MAX_BUDGET_USD = 10  # a full analysis has cost about $8 (HoleShot HUD 0.24.0)
 
 
 async def main(prompt_file, result_file, budget):
     opts = ClaudeAgentOptions(model=MODEL, max_turns=MAX_TURNS, max_budget_usd=budget,
-                              permission_mode='bypassPermissions', setting_sources=['project'], cwd='.')
+                              permission_mode='bypassPermissions', setting_sources=['project'], cwd='.',
+                              disallowed_tools=['Agent', 'Task'])
     res = None
     async for m in query(prompt=open(prompt_file).read(), options=opts):
         if isinstance(m, ResultMessage): res = m

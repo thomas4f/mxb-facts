@@ -175,17 +175,26 @@ jobs:
         run: python3 -I tools/vt_release.py lookup "$RUNNER_TEMP/vt/hashes.json" "$RUNNER_TEMP/vt/lookups.json"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: vt-lookups, path: "${{ runner.temp }}/vt/lookups.json", retention-days: 7 }
-  # The fake game, built from the repository alone, in a job Claude never touches.
+  # The fake game, built from the repository alone, in a job Claude never touches. The build is kept in the Actions cache
+  # by the hash of its sources, so the compiler (a slow download from Ubuntu's mirror) is only fetched when they change.
   host:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 30
     permissions:
       contents: read
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with: { persist-credentials: false }
-      - run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends g++-mingw-w64-x86-64
-      - run: lab/plugin-test-host/src/build.sh "$RUNNER_TEMP/host"
+      - id: cache
+        uses: actions/cache/restore@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with: { path: "${{ runner.temp }}/host", key: "host-${{ hashFiles('lab/plugin-test-host/src/**') }}" }
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: sudo apt-get update -q && sudo apt-get install -y -q --no-install-recommends g++-mingw-w64-x86-64
+      - if: steps.cache.outputs.cache-hit != 'true'
+        run: lab/plugin-test-host/src/build.sh "$RUNNER_TEMP/host"
+      - if: steps.cache.outputs.cache-hit != 'true'
+        uses: actions/cache/save@5a3ec84eff668545956fd18022155c47e93e2684 # v4.2.3
+        with: { path: "${{ runner.temp }}/host", key: "host-${{ hashFiles('lab/plugin-test-host/src/**') }}" }
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: host
@@ -250,7 +259,8 @@ jobs:
     needs: [plan, fetch, windows, vt-lookup]
     # Also when the plan had nothing to run (the windows job is then skipped), but not when the release couldn't be
     # downloaded or the Windows run failed. A failed VirusTotal lookup doesn't stop it: P1 is then "Not checked".
-    if: always() && needs.plan.result == 'success' && needs.fetch.result == 'success' && needs.windows.result != 'failure' && needs.windows.result != 'cancelled' && needs.vt-lookup.result != 'cancelled'
+    # A plan with runs needs its Windows evidence: without it Claude would spend its budget on a card it can't finish.
+    if: always() && needs.plan.result == 'success' && needs.fetch.result == 'success' && (needs.plan.outputs.runs != 'yes' || needs.windows.result == 'success') && needs.vt-lookup.result != 'cancelled'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     permissions:
