@@ -766,6 +766,36 @@
         "permalink": "https://www.virustotal.com/gui/file/eaad3a2a885eb88900ce06419424a9422413a61449b14af92f7054ce3042df2b"
       }
     },
+    "mxb-dualsense-1.1.0.yaml": {
+      "4b5250f746f1ff6e7a80843839ef06a537e44775cadc6aef3c87ad6af75438f6": {
+        "found": true,
+        "flagged": 2,
+        "engines": 66,
+        "flagged_by": [
+          "Bkav",
+          "SentinelOne"
+        ],
+        "last_scanned": "2026-11-20",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45367793815",
+        "permalink": "https://www.virustotal.com/gui/file/4b5250f746f1ff6e7a80843839ef06a537e44775cadc6aef3c87ad6af75438f6"
+      },
+      "d15e36b2ab507e751429126a8cda9a4327a099d819ca4929dd8569af9155bf78": {
+        "found": true,
+        "flagged": 4,
+        "engines": 66,
+        "flagged_by": [
+          "APEX",
+          "Bkav",
+          "Cylance",
+          "SentinelOne"
+        ],
+        "last_scanned": "2026-11-20",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45367793815",
+        "permalink": "https://www.virustotal.com/gui/file/d15e36b2ab507e751429126a8cda9a4327a099d819ca4929dd8569af9155bf78"
+      }
+    },
     "mxb-fps-booster-v1.yaml": {
       "97ca18bd407dc32ff04f21a47d09c2e678b3cbd84d4b0c430d8ea764278585b4": {
         "found": true,

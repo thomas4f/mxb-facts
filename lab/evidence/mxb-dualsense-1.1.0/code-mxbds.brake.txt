@@ -1,0 +1,105 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.brake
+=== <module> (line 1)
+  1: LOAD_CONST 'Brake feel on L2: force per trigger position, like a real brake lever.\n\nThe DualSense handles this itself over 10 zones (zone 0 = trigger at the top,\nzone 9 = fully pressed), with no delay from the game data.\nBecause the trigger position is the brake in the game (front = L2, rear joins from\nabout 51 %), "pressing deeper" = "braking harder" = "firmer".\n\nCurve "soft" (Slimerex, release 1.0.0, 2026-11-15): long free play at the top, then the lightest\nforce (1) almost to the bottom, only the last zone a little firmer. Fork load still adds up to +4.\nBefore: "gentle" [0,0,0,1,1,1,2,2,3,4] (test 2026-11-14, FEASIBILITY.md D1) - still too strong\nafter the final ride.\nForce per zone 0-8 (0 = free). The controller\'s force scale is not\nlinear: even 1-2 feels clearly noticeable.\n' | STORE_NAME __doc__
+  16: BUILD_LIST | LOAD_CONST (0, 0, 0, 1, 1, 1, 1, 1, 1, 2) | LIST_EXTEND | STORE_NAME BRAKE_ZONES
+  20: LOAD_CONST 0.26 | STORE_NAME SUSP_FREE
+  21: LOAD_CONST 0.12 | STORE_NAME SUSP_FULL
+  22: LOAD_SMALL_INT | STORE_NAME LOAD_EXTRA_MAX
+  24: LOAD_CONST 0.08 | STORE_NAME LOAD_SMOOTHING
+  25: LOAD_CONST 0.05 | STORE_NAME LOAD_MIN_BRAKE
+  32: LOAD_SMALL_INT | LOAD_CONST 1.0 | LOAD_SMALL_INT | LOAD_CONST 0.75 | LOAD_SMALL_INT | LOAD_CONST 0.55 | BUILD_MAP | STORE_NAME SURFACE_GRIP
+  33: LOAD_SMALL_INT | LOAD_CONST 'Asphalt' | LOAD_SMALL_INT | LOAD_CONST 'Dirt' | LOAD_SMALL_INT | LOAD_CONST 'Loose ground' | BUILD_MAP | STORE_NAME SURFACE_NAME
+  34: LOAD_SMALL_INT | STORE_NAME SURFACE_REDUCTION_MAX
+  35: LOAD_CONST 0.3 | STORE_NAME SURFACE_HOLD
+  38: LOAD_CONST <code brake_value.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code brake_value> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME brake_value
+  46: LOAD_CONST <code load_share.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code load_share> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME load_share
+  51: LOAD_CONST <code adjust_zones.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code adjust_zones> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME adjust_zones
+  59: LOAD_CONST <code surface_reduction.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code surface_reduction> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME surface_reduction
+  64: LOAD_BUILD_CLASS | LOAD_CONST <code Surface> | MAKE_FUNCTION | LOAD_CONST 'Surface' | CALL | STORE_NAME Surface
+  94: LOAD_BUILD_CLASS | LOAD_CONST <code ForkLoad> | MAKE_FUNCTION | LOAD_CONST 'ForkLoad' | CALL | STORE_NAME ForkLoad | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== brake_value.__annotate__ (line 38)
+  38: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'front' | LOAD_GLOBAL float | LOAD_CONST 'rear' | LOAD_GLOBAL float | LOAD_CONST 'return' | LOAD_GLOBAL float | BUILD_MAP | RETURN_VALUE
+=== brake_value (line 38)
+  40: LOAD_GLOBAL max | LOAD_FAST_BORROW_LOAD_FAST_BORROW front, rear | CALL | STORE_FAST value
+  41: LOAD_FAST_BORROW_LOAD_FAST_BORROW value, value | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L1
+  42: LOAD_CONST 0.0 | RETURN_VALUE
+  43: LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW value | CALL | CALL | RETURN_VALUE
+=== load_share.__annotate__ (line 46)
+  46: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'susp_front' | LOAD_GLOBAL float | LOAD_CONST 'return' | LOAD_GLOBAL float | BUILD_MAP | RETURN_VALUE
+=== load_share (line 46)
+  48: LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_GLOBAL SUSP_FREE | LOAD_FAST_BORROW susp_front | BINARY_OP - | LOAD_GLOBAL SUSP_FREE | LOAD_GLOBAL SUSP_FULL | BINARY_OP - | BINARY_OP / | CALL | CALL | RETURN_VALUE
+=== adjust_zones.__annotate__ (line 51)
+  51: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'zones' | LOAD_GLOBAL list | LOAD_GLOBAL int | BINARY_OP [] | LOAD_CONST 'extra' | LOAD_GLOBAL int | LOAD_CONST 'return' | LOAD_GLOBAL list | LOAD_GLOBAL int | BINARY_OP [] | BUILD_MAP | RETURN_VALUE
+=== adjust_zones (line 51)
+  56: LOAD_FAST zones | LOAD_FAST_AND_CLEAR k | BUILD_LIST | GET_ITER | FOR_ITER to L4 | STORE_FAST_LOAD_FAST k, k | LOAD_SMALL_INT | COMPARE_OP bool(>) | POP_JUMP_IF_FALSE to L2 | LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_FAST_BORROW_LOAD_FAST_BORROW k, extra | BINARY_OP + | CALL | CALL | JUMP_FORWARD to L3 | LOAD_SMALL_INT | LIST_APPEND | JUMP_BACKWARD to L1 | STORE_FAST k | RETURN_VALUE | STORE_FAST k | RERAISE
+=== surface_reduction.__annotate__ (line 59)
+  59: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'grip' | LOAD_GLOBAL float | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== surface_reduction (line 59)
+  61: LOAD_GLOBAL round | LOAD_GLOBAL SURFACE_REDUCTION_MAX | LOAD_CONST 1.0 | LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW grip | CALL | CALL | BINARY_OP - | BINARY_OP * | CALL | RETURN_VALUE
+=== Surface (line 64)
+  None: MAKE_CELL __classdict__
+  64: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'Surface' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  65: LOAD_CONST 'Remembers the surface under the wheels and returns the lever reduction.\n\nMaterial 0 (wheel in the air) is ignored. A change only counts after\nSURFACE_HOLD seconds - a single kerb should not switch L2.\n' | STORE_NAME __doc__
+  71: LOAD_CONST <code Surface.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  76: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Surface.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Surface.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME update
+  89: LOAD_NAME property
+  90: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Surface.name.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Surface.name> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate
+  89: CALL
+  90: STORE_NAME name | LOAD_CONST ('_candidate', '_since', 'material') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Surface.__init__ (line 71)
+  72: LOAD_SMALL_INT | LOAD_FAST_BORROW self | STORE_ATTR material
+  73: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _candidate
+  74: LOAD_CONST 0.0 | LOAD_FAST_BORROW self | STORE_ATTR _since | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Surface.update.__annotate__ (line 76)
+  None: COPY_FREE_VARS
+  76: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 't' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'material_front' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'material_rear' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | BUILD_MAP | RETURN_VALUE
+=== Surface.update (line 76)
+  77: LOAD_GLOBAL int | LOAD_FAST_BORROW material_front | CALL | LOAD_GLOBAL int | LOAD_FAST_BORROW material_rear | CALL | BUILD_TUPLE | LOAD_FAST_AND_CLEAR m | BUILD_LIST | GET_ITER | FOR_ITER to L3 | STORE_FAST_LOAD_FAST m, m | LOAD_SMALL_INT | COMPARE_OP bool(!=) | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1 | LOAD_FAST_BORROW m | LIST_APPEND | JUMP_BACKWARD to L1 | STORE_FAST known | STORE_FAST m
+  78: LOAD_FAST_BORROW known | POP_JUMP_IF_FALSE to L6
+  80: LOAD_GLOBAL min | LOAD_FAST_BORROW known | LOAD_CONST <code Surface.update.<locals>.<lambda>> | MAKE_FUNCTION | LOAD_CONST ('key',) | CALL_KW | STORE_FAST now
+  81: LOAD_FAST_BORROW_LOAD_FAST_BORROW now, self | LOAD_ATTR material | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L4
+  82: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _candidate | JUMP_FORWARD to L6
+  83: LOAD_FAST_BORROW_LOAD_FAST_BORROW now, self | LOAD_ATTR _candidate | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L5
+  84: LOAD_FAST_BORROW_LOAD_FAST_BORROW now, t | LOAD_FAST_BORROW self | STORE_ATTR _candidate | LOAD_FAST_BORROW self | STORE_ATTR _since | JUMP_FORWARD to L6
+  85: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _since | BINARY_OP - | LOAD_GLOBAL SURFACE_HOLD | COMPARE_OP bool(>=) | POP_JUMP_IF_FALSE to L6
+  86: LOAD_FAST_BORROW now | LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR material | LOAD_FAST_BORROW self | STORE_ATTR _candidate
+  87: LOAD_GLOBAL surface_reduction | LOAD_GLOBAL SURFACE_GRIP | LOAD_ATTR get | LOAD_FAST_BORROW self | LOAD_ATTR material | LOAD_CONST 1.0 | CALL | CALL | RETURN_VALUE
+  77: STORE_FAST m | RERAISE
+=== Surface.update.<locals>.<lambda> (line 80)
+  80: LOAD_GLOBAL SURFACE_GRIP | LOAD_ATTR get | LOAD_FAST_BORROW m | LOAD_CONST 1.0 | CALL | RETURN_VALUE
+=== Surface.name.__annotate__ (line 90)
+  None: COPY_FREE_VARS
+  90: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | BUILD_MAP | RETURN_VALUE
+=== Surface.name (line 89)
+  91: LOAD_GLOBAL SURFACE_NAME | LOAD_ATTR get | LOAD_FAST_BORROW self | LOAD_ATTR material | LOAD_CONST 'Material ' | LOAD_FAST_BORROW self | LOAD_ATTR material | FORMAT_SIMPLE | BUILD_STRING | CALL | RETURN_VALUE
+=== ForkLoad (line 94)
+  None: MAKE_CELL __classdict__
+  94: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'ForkLoad' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  95: LOAD_CONST 'Turns the fork length into extra lever steps (0..LOAD_EXTRA_MAX).\n\nThe fork value is smoothed a little (moving average over about LOAD_SMOOTHING),\notherwise L2 would change its step on every bump.\n' | STORE_NAME __doc__
+  101: LOAD_CONST <code ForkLoad.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  105: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ForkLoad.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ForkLoad.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME update
+  118: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ForkLoad.reset.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ForkLoad.reset> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME reset | LOAD_CONST ('_smooth', '_time') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ForkLoad.__init__ (line 101)
+  102: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _smooth
+  103: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _time | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ForkLoad.update.__annotate__ (line 105)
+  None: COPY_FREE_VARS
+  105: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 't' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'susp_front' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'brake' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | BUILD_MAP | RETURN_VALUE
+=== ForkLoad.update (line 105)
+  106: LOAD_FAST_BORROW brake | LOAD_GLOBAL LOAD_MIN_BRAKE | COMPARE_OP bool(<) | POP_JUMP_IF_TRUE to L1 | LOAD_FAST_BORROW_LOAD_FAST_BORROW susp_front, susp_front | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L2
+  107: LOAD_FAST_BORROW self | LOAD_ATTR reset | CALL
+  108: LOAD_SMALL_INT | RETURN_VALUE
+  109: LOAD_FAST_BORROW self | LOAD_ATTR _smooth | POP_JUMP_IF_NOT_NONE to L3
+  110: LOAD_FAST_BORROW_LOAD_FAST_BORROW susp_front, self | STORE_ATTR _smooth | JUMP_FORWARD to L6
+  112: LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | LOAD_ATTR _time | BINARY_OP - | CALL | STORE_FAST dt
+  113: LOAD_GLOBAL LOAD_SMOOTHING | LOAD_SMALL_INT | COMPARE_OP bool(>) | POP_JUMP_IF_FALSE to L4 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_FAST_BORROW dt | LOAD_GLOBAL LOAD_SMOOTHING | BINARY_OP / | CALL | JUMP_FORWARD to L5 | LOAD_CONST 1.0 | STORE_FAST a
+  114: LOAD_FAST_BORROW self | LOAD_ATTR _smooth | LOAD_FAST_BORROW_LOAD_FAST_BORROW a, susp_front | LOAD_FAST_BORROW self | LOAD_ATTR _smooth | BINARY_OP - | BINARY_OP * | BINARY_OP += | STORE_ATTR _smooth
+  115: LOAD_FAST_BORROW_LOAD_FAST_BORROW t, self | STORE_ATTR _time
+  116: LOAD_GLOBAL round | LOAD_GLOBAL LOAD_EXTRA_MAX | LOAD_GLOBAL load_share | LOAD_FAST_BORROW self | LOAD_ATTR _smooth | CALL | BINARY_OP * | CALL | RETURN_VALUE
+=== ForkLoad.reset.__annotate__ (line 118)
+  None: COPY_FREE_VARS
+  118: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== ForkLoad.reset (line 118)
+  119: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _smooth
+  120: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _time | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

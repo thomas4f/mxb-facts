@@ -1,0 +1,6 @@
+$ { { pyinst.py code pkg/mxb_dualsense.pyc_raw; for m in $(pyinst.py pyz pkg/PYZ.pyz | grep -E '^mxbds'); do pyinst.py pyzcode pkg/PYZ.pyz $m; done; }; cat pkg/gui_web/index.html pkg/gui_web/app.js pkg/gui_web/style.css; } | grep -noE 'https?://[^ |"'\'')]+|webbrowser'
+1868:https://developer.microsoft.com/microsoft-edge/webview2/
+1949:webbrowser
+1949:webbrowser
+1950:webbrowser
+(exit 0)

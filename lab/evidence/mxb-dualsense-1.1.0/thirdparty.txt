@@ -1,0 +1,106 @@
+$ cat zip/LICENSE.txt zip/CREDITS.txt; ls zip/licenses
+MIT License
+
+Copyright (c) 2026 Slimerex
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+MXB DualSense Support Mod - Credits
+===================================
+
+The mod itself is MIT licensed (LICENSE.txt).
+
+This mod uses or builds on the following work:
+
+- DualSenseX (DSX) by Paliverse - https://github.com/Paliverse/DualSenseX
+  NOT included, install separately. The UDP packet format follows Paliverse's official UDP example.
+
+- MX Bikes and the proxy_udp plugin by PiBoSo - https://mx-bikes.com
+  proxy_udp64.dlo ships with the game and is NOT included.
+
+- TriggerEffectGenerator by John "Nielk1" Klein
+  https://gist.github.com/Nielk1/6d54cc2c00d2201ccb8c2720ad7538db
+  The packing of the DualSense "Feedback" effect (10 zones) follows this code.
+
+  MIT License
+
+  Copyright (c) 2021-2022 John "Nielk1" Klein
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+
+- Inter typeface - Copyright 2016 The Inter Project Authors (https://github.com/rsms/inter)
+  Used by the control center (InterVariable.woff2) and the optional in-game HUD plugin
+  (mxbds_hud/Inter-SemiBold.fnt). Licensed under the
+  SIL Open Font License 1.1 (https://openfontlicense.org). The .fnt file was converted to the
+  PiBoSo plugin font format by the MXBMRP3 project (https://github.com/thomas4f/mxbmrp3, MIT).
+
+- PiBoSo plugin API (mxb_api.h) - https://www.piboso.com
+  The HUD plugin implements the official MX Bikes plugin interface.
+
+- Python - https://www.python.org
+  The exe bundles the Python runtime under the Python Software Foundation License
+  (https://docs.python.org/3/license.html).
+
+- pywebview by Roman Sirokov and contributors - https://pywebview.flowrl.com
+  Shows the control center window. BSD 3-Clause License. pywebview and the packages it needs
+  (on Windows e.g. pythonnet, clr-loader, bottle, proxy_tools) are bundled in the exe; their
+  license texts, taken from the exact versions in this build, are in the licenses folder.
+
+- Microsoft Edge WebView2 Runtime - https://developer.microsoft.com/microsoft-edge/webview2/
+  Draws the control center window. Part of Windows, NOT included in this package.
+  The small WebView2 SDK DLLs that come with pywebview (Microsoft.Web.WebView2.*.dll,
+  WebView2Loader.dll) ARE bundled: Copyright (C) Microsoft Corporation, BSD-style license -
+  full text and NOTICE in the licenses folder.
+
+- The Python runtime in the exe also contains OpenSSL, libffi, zlib and other libraries;
+  their licenses are part of Python's LICENSE.txt in the licenses folder.
+
+- PyInstaller - https://pyinstaller.org
+  Used to build the exe. GPLv2 or later with a bootloader exception that allows distributing
+  the built program under its own license
+  (https://github.com/pyinstaller/pyinstaller/blob/develop/COPYING.txt).
+Microsoft.Web.WebView2-1.0.3856.49-LICENSE.txt
+Microsoft.Web.WebView2-1.0.3856.49-NOTICE.txt
+Python-3.15.1-LICENSE.txt
+README.txt
+bottle-0.13.4-LICENSE
+cffi-2.1.1-LICENSE
+clr_loader-0.3.1-LICENSE
+proxy_tools-0.1.0-LICENSE.txt
+pycparser-3.12-LICENSE
+pythonnet-3.2.1-AUTHORS.md
+pythonnet-3.2.1-LICENSE
+pywebview-6.2.1-LICENSE
+typing_extensions-4.16.0-LICENSE
+(exit 0)

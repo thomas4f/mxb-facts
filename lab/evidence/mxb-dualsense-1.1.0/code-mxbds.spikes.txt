@@ -1,0 +1,73 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.spikes
+=== <module> (line 1)
+  1: LOAD_CONST "Spike filter (G1): ignore single implausible telemetry values.\n\nA value that jumps further in one packet than the bike can physically do is held at\nthe last good value. If the next *new* packet (different game time) is still far away,\nthe jump was real and is accepted - so a real change is delayed by at most one packet\n(10 ms), and only in that rare case. Values that are not finite (NaN/inf) are always\nreplaced by the last good value; pedals are clamped to 0..1.\n\nLimits come from Slimerex's recordings (FEASIBILITY.md, G1): the biggest real jumps per packet\nwere speed 1.3 m/s, wheel speed 12.8 m/s (front wheel spinning up after a wheelie,\nover a 20 ms step), fork velocity 2.5 m/s, fork length 0.06 m, rpm 3149 - the limits\nbelow are 2-4 times that, so real riding is never touched.\n" | STORE_NAME __doc__
+  15: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME dataclasses | STORE_NAME dataclasses
+  16: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME math | STORE_NAME math
+  18: LOAD_SMALL_INT | LOAD_CONST ('BikeData',) | IMPORT_NAME mxbds.telemetry | IMPORT_FROM BikeData | STORE_NAME BikeData
+  22: LOAD_CONST 'speed' | LOAD_CONST 5.0
+  23: LOAD_CONST 'wheel_front' | LOAD_CONST 30.0
+  24: LOAD_CONST 'wheel_rear' | LOAD_CONST 30.0
+  25: LOAD_CONST 'susp_vel_front' | LOAD_CONST 8.0
+  26: LOAD_CONST 'susp_front' | LOAD_CONST 0.15
+  27: LOAD_CONST 'rpm' | LOAD_CONST 8000
+  21: BUILD_MAP | STORE_NAME MAX_STEP
+  29: LOAD_CONST ('brake_front', 'brake_rear', 'throttle') | STORE_NAME PEDALS
+  32: LOAD_BUILD_CLASS | LOAD_CONST <code SpikeFilter> | MAKE_FUNCTION | LOAD_CONST 'SpikeFilter' | CALL | STORE_NAME SpikeFilter | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== SpikeFilter (line 32)
+  None: MAKE_CELL __classdict__
+  32: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'SpikeFilter' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  33: LOAD_CONST <code SpikeFilter.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  36: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code SpikeFilter.reset.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code SpikeFilter.reset> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME reset
+  42: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code SpikeFilter.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code SpikeFilter.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME update | LOAD_CONST ('_good', '_last_time', '_pending', 'rejected') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== SpikeFilter.__init__ (line 33)
+  34: LOAD_FAST_BORROW self | LOAD_ATTR reset | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== SpikeFilter.reset.__annotate__ (line 36)
+  None: COPY_FREE_VARS
+  36: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== SpikeFilter.reset (line 36)
+  37: BUILD_MAP | LOAD_FAST_BORROW self | STORE_ATTR _good
+  38: BUILD_MAP | LOAD_FAST_BORROW self | STORE_ATTR _pending
+  39: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _last_time
+  40: LOAD_SMALL_INT | LOAD_FAST_BORROW self | STORE_ATTR rejected | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== SpikeFilter.update.__annotate__ (line 42)
+  None: COPY_FREE_VARS
+  42: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'd' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS BikeData | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS BikeData | BUILD_MAP | RETURN_VALUE
+=== SpikeFilter.update (line 42)
+  44: LOAD_FAST_BORROW self | LOAD_ATTR _last_time | POP_JUMP_IF_NONE to L1 | LOAD_FAST_BORROW d | LOAD_ATTR time_ms | LOAD_FAST_BORROW self | LOAD_ATTR _last_time | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L1
+  45: LOAD_FAST_BORROW self | LOAD_ATTR reset | CALL
+  46: LOAD_FAST_BORROW d | LOAD_ATTR time_ms | LOAD_FAST_BORROW self | LOAD_ATTR _last_time | COMPARE_OP != | STORE_FAST new_packet
+  47: LOAD_FAST_BORROW d | LOAD_ATTR time_ms | LOAD_FAST_BORROW self | STORE_ATTR _last_time
+  49: BUILD_MAP | STORE_FAST changes
+  50: LOAD_GLOBAL PEDALS | GET_ITER | FOR_ITER to L5 | STORE_FAST name
+  51: LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW d, name | CALL | STORE_FAST v
+  52: LOAD_GLOBAL math | LOAD_ATTR isfinite | LOAD_FAST_BORROW v | CALL | POP_JUMP_IF_TRUE to L3
+  53: LOAD_FAST_BORROW self | LOAD_ATTR _good | LOAD_ATTR get | LOAD_FAST_BORROW name | LOAD_CONST 0.0 | CALL | LOAD_FAST_BORROW_LOAD_FAST_BORROW changes, name | STORE_SUBSCR
+  54: LOAD_FAST_BORROW self | LOAD_ATTR rejected | LOAD_SMALL_INT | BINARY_OP += | STORE_ATTR rejected
+  55: JUMP_BACKWARD to L2
+  56: LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_FAST_BORROW v | CALL | CALL | STORE_FAST clamped
+  57: LOAD_FAST_BORROW_LOAD_FAST_BORROW clamped, v | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L4
+  58: LOAD_FAST_BORROW_LOAD_FAST_BORROW clamped, changes | LOAD_FAST_BORROW name | STORE_SUBSCR
+  59: LOAD_FAST_BORROW_LOAD_FAST_BORROW clamped, self | LOAD_ATTR _good | LOAD_FAST_BORROW name | STORE_SUBSCR | JUMP_BACKWARD to L2
+  61: LOAD_GLOBAL MAX_STEP | LOAD_ATTR items | CALL | GET_ITER | EXTENDED_ARG | FOR_ITER to L13 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST name, limit
+  62: LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW d, name | CALL | STORE_FAST v
+  63: LOAD_FAST_BORROW self | LOAD_ATTR _good | LOAD_ATTR get | LOAD_FAST_BORROW name | CALL | STORE_FAST good
+  64: LOAD_GLOBAL math | LOAD_ATTR isfinite | LOAD_FAST_BORROW v | CALL | POP_JUMP_IF_TRUE to L9
+  65: LOAD_FAST_BORROW good | POP_JUMP_IF_NONE to L7 | LOAD_FAST good | JUMP_FORWARD to L8 | LOAD_CONST 0.0 | LOAD_FAST_BORROW_LOAD_FAST_BORROW changes, name | STORE_SUBSCR
+  66: LOAD_FAST_BORROW self | LOAD_ATTR rejected | LOAD_SMALL_INT | BINARY_OP += | STORE_ATTR rejected
+  67: JUMP_BACKWARD to L6
+  68: LOAD_FAST_BORROW good | POP_JUMP_IF_NONE to L10 | LOAD_GLOBAL abs | LOAD_FAST_BORROW_LOAD_FAST_BORROW v, good | BINARY_OP - | CALL | LOAD_FAST_BORROW limit | COMPARE_OP bool(<=) | POP_JUMP_IF_FALSE to L11
+  69: LOAD_FAST_BORROW_LOAD_FAST_BORROW v, self | LOAD_ATTR _good | LOAD_FAST_BORROW name | STORE_SUBSCR
+  70: LOAD_FAST_BORROW self | LOAD_ATTR _pending | LOAD_ATTR pop | LOAD_FAST_BORROW name | LOAD_COMMON_CONSTANT None | CALL
+  71: JUMP_BACKWARD to L6
+  73: LOAD_FAST_BORROW self | LOAD_ATTR _pending | LOAD_ATTR setdefault | LOAD_FAST_BORROW_LOAD_FAST_BORROW name, d | LOAD_ATTR time_ms | CALL | STORE_FAST first
+  74: LOAD_FAST_BORROW new_packet | POP_JUMP_IF_FALSE to L12 | LOAD_FAST_BORROW_LOAD_FAST_BORROW first, d | LOAD_ATTR time_ms | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L12
+  75: LOAD_FAST_BORROW_LOAD_FAST_BORROW v, self | LOAD_ATTR _good | LOAD_FAST_BORROW name | STORE_SUBSCR
+  76: LOAD_FAST_BORROW self | LOAD_ATTR _pending | LOAD_ATTR pop | LOAD_FAST_BORROW name | CALL | EXTENDED_ARG | JUMP_BACKWARD to L6
+  78: LOAD_FAST_BORROW_LOAD_FAST_BORROW good, changes | LOAD_FAST_BORROW name | STORE_SUBSCR
+  79: LOAD_FAST_BORROW self | LOAD_ATTR rejected | LOAD_SMALL_INT | BINARY_OP += | STORE_ATTR rejected | EXTENDED_ARG | JUMP_BACKWARD to L6
+  81: LOAD_FAST_BORROW changes | POP_JUMP_IF_TRUE to L14
+  82: LOAD_FAST_BORROW d | RETURN_VALUE
+  83: LOAD_CONST 'rpm' | LOAD_FAST_BORROW changes | CONTAINS_OP in | POP_JUMP_IF_FALSE to L15
+  84: LOAD_GLOBAL int | LOAD_FAST_BORROW changes | LOAD_CONST 'rpm' | BINARY_OP [] | CALL | LOAD_FAST_BORROW changes | LOAD_CONST 'rpm' | STORE_SUBSCR
+  85: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW d | BUILD_TUPLE | BUILD_MAP | LOAD_FAST_BORROW changes | DICT_MERGE | CALL_FUNCTION_EX | RETURN_VALUE
+(exit 0)

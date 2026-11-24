@@ -1,0 +1,135 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.gui.app
+=== <module> (line 1)
+  1: LOAD_CONST 'Control center window (F4): the mod with an app window instead of the console.\n\nStart:  python src/mxbds/gui/app.py\n        python src/mxbds/gui/app.py --auto-close 5    (closes itself, for tests)\nThe mod starts right away; "Stop mod" in the sidebar sets both triggers back to normal.\nClosing the window stops the mod too. The page loads only local files (no internet).\n' | STORE_NAME __doc__
+  9: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME argparse | STORE_NAME argparse
+  10: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME sys | STORE_NAME sys
+  11: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME threading | STORE_NAME threading
+  12: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME time | STORE_NAME time
+  13: LOAD_SMALL_INT | LOAD_CONST ('Path',) | IMPORT_NAME pathlib | IMPORT_FROM Path | STORE_NAME Path
+  15: LOAD_NAME __package__ | LOAD_CONST (None, '') | CONTAINS_OP in | POP_JUMP_IF_FALSE to L1
+  16: LOAD_NAME sys | LOAD_ATTR path | LOAD_ATTR insert | LOAD_SMALL_INT | LOAD_NAME str | LOAD_NAME Path | LOAD_NAME __file__ | CALL | LOAD_ATTR resolve | CALL | LOAD_ATTR parent | LOAD_ATTR parent | LOAD_ATTR parent | CALL | CALL
+  18: LOAD_CONST 'https://developer.microsoft.com/microsoft-edge/webview2/' | STORE_NAME WEBVIEW2_URL
+  20: LOAD_CONST 'Microsoft\\EdgeUpdate\\Clients\\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}' | STORE_NAME WEBVIEW2_KEY
+  23: LOAD_CONST <code webview2_installed.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code webview2_installed> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME webview2_installed
+  42: LOAD_CONST (0, 4, 48, 6) | UNPACK_SEQUENCE | STORE_NAME MB_OK | STORE_NAME MB_YESNO | STORE_NAME MB_ICONWARNING | STORE_NAME IDYES
+  45: LOAD_CONST (False,) | LOAD_CONST <code tell_user.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code tell_user> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME tell_user
+  58: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME webview + eager | STORE_NAME webview
+  64: LOAD_SMALL_INT | LOAD_CONST ('telemetry',) | IMPORT_NAME mxbds | IMPORT_FROM telemetry | STORE_NAME telemetry
+  65: LOAD_SMALL_INT | LOAD_CONST ('ComboKey',) | IMPORT_NAME mxbds.hotkeys | IMPORT_FROM ComboKey | STORE_NAME ComboKey
+  66: LOAD_SMALL_INT | LOAD_CONST ('ControlApi',) | IMPORT_NAME mxbds.gui.api | IMPORT_FROM ControlApi | STORE_NAME ControlApi
+  68: LOAD_CONST 'MXB DualSense Support' | STORE_NAME TITLE
+  71: LOAD_CONST <code web_folder.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code web_folder> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME web_folder
+  77: LOAD_CONST <code use_own_taskbar_icon.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code use_own_taskbar_icon> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME use_own_taskbar_icon
+  86: LOAD_CONST <code main.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code main> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME main
+  147: LOAD_NAME __name__ | LOAD_CONST '__main__' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L3
+  148: LOAD_NAME sys | LOAD_ATTR exit | LOAD_NAME main | CALL | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  147: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  59: LOAD_NAME ImportError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4
+  60: LOAD_NAME tell_user | LOAD_CONST 'pywebview is missing for this Python (' | LOAD_NAME sys | LOAD_ATTR executable | FORMAT_SIMPLE | LOAD_CONST ').\nInstall it with:  "'
+  61: LOAD_NAME sys | LOAD_ATTR executable | FORMAT_SIMPLE | LOAD_CONST '" -m pip install pywebview'
+  60: BUILD_STRING | CALL
+  62: LOAD_NAME sys | LOAD_ATTR exit | LOAD_SMALL_INT | CALL | JUMP_BACKWARD_NO_INTERRUPT to L2
+  59: RERAISE | RERAISE
+=== webview2_installed.__annotate__ (line 23)
+  23: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL bool | BUILD_MAP | RETURN_VALUE
+=== webview2_installed (line 23)
+  25: LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L1
+  26: LOAD_COMMON_CONSTANT True | RETURN_VALUE
+  27: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME winreg + eager | STORE_FAST winreg
+  28: LOAD_FAST_BORROW winreg | LOAD_ATTR HKEY_LOCAL_MACHINE | LOAD_CONST 'SOFTWARE\\WOW6432Node\\' | LOAD_GLOBAL WEBVIEW2_KEY | BINARY_OP + | BUILD_TUPLE
+  29: LOAD_FAST_BORROW winreg | LOAD_ATTR HKEY_LOCAL_MACHINE | LOAD_CONST 'SOFTWARE\\' | LOAD_GLOBAL WEBVIEW2_KEY | BINARY_OP + | BUILD_TUPLE
+  30: LOAD_FAST_BORROW winreg | LOAD_ATTR HKEY_CURRENT_USER | LOAD_CONST 'Software\\' | LOAD_GLOBAL WEBVIEW2_KEY | BINARY_OP + | BUILD_TUPLE
+  28: BUILD_LIST | STORE_FAST places
+  31: LOAD_FAST places | GET_ITER | FOR_ITER to L4 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST root, path
+  33: LOAD_FAST_BORROW winreg | LOAD_ATTR OpenKey | LOAD_FAST_BORROW_LOAD_FAST_BORROW root, path | CALL | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL | STORE_FAST key
+  34: LOAD_FAST_BORROW winreg | LOAD_ATTR QueryValueEx | LOAD_FAST_BORROW key | LOAD_CONST 'pv' | CALL | LOAD_SMALL_INT | BINARY_OP [] | STORE_FAST version
+  35: LOAD_FAST_BORROW version | POP_JUMP_IF_FALSE to L3 | LOAD_FAST_BORROW version | LOAD_CONST '0.0.0.0' | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L3
+  33: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL | LOAD_COMMON_CONSTANT True | RETURN_VALUE | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL | JUMP_BACKWARD to L2
+  39: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+  33: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L5 | RERAISE | JUMP_BACKWARD to L2 | RERAISE | PUSH_EXC_INFO
+  37: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L6
+  38: JUMP_BACKWARD to L2
+  37: RERAISE | RERAISE
+=== tell_user.__annotate__ (line 45)
+  45: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'text' | LOAD_GLOBAL str | LOAD_CONST 'yes_no' | LOAD_GLOBAL bool | LOAD_CONST 'return' | LOAD_GLOBAL bool | BUILD_MAP | RETURN_VALUE
+=== tell_user (line 45)
+  48: LOAD_GLOBAL sys | LOAD_ATTR stderr | POP_JUMP_IF_NONE to L1
+  49: LOAD_GLOBAL print | LOAD_FAST_BORROW text | LOAD_GLOBAL sys | LOAD_ATTR stderr | LOAD_CONST ('file',) | CALL_KW
+  50: LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L2
+  51: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+  52: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  53: LOAD_FAST_BORROW yes_no | POP_JUMP_IF_FALSE to L3 | LOAD_GLOBAL MB_YESNO | JUMP_FORWARD to L4 | LOAD_GLOBAL MB_OK | LOAD_GLOBAL MB_ICONWARNING | BINARY_OP | | STORE_FAST flags
+  54: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR user32 | LOAD_ATTR MessageBoxW | LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW text | LOAD_CONST 'MXB DualSense Support' | LOAD_FAST_BORROW flags | CALL | LOAD_GLOBAL IDYES | COMPARE_OP == | RETURN_VALUE
+=== web_folder.__annotate__ (line 71)
+  71: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL Path | BUILD_MAP | RETURN_VALUE
+=== web_folder (line 71)
+  72: LOAD_GLOBAL getattr | LOAD_GLOBAL sys | LOAD_CONST 'frozen' | LOAD_COMMON_CONSTANT False | CALL | POP_JUMP_IF_FALSE to L1
+  73: LOAD_GLOBAL Path | LOAD_GLOBAL getattr | LOAD_GLOBAL sys | LOAD_CONST '_MEIPASS' | LOAD_GLOBAL Path | LOAD_GLOBAL sys | LOAD_ATTR executable | CALL | LOAD_ATTR parent | CALL | CALL | LOAD_CONST 'gui_web' | BINARY_OP / | RETURN_VALUE
+  74: LOAD_GLOBAL Path | LOAD_GLOBAL __file__ | CALL | LOAD_ATTR resolve | CALL | LOAD_ATTR parent | LOAD_CONST 'web' | BINARY_OP / | RETURN_VALUE
+=== use_own_taskbar_icon.__annotate__ (line 77)
+  77: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== use_own_taskbar_icon (line 77)
+  80: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  81: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR shell32 | LOAD_ATTR SetCurrentProcessExplicitAppUserModelID | LOAD_CONST 'Slimerex.MXBDualSenseSupport' | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  82: LOAD_GLOBAL AttributeError | LOAD_GLOBAL OSError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L1
+  83: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  82: RERAISE | RERAISE
+=== main.__annotate__ (line 86)
+  86: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== main (line 86)
+  None: MAKE_CELL api | MAKE_CELL args | MAKE_CELL stop_keys | MAKE_CELL window
+  87: LOAD_GLOBAL argparse | LOAD_ATTR ArgumentParser | LOAD_CONST 'MXB DualSense Support - control center' | LOAD_CONST ('description',) | CALL_KW | STORE_FAST parser
+  88: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--dsx-port' | LOAD_GLOBAL int | LOAD_COMMON_CONSTANT None | LOAD_CONST ('type', 'default') | CALL_KW
+  89: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--telemetry-port' | LOAD_GLOBAL int | LOAD_GLOBAL telemetry | LOAD_ATTR DEFAULT_PORT | LOAD_CONST ('type', 'default') | CALL_KW
+  90: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--no-autostart' | LOAD_CONST 'store_true' | LOAD_CONST "don't start the mod when the window opens" | LOAD_CONST ('action', 'help') | CALL_KW
+  91: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--no-anim' | LOAD_CONST 'store_true' | LOAD_CONST 'Live page without the trigger animation (FPS check)' | LOAD_CONST ('action', 'help') | CALL_KW
+  92: LOAD_FAST_BORROW parser | LOAD_ATTR add_argument | LOAD_CONST '--auto-close' | LOAD_GLOBAL float | LOAD_COMMON_CONSTANT None | LOAD_CONST 'SECONDS' | LOAD_GLOBAL argparse | LOAD_ATTR SUPPRESS | LOAD_CONST ('type', 'default', 'metavar', 'help') | CALL_KW
+  93: LOAD_FAST_BORROW parser | LOAD_ATTR parse_args | CALL | STORE_DEREF args
+  95: LOAD_GLOBAL webview2_installed | CALL | POP_JUMP_IF_TRUE to L1
+  97: LOAD_GLOBAL tell_user | LOAD_CONST 'The control center needs the Microsoft Edge WebView2 Runtime, which seems to be missing on this PC (common on Windows 10).\n\nYes = open the download page (choose "Evergreen Bootstrapper"), install it and start the mod again.\nNo = try to start anyway.\n\nThe console version works without it: MXB-DualSense-Support.exe --console'
+  100: LOAD_COMMON_CONSTANT True
+  97: LOAD_CONST ('yes_no',) | CALL_KW | POP_JUMP_IF_FALSE to L1
+  101: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME webbrowser + eager | STORE_FAST webbrowser
+  102: LOAD_FAST_BORROW webbrowser | LOAD_ATTR open | LOAD_GLOBAL WEBVIEW2_URL | CALL
+  103: LOAD_SMALL_INT | RETURN_VALUE
+  105: LOAD_GLOBAL ControlApi | LOAD_DEREF args | LOAD_ATTR dsx_port | LOAD_DEREF args | LOAD_ATTR telemetry_port | LOAD_DEREF args | LOAD_ATTR no_anim | UNARY_NOT | LOAD_CONST ('dsx_port', 'telemetry_port', 'animation') | CALL_KW | STORE_DEREF api
+  106: LOAD_DEREF args | LOAD_ATTR no_autostart | POP_JUMP_IF_TRUE to L2
+  107: LOAD_DEREF api | LOAD_ATTR start | CALL
+  109: LOAD_GLOBAL webview | LOAD_ATTR create_window | LOAD_GLOBAL TITLE | LOAD_GLOBAL str | LOAD_GLOBAL web_folder | CALL | LOAD_CONST 'index.html' | BINARY_OP / | CALL | LOAD_DEREF api
+  110: LOAD_CONST 1180 | LOAD_CONST 780 | LOAD_CONST (760, 560)
+  111: LOAD_CONST '#0B1120'
+  109: LOAD_CONST ('url', 'js_api', 'width', 'height', 'min_size', 'background_color') | CALL_KW | STORE_DEREF window
+  112: LOAD_DEREF window | LOAD_ATTR events | LOAD_ATTR closed | LOAD_DEREF api | LOAD_ATTR shutdown | BINARY_OP += | STORE_ATTR closed
+  113: LOAD_DEREF window | LOAD_DEREF api | STORE_ATTR _window
+  116: LOAD_GLOBAL threading | LOAD_ATTR Event | CALL | STORE_DEREF stop_keys
+  118: LOAD_FAST_BORROW api | LOAD_FAST_BORROW stop_keys | BUILD_TUPLE | LOAD_CONST <code main.<locals>.watch_hotkey> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_FAST watch_hotkey
+  126: LOAD_GLOBAL threading | LOAD_ATTR Thread | LOAD_FAST_BORROW watch_hotkey | LOAD_CONST 'mxbds-hotkey' | LOAD_COMMON_CONSTANT True | LOAD_CONST ('target', 'name', 'daemon') | CALL_KW | LOAD_ATTR start | CALL
+  128: LOAD_FAST_BORROW args | LOAD_FAST_BORROW window | BUILD_TUPLE | LOAD_CONST <code main.<locals>.after_start> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_FAST after_start
+  133: LOAD_GLOBAL use_own_taskbar_icon | CALL
+  135: LOAD_GLOBAL webview | LOAD_ATTR start | LOAD_FAST_BORROW after_start | LOAD_CONST 'edgechromium' | LOAD_COMMON_CONSTANT True | LOAD_GLOBAL str | LOAD_GLOBAL web_folder | CALL | LOAD_CONST 'icon.ico' | BINARY_OP / | CALL | LOAD_CONST ('gui', 'private_mode', 'icon') | CALL_KW
+  142: LOAD_DEREF stop_keys | LOAD_ATTR set | CALL
+  143: LOAD_DEREF api | LOAD_ATTR shutdown | CALL
+  144: LOAD_SMALL_INT | RETURN_VALUE | PUSH_EXC_INFO
+  136: LOAD_GLOBAL Exception | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST error
+  137: LOAD_DEREF api | LOAD_ATTR shutdown | CALL
+  138: LOAD_GLOBAL tell_user | LOAD_CONST 'The control center window could not open (' | LOAD_GLOBAL type | LOAD_FAST error | CALL | LOAD_ATTR __name__ | FORMAT_SIMPLE | LOAD_CONST ': ' | LOAD_FAST error | FORMAT_SIMPLE | LOAD_CONST ').\n\nInstall or repair the Microsoft Edge WebView2 Runtime ('
+  139: LOAD_GLOBAL WEBVIEW2_URL | FORMAT_SIMPLE | LOAD_CONST '), or use the console version: MXB-DualSense-Support.exe --console'
+  138: BUILD_STRING | CALL
+  141: LOAD_COMMON_CONSTANT None | STORE_FAST error | DELETE_FAST error | LOAD_SMALL_INT | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST error | DELETE_FAST error | RERAISE
+  136: RERAISE | RERAISE
+=== main.<locals>.watch_hotkey (line 118)
+  None: COPY_FREE_VARS
+  119: LOAD_GLOBAL ComboKey | CALL | LOAD_GLOBAL ComboKey | LOAD_GLOBAL ord | LOAD_CONST 'M' | CALL | CALL | STORE_FAST_STORE_FAST mode_key, key
+  120: LOAD_DEREF stop_keys | LOAD_ATTR wait | LOAD_CONST 0.05 | CALL | POP_JUMP_IF_TRUE to L4
+  121: LOAD_FAST_BORROW key | LOAD_ATTR pressed | CALL | POP_JUMP_IF_FALSE to L2
+  122: LOAD_DEREF api | LOAD_ATTR toggle_hud | CALL
+  123: LOAD_FAST_BORROW mode_key | LOAD_ATTR pressed | CALL | POP_JUMP_IF_TRUE to L3 | JUMP_BACKWARD to L1
+  124: LOAD_DEREF api | LOAD_ATTR toggle_mode | CALL | JUMP_BACKWARD to L1
+  120: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== main.<locals>.after_start (line 128)
+  None: COPY_FREE_VARS
+  129: LOAD_DEREF args | LOAD_ATTR auto_close | POP_JUMP_IF_FALSE to L1
+  130: LOAD_GLOBAL time | LOAD_ATTR sleep | LOAD_DEREF args | LOAD_ATTR auto_close | CALL
+  131: LOAD_DEREF window | LOAD_ATTR destroy | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  129: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

@@ -1,0 +1,5 @@
+$ strings -n 6 pkg/hud_plugin/mxbds_hud64.dlo | grep -iE 'mxb|hud|\.fnt|http|\.ini|\.log'; strings -el -n 6 pkg/hud_plugin/mxbds_hud64.dlo | grep -iE 'mxb|hud|http'
+mxbds_hud64.dll
+mxbds_hud\Inter-SemiBold.fnt
+mxbikes
+(exit 1)

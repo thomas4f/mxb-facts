@@ -1,0 +1,481 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.settings
+=== <module> (line 1)
+  1: LOAD_CONST 'Settings for the trigger feel: load, save, adjust in tuning mode (D2).\n\nSaved to settings.ini in the project folder (or next to the .exe) - settings only,\nno ride data. If the file is missing, the defaults from brake.py / lockup.py /\neffects.py apply. An old einstellungen.ini (before the English migration) is still read.\n' | STORE_NAME __doc__
+  8: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME configparser | STORE_NAME configparser
+  9: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME dataclasses | STORE_NAME dataclasses
+  10: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME sys | STORE_NAME sys
+  11: LOAD_SMALL_INT | LOAD_CONST ('dataclass', 'field') | IMPORT_NAME dataclasses | IMPORT_FROM dataclass | STORE_NAME dataclass | IMPORT_FROM field | STORE_NAME field
+  12: LOAD_SMALL_INT | LOAD_CONST ('Path',) | IMPORT_NAME pathlib | IMPORT_FROM Path | STORE_NAME Path
+  14: LOAD_SMALL_INT | LOAD_CONST ('brake', 'effects', 'lockup') | IMPORT_NAME mxbds | IMPORT_FROM brake | STORE_NAME brake | IMPORT_FROM effects | STORE_NAME effects | IMPORT_FROM lockup | STORE_NAME lockup
+  17: LOAD_CONST <code _base_folder.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code _base_folder> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _base_folder
+  28: LOAD_NAME _base_folder | CALL | LOAD_CONST 'settings.ini' | BINARY_OP / | STORE_NAME FILE
+  29: LOAD_NAME _base_folder | CALL | LOAD_CONST 'einstellungen.ini' | BINARY_OP / | STORE_NAME LEGACY_FILE
+  33: LOAD_CONST 'brake' | LOAD_CONST 'bremse' | LOAD_CONST 'zones' | LOAD_CONST 'zonen' | BUILD_MAP | BUILD_TUPLE
+  34: LOAD_CONST 'throttle' | LOAD_CONST 'gas' | LOAD_CONST 'zones' | LOAD_CONST 'zonen' | BUILD_MAP | BUILD_TUPLE
+  35: LOAD_CONST 'stutter' | LOAD_CONST 'stottern' | LOAD_CONST 'hz_slow' | LOAD_CONST 'hz_langsam' | LOAD_CONST 'hz_fast' | LOAD_CONST 'hz_schnell'
+  36: LOAD_CONST 'force_min' | LOAD_CONST 'kraft_min' | LOAD_CONST 'force_max' | LOAD_CONST 'kraft_max'
+  35: BUILD_MAP | BUILD_TUPLE
+  32: BUILD_MAP | STORE_NAME _LEGACY
+  43: LOAD_SMALL_INT | STORE_NAME MX_LANDING_FORCE_MIN
+  44: LOAD_SMALL_INT | STORE_NAME MX_LANDING_FORCE_MAX
+  45: LOAD_CONST 0.3 | STORE_NAME MX_LANDING_V_SOFT
+  46: LOAD_CONST 2.0 | STORE_NAME MX_LANDING_V_HARD
+  48: LOAD_CONST 0.4 | STORE_NAME MX_LOCKUP_SLIP
+  49: LOAD_CONST 0.25 | STORE_NAME MX_WARN_FROM
+  50: LOAD_CONST 0.6 | STORE_NAME MX_WHEELSPIN_FROM
+  52: LOAD_CONST 0.45 | STORE_NAME MX_WHOOPS_FROM
+  53: LOAD_SMALL_INT | STORE_NAME MX_WHOOPS_FORCE
+  55: LOAD_CONST 'mx_landing_v_soft' | LOAD_CONST (0.1, 2.0) | LOAD_CONST 'mx_landing_v_hard' | LOAD_CONST (0.5, 5.0) | LOAD_CONST 'mx_lockup_slip' | LOAD_CONST (0.2, 0.9)
+  56: LOAD_CONST 'mx_warn_from' | LOAD_CONST (0.05, 0.8) | LOAD_CONST 'mx_wheelspin_from' | LOAD_CONST (0.1, 2.0) | LOAD_CONST 'mx_whoops_from' | LOAD_CONST (0.1, 2.0)
+  54: BUILD_MAP | STORE_NAME MX_FLOATS
+  58: LOAD_CONST ('mx_landing_force_min', 'mx_landing_force_max', 'mx_whoops_force') | STORE_NAME MX_INTS
+  61: LOAD_NAME dataclass
+  62: LOAD_BUILD_CLASS | LOAD_CONST <code Settings> | MAKE_FUNCTION | LOAD_CONST 'Settings' | CALL
+  61: CALL
+  62: STORE_NAME Settings
+  139: LOAD_CONST ('lever', 'spring', 'stutter', 'warning', 'landing', 'clunk', 'wheelspin', 'shift') | STORE_NAME SWITCHES
+  141: LOAD_CONST 0.85 | STORE_NAME SHIFT_SHARE_MIN
+  142: LOAD_CONST 0.99 | STORE_NAME SHIFT_SHARE_MAX
+  145: LOAD_CONST <code _int.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code _int> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _int
+  152: LOAD_CONST <code clean.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code clean> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME clean
+  194: LOAD_CONST <code _zone_list.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code _zone_list> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _zone_list
+  202: LOAD_CONST <code to_dict.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code to_dict> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME to_dict
+  206: LOAD_CONST (None,) | LOAD_CONST <code from_dict.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code from_dict> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME from_dict
+  216: LOAD_CONST <code _get.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code _get> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _get
+  227: LOAD_CONST <code _zones.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code _zones> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _zones
+  234: LOAD_CONST (None,) | LOAD_CONST <code load.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code load> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME load
+  322: LOAD_CONST (None,) | LOAD_CONST <code save.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code save> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME save | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== _base_folder.__annotate__ (line 17)
+  17: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL Path | BUILD_MAP | RETURN_VALUE
+=== _base_folder (line 17)
+  23: LOAD_GLOBAL getattr | LOAD_GLOBAL sys | LOAD_CONST 'frozen' | LOAD_COMMON_CONSTANT False | CALL | POP_JUMP_IF_FALSE to L1
+  24: LOAD_GLOBAL Path | LOAD_GLOBAL sys | LOAD_ATTR executable | CALL | LOAD_ATTR resolve | CALL | LOAD_ATTR parent | RETURN_VALUE
+  25: LOAD_GLOBAL Path | LOAD_GLOBAL __file__ | CALL | LOAD_ATTR resolve | CALL | LOAD_ATTR parent | LOAD_ATTR parent | LOAD_ATTR parent | RETURN_VALUE
+=== Settings (line 61)
+  None: MAKE_CELL __classdict__
+  61: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'Settings' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  63: LOAD_NAME field | LOAD_CONST <code Settings.<lambda>> | MAKE_FUNCTION | LOAD_CONST ('default_factory',) | CALL_KW | STORE_NAME brake_zones
+  64: LOAD_NAME field | LOAD_CONST <code Settings.<lambda>> | MAKE_FUNCTION | LOAD_CONST ('default_factory',) | CALL_KW | STORE_NAME throttle_zones
+  65: LOAD_NAME lockup | LOAD_ATTR STUTTER_HZ_SLOW | STORE_NAME stutter_hz_slow
+  66: LOAD_NAME lockup | LOAD_ATTR STUTTER_HZ_FAST | STORE_NAME stutter_hz_fast
+  67: LOAD_NAME lockup | LOAD_ATTR STUTTER_FORCE_MIN | STORE_NAME stutter_force_min
+  68: LOAD_NAME lockup | LOAD_ATTR STUTTER_FORCE_MAX | STORE_NAME stutter_force_max
+  70: LOAD_NAME lockup | LOAD_ATTR WARN_FORCE_MIN | STORE_NAME warning_force_min
+  71: LOAD_NAME lockup | LOAD_ATTR WARN_FORCE_MAX | STORE_NAME warning_force_max
+  72: LOAD_NAME effects | LOAD_ATTR LANDING_FORCE_MIN | STORE_NAME landing_force_min
+  73: LOAD_NAME effects | LOAD_ATTR LANDING_FORCE_MAX | STORE_NAME landing_force_max
+  74: LOAD_NAME effects | LOAD_ATTR GEAR_CLUNK_FORCE | STORE_NAME clunk_force
+  75: LOAD_NAME round | LOAD_NAME effects | LOAD_ATTR SHIFT_SHARE_OF_LIMITER | LOAD_SMALL_INT | CALL | STORE_NAME shift_share
+  76: LOAD_NAME effects | LOAD_ATTR WHEELSPIN_FORCE_MIN | STORE_NAME wheelspin_force_min
+  77: LOAD_NAME effects | LOAD_ATTR WHEELSPIN_FORCE_MAX | STORE_NAME wheelspin_force_max
+  79: LOAD_COMMON_CONSTANT True | STORE_NAME lever_enabled
+  80: LOAD_COMMON_CONSTANT True | STORE_NAME spring_enabled
+  81: LOAD_COMMON_CONSTANT True | STORE_NAME stutter_enabled
+  82: LOAD_COMMON_CONSTANT True | STORE_NAME warning_enabled
+  83: LOAD_COMMON_CONSTANT True | STORE_NAME landing_enabled
+  84: LOAD_COMMON_CONSTANT True | STORE_NAME clunk_enabled
+  85: LOAD_COMMON_CONSTANT True | STORE_NAME wheelspin_enabled
+  86: LOAD_COMMON_CONSTANT True | STORE_NAME shift_enabled
+  88: LOAD_COMMON_CONSTANT True | STORE_NAME hud_enabled
+  89: LOAD_COMMON_CONSTANT True | STORE_NAME hud_auto_hide
+  90: LOAD_CONST 0.45 | STORE_NAME hud_x
+  91: LOAD_CONST 0.04 | STORE_NAME hud_y
+  92: LOAD_CONST 1.0 | STORE_NAME hud_scale
+  93: LOAD_CONST 0.9 | STORE_NAME hud_opacity
+  95: LOAD_COMMON_CONSTANT '' | STORE_NAME game_folder
+  98: LOAD_NAME MX_LANDING_FORCE_MIN | STORE_NAME mx_landing_force_min
+  99: LOAD_NAME MX_LANDING_FORCE_MAX | STORE_NAME mx_landing_force_max
+  100: LOAD_NAME MX_LANDING_V_SOFT | STORE_NAME mx_landing_v_soft
+  101: LOAD_NAME MX_LANDING_V_HARD | STORE_NAME mx_landing_v_hard
+  102: LOAD_NAME MX_LOCKUP_SLIP | STORE_NAME mx_lockup_slip
+  103: LOAD_NAME MX_WARN_FROM | STORE_NAME mx_warn_from
+  104: LOAD_NAME MX_WHEELSPIN_FROM | STORE_NAME mx_wheelspin_from
+  105: LOAD_COMMON_CONSTANT True | STORE_NAME mx_whoops_enabled
+  106: LOAD_NAME MX_WHOOPS_FORCE | STORE_NAME mx_whoops_force
+  107: LOAD_NAME MX_WHOOPS_FROM | STORE_NAME mx_whoops_from
+  111: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Settings.lever_firmer.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Settings.lever_firmer> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME lever_firmer
+  115: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Settings.free_play_longer.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Settings.free_play_longer> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME free_play_longer
+  126: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Settings.stutter_stronger.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Settings.stutter_stronger> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME stutter_stronger
+  130: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Settings.stutter_faster.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Settings.stutter_faster> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME stutter_faster
+  134: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Settings.text.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code Settings.text> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME text
+  61: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code Settings.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | STORE_NAME __annotate_func__ | LOAD_CONST ('brake_zones', 'stutter_force_max', 'stutter_force_min', 'stutter_hz_fast', 'stutter_hz_slow') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Settings.<lambda> (line 63)
+  63: LOAD_GLOBAL list | LOAD_GLOBAL brake | LOAD_ATTR BRAKE_ZONES | CALL | RETURN_VALUE
+=== Settings.<lambda> (line 64)
+  64: LOAD_GLOBAL list | LOAD_GLOBAL effects | LOAD_ATTR THROTTLE_ZONES | CALL | RETURN_VALUE
+=== Settings.lever_firmer.__annotate__ (line 111)
+  None: COPY_FREE_VARS
+  111: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'step' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== Settings.lever_firmer (line 111)
+  113: LOAD_FAST_BORROW self | LOAD_ATTR brake_zones | LOAD_FAST_AND_CLEAR k | BUILD_LIST | GET_ITER | FOR_ITER to L4 | STORE_FAST_LOAD_FAST k, k | LOAD_SMALL_INT | COMPARE_OP bool(>) | POP_JUMP_IF_FALSE to L2 | LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_FAST_BORROW_LOAD_FAST_BORROW k, step | BINARY_OP + | CALL | CALL | JUMP_FORWARD to L3 | LOAD_SMALL_INT | LIST_APPEND | JUMP_BACKWARD to L1 | STORE_FAST k | LOAD_FAST_BORROW self | STORE_ATTR brake_zones | LOAD_COMMON_CONSTANT None | RETURN_VALUE | STORE_FAST k | RERAISE
+=== Settings.free_play_longer.__annotate__ (line 115)
+  None: COPY_FREE_VARS
+  115: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'step' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== Settings.free_play_longer (line 115)
+  117: LOAD_FAST_BORROW self | LOAD_ATTR brake_zones | STORE_FAST z
+  118: LOAD_GLOBAL next | LOAD_CONST <code Settings.free_play_longer.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_GLOBAL enumerate | LOAD_FAST_BORROW z | CALL | CALL | LOAD_COMMON_CONSTANT None | CALL | STORE_FAST first
+  119: LOAD_FAST_BORROW first | POP_JUMP_IF_NOT_NONE to L1
+  120: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  121: LOAD_FAST_BORROW step | LOAD_SMALL_INT | COMPARE_OP bool(>) | POP_JUMP_IF_FALSE to L2 | LOAD_FAST_BORROW first | LOAD_SMALL_INT | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L2
+  122: LOAD_SMALL_INT | LOAD_FAST_BORROW_LOAD_FAST_BORROW z, first | STORE_SUBSCR | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  123: LOAD_FAST_BORROW step | LOAD_SMALL_INT | COMPARE_OP bool(<) | POP_JUMP_IF_FALSE to L4 | LOAD_FAST_BORROW first | LOAD_SMALL_INT | COMPARE_OP bool(>) | POP_JUMP_IF_FALSE to L3
+  124: LOAD_FAST_BORROW_LOAD_FAST_BORROW z, first | BINARY_OP [] | LOAD_FAST_BORROW_LOAD_FAST_BORROW z, first | LOAD_SMALL_INT | BINARY_OP - | STORE_SUBSCR | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  123: LOAD_COMMON_CONSTANT None | RETURN_VALUE | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Settings.free_play_longer.<locals>.<genexpr> (line 118)
+  118: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L3 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST i, k | LOAD_FAST_BORROW k | LOAD_SMALL_INT | COMPARE_OP bool(>) | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1 | LOAD_FAST_BORROW i | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== Settings.stutter_stronger.__annotate__ (line 126)
+  None: COPY_FREE_VARS
+  126: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'step' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== Settings.stutter_stronger (line 126)
+  127: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_FAST_BORROW self | LOAD_ATTR stutter_force_min | LOAD_FAST_BORROW step | BINARY_OP + | CALL | CALL | LOAD_FAST_BORROW self | STORE_ATTR stutter_force_min
+  128: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_FAST_BORROW self | LOAD_ATTR stutter_force_min | LOAD_FAST_BORROW self | LOAD_ATTR stutter_force_max | LOAD_FAST_BORROW step | BINARY_OP + | CALL | CALL | LOAD_FAST_BORROW self | STORE_ATTR stutter_force_max | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Settings.stutter_faster.__annotate__ (line 130)
+  None: COPY_FREE_VARS
+  130: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'step_hz' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== Settings.stutter_faster (line 130)
+  131: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_FAST_BORROW self | LOAD_ATTR stutter_hz_slow | LOAD_FAST_BORROW step_hz | BINARY_OP + | CALL | CALL | LOAD_FAST_BORROW self | STORE_ATTR stutter_hz_slow
+  132: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_FAST_BORROW self | LOAD_ATTR stutter_hz_slow | LOAD_FAST_BORROW self | LOAD_ATTR stutter_hz_fast | LOAD_FAST_BORROW step_hz | BINARY_OP + | CALL | CALL | LOAD_FAST_BORROW self | STORE_ATTR stutter_hz_fast | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== Settings.text.__annotate__ (line 134)
+  None: COPY_FREE_VARS
+  134: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | BUILD_MAP | RETURN_VALUE
+=== Settings.text (line 134)
+  135: LOAD_CONST 'Lever ' | LOAD_FAST_BORROW self | LOAD_ATTR brake_zones | FORMAT_SIMPLE | LOAD_CONST ' | stutter force ' | LOAD_FAST_BORROW self | LOAD_ATTR stutter_force_min | FORMAT_SIMPLE | LOAD_CONST '-' | LOAD_FAST_BORROW self | LOAD_ATTR stutter_force_max | FORMAT_SIMPLE | LOAD_CONST ', '
+  136: LOAD_FAST_BORROW self | LOAD_ATTR stutter_hz_slow | FORMAT_SIMPLE | LOAD_CONST '-' | LOAD_FAST_BORROW self | LOAD_ATTR stutter_hz_fast | FORMAT_SIMPLE | LOAD_CONST ' Hz'
+  135: BUILD_STRING | RETURN_VALUE
+=== Settings.__annotate__ (line 61)
+  None: COPY_FREE_VARS
+  61: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | BUILD_MAP
+  63: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS list | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | BINARY_OP [] | LOAD_CONST 'brake_zones'
+  61: STORE_SUBSCR
+  64: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS list | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | BINARY_OP [] | LOAD_CONST 'throttle_zones'
+  61: STORE_SUBSCR
+  65: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'stutter_hz_slow'
+  61: STORE_SUBSCR
+  66: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'stutter_hz_fast'
+  61: STORE_SUBSCR
+  67: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'stutter_force_min'
+  61: STORE_SUBSCR
+  68: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'stutter_force_max'
+  61: STORE_SUBSCR
+  70: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'warning_force_min'
+  61: STORE_SUBSCR
+  71: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'warning_force_max'
+  61: STORE_SUBSCR
+  72: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'landing_force_min'
+  61: STORE_SUBSCR
+  73: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'landing_force_max'
+  61: STORE_SUBSCR
+  74: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'clunk_force'
+  61: STORE_SUBSCR
+  75: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'shift_share'
+  61: STORE_SUBSCR
+  76: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'wheelspin_force_min'
+  61: STORE_SUBSCR
+  77: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'wheelspin_force_max'
+  61: STORE_SUBSCR
+  79: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'lever_enabled'
+  61: STORE_SUBSCR
+  80: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'spring_enabled'
+  61: STORE_SUBSCR
+  81: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'stutter_enabled'
+  61: STORE_SUBSCR
+  82: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'warning_enabled'
+  61: STORE_SUBSCR
+  83: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'landing_enabled'
+  61: STORE_SUBSCR
+  84: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'clunk_enabled'
+  61: STORE_SUBSCR
+  85: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'wheelspin_enabled'
+  61: STORE_SUBSCR
+  86: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'shift_enabled'
+  61: STORE_SUBSCR
+  88: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'hud_enabled'
+  61: STORE_SUBSCR
+  89: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'hud_auto_hide'
+  61: STORE_SUBSCR
+  90: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'hud_x'
+  61: STORE_SUBSCR
+  91: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'hud_y'
+  61: STORE_SUBSCR
+  92: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'hud_scale'
+  61: STORE_SUBSCR
+  93: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'hud_opacity'
+  61: STORE_SUBSCR
+  95: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'game_folder'
+  61: STORE_SUBSCR
+  98: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'mx_landing_force_min'
+  61: STORE_SUBSCR
+  99: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'mx_landing_force_max'
+  61: STORE_SUBSCR
+  100: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'mx_landing_v_soft'
+  61: STORE_SUBSCR
+  101: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'mx_landing_v_hard'
+  61: STORE_SUBSCR
+  102: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'mx_lockup_slip'
+  61: STORE_SUBSCR
+  103: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'mx_warn_from'
+  61: STORE_SUBSCR
+  104: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'mx_wheelspin_from'
+  61: STORE_SUBSCR
+  105: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'mx_whoops_enabled'
+  61: STORE_SUBSCR
+  106: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'mx_whoops_force'
+  61: STORE_SUBSCR
+  107: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS float | LOAD_CONST 'mx_whoops_from'
+  61: STORE_SUBSCR | RETURN_VALUE
+=== _int.__annotate__ (line 145)
+  145: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'lo' | LOAD_GLOBAL int | LOAD_CONST 'hi' | LOAD_GLOBAL int | LOAD_CONST 'default' | LOAD_GLOBAL int | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== _int (line 145)
+  147: LOAD_GLOBAL min | LOAD_FAST_BORROW hi | LOAD_GLOBAL max | LOAD_FAST_BORROW lo | LOAD_GLOBAL int | LOAD_GLOBAL round | LOAD_GLOBAL float | LOAD_FAST_BORROW value | CALL | CALL | CALL | CALL | CALL | RETURN_VALUE | PUSH_EXC_INFO
+  148: LOAD_GLOBAL TypeError | LOAD_GLOBAL ValueError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L1
+  149: LOAD_FAST default | RETURN_VALUE
+  148: RERAISE | RERAISE
+=== clean.__annotate__ (line 152)
+  152: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 's' | LOAD_GLOBAL Settings | LOAD_CONST 'return' | LOAD_GLOBAL Settings | BUILD_MAP | RETURN_VALUE
+=== clean (line 152)
+  154: LOAD_GLOBAL Settings | CALL | STORE_FAST d
+  155: LOAD_GLOBAL _zone_list | LOAD_FAST_BORROW s | LOAD_ATTR brake_zones | CALL | POP_JUMP_IF_TRUE to L1 | LOAD_FAST_BORROW d | LOAD_ATTR brake_zones | LOAD_FAST_BORROW s | STORE_ATTR brake_zones
+  156: LOAD_GLOBAL _zone_list | LOAD_FAST_BORROW s | LOAD_ATTR throttle_zones | CALL | POP_JUMP_IF_TRUE to L2 | LOAD_FAST_BORROW d | LOAD_ATTR throttle_zones | LOAD_FAST_BORROW s | STORE_ATTR throttle_zones
+  157: LOAD_GLOBAL _int | LOAD_FAST_BORROW s | LOAD_ATTR stutter_hz_slow | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_FAST_BORROW d | LOAD_ATTR stutter_hz_slow | CALL | LOAD_FAST_BORROW s | STORE_ATTR stutter_hz_slow
+  158: LOAD_GLOBAL _int | LOAD_FAST_BORROW s | LOAD_ATTR stutter_hz_fast | LOAD_FAST_BORROW s | LOAD_ATTR stutter_hz_slow | LOAD_SMALL_INT | LOAD_FAST_BORROW d | LOAD_ATTR stutter_hz_fast | CALL | LOAD_FAST_BORROW s | STORE_ATTR stutter_hz_fast
+  159: LOAD_CONST (('stutter_force_min', 'stutter_force_max'), ('warning_force_min', 'warning_force_max'), ('landing_force_min', 'landing_force_max'), ('mx_landing_force_min', 'mx_landing_force_max'), ('wheelspin_force_min', 'wheelspin_force_max')) | GET_ITER | FOR_ITER to L4 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST lo_name, hi_name
+  164: LOAD_GLOBAL _int | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, lo_name | CALL | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW d, lo_name | CALL | CALL | STORE_FAST lo
+  165: LOAD_GLOBAL setattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, lo_name | LOAD_FAST_BORROW lo | CALL
+  166: LOAD_GLOBAL setattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, hi_name | LOAD_GLOBAL _int | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, hi_name | CALL | LOAD_FAST_BORROW lo | LOAD_SMALL_INT | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW d, hi_name | CALL | CALL | CALL | JUMP_BACKWARD to L3
+  167: LOAD_GLOBAL _int | LOAD_FAST_BORROW s | LOAD_ATTR clunk_force | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_FAST_BORROW d | LOAD_ATTR clunk_force | CALL | LOAD_FAST_BORROW s | STORE_ATTR clunk_force
+  168: LOAD_GLOBAL _int | LOAD_FAST_BORROW s | LOAD_ATTR mx_whoops_force | LOAD_SMALL_INT | LOAD_SMALL_INT | LOAD_FAST_BORROW d | LOAD_ATTR mx_whoops_force | CALL | LOAD_FAST_BORROW s | STORE_ATTR mx_whoops_force
+  169: LOAD_GLOBAL MX_FLOATS | LOAD_ATTR items | CALL | GET_ITER | FOR_ITER to L6 | UNPACK_SEQUENCE | STORE_FAST name | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST lo, hi
+  171: LOAD_GLOBAL setattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, name | LOAD_GLOBAL round | LOAD_GLOBAL min | LOAD_FAST_BORROW hi | LOAD_GLOBAL max | LOAD_FAST_BORROW lo | LOAD_GLOBAL float | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, name | CALL | CALL | CALL | CALL | LOAD_SMALL_INT | CALL | CALL | JUMP_BACKWARD to L5
+  175: LOAD_GLOBAL max | LOAD_FAST_BORROW s | LOAD_ATTR mx_landing_v_hard | LOAD_GLOBAL round | LOAD_FAST_BORROW s | LOAD_ATTR mx_landing_v_soft | LOAD_CONST 0.1 | BINARY_OP + | LOAD_SMALL_INT | CALL | CALL | LOAD_FAST_BORROW s | STORE_ATTR mx_landing_v_hard
+  176: LOAD_GLOBAL min | LOAD_FAST_BORROW s | LOAD_ATTR mx_warn_from | LOAD_GLOBAL round | LOAD_FAST_BORROW s | LOAD_ATTR mx_lockup_slip | LOAD_CONST 0.05 | BINARY_OP - | LOAD_SMALL_INT | CALL | CALL | LOAD_FAST_BORROW s | STORE_ATTR mx_warn_from
+  177: LOAD_GLOBAL bool | LOAD_FAST_BORROW s | LOAD_ATTR mx_whoops_enabled | CALL | LOAD_FAST_BORROW s | STORE_ATTR mx_whoops_enabled
+  178: LOAD_GLOBAL SWITCHES | GET_ITER | FOR_ITER to L8 | STORE_FAST name
+  179: LOAD_GLOBAL setattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, name | LOAD_CONST '_enabled' | BINARY_OP + | LOAD_GLOBAL bool | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, name | LOAD_CONST '_enabled' | BINARY_OP + | CALL | CALL | CALL | JUMP_BACKWARD to L7
+  180: LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR game_folder | POP_JUMP_IF_TRUE to L9 | LOAD_COMMON_CONSTANT '' | CALL | LOAD_ATTR strip | CALL | LOAD_FAST_BORROW s | STORE_ATTR game_folder
+  181: LOAD_CONST (('hud_x', 0.0, 1.0), ('hud_y', 0.0, 1.0), ('hud_scale', 0.5, 2.0), ('hud_opacity', 0.1, 1.0)) | GET_ITER | FOR_ITER to L11 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST name, lo | STORE_FAST hi
+  183: LOAD_GLOBAL setattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, name | LOAD_GLOBAL round | LOAD_GLOBAL min | LOAD_FAST_BORROW hi | LOAD_GLOBAL max | LOAD_FAST_BORROW lo | LOAD_GLOBAL float | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, name | CALL | CALL | CALL | CALL | LOAD_SMALL_INT | CALL | CALL | JUMP_BACKWARD to L10
+  186: LOAD_GLOBAL bool | LOAD_FAST_BORROW s | LOAD_ATTR hud_enabled | CALL | LOAD_GLOBAL bool | LOAD_FAST_BORROW s | LOAD_ATTR hud_auto_hide | CALL | LOAD_FAST_BORROW s | STORE_ATTR hud_enabled | LOAD_FAST_BORROW s | STORE_ATTR hud_auto_hide
+  188: LOAD_GLOBAL round | LOAD_GLOBAL min | LOAD_GLOBAL SHIFT_SHARE_MAX | LOAD_GLOBAL max | LOAD_GLOBAL SHIFT_SHARE_MIN | LOAD_GLOBAL float | LOAD_FAST_BORROW s | LOAD_ATTR shift_share | CALL | CALL | CALL | LOAD_SMALL_INT | CALL | LOAD_FAST_BORROW s | STORE_ATTR shift_share
+  191: LOAD_FAST_BORROW s | RETURN_VALUE | PUSH_EXC_INFO
+  172: LOAD_GLOBAL TypeError | LOAD_GLOBAL ValueError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L12
+  173: LOAD_GLOBAL setattr | LOAD_FAST_LOAD_FAST s, name | LOAD_GLOBAL getattr | LOAD_FAST_LOAD_FAST d, name | CALL | CALL | EXTENDED_ARG | JUMP_BACKWARD to L5
+  172: RERAISE | RERAISE | PUSH_EXC_INFO
+  184: LOAD_GLOBAL TypeError | LOAD_GLOBAL ValueError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L13
+  185: LOAD_GLOBAL setattr | LOAD_FAST_LOAD_FAST s, name | LOAD_GLOBAL getattr | LOAD_FAST_LOAD_FAST d, name | CALL | CALL | EXTENDED_ARG | JUMP_BACKWARD to L10
+  184: RERAISE | RERAISE | PUSH_EXC_INFO
+  189: LOAD_GLOBAL TypeError | LOAD_GLOBAL ValueError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L14
+  190: LOAD_FAST d | LOAD_ATTR shift_share | LOAD_FAST s | STORE_ATTR shift_share
+  191: LOAD_FAST s | RETURN_VALUE
+  189: RERAISE | RERAISE
+=== _zone_list.__annotate__ (line 194)
+  194: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL list | LOAD_GLOBAL int | BINARY_OP [] | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== _zone_list (line 194)
+  196: LOAD_FAST zones | LOAD_FAST_AND_CLEAR k | BUILD_LIST | GET_ITER | FOR_ITER to L2 | STORE_FAST k | LOAD_GLOBAL int | LOAD_FAST_BORROW k | CALL | LIST_APPEND | JUMP_BACKWARD to L1 | STORE_FAST z | STORE_FAST k
+  199: LOAD_GLOBAL len | LOAD_FAST_BORROW z | CALL | LOAD_SMALL_INT | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L8 | LOAD_GLOBAL all | LOAD_COMMON_CONSTANT <built-in function all> | IS_OP is | POP_JUMP_IF_FALSE to L6 | LOAD_CONST <code _zone_list.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW z | CALL | FOR_ITER to L5 | POP_JUMP_IF_FALSE to L4 | JUMP_BACKWARD to L3 | LOAD_COMMON_CONSTANT False | JUMP_FORWARD to L7 | LOAD_COMMON_CONSTANT True | JUMP_FORWARD to L7 | LOAD_CONST <code _zone_list.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW z | CALL | CALL | POP_JUMP_IF_FALSE to L8 | LOAD_FAST_BORROW z | RETURN_VALUE | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  196: STORE_FAST k | RERAISE | PUSH_EXC_INFO
+  197: LOAD_GLOBAL TypeError | LOAD_GLOBAL ValueError | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L9
+  198: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  197: RERAISE | RERAISE
+=== _zone_list.<locals>.<genexpr> (line 199)
+  199: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L4 | STORE_FAST k | LOAD_SMALL_INT | LOAD_FAST k | COMPARE_OP <= | POP_JUMP_IF_FALSE to L2 | LOAD_SMALL_INT | COMPARE_OP <= | JUMP_FORWARD to L3 | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== to_dict.__annotate__ (line 202)
+  202: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 's' | LOAD_GLOBAL Settings | LOAD_CONST 'return' | LOAD_GLOBAL dict | BUILD_MAP | RETURN_VALUE
+=== to_dict (line 202)
+  203: LOAD_GLOBAL dataclasses | LOAD_ATTR asdict | LOAD_FAST_BORROW s | CALL | RETURN_VALUE
+=== from_dict.__annotate__ (line 206)
+  206: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'values' | LOAD_GLOBAL dict | LOAD_CONST 'base' | LOAD_GLOBAL Settings | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'return' | LOAD_GLOBAL Settings | BUILD_MAP | RETURN_VALUE
+=== from_dict (line 206)
+  208: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST base | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL Settings | CALL | CALL | STORE_FAST s
+  209: LOAD_GLOBAL dataclasses | LOAD_ATTR fields | LOAD_GLOBAL Settings | CALL | LOAD_FAST_AND_CLEAR f | BUILD_SET | GET_ITER | FOR_ITER to L3 | STORE_FAST_LOAD_FAST f, f | LOAD_ATTR name | SET_ADD | JUMP_BACKWARD to L2 | STORE_FAST names | STORE_FAST f
+  210: LOAD_FAST values | POP_JUMP_IF_TRUE to L4 | BUILD_MAP | LOAD_ATTR items | CALL | GET_ITER | FOR_ITER to L7 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST key, value
+  211: LOAD_FAST_BORROW_LOAD_FAST_BORROW key, names | CONTAINS_OP in | POP_JUMP_IF_TRUE to L6 | JUMP_BACKWARD to L5
+  212: LOAD_GLOBAL setattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, key | LOAD_FAST_BORROW value | CALL | JUMP_BACKWARD to L5
+  213: LOAD_GLOBAL clean | LOAD_FAST_BORROW s | CALL | RETURN_VALUE
+  209: STORE_FAST f | RERAISE
+=== _get.__annotate__ (line 216)
+  216: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'ini' | LOAD_GLOBAL configparser | LOAD_ATTR ConfigParser | LOAD_CONST 'section' | LOAD_GLOBAL str | LOAD_CONST 'key' | LOAD_GLOBAL str | LOAD_CONST 'return' | LOAD_GLOBAL str | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== _get (line 216)
+  218: LOAD_FAST_BORROW ini | LOAD_ATTR has_option | LOAD_FAST_BORROW_LOAD_FAST_BORROW section, key | CALL | POP_JUMP_IF_FALSE to L1
+  219: LOAD_FAST_BORROW ini | LOAD_ATTR get | LOAD_FAST_BORROW_LOAD_FAST_BORROW section, key | CALL | RETURN_VALUE
+  220: LOAD_GLOBAL _LEGACY | LOAD_FAST_BORROW section | BINARY_OP [] | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST old_section, old_keys
+  221: LOAD_FAST_BORROW old_keys | LOAD_ATTR get | LOAD_FAST_BORROW_LOAD_FAST_BORROW key, key | CALL | STORE_FAST old_key
+  222: LOAD_FAST_BORROW ini | LOAD_ATTR has_option | LOAD_FAST_BORROW_LOAD_FAST_BORROW old_section, old_key | CALL | POP_JUMP_IF_FALSE to L2
+  223: LOAD_FAST_BORROW ini | LOAD_ATTR get | LOAD_FAST_BORROW_LOAD_FAST_BORROW old_section, old_key | CALL | RETURN_VALUE
+  224: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== _zones.__annotate__ (line 227)
+  227: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'text' | LOAD_GLOBAL str | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'return' | LOAD_GLOBAL list | LOAD_GLOBAL int | BINARY_OP [] | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== _zones (line 227)
+  228: LOAD_FAST_BORROW text | POP_JUMP_IF_NOT_NONE to L1
+  229: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  230: LOAD_FAST_BORROW text | LOAD_ATTR split | LOAD_CONST ',' | CALL | LOAD_FAST_AND_CLEAR x | BUILD_LIST | GET_ITER | FOR_ITER to L3 | STORE_FAST x | LOAD_GLOBAL int | LOAD_FAST_BORROW x | CALL | LIST_APPEND | JUMP_BACKWARD to L2 | STORE_FAST zones | STORE_FAST x
+  231: LOAD_GLOBAL len | LOAD_FAST_BORROW zones | CALL | LOAD_SMALL_INT | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L9 | LOAD_GLOBAL all | LOAD_COMMON_CONSTANT <built-in function all> | IS_OP is | POP_JUMP_IF_FALSE to L7 | LOAD_CONST <code _zones.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW zones | CALL | FOR_ITER to L6 | POP_JUMP_IF_FALSE to L5 | JUMP_BACKWARD to L4 | LOAD_COMMON_CONSTANT False | JUMP_FORWARD to L8 | LOAD_COMMON_CONSTANT True | JUMP_FORWARD to L8 | LOAD_CONST <code _zones.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW zones | CALL | CALL | POP_JUMP_IF_FALSE to L9 | LOAD_FAST_BORROW zones | RETURN_VALUE | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  230: STORE_FAST x | RERAISE
+=== _zones.<locals>.<genexpr> (line 231)
+  231: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L4 | STORE_FAST k | LOAD_SMALL_INT | LOAD_FAST k | COMPARE_OP <= | POP_JUMP_IF_FALSE to L2 | LOAD_SMALL_INT | COMPARE_OP <= | JUMP_FORWARD to L3 | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== load.__annotate__ (line 234)
+  234: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'path' | LOAD_GLOBAL Path | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'return' | LOAD_GLOBAL Settings | BUILD_MAP | RETURN_VALUE
+=== load (line 234)
+  None: MAKE_CELL path | MAKE_CELL ini | MAKE_CELL s
+  236: LOAD_DEREF path | POP_JUMP_IF_NOT_NONE to L4
+  237: LOAD_GLOBAL FILE | LOAD_ATTR exists | CALL | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL LEGACY_FILE | LOAD_ATTR exists | CALL | POP_JUMP_IF_TRUE to L2 | LOAD_GLOBAL FILE | JUMP_FORWARD to L3 | LOAD_GLOBAL LEGACY_FILE | STORE_DEREF path
+  238: LOAD_GLOBAL Settings | CALL | STORE_DEREF s
+  239: LOAD_GLOBAL configparser | LOAD_ATTR ConfigParser | CALL | STORE_DEREF ini
+  241: LOAD_DEREF ini | LOAD_ATTR read | LOAD_DEREF path | LOAD_CONST 'utf-8' | LOAD_CONST ('encoding',) | CALL_KW | POP_JUMP_IF_TRUE to L5
+  242: LOAD_DEREF s | RETURN_VALUE
+  247: LOAD_CONST <code load.<locals>.triggers.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code load.<locals>.triggers> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST triggers
+  251: LOAD_CONST <code load.<locals>.stutter.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code load.<locals>.stutter> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST stutter
+  261: LOAD_CONST <code load.<locals>.effects_section.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | LOAD_FAST_BORROW path | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code load.<locals>.effects_section> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST effects_section
+  274: LOAD_CONST <code load.<locals>.hud.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code load.<locals>.hud> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST hud
+  284: LOAD_CONST <code load.<locals>.switches.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | LOAD_FAST_BORROW path | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code load.<locals>.switches> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST switches
+  293: LOAD_CONST <code load.<locals>.motocross.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | LOAD_FAST_BORROW path | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code load.<locals>.motocross> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST motocross
+  306: LOAD_CONST <code load.<locals>.game.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | LOAD_FAST_BORROW s | BUILD_TUPLE | LOAD_CONST <code load.<locals>.game> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST game
+  311: LOAD_CONST 'triggers' | LOAD_FAST_BORROW triggers | BUILD_TUPLE | LOAD_CONST 'stutter' | LOAD_FAST_BORROW stutter | BUILD_TUPLE | LOAD_CONST 'effects' | LOAD_FAST_BORROW effects_section | BUILD_TUPLE
+  312: LOAD_CONST 'hud' | LOAD_FAST_BORROW hud | BUILD_TUPLE | LOAD_CONST 'switches' | LOAD_FAST_BORROW switches | BUILD_TUPLE
+  313: LOAD_CONST 'motocross' | LOAD_FAST_BORROW motocross | BUILD_TUPLE | LOAD_CONST 'game' | LOAD_FAST_BORROW game | BUILD_TUPLE
+  311: BUILD_TUPLE | GET_ITER | FOR_ITER to L7 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST name, part
+  315: LOAD_FAST_BORROW part | CALL | JUMP_BACKWARD to L6
+  318: LOAD_GLOBAL clean | LOAD_DEREF s | CALL
+  319: LOAD_DEREF s | RETURN_VALUE | PUSH_EXC_INFO
+  243: LOAD_GLOBAL UnicodeDecodeError | LOAD_GLOBAL configparser | LOAD_ATTR Error | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L8
+  244: LOAD_GLOBAL print | LOAD_CONST 'Note: ' | LOAD_DEREF path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ' is broken - using the defaults.' | BUILD_STRING | CALL
+  245: LOAD_DEREF s | RETURN_VALUE
+  243: RERAISE | RERAISE | PUSH_EXC_INFO
+  316: LOAD_GLOBAL KeyError | LOAD_GLOBAL ValueError | LOAD_GLOBAL configparser | LOAD_ATTR Error | BUILD_TUPLE | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L9
+  317: LOAD_GLOBAL print | LOAD_CONST 'Note: ' | LOAD_DEREF path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ' (' | LOAD_FAST name | FORMAT_SIMPLE | LOAD_CONST ') is incomplete or broken - using defaults there.' | BUILD_STRING | CALL | JUMP_BACKWARD to L6
+  316: RERAISE | RERAISE
+=== load.<locals>.triggers.__annotate__ (line 247)
+  247: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.triggers (line 247)
+  None: COPY_FREE_VARS
+  248: LOAD_GLOBAL _zones | LOAD_GLOBAL _get | LOAD_DEREF ini | LOAD_CONST 'brake' | LOAD_CONST 'zones' | CALL | CALL | POP_JUMP_IF_TRUE to L1 | LOAD_DEREF s | LOAD_ATTR brake_zones | LOAD_DEREF s | STORE_ATTR brake_zones
+  249: LOAD_GLOBAL _zones | LOAD_GLOBAL _get | LOAD_DEREF ini | LOAD_CONST 'throttle' | LOAD_CONST 'zones' | CALL | CALL | POP_JUMP_IF_TRUE to L2 | LOAD_DEREF s | LOAD_ATTR throttle_zones | LOAD_DEREF s | STORE_ATTR throttle_zones | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== load.<locals>.stutter.__annotate__ (line 251)
+  251: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.stutter (line 251)
+  None: COPY_FREE_VARS
+  252: LOAD_CONST <code load.<locals>.stutter.<locals>.number.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW ini | BUILD_TUPLE | LOAD_CONST <code load.<locals>.stutter.<locals>.number> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST number
+  256: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_FAST_BORROW number | LOAD_CONST 'hz_slow' | LOAD_DEREF s | LOAD_ATTR stutter_hz_slow | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR stutter_hz_slow
+  257: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_DEREF s | LOAD_ATTR stutter_hz_slow | LOAD_FAST_BORROW number | LOAD_CONST 'hz_fast' | LOAD_DEREF s | LOAD_ATTR stutter_hz_fast | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR stutter_hz_fast
+  258: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_SMALL_INT | LOAD_FAST_BORROW number | LOAD_CONST 'force_min' | LOAD_DEREF s | LOAD_ATTR stutter_force_min | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR stutter_force_min
+  259: LOAD_GLOBAL min | LOAD_SMALL_INT | LOAD_GLOBAL max | LOAD_DEREF s | LOAD_ATTR stutter_force_min | LOAD_FAST_BORROW number | LOAD_CONST 'force_max' | LOAD_DEREF s | LOAD_ATTR stutter_force_max | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR stutter_force_max | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== load.<locals>.stutter.<locals>.number.__annotate__ (line 252)
+  252: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'key' | LOAD_GLOBAL str | LOAD_CONST 'default' | LOAD_GLOBAL int | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.stutter.<locals>.number (line 252)
+  None: COPY_FREE_VARS
+  253: LOAD_GLOBAL _get | LOAD_DEREF ini | LOAD_CONST 'stutter' | LOAD_FAST_BORROW key | CALL | STORE_FAST value
+  254: LOAD_FAST_BORROW value | POP_JUMP_IF_NONE to L1 | LOAD_GLOBAL int | LOAD_FAST_BORROW value | CALL | RETURN_VALUE | LOAD_FAST default | RETURN_VALUE
+=== load.<locals>.effects_section.__annotate__ (line 261)
+  261: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.effects_section (line 261)
+  None: COPY_FREE_VARS
+  262: LOAD_DEREF ini | LOAD_ATTR has_section | LOAD_CONST 'effects' | CALL | POP_JUMP_IF_FALSE to L3
+  263: LOAD_DEREF ini | LOAD_CONST 'effects' | BINARY_OP [] | STORE_FAST fx
+  265: LOAD_CONST 'warning_force_min' | LOAD_FAST_BORROW fx | LOAD_ATTR getint | BUILD_TUPLE | LOAD_CONST 'warning_force_max' | LOAD_FAST_BORROW fx | LOAD_ATTR getint | BUILD_TUPLE
+  266: LOAD_CONST 'landing_force_min' | LOAD_FAST_BORROW fx | LOAD_ATTR getint | BUILD_TUPLE | LOAD_CONST 'landing_force_max' | LOAD_FAST_BORROW fx | LOAD_ATTR getint | BUILD_TUPLE
+  267: LOAD_CONST 'clunk_force' | LOAD_FAST_BORROW fx | LOAD_ATTR getint | BUILD_TUPLE | LOAD_CONST 'shift_share' | LOAD_FAST_BORROW fx | LOAD_ATTR getfloat | BUILD_TUPLE
+  268: LOAD_CONST 'wheelspin_force_min' | LOAD_FAST_BORROW fx | LOAD_ATTR getint | BUILD_TUPLE | LOAD_CONST 'wheelspin_force_max' | LOAD_FAST_BORROW fx | LOAD_ATTR getint | BUILD_TUPLE
+  265: BUILD_TUPLE | GET_ITER | FOR_ITER to L2 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST key, getter
+  270: LOAD_GLOBAL setattr | LOAD_DEREF s | LOAD_FAST_BORROW_LOAD_FAST_BORROW key, getter | LOAD_FAST_BORROW key | LOAD_GLOBAL getattr | LOAD_DEREF s | LOAD_FAST_BORROW key | CALL | CALL | CALL | JUMP_BACKWARD to L1
+  265: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  262: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  271: LOAD_GLOBAL ValueError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4
+  272: LOAD_GLOBAL print | LOAD_CONST 'Note: ' | LOAD_DEREF path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ' [effects] ' | LOAD_FAST key | FORMAT_SIMPLE | LOAD_CONST ' is broken - using the default.' | BUILD_STRING | CALL | JUMP_BACKWARD to L1
+  271: RERAISE | RERAISE
+=== load.<locals>.hud.__annotate__ (line 274)
+  274: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.hud (line 274)
+  None: COPY_FREE_VARS
+  275: LOAD_DEREF ini | LOAD_ATTR has_section | LOAD_CONST 'hud' | CALL | EXTENDED_ARG | POP_JUMP_IF_FALSE to L1
+  276: LOAD_DEREF ini | LOAD_CONST 'hud' | BINARY_OP [] | STORE_FAST h
+  277: LOAD_FAST_BORROW h | LOAD_ATTR getboolean | LOAD_CONST 'enabled' | LOAD_DEREF s | LOAD_ATTR hud_enabled | CALL | LOAD_DEREF s | STORE_ATTR hud_enabled
+  278: LOAD_FAST_BORROW h | LOAD_ATTR getboolean | LOAD_CONST 'auto_hide' | LOAD_DEREF s | LOAD_ATTR hud_auto_hide | CALL | LOAD_DEREF s | STORE_ATTR hud_auto_hide
+  279: LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_FAST_BORROW h | LOAD_ATTR getfloat | LOAD_CONST 'x' | LOAD_DEREF s | LOAD_ATTR hud_x | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR hud_x
+  280: LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_GLOBAL max | LOAD_CONST 0.0 | LOAD_FAST_BORROW h | LOAD_ATTR getfloat | LOAD_CONST 'y' | LOAD_DEREF s | LOAD_ATTR hud_y | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR hud_y
+  281: LOAD_GLOBAL min | LOAD_CONST 2.0 | LOAD_GLOBAL max | LOAD_CONST 0.5 | LOAD_FAST_BORROW h | LOAD_ATTR getfloat | LOAD_CONST 'scale' | LOAD_DEREF s | LOAD_ATTR hud_scale | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR hud_scale
+  282: LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_GLOBAL max | LOAD_CONST 0.1 | LOAD_FAST_BORROW h | LOAD_ATTR getfloat | LOAD_CONST 'opacity' | LOAD_DEREF s | LOAD_ATTR hud_opacity | CALL | CALL | CALL | LOAD_DEREF s | STORE_ATTR hud_opacity | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  275: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== load.<locals>.switches.__annotate__ (line 284)
+  284: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.switches (line 284)
+  None: COPY_FREE_VARS
+  285: LOAD_DEREF ini | LOAD_ATTR has_section | LOAD_CONST 'switches' | CALL | POP_JUMP_IF_FALSE to L3
+  286: LOAD_DEREF ini | LOAD_CONST 'switches' | BINARY_OP [] | STORE_FAST sw
+  287: LOAD_GLOBAL SWITCHES | GET_ITER | FOR_ITER to L2 | STORE_FAST name
+  289: LOAD_GLOBAL setattr | LOAD_DEREF s | LOAD_FAST_BORROW name | LOAD_CONST '_enabled' | BINARY_OP + | LOAD_FAST_BORROW sw | LOAD_ATTR getboolean | LOAD_FAST_BORROW name | LOAD_GLOBAL getattr | LOAD_DEREF s | LOAD_FAST_BORROW name | LOAD_CONST '_enabled' | BINARY_OP + | CALL | CALL | CALL | JUMP_BACKWARD to L1
+  287: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  285: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  290: LOAD_GLOBAL ValueError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4
+  291: LOAD_GLOBAL print | LOAD_CONST 'Note: ' | LOAD_DEREF path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ' [switches] ' | LOAD_FAST name | FORMAT_SIMPLE | LOAD_CONST ' is broken - switched on.' | BUILD_STRING | CALL | JUMP_BACKWARD to L1
+  290: RERAISE | RERAISE
+=== load.<locals>.motocross.__annotate__ (line 293)
+  293: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.motocross (line 293)
+  None: COPY_FREE_VARS
+  294: LOAD_DEREF ini | LOAD_ATTR has_section | LOAD_CONST 'motocross' | CALL | POP_JUMP_IF_FALSE to L7
+  295: LOAD_DEREF ini | LOAD_CONST 'motocross' | BINARY_OP [] | STORE_FAST mx
+  296: BUILD_LIST | LOAD_GLOBAL MX_INTS | LIST_EXTEND | LOAD_GLOBAL MX_FLOATS | LIST_EXTEND | LOAD_CONST 'mx_whoops_enabled' | LIST_APPEND | GET_ITER | FOR_ITER to L6 | STORE_FAST key
+  297: LOAD_FAST_BORROW key | LOAD_CONST slice(3, None, None) | BINARY_OP [] | STORE_FAST short
+  298: LOAD_FAST_BORROW mx | LOAD_ATTR get | LOAD_FAST_BORROW short | CALL | POP_JUMP_IF_TRUE to L2
+  299: JUMP_BACKWARD to L1
+  300: LOAD_FAST_BORROW key | LOAD_GLOBAL MX_INTS | CONTAINS_OP in | POP_JUMP_IF_FALSE to L3 | LOAD_FAST_BORROW mx | LOAD_ATTR getint | JUMP_FORWARD to L5 | LOAD_FAST_BORROW key | LOAD_CONST 'mx_whoops_enabled' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L4 | LOAD_FAST_BORROW mx | LOAD_ATTR getboolean | JUMP_FORWARD to L5 | LOAD_FAST_BORROW mx | LOAD_ATTR getfloat | STORE_FAST getter
+  302: LOAD_GLOBAL setattr | LOAD_DEREF s | LOAD_FAST_BORROW_LOAD_FAST_BORROW key, getter | LOAD_FAST_BORROW short | CALL | CALL | JUMP_BACKWARD to L1
+  296: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  294: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  303: LOAD_GLOBAL ValueError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L8
+  304: LOAD_GLOBAL print | LOAD_CONST 'Note: ' | LOAD_DEREF path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ' [motocross] ' | LOAD_FAST short | FORMAT_SIMPLE | LOAD_CONST ' is broken - using the default.' | BUILD_STRING | CALL | JUMP_BACKWARD to L1
+  303: RERAISE | RERAISE
+=== load.<locals>.game.__annotate__ (line 306)
+  306: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== load.<locals>.game (line 306)
+  None: COPY_FREE_VARS
+  307: LOAD_DEREF ini | LOAD_ATTR has_section | LOAD_CONST 'game' | CALL | POP_JUMP_IF_FALSE to L1
+  308: LOAD_DEREF ini | LOAD_CONST 'game' | BINARY_OP [] | LOAD_ATTR get | LOAD_CONST 'folder' | LOAD_COMMON_CONSTANT '' | CALL | LOAD_ATTR strip | CALL | LOAD_DEREF s | STORE_ATTR game_folder | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  307: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== save.__annotate__ (line 322)
+  322: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 's' | LOAD_GLOBAL Settings | LOAD_CONST 'path' | LOAD_GLOBAL Path | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== save (line 322)
+  323: LOAD_FAST path | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL FILE | STORE_FAST path
+  324: LOAD_GLOBAL configparser | LOAD_ATTR ConfigParser | CALL | STORE_FAST ini
+  325: LOAD_CONST 'zones' | LOAD_CONST ',' | LOAD_ATTR join | LOAD_CONST <code save.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW s | LOAD_ATTR brake_zones | CALL | CALL | BUILD_MAP | LOAD_FAST_BORROW ini | LOAD_CONST 'brake' | STORE_SUBSCR
+  326: LOAD_CONST 'zones' | LOAD_CONST ',' | LOAD_ATTR join | LOAD_CONST <code save.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW s | LOAD_ATTR throttle_zones | CALL | CALL | BUILD_MAP | LOAD_FAST_BORROW ini | LOAD_CONST 'throttle' | STORE_SUBSCR
+  328: LOAD_CONST 'hz_slow' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR stutter_hz_slow | CALL
+  329: LOAD_CONST 'hz_fast' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR stutter_hz_fast | CALL
+  330: LOAD_CONST 'force_min' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR stutter_force_min | CALL
+  331: LOAD_CONST 'force_max' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR stutter_force_max | CALL
+  327: BUILD_MAP | LOAD_FAST_BORROW ini | LOAD_CONST 'stutter' | STORE_SUBSCR
+  334: LOAD_CONST 'warning_force_min' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR warning_force_min | CALL
+  335: LOAD_CONST 'warning_force_max' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR warning_force_max | CALL
+  336: LOAD_CONST 'landing_force_min' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR landing_force_min | CALL
+  337: LOAD_CONST 'landing_force_max' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR landing_force_max | CALL
+  338: LOAD_CONST 'clunk_force' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR clunk_force | CALL
+  339: LOAD_CONST 'shift_share' | LOAD_FAST_BORROW s | LOAD_ATTR shift_share | LOAD_CONST '.3f' | FORMAT_WITH_SPEC
+  340: LOAD_CONST 'wheelspin_force_min' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR wheelspin_force_min | CALL
+  341: LOAD_CONST 'wheelspin_force_max' | LOAD_GLOBAL str | LOAD_FAST_BORROW s | LOAD_ATTR wheelspin_force_max | CALL
+  333: BUILD_MAP | LOAD_FAST_BORROW ini | LOAD_CONST 'effects' | STORE_SUBSCR
+  343: LOAD_GLOBAL SWITCHES | LOAD_FAST_AND_CLEAR name | BUILD_MAP | GET_ITER | FOR_ITER to L5 | STORE_FAST_LOAD_FAST name, name | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, name | LOAD_CONST '_enabled' | BINARY_OP + | CALL | POP_JUMP_IF_FALSE to L3 | LOAD_CONST 'on' | JUMP_FORWARD to L4 | LOAD_CONST 'off' | MAP_ADD | JUMP_BACKWARD to L2 | STORE_FAST name | LOAD_FAST_BORROW ini | LOAD_CONST 'switches' | STORE_SUBSCR
+  345: LOAD_CONST 'enabled' | LOAD_FAST_BORROW s | LOAD_ATTR hud_enabled | POP_JUMP_IF_FALSE to L6 | LOAD_CONST 'yes' | JUMP_FORWARD to L7 | LOAD_CONST 'no'
+  346: LOAD_CONST 'auto_hide' | LOAD_FAST_BORROW s | LOAD_ATTR hud_auto_hide | POP_JUMP_IF_FALSE to L8 | LOAD_CONST 'yes' | JUMP_FORWARD to L9 | LOAD_CONST 'no'
+  347: LOAD_CONST 'x' | LOAD_FAST_BORROW s | LOAD_ATTR hud_x | LOAD_CONST '.3f' | FORMAT_WITH_SPEC
+  348: LOAD_CONST 'y' | LOAD_FAST_BORROW s | LOAD_ATTR hud_y | LOAD_CONST '.3f' | FORMAT_WITH_SPEC
+  349: LOAD_CONST 'scale' | LOAD_FAST_BORROW s | LOAD_ATTR hud_scale | LOAD_CONST '.2f' | FORMAT_WITH_SPEC
+  350: LOAD_CONST 'opacity' | LOAD_FAST_BORROW s | LOAD_ATTR hud_opacity | LOAD_CONST '.2f' | FORMAT_WITH_SPEC
+  344: BUILD_MAP | LOAD_FAST_BORROW ini | LOAD_CONST 'hud' | STORE_SUBSCR
+  353: BUILD_LIST | LOAD_GLOBAL MX_INTS | LIST_EXTEND | LOAD_GLOBAL MX_FLOATS | LIST_EXTEND | CALL_INTRINSIC_1 INTRINSIC_LIST_TO_TUPLE
+  352: LOAD_FAST_AND_CLEAR key | BUILD_MAP
+  353: GET_ITER | FOR_ITER to L13 | STORE_FAST key
+  352: LOAD_FAST_BORROW key | LOAD_CONST slice(3, None, None) | BINARY_OP [] | LOAD_FAST_BORROW key | LOAD_GLOBAL MX_FLOATS | CONTAINS_OP in | POP_JUMP_IF_FALSE to L11 | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, key | CALL | LOAD_CONST '.3f' | FORMAT_WITH_SPEC | JUMP_FORWARD to L12 | LOAD_GLOBAL str | LOAD_GLOBAL getattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW s, key | CALL | CALL | MAP_ADD | JUMP_BACKWARD to L10 | STORE_FAST key | LOAD_FAST_BORROW ini | LOAD_CONST 'motocross' | STORE_SUBSCR
+  354: LOAD_FAST_BORROW s | LOAD_ATTR mx_whoops_enabled | POP_JUMP_IF_FALSE to L14 | LOAD_CONST 'yes' | JUMP_FORWARD to L15 | LOAD_CONST 'no' | LOAD_FAST_BORROW ini | LOAD_CONST 'motocross' | BINARY_OP [] | LOAD_CONST 'whoops_enabled' | STORE_SUBSCR
+  355: LOAD_FAST_BORROW s | LOAD_ATTR game_folder | POP_JUMP_IF_FALSE to L16
+  356: LOAD_CONST 'folder' | LOAD_FAST_BORROW s | LOAD_ATTR game_folder | BUILD_MAP | LOAD_FAST_BORROW ini | LOAD_CONST 'game' | STORE_SUBSCR
+  357: LOAD_GLOBAL open | LOAD_FAST_BORROW path | LOAD_CONST 'w' | LOAD_CONST 'utf-8' | LOAD_CONST ('encoding',) | CALL_KW | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL | STORE_FAST f
+  358: LOAD_FAST_BORROW f | LOAD_ATTR write | LOAD_CONST '# MXB DualSense Support - trigger settings.\n# zones: force per trigger position from top to bottom, 0 = free, 8 = hardest.\n# Delete this file to go back to the defaults.\n' | CALL
+  361: LOAD_FAST_BORROW ini | LOAD_ATTR write | LOAD_FAST_BORROW f | CALL
+  357: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  343: STORE_FAST name | RERAISE
+  352: STORE_FAST key | RERAISE
+  357: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L17 | RERAISE | LOAD_COMMON_CONSTANT None | RETURN_VALUE | RERAISE
+=== save.<locals>.<genexpr> (line 325)
+  325: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST k | LOAD_GLOBAL str | LOAD_FAST_BORROW k | CALL | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== save.<locals>.<genexpr> (line 326)
+  326: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST k | LOAD_GLOBAL str | LOAD_FAST_BORROW k | CALL | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+(exit 0)

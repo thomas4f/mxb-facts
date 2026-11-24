@@ -1,0 +1,26 @@
+$ objdump -h pkg/hud_plugin/mxbds_hud64.dlo | grep fptable; objdump -d pkg/hud_plugin/mxbds_hud64.dlo | grep -B6 '# 0x1800101e8'
+  4 .fptable      00000100  000000018001e000  000000018001e000  0001a200  2**2
+   18000963b:	48 8d 35 be 49 01 00 	lea    0x149be(%rip),%rsi        # 0x18001e000
+   180009642:	bd 00 01 00 00       	mov    $0x100,%ebp
+   180009647:	4c 8d 4c 24 60       	lea    0x60(%rsp),%r9
+   18000964c:	8b d5                	mov    %ebp,%edx
+   18000964e:	44 8d 47 f6          	lea    -0xa(%rdi),%r8d
+   180009652:	48 8b ce             	mov    %rsi,%rcx
+   180009655:	ff 15 8d 6b 00 00    	call   *0x6b8d(%rip)        # 0x1800101e8
+--
+   180009670:	48 0f 44 c1          	cmove  %rcx,%rax
+   180009674:	4a 87 04 e6          	xchg   %rax,(%rsi,%r12,8)
+   180009678:	4c 8d 4c 24 60       	lea    0x60(%rsp),%r9
+   18000967d:	8b d5                	mov    %ebp,%edx
+   18000967f:	44 8d 47 f4          	lea    -0xc(%rdi),%r8d
+   180009683:	48 8b ce             	mov    %rsi,%rcx
+   180009686:	ff 15 5c 6b 00 00    	call   *0x6b5c(%rip)        # 0x1800101e8
+--
+   180009920:	48 83 ec 28          	sub    $0x28,%rsp
+   180009924:	83 64 24 30 00       	andl   $0x0,0x30(%rsp)
+   180009929:	4c 8d 4c 24 30       	lea    0x30(%rsp),%r9
+   18000992e:	ba 00 01 00 00       	mov    $0x100,%edx
+   180009933:	48 8d 0d c6 46 01 00 	lea    0x146c6(%rip),%rcx        # 0x18001e000
+   18000993a:	41 b8 02 00 00 00    	mov    $0x2,%r8d
+   180009940:	ff 15 a2 68 00 00    	call   *0x68a2(%rip)        # 0x1800101e8
+(exit 0)

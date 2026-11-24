@@ -1,0 +1,25 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz webview.http | grep -nE "'localhost'|127\.0\.0\.1|route|js_callback|Access-Control|root_path|_get_random_port"; echo '--- js_callback in the Edge window code:'; pyinst.py pyzcode pkg/PYZ.pyz webview.platforms.edgechromium | grep -c js_callback
+30:  42: LOAD_CONST <code _get_random_port.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code _get_random_port> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _get_random_port
+43:=== _get_random_port.__annotate__ (line 42)
+45:=== _get_random_port (line 42)
+48:  48: LOAD_FAST_BORROW sock | LOAD_ATTR bind | LOAD_CONST 'localhost' | LOAD_FAST_BORROW port | BUILD_TUPLE | CALL
+92:  158: STORE_NAME is_running | LOAD_CONST ('address', 'js_api_endpoint', 'js_callback', 'root_path', 'running', 'uid') | STORE_NAME __static_attributes__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+96:  77: LOAD_CONST '/' | LOAD_FAST_BORROW self | STORE_ATTR root_path
+99:  80: BUILD_MAP | LOAD_FAST_BORROW self | STORE_ATTR js_callback
+127:  102: LOAD_FAST_BORROW common_path | POP_JUMP_IF_NONE to L11 | LOAD_GLOBAL abspath | LOAD_FAST_BORROW common_path | CALL | JUMP_FORWARD to L12 | LOAD_COMMON_CONSTANT None | LOAD_DEREF server | STORE_ATTR root_path
+128:  103: LOAD_GLOBAL logger | LOAD_ATTR debug | LOAD_CONST 'HTTP server root path: ' | LOAD_DEREF server | LOAD_ATTR root_path | FORMAT_SIMPLE | BUILD_STRING | CALL
+134:  122: LOAD_DEREF app | LOAD_ATTR route | LOAD_CONST '/' | CALL
+135:  123: LOAD_DEREF app | LOAD_ATTR route | LOAD_CONST '/<file:path>' | CALL
+140:  132: LOAD_FAST_BORROW common_path | POP_JUMP_IF_NONE to L14 | LOAD_GLOBAL abspath | LOAD_FAST_BORROW common_path | CALL | JUMP_FORWARD to L15 | LOAD_COMMON_CONSTANT None | LOAD_DEREF server | STORE_ATTR root_path
+141:  133: LOAD_FAST http_port | POP_JUMP_IF_TRUE to L16 | LOAD_GLOBAL _get_random_port | CALL | LOAD_DEREF server | STORE_ATTR port
+155:  151: LOAD_FAST_BORROW protocol | FORMAT_SIMPLE | LOAD_CONST '://127.0.0.1:' | LOAD_DEREF server | LOAD_ATTR port | FORMAT_SIMPLE | LOAD_CONST '/' | BUILD_STRING | LOAD_DEREF server | STORE_ATTR address
+163:  108: LOAD_CONST '*' | LOAD_GLOBAL bottle | LOAD_ATTR response | LOAD_ATTR headers | LOAD_CONST 'Access-Control-Allow-Origin' | STORE_SUBSCR
+165:  109: LOAD_GLOBAL bottle | LOAD_ATTR response | LOAD_ATTR headers | LOAD_CONST 'Access-Control-Allow-Methods' | STORE_SUBSCR
+167:  112: LOAD_GLOBAL bottle | LOAD_ATTR response | LOAD_ATTR headers | LOAD_CONST 'Access-Control-Allow-Headers' | STORE_SUBSCR
+169:  117: LOAD_FAST_BORROW body | LOAD_CONST 'uid' | BINARY_OP [] | LOAD_DEREF server | LOAD_ATTR js_callback | CONTAINS_OP in | POP_JUMP_IF_FALSE to L1
+170:  118: LOAD_GLOBAL json | LOAD_ATTR dumps | LOAD_DEREF server | LOAD_ATTR js_callback | LOAD_FAST_BORROW body | LOAD_CONST 'uid' | BINARY_OP [] | BINARY_OP [] | LOAD_FAST_BORROW body | CALL | CALL | RETURN_VALUE
+174:  125: LOAD_DEREF server | LOAD_ATTR root_path | POP_JUMP_IF_TRUE to L1
+179:  130: LOAD_GLOBAL bottle | LOAD_ATTR static_file | LOAD_FAST_BORROW file | LOAD_DEREF server | LOAD_ATTR root_path | LOAD_CONST ('root',) | CALL_KW | RETURN_VALUE
+--- js_callback in the Edge window code:
+0
+(exit 1)

@@ -1,0 +1,501 @@
+tool: MXB DualSense Support
+version: 1.1.0
+summary: >-
+  A Windows app that reads the ride data MX Bikes' own proxy_udp plugin sends and turns it into PS5 DualSense
+  adaptive-trigger effects through the separate program DSX, all over 127.0.0.1. On request it edits the game's
+  `proxy_udp.ini` (after a backup) and installs an optional in-game HUD plugin.
+header:
+  What it is: >-
+    A closed-source Windows program, `MXB-DualSense-Support.exe`, a Python app packed with PyInstaller, that you run beside
+    the game. It listens for the game's proxy_udp data on your PC and sends trigger commands to DualSenseX (DSX), which you
+    install separately; its window is drawn by Microsoft's WebView2. An optional HUD plugin, packed inside the program, is
+    copied into the game's `plugins` folder only when you click Install.
+  In one line: App that turns MX Bikes ride data into DualSense adaptive-trigger effects via DSX
+  Category: Controllers
+  Author: Slimerex (the name on its licence)
+  Game: MX Bikes
+  mxb-mods.com: >-
+    [MXB DualSense Support – PS5 adaptive triggers](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/),
+    published 15 Nov 2026, updated 20 Nov 2026
+  Homepage: None found
+  GitHub: None found
+  Version analysed: >-
+    1.1.0: `1795198224-mxb-dualsense-support-1.1.0.zip`, the download on its mxb-mods.com page (20 Nov 2026); the newest
+    release in the inventory (`registry/releases.json`, from that page). There are no tags or commits: the source isn't
+    public.
+  Analysed on: 24 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    MIT licence, so the analysis is allowed; closed source, so the release was examined without running it here: the
+    program was unpacked with `tools/carchive.py` (PyInstaller), every packed program file listed with its type, hash and
+    code-signing entry, and the tool's own Python code (the start script and the 18 modules of its `mxbds` package, Python
+    3.15 bytecode) read in full with Python 3.15's `dis` (not decompiled to source). The packed HUD plugin
+    (`mxbds_hud64.dlo`) was read with `objdump` (imports, exports, the code around its socket); every command is in
+    `lab/evidence/mxb-dualsense-1.1.0/run.sh`. The release was not rebuilt (no public source). A throwaway Windows Server
+    2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU), no game, no Steam, no DSX, no
+    controller and no keys started the control center for 120 s and the `--console` version for 60 s, under Process Monitor,
+    with the run folder's programs blocked by the firewall, and clicked nothing. The HUD plugin wasn't run, in the game or
+    the test host: it isn't in the zip, and is installed only from the app. VirusTotal: hash lookups only, made before the
+    analysis (24 Nov 2026), nothing uploaded.
+files:
+  - name: 1795198224-mxb-dualsense-support-1.1.0.zip
+    sha256: 4b5250f746f1ff6e7a80843839ef06a537e44775cadc6aef3c87ad6af75438f6
+    note: The download players get from its mxb-mods.com page.
+  - name: MXB-DualSense-Support.exe
+    sha256: d15e36b2ab507e751429126a8cda9a4327a099d819ca4929dd8569af9155bf78
+    inside: 1795198224-mxb-dualsense-support-1.1.0.zip
+    note: >-
+      The program (PyInstaller, one file): its own `mxbds` package, Python 3.15.1, pywebview 6.2.1 and the packages it needs,
+      OpenSSL 3.5.9; every program file packed in it, with its SHA-256, is in `lab/evidence/mxb-dualsense-1.1.0/bundled.txt`.
+      The zip also holds the README, changelog, credits, licence texts and a setup guide (PDF).
+  - name: mxbds_hud64.dlo
+    sha256: 7166e06ffb80ae283d364c5aeb415d40151880824d13b7eef9b84247836d50b4
+    inside: 1795198224-mxb-dualsense-support-1.1.0.zip
+    note: >-
+      The optional in-game HUD plugin, packed inside `MXB-DualSense-Support.exe` (`hud_plugin\`, unpacked with
+      `tools/carchive.py`) with its font `mxbds_hud\Inter-SemiBold.fnt`
+      (SHA-256 39d09a316f65ce46edc07f741666372b8ba4f0c45d620afea44828b520bee8cc).
+files_note: >-
+  Neither the program nor the HUD plugin is code-signed (`lab/evidence/mxb-dualsense-1.1.0/signature.txt`). The zip's hash
+  matches the one the Windows machine ran (`lab/results/mxb-dualsense-1.1.0/control-center-windows/machine.txt`), and the
+  program's the one it started (`lab/results/mxb-dualsense-1.1.0/control-center-windows/plugins.sha256`).
+key:
+  K1: 'No malware found. 4 of 66 engines flag the program and 2 of 66 the zip.'
+  K2: 'No. It has no updater.'
+  K3: >-
+    Only when you confirm. Set up proxy_udp.ini rewrites the game's `proxy_udp.ini` after a backup, which also changes
+    where the game's proxy_udp plugin sends its data.
+  K4: 'No. Its own code sends nothing off your PC; its window''s WebView2 runtime contacted Microsoft.'
+  K5: 'No. It changes nothing in the game; it reads the data the game''s own proxy_udp plugin sends.'
+  K6: 'No. It opens no one''s content.'
+  K7: 'No. Only the packed program is published, under the MIT licence.'
+  K8: 'Yes, as far as checked.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: >-
+    Yes, through its window. Microsoft's WebView2 runtime, which draws it, connected to two Microsoft addresses; the tool's own
+    traffic stays on 127.0.0.1.
+areas:
+  Your PC and files: >-
+    No installer and no updater; on request it rewrites the game's `proxy_udp.ini` (with a backup) and copies its HUD plugin
+    into `plugins`; not code-signed.
+  Your data: >-
+    Its own traffic stays on your PC (the game's data in, trigger commands to DSX, HUD data out); the WebView2 runtime that
+    draws its window contacted Microsoft.
+  Your game: >-
+    A separate program that reads the game's own proxy_udp output; it reads two global hotkeys, and its optional HUD plugin
+    runs in the game only after you install it.
+  Creators' content: Opens no mods, paints, tracks or models; credits the code and font it ships.
+  Transparency: Closed source under the MIT licence, published as a zip on mxb-mods.com.
+  Money: Free; nothing is sold and no donation is asked for.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: Save on the Triggers page, and every change on the HUD page (also Ctrl+Shift+H), writes `settings.ini`
+          next to the program; it holds trigger and HUD settings and the game folder you chose
+          (`lab/evidence/mxb-dualsense-1.1.0/file-writes.txt`, `lab/evidence/mxb-dualsense-1.1.0/api-confirm.txt`).
+        mark: note
+      - text: >-
+          Also found: while it runs, its packed files sit in a temporary folder (`AppData\Local\Temp\_MEI...`), as with any
+          PyInstaller program, and the WebView2 window keeps its browser data in another temporary folder (`EBWebView`)
+          (`lab/results/mxb-dualsense-1.1.0/control-center-windows/outside.txt`).
+        mark: note
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: Nothing sent; it listens for the game's proxy_udp data (bike data, speed, wheels, suspension)
+            Where to: '`127.0.0.1`, UDP port 30001 (on your PC)'
+            When: While the mod runs
+            Switch: Stop mod in the sidebar, or close it
+          - What: Trigger commands for L2 and R2
+            Where to: DSX, `127.0.0.1`, UDP port 6969 or the one in DSX's port file
+            When: When a trigger command changes, and again every second
+            Switch: Stop mod in the sidebar, or close it
+          - What: Both trigger values, the active effect names and the HUD's place, size and opacity
+            Where to: The HUD plugin, `127.0.0.1`, UDP port 30002
+            When: Up to 30 times a second while the mod runs, installed HUD or not
+            Switch: Stop mod in the sidebar, or close it
+          - What: The window's own files (page, script, style, font)
+            Where to: The WebView2 window, from pywebview's server on `127.0.0.1` (a random port)
+            When: While the control center is open
+            Switch: The `--console` version opens no window
+          - What: Not readable (HTTPS), made by `msedgewebview2.exe`, Microsoft's WebView2 runtime, not by the tool's code
+            Where to: 150.171.27.11 and 150.171.22.17 (Microsoft)
+            When: Seen in the 120 s control-center run (`lab/results/mxb-dualsense-1.1.0/control-center-windows/network.txt`); none in the console run
+            Switch: The `--console` version opens no window
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: the game's proxy_udp plugin sends its data to one address only, so after Set up proxy_udp.ini another
+          program that used it (a dashboard, another trigger tool) gets none until you put the old file back; the window says
+          so before it writes when another address was set (`lab/evidence/mxb-dualsense-1.1.0/buttons.txt`,
+          `lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "The mod runs next to the game and changes nothing in the game itself. The only files it writes in the MX
+              Bikes folder are the ones you confirm: proxy_udp.ini (always after a backup) and, if you want it, the HUD
+              plugin." (README.txt)
+            Verdict: Matches
+            Evidence: >-
+              It writes into the game folder only from the confirmed Set up proxy_udp.ini (a copy to
+              `proxy_udp.ini.backup-<date>` first) and Install in-game HUD; it has no code that opens the game's process
+              (`lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/install.txt`,
+              `lab/evidence/mxb-dualsense-1.1.0/buttons.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`).
+          - Claim: >-
+              "It needs no admin rights and no internet, and it does not collect or send any data." (README.txt)
+            Verdict: Partly
+            Evidence: >-
+              The tool's own code sends only to 127.0.0.1 and holds no web address but WebView2's download page
+              (`lab/evidence/mxb-dualsense-1.1.0/network.txt`, `lab/evidence/mxb-dualsense-1.1.0/urls.txt`). The WebView2 runtime
+              that draws its window connected to two Microsoft addresses over HTTPS in the run
+              (`lab/results/mxb-dualsense-1.1.0/control-center-windows/network.txt`).
+          - Claim: '"Uninstall" removes exactly these again. (README.txt, on the HUD plugin and its font)'
+            Verdict: Matches
+            Evidence: >-
+              Uninstall deletes `mxbds_hud64.dlo` and `mxbds_hud\Inter-SemiBold.fnt` from `plugins`, and the `mxbds_hud`
+              folder only when it is empty (`lab/evidence/mxb-dualsense-1.1.0/install.txt`).
+          - Claim: '"Closing it sets both triggers back to normal." (README.txt)'
+            Verdict: Matches
+            Evidence: >-
+              Closing the window stops the mod, which sends DSX the normal trigger command for both triggers and hides the HUD
+              (`lab/evidence/mxb-dualsense-1.1.0/core-stop.txt`, `lab/evidence/mxb-dualsense-1.1.0/window.txt`). Not felt on a
+              controller here (see Limits).
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real
+              GPU, without the game, Steam, DSX or a DualSense, so no trigger effect was felt and no game data was received.
+            questions: []
+          - text: >-
+              The runs only started the control center for 120 s and the console version for 60 s, and clicked nothing: Set
+              up proxy_udp.ini, Install and Uninstall in-game HUD, Save, the game-folder picker, `--install-hud`, `--tune` and
+              the Ctrl+Shift+H and Ctrl+Shift+M hotkeys weren't run. What they do rests on the program's bytecode.
+            questions: [P4, P7, P8, G6, G7]
+          - text: >-
+              The HUD plugin wasn't run, in the real game or the test host: the zip ships no `.dlo`, and the plan can only load
+              plugins from the unpacked release. What it does rests on its imports and exports and the code around its socket;
+              an import table doesn't show what a plugin reads through the game's plugin interface.
+            questions: [G2, G4, G8, G11]
+          - text: >-
+              What the WebView2 runtime sent to Microsoft on its HTTPS connections couldn't be read. The tool hands it only
+              the window's own local files.
+            questions: [D2, D3, D8]
+          - text: >-
+              The runs were stopped rather than closed, so whether the temporary folders are removed when you close the
+              program wasn't seen.
+            questions: [P8]
+          - text: >-
+              The program's code was read as bytecode with Python 3.15's `dis`, not decompiled to source. The code packed with
+              it (PyInstaller's start-up code, Python's standard library, pywebview and its packages) wasn't compared with
+              those projects' own releases; the answers rest on what the tool's own modules call.
+            questions: [P9]
+answers:
+  P1:
+    verdict: Partly
+    mark: note
+    text: >-
+      4 of 66 engines (APEX, Bkav, Cylance, SentinelOne) flag `MXB-DualSense-Support.exe`, and 2 of 66 (Bkav, SentinelOne)
+      flag the zip (both last scanned 20 Nov 2026). Both are on VirusTotal. The zip's other files (texts and the PDF) were
+      looked up too, with no engine flagging them. `mxbds_hud64.dlo`, packed inside the program, wasn't looked up. Hash
+      lookups on 24 Nov 2026; nothing uploaded.
+    evidence: >-
+      [1795198224-mxb-dualsense-support-1.1.0.zip](https://www.virustotal.com/gui/file/4b5250f746f1ff6e7a80843839ef06a537e44775cadc6aef3c87ad6af75438f6),
+      [MXB-DualSense-Support.exe](https://www.virustotal.com/gui/file/d15e36b2ab507e751429126a8cda9a4327a099d819ca4929dd8569af9155bf78)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It has no updater; its code has no web address but WebView2's download page and no web request code.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/urls.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`, `lab/evidence/mxb-dualsense-1.1.0/imports.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/urls.txt`, `lab/evidence/mxb-dualsense-1.1.0/imports.txt`.'
+  P4:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Set up proxy_udp.ini, on the Setup page, rewrites the game's `proxy_udp.ini` only after a box shows the new file and you
+      click Write file; it copies the old file to `proxy_udp.ini.backup-<date>` first, and changes only the lines it needs.
+      Uninstall in-game HUD deletes only its own two files. Nothing else is deleted.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/buttons.txt`, `lab/evidence/mxb-dualsense-1.1.0/install.txt`, `lab/evidence/mxb-dualsense-1.1.0/file-writes.txt`.'
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Neither the program nor the HUD plugin is code-signed, and they can't be traced to public source. (Most of Python's and
+      Microsoft's DLLs packed inside carry their own signature entry; that doesn't sign the program.)
+    evidence: Empty Security Directory for `MXB-DualSense-Support.exe` and `mxbds_hud64.dlo` (`lab/evidence/mxb-dualsense-1.1.0/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its code only reads the registry (Steam's folder, WebView2's version) and writes nothing there. In the run, the WebView2
+      runtime it opens kept its own entries under `HKCU\Software\Microsoft\EdgeWebView`, as with any WebView2 window.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/registry.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`; `lab/results/mxb-dualsense-1.1.0/control-center-windows/registry.txt`, `lab/results/mxb-dualsense-1.1.0/console-windows/registry.txt`.'
+  P7:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      On request it writes `proxy_udp.ini` in the game folder (P4) and copies `mxbds_hud64.dlo` and `mxbds_hud\Inter-SemiBold.fnt`
+      into `plugins` (Install in-game HUD, or `--install-hud` after you answer y). Nothing is written into the game's folders
+      when you only start it.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/install.txt`, `lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/code-mxbds.main.txt`; `lab/results/mxb-dualsense-1.1.0/control-center-windows/files.diff`.'
+  P8:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      There is no installer. Uninstall in-game HUD removes the plugin's files, but the changed `proxy_udp.ini` stays (its backup
+      sits next to it to put back by hand), and so do `settings.ini` and the backup files.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/install.txt`, `lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/file-writes.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. Its code does what its window and README show: it reads the game's data, drives the triggers through
+      DSX, draws the HUD, and edits the two places you confirm. It opens no other program's process and has no web request
+      code; the packed modules are Python's standard library, pywebview and the packages it needs.
+    evidence: >-
+      `lab/evidence/mxb-dualsense-1.1.0/imports.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`, `lab/evidence/mxb-dualsense-1.1.0/network.txt`,
+      `lab/evidence/mxb-dualsense-1.1.0/pyz.txt`, `lab/evidence/mxb-dualsense-1.1.0/carchive.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.iat.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The control center's window is drawn by Microsoft's WebView2 runtime, which connected to two Microsoft addresses
+      (150.171.27.11, 150.171.22.17) over HTTPS in the 120 s run. The tool's own code sends only to 127.0.0.1, and the console
+      version made no internet connection. If WebView2 is missing, Yes in its message opens WebView2's download page in your
+      browser.
+    evidence: '`lab/results/mxb-dualsense-1.1.0/control-center-windows/network.txt`, `lab/results/mxb-dualsense-1.1.0/console-windows/network.txt`; `lab/evidence/mxb-dualsense-1.1.0/network.txt`, `lab/evidence/mxb-dualsense-1.1.0/urls.txt`.'
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing about you or your game leaves your PC from the tool's code: the game's data stays on 127.0.0.1, between the game,
+      the tool, DSX and the HUD. It gives the WebView2 window only its own local page.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/network.txt`, `lab/evidence/mxb-dualsense-1.1.0/window.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: Its code makes and sends no identifier; nothing it sends leaves your PC.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/network.txt`, `lab/evidence/mxb-dualsense-1.1.0/hud-feed.txt`, `lab/evidence/mxb-dualsense-1.1.0/dsx.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: It reads only your own bike's data from the game and sends no other player's data.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/telemetry.txt`, `lab/evidence/mxb-dualsense-1.1.0/network.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      pywebview runs a small web server on 127.0.0.1, on a random port, that serves only the window's own files (page, script,
+      style, font) from the program. The window's buttons and live data go through WebView2's own channel, not this server:
+      its API route answers nothing for the Edge window.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/webview-server.txt`, `lab/evidence/mxb-dualsense-1.1.0/window.txt`; `lab/results/mxb-dualsense-1.1.0/control-center-windows/network.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      To find the game it reads Steam's folder from the registry and Steam's `libraryfolders.vdf`; it reads DSX's port file
+      (`C:\Temp\DualSenseX\DualSenseX_PortNumber.txt`) and, on the Setup page, the game's `proxy_udp.ini`. None of it is other
+      people's data.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/install.txt`, `lab/evidence/mxb-dualsense-1.1.0/dsx.txt`, `lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/registry.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; its own code sends nothing off your PC.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/network.txt`, `lab/evidence/mxb-dualsense-1.1.0/urls.txt`.'
+  D8:
+    verdict: Partly
+    mark: note
+    text: >-
+      The tool's own code makes no internet connection. The WebView2 window's connections to Microsoft have no switch in the
+      tool; the `--console` version opens no window and made none.
+    evidence: '`lab/results/mxb-dualsense-1.1.0/control-center-windows/network.txt`, `lab/results/mxb-dualsense-1.1.0/console-windows/network.txt`, `lab/evidence/mxb-dualsense-1.1.0/code-mxb_dualsense.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the download and the program need none.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/strings-money.txt`, `lab/evidence/mxb-dualsense-1.1.0/urls.txt`; [mxb-mods.com page](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/).'
+  D10:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      While the mod runs it sends both trigger values, the active effect names and the HUD settings to UDP 127.0.0.1:30002 up
+      to 30 times a second (for its HUD plugin, which any program on your PC could also listen for), and trigger commands to DSX
+      on 127.0.0.1:6969. No identifier or other rider's data is in them.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/hud-feed.txt`, `lab/evidence/mxb-dualsense-1.1.0/dsx.txt`; `lab/results/mxb-dualsense-1.1.0/console-windows/network.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It doesn't open or write into the game's process; it only receives the data the game's own plugin sends.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/absent.txt`, `lab/evidence/mxb-dualsense-1.1.0/telemetry.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The program doesn't touch the game's code or memory. The optional HUD plugin imports nothing to change code or memory;
+      its only VirtualProtect calls are on its own C runtime table.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/absent.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.iat.txt`, `lab/evidence/mxb-dualsense-1.1.0/virtualprotect.txt`.'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game (G2), so it changes nothing online either.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/absent.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.iat.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The program gets the game's data only from the game's own proxy_udp plugin, over UDP. The HUD plugin exports only the
+      plugin interface's functions and imports nothing to read another process.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/telemetry.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.objdump-p.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.iat.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It only checks whether its hotkeys are held (G7); it doesn't block the game's input or press keys.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/hotkeys.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`.'
+  G6:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      Set up proxy_udp.ini changes the settings file of the game's own proxy_udp plugin (P4), so the plugin sends its data to
+      this tool instead of any program it went to before; the box says so first when another address was set.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/buttons.txt`.'
+  G7:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The control center checks Ctrl+Shift+H (HUD on and off) and Ctrl+Shift+M (Supermoto or Motocross) every 50 ms through
+      Windows' GetAsyncKeyState, also while the game isn't focused; the console version checks Ctrl+Shift+M, and `--tune` the
+      numpad keys too.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/hotkeys.txt`, `lab/evidence/mxb-dualsense-1.1.0/code-mxbds.main.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The program doesn't run in the game. The HUD plugin's only SetUnhandledExceptionFilter call is the C runtime's failure
+      report, which clears the filter and ends the process; it sets no crash handler.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/crash-filter.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; its code writes no registry value and the runs wrote no start-up entry.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/registry.txt`; `lab/results/mxb-dualsense-1.1.0/control-center-windows/registry.txt`.'
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: The tool is a separate program you start yourself and keep open while you ride.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/file.txt`, `lab/evidence/mxb-dualsense-1.1.0/readme-claims.txt`, `lab/results/mxb-dualsense-1.1.0/control-center-windows/loaded.txt`.'
+  G11:
+    verdict: Yes, not by default
+    mark: note
+    text: >-
+      Only after Install in-game HUD (or `--install-hud`): `mxbds_hud64.dlo` then loads as a game plugin, receives the HUD data
+      on UDP 127.0.0.1:30002 and draws with the plugin interface. The program itself never runs in the game.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/install.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.objdump-p.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.180001b9a-180001c12.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check is got around; it uses the game's own proxy_udp output.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/telemetry.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; it reads only the game's ride data.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/imports.txt`, `lab/evidence/mxb-dualsense-1.1.0/telemetry.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves no models or textures; the only files it writes are its settings, its HUD plugin and `proxy_udp.ini`.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/file-writes.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; nothing it sends leaves your PC.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/network.txt`.'
+  C4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      `CREDITS.txt` credits DSX's packet format, TriggerEffectGenerator (with its MIT text), the Inter font, Python, pywebview
+      and its packages, WebView2 and PyInstaller, and the zip carries the licence texts of the packed packages.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/thirdparty.txt`, `lab/evidence/mxb-dualsense-1.1.0/versions.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: It opens no mods, paints, tracks or models; it reads the game's ride data and its `proxy_udp.ini`.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/file-writes.txt`, `lab/evidence/mxb-dualsense-1.1.0/telemetry.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source of its own code isn't public. Prebuilt program files: `MXB-DualSense-Support.exe` (PE32+ GUI program, x86-64,
+      PyInstaller), holding the compiled `mxbds` package and start script (no public source); `mxbds_hud64.dlo` (PE32+ DLL,
+      the HUD plugin, no public source); `python315.dll` and 18 `.pyd` modules (Python 3.15.1); `libcrypto-3.dll` and
+      `libssl-3.dll` (OpenSSL 3.5.9); `libffi-8.dll`; `_cffi_backend.cp315-win_amd64.pyd` (cffi 2.1.1); two `ClrLoader.dll`
+      (clr_loader 0.3.1); `Python.Runtime.dll` (pythonnet 3.2.1); `Microsoft.Web.WebView2.Core.dll`,
+      `Microsoft.Web.WebView2.WinForms.dll`, three `WebView2Loader.dll` and two `WebBrowserInterop.dll` (pywebview 6.2.1); and
+      `VCRUNTIME140.dll`, `VCRUNTIME140_1.dll` (Microsoft's C runtime).
+    evidence: '`file` on each (`lab/evidence/mxb-dualsense-1.1.0/file.txt`, `lab/evidence/mxb-dualsense-1.1.0/bundled.txt`), `lab/evidence/mxb-dualsense-1.1.0/versions.txt`; [mxb-mods.com page](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/) (a zip download only).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing its README says on these questions differs from what its code does; the claims are in "What it says vs what it
+      does".
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/readme-claims.txt`, `lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/network.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release is a zip on mxb-mods.com; there is no public source or build.
+    evidence: '[mxb-mods.com page](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[mxb-mods.com page](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: No code history is public; the release has a changelog for its two versions.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/file.txt`; [mxb-mods.com page](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/).'
+  T6:
+    verdict: Not checked
+    text: >-
+      No source or build files are public, so how its dependencies are pinned can't be read; the release names the exact
+      version of each package it packs.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/versions.txt`.'
+  T7:
+    verdict: 'Yes'
+    mark: good
+    text: The release carries the MIT licence (`LICENSE.txt`, "Copyright (c) 2026 Slimerex").
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/thirdparty.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/strings-money.txt`; [mxb-mods.com page](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/).'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; its code and window have no shop or payment link.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Neither the program nor its README asks for donations.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/strings-money.txt`, `lab/evidence/mxb-dualsense-1.1.0/readme-claims.txt`.'
+history:
+  - date: 24 Nov 2026
+    change: First card, for 1.1.0.

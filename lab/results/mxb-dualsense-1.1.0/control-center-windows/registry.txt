@@ -1,0 +1,81 @@
+msedgewebview2.exe  RegCreateKey  HKCU\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeUpdate\ClientState\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\BLBeacon  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\PreferenceMACs\Default  NAME NOT FOUND
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\PreferenceMACs\Default  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\EdgeWebView\StabilityMetrics  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\IdentityCRL\Immersive\production\Property  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Network\Location Awareness  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\ClosedCaptioning  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Connections  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\DevicePolicy\AllowTelemetry  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Edition\DevicePolicy\AllowTelemetry  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store\AllowTelemetry  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\DataCollection  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\Windows\CurrentVersion\Internet Settings  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\Policies\Microsoft\Windows\DataCollection  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EdgeUpdate\ClientStateMedium\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Control\Class\{4D36E96E-E325-11CE-BFC1-08002BE10318}\0000  REPARSE
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Control\Class\{4D36E96E-E325-11CE-BFC1-08002BE10318}\0000  SUCCESS
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+msedgewebview2.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+msedgewebview2.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings  NAME NOT FOUND
+msedgewebview2.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\schedule_to_flush_to_disk  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeUpdate\ClientState\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\dr  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeUpdate\ClientState\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\lastrun  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\BLBeacon\failed_count  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\BLBeacon\state  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\BLBeacon\version  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\browser.show_home_button  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\default_search_provider_data.template_url_data  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\edge.services.account_id  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\edge.services.last_username  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\enterprise_signin.policy_recovery_token  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.install.initiallist  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.install.initialprovidername  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings\dgiklkfkllikcanfonkcabmbdfmgleag  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.settings\mhjfbmdgcfjbbpaeojofohoefgiehjai  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\extensions.ui.developer_mode  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\google.services.last_signed_in_username  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\homepage  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\homepage_is_newtabpage  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\media.cdm.origin_data  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\media.storage_id_salt  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\pinned_tabs  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\prefs.preference_reset_time  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\safebrowsing.incidents_sent  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\schedule_to_flush_to_disk  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\search_provider_overrides  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\session.restore_on_startup  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\PreferenceMACs\Default\session.startup_urls  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\StabilityMetrics\user_experience_metrics.stability.exited_cleanly  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\EdgeWebView\UsageStatsInSample  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Property\0018801AE4997E9C  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}\ApplicationFlags  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}\DeviceId  SUCCESS
+msedgewebview2.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\IdentityCRL\Immersive\production\Token\{67082621-8D18-4333-9C64-10DE93676363}\DeviceTicket  SUCCESS
+msedgewebview2.exe  RegSetValue  HKLM\SOFTWARE\Wow6432Node\Microsoft\EdgeUpdate\ClientStateMedium\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\urlstats  SUCCESS
+msedgewebview2.exe  RegSetValue  HKLM\SOFTWARE\Wow6432Node\Microsoft\EdgeUpdate\ClientStateMedium\{F3017226-FE2A-4295-8BDF-00C3A9A7E4C5}\usagestats  SUCCESS
+MXB-DualSense-Support.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+MXB-DualSense-Support.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS
+MXB-DualSense-Support.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+MXB-DualSense-Support.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+MXB-DualSense-Support.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+MXB-DualSense-Support.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+MXB-DualSense-Support.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+MXB-DualSense-Support.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+MXB-DualSense-Support.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-control-center\release\1795198224-mxb-dualsense-support-1.1.0.zip\MXB-DualSense-Support.exe  SUCCESS

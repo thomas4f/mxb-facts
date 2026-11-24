@@ -1,0 +1,74 @@
+$ cd pkg; find . -type f \( -name '*.dll' -o -name '*.pyd' -o -name '*.dlo' -o -name '*.exe' \) | sort | while read f; do sha256sum "$f"; file -b "$f"; done
+d1f4225df2cd877dbf130d5668a021dce3f94118455ff5ec952061c30afc9ce7  ./VCRUNTIME140.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+a7146c08f89fe5b04541ab507cdb59ff7b44534d4ba3c668a426c6450a03434e  ./VCRUNTIME140_1.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+823d73d89b646eecbd0b44fa07715bec8ba6ee1deff25b554eabac21b421ae4e  ./_asyncio.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+a57ad7b6355659277ab3048ecb8878b713305cf7a566cebed90319d333d44941  ./_bz2.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+41f528cda715179bed45be6913f48aa07ae34c2c04f7ebbd74740632096d213d  ./_cffi_backend.cp315-win_amd64.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+0dab147f138b1c2294727c0c411b1313f798a9d0bf12b827b3c243c4fea628d1  ./_ctypes.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+daa7a522a085263f3ad24f438aeb9ec470b9ea17040b924f6552bd2c44073b45  ./_decimal.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+0e3fc8389aba2de393cd8de2dc3a2de12eb3ca1cba46aecb82291a92134b30d2  ./_elementtree.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+1aed3affa3bf88fb4ed1c1294fd23a4dae4c0c2378e139ae2d19b5f68ebac022  ./_hashlib.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+a3163ce72075f46e8d4f2e84c7bd6c30b354cfc9af77145ecd8f07cd758b07a8  ./_lzma.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+c55e3b9326def90db92d8cae0276a94f8f12ebbcd942b276a949964721af7a4a  ./_multiprocessing.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+060b4a531d8cc8ca88ee1aaa1b7b14df1812c63573dd863acfc28e248a07b252  ./_overlapped.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+ebce600509f8fcc45ca264775b70d1a7848300b1669eff6babab5a1244195d3f  ./_queue.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+95d9fec06c9dc9c61ce3335bd83160851bce90f936615a9ba564ecedd3e76e7c  ./_socket.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+3941ff2e737757468b5d5c4c4c3a848019ce0e85a9ad32b8deb8d5cf5df93e56  ./_ssl.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+8e2bdb3e095cad538540c4941cbce3f279b86c8d8d7cdb8b00f42567d01e8668  ./_uuid.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+25643fe7a149c2d36f6a3b18638e3dac3a20a7a198e8b8215d37e30b28ab6244  ./_wmi.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+65f7f0b0f204ea3fd9ea53a3d6f54e2f7f802188ee1a1ba1b1cdf3674684993d  ./_zstd.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+07f62bcb1b70320f221ffb2cfc5ce6133815195f3e7cdb8d833222506188c2ac  ./clr_loader/ffi/dlls/amd64/ClrLoader.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64 Mono/.Net assembly, 4 sections
+3128381d133f4ff746add70100cfef713ce2d78f2b12c02ec24ec453c5dfab0d  ./clr_loader/ffi/dlls/x86/ClrLoader.dll
+PE32 executable for MS Windows 6.00 (DLL), Intel i386 Mono/.Net assembly, 4 sections
+7166e06ffb80ae283d364c5aeb415d40151880824d13b7eef9b84247836d50b4  ./hud_plugin/mxbds_hud64.dlo
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+75495fe0e079ab00d49be740d3c710a0b94e3f74f9648cb7cc9f768fc7f52319  ./libcrypto-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a  ./libffi-8.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+8957182a9c385bfd9f3f790921de2ddc614cf91f99edbed4e9e5446a46504e32  ./libssl-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+a7a32ae2c0490f990c2b7cf4e6aacfe0fb680a7d460bc62efe9c61f766db1730  ./pyexpat.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+62507168f11f1a9bb6c6982322e0320477cf703a7382bdbe608a124a457126b1  ./python315.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+2ebd4492e28442ef1f1af587afe5b3a090c2ebfa220758ded4f1450f2a27f13a  ./pythonnet/runtime/Python.Runtime.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+641c4d2365d15ba1da857fd783b64ef67624077cc50ff3bd8566fe484b109342  ./select.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+67d569e47ab2cd164ee6e42e5811b787d18230eb02b47adf3e45cc67205eef79  ./unicodedata.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+8219a3135436c147f8eb02fb831e99596103eebc18b6d7b794ca93f4c67018a2  ./webview/lib/Microsoft.Web.WebView2.Core.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+c48f8d729dc531288d2c53a6241effe7922ed1b947850b2442008a945c098c48  ./webview/lib/Microsoft.Web.WebView2.WinForms.dll
+PE32 executable for MS Windows 6.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+f6a646470f0e1058224a52e8e2e217501dca46939b30bfc9a5dd4dcdd43f088d  ./webview/lib/WebBrowserInterop.x64.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+4e527297fbea7c5a0419f3a6af307c2681787beb0bf0ef3fea849a7fd85a08dc  ./webview/lib/WebBrowserInterop.x86.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+0937030efc718f3da77c5e0978fb5046e381d0bb7b01acaad31a535a1b588a33  ./webview/lib/runtimes/win-arm64/native/WebView2Loader.dll
+PE32+ executable for MS Windows 10.00 (DLL), ARM64, 8 sections
+eb5335edeaa6f2122c044e82aab2351dc8c9b4e0fe5e578c71922fb61be285e7  ./webview/lib/runtimes/win-x64/native/WebView2Loader.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+04814b2c59314c6452d61b821a4a3a5c5f8e8577b55b985f6a7a4b59f8907ec5  ./webview/lib/runtimes/win-x86/native/WebView2Loader.dll
+PE32 executable for MS Windows 10.00 (DLL), Intel i386, 7 sections
+(exit 0)

@@ -1,0 +1,20 @@
+$ strings -el pkg/python315.dll | grep -A1 -xE 'FileVersion|ProductName'; strings -n 5 pkg/libcrypto-3.dll | grep -E '^OpenSSL [0-9]' | head -1; cat 'zip/licenses/README.txt'
+FileVersion
+3.15.1
+--
+ProductName
+Python
+OpenSSL 3.5.9 29 Sep 2026
+Third-party Python packages bundled in MXB-DualSense-Support.exe
+
+- bottle 0.13.4 (MIT)
+- cffi 2.1.1 (MIT-0)
+- clr_loader 0.3.1 (see file)
+- proxy_tools 0.1.0 (see file - taken from the original repository)
+- pycparser 3.12 (BSD-3-Clause)
+- pythonnet 3.2.1 (MIT)
+- pywebview 6.2.1 (BSD 3-Clause License)
+- typing_extensions 4.16.0 (PSF-2.0)
+- Python runtime 3.15.1 (PSF License; the file also lists OpenSSL, libffi, zlib and the other libraries Python ships)
+- Microsoft.Web.WebView2 SDK DLLs inside pywebview (Microsoft BSD-style license + NOTICE)
+(exit 0)

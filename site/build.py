@@ -25,6 +25,7 @@ CARDS=[  # (card file, page anchor), alphabetical
     ('mx-dirt-mod-alt-1.7.1-alt.1.yaml', 'mx-dirt-mod-alt'),
     ('mxb-damage-1.3.0.yaml', 'mxb-damage'),
     ('mxb-discord-rpc-2024-10-06.yaml', 'mxb-discord-rpc'),
+    ('mxb-dualsense-1.1.0.yaml', 'mxb-dualsense'),
     ('mxb-fps-booster-v1.yaml', 'mxb-fps-booster'),
     ('mxbfix-0.1.8.yaml', 'mxbfix'),
 ]

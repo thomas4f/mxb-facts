@@ -1,0 +1,50 @@
+$ pyinst.py code pkg/mxb_dualsense.pyc_raw
+=== <module> (line 1)
+  1: LOAD_CONST 'Entry point of the .exe "MXB DualSense Support" (E6, F10).\n\nBuilt with:  build.bat  (or python -m PyInstaller mxb_dualsense.spec)\n\n  MXB-DualSense-Support.exe                  control center window (default)\n  MXB-DualSense-Support.exe --console        console version (status in a console window)\n  MXB-DualSense-Support.exe --tune           console + numpad tuning\n  MXB-DualSense-Support.exe --install-hud    / --uninstall-hud: console, asks first\n\nThe exe is built without a console window (so the control center opens without a black box behind\nit). For the console options it opens its own console window.\n' | STORE_NAME __doc__
+  14: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME sys | STORE_NAME sys
+  16: BUILD_SET | LOAD_CONST frozenset({'-h', '--uninstall-hud', '--console', '--tune', '--help', '--install-hud'}) | SET_UPDATE | STORE_NAME CONSOLE_FLAGS
+  17: BUILD_SET | LOAD_CONST frozenset({'--uninstall-hud', '-h', '--help', '--install-hud'}) | SET_UPDATE | STORE_NAME ONE_SHOT_FLAGS
+  20: LOAD_CONST <code wants_console.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code wants_console> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME wants_console
+  24: LOAD_CONST <code open_console.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code open_console> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME open_console
+  40: LOAD_CONST <code run.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code run> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME run
+  56: LOAD_NAME __name__ | LOAD_CONST '__main__' | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L1
+  57: LOAD_NAME sys | LOAD_ATTR exit | LOAD_NAME run | LOAD_NAME sys | LOAD_ATTR argv | LOAD_CONST slice(1, None, None) | BINARY_OP [] | CALL | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  56: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== wants_console.__annotate__ (line 20)
+  20: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'argv' | LOAD_GLOBAL list | LOAD_GLOBAL str | BINARY_OP [] | LOAD_CONST 'return' | LOAD_GLOBAL bool | BUILD_MAP | RETURN_VALUE
+=== wants_console (line 20)
+  21: LOAD_GLOBAL any | LOAD_COMMON_CONSTANT <built-in function any> | IS_OP is | POP_JUMP_IF_FALSE to L4 | LOAD_CONST <code wants_console.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW argv | CALL | FOR_ITER to L3 | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT True | RETURN_VALUE | LOAD_COMMON_CONSTANT False | RETURN_VALUE | LOAD_CONST <code wants_console.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW argv | CALL | CALL | RETURN_VALUE
+=== wants_console.<locals>.<genexpr> (line 21)
+  21: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST_LOAD_FAST a, a | LOAD_GLOBAL CONSOLE_FLAGS | CONTAINS_OP in | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+=== open_console.__annotate__ (line 24)
+  24: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_GLOBAL bool | BUILD_MAP | RETURN_VALUE
+=== open_console (line 24)
+  29: LOAD_GLOBAL sys | LOAD_ATTR platform | LOAD_CONST 'win32' | COMPARE_OP bool(!=) | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL getattr | LOAD_GLOBAL sys | LOAD_CONST 'frozen' | LOAD_COMMON_CONSTANT False | CALL | POP_JUMP_IF_TRUE to L2
+  30: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+  31: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME ctypes + eager | STORE_FAST ctypes
+  32: LOAD_FAST_BORROW ctypes | LOAD_ATTR windll | LOAD_ATTR kernel32 | LOAD_ATTR AllocConsole | CALL | POP_JUMP_IF_TRUE to L3
+  33: LOAD_COMMON_CONSTANT False | RETURN_VALUE
+  34: LOAD_GLOBAL open | LOAD_CONST 'CONOUT$' | LOAD_CONST 'w' | LOAD_CONST 'utf-8' | LOAD_SMALL_INT | LOAD_CONST ('encoding', 'buffering') | CALL_KW | LOAD_GLOBAL sys | STORE_ATTR stdout
+  35: LOAD_GLOBAL sys | LOAD_ATTR stdout | LOAD_GLOBAL sys | STORE_ATTR stderr
+  36: LOAD_GLOBAL open | LOAD_CONST 'CONIN$' | LOAD_CONST 'r' | LOAD_CONST 'utf-8' | LOAD_CONST ('encoding',) | CALL_KW | LOAD_GLOBAL sys | STORE_ATTR stdin
+  37: LOAD_COMMON_CONSTANT True | RETURN_VALUE
+=== run.__annotate__ (line 40)
+  40: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'argv' | LOAD_GLOBAL list | LOAD_GLOBAL str | BINARY_OP [] | LOAD_CONST 'return' | LOAD_GLOBAL int | BUILD_MAP | RETURN_VALUE
+=== run (line 40)
+  41: LOAD_GLOBAL wants_console | LOAD_FAST_BORROW argv | CALL | POP_JUMP_IF_FALSE to L11
+  42: LOAD_GLOBAL open_console | CALL | STORE_FAST own_window
+  43: LOAD_SMALL_INT | LOAD_CONST ('main',) | IMPORT_NAME mxbds.main + eager | IMPORT_FROM main | STORE_FAST main
+  44: LOAD_GLOBAL sys | LOAD_ATTR argv | LOAD_SMALL_INT | BINARY_OP [] | BUILD_LIST | LOAD_FAST argv | LOAD_FAST_AND_CLEAR a | BUILD_LIST | GET_ITER | FOR_ITER to L3 | STORE_FAST_LOAD_FAST a, a | LOAD_CONST '--console' | COMPARE_OP bool(!=) | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1 | LOAD_FAST_BORROW a | LIST_APPEND | JUMP_BACKWARD to L1 | STORE_FAST a | BINARY_OP + | LOAD_GLOBAL sys | STORE_ATTR argv
+  46: LOAD_FAST_BORROW main | CALL | STORE_FAST code
+  49: LOAD_FAST_BORROW own_window | POP_JUMP_IF_FALSE to L10 | LOAD_GLOBAL any | LOAD_COMMON_CONSTANT <built-in function any> | IS_OP is | POP_JUMP_IF_FALSE to L8 | LOAD_CONST <code run.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW argv | CALL | FOR_ITER to L7 | POP_JUMP_IF_TRUE to L6 | JUMP_BACKWARD to L5 | LOAD_COMMON_CONSTANT True | JUMP_FORWARD to L9 | LOAD_COMMON_CONSTANT False | JUMP_FORWARD to L9 | LOAD_CONST <code run.<locals>.<genexpr>> | MAKE_FUNCTION | LOAD_FAST_BORROW argv | CALL | CALL | POP_JUMP_IF_FALSE to L10
+  50: LOAD_GLOBAL input | LOAD_CONST '\nPress Enter to close this window.' | CALL
+  51: LOAD_FAST_BORROW code | RETURN_VALUE
+  52: LOAD_SMALL_INT | LOAD_CONST ('main',) | IMPORT_NAME mxbds.gui.app + eager | IMPORT_FROM main | STORE_FAST main
+  53: LOAD_FAST_BORROW main | CALL | RETURN_VALUE
+  44: STORE_FAST a | RERAISE | PUSH_EXC_INFO
+  47: LOAD_GLOBAL SystemExit | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L14 | STORE_FAST e
+  48: LOAD_GLOBAL isinstance | LOAD_FAST e | LOAD_ATTR code | LOAD_GLOBAL int | CALL | POP_JUMP_IF_FALSE to L12 | LOAD_FAST e | LOAD_ATTR code | JUMP_FORWARD to L13 | LOAD_SMALL_INT | STORE_FAST code | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | JUMP_BACKWARD_NO_INTERRUPT to L4 | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RERAISE
+  47: RERAISE | RERAISE
+=== run.<locals>.<genexpr> (line 49)
+  49: LOAD_FAST .0 | GET_ITER | RETURN_GENERATOR | FOR_ITER to L2 | STORE_FAST_LOAD_FAST a, a | LOAD_GLOBAL ONE_SHOT_FLAGS | CONTAINS_OP in | YIELD_VALUE | JUMP_BACKWARD to L1 | LOAD_COMMON_CONSTANT None | RETURN_VALUE | CALL_INTRINSIC_1 INTRINSIC_STOPITERATION_ERROR | RERAISE
+(exit 0)

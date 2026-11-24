@@ -1,0 +1,525 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.gui.api
+=== <module> (line 1)
+  1: LOAD_CONST "Bridge between the control center window (JavaScript) and the mod core (F4).\n\npywebview exposes the public methods of ControlApi to the page as\n`pywebview.api.<name>()`. They are called from pywebview's threads; the mod core\nruns in its own thread, so everything here is short and thread-safe.\nNo pywebview import here - the class can be tested without a window.\n" | STORE_NAME __doc__
+  9: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME dataclasses | STORE_NAME dataclasses
+  10: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME re | STORE_NAME re
+  11: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME threading | STORE_NAME threading
+  12: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME time | STORE_NAME time
+  13: LOAD_SMALL_INT | LOAD_CONST ('deque',) | IMPORT_NAME collections | IMPORT_FROM deque | STORE_NAME deque
+  14: LOAD_SMALL_INT | LOAD_CONST ('Path',) | IMPORT_NAME pathlib | IMPORT_FROM Path | STORE_NAME Path
+  15: LOAD_SMALL_INT | LOAD_CONST ('Callable',) | IMPORT_NAME typing | IMPORT_FROM Callable | STORE_NAME Callable
+  17: LOAD_SMALL_INT | LOAD_CONST ('__version__', 'effects', 'game_setup', 'install', 'settings', 'telemetry') | IMPORT_NAME mxbds | IMPORT_FROM __version__ | STORE_NAME __version__ | IMPORT_FROM effects | STORE_NAME effects | IMPORT_FROM game_setup | STORE_NAME game_setup | IMPORT_FROM install | STORE_NAME install | IMPORT_FROM settings | STORE_NAME settings | IMPORT_FROM telemetry | STORE_NAME telemetry
+  18: LOAD_SMALL_INT | LOAD_CONST ('mode',) | IMPORT_NAME mxbds | IMPORT_FROM mode | STORE_NAME modes
+  19: LOAD_SMALL_INT | LOAD_CONST ('HUD_HOTKEY_TEXT', 'MODE_HOTKEY_TEXT') | IMPORT_NAME mxbds.hotkeys | IMPORT_FROM HUD_HOTKEY_TEXT | STORE_NAME HUD_HOTKEY_TEXT | IMPORT_FROM MODE_HOTKEY_TEXT | STORE_NAME MODE_HOTKEY_TEXT
+  20: LOAD_SMALL_INT | LOAD_CONST ('GAME_RIDING', 'TEST_KINDS', 'ModCore') | IMPORT_NAME mxbds.core | IMPORT_FROM GAME_RIDING | STORE_NAME GAME_RIDING | IMPORT_FROM TEST_KINDS | STORE_NAME TEST_KINDS | IMPORT_FROM ModCore | STORE_NAME ModCore
+  21: LOAD_SMALL_INT | LOAD_CONST ('slip',) | IMPORT_NAME mxbds.lockup | IMPORT_FROM slip | STORE_NAME slip
+  22: LOAD_SMALL_INT | LOAD_CONST ('dsx_listening', 'find_port') | IMPORT_NAME mxbds.dsx | IMPORT_FROM dsx_listening | STORE_NAME dsx_listening | IMPORT_FROM find_port | STORE_NAME find_port
+  24: LOAD_NAME __version__ | STORE_NAME VERSION
+  25: LOAD_CONST 3.0 | STORE_NAME DSX_CHECK_EVERY
+  26: LOAD_SMALL_INT | STORE_NAME MESSAGES_KEPT
+  27: LOAD_CONST 0.5 | STORE_NAME LIVE_STALE_AFTER
+  28: LOAD_CONST 3.0 | STORE_NAME SLIP_MIN_SPEED
+  31: LOAD_BUILD_CLASS | LOAD_CONST <code ControlApi> | MAKE_FUNCTION | LOAD_CONST 'ControlApi' | CALL | STORE_NAME ControlApi | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ControlApi (line 31)
+  None: MAKE_CELL __classdict__
+  31: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'ControlApi' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  32: LOAD_COMMON_CONSTANT None | LOAD_NAME telemetry | LOAD_ATTR DEFAULT_PORT
+  33: LOAD_NAME ModCore
+  34: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT True
+  32: BUILD_TUPLE | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.__init__.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.__init__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME __init__
+  56: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.start.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.start> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME start
+  73: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.stop.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.stop> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME stop
+  82: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.get_status.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.get_status> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME get_status
+  117: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.get_live.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.get_live> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME get_live
+  161: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.get_settings.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.get_settings> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME get_settings
+  166: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.set_settings.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.set_settings> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME set_settings
+  173: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.save_settings.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.save_settings> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME save_settings
+  187: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.revert_settings.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.revert_settings> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME revert_settings
+  194: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.default_settings.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.default_settings> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME default_settings
+  205: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.test_feel.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.test_feel> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME test_feel
+  216: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi._settings_dict.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi._settings_dict> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _settings_dict
+  221: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi._push.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi._push> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _push
+  230: LOAD_CONST ('hud_enabled', 'hud_auto_hide', 'hud_x', 'hud_y', 'hud_scale', 'hud_opacity') | STORE_NAME _HUD_KEYS
+  232: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.get_hud.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.get_hud> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME get_hud
+  247: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.set_hud.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.set_hud> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME set_hud
+  261: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.toggle_mode.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.toggle_mode> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME toggle_mode
+  271: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.toggle_hud.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.toggle_hud> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME toggle_hud
+  278: LOAD_CONST (False,) | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.install_hud.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.install_hud> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME install_hud
+  294: LOAD_CONST (False,) | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.uninstall_hud.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.uninstall_hud> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME uninstall_hud
+  308: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.get_setup.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.get_setup> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME get_setup
+  323: LOAD_CONST (False,) | LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.fix_proxy.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.fix_proxy> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | SET_FUNCTION_ATTRIBUTE defaults | STORE_NAME fix_proxy
+  342: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.choose_game_folder.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.choose_game_folder> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME choose_game_folder
+  353: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.set_game_folder.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.set_game_folder> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME set_game_folder
+  364: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi._game.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi._game> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _game
+  371: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi._write_saved.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi._write_saved> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _write_saved
+  382: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi._report.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi._report> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _report
+  388: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi._dsx_when_stopped.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi._dsx_when_stopped> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME _dsx_when_stopped
+  395: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ControlApi.shutdown.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ControlApi.shutdown> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME shutdown | LOAD_CONST ('_animation', '_core', '_dsx_checked', '_dsx_ok', '_dsx_port', '_error', '_factory', '_game_override', '_lock', '_messages', '_msg_id', '_saved', '_settings', '_settings_path', '_telemetry_port', '_window') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ControlApi.__init__.__annotate__ (line 32)
+  None: COPY_FREE_VARS
+  32: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'dsx_port' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'telemetry_port' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS int | LOAD_CONST 'core_factory'
+  33: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS Callable | LOAD_CONST Ellipsis | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS ModCore | BUILD_TUPLE | BINARY_OP []
+  32: LOAD_CONST 'settings_path'
+  34: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS Path | LOAD_COMMON_CONSTANT None | BINARY_OP |
+  32: LOAD_CONST 'animation'
+  34: LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool
+  32: BUILD_MAP | RETURN_VALUE
+=== ControlApi.__init__ (line 32)
+  35: LOAD_FAST_BORROW_LOAD_FAST_BORROW animation, self | STORE_ATTR _animation
+  36: LOAD_FAST_BORROW_LOAD_FAST_BORROW dsx_port, self | STORE_ATTR _dsx_port
+  37: LOAD_FAST_BORROW_LOAD_FAST_BORROW telemetry_port, self | STORE_ATTR _telemetry_port
+  38: LOAD_FAST_BORROW_LOAD_FAST_BORROW core_factory, self | STORE_ATTR _factory
+  39: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _core
+  40: LOAD_GLOBAL threading | LOAD_ATTR Lock | CALL | LOAD_FAST_BORROW self | STORE_ATTR _lock
+  41: LOAD_GLOBAL deque | LOAD_GLOBAL MESSAGES_KEPT | LOAD_CONST ('maxlen',) | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR _messages
+  42: LOAD_SMALL_INT | LOAD_FAST_BORROW self | STORE_ATTR _msg_id
+  43: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _error
+  44: LOAD_CONST -99.0 | LOAD_FAST_BORROW self | STORE_ATTR _dsx_checked
+  45: LOAD_COMMON_CONSTANT False | LOAD_FAST_BORROW self | STORE_ATTR _dsx_ok
+  46: LOAD_FAST settings_path | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL settings | LOAD_ATTR FILE | LOAD_FAST_BORROW self | STORE_ATTR _settings_path
+  49: LOAD_GLOBAL settings | LOAD_ATTR load | LOAD_FAST_BORROW settings_path | CALL | LOAD_FAST_BORROW self | STORE_ATTR _settings
+  50: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | LOAD_FAST_BORROW self | STORE_ATTR _saved
+  51: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _window
+  52: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _game_override | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ControlApi.start.__annotate__ (line 56)
+  None: COPY_FREE_VARS
+  56: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.start (line 56)
+  58: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  59: LOAD_FAST_BORROW self | LOAD_ATTR _core | POP_JUMP_IF_NOT_NONE to L1
+  61: LOAD_FAST_BORROW self | LOAD_ATTR _factory | LOAD_FAST_BORROW self | LOAD_ATTR _dsx_port | LOAD_FAST_BORROW self | LOAD_ATTR _telemetry_port
+  62: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | LOAD_FAST_BORROW self | LOAD_ATTR _report
+  61: LOAD_CONST ('dsx_port', 'telemetry_port', 's', 'report') | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR _core
+  63: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _error
+  69: LOAD_FAST_BORROW self | LOAD_ATTR _core | LOAD_ATTR start | CALL
+  70: LOAD_FAST_BORROW self | LOAD_ATTR _report | LOAD_CONST 'Mod started.' | CALL
+  58: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  71: LOAD_FAST_BORROW self | LOAD_ATTR get_status | CALL | RETURN_VALUE | PUSH_EXC_INFO
+  64: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L2
+  65: LOAD_CONST 'Port ' | LOAD_FAST self | LOAD_ATTR _telemetry_port | FORMAT_SIMPLE | LOAD_CONST ' is in use - is the mod already running in another window (or a test tool)?' | BUILD_STRING | LOAD_FAST self | STORE_ATTR _error
+  67: LOAD_FAST self | LOAD_ATTR _report | LOAD_FAST self | LOAD_ATTR _error | CALL | JUMP_BACKWARD_NO_INTERRUPT to L1
+  64: RERAISE | RERAISE
+  58: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L3 | RERAISE
+  71: LOAD_FAST self | LOAD_ATTR get_status | CALL | RETURN_VALUE | RERAISE
+=== ControlApi.stop.__annotate__ (line 73)
+  None: COPY_FREE_VARS
+  73: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.stop (line 73)
+  75: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  76: LOAD_FAST_BORROW self | LOAD_ATTR _core | LOAD_COMMON_CONSTANT None | STORE_FAST_LOAD_FAST core, self | STORE_ATTR _core
+  75: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  77: LOAD_FAST_CHECK core | POP_JUMP_IF_NONE to L2
+  78: LOAD_FAST_BORROW core | LOAD_ATTR stop | LOAD_COMMON_CONSTANT True | LOAD_CONST ('close',) | CALL_KW
+  79: LOAD_FAST_BORROW self | LOAD_ATTR _report | LOAD_CONST 'Mod stopped - triggers back to normal.' | CALL
+  80: LOAD_FAST_BORROW self | LOAD_ATTR get_status | CALL | RETURN_VALUE
+  75: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L3 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L1 | RERAISE
+=== ControlApi.get_status.__annotate__ (line 82)
+  None: COPY_FREE_VARS
+  82: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.get_status (line 82)
+  84: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  85: LOAD_FAST_BORROW self | LOAD_ATTR _core | STORE_FAST core
+  84: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  86: LOAD_FAST_CHECK core | POP_JUMP_IF_NONE to L2
+  87: LOAD_FAST_BORROW core | LOAD_ATTR status | CALL | STORE_FAST st
+  88: LOAD_FAST_BORROW st | LOAD_ATTR dsx_connected | STORE_FAST dsx | JUMP_FORWARD to L3
+  90: LOAD_COMMON_CONSTANT None | STORE_FAST st
+  91: LOAD_FAST_BORROW self | LOAD_ATTR _dsx_when_stopped | CALL | STORE_FAST dsx
+  92: LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L4 | LOAD_FAST_BORROW st | LOAD_ATTR game | JUMP_FORWARD to L5 | LOAD_CONST 'stopped' | STORE_FAST game
+  93: LOAD_FAST_BORROW core | POP_JUMP_IF_NONE to L6 | LOAD_FAST_BORROW core | LOAD_ATTR rx | LOAD_ATTR event | JUMP_FORWARD to L7 | LOAD_COMMON_CONSTANT None | STORE_FAST ev
+  94: BUILD_MAP
+  95: LOAD_CONST 'version' | LOAD_GLOBAL VERSION
+  94: MAP_ADD
+  96: LOAD_CONST 'running' | LOAD_FAST_BORROW core | LOAD_COMMON_CONSTANT None | IS_OP is not
+  94: MAP_ADD
+  97: LOAD_CONST 'error' | LOAD_FAST_BORROW self | LOAD_ATTR _error
+  94: MAP_ADD
+  98: LOAD_CONST 'dsx' | LOAD_FAST_BORROW dsx
+  94: MAP_ADD
+  99: LOAD_CONST 'game' | LOAD_FAST_BORROW game
+  94: MAP_ADD
+  100: LOAD_CONST 'bike' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L8 | LOAD_FAST_BORROW st | LOAD_ATTR bike | JUMP_FORWARD to L9 | LOAD_COMMON_CONSTANT None
+  94: MAP_ADD
+  101: LOAD_CONST 'track' | LOAD_FAST_BORROW ev | POP_JUMP_IF_FALSE to L10 | LOAD_FAST_BORROW ev | LOAD_ATTR track | JUMP_FORWARD to L11 | LOAD_COMMON_CONSTANT None
+  94: MAP_ADD
+  102: LOAD_CONST 'category' | LOAD_FAST_BORROW ev | POP_JUMP_IF_FALSE to L12 | LOAD_FAST_BORROW ev | LOAD_ATTR category | JUMP_FORWARD to L13 | LOAD_COMMON_CONSTANT None
+  94: MAP_ADD
+  103: LOAD_CONST 'limiter_rpm' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L14 | LOAD_FAST_BORROW st | LOAD_ATTR limiter_rpm | JUMP_FORWARD to L15 | LOAD_GLOBAL effects | LOAD_ATTR LIMITER_RPM_DEFAULT
+  94: MAP_ADD
+  104: LOAD_CONST 'speed_kmh' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L16 | LOAD_GLOBAL round | LOAD_FAST_BORROW st | LOAD_ATTR speed | LOAD_CONST 3.6 | BINARY_OP * | LOAD_SMALL_INT | CALL | JUMP_FORWARD to L17 | LOAD_CONST 0.0
+  94: MAP_ADD
+  105: LOAD_CONST 'gear' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L18 | LOAD_FAST_BORROW st | LOAD_ATTR gear | JUMP_FORWARD to L19 | LOAD_SMALL_INT
+  94: MAP_ADD
+  106: LOAD_CONST 'surface' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L20 | LOAD_FAST_BORROW st | LOAD_ATTR surface | JUMP_FORWARD to L21 | LOAD_COMMON_CONSTANT ''
+  94: MAP_ADD
+  108: LOAD_CONST 'mode' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L22 | LOAD_FAST_BORROW st | LOAD_ATTR mode | JUMP_FORWARD to L23 | LOAD_GLOBAL modes | LOAD_ATTR SUPERMOTO
+  94: MAP_ADD
+  109: LOAD_CONST 'mode_source' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L24 | LOAD_FAST_BORROW st | LOAD_ATTR mode_source | JUMP_FORWARD to L25 | LOAD_GLOBAL modes | LOAD_ATTR FALLBACK
+  94: MAP_ADD
+  110: LOAD_CONST 'mode_note' | LOAD_FAST_BORROW st | POP_JUMP_IF_FALSE to L26 | LOAD_FAST_BORROW st | LOAD_ATTR game | LOAD_GLOBAL GAME_RIDING | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L26
+  111: LOAD_FAST_BORROW st | LOAD_ATTR mode_source | LOAD_GLOBAL modes | LOAD_ATTR FALLBACK | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L26
+  110: LOAD_GLOBAL modes | LOAD_ATTR FALLBACK_MESSAGE | JUMP_FORWARD to L27
+  111: LOAD_COMMON_CONSTANT ''
+  94: MAP_ADD
+  112: LOAD_CONST 'mode_hotkey' | LOAD_GLOBAL MODE_HOTKEY_TEXT
+  94: MAP_ADD
+  113: LOAD_CONST 'animation' | LOAD_FAST_BORROW self | LOAD_ATTR _animation
+  94: MAP_ADD
+  114: LOAD_CONST 'messages' | LOAD_GLOBAL list | LOAD_FAST_BORROW self | LOAD_ATTR _messages | CALL
+  94: BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  84: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L28 | RERAISE | EXTENDED_ARG | JUMP_BACKWARD_NO_INTERRUPT to L1 | RERAISE
+=== ControlApi.get_live.__annotate__ (line 117)
+  None: COPY_FREE_VARS
+  117: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.get_live (line 117)
+  None: MAKE_CELL st
+  123: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  124: LOAD_FAST_BORROW self | LOAD_ATTR _core | STORE_FAST core
+  123: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  125: LOAD_FAST_CHECK core | POP_JUMP_IF_NONE to L2 | LOAD_FAST_BORROW core | LOAD_ATTR status | CALL | JUMP_FORWARD to L3 | LOAD_COMMON_CONSTANT None | STORE_DEREF st
+  126: LOAD_DEREF st | LOAD_COMMON_CONSTANT None | IS_OP is not | POP_JUMP_IF_FALSE to L4 | LOAD_DEREF st | LOAD_ATTR game | LOAD_GLOBAL GAME_RIDING | COMPARE_OP == | POP_JUMP_IF_FALSE to L4
+  127: LOAD_GLOBAL time | LOAD_ATTR monotonic | CALL | LOAD_DEREF st | LOAD_ATTR updated | BINARY_OP - | LOAD_GLOBAL LIVE_STALE_AFTER | COMPARE_OP <=
+  126: STORE_FAST fresh
+  128: LOAD_FAST_BORROW fresh | POP_JUMP_IF_TRUE to L5
+  129: LOAD_CONST 'active' | LOAD_COMMON_CONSTANT False | BUILD_MAP | RETURN_VALUE
+  131: LOAD_CONST <code ControlApi.get_live.<locals>.slip_pct.__annotate__> | MAKE_FUNCTION | LOAD_FAST_BORROW st | BUILD_TUPLE | LOAD_CONST <code ControlApi.get_live.<locals>.slip_pct> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | SET_FUNCTION_ATTRIBUTE annotate | STORE_FAST slip_pct
+  136: BUILD_MAP
+  137: LOAD_CONST 'active' | LOAD_COMMON_CONSTANT True
+  136: MAP_ADD
+  138: LOAD_CONST 'l2' | LOAD_CONST 'value' | LOAD_GLOBAL round | LOAD_DEREF st | LOAD_ATTR l2_value | LOAD_SMALL_INT | CALL | LOAD_CONST 'effect' | LOAD_DEREF st | LOAD_ATTR l2_effect | LOAD_CONST 'text' | LOAD_DEREF st | LOAD_ATTR l2_text
+  139: LOAD_CONST 'hz' | LOAD_DEREF st | LOAD_ATTR l2_hz | LOAD_CONST 'force' | LOAD_DEREF st | LOAD_ATTR l2_force
+  138: BUILD_MAP
+  136: MAP_ADD
+  140: LOAD_CONST 'r2' | LOAD_CONST 'value' | LOAD_GLOBAL round | LOAD_DEREF st | LOAD_ATTR r2_value | LOAD_SMALL_INT | CALL | LOAD_CONST 'effect' | LOAD_DEREF st | LOAD_ATTR r2_effect | LOAD_CONST 'text' | LOAD_DEREF st | LOAD_ATTR r2_text
+  141: LOAD_CONST 'hz' | LOAD_DEREF st | LOAD_ATTR r2_hz | LOAD_CONST 'force' | LOAD_DEREF st | LOAD_ATTR r2_force
+  140: BUILD_MAP
+  136: MAP_ADD
+  142: LOAD_CONST 'warning' | LOAD_GLOBAL round | LOAD_DEREF st | LOAD_ATTR warning | LOAD_SMALL_INT | CALL
+  136: MAP_ADD
+  143: LOAD_CONST 'speed_kmh' | LOAD_GLOBAL round | LOAD_DEREF st | LOAD_ATTR speed | LOAD_CONST 3.6 | BINARY_OP * | LOAD_SMALL_INT | CALL
+  136: MAP_ADD
+  144: LOAD_CONST 'wheel_front_kmh' | LOAD_GLOBAL round | LOAD_DEREF st | LOAD_ATTR wheel_front | LOAD_CONST 3.6 | BINARY_OP * | LOAD_SMALL_INT | CALL
+  136: MAP_ADD
+  145: LOAD_CONST 'wheel_rear_kmh' | LOAD_GLOBAL round | LOAD_DEREF st | LOAD_ATTR wheel_rear | LOAD_CONST 3.6 | BINARY_OP * | LOAD_SMALL_INT | CALL
+  136: MAP_ADD
+  146: LOAD_CONST 'slip_front' | LOAD_FAST_BORROW slip_pct | LOAD_DEREF st | LOAD_ATTR wheel_front | LOAD_DEREF st | LOAD_ATTR ground_front | CALL
+  136: MAP_ADD
+  147: LOAD_CONST 'slip_rear' | LOAD_FAST_BORROW slip_pct | LOAD_DEREF st | LOAD_ATTR wheel_rear | LOAD_DEREF st | LOAD_ATTR ground_rear | CALL
+  136: MAP_ADD
+  148: LOAD_CONST 'ground_front' | LOAD_DEREF st | LOAD_ATTR ground_front
+  136: MAP_ADD
+  149: LOAD_CONST 'ground_rear' | LOAD_DEREF st | LOAD_ATTR ground_rear
+  136: MAP_ADD
+  150: LOAD_CONST 'surface' | LOAD_DEREF st | LOAD_ATTR surface
+  136: MAP_ADD
+  151: LOAD_CONST 'fork_extra' | LOAD_DEREF st | LOAD_ATTR fork_extra
+  136: MAP_ADD
+  152: LOAD_CONST 'lever_steps' | LOAD_DEREF st | LOAD_ATTR lever_steps
+  136: MAP_ADD
+  153: LOAD_CONST 'rpm' | LOAD_DEREF st | LOAD_ATTR rpm
+  136: MAP_ADD
+  154: LOAD_CONST 'shift_from_rpm' | LOAD_DEREF st | LOAD_ATTR shift_from_rpm
+  136: MAP_ADD
+  155: LOAD_CONST 'limiter_rpm' | LOAD_DEREF st | LOAD_ATTR limiter_rpm
+  136: MAP_ADD
+  156: LOAD_CONST 'gear' | LOAD_DEREF st | LOAD_ATTR gear
+  136: BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  123: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L6 | RERAISE | EXTENDED_ARG | JUMP_BACKWARD_NO_INTERRUPT to L1 | RERAISE
+=== ControlApi.get_live.<locals>.slip_pct.__annotate__ (line 131)
+  131: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'wheel' | LOAD_GLOBAL float | LOAD_CONST 'on_ground' | LOAD_GLOBAL bool | LOAD_CONST 'return' | LOAD_GLOBAL float | BUILD_MAP | RETURN_VALUE
+=== ControlApi.get_live.<locals>.slip_pct (line 131)
+  None: COPY_FREE_VARS
+  132: LOAD_DEREF st | LOAD_ATTR speed | LOAD_GLOBAL SLIP_MIN_SPEED | COMPARE_OP bool(<) | POP_JUMP_IF_TRUE to L1 | LOAD_FAST_BORROW on_ground | POP_JUMP_IF_TRUE to L2
+  133: LOAD_CONST 0.0 | RETURN_VALUE
+  134: LOAD_GLOBAL round | LOAD_GLOBAL max | LOAD_CONST -1.0 | LOAD_GLOBAL min | LOAD_CONST 1.0 | LOAD_GLOBAL slip | LOAD_DEREF st | LOAD_ATTR speed | LOAD_FAST_BORROW wheel | CALL | CALL | CALL | LOAD_SMALL_INT | BINARY_OP * | LOAD_SMALL_INT | CALL | RETURN_VALUE
+=== ControlApi.get_settings.__annotate__ (line 161)
+  None: COPY_FREE_VARS
+  161: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.get_settings (line 161)
+  163: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  164: LOAD_FAST_BORROW self | LOAD_ATTR _settings_dict | CALL
+  163: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL | RETURN_VALUE | PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L1 | RERAISE | LOAD_COMMON_CONSTANT None | RETURN_VALUE | RERAISE
+=== ControlApi.set_settings.__annotate__ (line 166)
+  None: COPY_FREE_VARS
+  166: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'values' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.set_settings (line 166)
+  168: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  169: LOAD_GLOBAL settings | LOAD_ATTR from_dict | LOAD_FAST_BORROW_LOAD_FAST_BORROW values, self | LOAD_ATTR _settings | LOAD_CONST ('base',) | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR _settings
+  170: LOAD_FAST_BORROW self | LOAD_ATTR _push | CALL
+  168: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  171: LOAD_FAST_BORROW self | LOAD_ATTR get_settings | CALL | RETURN_VALUE
+  168: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L1 | RERAISE
+  171: LOAD_FAST self | LOAD_ATTR get_settings | CALL | RETURN_VALUE | RERAISE
+=== ControlApi.save_settings.__annotate__ (line 173)
+  None: COPY_FREE_VARS
+  173: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.save_settings (line 173)
+  175: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  177: LOAD_GLOBAL settings | LOAD_ATTR save | LOAD_FAST_BORROW self | LOAD_ATTR _settings | LOAD_FAST_BORROW self | LOAD_ATTR _settings_path | CALL
+  183: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | LOAD_FAST_BORROW self | STORE_ATTR _saved
+  175: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  184: LOAD_FAST_BORROW self | LOAD_ATTR _report | LOAD_CONST 'Settings saved to ' | LOAD_FAST_BORROW self | LOAD_ATTR _settings_path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST '.' | BUILD_STRING | CALL
+  185: LOAD_FAST_BORROW self | LOAD_ATTR get_settings | CALL | RETURN_VALUE | PUSH_EXC_INFO
+  178: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST e
+  179: LOAD_FAST self | LOAD_ATTR _report | LOAD_CONST 'Could not save ' | LOAD_FAST self | LOAD_ATTR _settings_path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ': ' | LOAD_FAST e | LOAD_ATTR strerror | POP_JUMP_IF_TRUE to L2 | LOAD_FAST e | FORMAT_SIMPLE | BUILD_STRING | CALL
+  180: LOAD_FAST self | LOAD_ATTR _settings_dict | CALL | STORE_FAST result
+  181: LOAD_CONST 'Saving failed - is the folder write-protected?' | LOAD_FAST result | LOAD_CONST 'error' | STORE_SUBSCR
+  182: LOAD_FAST result | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e
+  175: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RERAISE
+  178: RERAISE | RERAISE
+  175: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L4 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L1 | RERAISE
+=== ControlApi.revert_settings.__annotate__ (line 187)
+  None: COPY_FREE_VARS
+  187: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.revert_settings (line 187)
+  189: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  190: LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _saved | CALL | LOAD_FAST_BORROW self | STORE_ATTR _settings
+  191: LOAD_FAST_BORROW self | LOAD_ATTR _push | CALL
+  189: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  192: LOAD_FAST_BORROW self | LOAD_ATTR get_settings | CALL | RETURN_VALUE
+  189: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L1 | RERAISE
+  192: LOAD_FAST self | LOAD_ATTR get_settings | CALL | RETURN_VALUE | RERAISE
+=== ControlApi.default_settings.__annotate__ (line 194)
+  None: COPY_FREE_VARS
+  194: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.default_settings (line 194)
+  196: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  197: LOAD_GLOBAL settings | LOAD_ATTR Settings | CALL | STORE_FAST d
+  198: LOAD_GLOBAL dataclasses | LOAD_ATTR fields | LOAD_FAST_BORROW d | CALL | GET_ITER | FOR_ITER to L3 | STORE_FAST f
+  199: LOAD_FAST_BORROW f | LOAD_ATTR name | LOAD_ATTR startswith | LOAD_CONST 'hud_' | CALL | POP_JUMP_IF_TRUE to L2 | LOAD_FAST_BORROW f | LOAD_ATTR name | LOAD_CONST 'game_folder' | COMPARE_OP bool(==) | POP_JUMP_IF_TRUE to L2 | JUMP_BACKWARD to L1
+  200: LOAD_GLOBAL setattr | LOAD_FAST_BORROW_LOAD_FAST_BORROW d, f | LOAD_ATTR name | LOAD_GLOBAL getattr | LOAD_FAST_BORROW self | LOAD_ATTR _settings | LOAD_FAST_BORROW f | LOAD_ATTR name | CALL | CALL | JUMP_BACKWARD to L1
+  201: LOAD_FAST_BORROW_LOAD_FAST_BORROW d, self | STORE_ATTR _settings
+  202: LOAD_FAST_BORROW self | LOAD_ATTR _push | CALL
+  196: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  203: LOAD_FAST_BORROW self | LOAD_ATTR get_settings | CALL | RETURN_VALUE
+  196: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L4 | RERAISE
+  203: LOAD_FAST self | LOAD_ATTR get_settings | CALL | RETURN_VALUE | RERAISE
+=== ControlApi.test_feel.__annotate__ (line 205)
+  None: COPY_FREE_VARS
+  205: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'kind' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.test_feel (line 205)
+  207: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  208: LOAD_FAST_BORROW self | LOAD_ATTR _core | STORE_FAST core
+  207: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  209: LOAD_FAST_BORROW kind | LOAD_GLOBAL TEST_KINDS | CONTAINS_OP not in | POP_JUMP_IF_FALSE to L2
+  210: LOAD_CONST 'ok' | LOAD_COMMON_CONSTANT False | LOAD_CONST 'error' | LOAD_CONST 'Unknown test: ' | LOAD_FAST_BORROW kind | FORMAT_SIMPLE | BUILD_STRING | BUILD_MAP | RETURN_VALUE
+  211: LOAD_FAST_CHECK core | POP_JUMP_IF_NOT_NONE to L3
+  212: LOAD_CONST 'ok' | LOAD_COMMON_CONSTANT False | LOAD_CONST 'error' | LOAD_CONST 'Start the mod first - the test is sent through it.' | BUILD_MAP | RETURN_VALUE
+  213: LOAD_FAST_BORROW core | LOAD_ATTR test_feel | LOAD_FAST_BORROW kind | CALL
+  214: LOAD_CONST 'ok' | LOAD_COMMON_CONSTANT True | BUILD_MAP | RETURN_VALUE
+  207: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L4 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L1 | RERAISE
+=== ControlApi._settings_dict.__annotate__ (line 216)
+  None: COPY_FREE_VARS
+  216: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi._settings_dict (line 216)
+  218: LOAD_CONST 'values' | LOAD_GLOBAL settings | LOAD_ATTR to_dict | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | LOAD_CONST 'defaults' | LOAD_GLOBAL settings | LOAD_ATTR to_dict | LOAD_GLOBAL settings | LOAD_ATTR Settings | CALL | CALL
+  219: LOAD_CONST 'dirty' | LOAD_FAST_BORROW self | LOAD_ATTR _settings | LOAD_FAST_BORROW self | LOAD_ATTR _saved | COMPARE_OP != | LOAD_CONST 'file' | LOAD_FAST_BORROW self | LOAD_ATTR _settings_path | LOAD_ATTR name | LOAD_CONST 'tests' | LOAD_GLOBAL list | LOAD_GLOBAL TEST_KINDS | CALL
+  218: BUILD_MAP | RETURN_VALUE
+=== ControlApi._push.__annotate__ (line 221)
+  None: COPY_FREE_VARS
+  221: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== ControlApi._push (line 221)
+  223: LOAD_FAST_BORROW self | LOAD_ATTR _core | POP_JUMP_IF_NONE to L1
+  224: LOAD_FAST_BORROW self | LOAD_ATTR _core | LOAD_ATTR set_settings | LOAD_GLOBAL dataclasses | LOAD_ATTR replace | LOAD_FAST_BORROW self | LOAD_ATTR _settings | CALL | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  223: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ControlApi.get_hud.__annotate__ (line 232)
+  None: COPY_FREE_VARS
+  232: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.get_hud (line 232)
+  233: LOAD_FAST_BORROW self | LOAD_ATTR _game | CALL | STORE_FAST game
+  234: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  235: LOAD_FAST_BORROW self | LOAD_ATTR _HUD_KEYS | LOAD_FAST_AND_CLEAR k | BUILD_MAP | GET_ITER | FOR_ITER to L2 | STORE_FAST_LOAD_FAST k, k | LOAD_GLOBAL getattr | LOAD_FAST_BORROW self | LOAD_ATTR _settings | LOAD_FAST_BORROW k | CALL | MAP_ADD | JUMP_BACKWARD to L1 | STORE_FAST values | STORE_FAST k
+  234: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  236: LOAD_GLOBAL install | LOAD_ATTR _source_files | LOAD_GLOBAL install | LOAD_ATTR source_folder | CALL | CALL | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST src_dlo, src_font
+  238: LOAD_CONST 'values' | LOAD_FAST_CHECK values
+  239: LOAD_CONST 'hotkey' | LOAD_GLOBAL HUD_HOTKEY_TEXT
+  240: LOAD_CONST 'game_folder' | LOAD_FAST_BORROW game | POP_JUMP_IF_FALSE to L4 | LOAD_GLOBAL str | LOAD_FAST_BORROW game | CALL | JUMP_FORWARD to L5 | LOAD_COMMON_CONSTANT None
+  241: LOAD_CONST 'installed' | LOAD_GLOBAL bool | LOAD_FAST game | POP_JUMP_IF_FALSE to L6 | LOAD_GLOBAL install | LOAD_ATTR is_installed | LOAD_FAST_BORROW game | CALL | CALL
+  242: LOAD_CONST 'outdated' | LOAD_GLOBAL bool | LOAD_FAST game | POP_JUMP_IF_FALSE to L7 | LOAD_GLOBAL install | LOAD_ATTR is_outdated | LOAD_FAST_BORROW game | CALL | CALL
+  243: LOAD_CONST 'files_ok' | LOAD_FAST_BORROW src_dlo | LOAD_ATTR exists | CALL | POP_JUMP_IF_FALSE to L8 | LOAD_FAST_BORROW src_font | LOAD_ATTR exists | CALL
+  244: LOAD_CONST 'running' | LOAD_FAST_BORROW self | LOAD_ATTR _core | LOAD_COMMON_CONSTANT None | IS_OP is not
+  237: BUILD_MAP | RETURN_VALUE
+  235: STORE_FAST k | RERAISE
+  234: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L9 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L3 | RERAISE
+=== ControlApi.set_hud.__annotate__ (line 247)
+  None: COPY_FREE_VARS
+  247: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'values' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.set_hud (line 247)
+  249: LOAD_FAST values | POP_JUMP_IF_TRUE to L1 | BUILD_MAP | LOAD_ATTR items | CALL | LOAD_FAST_AND_CLEAR k | LOAD_FAST_AND_CLEAR v | BUILD_MAP | GET_ITER | FOR_ITER to L4 | UNPACK_SEQUENCE | STORE_FAST_STORE_FAST k, v | LOAD_FAST_BORROW_LOAD_FAST_BORROW k, self | LOAD_ATTR _HUD_KEYS | CONTAINS_OP in | POP_JUMP_IF_TRUE to L3 | JUMP_BACKWARD to L2 | LOAD_FAST_BORROW_LOAD_FAST_BORROW k, v | MAP_ADD | JUMP_BACKWARD to L2 | STORE_FAST wanted | STORE_FAST k | STORE_FAST v
+  250: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  251: LOAD_GLOBAL settings | LOAD_ATTR from_dict | LOAD_FAST_BORROW_LOAD_FAST_BORROW wanted, self | LOAD_ATTR _settings | LOAD_CONST ('base',) | CALL_KW | LOAD_FAST_BORROW self | STORE_ATTR _settings
+  252: LOAD_FAST_BORROW self | LOAD_ATTR _HUD_KEYS | GET_ITER | FOR_ITER to L6 | STORE_FAST k
+  253: LOAD_GLOBAL setattr | LOAD_FAST_BORROW self | LOAD_ATTR _saved | LOAD_FAST_BORROW k | LOAD_GLOBAL getattr | LOAD_FAST_BORROW self | LOAD_ATTR _settings | LOAD_FAST_BORROW k | CALL | CALL | JUMP_BACKWARD to L5
+  254: LOAD_FAST_BORROW self | LOAD_ATTR _push | CALL
+  255: LOAD_FAST_BORROW self | LOAD_ATTR _write_saved | CALL | STORE_FAST error
+  250: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  256: LOAD_FAST_BORROW self | LOAD_ATTR get_hud | CALL | STORE_FAST res
+  257: LOAD_FAST_CHECK error | POP_JUMP_IF_FALSE to L8
+  258: LOAD_FAST_BORROW_LOAD_FAST_BORROW error, res | LOAD_CONST 'error' | STORE_SUBSCR
+  259: LOAD_FAST_BORROW res | RETURN_VALUE
+  249: STORE_FAST v | STORE_FAST k | RERAISE
+  250: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L9 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L7 | RERAISE
+=== ControlApi.toggle_mode.__annotate__ (line 261)
+  None: COPY_FREE_VARS
+  261: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.toggle_mode (line 261)
+  263: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  264: LOAD_FAST_BORROW self | LOAD_ATTR _core | STORE_FAST core
+  263: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  265: LOAD_FAST_CHECK core | POP_JUMP_IF_NOT_NONE to L2
+  266: LOAD_FAST_BORROW self | LOAD_ATTR _report | LOAD_CONST 'Mode switch (' | LOAD_GLOBAL MODE_HOTKEY_TEXT | FORMAT_SIMPLE | LOAD_CONST '): start the mod first.' | BUILD_STRING | CALL
+  267: LOAD_CONST 'ok' | LOAD_COMMON_CONSTANT False | BUILD_MAP | RETURN_VALUE
+  268: LOAD_FAST_BORROW core | LOAD_ATTR toggle_mode | CALL
+  269: LOAD_CONST 'ok' | LOAD_COMMON_CONSTANT True | BUILD_MAP | RETURN_VALUE
+  263: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L3 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L1 | RERAISE
+=== ControlApi.toggle_hud.__annotate__ (line 271)
+  None: COPY_FREE_VARS
+  271: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.toggle_hud (line 271)
+  273: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  274: LOAD_FAST_BORROW self | LOAD_ATTR _settings | LOAD_ATTR hud_enabled | UNARY_NOT | STORE_FAST on
+  273: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  275: LOAD_FAST self | LOAD_ATTR _report | LOAD_CONST 'In-game HUD ' | LOAD_FAST_CHECK on | POP_JUMP_IF_FALSE to L2 | LOAD_CONST 'on.' | JUMP_FORWARD to L3 | LOAD_CONST 'off.' | BINARY_OP + | CALL
+  276: LOAD_FAST_BORROW self | LOAD_ATTR set_hud | LOAD_CONST 'hud_enabled' | LOAD_FAST_BORROW on | BUILD_MAP | CALL | RETURN_VALUE
+  273: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L4 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L1 | RERAISE
+=== ControlApi.install_hud.__annotate__ (line 278)
+  None: COPY_FREE_VARS
+  278: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'confirmed' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.install_hud (line 278)
+  280: LOAD_FAST_BORROW confirmed | LOAD_COMMON_CONSTANT True | IS_OP is not | POP_JUMP_IF_FALSE to L1
+  281: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_hud | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST 'Not confirmed - nothing changed.' | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  282: LOAD_FAST_BORROW self | LOAD_ATTR _game | CALL | STORE_FAST game
+  283: LOAD_FAST_BORROW game | POP_JUMP_IF_NOT_NONE to L2
+  284: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_hud | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST 'MX Bikes folder not found - choose it on the Setup page.' | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  286: LOAD_GLOBAL install | LOAD_ATTR install | LOAD_FAST_BORROW game | CALL
+  291: LOAD_FAST_BORROW self | LOAD_ATTR _report | LOAD_CONST 'In-game HUD installed into ' | LOAD_FAST_BORROW game | LOAD_CONST 'plugins' | BINARY_OP / | FORMAT_SIMPLE | LOAD_CONST '. Restart MX Bikes to load it.' | BUILD_STRING | CALL
+  292: LOAD_FAST_BORROW self | LOAD_ATTR get_hud | CALL | RETURN_VALUE | PUSH_EXC_INFO
+  287: LOAD_GLOBAL FileNotFoundError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L3 | STORE_FAST e
+  288: BUILD_MAP | LOAD_FAST self | LOAD_ATTR get_hud | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST "Can't install: " | LOAD_FAST e | FORMAT_SIMPLE | LOAD_CONST '.' | BUILD_STRING | BUILD_MAP | DICT_UPDATE | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RERAISE
+  289: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4
+  290: BUILD_MAP | LOAD_FAST self | LOAD_ATTR get_hud | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST "Can't copy the plugin - close MX Bikes and try again." | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  289: RERAISE | RERAISE
+=== ControlApi.uninstall_hud.__annotate__ (line 294)
+  None: COPY_FREE_VARS
+  294: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'confirmed' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.uninstall_hud (line 294)
+  295: LOAD_FAST_BORROW confirmed | LOAD_COMMON_CONSTANT True | IS_OP is not | POP_JUMP_IF_FALSE to L1
+  296: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_hud | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST 'Not confirmed - nothing changed.' | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  297: LOAD_FAST_BORROW self | LOAD_ATTR _game | CALL | STORE_FAST game
+  298: LOAD_FAST_BORROW game | POP_JUMP_IF_NOT_NONE to L2
+  299: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_hud | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST 'MX Bikes folder not found.' | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  301: LOAD_GLOBAL install | LOAD_ATTR uninstall | LOAD_FAST_BORROW game | CALL | STORE_FAST removed
+  304: LOAD_FAST_BORROW removed | POP_JUMP_IF_FALSE to L3
+  305: LOAD_FAST_BORROW self | LOAD_ATTR _report | LOAD_CONST 'In-game HUD removed from the plugins folder.' | CALL
+  306: LOAD_FAST_BORROW self | LOAD_ATTR get_hud | CALL | RETURN_VALUE | PUSH_EXC_INFO
+  302: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L4
+  303: BUILD_MAP | LOAD_FAST self | LOAD_ATTR get_hud | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST "Can't remove the plugin - close MX Bikes and try again." | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  302: RERAISE | RERAISE
+=== ControlApi.get_setup.__annotate__ (line 308)
+  None: COPY_FREE_VARS
+  308: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.get_setup (line 308)
+  310: LOAD_FAST_BORROW self | LOAD_ATTR _game | CALL | STORE_FAST game
+  311: LOAD_FAST_BORROW self | LOAD_ATTR _dsx_port | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL find_port | CALL | STORE_FAST port
+  312: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  313: LOAD_FAST_BORROW self | LOAD_ATTR _core | STORE_FAST core
+  312: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  314: LOAD_FAST_CHECK core | POP_JUMP_IF_NONE to L3 | LOAD_FAST_BORROW core | LOAD_ATTR status | CALL | LOAD_ATTR dsx_connected | JUMP_FORWARD to L4 | LOAD_GLOBAL dsx_listening | LOAD_FAST_BORROW port | CALL | STORE_FAST dsx
+  316: LOAD_CONST 'dsx' | LOAD_FAST dsx
+  317: LOAD_CONST 'dsx_port' | LOAD_FAST port
+  318: LOAD_CONST 'game_folder' | LOAD_FAST_BORROW game | POP_JUMP_IF_FALSE to L5 | LOAD_GLOBAL str | LOAD_FAST_BORROW game | CALL | JUMP_FORWARD to L6 | LOAD_COMMON_CONSTANT None
+  319: LOAD_CONST 'proxy' | LOAD_FAST_BORROW game | POP_JUMP_IF_FALSE to L7 | LOAD_GLOBAL game_setup | LOAD_ATTR check | LOAD_FAST_BORROW game | CALL | JUMP_FORWARD to L8 | LOAD_COMMON_CONSTANT None
+  320: LOAD_CONST 'running' | LOAD_FAST_BORROW core | LOAD_COMMON_CONSTANT None | IS_OP is not
+  315: BUILD_MAP | RETURN_VALUE
+  312: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L9 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L2 | RERAISE
+=== ControlApi.fix_proxy.__annotate__ (line 323)
+  None: COPY_FREE_VARS
+  323: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'confirmed' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.fix_proxy (line 323)
+  325: LOAD_FAST_BORROW confirmed | LOAD_COMMON_CONSTANT True | IS_OP is not | POP_JUMP_IF_FALSE to L1
+  326: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_setup | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST 'Not confirmed - nothing changed.' | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  327: LOAD_FAST_BORROW self | LOAD_ATTR _game | CALL | STORE_FAST game
+  328: LOAD_FAST_BORROW game | POP_JUMP_IF_NOT_NONE to L2
+  329: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_setup | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST 'MX Bikes folder not found.' | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  331: LOAD_GLOBAL game_setup | LOAD_ATTR fix | LOAD_FAST_BORROW game | CALL | STORE_FAST done
+  335: LOAD_FAST_BORROW done | LOAD_CONST 'changed' | BINARY_OP [] | POP_JUMP_IF_FALSE to L5
+  336: LOAD_FAST self | LOAD_ATTR _report | LOAD_CONST 'proxy_udp.ini updated' | LOAD_FAST_BORROW done | LOAD_CONST 'backup' | BINARY_OP [] | POP_JUMP_IF_FALSE to L3 | LOAD_CONST ' (backup: ' | LOAD_GLOBAL Path | LOAD_FAST_BORROW done | LOAD_CONST 'backup' | BINARY_OP [] | CALL | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ')' | BUILD_STRING | JUMP_FORWARD to L4 | LOAD_COMMON_CONSTANT '' | BINARY_OP +
+  337: LOAD_CONST '. Restart MX Bikes so it reads it.'
+  336: BINARY_OP + | CALL
+  338: LOAD_FAST_BORROW self | LOAD_ATTR get_setup | CALL | STORE_FAST res
+  339: LOAD_FAST_BORROW_LOAD_FAST_BORROW done, res | LOAD_CONST 'fixed' | STORE_SUBSCR
+  340: LOAD_FAST_BORROW res | RETURN_VALUE | PUSH_EXC_INFO
+  332: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L7 | STORE_FAST e
+  333: BUILD_MAP | LOAD_FAST self | LOAD_ATTR get_setup | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST "Can't write proxy_udp.ini: " | LOAD_FAST e | LOAD_ATTR strerror | POP_JUMP_IF_TRUE to L6 | LOAD_FAST e | FORMAT_SIMPLE | LOAD_CONST '. Is the folder write-protected?' | BUILD_STRING | BUILD_MAP | DICT_UPDATE | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RERAISE
+  332: RERAISE | RERAISE
+=== ControlApi.choose_game_folder.__annotate__ (line 342)
+  None: COPY_FREE_VARS
+  342: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.choose_game_folder (line 342)
+  344: LOAD_FAST_BORROW self | LOAD_ATTR _window | POP_JUMP_IF_NOT_NONE to L1
+  345: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_setup | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_CONST 'No window for the folder dialog.' | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  346: LOAD_SMALL_INT | LOAD_COMMON_CONSTANT None | IMPORT_NAME webview + eager | STORE_FAST webview
+  347: LOAD_GLOBAL getattr | LOAD_GLOBAL getattr | LOAD_FAST_BORROW webview | LOAD_CONST 'FileDialog' | LOAD_COMMON_CONSTANT None | CALL | LOAD_CONST 'FOLDER' | LOAD_COMMON_CONSTANT None | CALL | POP_JUMP_IF_TRUE to L2 | LOAD_FAST_BORROW webview | LOAD_ATTR FOLDER_DIALOG | STORE_FAST folder_dialog
+  348: LOAD_FAST_BORROW self | LOAD_ATTR _window | LOAD_ATTR create_file_dialog | LOAD_FAST_BORROW folder_dialog | CALL | STORE_FAST picked
+  349: LOAD_FAST_BORROW picked | POP_JUMP_IF_TRUE to L3
+  350: LOAD_FAST_BORROW self | LOAD_ATTR get_setup | CALL | RETURN_VALUE
+  351: LOAD_FAST self | LOAD_ATTR set_game_folder | LOAD_GLOBAL isinstance | LOAD_FAST_BORROW picked | LOAD_GLOBAL list | LOAD_GLOBAL tuple | BUILD_TUPLE | CALL | POP_JUMP_IF_FALSE to L4 | LOAD_FAST_BORROW picked | LOAD_SMALL_INT | BINARY_OP [] | CALL | RETURN_VALUE | LOAD_FAST picked | CALL | RETURN_VALUE
+=== ControlApi.set_game_folder.__annotate__ (line 353)
+  None: COPY_FREE_VARS
+  353: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'folder' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS dict | BUILD_MAP | RETURN_VALUE
+=== ControlApi.set_game_folder (line 353)
+  354: LOAD_GLOBAL game_setup | LOAD_ATTR is_game_folder | LOAD_FAST_BORROW folder | CALL | POP_JUMP_IF_TRUE to L1
+  355: BUILD_MAP | LOAD_FAST_BORROW self | LOAD_ATTR get_setup | CALL | DICT_UPDATE | LOAD_CONST 'error' | LOAD_GLOBAL install | LOAD_ATTR GAME_EXE | FORMAT_SIMPLE | LOAD_CONST ' is not in that folder - choose the MX Bikes folder.' | BUILD_STRING | BUILD_MAP | DICT_UPDATE | RETURN_VALUE
+  356: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  357: LOAD_GLOBAL str | LOAD_GLOBAL Path | LOAD_FAST_BORROW folder | CALL | CALL | LOAD_FAST_BORROW self | LOAD_ATTR _settings | STORE_ATTR game_folder | LOAD_FAST_BORROW self | LOAD_ATTR _saved | STORE_ATTR game_folder
+  358: LOAD_FAST_BORROW self | LOAD_ATTR _write_saved | CALL | STORE_FAST error
+  356: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  359: LOAD_FAST_BORROW self | LOAD_ATTR get_setup | CALL | STORE_FAST res
+  360: LOAD_FAST_CHECK error | POP_JUMP_IF_FALSE to L3
+  361: LOAD_FAST_BORROW_LOAD_FAST_BORROW error, res | LOAD_CONST 'error' | STORE_SUBSCR
+  362: LOAD_FAST_BORROW res | RETURN_VALUE
+  356: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L4 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L2 | RERAISE
+=== ControlApi._game.__annotate__ (line 364)
+  None: COPY_FREE_VARS
+  364: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS Path | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== ControlApi._game (line 364)
+  365: LOAD_FAST_BORROW self | LOAD_ATTR _game_override | POP_JUMP_IF_NONE to L1
+  366: LOAD_FAST_BORROW self | LOAD_ATTR _game_override | RETURN_VALUE
+  367: LOAD_FAST_BORROW self | LOAD_ATTR _lock | LOAD_SPECIAL __exit__ | LOAD_SPECIAL __enter__ | CALL
+  368: LOAD_FAST_BORROW self | LOAD_ATTR _settings | LOAD_ATTR game_folder | STORE_FAST saved
+  367: LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | LOAD_COMMON_CONSTANT None | CALL
+  369: LOAD_GLOBAL game_setup | LOAD_ATTR game_folder | LOAD_FAST_CHECK saved | CALL | RETURN_VALUE
+  367: PUSH_EXC_INFO | WITH_EXCEPT_START | POP_JUMP_IF_TRUE to L3 | RERAISE | JUMP_BACKWARD_NO_INTERRUPT to L2 | RERAISE
+=== ControlApi._write_saved.__annotate__ (line 371)
+  None: COPY_FREE_VARS
+  371: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== ControlApi._write_saved (line 371)
+  374: LOAD_GLOBAL settings | LOAD_ATTR save | LOAD_FAST_BORROW self | LOAD_ATTR _saved | LOAD_FAST_BORROW self | LOAD_ATTR _settings_path | CALL
+  378: LOAD_COMMON_CONSTANT None | RETURN_VALUE | PUSH_EXC_INFO
+  375: LOAD_GLOBAL OSError | CHECK_EXC_MATCH | POP_JUMP_IF_FALSE to L2 | STORE_FAST e
+  376: LOAD_FAST self | LOAD_ATTR _report | LOAD_CONST 'Could not save ' | LOAD_FAST self | LOAD_ATTR _settings_path | LOAD_ATTR name | FORMAT_SIMPLE | LOAD_CONST ': ' | LOAD_FAST e | LOAD_ATTR strerror | POP_JUMP_IF_TRUE to L1 | LOAD_FAST e | FORMAT_SIMPLE | BUILD_STRING | CALL
+  377: LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | LOAD_CONST 'Saving failed - is the folder write-protected?' | RETURN_VALUE | LOAD_COMMON_CONSTANT None | STORE_FAST e | DELETE_FAST e | RERAISE
+  375: RERAISE | RERAISE
+=== ControlApi._report.__annotate__ (line 382)
+  None: COPY_FREE_VARS
+  382: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'text' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== ControlApi._report (line 382)
+  383: LOAD_GLOBAL re | LOAD_ATTR sub | LOAD_CONST '^\\[\\d\\d:\\d\\d:\\d\\d\\]\\s*' | LOAD_COMMON_CONSTANT '' | LOAD_FAST_BORROW text | LOAD_ATTR strip | CALL | CALL | STORE_FAST text
+  384: LOAD_FAST_BORROW text | LOAD_ATTR removeprefix | LOAD_CONST '>> ' | CALL | STORE_FAST text
+  385: LOAD_FAST_BORROW self | LOAD_ATTR _msg_id | LOAD_SMALL_INT | BINARY_OP += | STORE_ATTR _msg_id
+  386: LOAD_FAST_BORROW self | LOAD_ATTR _messages | LOAD_ATTR append | LOAD_CONST 'id' | LOAD_FAST_BORROW self | LOAD_ATTR _msg_id | LOAD_CONST 'time' | LOAD_GLOBAL time | LOAD_ATTR strftime | LOAD_CONST '%H:%M:%S' | CALL | LOAD_CONST 'text' | LOAD_FAST_BORROW text | BUILD_MAP | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ControlApi._dsx_when_stopped.__annotate__ (line 388)
+  None: COPY_FREE_VARS
+  388: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== ControlApi._dsx_when_stopped (line 388)
+  389: LOAD_GLOBAL time | LOAD_ATTR monotonic | CALL | STORE_FAST now
+  390: LOAD_FAST_BORROW_LOAD_FAST_BORROW now, self | LOAD_ATTR _dsx_checked | BINARY_OP - | LOAD_GLOBAL DSX_CHECK_EVERY | COMPARE_OP bool(>=) | POP_JUMP_IF_FALSE to L2
+  391: LOAD_FAST_BORROW_LOAD_FAST_BORROW now, self | STORE_ATTR _dsx_checked
+  392: LOAD_GLOBAL dsx_listening | LOAD_FAST_BORROW self | LOAD_ATTR _dsx_port | POP_JUMP_IF_TRUE to L1 | LOAD_GLOBAL find_port | CALL | CALL | LOAD_FAST_BORROW self | STORE_ATTR _dsx_ok
+  393: LOAD_FAST_BORROW self | LOAD_ATTR _dsx_ok | RETURN_VALUE
+=== ControlApi.shutdown.__annotate__ (line 395)
+  None: COPY_FREE_VARS
+  395: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== ControlApi.shutdown (line 395)
+  397: LOAD_FAST_BORROW self | LOAD_ATTR stop | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)

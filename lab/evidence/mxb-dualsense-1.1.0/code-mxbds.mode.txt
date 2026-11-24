@@ -1,0 +1,83 @@
+$ pyinst.py pyzcode pkg/PYZ.pyz mxbds.mode
+=== <module> (line 1)
+  1: LOAD_CONST 'Supermoto or Motocross? (plan step H3)\n\nThe game sends the bike category in its "evnt" packet (only with info = 1 in proxy_udp.ini).\nStrings seen so far (FEASIBILITY.md, H1): "SM1 OEM" (Supermoto), "MX1 OEM" (Motocross).\nRule: starts with "MX" -> Motocross, starts with "SM" -> Supermoto, anything else -> unknown.\n\nModeState keeps the current mode:\n  - auto:     from the category of the current bike\n  - manual:   switched with the hotkey; holds until the bike changes (other bike_id)\n  - fallback: no (usable) category -> Supermoto, with one clear message\n' | STORE_NAME __doc__
+  13: LOAD_CONST 'supermoto' | STORE_NAME SUPERMOTO
+  14: LOAD_CONST 'motocross' | STORE_NAME MOTOCROSS
+  15: LOAD_NAME SUPERMOTO | LOAD_CONST 'Supermoto' | LOAD_NAME MOTOCROSS | LOAD_CONST 'Motocross' | BUILD_MAP | STORE_NAME NAMES
+  17: LOAD_CONST 'auto' | STORE_NAME AUTO
+  18: LOAD_CONST 'manual' | STORE_NAME MANUAL
+  19: LOAD_CONST 'fallback' | STORE_NAME FALLBACK
+  21: LOAD_CONST 'No bike category from the game - using Supermoto. Check info = 1 in proxy_udp.ini' | STORE_NAME FALLBACK_MESSAGE
+  24: LOAD_CONST <code classify.__annotate__> | MAKE_FUNCTION | LOAD_CONST <code classify> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME classify
+  34: LOAD_BUILD_CLASS | LOAD_CONST <code ModeState> | MAKE_FUNCTION | LOAD_CONST 'ModeState' | CALL | STORE_NAME ModeState | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== classify.__annotate__ (line 24)
+  24: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'category' | LOAD_GLOBAL str | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'return' | LOAD_GLOBAL str | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== classify (line 24)
+  26: LOAD_FAST category | POP_JUMP_IF_TRUE to L1 | LOAD_COMMON_CONSTANT '' | LOAD_ATTR strip | CALL | LOAD_ATTR upper | CALL | STORE_FAST text
+  27: LOAD_FAST_BORROW text | LOAD_ATTR startswith | LOAD_CONST 'MX' | CALL | POP_JUMP_IF_FALSE to L2
+  28: LOAD_GLOBAL MOTOCROSS | RETURN_VALUE
+  29: LOAD_FAST_BORROW text | LOAD_ATTR startswith | LOAD_CONST 'SM' | CALL | POP_JUMP_IF_FALSE to L3
+  30: LOAD_GLOBAL SUPERMOTO | RETURN_VALUE
+  31: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ModeState (line 34)
+  None: MAKE_CELL __classdict__
+  34: LOAD_NAME __name__ | STORE_NAME __module__ | LOAD_CONST 'ModeState' | STORE_NAME __qualname__ | LOAD_SMALL_INT | STORE_NAME __firstlineno__ | LOAD_LOCALS | STORE_DEREF __classdict__
+  35: LOAD_CONST <code ModeState.__init__> | MAKE_FUNCTION | STORE_NAME __init__
+  41: LOAD_NAME property
+  42: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ModeState.motocross.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ModeState.motocross> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate
+  41: CALL
+  42: STORE_NAME motocross
+  45: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ModeState.text.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ModeState.text> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME text
+  49: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ModeState.update.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ModeState.update> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME update
+  71: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ModeState.toggle.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ModeState.toggle> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME toggle
+  77: LOAD_FAST_BORROW __classdict__ | BUILD_TUPLE | LOAD_CONST <code ModeState.reset.__annotate__> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE closure | LOAD_CONST <code ModeState.reset> | MAKE_FUNCTION | SET_FUNCTION_ATTRIBUTE annotate | STORE_NAME reset | LOAD_CONST ('_bike_id', 'category', 'mode', 'source') | STORE_NAME __static_attributes__ | LOAD_FAST_BORROW __classdict__ | STORE_NAME __classdictcell__ | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ModeState.__init__ (line 35)
+  36: LOAD_GLOBAL SUPERMOTO | LOAD_FAST_BORROW self | STORE_ATTR mode
+  37: LOAD_GLOBAL FALLBACK | LOAD_FAST_BORROW self | STORE_ATTR source
+  38: LOAD_COMMON_CONSTANT '' | LOAD_FAST_BORROW self | STORE_ATTR category
+  39: LOAD_COMMON_CONSTANT None | LOAD_FAST_BORROW self | STORE_ATTR _bike_id | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+=== ModeState.motocross.__annotate__ (line 42)
+  None: COPY_FREE_VARS
+  42: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS bool | BUILD_MAP | RETURN_VALUE
+=== ModeState.motocross (line 41)
+  43: LOAD_FAST_BORROW self | LOAD_ATTR mode | LOAD_GLOBAL MOTOCROSS | COMPARE_OP == | RETURN_VALUE
+=== ModeState.text.__annotate__ (line 45)
+  None: COPY_FREE_VARS
+  45: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | BUILD_MAP | RETURN_VALUE
+=== ModeState.text (line 45)
+  47: LOAD_GLOBAL NAMES | LOAD_FAST_BORROW self | LOAD_ATTR mode | BINARY_OP [] | FORMAT_SIMPLE | LOAD_CONST ' (' | LOAD_FAST_BORROW self | LOAD_ATTR source | FORMAT_SIMPLE | LOAD_CONST ')' | BUILD_STRING | RETURN_VALUE
+=== ModeState.update.__annotate__ (line 49)
+  None: COPY_FREE_VARS
+  49: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'bike_id' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'category' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_COMMON_CONSTANT None | BINARY_OP | | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | LOAD_COMMON_CONSTANT None | BINARY_OP | | BUILD_MAP | RETURN_VALUE
+=== ModeState.update (line 49)
+  51: LOAD_FAST_BORROW self | LOAD_ATTR mode | LOAD_FAST_BORROW self | LOAD_ATTR source | BUILD_TUPLE | STORE_FAST before
+  52: LOAD_FAST_BORROW bike_id | POP_JUMP_IF_NOT_NONE to L2
+  53: LOAD_FAST_BORROW self | LOAD_ATTR source | LOAD_GLOBAL MANUAL | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L1
+  54: LOAD_GLOBAL SUPERMOTO | LOAD_GLOBAL FALLBACK | LOAD_FAST_BORROW self | STORE_ATTR mode | LOAD_FAST_BORROW self | STORE_ATTR source
+  55: LOAD_COMMON_CONSTANT '' | LOAD_FAST_BORROW self | STORE_ATTR category | JUMP_FORWARD to L7
+  57: LOAD_FAST_BORROW_LOAD_FAST_BORROW bike_id, self | LOAD_ATTR _bike_id | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L3
+  58: LOAD_FAST_BORROW_LOAD_FAST_BORROW bike_id, self | STORE_ATTR _bike_id
+  59: LOAD_FAST_BORROW self | LOAD_ATTR source | LOAD_GLOBAL MANUAL | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L3
+  60: LOAD_GLOBAL AUTO | LOAD_FAST_BORROW self | STORE_ATTR source
+  61: LOAD_FAST category | POP_JUMP_IF_TRUE to L4 | LOAD_COMMON_CONSTANT '' | LOAD_FAST_BORROW self | STORE_ATTR category
+  62: LOAD_FAST_BORROW self | LOAD_ATTR source | LOAD_GLOBAL MANUAL | COMPARE_OP bool(!=) | POP_JUMP_IF_FALSE to L7
+  63: LOAD_GLOBAL classify | LOAD_FAST_BORROW category | CALL | STORE_FAST found
+  64: LOAD_FAST_BORROW found | POP_JUMP_IF_FALSE to L5 | LOAD_FAST_BORROW found | LOAD_GLOBAL AUTO | BUILD_TUPLE | JUMP_FORWARD to L6 | LOAD_GLOBAL SUPERMOTO | LOAD_GLOBAL FALLBACK | BUILD_TUPLE | UNPACK_SEQUENCE | LOAD_FAST_BORROW self | STORE_ATTR mode | LOAD_FAST_BORROW self | STORE_ATTR source
+  65: LOAD_FAST_BORROW self | LOAD_ATTR mode | LOAD_FAST_BORROW self | LOAD_ATTR source | BUILD_TUPLE | LOAD_FAST_BORROW before | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L8
+  66: LOAD_COMMON_CONSTANT None | RETURN_VALUE
+  67: LOAD_FAST_BORROW self | LOAD_ATTR source | LOAD_GLOBAL FALLBACK | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L9
+  68: LOAD_CONST 'Mode: Supermoto - ' | LOAD_GLOBAL FALLBACK_MESSAGE | FORMAT_SIMPLE | BUILD_STRING | RETURN_VALUE
+  69: LOAD_CONST 'Mode: ' | LOAD_FAST_BORROW self | LOAD_ATTR text | CALL | FORMAT_SIMPLE | BUILD_STRING | RETURN_VALUE
+=== ModeState.toggle.__annotate__ (line 71)
+  None: COPY_FREE_VARS
+  71: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_DEREF __classdict__ | LOAD_FROM_DICT_OR_GLOBALS str | BUILD_MAP | RETURN_VALUE
+=== ModeState.toggle (line 71)
+  73: LOAD_FAST_BORROW self | LOAD_ATTR mode | LOAD_GLOBAL MOTOCROSS | COMPARE_OP bool(==) | POP_JUMP_IF_FALSE to L1 | LOAD_GLOBAL SUPERMOTO | JUMP_FORWARD to L2 | LOAD_GLOBAL MOTOCROSS | LOAD_FAST_BORROW self | STORE_ATTR mode
+  74: LOAD_GLOBAL MANUAL | LOAD_FAST_BORROW self | STORE_ATTR source
+  75: LOAD_CONST 'Mode: ' | LOAD_FAST_BORROW self | LOAD_ATTR text | CALL | FORMAT_SIMPLE | BUILD_STRING | RETURN_VALUE
+=== ModeState.reset.__annotate__ (line 77)
+  None: COPY_FREE_VARS
+  77: LOAD_FAST_BORROW format | LOAD_SMALL_INT | COMPARE_OP > | POP_JUMP_IF_FALSE to L1 | LOAD_COMMON_CONSTANT NotImplementedError | RAISE_VARARGS | LOAD_CONST 'return' | LOAD_COMMON_CONSTANT None | BUILD_MAP | RETURN_VALUE
+=== ModeState.reset (line 77)
+  79: LOAD_FAST_BORROW self | LOAD_ATTR __init__ | CALL | LOAD_COMMON_CONSTANT None | RETURN_VALUE
+(exit 0)
