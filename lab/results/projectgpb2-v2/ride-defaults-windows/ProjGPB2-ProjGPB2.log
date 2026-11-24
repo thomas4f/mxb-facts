@@ -1,0 +1,224 @@
+[17:10:01.617] Graphics Overhaul 2.2.0 loaded (ProjectGPB2 (GPB))
+[17:10:01.647] ragdoll: can't open D:\a\_temp\realgame\run-ride-defaults\plugins\ProjGPB2\rig_default_mx.bin
+[17:10:01.647] no rider rig file: riders found by movement only
+[17:10:01.651] hook glMatrixMode: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.652] hook glLoadIdentity: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.654] hook glLoadMatrixf: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.656] hook glFrustum: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.658] hook glOrtho: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.660] hook glDrawElements: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.662] hook wglGetProcAddress: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.664] hook SwapBuffers: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.665] hook glBlendFunc: 1 pointer(s) swapped
+[17:10:01.666] hook glColorMask: 0 pointer(s) swapped
+[17:10:01.667] hook glClear: 1 pointer(s) swapped
+[17:10:01.668] hook glReadPixels: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.669] hook glPopAttrib: 0 pointer(s) swapped
+[17:10:01.670] hook glLightfv: 1 pointer(s) swapped
+[17:10:01.671] hook glDrawArrays: 0 pointer(s) swapped
+[17:10:01.672] hook glBegin: 1 pointer(s) swapped
+[17:10:01.673] hook glViewport: 1 pointer(s) swapped
+[17:10:01.674] hook glScissor: 1 pointer(s) swapped
+[17:10:01.675] hook glGetIntegerv: 1 pointer(s) swapped
+[17:10:01.675] graphics on (hdr 1, materials 1, shadows 0, taa 1)
+[17:10:02.065] hook glDrawRangeElements: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:02.066] hook glDrawRangeElementsEXT: 0 pointer(s) swapped
+[17:10:02.067] hook glDrawElementsBaseVertex: 0 pointer(s) swapped
+[17:10:02.069] hook glDrawRangeElementsBaseVertex: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:02.071] hook glUseProgramObjectARB: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:02.072] hook glUseProgram: 0 pointer(s) swapped
+[17:10:02.072] hook glBindFramebuffer: 0 pointer(s) swapped
+[17:10:02.073] hook glBindFramebufferEXT: 1 pointer(s) swapped
+[17:10:02.074] hook glUniform1fARB: 1 pointer(s) swapped
+[17:10:02.075] hook glUniform2fARB: 0 pointer(s) swapped
+[17:10:02.076] hook glUniform3fARB: 1 pointer(s) swapped
+[17:10:02.077] hook glUniform4fARB: 0 pointer(s) swapped
+[17:10:02.078] hook glUniform1iARB: 1 pointer(s) swapped
+[17:10:02.079] hook glUniform1fvARB: 0 pointer(s) swapped
+[17:10:02.080] hook glUniform2fvARB: 1 pointer(s) swapped
+[17:10:02.081] hook glUniform3fvARB: 0 pointer(s) swapped
+[17:10:02.082] hook glUniform4fvARB: 0 pointer(s) swapped
+[17:10:02.083] hook glUniform1ivARB: 0 pointer(s) swapped
+[17:10:02.084] hook glUniformMatrix3fvARB: 1 pointer(s) swapped
+[17:10:02.086] hook glUniformMatrix4fvARB: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:02.087] hook glUniform1f: 0 pointer(s) swapped
+[17:10:02.087] hook glUniform2f: 0 pointer(s) swapped
+[17:10:02.088] hook glUniform3f: 0 pointer(s) swapped
+[17:10:02.089] hook glUniform4f: 0 pointer(s) swapped
+[17:10:02.090] hook glUniform1i: 0 pointer(s) swapped
+[17:10:02.091] hook glUniform1fv: 0 pointer(s) swapped
+[17:10:02.092] hook glUniform2fv: 0 pointer(s) swapped
+[17:10:02.093] hook glUniform3fv: 0 pointer(s) swapped
+[17:10:02.094] hook glUniform4fv: 0 pointer(s) swapped
+[17:10:02.095] hook glUniform1iv: 0 pointer(s) swapped
+[17:10:02.096] hook glUniformMatrix3fv: 0 pointer(s) swapped
+[17:10:02.097] hook glUniformMatrix4fv: 0 pointer(s) swapped
+[17:10:02.097] hook glBufferSubData: 1 pointer(s) swapped
+[17:10:02.098] hook glBufferSubDataARB: 0 pointer(s) swapped
+[17:10:02.100] hook glBufferData: 1 pointer(s) swapped
+[17:10:02.101] hook glBufferDataARB: 0 pointer(s) swapped
+[17:10:02.102] hook glCreateProgramObjectARB: 1 pointer(s) swapped
+[17:10:02.102] hook glCreateProgram: 0 pointer(s) swapped
+[17:10:02.104] hook glDeleteObjectARB: 1 pointer(s) swapped
+[17:10:02.105] hook glDeleteProgram: 0 pointer(s) swapped
+[17:10:17.261] FREEZE: no new frame for 2.2 s - render thread 2848 is in the game's own code (between frames), at gpbikes.exe+0x186955
+[17:10:17.262]   [rsp+0xa8] gpbikes.exe+0x17f665
+[17:10:17.262]   [rsp+0xd8] MSVCR90.dll+0x8c6c0
+[17:10:17.262]   [rsp+0xe8] MSVCR90.dll+0x105cf
+[17:10:17.262]   [rsp+0x150] MSVCR90.dll+0x8c6c0
+[17:10:17.262]   [rsp+0x168] gpbikes.exe+0x190338
+[17:10:17.263]   [rsp+0x180] gpbikes.exe+0x354928
+[17:10:17.263]   [rsp+0x1b8] MSVCR90.dll+0x4deb7
+[17:10:17.263]   [rsp+0x260] gpbikes.exe+0x185ef0
+[17:10:17.263]   [rsp+0x268] gpbikes.exe+0x185f20
+[17:10:17.263]   [rsp+0x288] gpbikes.exe+0x1900da
+[17:10:17.263]   [rsp+0x290] MSVCR90.dll+0x8c6c0
+[17:10:17.263]   [rsp+0x298] MSVCR90.dll+0x8c6c0
+[17:10:17.263]   [rsp+0x380] gpbikes.exe+0x185ef0
+[17:10:17.263]   [rsp+0x388] gpbikes.exe+0x185f20
+[17:10:17.263]   [rsp+0x3e8] ntdll.dll+0x24fe7
+[17:10:17.263]   [rsp+0x3f0] KERNELBASE.dll+0x1a3230
+[17:10:17.263]   [rsp+0x428] ntdll.dll+0x24fe7
+[17:10:17.263]   [rsp+0x468] libgallium_wgl.dll+0x3680000
+[17:10:17.263]   [rsp+0x5c8] ntdll.dll+0x87cf0
+[17:10:17.263]   [rsp+0x638] MSVCR90.dll+0x4cb87
+[17:10:17.263]   [rsp+0x650] MSVCR90.dll+0x922e0
+[17:10:17.263]   [rsp+0x2e28] gpbikes.exe+0x18d6d3
+[17:10:17.263]   [rsp+0x2e38] KERNEL32.DLL+0x12a26
+[17:10:17.263]   [rsp+0x2e68] MSVCR90.dll+0x334a
+[17:10:17.263]   [rsp+0x2e70] gpbikes.exe+0x357918
+[17:10:17.263]   [rsp+0x2e98] MSVCR90.dll+0x336b
+[17:10:17.263]   [rsp+0x2ea0] gpbikes.exe+0x357918
+[17:10:17.263]   [rsp+0x2ea8] gpbikes.exe+0x190b92
+[17:10:17.263]   [rsp+0x2ec0] gpbikes.exe+0x357918
+[17:10:17.263]   [rsp+0x2ec8] MSVCR90.dll+0x57340
+[17:10:17.263]   [rsp+0x2ed8] KERNEL32.DLL+0x12a26
+[17:10:17.263]   [rsp+0x2f08] MSVCR90.dll+0x334a
+[17:10:17.263]   [rsp+0x2f38] MSVCR90.dll+0x336b
+[17:10:17.263]   [rsp+0x2f48] MSVCR90.dll+0x1fa8e
+[17:10:17.263]   [rsp+0x2f68] MSVCR90.dll+0x36a4e
+[17:10:17.263]   [rsp+0x2f70] MSVCR90.dll+0x8d790
+[17:10:17.263]   [rsp+0x2f98] MSVCR90.dll+0x37323
+[17:10:17.263]   [rsp+0x2fc8] MSVCR90.dll+0x334a
+[17:10:17.263]   [rsp+0x3018] MSVCR90.dll+0x8d790
+[17:10:17.263]   [rsp+0x3050] gpbikes.exe+0x35eaa6
+[17:10:19.146] scene: the game's flipped eye space (z forward) converted for the effects
+[17:10:19.651] post: effect targets ready at 1280x720 (shown at 1280x720)
+[17:10:19.676] post: depth capture via blit (format 0x88f0)
+[17:10:19.682] view check: post ran 0 time(s) on the HDR scene, 1 on a copy (last second) - COPY PATH: this view gets the reduced look
+[17:10:22.298] FREEZE: no new frame for 7.3 s - render thread 2848 is in the game's own code (between frames), at libgallium_wgl.dll+0x156a441
+[17:10:22.299]   [rsp+0x10] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0x88] libgallium_wgl.dll+0x113d4c9
+[17:10:22.299]   [rsp+0xd8] libgallium_wgl.dll+0x156f317
+[17:10:22.299]   [rsp+0x110] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0x120] libgallium_wgl.dll+0x3970007
+[17:10:22.299]   [rsp+0x160] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0x1d8] libgallium_wgl.dll+0x156fd9c
+[17:10:22.299]   [rsp+0x268] libgallium_wgl.dll+0x1145966
+[17:10:22.299]   [rsp+0x288] libgallium_wgl.dll+0x1148660
+[17:10:22.299]   [rsp+0x330] libgallium_wgl.dll+0x36803ce
+[17:10:22.299]   [rsp+0x340] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0x440] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0x4b0] libgallium_wgl.dll+0x3970031
+[17:10:22.299]   [rsp+0x4b8] libgallium_wgl.dll+0x11db9dc
+[17:10:22.299]   [rsp+0x668] libgallium_wgl.dll+0xc04d20
+[17:10:22.299]   [rsp+0x848] libgallium_wgl.dll+0x156f352
+[17:10:22.299]   [rsp+0x860] libgallium_wgl.dll+0x3680000
+[17:10:22.299]   [rsp+0x8d0] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0x948] libgallium_wgl.dll+0x156f0e4
+[17:10:22.299]   [rsp+0x9b8] libgallium_wgl.dll+0x1149410
+[17:10:22.299]   [rsp+0x9d0] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0xa18] libgallium_wgl.dll+0x15ccab3
+[17:10:22.299]   [rsp+0xa48] libgallium_wgl.dll+0x11e6901
+[17:10:22.299]   [rsp+0xa78] libgallium_wgl.dll+0x11e4b41
+[17:10:22.299]   [rsp+0xb20] libgallium_wgl.dll+0x397004d
+[17:10:22.299]   [rsp+0xb38] libgallium_wgl.dll+0x15400e6
+[17:10:22.299]   [rsp+0xbd8] libgallium_wgl.dll+0x156b617
+[17:10:22.299]   [rsp+0xc28] libgallium_wgl.dll+0x1145966
+[17:10:22.299]   [rsp+0xcb8] libgallium_wgl.dll+0x1591390
+[17:10:22.299]   [rsp+0xd18] libgallium_wgl.dll+0x1581579
+[17:10:22.299]   [rsp+0xd68] libgallium_wgl.dll+0x156f352
+[17:10:22.300]   [rsp+0xd80] libgallium_wgl.dll+0x3970049
+[17:10:22.300]   [rsp+0xe88] libgallium_wgl.dll+0x158b5d3
+[17:10:22.300]   [rsp+0xef0] libgallium_wgl.dll+0x397004d
+[17:10:22.300]   [rsp+0xf20] libgallium_wgl.dll+0x397004d
+[17:10:22.300]   [rsp+0xf68] libgallium_wgl.dll+0x11e6913
+[17:10:22.300]   [rsp+0xfb8] libgallium_wgl.dll+0x156f317
+[17:10:22.300]   [rsp+0x1040] libgallium_wgl.dll+0x397004d
+[17:10:22.300]   [rsp+0x10b8] libgallium_wgl.dll+0x156fd9c
+[17:10:22.300]   [rsp+0x1148] libgallium_wgl.dll+0x1145966
+[17:10:25.804] post: HDR scene target 1280x720, 0 sample(s): ok
+[17:10:25.826] materials: shaders compile in the background
+[17:10:25.826] materials: game program 65 -> patched program 201 (9 uniforms mapped)
+[17:10:26.572] materials: game program 122 -> patched program 204 (10 uniforms mapped)
+[17:10:27.006] materials: game program 71 -> patched program 207 (3 uniforms mapped)
+[17:10:27.313] FREEZE: no new frame for 12.3 s - render thread 2848 is in the game's own code (between frames), at ntdll.dll+0x606c3
+[17:10:27.314]   [rsp+0xe8] ntdll.dll+0x6052d
+[17:10:27.314]   [rsp+0x268] ntdll.dll+0x1ea31
+[17:10:27.314]   [rsp+0x2f8] ntdll.dll+0x1e604
+[17:10:27.314]   [rsp+0x358] ntdll.dll+0x1ea31
+[17:10:27.314]   [rsp+0x3e8] ntdll.dll+0x1e604
+[17:10:27.314]   [rsp+0x438] libgallium_wgl.dll+0xcc30f4
+[17:10:27.314]   [rsp+0x468] libgallium_wgl.dll+0x19454d
+[17:10:27.314]   [rsp+0x490] libgallium_wgl.dll+0x26d2d00
+[17:10:27.314]   [rsp+0x498] libgallium_wgl.dll+0x1dc3e9
+[17:10:27.314]   [rsp+0x4f8] ntdll.dll+0x1e744
+[17:10:27.314]   [rsp+0x538] ntdll.dll+0x1e744
+[17:10:27.314]   [rsp+0x588] ntdll.dll+0x1e604
+[17:10:27.314]   [rsp+0x5c8] ntdll.dll+0x1e604
+[17:10:27.314]   [rsp+0x5f8] ntdll.dll+0x1e604
+[17:10:27.314]   [rsp+0x628] ntdll.dll+0x1e744
+[17:10:27.314]   [rsp+0x668] libgallium_wgl.dll+0x1933c7
+[17:10:27.314]   [rsp+0x678] libgallium_wgl.dll+0xf7792
+[17:10:27.314]   [rsp+0x6a8] libgallium_wgl.dll+0x10f569
+[17:10:27.314]   [rsp+0x6e8] libgallium_wgl.dll+0x1933c7
+[17:10:27.314]   [rsp+0x708] libgallium_wgl.dll+0x1dcaec
+[17:10:27.314]   [rsp+0x758] libgallium_wgl.dll+0x1dc25e
+[17:10:27.314]   [rsp+0x788] libgallium_wgl.dll+0x12f848
+[17:10:27.314]   [rsp+0x7c8] libgallium_wgl.dll+0x12f6ce
+[17:10:27.314]   [rsp+0x818] libgallium_wgl.dll+0x1dc25e
+[17:10:27.314]   [rsp+0x888] libgallium_wgl.dll+0x1308f5
+[17:10:27.314]   [rsp+0x908] libgallium_wgl.dll+0xe5d71d
+[17:10:27.314]   [rsp+0x938] libgallium_wgl.dll+0xf5500
+[17:10:27.314]   [rsp+0x9c8] libgallium_wgl.dll+0xf5588
+[17:10:27.314]   [rsp+0x9f8] libgallium_wgl.dll+0xf90df
+[17:10:27.314]   [rsp+0xa18] libgallium_wgl.dll+0xfff99
+[17:10:27.315]   [rsp+0xa28] libgallium_wgl.dll+0x100c14
+[17:10:27.315]   [rsp+0xac8] ntdll.dll+0x1e744
+[17:10:27.315]   [rsp+0xb08] libgallium_wgl.dll+0xf90df
+[17:10:27.315]   [rsp+0xb58] ntdll.dll+0x1e604
+[17:10:27.315]   [rsp+0xb98] libgallium_wgl.dll+0xf90df
+[17:10:27.315]   [rsp+0xbb8] libgallium_wgl.dll+0x100001
+[17:10:27.315]   [rsp+0xbc8] libgallium_wgl.dll+0x100c14
+[17:10:27.315]   [rsp+0xbd8] libgallium_wgl.dll+0xe66457
+[17:10:27.315]   [rsp+0xc08] libgallium_wgl.dll+0xe6a167
+[17:10:27.315]   [rsp+0xc48] libgallium_wgl.dll+0xf7792
+[17:10:27.324] materials: game program 86 -> patched program 210 (4 uniforms mapped)
+[17:10:28.110] materials: game program 89 -> patched program 213 (6 uniforms mapped)
+[17:10:28.434] materials: game program 125 -> patched program 216 (10 uniforms mapped)
+[17:10:29.938] view check: post ran 1 time(s) on the HDR scene, 0 on a copy (last second)
+[17:10:36.340] freeze watch: frames again after 21.1 s
+[17:10:50.321] status 1/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:10:50.321]   shadow capture: 
+[17:10:50.321]   leaves: 0 alpha-to-coverage draws, 18 see-through draws last frame
+[17:10:50.321]   after the effects: 0 3D draws (0 blended) last frame
+[17:11:03.129] status 2/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:11:03.130]   shadow capture: 
+[17:11:03.130]   leaves: 0 alpha-to-coverage draws, 18 see-through draws last frame
+[17:11:03.130]   after the effects: 0 3D draws (0 blended) last frame
+[17:11:20.481] status 3/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:11:20.481]   shadow capture: 
+[17:11:20.481]   leaves: 0 alpha-to-coverage draws, 18 see-through draws last frame
+[17:11:20.481]   after the effects: 0 3D draws (0 blended) last frame
+[17:11:32.177] status 4/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:11:32.177]   shadow capture: 
+[17:11:32.177]   leaves: 0 alpha-to-coverage draws, 18 see-through draws last frame
+[17:11:32.177]   after the effects: 0 3D draws (0 blended) last frame
+[17:11:43.041] status 5/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:11:43.041]   shadow capture: 
+[17:11:43.041]   leaves: 0 alpha-to-coverage draws, 18 see-through draws last frame
+[17:11:43.041]   after the effects: 0 3D draws (0 blended) last frame
+[17:11:53.952] status 6/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:11:53.952]   shadow capture: 
+[17:11:53.952]   leaves: 0 alpha-to-coverage draws, 18 see-through draws last frame
+[17:11:53.952]   after the effects: 0 3D draws (0 blended) last frame

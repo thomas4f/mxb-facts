@@ -1,0 +1,436 @@
+$ objdump -p 'ProjectGPB2_fx64.dlo' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+ProjectGPB2_fx64.dlo:     file format pei-x86-64
+
+Characteristics 0x2026
+	executable
+	line numbers stripped
+	large address aware
+	DLL
+
+Time/Date		Thu Nov  5 02:03:35 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	2
+MinorLinkerVersion	47
+SizeOfCode		0000000000107400
+SizeOfInitializedData	0000000000035e00
+SizeOfUninitializedData	0000000000002a00
+AddressOfEntryPoint	00000000000012ef
+BaseOfCode		0000000000001000
+ImageBase		00000001f1120000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	4
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	5
+MinorSubsystemVersion	2
+Win32Version		00000000
+SizeOfImage		00329000
+SizeOfHeaders		00000600
+CheckSum		002b6d36
+Subsystem		00000003	(Windows CUI)
+DllCharacteristics	00000160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+SizeOfStackReserve	0000000000200000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 0000000000125000 000001c0 Export Directory [.edata (or where ever we found it)]
+Entry 1 0000000000126000 0000235c Import Directory [parts of .idata]
+Entry 2 0000000000000000 00000000 Resource Directory [.rsrc]
+Entry 3 0000000000108000 0000a80c Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 000000000012a000 000015a0 Base Relocation Directory [.reloc]
+Entry 6 0000000000000000 00000000 Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 00000000000faf60 00000028 Thread Storage Directory [.tls]
+Entry a 0000000000000000 00000000 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 00000000001268f0 00000788 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .idata at 0x1f1246000
+
+The Import Tables (interpreted .idata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 00126000	00126168 00000000 00000000 00127e20 001268f0
+
+	DLL Name: GDI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	001268f0  <none>  0031  CreateCompatibleDC
+	001268f8  <none>  0037  CreateDIBSection
+	00126900  <none>  003f  CreateFontA
+	00126908  <none>  0180  DeleteDC
+	00126910  <none>  0183  DeleteObject
+	00126918  <none>  0219  GdiFlush
+	00126920  <none>  02cf  GetTextExtentPoint32A
+	00126928  <none>  02d7  GetTextMetricsA
+	00126930  <none>  0365  SelectObject
+	00126938  <none>  036d  SetBkMode
+	00126940  <none>  0394  SetTextColor
+	00126948  <none>  03a6  TextOutA
+
+ 00126014	001261d0 00000000 00000000 00127f4c 00126958
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126958  <none>  0097  CloseHandle
+	00126960  <none>  00bc  CopyFileA
+	00126968  <none>  00c9  CreateDirectoryA
+	00126970  <none>  00d0  CreateEventA
+	00126978  <none>  00fe  CreateSemaphoreA
+	00126980  <none>  0127  DeleteCriticalSection
+	00126988  <none>  0138  DisableThreadLibraryCalls
+	00126990  <none>  0145  DuplicateHandle
+	00126998  <none>  014d  EnterCriticalSection
+	001269a0  <none>  0193  FindClose
+	001269a8  <none>  0197  FindFirstFileA
+	001269b0  <none>  01a8  FindNextFileA
+	001269b8  <none>  01c5  FormatMessageA
+	001269c0  <none>  01ca  FreeLibrary
+	001269c8  <none>  0238  GetCurrentProcess
+	001269d0  <none>  0239  GetCurrentProcessId
+	001269d8  <none>  023c  GetCurrentThread
+	001269e0  <none>  023d  GetCurrentThreadId
+	001269e8  <none>  0266  GetFileAttributesA
+	001269f0  <none>  0288  GetLastError
+	001269f8  <none>  028a  GetLocalTime
+	00126a00  <none>  029c  GetModuleFileNameA
+	00126a08  <none>  029e  GetModuleHandleA
+	00126a10  <none>  029f  GetModuleHandleExA
+	00126a18  <none>  02d6  GetPrivateProfileStringA
+	00126a20  <none>  02da  GetProcAddress
+	00126a28  <none>  02db  GetProcessAffinityMask
+	00126a30  <none>  0317  GetSystemTimeAsFileTime
+	00126a38  <none>  0327  GetThreadContext
+	00126a40  <none>  0332  GetThreadPriority
+	00126a48  <none>  0339  GetTickCount
+	00126a50  <none>  033a  GetTickCount64
+	00126a58  <none>  0361  GlobalAlloc
+	00126a60  <none>  0368  GlobalFree
+	00126a68  <none>  036c  GlobalLock
+	00126a70  <none>  0373  GlobalUnlock
+	00126a78  <none>  0396  InitializeCriticalSection
+	00126a80  <none>  03ce  K32EnumProcessModules
+	00126a88  <none>  03f4  LeaveCriticalSection
+	00126a90  <none>  03f8  LoadLibraryA
+	00126a98  <none>  0406  LocalFree
+	00126aa0  <none>  0420  MoveFileExA
+	00126aa8  <none>  0449  OpenProcess
+	00126ab0  <none>  0452  OutputDebugStringA
+	00126ab8  <none>  0489  QueryPerformanceCounter
+	00126ac0  <none>  048a  QueryPerformanceFrequency
+	00126ac8  <none>  04a0  RaiseException
+	00126ad0  <none>  04cd  ReleaseSemaphore
+	00126ad8  <none>  04cf  RemoveDirectoryA
+	00126ae0  <none>  04df  ResetEvent
+	00126ae8  <none>  04e6  ResumeThread
+	00126af0  <none>  04e8  RtlCaptureContext
+	00126af8  <none>  04f0  RtlLookupFunctionEntry
+	00126b00  <none>  04f6  RtlUnwindEx
+	00126b08  <none>  04f7  RtlVirtualUnwind
+	00126b10  <none>  053d  SetEvent
+	00126b18  <none>  055a  SetLastError
+	00126b20  <none>  0565  SetProcessAffinityMask
+	00126b28  <none>  057f  SetThreadContext
+	00126b30  <none>  0589  SetThreadPriority
+	00126b38  <none>  05a9  Sleep
+	00126b40  <none>  05b2  SuspendThread
+	00126b48  <none>  05cb  TlsAlloc
+	00126b50  <none>  05cd  TlsGetValue
+	00126b58  <none>  05cf  TlsSetValue
+	00126b60  <none>  05d5  TryEnterCriticalSection
+	00126b68  <none>  05fd  VirtualProtect
+	00126b70  <none>  05ff  VirtualQuery
+	00126b78  <none>  0606  WaitForMultipleObjects
+	00126b80  <none>  0608  WaitForSingleObject
+	00126b88  <none>  0634  WideCharToMultiByte
+	00126b90  <none>  064d  WritePrivateProfileStringA
+
+ 00126028	00126418 00000000 00000000 00127f7c 00126ba0
+
+	DLL Name: api-ms-win-crt-convert-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126ba0  <none>  0053  atof
+	00126ba8  <none>  005b  mbrtowc
+	00126bb0  <none>  005c  mbsrtowcs
+	00126bb8  <none>  0064  strtol
+	00126bc0  <none>  0065  strtoll
+	00126bc8  <none>  0066  strtoul
+	00126bd0  <none>  0067  strtoull
+	00126bd8  <none>  0069  wcrtomb
+
+ 0012603c	00126460 00000000 00000000 00127fa4 00126be8
+
+	DLL Name: api-ms-win-crt-environment-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126be8  <none>  0012  getenv
+
+ 00126050	00126470 00000000 00000000 00127fd4 00126bf8
+
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126bf8  <none>  0023  _lock_file
+	00126c00  <none>  003b  _unlock_file
+
+ 00126064	00126488 00000000 00000000 0012800c 00126c10
+
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126c10  <none>  0018  calloc
+	00126c18  <none>  0019  free
+	00126c20  <none>  001a  malloc
+	00126c28  <none>  001b  realloc
+
+ 00126078	001264b0 00000000 00000000 00128038 00126c38
+
+	DLL Name: api-ms-win-crt-locale-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126c38  <none>  0003  ___mb_cur_max_func
+	00126c40  <none>  0013  localeconv
+	00126c48  <none>  0014  setlocale
+
+ 0012608c	001264d0 00000000 00000000 0012807c 00126c58
+
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126c58  <none>  0031  _hypot
+	00126c60  <none>  005e  atan2f
+	00126c68  <none>  0087  cosf
+	00126c70  <none>  00a1  expf
+	00126c78  <none>  00c9  lroundf
+	00126c80  <none>  00d6  powf
+	00126c88  <none>  00de  roundf
+	00126c90  <none>  00e4  sinf
+
+ 001260a0	00126518 00000000 00000000 001280b8 00126ca0
+
+	DLL Name: api-ms-win-crt-private-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126ca0  <none>  0023  __intrinsic_setjmp
+	00126ca8  <none>  043d  longjmp
+	00126cb0  <none>  043e  memchr
+	00126cb8  <none>  043f  memcmp
+	00126cc0  <none>  0440  memcpy
+	00126cc8  <none>  0441  memmove
+	00126cd0  <none>  0444  strchr
+
+ 001260b4	00126558 00000000 00000000 0012810c 00126ce0
+
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126ce0  <none>  0012  _assert
+	00126ce8  <none>  0014  _beginthreadex
+	00126cf0  <none>  0020  _endthreadex
+	00126cf8  <none>  0021  _errno
+	00126d00  <none>  0022  _execute_onexit_table
+	00126d08  <none>  0023  _exit
+	00126d10  <none>  0035  _initialize_onexit_table
+	00126d18  <none>  0038  _initterm
+	00126d20  <none>  0039  _initterm_e
+	00126d28  <none>  003e  _register_onexit_function
+	00126d30  <none>  0056  abort
+	00126d38  <none>  0066  strerror
+
+ 001260c8	001265c0 00000000 00000000 0012816c 00126d48
+
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126d48  <none>  0000  __acrt_iob_func
+	00126d50  <none>  0003  __stdio_common_vfprintf
+	00126d58  <none>  000d  __stdio_common_vsprintf
+	00126d60  <none>  0033  _fileno
+	00126d68  <none>  0072  _read
+	00126d70  <none>  0076  _setmode
+	00126d78  <none>  0099  fclose
+	00126d80  <none>  009c  fflush
+	00126d88  <none>  00a3  fopen
+	00126d90  <none>  00a6  fputc
+	00126d98  <none>  00a7  fputs
+	00126da0  <none>  00aa  fread
+	00126da8  <none>  00b4  fwrite
+	00126db0  <none>  00b5  getc
+	00126db8  <none>  00c9  ungetc
+
+ 001260dc	00126640 00000000 00000000 001281e8 00126dc8
+
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126dc8  <none>  0033  _strdup
+	00126dd0  <none>  0034  _stricmp
+	00126dd8  <none>  0084  isdigit
+	00126de0  <none>  008a  isspace
+	00126de8  <none>  0091  iswctype
+	00126df0  <none>  009a  isxdigit
+	00126df8  <none>  009d  mbrlen
+	00126e00  <none>  00a0  memset
+	00126e08  <none>  00a3  strcmp
+	00126e10  <none>  00a4  strcoll
+	00126e18  <none>  00a8  strlen
+	00126e20  <none>  00ab  strncmp
+	00126e28  <none>  00ae  strnlen
+	00126e30  <none>  00b3  strxfrm
+	00126e38  <none>  00b4  tolower
+	00126e40  <none>  00b5  toupper
+	00126e48  <none>  00b6  towlower
+	00126e50  <none>  00b7  towupper
+	00126e58  <none>  00bb  wcscoll
+	00126e60  <none>  00bf  wcslen
+	00126e68  <none>  00c5  wcsnlen
+	00126e70  <none>  00ca  wcsxfrm
+	00126e78  <none>  00cb  wctype
+
+ 001260f0	00126700 00000000 00000000 00128214 00126e88
+
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126e88  <none>  0059  strftime
+	00126e90  <none>  005a  wcsftime
+
+ 00126104	00126718 00000000 00000000 00128238 00126ea0
+
+	DLL Name: api-ms-win-crt-utility-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126ea0  <none>  001f  rand_s
+
+ 00126118	00126728 00000000 00000000 00128308 00126eb0
+
+	DLL Name: OPENGL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00126eb0  <none>  000a  glBegin
+	00126eb8  <none>  000b  glBindTexture
+	00126ec0  <none>  000d  glBlendFunc
+	00126ec8  <none>  0010  glClear
+	00126ed0  <none>  0012  glClearColor
+	00126ed8  <none>  002b  glColor4f
+	00126ee0  <none>  0037  glColorMask
+	00126ee8  <none>  0042  glDeleteTextures
+	00126ef0  <none>  0043  glDepthFunc
+	00126ef8  <none>  0044  glDepthMask
+	00126f00  <none>  0046  glDisable
+	00126f08  <none>  0047  glDisableClientState
+	00126f10  <none>  0048  glDrawArrays
+	00126f18  <none>  004f  glEnable
+	00126f20  <none>  0051  glEnd
+	00126f28  <none>  0069  glGenTextures
+	00126f30  <none>  006d  glGetError
+	00126f38  <none>  006e  glGetFloatv
+	00126f40  <none>  006f  glGetIntegerv
+	00126f48  <none>  0070  glGetLightfv
+	00126f50  <none>  00a4  glLoadIdentity
+	00126f58  <none>  00b5  glMatrixMode
+	00126f60  <none>  00c4  glOrtho
+	00126f68  <none>  00ca  glPixelStorei
+	00126f70  <none>  00cf  glPolygonMode
+	00126f78  <none>  00d2  glPopAttrib
+	00126f80  <none>  00d3  glPopClientAttrib
+	00126f88  <none>  00d4  glPopMatrix
+	00126f90  <none>  00d7  glPushAttrib
+	00126f98  <none>  00d8  glPushClientAttrib
+	00126fa0  <none>  00d9  glPushMatrix
+	00126fa8  <none>  00f4  glReadPixels
+	00126fb0  <none>  00f7  glRectf
+	00126fb8  <none>  0104  glShadeModel
+	00126fc0  <none>  0112  glTexCoord2f
+	00126fc8  <none>  012b  glTexEnvi
+	00126fd0  <none>  0134  glTexImage2D
+	00126fd8  <none>  0137  glTexParameteri
+	00126fe0  <none>  013f  glVertex2f
+	00126fe8  <none>  0156  glViewport
+	00126ff0  <none>  015e  wglGetCurrentContext
+	00126ff8  <none>  015f  wglGetCurrentDC
+	00127000  <none>  0163  wglGetProcAddress
+
+ 0012612c	00126888 00000000 00000000 00128340 00127010
+
+	DLL Name: USER32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00127010  <none>  004d  CloseClipboard
+	00127018  <none>  00e7  EmptyClipboard
+	00127020  <none>  011f  GetAsyncKeyState
+	00127028  <none>  0131  GetClientRect
+	00127030  <none>  0134  GetClipboardData
+	00127038  <none>  0156  GetForegroundWindow
+	00127040  <none>  01ef  GetWindowThreadProcessId
+	00127048  <none>  0287  OpenClipboard
+	00127050  <none>  030b  SetClipboardData
+	00127058  <none>  03c9  WindowFromDC
+
+ 00126140	001268e0 00000000 00000000 00128350 00127068
+
+	DLL Name: WINMM.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00127068  <none>  000a  PlaySoundA
+
+ 00126154	00000000 00000000 00000000 00000000 00000000
+
+There is an export table in .edata at 0x1f1245000
+
+The Export Tables (interpreted .edata section contents)
+
+Export Flags 			0
+Time/Date stamp 		6aebe3f7
+Major/Minor 			0/0
+Name 				00000000001250d2 gamefx64.dlo
+Ordinal Base 			1
+Number in:
+	Export Address Table 		00000011
+	[Name Pointer/Ordinal] Table	00000011
+Table Addresses
+	Export Address Table 		0000000000125028
+	Name Pointer Table 		000000000012506c
+	Ordinal Table 			00000000001250b0
+
+Export Address Table -- Ordinal Base 1
+	          Ordinal  Address  Type
+	[   0] +base[   1] 00003b60 Export RVA
+	[   1] +base[   2] 000039b0 Export RVA
+	[   2] +base[   3] 00003980 Export RVA
+	[   3] +base[   4] 00003970 Export RVA
+	[   4] +base[   5] 00003960 Export RVA
+	[   5] +base[   6] 00003a50 Export RVA
+	[   6] +base[   7] 00023660 Export RVA
+	[   7] +base[   8] 000039a0 Export RVA
+	[   8] +base[   9] 00003b40 Export RVA
+	[   9] +base[  10] 00003b50 Export RVA
+	[  10] +base[  11] 00003ba0 Export RVA
+	[  11] +base[  12] 00003b70 Export RVA
+	[  12] +base[  13] 00003b80 Export RVA
+	[  13] +base[  14] 00003b90 Export RVA
+	[  14] +base[  15] 00003bb0 Export RVA
+	[  15] +base[  16] 00003990 Export RVA
+	[  16] +base[  17] 00001e40 Export RVA
+
+[Ordinal/Name Pointer] Table -- Ordinal Base 1
+	          Ordinal   Hint Name
+	[   0] +base[   1]  0000 EventDeinit
+	[   1] +base[   2]  0001 EventInit
+	[   2] +base[   3]  0002 GetInterfaceVersion
+	[   3] +base[   4]  0003 GetModDataVersion
+	[   4] +base[   5]  0004 GetModID
+	[   5] +base[   6]  0005 OverhaulDrawInScene
+	[   6] +base[   7]  0006 OverhaulHookFor
+	[   7] +base[   8]  0007 OverhaulReloadConfig
+	[   8] +base[   9]  0008 RaceTrackPosition
+	[   9] +base[  10]  0009 RaceVehicleData
+	[  10] +base[  11]  000a RunDeinit
+	[  11] +base[  12]  000b RunInit
+	[  12] +base[  13]  000c RunStart
+	[  13] +base[  14]  000d RunStop
+	[  14] +base[  15]  000e RunTelemetry
+	[  15] +base[  16]  000f Shutdown
+	[  16] +base[  17]  0010 Startup
+
+(exit 0)

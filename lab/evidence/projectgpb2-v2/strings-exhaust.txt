@@ -1,0 +1,22 @@
+$ { strings -n 6 ProjectGPB2_fx64.dlo; } | grep -E '^ProjectGPB2 fx: |gfx.cfg|exhaustsmoke'
+\gfx.cfgH
+ProjectGPB2 fx: %s not found (packed) - stock exhaust smoke values
+ProjectGPB2 fx: game version not known (image 0x%x) - pipes from gfx.cfg / the menu
+ProjectGPB2 fx: sun %.2f %.2f %.2f
+ProjectGPB2 fx: soft particles %s
+ProjectGPB2 fx: missing %s
+ProjectGPB2 fx: graphics module %s
+ProjectGPB2 fx: renderer ready
+ProjectGPB2 fx: weather link error: %s
+ProjectGPB2 fx: shader error: %s
+effects\particles\exhaustsmoke.cfg
+ProjectGPB2 fx: exhaust table %d - bike position at +0x%x%s
+ProjectGPB2 fx: weather pass ready
+ProjectGPB2 fx: no %s (bike packed in a .pkz?) - using the menu pipe position
+ProjectGPB2 fx: bike "%s" -> %s, max rpm %d, limiter %d
+ProjectGPB2 fx: reading each bike's exhaust from the game
+ProjectGPB2 fx: lightning %d m away (thunder in %.1f s)
+ProjectGPB2 fx: link error: %s
+ProjectGPB2 fx: %s -> %d pipe(s), smoke %s (top %d, max %d rpm)
+ProjectGPB2 fx: exhaustsmoke.cfg life %.1f grav %.2f fric %.2f size %.2f-%.2f alpha %.2f exit %.3f freq %.1f
+(exit 0)

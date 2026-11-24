@@ -1,0 +1,661 @@
+tool: ProjectGPB2
+version: v2
+summary: >-
+  Three GP Bikes plugins that redraw the game's graphics, add a rider's-eye camera and add exhaust, dust and weather effects,
+  set in a menu on F6. They make no internet connection; to do their work they redirect the game's OpenGL functions and
+  replace its shader programs in memory.
+header:
+  What it is: >-
+    A closed-source pack of three plugins (`ProjectGPB2_core64.dlo`, `ProjectGPB2_cam64.dlo`, `ProjectGPB2_fx64.dlo`) with
+    shaders, rain sounds and graphics presets, copied into the game's `plugins` folder. They put their own code in front of
+    the game's OpenGL drawing to add post-processing, weather, seasons, exhaust and dust effects and a helmet camera, and save
+    screenshots on a key.
+  In one line: Graphics overhaul, helmet camera and effects plugins that hook GP Bikes' OpenGL drawing
+  Category: Gameplay and visuals
+  Author: X1mk_Z3 (the name on its gpb-mods.com page)
+  Game: GP Bikes
+  gpb-mods.com: '[ProjectGPB2](https://gpb-mods.com/projectgpb2-2/) (published 10 Nov 2026, updated 12 Nov 2026)'
+  Homepage: None found
+  GitHub: None found
+  Version analysed: >-
+    v2 (its README: "PROJECTGPB2 V2 (build 4.2)"): `1794501261-projectgpb2-v2.zip`, the download on its
+    [gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/), given as the release to analyse (no card yet, no entry in
+    `registry/releases.json`). There are no tags or commits: the source isn't public.
+  Analysed on: 24 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Closed source, and neither the release nor its gpb-mods.com page carries a licence or a clause against analysis (the README
+    only asks to link to the download page instead of re-uploading), so the release files were examined: imports, exports,
+    sections and code-signing entry (`objdump -p`, `objdump -h`), text (`strings`, `strings -el`, also of the extra code
+    section `.gpb2tx`), and the call sites of the imports that change memory protection, read memory and threads, catch
+    exceptions, move files and read keys, with the function each sits in from the plugins' own symbol table (`objdump -d`);
+    every command is in `lab/evidence/projectgpb2-v2/run.sh`. The release was not rebuilt (no public source). A throwaway Windows Server 2025 machine
+    with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU) and no keys ran the plugins in the GP Bikes demo
+    (beta22b), offline behind a firewall block, under Process Monitor: the bare demo as baseline, a run with the shipped
+    settings, one pressing F6, Tab, Down, Right, F9, Ctrl+F9 and F8, and one pressing F6, Tab and Enter on the Effects page.
+    None of the four game runs got past the main menu, so the plugins ran in the menu, not on track. Then the plugin test host
+    ran them with the bystander plugin's checks (all three; the core plugin alone; F6, Tab, F9 and F8; helmet view; a rider
+    crash). The real game online was not used. VirusTotal: hash lookups only (made before the analysis, 24 Nov 2026), nothing
+    uploaded, because no licence was found.
+files:
+  - name: 1794501261-projectgpb2-v2.zip
+    sha256: af15f5529cc66fb1c0c7190c90a3881f726073e982946c280b1ef243b6f46948
+    note: The download players get from the gpb-mods.com page.
+  - name: ProjectGPB2_core64.dlo
+    sha256: 09193455a8b037a21d8e4416de75963c0617ad0b2219f04af9f75cca9023cb96
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Graphics and the menu, in `plugins\`.'
+  - name: ProjectGPB2_cam64.dlo
+    sha256: 3bcf3fb439443a7f2ee2ff284d7d47d2d89315a01e2bec626bf048ab41bdecfa
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Rider POV (helmet) camera, in `plugins\`.'
+  - name: ProjectGPB2_fx64.dlo
+    sha256: 1cb5a588194a147ad4068b98487e8c0fd8314de2c856564a0c72936e99cb349f
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Exhaust, dust and weather effects, in `plugins\`.'
+  - name: README.txt
+    sha256: 6439bc39d8613f7e37c56868e6e18ee505a243c813cb669caf5a438e18d32aef
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Install steps, keys, features, version history and credits (beside `gpbikes\` in the zip).'
+  - name: CREDITS.txt
+    sha256: 80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Sources and licences of the two rain sounds, in `plugins\ProjGPB2\sounds\`.'
+  - name: 'GPB 1 Performance.ini'
+    sha256: 7482d42c9912a269d0c910afec2c5b627dcb178a684f40b35e2254f7b374141b
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Graphics preset, in `plugins\presets\`.'
+  - name: 'GPB 2 Balanced.ini'
+    sha256: 91079812fc7957707541b192218a05078d449e71a1ce4119487364a465ec8ef2
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Graphics preset, in `plugins\presets\`.'
+  - name: 'GPB 3 Quality.ini'
+    sha256: a7199d483e500fc9bc9ed9fcd1676ba9842ad4255fe4ac3f42a0ee3f1daf54de
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Graphics preset, in `plugins\presets\`.'
+  - name: rain_heavy.wav
+    sha256: 3769834ffad20828793910ec4e99b844e1ddbf06715c45cbc0cae2a21b17b6a0
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Rain sound, in `plugins\ProjGPB2\sounds\`.'
+  - name: rain_light.wav
+    sha256: a362a5c2c154c556e51bd58b42bcc155d656f7bd42f53c01d5fa353288666091
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Rain sound, in `plugins\ProjGPB2\sounds\`.'
+  - name: adapt.frag
+    sha256: 62ee3d7d3bff62807d1a1517fe3d166c8ff7a80e143c72108a6ac97b9f4771fa
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: bloom_down.frag
+    sha256: 052f743b36e421b26e550b9e3b66f651e46ebfc8dee868ad3528e7bfbb34ed58
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: bloom_up.frag
+    sha256: 5bce0e6cad38a9b8173b3113899aae3492764dc57cb7da31a680ed505b89dcdc
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: blur.frag
+    sha256: b3812467f9bd23ee542dbbd24674821618fe25c8b3f3779b7793cc67958604fe
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: clouds.frag
+    sha256: a579a7a5f8029f11c75b026d1211031b16e4bc53c30d728c90b9628009eb7718
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: composite.frag
+    sha256: 6f09ca40b1c94456c19fbf22945e76f7e54fe7e8a62b3be9ee7634c1d0c8a70c
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: dof.frag
+    sha256: b5e702d81d33b37697accd5c07386bc353b863a4d561b998c40bef4921e3eae6
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: dust.frag
+    sha256: 109dc89bd52a48e215191f1e3dd3bd064bd3f2a1e49ca934422cd23899eeb256
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: dust_shadow.frag
+    sha256: 5b7ee34cf9993ba51cf07383053fffe22852762e7fa1454b0cfd86bb2b7bca3e
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: final.frag
+    sha256: 1f86e200ac4cbcfe63505f4da6eda5ef29d37d14426c9bf45fa5e7930a122d0d
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: hud.frag
+    sha256: 3136f8c31c12c02291013122f6011df71c9f3df361e0d8894be8da978f72407b
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: lighting.frag
+    sha256: f6ae27cc94da107424c0672107bdeb1cafd5c80780ca405440e77015abd790ba
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: linearize.frag
+    sha256: 95b9a3c94a17626d6f9a21e67032f3b242f52386050b21674f587aebb927bc12
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: luminance.frag
+    sha256: 01788599e89a5b73a128848b5d16f0654314cd90d2d843b5f75ab8d8d39cf98c
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: motionblur.frag
+    sha256: ba63cd057642be6f582bf19b34153c2bfbe1c39871e9fcd62b392c5dfe154bb9
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: ownmask.frag
+    sha256: e1fe7618fcbdc212ea9e2a47179d1c86aaf2cec2aba8435ba282ac1fb870919a
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: prepare.frag
+    sha256: f2ecbea046f3e348add67c39a9434af3f8802ebd5794488116ba9c8680053e51
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: rain.frag
+    sha256: 6ef6ff72e3dffd639e988944782fe6c0cade36d51eb73456b50a59e3ae4b02e1
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: skylut.frag
+    sha256: 8c264229c8cec23c356ef06739651d918d5cf9cec6fd7117065f5c91bd507f9d
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: snow.frag
+    sha256: 224b847da35302b549b4d8fa647779b313de7f80d273714807c5e589cd1cfcd5
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: splash.frag
+    sha256: d510d72644f9d7353596710f3b29f7635d22cce13943939881a81856f39c7f4b
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: sunprobe.frag
+    sha256: 89c1a471798dbb127f192e16ac3d694a48f6c6acd3493a085af97cc982a584ff
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: sunshafts.frag
+    sha256: afb48c3d110517286bcff1799a5c79c6b8a3e09249e48ba4b7d3cc4296c08361
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: taa.frag
+    sha256: ff7546d042352318c0d1dac6aa73cf963b226d3c9f12d0c14ed22d4673496342
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: taau.frag
+    sha256: 7434823a0d41220812eed59b7a137ac78d7e4f6fd391cf8286e992861ea2fd8e
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: volumetric.frag
+    sha256: 269bc8d89e86f22f4c141875408412d12d4dcc363bab9d3a1720cf44f0be99e6
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: dust.vert
+    sha256: 62fb7342d2c95cc8b4dce7c4736accc329d1515d9db18e237e7dc7bf50f8c6a2
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: fullscreen.vert
+    sha256: 1ca1f1bc1c4cf5709d3ae4eb7cf0319c31751c9db38da64a45948241931f17be
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: hud.vert
+    sha256: 7667a95c5ae39c3c106ace03c955b6d7264eb0d5783c0e8e4d698b512ceadde7
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: rain.vert
+    sha256: 95e6603c979431e3c6eb34b8b2817a7aaa93a942a85976aed3c0b49132fbf83b
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: snow.vert
+    sha256: c4f850ba6299e7163772261eedbe7f1297e8c437f10dee135b8a26b3a0475f88
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: splash.vert
+    sha256: bbeaddfb3f421545886b6d512e594a53494e9f5a5a9d2f60624735940c6f89b1
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+  - name: common.glsl
+    sha256: a48b9eb12d9c8e7fa44db30f86afe538dff1974ed664ef1731443135af99614b
+    inside: 1794501261-projectgpb2-v2.zip
+    note: 'Shader source (GLSL text), in `plugins\ProjGPB2\shaders\`.'
+files_note: >-
+  No plugin is code-signed (`lab/evidence/projectgpb2-v2/signature.txt`). The zip's hash matches the one the Windows machine ran
+  (`lab/results/projectgpb2-v2/ride-defaults-windows/machine.txt`), and the plugins' the ones the game loaded
+  (`lab/results/projectgpb2-v2/ride-defaults-windows/plugins.sha256`). Three preset files aren't on VirusTotal and four files weren't looked up (P1).
+key:
+  K1: 'No malware found. No engine flags the zip or any file in it that was looked up.'
+  K2: 'No. It has no updater.'
+  K3: 'No. It deletes no file; it writes its settings, logs, presets and screenshots.'
+  K4: 'No. It makes no internet connection.'
+  K5: 'Yes. It redirects the game''s OpenGL functions and replaces its shader programs in memory, by default; no game check is got around.'
+  K6: 'No. It decrypts, copies and shares nothing; it reads each bike''s gfx.cfg and the game''s exhaust data for its effects.'
+  K7: 'No. Only the compiled plugins (and the shaders as text) are published.'
+  K8: 'Yes, as far as checked; nothing its README says on these questions differs from what was found.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'No. It has no network code, and the runs tried no connection.'
+areas:
+  Your PC and files: >-
+    No updater or installer and no file deleted; it writes its settings and logs in `plugins\ProjGPB2`, and screenshots, on
+    F8, in a folder of its own in the game folder; not code-signed.
+  Your data: No internet connection and no network code; it reads each bike's `gfx.cfg` and, on Ctrl+V, the clipboard.
+  Your game: >-
+    It redirects the game's OpenGL functions (and those another plugin keeps) to its own code, replaces the game's shader
+    programs, reads the game's memory for exhaust data and logs every crash in the game; the screenshot key works in any window.
+  Creators' content: It reads each bike's `gfx.cfg` and the game's exhaust data for its effects; it decrypts and copies nothing.
+  Transparency: Closed source with no licence, published as a zip on gpb-mods.com.
+  Money: Free; its gpb-mods.com page asks for donations.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: after the test host unloaded the plugins, the game's OpenGL pointers still pointed into them: they don't
+          put back what they redirected (`lab/results/projectgpb2-v2/bystander-windows/host.log`, "host import table check (after unload)").
+        mark: note
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: the core plugin runs a watch thread that, when the game draws no new frame for two seconds, suspends the
+          game's render thread, reads where it stopped and writes that to `ProjGPB2.log` ("FREEZE: no new frame for 2.2 s - render
+          thread ... at gpbikes.exe+0x186955") (`lab/evidence/projectgpb2-v2/callsites.txt`, `hang_watch` and `watch_thread`;
+          `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log`).
+        mark: note
+      - text: >-
+          Also found: about a third of the core plugin's code, the plugin functions GetInterfaceVersion, RunTelemetry and EventInit
+          included, sits in an extra code section, `.gpb2tx`, placed after the debug sections and without function names; it
+          looks up the Windows functions it uses by name (`SetWindowLongPtrA`, `CallWindowProcA`, `CreateFileA`, `WriteFile`,
+          `VirtualAlloc`, `SHBrowseForFolderA` and others) instead of importing them. The cam and fx plugins have smaller ones.
+          Its text is readable and belongs to the menu, screenshots, folder picker and crash log (`lab/evidence/projectgpb2-v2/sections.txt`,
+          `lab/evidence/projectgpb2-v2/exports-jump.txt`, `lab/evidence/projectgpb2-v2/gpb2tx-strings.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"plugins\ProjectGPB2_core64.dlo graphics + the menu, plugins\ProjectGPB2_cam64.dlo rider POV camera, plugins\ProjectGPB2_fx64.dlo backfires, smoke, heat haze, dust, weather" (README.txt)'
+            Verdict: Matches
+            Evidence: 'The GP Bikes demo loaded all three, and each logged its start: "Graphics Overhaul 2.2.0", "Helmet Camera 2.2.0", "GameFX+ 2.2.0" (`lab/results/projectgpb2-v2/ride-defaults-windows/loaded.txt`, `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log`, `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-camera.log`, `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-gamefx.log`).'
+          - Claim: '"F9 graphics on / off (compare with the normal game)", "Ctrl+F9 reload settings" (README.txt)'
+            Verdict: Matches
+            Evidence: 'After F9, F9 and Ctrl+F9 the log reads "graphics off", "graphics on", "config + shaders reloaded" (`lab/results/projectgpb2-v2/menu-toggle-reload-windows/ProjGPB2-ProjGPB2.log`).'
+          - Claim: '"Screenshots: a key of your choice (default F8) saves exactly what you see - every effect, no menu - as a PNG in a folder you pick (CAMERA > SCREENSHOTS)" (README.txt, v2.3)'
+            Verdict: Partly
+            Evidence: 'F8 saved PNGs without a folder being picked, into `ProjectGPB2 screenshots` in the game folder; picking a folder is optional (CHOOSE) (`lab/results/projectgpb2-v2/menu-toggle-reload-windows/files.diff`, `lab/evidence/projectgpb2-v2/gpb2tx-strings.txt`).'
+          - Claim: '"Settings are saved to plugins\ProjGPB2\ProjGPB2.ini." (README.txt)'
+            Verdict: Matches
+            Evidence: 'Every run wrote `plugins\ProjGPB2\ProjGPB2.ini` (`lab/results/projectgpb2-v2/ride-defaults-windows/files.diff`).'
+          - Claim: '"Exhaust effects, headlight and brake light are now off by default (turn them on under Effects)." (README.txt, v4.0)'
+            Verdict: Not checked
+            Evidence: 'With the shipped settings the fx plugin logged "roost off, exhaust effects on", and the settings template it holds has `exhaust=1`, but no run reached a track to show whether flames are drawn (`lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-gamefx.log`, `lab/evidence/projectgpb2-v2/strings-files.txt`; see Limits).'
+          - Claim: '"Exact pipe positions on every bike (packed .pkz bikes and other riders too): read from the game''s own exhaust data." (README.txt)'
+            Verdict: Not checked
+            Evidence: 'The fx plugin reads exhaust tables only from a loaded game module of one exact size (0x673000 bytes), and otherwise uses each bike''s `gfx.cfg` or the menu''s sliders; no run logged either way (`lab/evidence/projectgpb2-v2/ProjectGPB2_fx64.dlo.1f1262910-1f12629a5.txt`, `lab/evidence/projectgpb2-v2/strings-exhaust.txt`).'
+          - Claim: '"VR (-vrs): ProjectGPB2 switches itself off." (README.txt, v1.6)'
+            Verdict: Matches
+            Evidence: 'GetInterfaceVersion looks up GetCommandLineA and searches the command line for "-vr" (`lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.38c623910-38c623999.txt`); not run with -vrs.'
+          - Claim: '"Diagnostic logging and GPU profiling removed." (README.txt, v4.0)'
+            Verdict: Partly
+            Evidence: '`ProjGPB2.log` still gets a status line every 10 to 20 s and, on a stall, the frozen render thread''s stack (`lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log`).'
+          - Claim: '"UNINSTALL: Delete the three ProjectGPB2_*.dlo files (and the ProjGPB2 folder)." (README.txt)'
+            Verdict: Partly
+            Evidence: 'That leaves `plugins\presets` (its three presets and any you saved) and the `ProjectGPB2 screenshots` folder (`lab/evidence/projectgpb2-v2/file.txt`, `lab/results/projectgpb2-v2/menu-toggle-reload-windows/files.diff`).'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the GP
+              Bikes demo, offline. Frame times and what the effects look like say nothing about a real PC.
+            questions: []
+          - text: >-
+              None of the four real-game runs, the baseline included, got past the game's main menu (each screenshot shows it), so
+              the plugins were never seen on track in the real game: the keys were pressed in the menu, and the exhaust, dust,
+              weather and camera effects, the reads of the bikes' exhaust data and of `gfx.cfg` weren't seen there. The test host
+              did call the on-track plugin functions. Which rows the Effects-page presses changed was guessed from the README.
+            questions: [G4, C5, D6]
+          - text: >-
+              Closed source: the plugins were read from their imports, text, symbol names and the call sites named on the lines,
+              not decompiled in full; the code in `.gpb2tx` has no names. A read or write of the game's memory through an address
+              worked out at run time would not show in these.
+            questions: [P9, G4, D10]
+          - text: >-
+              The real game on an online server can't be reached here (the demo has no online play). That the plugins change only
+              what is drawn rests on their code and texts: no check for online sessions was found.
+            questions: [G3]
+          - text: >-
+              No other ruts plugin was loaded, so the calls to another plugin's RutsDrive and RutsGetMap weren't seen.
+            questions: [G3, G6]
+          - text: >-
+              No run had an older presets folder, so the move of preset files into `plugins\presets` wasn't seen; that it moves
+              only `.ini` presets rests on its code.
+            questions: [P4]
+answers:
+  P1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No engine flags any file that was looked up: `1794501261-projectgpb2-v2.zip` 0 of 67 (last scanned 13 Nov 2026), the three plugins 0 of 71, 71 and 68, and the README and shaders none. The zip players download is on VirusTotal. Not on VirusTotal: `GPB 1 Performance.ini`, `GPB 2 Balanced.ini`, `GPB 3 Quality.ini`. Not looked up (the lookup stops at 40 files): `CREDITS.txt`, `rain_heavy.wav`, `rain_light.wav`, `volumetric.frag`. Hash lookups on 24 Nov 2026; nothing uploaded.
+    evidence: >-
+      [1794501261-projectgpb2-v2.zip](https://www.virustotal.com/gui/file/af15f5529cc66fb1c0c7190c90a3881f726073e982946c280b1ef243b6f46948), [ProjectGPB2_core64.dlo](https://www.virustotal.com/gui/file/09193455a8b037a21d8e4416de75963c0617ad0b2219f04af9f75cca9023cb96), [ProjectGPB2_cam64.dlo](https://www.virustotal.com/gui/file/3bcf3fb439443a7f2ee2ff284d7d47d2d89315a01e2bec626bf048ab41bdecfa), [ProjectGPB2_fx64.dlo](https://www.virustotal.com/gui/file/1cb5a588194a147ad4068b98487e8c0fd8314de2c856564a0c72936e99cb349f), [README.txt](https://www.virustotal.com/gui/file/6439bc39d8613f7e37c56868e6e18ee505a243c813cb669caf5a438e18d32aef), [adapt.frag](https://www.virustotal.com/gui/file/62ee3d7d3bff62807d1a1517fe3d166c8ff7a80e143c72108a6ac97b9f4771fa), [bloom_down.frag](https://www.virustotal.com/gui/file/052f743b36e421b26e550b9e3b66f651e46ebfc8dee868ad3528e7bfbb34ed58), [bloom_up.frag](https://www.virustotal.com/gui/file/5bce0e6cad38a9b8173b3113899aae3492764dc57cb7da31a680ed505b89dcdc), [blur.frag](https://www.virustotal.com/gui/file/b3812467f9bd23ee542dbbd24674821618fe25c8b3f3779b7793cc67958604fe), [clouds.frag](https://www.virustotal.com/gui/file/a579a7a5f8029f11c75b026d1211031b16e4bc53c30d728c90b9628009eb7718), [composite.frag](https://www.virustotal.com/gui/file/6f09ca40b1c94456c19fbf22945e76f7e54fe7e8a62b3be9ee7634c1d0c8a70c), [dof.frag](https://www.virustotal.com/gui/file/b5e702d81d33b37697accd5c07386bc353b863a4d561b998c40bef4921e3eae6), [dust.frag](https://www.virustotal.com/gui/file/109dc89bd52a48e215191f1e3dd3bd064bd3f2a1e49ca934422cd23899eeb256), [dust_shadow.frag](https://www.virustotal.com/gui/file/5b7ee34cf9993ba51cf07383053fffe22852762e7fa1454b0cfd86bb2b7bca3e), [final.frag](https://www.virustotal.com/gui/file/1f86e200ac4cbcfe63505f4da6eda5ef29d37d14426c9bf45fa5e7930a122d0d), [hud.frag](https://www.virustotal.com/gui/file/3136f8c31c12c02291013122f6011df71c9f3df361e0d8894be8da978f72407b), [lighting.frag](https://www.virustotal.com/gui/file/f6ae27cc94da107424c0672107bdeb1cafd5c80780ca405440e77015abd790ba), [linearize.frag](https://www.virustotal.com/gui/file/95b9a3c94a17626d6f9a21e67032f3b242f52386050b21674f587aebb927bc12), [luminance.frag](https://www.virustotal.com/gui/file/01788599e89a5b73a128848b5d16f0654314cd90d2d843b5f75ab8d8d39cf98c), [motionblur.frag](https://www.virustotal.com/gui/file/ba63cd057642be6f582bf19b34153c2bfbe1c39871e9fcd62b392c5dfe154bb9), [ownmask.frag](https://www.virustotal.com/gui/file/e1fe7618fcbdc212ea9e2a47179d1c86aaf2cec2aba8435ba282ac1fb870919a), [prepare.frag](https://www.virustotal.com/gui/file/f2ecbea046f3e348add67c39a9434af3f8802ebd5794488116ba9c8680053e51), [rain.frag](https://www.virustotal.com/gui/file/6ef6ff72e3dffd639e988944782fe6c0cade36d51eb73456b50a59e3ae4b02e1), [skylut.frag](https://www.virustotal.com/gui/file/8c264229c8cec23c356ef06739651d918d5cf9cec6fd7117065f5c91bd507f9d), [snow.frag](https://www.virustotal.com/gui/file/224b847da35302b549b4d8fa647779b313de7f80d273714807c5e589cd1cfcd5), [splash.frag](https://www.virustotal.com/gui/file/d510d72644f9d7353596710f3b29f7635d22cce13943939881a81856f39c7f4b), [sunprobe.frag](https://www.virustotal.com/gui/file/89c1a471798dbb127f192e16ac3d694a48f6c6acd3493a085af97cc982a584ff), [sunshafts.frag](https://www.virustotal.com/gui/file/afb48c3d110517286bcff1799a5c79c6b8a3e09249e48ba4b7d3cc4296c08361), [taa.frag](https://www.virustotal.com/gui/file/ff7546d042352318c0d1dac6aa73cf963b226d3c9f12d0c14ed22d4673496342), [taau.frag](https://www.virustotal.com/gui/file/7434823a0d41220812eed59b7a137ac78d7e4f6fd391cf8286e992861ea2fd8e), [dust.vert](https://www.virustotal.com/gui/file/62fb7342d2c95cc8b4dce7c4736accc329d1515d9db18e237e7dc7bf50f8c6a2), [fullscreen.vert](https://www.virustotal.com/gui/file/1ca1f1bc1c4cf5709d3ae4eb7cf0319c31751c9db38da64a45948241931f17be), [hud.vert](https://www.virustotal.com/gui/file/7667a95c5ae39c3c106ace03c955b6d7264eb0d5783c0e8e4d698b512ceadde7), [rain.vert](https://www.virustotal.com/gui/file/95e6603c979431e3c6eb34b8b2817a7aaa93a942a85976aed3c0b49132fbf83b), [snow.vert](https://www.virustotal.com/gui/file/c4f850ba6299e7163772261eedbe7f1297e8c437f10dee135b8a26b3a0475f88), [splash.vert](https://www.virustotal.com/gui/file/bbeaddfb3f421545886b6d512e594a53494e9f5a5a9d2f60624735940c6f89b1), [common.glsl](https://www.virustotal.com/gui/file/a48b9eb12d9c8e7fa44db30f86afe538dff1974ed664ef1731443135af99614b)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: It has no updater, no web address and no network code.
+    evidence: '`lab/evidence/projectgpb2-v2/strings-urls.txt` (only a GCC runtime message), `lab/evidence/projectgpb2-v2/imports-absent.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/projectgpb2-v2/strings-urls.txt`, `lab/evidence/projectgpb2-v2/imports-absent.txt`.'
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It imports no function that deletes a file. Its only file move (MoveFileExA) and folder removal are in `make_presets_dir`,
+      which moves `.ini` presets into `plugins\presets`; its CopyFileA call is in the menu's preset import. The runs wrote only
+      its own files beyond what the bare demo wrote.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/evidence/projectgpb2-v2/callsites.txt`; `lab/results/projectgpb2-v2/ride-defaults-windows/files.diff` and
+      `lab/results/projectgpb2-v2/menu-toggle-reload-windows/files.diff` against `lab/results/projectgpb2-v2/baseline-windows/files.diff`.
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: No plugin carries a code signature, and none can be traced to public source.
+    evidence: Empty Security Directory in all three (`lab/evidence/projectgpb2-v2/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugins import no registry function, and the runs wrote no registry value the bare demo didn't.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/imports-absent.txt`; `lab/results/projectgpb2-v2/ride-defaults-windows/registry.txt` and `lab/results/projectgpb2-v2/menu-toggle-reload-windows/registry.txt`
+      against `lab/results/projectgpb2-v2/baseline-windows/registry.txt`.
+  P7:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Each press of the screenshot key (F8) saves a PNG into a `ProjectGPB2 screenshots` folder it makes in the game folder,
+      unless you pick another folder. Everything else it writes is in `plugins\ProjGPB2` (settings, logs, `race_offset.txt`)
+      and `plugins\presets`.
+    evidence: >-
+      `lab/results/projectgpb2-v2/menu-toggle-reload-windows/files.diff`, `lab/results/projectgpb2-v2/menu-toggle-reload-windows/ProjGPB2-ProjGPB2.log` ("screenshot: ...
+      saved"), `lab/results/projectgpb2-v2/crash-windows/files.diff`, `lab/evidence/projectgpb2-v2/strings-files.txt`.
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It has no uninstaller. Deleting the three plugins and `plugins\ProjGPB2`, as the README says, leaves its `plugins\presets`
+      folder and any `ProjectGPB2 screenshots` folder; it changes nothing in Windows.
+    evidence: '`lab/evidence/projectgpb2-v2/readme-claims.txt`, `lab/evidence/projectgpb2-v2/file.txt`, `lab/results/projectgpb2-v2/menu-toggle-reload-windows/files.diff`, `lab/results/projectgpb2-v2/ride-defaults-windows/registry.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. Its imports, text and function names match what it shows: OpenGL hooks for its graphics and effects,
+      its menu, settings, logs, presets, screenshots and sounds. Part of its code sits in an extra section without names and
+      looks up Windows functions by name (see "Also found" under Your game); what it looks up and its text belong to the same
+      features. It imports nothing that connects, starts a program, writes another process or writes the registry.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.iat.txt`, `lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/evidence/projectgpb2-v2/gpb2tx-strings.txt`, `lab/evidence/projectgpb2-v2/callsites.txt`,
+      `lab/evidence/projectgpb2-v2/strings-files.txt`.
+  D1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It imports no network library, holds no web address but a GCC runtime message, and looks up no network function by name;
+      no run tried a connection.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/evidence/projectgpb2-v2/strings-urls.txt`, `lab/evidence/projectgpb2-v2/gpb2tx-strings.txt`; `lab/results/projectgpb2-v2/ride-defaults-windows/network.txt`,
+      `lab/results/projectgpb2-v2/menu-toggle-reload-windows/network.txt`, `lab/results/projectgpb2-v2/effects-on-windows/network.txt`, `lab/results/projectgpb2-v2/hotkeys-windows/network.txt`.
+  D2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent; it has no way to connect.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/results/projectgpb2-v2/ride-defaults-windows/network.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent, so no identifier is.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/results/projectgpb2-v2/ride-defaults-windows/network.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent. Other riders' bikes are read only to draw their effects.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/evidence/projectgpb2-v2/strings-exhaust.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: It imports no socket library, so it runs no server.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads the game's files: each bike's `gfx.cfg` (pipes and smoke) and `effects\particles\exhaustsmoke.cfg`; and, when
+      you press Ctrl+V in its menu, the clipboard, to import settings. None of it is other people's data.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/strings-files.txt`, `lab/evidence/projectgpb2-v2/strings-exhaust.txt`; `lab/results/projectgpb2-v2/crash-windows/ProjGPB2-gamefx.log` ("no ...\bikes\ktm_450sxf_2024\gfx.cfg");
+      GetClipboardData only in `import_clipboard` (`lab/evidence/projectgpb2-v2/callsites.txt`).
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; it has no network code.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: It makes no connection, so there is nothing to switch off.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/results/projectgpb2-v2/ride-defaults-windows/network.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the gpb-mods.com page and its download open without one.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/); `lab/evidence/projectgpb2-v2/strings-urls.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No shared memory, socket or pipe. Besides the plugin functions, it exports functions (`Overhaul...`) that the three
+      plugins look up in each other; their names are about weather and drawing (OverhaulTrackWetness, OverhaulPuddleAt,
+      OverhaulSnowCover, OverhaulDrawInScene). Its logs
+      hold its own status lines.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.objdump-p.txt` (exports), `lab/evidence/projectgpb2-v2/callsites.txt` (GetProcAddress in
+      `dust::snow_cover`, `dust::puddle_at`, `dust::track_wetness`); `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log`.
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It runs only as plugins the game loads; it imports nothing that writes into or starts another process.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`.'
+  G2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      By default, at start each plugin swaps the game's pointers to OpenGL functions (glDrawElements, SwapBuffers,
+      wglGetProcAddress, glUniform... and others, 33 in all in the run's logs) for its own code, changing memory protection to do it, and the core
+      plugin replaces the game's shader programs with patched ones ("game program 65 -> patched program 201").
+    evidence: >-
+      Logs "hook glDrawElements: 1 pointer(s) swapped" and "materials: game program ... -> patched program ..."
+      (`lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log`); the test host found all 16 OpenGL pointers it checks in the game
+      "REDIRECTED" to the plugins after the frames (`lab/results/projectgpb2-v2/bystander-windows/host.log`); VirtualProtect only in `swap_pointers` and the runtime's
+      own section fix-up (`lab/evidence/projectgpb2-v2/callsites.txt`); `lab/evidence/projectgpb2-v2/strings-hooks.txt`.
+  G3:
+    verdict: Partly
+    mark: concern
+    text: >-
+      The redirects and shader changes are made at every start with no check for online sessions; what they change is how the
+      game is drawn on your screen (graphics, weather, effects, the helmet camera's view). No change to physics, timing or what
+      the game sends was found; the ruts setting described as digging into the game's terrain (`physical=1`, "offline
+      testing sessions only") is off by default (`physical=0`). Not seen on a server (see Limits).
+    evidence: >-
+      `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log`, `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-camera.log` ("helmet camera on");
+      `lab/evidence/projectgpb2-v2/strings-rutlink.txt` (`physical=0`, RutsDrive); no "online" or "server" check in `lab/evidence/projectgpb2-v2/strings-files.txt`,
+      `lab/evidence/projectgpb2-v2/gpb2tx-strings.txt`.
+  G4:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The fx plugin looks among the game's loaded modules for its graphics module (by the functions it exports) and, when its
+      size is the one it knows, reads each bike's exhaust table from its memory. The core plugin's freeze watch reads the game's
+      render thread's state and stack.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/ProjectGPB2_fx64.dlo.1f1262910-1f12629a5.txt`, `lab/evidence/projectgpb2-v2/strings-exhaust.txt` ("exhaust table %d - bike position at
+      +0x%x", "game version not known (image 0x%x)"); ReadProcessMemory and GetThreadContext in `hang_watch` and
+      `watch_thread` (`lab/evidence/projectgpb2-v2/callsites.txt`).
+  G5:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      When you open its menu, it puts its own window procedure in front of the game's (SetWindowLongPtrA, CallWindowProcA) to
+      take the mouse wheel for the menu. It reads keys for its menu and hotkeys; it imports nothing that presses keys or clicks.
+    evidence: >-
+      "ProjectGPB2 menu: mouse wheel hook on" only after F6 (`lab/results/projectgpb2-v2/menu-toggle-reload-windows/ProjGPB2-ProjGPB2.log`, not in
+      `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log`); `lab/evidence/projectgpb2-v2/gpb2tx-strings.txt`; `lab/evidence/projectgpb2-v2/imports-absent.txt`.
+  G6:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      The bystander plugin's own table of OpenGL pointers was redirected to the plugins in the test host: they swap the pointers
+      other loaded modules keep, not only the game's. With another "overhaul" plugin loaded they chain onto its hooks
+      (OverhaulHookFor), and with a ruts plugin loaded they call its RutsDrive and RutsGetMap.
+    evidence: >-
+      "bystander plugin (victim.dlo) pointer table: glOrtho REDIRECTED to ...ProjectGPB2_fx64.dlo" (`lab/results/projectgpb2-v2/bystander-windows/host.log`,
+      also with the core plugin alone: `lab/results/projectgpb2-v2/core-alone-windows/host.log`); `lab/evidence/projectgpb2-v2/strings-hooks.txt`, `lab/evidence/projectgpb2-v2/strings-rutlink.txt`.
+  G7:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Every frame it reads the screenshot key (default F8, `shot_key`) with GetAsyncKeyState without checking which window is in
+      front, so F8 pressed in another program saves a screenshot. Its menu and graphics keys are read only after a check that
+      the window in front is the game's.
+    evidence: >-
+      The read in `.gpb2tx`, called from the SwapBuffers hook (`lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.38c623b80-38c623c31.txt`,
+      `lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.38c624a90-38c624af3.txt`, `lab/evidence/projectgpb2-v2/shot-key.txt`: default "119"); the focus check in
+      `panel::on_swap` (`lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.38c54ca90-38c54cabd.txt`); every call site (`lab/evidence/projectgpb2-v2/callsites.txt`).
+  G8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      On the first telemetry call, by default, the core plugin adds a vectored exception handler for the whole game. It only
+      logs ("CRASH 0x%08x at module+offset", at most 8 times) four kinds of crash (access violation, illegal instruction,
+      division by zero, stack overflow) and passes each on to the game; it handles none.
+    evidence: >-
+      `lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.38c6233e0-38c623421.txt` (AddVectoredExceptionHandler), the handler
+      (`lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.38c623820-38c623905.txt`, returns 0), `lab/evidence/projectgpb2-v2/crash-codes.txt`.
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; it writes no registry value.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/results/projectgpb2-v2/ride-defaults-windows/registry.txt`.'
+  G10:
+    verdict: 'No'
+    mark: good
+    text: It runs no separate program; its watch thread runs inside the game.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt` (no CreateProcess or ShellExecute), `lab/evidence/projectgpb2-v2/file.txt` (no .exe).'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: The three `.dlo` files are game plugins, loaded by the game from `plugins`.
+    evidence: >-
+      Exports Startup, RunTelemetry and the other plugin functions (`lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.objdump-p.txt`); loaded in
+      `lab/results/projectgpb2-v2/ride-defaults-windows/loaded.txt`.
+  G12:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No integrity, version, licence or anti-cheat check was found being got around; it reads the graphics module's size to
+      know whether it can read the exhaust tables, and falls back when it can't.
+    evidence: '`lab/evidence/projectgpb2-v2/ProjectGPB2_fx64.dlo.1f1262910-1f12629a5.txt`, `lab/evidence/projectgpb2-v2/strings-exhaust.txt`, `lab/evidence/projectgpb2-v2/imports-absent.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It decrypts nothing: for a bike packed in a `.pkz` it doesn't open the package but falls back to the menu's pipe position;
+      it imports no cryptography function.
+    evidence: '`lab/evidence/projectgpb2-v2/strings-exhaust.txt` ("no %s (bike packed in a .pkz?) - using the menu pipe position"), `lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.iat.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves only its settings, logs, presets and your screenshots; no model or texture file.
+    evidence: '`lab/results/projectgpb2-v2/menu-toggle-reload-windows/files.diff`, `lab/results/projectgpb2-v2/hotkeys-windows/files.diff`, `lab/evidence/projectgpb2-v2/strings-files.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; it has no network code.
+    evidence: '`lab/evidence/projectgpb2-v2/imports-absent.txt`.'
+  C4:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The README credits only the two rain sounds (with their licences). The GCC and MinGW-w64 runtime built into the plugins
+      (libstdc++, libgcc, winpthreads) isn't named; no other library's name was found.
+    evidence: '`lab/evidence/projectgpb2-v2/readme-claims.txt`, `lab/evidence/projectgpb2-v2/compiler.txt`, `lab/evidence/projectgpb2-v2/strings-thirdparty.txt`.'
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It opens each bike's `gfx.cfg`, third-party bikes included, reads the game's copy of each bike's exhaust data from memory,
+      and through its hooks sees what the game draws: after a crash its ragdoll code looks for the player's rider among
+      the game's vertex buffers to move it.
+    evidence: '`lab/evidence/projectgpb2-v2/strings-exhaust.txt`, `lab/evidence/projectgpb2-v2/strings-files.txt`, `lab/evidence/projectgpb2-v2/strings-ragdoll.txt`; `lab/results/projectgpb2-v2/ride-defaults-windows/ProjGPB2-ProjGPB2.log` ("riders found by movement only").'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source isn't public. Prebuilt program files, none with public source: `ProjectGPB2_core64.dlo`,
+      `ProjectGPB2_cam64.dlo` and `ProjectGPB2_fx64.dlo` (PE32+ DLLs, x86-64). The shaders ship as GLSL text; the other
+      files are presets, sounds and text.
+    evidence: '`file` on each (`lab/evidence/projectgpb2-v2/file.txt`); [gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/) (a zip download only).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing its README says on these questions differs from what was found; the screenshot folder and uninstall steps are in
+      "What it says vs what it does".
+    evidence: '`lab/evidence/projectgpb2-v2/readme-claims.txt`, `lab/results/projectgpb2-v2/menu-toggle-reload-windows/files.diff`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release is a zip on gpb-mods.com; there is no public source or build.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: No code history is public; the README has a version history from v1.0 to v4.2.
+    evidence: '`lab/evidence/projectgpb2-v2/readme-claims.txt`, README.txt in the zip (`lab/evidence/projectgpb2-v2/files.txt`).'
+  T6:
+    verdict: Not checked
+    text: No source or build files are public, so its dependencies can't be read.
+    evidence: '-'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Neither the release nor its gpb-mods.com page has a licence; the README says only "ProjectGPB2 is free. Please link to the
+      download page instead of re-uploading it."
+    evidence: '`lab/evidence/projectgpb2-v2/readme-claims.txt`, `unzip -l` of the zip (`lab/evidence/projectgpb2-v2/file.txt`); [gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use ("ProjectGPB2 is free"); no payment or key is asked for.
+    evidence: '`lab/evidence/projectgpb2-v2/readme-claims.txt`, `lab/evidence/projectgpb2-v2/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the release has no shop or payment link.
+    evidence: '`lab/evidence/projectgpb2-v2/strings-money.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Its gpb-mods.com page says "I would highly appreciate donations of any sort!" and points to a donation link on the author's
+      profile and Discord; the release files ask for none.
+    evidence: '[gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/); `lab/evidence/projectgpb2-v2/strings-money.txt`.'
+history:
+  - date: 24 Nov 2026
+    change: First card, for v2.

@@ -1,0 +1,18 @@
+$ objdump -s --start-address=0x38c6380c9 --stop-address=0x38c6380ce ProjectGPB2_core64.dlo; objdump -s --start-address=0x38c6381cb --stop-address=0x38c6381d4 ProjectGPB2_core64.dlo; objdump -s --start-address=0x38c638300 --stop-address=0x38c638306 ProjectGPB2_core64.dlo; objdump -d ProjectGPB2_core64.dlo | grep -E 'call   38c623b80'
+
+ProjectGPB2_core64.dlo:     file format pei-x86-64
+
+Contents of section .gpb2tx:
+ 38c6380c9 6d656e 7500                          menu.           
+
+ProjectGPB2_core64.dlo:     file format pei-x86-64
+
+Contents of section .gpb2tx:
+ 38c6381cb 73 686f745f 6b657900                 shot_key.       
+
+ProjectGPB2_core64.dlo:     file format pei-x86-64
+
+Contents of section .gpb2tx:
+ 38c638300 20003131 3900                         .119.          
+   38c517520:	e8 5b c6 10 00       	call   38c623b80 <.debug_rnglists+0x2b34>
+(exit 0)

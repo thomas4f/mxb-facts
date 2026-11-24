@@ -1,0 +1,16 @@
+$ strings -n 6 ProjectGPB2_core64.dlo | grep -E '^ragdoll: |rider rig|riders found'
+no rider rig file: riders found by movement only
+ragdoll: active (pelvis v=%.1f m/s, %d self-collision pairs, floor %.2f)
+ragdoll: simulation blew up, restarting from the game pose
+ragdoll: crash detected
+ragdoll: rider back on the bike, ragdoll off
+ragdoll: couldn't find the player's rider mesh within 1 s of the crash - staying vanilla
+ragdoll: VBO %u (count %d) doesn't match the rig (best fit error %.3f m) - ignored
+ragdoll: VBO %u is rider mesh '%s' (fit error %.1f mm, stride %d, normals %s, tangents %s)
+ragdoll: VBO %u (%s) %s the player's rider (pelvis %.2f m from bike, fit %.1f mm)
+ragdoll: draw (count %d) attached to %s
+ragdoll: can't open %s
+ragdoll: body %s has no vertices in %s
+ragdoll: %s is not a valid rig file
+ragdoll: rig loaded, %d bones, %d meshes, %d collision spheres
+(exit 0)

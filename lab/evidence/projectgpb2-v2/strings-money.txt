@@ -1,0 +1,5 @@
+$ { strings -n 6 ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo README.txt; strings -el -n 6 ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo README.txt; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+1834:not enough space for format expansion (Please submit full bug report at https://gcc.gnu.org/bugs/):
+11043:not enough space for format expansion (Please submit full bug report at https://gcc.gnu.org/bugs/):
+19929:not enough space for format expansion (Please submit full bug report at https://gcc.gnu.org/bugs/):
+(exit 0)

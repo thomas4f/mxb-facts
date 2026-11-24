@@ -1,0 +1,102 @@
+[17:36:12.752] Graphics Overhaul 2.2.0 loaded (ProjectGPB2 (GPB))
+[17:36:12.782] ragdoll: can't open D:\a\_temp\mxbfacts\run-helmet\plugins\ProjGPB2\rig_default_mx.bin
+[17:36:12.782] no rider rig file: riders found by movement only
+[17:36:12.782] hook glMatrixMode: 1 pointer(s) swapped
+[17:36:12.782] hook glLoadIdentity: 2 pointer(s) swapped
+[17:36:12.782] hook glLoadMatrixf: 1 pointer(s) swapped
+[17:36:12.782] hook glFrustum: 2 pointer(s) swapped
+[17:36:12.782] hook glOrtho: 2 pointer(s) swapped
+[17:36:12.782] hook glDrawElements: 2 pointer(s) swapped
+[17:36:12.784] hook wglGetProcAddress: 1 pointer(s) swapped
+[17:36:12.784] hook SwapBuffers: 1 pointer(s) swapped
+[17:36:12.784] hook glBlendFunc: 1 pointer(s) swapped
+[17:36:12.784] hook glColorMask: 0 pointer(s) swapped
+[17:36:12.784] hook glClear: 1 pointer(s) swapped
+[17:36:12.784] hook glReadPixels: 2 pointer(s) swapped
+[17:36:12.784] hook glPopAttrib: 0 pointer(s) swapped
+[17:36:12.784] hook glLightfv: 0 pointer(s) swapped
+[17:36:12.784] hook glDrawArrays: 0 pointer(s) swapped
+[17:36:12.784] hook glBegin: 2 pointer(s) swapped
+[17:36:12.784] hook glViewport: 2 pointer(s) swapped
+[17:36:12.784] hook glScissor: 2 pointer(s) swapped
+[17:36:12.784] hook glGetIntegerv: 0 pointer(s) swapped
+[17:36:12.784] graphics on (hdr 1, materials 1, shadows 0, taa 1)
+[17:36:13.336] post: HDR scene target 1280x720, 0 sample(s): ok
+[17:36:13.504] post: effect targets ready at 1280x720 (shown at 1280x720)
+[17:36:13.504] view check: post ran 1 time(s) on the HDR scene, 0 on a copy (last second)
+[17:36:18.856] hook glDrawRangeElements: 1 pointer(s) swapped (after another overhaul plugin)
+[17:36:18.856] hook glDrawRangeElementsEXT: 0 pointer(s) swapped
+[17:36:18.856] hook glDrawElementsBaseVertex: 0 pointer(s) swapped
+[17:36:18.856] hook glDrawRangeElementsBaseVertex: 0 pointer(s) swapped
+[17:36:18.856] hook glUseProgramObjectARB: 0 pointer(s) swapped
+[17:36:18.856] hook glUseProgram: 0 pointer(s) swapped
+[17:36:18.857] hook glBindFramebuffer: 0 pointer(s) swapped
+[17:36:18.857] hook glBindFramebufferEXT: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform1fARB: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform2fARB: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform3fARB: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform4fARB: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform1iARB: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform1fvARB: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform2fvARB: 0 pointer(s) swapped
+[17:36:18.857] hook glUniform3fvARB: 0 pointer(s) swapped
+[17:36:18.858] hook glUniform4fvARB: 0 pointer(s) swapped
+[17:36:18.858] hook glUniform1ivARB: 0 pointer(s) swapped
+[17:36:18.858] hook glUniformMatrix3fvARB: 0 pointer(s) swapped
+[17:36:18.858] hook glUniformMatrix4fvARB: 0 pointer(s) swapped
+[17:36:18.858] hook glUniform1f: 0 pointer(s) swapped
+[17:36:18.858] hook glUniform2f: 0 pointer(s) swapped
+[17:36:18.858] hook glUniform3f: 0 pointer(s) swapped
+[17:36:18.858] hook glUniform4f: 0 pointer(s) swapped
+[17:36:18.859] hook glUniform1i: 0 pointer(s) swapped
+[17:36:18.859] hook glUniform1fv: 0 pointer(s) swapped
+[17:36:18.859] hook glUniform2fv: 0 pointer(s) swapped
+[17:36:18.859] hook glUniform3fv: 0 pointer(s) swapped
+[17:36:18.859] hook glUniform4fv: 0 pointer(s) swapped
+[17:36:18.859] hook glUniform1iv: 0 pointer(s) swapped
+[17:36:18.859] hook glUniformMatrix3fv: 0 pointer(s) swapped
+[17:36:18.860] hook glUniformMatrix4fv: 0 pointer(s) swapped
+[17:36:18.860] hook glBufferSubData: 0 pointer(s) swapped
+[17:36:18.860] hook glBufferSubDataARB: 0 pointer(s) swapped
+[17:36:18.860] hook glBufferData: 0 pointer(s) swapped
+[17:36:18.860] hook glBufferDataARB: 0 pointer(s) swapped
+[17:36:18.860] hook glCreateProgramObjectARB: 0 pointer(s) swapped
+[17:36:18.860] hook glCreateProgram: 0 pointer(s) swapped
+[17:36:18.860] hook glDeleteObjectARB: 0 pointer(s) swapped
+[17:36:18.860] hook glDeleteProgram: 0 pointer(s) swapped
+[17:36:21.789] sun: locked at -0.999 0.000 0.034 (10 samples in 2.9 s; it wandered up to 3.2 deg)
+[17:36:21.992] sun: locked -0.999 0.000 0.034, now -0.998 0.000 0.069 (2.0 deg away)
+[17:36:29.649] status 1/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:36:29.649]   shadow capture: 
+[17:36:29.649]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[17:36:29.649]   after the effects: 0 3D draws (0 blended) last frame
+[17:36:32.104] sun: locked -0.999 0.000 0.034, now -0.928 0.000 0.372 (19.9 deg away)
+[17:36:39.732] status 2/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:36:39.732]   shadow capture: 
+[17:36:39.732]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[17:36:39.732]   after the effects: 0 3D draws (0 blended) last frame
+[17:36:42.173] sun: locked -0.999 0.000 0.034, now -0.769 0.000 0.639 (37.8 deg away)
+[17:36:49.820] status 3/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:36:49.822]   shadow capture: 
+[17:36:49.822]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[17:36:49.822]   after the effects: 0 3D draws (0 blended) last frame
+[17:36:52.291] sun: locked -0.999 0.000 0.034, now -0.535 0.000 0.845 (55.7 deg away)
+[17:36:59.713] status 4/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:36:59.713]   shadow capture: 
+[17:36:59.713]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[17:36:59.713]   after the effects: 0 3D draws (0 blended) last frame
+[17:37:02.398] sun: locked -0.999 0.000 0.034, now -0.249 0.000 0.968 (73.4 deg away)
+[17:37:09.919] status 5/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:37:09.919]   shadow capture: 
+[17:37:09.919]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[17:37:09.919]   after the effects: 0 3D draws (0 blended) last frame
+[17:37:12.674] sun: locked -0.999 0.000 0.034, now 0.042 0.000 0.999 (89.7 deg away)
+[17:37:19.961] status 6/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA on, shadows: off
+[17:37:19.961]   shadow capture: 
+[17:37:19.961]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[17:37:19.961]   after the effects: 0 3D draws (0 blended) last frame
+[17:37:21.055] bike: telemetry acceleration looks like g (median 1.17)
+[17:37:22.784] sun: locked -0.999 0.000 0.034, now 0.335 0.000 0.942 (105.5 deg away)
+[17:37:32.975] sun: locked -0.999 0.000 0.034, now 0.594 0.000 0.805 (119.3 deg away)
+[17:37:42.989] sun: locked -0.999 0.000 0.034, now 0.778 0.000 0.628 (129.3 deg away)
+[17:37:44.497] Shutdown

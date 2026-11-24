@@ -1,0 +1,20 @@
+[17:10:01.678] GameFX+ 2.2.0 loaded (ProjectGPB2 (GPB))
+[17:10:01.708] roost off, exhaust effects on (F4: settings)
+[17:10:01.711] hook glMatrixMode: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.714] hook glLoadIdentity: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.716] hook glLoadMatrixf: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.718] hook glFrustum: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.720] hook glOrtho: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.722] hook glDrawElements: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.725] hook wglGetProcAddress: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.727] hook SwapBuffers: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.729] hook glGetFloatv: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.730] hook glMultMatrixf: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.733] hook glReadPixels: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:01.734] hook glCopyTexSubImage2D: 1 pointer(s) swapped (after another overhaul plugin)
+[17:10:02.056] hook glDrawRangeElements: 1 pointer(s) swapped
+[17:10:02.058] hook glDrawRangeElementsEXT: 0 pointer(s) swapped
+[17:10:02.059] hook glDrawElementsBaseVertex: 0 pointer(s) swapped
+[17:10:02.060] hook glDrawRangeElementsBaseVertex: 1 pointer(s) swapped
+[17:10:02.060] hook glUniformMatrix4fvARB: 1 pointer(s) swapped
+[17:10:02.061] hook glUseProgramObjectARB: 1 pointer(s) swapped

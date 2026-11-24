@@ -1,0 +1,33 @@
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\presets  NAME COLLISION
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2  NAME COLLISION
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2\ProjGPB2.ini  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2\ProjGPB2.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2\race_offset.txt  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\save  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0100.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0230.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0398.bmp  SUCCESS
+    1  gpbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  gpbikes.exe  Process Exit    SUCCESS
+    1  gpbikes.exe  Process Start    SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-core-alone\gpbikes.exe  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-core-alone\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-core-alone\opengl32.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjectGPB2_core64.dlo  SUCCESS
+   83  gpbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  gpbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   79  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\core-alone\host.log  FAST IO DISALLOWED
+  160  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\core-alone\host.log  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\opengl32.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjectGPB2_core64.dlo  SUCCESS
+    2  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2\ProjGPB2.ini  SUCCESS
+   12  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2\ProjGPB2.log  FAST IO DISALLOWED
+   94  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2\ProjGPB2.log  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\plugins\ProjGPB2\race_offset.txt  SUCCESS
+   70  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0100.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0100.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0230.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0230.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0398.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-core-alone\shot_0398.bmp  SUCCESS

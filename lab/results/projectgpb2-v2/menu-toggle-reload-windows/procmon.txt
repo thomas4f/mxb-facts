@@ -1,0 +1,130 @@
+    2  gpbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches  NAME COLLISION
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches\{AFBF9F1A-8EE8-4C77-AF34-C647E37CA0D9}.1.ver0x0000000000000000.db  NAME NOT FOUND
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints  NAME COLLISION
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\bikes  SUCCESS
+    6  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\bikes\schwaben_m2_18.ini  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider\riders  SUCCESS
+    8  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider\riders\modern.ini  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\7q0q9vz0  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\8eegzyv7  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\aou90lwa  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\f28qlh2x  SUCCESS
+    3  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\fh6svfia  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\gao2n26d  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\gnm43mfa  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\lu5z56i3  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\x0utvuep  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\bikes  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\misc  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\misc\dashes  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\misc\stands  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider\animations  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider\helmets  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\rider\riders  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\tracks  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\mods\tyres  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+    1  gpbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\e3dlog.txt  SUCCESS
+    3  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\presets  NAME COLLISION
+    3  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2  NAME COLLISION
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\camera.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\gamefx.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\ProjGPB2.ini  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\ProjGPB2.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\ProjectGPB2 screenshots  NAME COLLISION
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\ProjectGPB2 screenshots  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\ProjectGPB2 screenshots\ProjectGPB2_2026-11-24_17-22-47.png  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\ProjectGPB2 screenshots\ProjectGPB2_2026-11-24_17-23-02.png  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\realgame\run-menu-toggle-reload\sllog.txt  SUCCESS
+    2  gpbikes.exe  DeviceIoControl  C:\Users  FAST IO DISALLOWED
+    2  gpbikes.exe  DeviceIoControl  C:\Users  INVALID PARAMETER
+    1  gpbikes.exe  DeviceIoControl  C:\Users\desktop.ini  FAST IO DISALLOWED
+    1  gpbikes.exe  DeviceIoControl  C:\Users\desktop.ini  INVALID PARAMETER
+    1  gpbikes.exe  DeviceIoControl  C:\Users\runneradmin  FAST IO DISALLOWED
+    1  gpbikes.exe  DeviceIoControl  C:\Users\runneradmin  INVALID PARAMETER
+    1  gpbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents  FAST IO DISALLOWED
+    1  gpbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents  INVALID PARAMETER
+    1  gpbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  FAST IO DISALLOWED
+    1  gpbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  INVALID PARAMETER
+    4  gpbikes.exe  FileSystemControl  C:\Users  NOT REPARSE POINT
+    2  gpbikes.exe  FileSystemControl  C:\Users\runneradmin  NOT REPARSE POINT
+    2  gpbikes.exe  FileSystemControl  C:\Users\runneradmin\Documents  NOT REPARSE POINT
+    1  gpbikes.exe  Process Exit    SUCCESS
+    1  gpbikes.exe  Process Start    SUCCESS
+    4  gpbikes.exe  RegCreateKey  HKCR\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}\Instance  SUCCESS
+    1  gpbikes.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+    7  gpbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+    7  gpbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Id  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\MostRecentStart  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Name  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Version  SUCCESS
+    2  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+    2  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+    2  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+    2  gpbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\realgame\run-menu-toggle-reload\gpbikes.exe  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\opengl32.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjectGPB2_cam64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjectGPB2_core64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjectGPB2_fx64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\proxy_udp64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\proxy64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\telemetry64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\xinput64.dli  SUCCESS
+    6  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\bikes\schwaben_m2_18.ini  SUCCESS
+    8  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\paints\rider\riders\modern.ini  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\7q0q9vz0  FAST IO DISALLOWED
+    5  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\7q0q9vz0  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\8eegzyv7  FAST IO DISALLOWED
+    3  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\8eegzyv7  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\aou90lwa  FAST IO DISALLOWED
+    5  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\aou90lwa  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\f28qlh2x  FAST IO DISALLOWED
+    5  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\f28qlh2x  SUCCESS
+   12  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\fh6svfia  FAST IO DISALLOWED
+   84  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\fh6svfia  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\gao2n26d  FAST IO DISALLOWED
+    3  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\gao2n26d  SUCCESS
+    4  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\gnm43mfa  FAST IO DISALLOWED
+   31  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\gnm43mfa  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\lu5z56i3  FAST IO DISALLOWED
+    3  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\lu5z56i3  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\x0utvuep  FAST IO DISALLOWED
+    3  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\cache\textures\x0utvuep  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+    1  gpbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\GP Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS
+    2  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\e3dlog.txt  FAST IO DISALLOWED
+   13  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\e3dlog.txt  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\opengl32.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjectGPB2_cam64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjectGPB2_core64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjectGPB2_fx64.dlo  SUCCESS
+   13  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\camera.log  FAST IO DISALLOWED
+   20  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\camera.log  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\gamefx.log  FAST IO DISALLOWED
+   21  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\gamefx.log  SUCCESS
+    2  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\ProjGPB2.ini  SUCCESS
+   11  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\ProjGPB2.log  FAST IO DISALLOWED
+  315  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\ProjGPB2\ProjGPB2.log  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\proxy_udp64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\proxy64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\telemetry64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\plugins\xinput64.dli  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\ProjectGPB2 screenshots\ProjectGPB2_2026-11-24_17-22-47.png  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\ProjectGPB2 screenshots\ProjectGPB2_2026-11-24_17-23-02.png  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\sllog.txt  FAST IO DISALLOWED
+    2  gpbikes.exe  WriteFile  D:\a\_temp\realgame\run-menu-toggle-reload\sllog.txt  SUCCESS

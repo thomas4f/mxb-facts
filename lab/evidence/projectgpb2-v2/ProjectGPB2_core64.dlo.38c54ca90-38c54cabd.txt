@@ -1,0 +1,15 @@
+$ objdump -d 'ProjectGPB2_core64.dlo' | awk -v a=38c54ca90 -v b=38c54cabd '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c54ca90:	57                   	push   %rdi
+   38c54ca91:	56                   	push   %rsi
+   38c54ca92:	53                   	push   %rbx
+   38c54ca93:	48 83 ec 50          	sub    $0x50,%rsp
+   38c54ca97:	c7 44 24 44 00 00 00 	movl   $0x0,0x44(%rsp)
+   38c54ca9e:	00 
+   38c54ca9f:	ff 15 2b 47 0c 00    	call   *0xc472b(%rip)        # 38c6111d0 <__imp_GetForegroundWindow>
+   38c54caa5:	48 8d 54 24 44       	lea    0x44(%rsp),%rdx
+   38c54caaa:	48 89 c1             	mov    %rax,%rcx
+   38c54caad:	ff 15 25 47 0c 00    	call   *0xc4725(%rip)        # 38c6111d8 <__imp_GetWindowThreadProcessId>
+   38c54cab3:	ff 15 ff 3f 0c 00    	call   *0xc3fff(%rip)        # 38c610ab8 <__imp_GetCurrentProcessId>
+   38c54cab9:	39 44 24 44          	cmp    %eax,0x44(%rsp)
+   38c54cabd:	74 61                	je     38c54cb20 <_ZN5panel7on_swapEv+0x90>
+(exit 0)

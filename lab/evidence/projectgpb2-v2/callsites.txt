@@ -1,0 +1,146 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do echo "== $f"; objdump -d -C $f | awk '/^[0-9a-f]+ <.*>:$/{fn=$0} /__imp_(VirtualProtect|ReadProcessMemory|OpenProcess|OpenThread|SuspendThread|GetThreadContext|SetThreadContext|K32EnumProcessModules|AddVectoredExceptionHandler|MoveFileExA|RemoveDirectoryA|CopyFileA|GetAsyncKeyState|GetForegroundWindow|GetClipboardData|SetClipboardData|LoadLibraryA)>/{match($0,/__imp_[A-Za-z0-9]+/); print $1, substr($0,RSTART+6,RLENGTH-6), "in", fn}'; done
+== ProjectGPB2_core64.dlo
+38c511477: LoadLibraryA in 000000038c511450 <__gcc_register_frame>:
+38c513b90: AddVectoredExceptionHandler in 000000038c513820 <Startup>:
+38c517dd0: GetForegroundWindow in 000000038c5173b0 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+38c517dfc: GetAsyncKeyState in 000000038c5173b0 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+38c5188e4: OpenThread in 000000038c518820 <hang_watch>:
+38c518921: SuspendThread in 000000038c518820 <hang_watch>:
+38c518937: GetThreadContext in 000000038c518820 <hang_watch>:
+38c518aae: ReadProcessMemory in 000000038c518820 <hang_watch>:
+38c519124: ReadProcessMemory in 000000038c518ea0 <crash_catcher>:
+38c519380: SuspendThread in 000000038c519350 <watch_thread>:
+38c519398: GetThreadContext in 000000038c519350 <watch_thread>:
+38c5193c8: GetThreadContext in 000000038c519350 <watch_thread>:
+38c519409: SetThreadContext in 000000038c519350 <watch_thread>:
+38c519457: SetThreadContext in 000000038c519350 <watch_thread>:
+38c5194e2: OpenThread in 000000038c519470 <watch_all>:
+38c54477c: GetAsyncKeyState in 000000038c544770 <panel::(anonymous namespace)::pressed(int, bool)>:
+38c54a13a: SetClipboardData in 000000038c549b30 <panel::(anonymous namespace)::export_preset()>:
+38c54acb0: GetClipboardData in 000000038c54a9e0 <panel::(anonymous namespace)::import_clipboard()>:
+38c54b879: CopyFileA in 000000038c54a9e0 <panel::(anonymous namespace)::import_clipboard()>:
+38c54ca9f: GetForegroundWindow in 000000038c54ca90 <panel::on_swap()>:
+38c54cc53: GetAsyncKeyState in 000000038c54ca90 <panel::on_swap()>:
+38c556dd4: VirtualProtect in 000000038c556db0 <(anonymous namespace)::swap_pointers(std::vector<(anonymous namespace)::Range, std::allocator<(anonymous namespace)::Range> > const&, void*, void*)>:
+38c559c62: MoveFileExA in 000000038c559960 <make_presets_dir()>:
+38c559cc5: RemoveDirectoryA in 000000038c559960 <make_presets_dir()>:
+38c56a324: VirtualProtect in 000000038c56a085 <mark_section_writable>:
+38c56a414: VirtualProtect in 000000038c56a363 <restore_modified_sections>:
+38c57ab68: VirtualProtect in 000000038c57ab68 <VirtualProtect>:
+38c57ab88: SuspendThread in 000000038c57ab88 <SuspendThread>:
+38c57ab98: SetThreadContext in 000000038c57ab98 <SetThreadContext>:
+38c57abd0: RemoveDirectoryA in 000000038c57abd0 <RemoveDirectoryA>:
+38c57abd8: ReadProcessMemory in 000000038c57abd8 <ReadProcessMemory>:
+38c57abf8: OpenThread in 000000038c57abf8 <OpenThread>:
+38c57ac00: MoveFileExA in 000000038c57ac00 <MoveFileExA>:
+38c57ac10: LoadLibraryA in 000000038c57ac10 <LoadLibraryA>:
+38c57ac28: K32EnumProcessModules in 000000038c57ac28 <K32EnumProcessModules>:
+38c57ac68: GetThreadContext in 000000038c57ac68 <GetThreadContext>:
+38c57ad20: CopyFileA in 000000038c57ad20 <CopyFileA>:
+38c57ad30: AddVectoredExceptionHandler in 000000038c57ad30 <AddVectoredExceptionHandler>:
+38c57dae7: OpenProcess in 000000038c57da9d <sched_getscheduler>:
+38c57dbbb: OpenProcess in 000000038c57db4a <sched_setscheduler>:
+38c580112: SuspendThread in 000000038c57fe31 <pthread_cancel>:
+38c580154: GetThreadContext in 000000038c57fe31 <pthread_cancel>:
+38c58017d: SetThreadContext in 000000038c57fe31 <pthread_cancel>:
+38c582958: SetClipboardData in 000000038c582958 <SetClipboardData>:
+38c582970: GetForegroundWindow in 000000038c582970 <GetForegroundWindow>:
+38c582978: GetClipboardData in 000000038c582978 <GetClipboardData>:
+38c582988: GetAsyncKeyState in 000000038c582988 <GetAsyncKeyState>:
+38c582a00: OpenProcess in 000000038c582a00 <OpenProcess>:
+38c6233fb: AddVectoredExceptionHandler in 000000038c622000 <.gpb2tx>:
+38c623bf6: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625132: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c6251fa: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625208: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625262: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c62528b: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625382: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625402: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625486: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c6254b0: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c6254da: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625504: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c62552e: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c6259a1: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c6259cb: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c6259f5: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625aaf: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625b01: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625bff: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c625c16: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c62615f: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c626a52: GetAsyncKeyState in 000000038c622000 <.gpb2tx>:
+38c626d5b: K32EnumProcessModules in 000000038c622000 <.gpb2tx>:
+== ProjectGPB2_cam64.dlo
+1ee001477: LoadLibraryA in 00000001ee001450 <__gcc_register_frame>:
+1ee002f23: GetForegroundWindow in 00000001ee002d70 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+1ee003061: GetAsyncKeyState in 00000001ee002d70 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+1ee003162: GetAsyncKeyState in 00000001ee002d70 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+1ee0032b0: GetAsyncKeyState in 00000001ee002d70 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+1ee00803c: GetAsyncKeyState in 00000001ee008030 <panel::(anonymous namespace)::pressed(int, bool)>:
+1ee00d90a: SetClipboardData in 00000001ee00d370 <panel::(anonymous namespace)::export_preset()>:
+1ee00e500: GetClipboardData in 00000001ee00e230 <panel::(anonymous namespace)::import_clipboard()>:
+1ee00f0c9: CopyFileA in 00000001ee00e230 <panel::(anonymous namespace)::import_clipboard()>:
+1ee0102df: GetForegroundWindow in 00000001ee0102d0 <panel::on_swap()>:
+1ee010493: GetAsyncKeyState in 00000001ee0102d0 <panel::on_swap()>:
+1ee015094: VirtualProtect in 00000001ee015070 <(anonymous namespace)::swap_pointers(std::vector<(anonymous namespace)::Range, std::allocator<(anonymous namespace)::Range> > const&, void*, void*)>:
+1ee017f22: MoveFileExA in 00000001ee017c20 <make_presets_dir()>:
+1ee017f85: RemoveDirectoryA in 00000001ee017c20 <make_presets_dir()>:
+1ee0284e4: VirtualProtect in 00000001ee028245 <mark_section_writable>:
+1ee0285d4: VirtualProtect in 00000001ee028523 <restore_modified_sections>:
+1ee038d48: VirtualProtect in 00000001ee038d48 <VirtualProtect>:
+1ee038d80: RemoveDirectoryA in 00000001ee038d80 <RemoveDirectoryA>:
+1ee038da0: MoveFileExA in 00000001ee038da0 <MoveFileExA>:
+1ee038db0: LoadLibraryA in 00000001ee038db0 <LoadLibraryA>:
+1ee038dc0: K32EnumProcessModules in 00000001ee038dc0 <K32EnumProcessModules>:
+1ee038e98: CopyFileA in 00000001ee038e98 <CopyFileA>:
+1ee03b977: OpenProcess in 00000001ee03b92d <sched_getscheduler>:
+1ee03ba4b: OpenProcess in 00000001ee03b9da <sched_setscheduler>:
+1ee03dfa2: SuspendThread in 00000001ee03dcc1 <pthread_cancel>:
+1ee03dfe4: GetThreadContext in 00000001ee03dcc1 <pthread_cancel>:
+1ee03e00d: SetThreadContext in 00000001ee03dcc1 <pthread_cancel>:
+1ee0407e8: SetClipboardData in 00000001ee0407e8 <SetClipboardData>:
+1ee040800: GetForegroundWindow in 00000001ee040800 <GetForegroundWindow>:
+1ee040808: GetClipboardData in 00000001ee040808 <GetClipboardData>:
+1ee040818: GetAsyncKeyState in 00000001ee040818 <GetAsyncKeyState>:
+1ee040858: SuspendThread in 00000001ee040858 <SuspendThread>:
+1ee040868: SetThreadContext in 00000001ee040868 <SetThreadContext>:
+1ee0408a8: OpenProcess in 00000001ee0408a8 <OpenProcess>:
+1ee0408c0: GetThreadContext in 00000001ee0408c0 <GetThreadContext>:
+== ProjectGPB2_fx64.dlo
+1f1121477: LoadLibraryA in 00000001f1121450 <__gcc_register_frame>:
+1f1123828: GetForegroundWindow in 00000001f1123640 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+1f1123848: GetAsyncKeyState in 00000001f1123640 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+1f1135a3c: GetAsyncKeyState in 00000001f1135a30 <panel::(anonymous namespace)::pressed(int, bool)>:
+1f113b3fa: SetClipboardData in 00000001f113ae00 <panel::(anonymous namespace)::export_preset()>:
+1f113bf80: GetClipboardData in 00000001f113bcb0 <panel::(anonymous namespace)::import_clipboard()>:
+1f113cb49: CopyFileA in 00000001f113bcb0 <panel::(anonymous namespace)::import_clipboard()>:
+1f113dd5f: GetForegroundWindow in 00000001f113dd50 <panel::on_swap()>:
+1f113df13: GetAsyncKeyState in 00000001f113dd50 <panel::on_swap()>:
+1f1142db4: VirtualProtect in 00000001f1142d90 <(anonymous namespace)::swap_pointers(std::vector<(anonymous namespace)::Range, std::allocator<(anonymous namespace)::Range> > const&, void*, void*)>:
+1f1145c42: MoveFileExA in 00000001f1145940 <make_presets_dir()>:
+1f1145ca5: RemoveDirectoryA in 00000001f1145940 <make_presets_dir()>:
+1f1156224: VirtualProtect in 00000001f1155f85 <mark_section_writable>:
+1f1156314: VirtualProtect in 00000001f1156263 <restore_modified_sections>:
+1f1166e18: VirtualProtect in 00000001f1166e18 <VirtualProtect>:
+1f1166e50: RemoveDirectoryA in 00000001f1166e50 <RemoveDirectoryA>:
+1f1166e70: MoveFileExA in 00000001f1166e70 <MoveFileExA>:
+1f1166e80: LoadLibraryA in 00000001f1166e80 <LoadLibraryA>:
+1f1166e90: K32EnumProcessModules in 00000001f1166e90 <K32EnumProcessModules>:
+1f1166f60: CopyFileA in 00000001f1166f60 <CopyFileA>:
+1f1169a47: OpenProcess in 00000001f11699fd <sched_getscheduler>:
+1f1169b1b: OpenProcess in 00000001f1169aaa <sched_setscheduler>:
+1f116c072: SuspendThread in 00000001f116bd91 <pthread_cancel>:
+1f116c0b4: GetThreadContext in 00000001f116bd91 <pthread_cancel>:
+1f116c0dd: SetThreadContext in 00000001f116bd91 <pthread_cancel>:
+1f116e8b8: SetClipboardData in 00000001f116e8b8 <SetClipboardData>:
+1f116e8d0: GetForegroundWindow in 00000001f116e8d0 <GetForegroundWindow>:
+1f116e8d8: GetClipboardData in 00000001f116e8d8 <GetClipboardData>:
+1f116e8e8: GetAsyncKeyState in 00000001f116e8e8 <GetAsyncKeyState>:
+1f116e928: SuspendThread in 00000001f116e928 <SuspendThread>:
+1f116e938: SetThreadContext in 00000001f116e938 <SetThreadContext>:
+1f116e978: OpenProcess in 00000001f116e978 <OpenProcess>:
+1f116e990: GetThreadContext in 00000001f116e990 <GetThreadContext>:
+1f1261fd1: K32EnumProcessModules in 00000001f1259000 <.gpb2tx>:
+(exit 0)

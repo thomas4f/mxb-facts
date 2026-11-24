@@ -1,0 +1,48 @@
+$ objdump -d 'ProjectGPB2_core64.dlo' | awk -v a=38c623910 -v b=38c623999 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c623910:	48 83 ec 28          	sub    $0x28,%rsp
+   38c623914:	48 8d 0d 96 4b 01 00 	lea    0x14b96(%rip),%rcx        # 38c6384b1 <.gpb2tx+0x164b1>
+   38c62391b:	ff 15 cf d1 fe ff    	call   *-0x12e31(%rip)        # 38c610af0 <__imp_GetModuleHandleA>
+   38c623921:	48 85 c0             	test   %rax,%rax
+   38c623924:	74 73                	je     38c623999 <.gpb2tx+0x1999>
+   38c623926:	48 8d 15 42 4f 01 00 	lea    0x14f42(%rip),%rdx        # 38c63886f <.gpb2tx+0x1686f>
+   38c62392d:	48 89 c1             	mov    %rax,%rcx
+   38c623930:	ff 15 d2 d1 fe ff    	call   *-0x12e2e(%rip)        # 38c610b08 <__imp_GetProcAddress>
+   38c623936:	48 85 c0             	test   %rax,%rax
+   38c623939:	74 5e                	je     38c623999 <.gpb2tx+0x1999>
+   38c62393b:	ff d0                	call   *%rax
+   38c62393d:	48 85 c0             	test   %rax,%rax
+   38c623940:	74 57                	je     38c623999 <.gpb2tx+0x1999>
+   38c623942:	48 83 c0 03          	add    $0x3,%rax
+   38c623946:	eb 0f                	jmp    38c623957 <.gpb2tx+0x1957>
+   38c623948:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   38c62394f:	00 
+   38c623950:	85 c9                	test   %ecx,%ecx
+   38c623952:	74 45                	je     38c623999 <.gpb2tx+0x1999>
+   38c623954:	48 ff c0             	inc    %rax
+   38c623957:	0f b6 48 fd          	movzbl -0x3(%rax),%ecx
+   38c62395b:	83 f9 2d             	cmp    $0x2d,%ecx
+   38c62395e:	75 f0                	jne    38c623950 <.gpb2tx+0x1950>
+   38c623960:	0f b6 48 fe          	movzbl -0x2(%rax),%ecx
+   38c623964:	83 c9 20             	or     $0x20,%ecx
+   38c623967:	83 f9 76             	cmp    $0x76,%ecx
+   38c62396a:	75 e8                	jne    38c623954 <.gpb2tx+0x1954>
+   38c62396c:	0f b6 48 ff          	movzbl -0x1(%rax),%ecx
+   38c623970:	83 c9 20             	or     $0x20,%ecx
+   38c623973:	83 f9 72             	cmp    $0x72,%ecx
+   38c623976:	75 dc                	jne    38c623954 <.gpb2tx+0x1954>
+   38c623978:	0f b6 10             	movzbl (%rax),%edx
+   38c62397b:	31 c9                	xor    %ecx,%ecx
+   38c62397d:	83 fa 52             	cmp    $0x52,%edx
+   38c623980:	7f 0b                	jg     38c62398d <.gpb2tx+0x198d>
+   38c623982:	85 d2                	test   %edx,%edx
+   38c623984:	74 18                	je     38c62399e <.gpb2tx+0x199e>
+   38c623986:	83 fa 20             	cmp    $0x20,%edx
+   38c623989:	75 c9                	jne    38c623954 <.gpb2tx+0x1954>
+   38c62398b:	eb 11                	jmp    38c62399e <.gpb2tx+0x199e>
+   38c62398d:	83 fa 53             	cmp    $0x53,%edx
+   38c623990:	74 0c                	je     38c62399e <.gpb2tx+0x199e>
+   38c623992:	83 fa 73             	cmp    $0x73,%edx
+   38c623995:	75 bd                	jne    38c623954 <.gpb2tx+0x1954>
+   38c623997:	eb 05                	jmp    38c62399e <.gpb2tx+0x199e>
+   38c623999:	b9 09 00 00 00       	mov    $0x9,%ecx
+(exit 0)

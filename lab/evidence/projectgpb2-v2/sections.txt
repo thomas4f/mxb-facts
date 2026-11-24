@@ -1,0 +1,26 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do echo "== $f"; objdump -h $f | grep -A1 -E ' \.text|gpb2'; done
+== ProjectGPB2_core64.dlo
+  0 .text         00085f80  000000038c511000  000000038c511000  00000600  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+--
+ 20 .gpb2tx       0004839f  000000038c622000  000000038c622000  00120800  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .gpb2dt       00000200  000000038c66b000  000000038c66b000  00168c00  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+== ProjectGPB2_cam64.dlo
+  0 .text         00050560  00000001ee001000  00000001ee001000  00000600  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+--
+ 20 .gpb2tx       00001e6d  00000001ee07e000  00000001ee07e000  000cdc00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .gpb2dt       00000000  00000001ee080000  00000001ee080000  00000000  2**2
+                  ALLOC, LOAD, DATA
+== ProjectGPB2_fx64.dlo
+  0 .text         000eb510  00000001f1121000  00000001f1121000  00000600  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+--
+ 20 .gpb2tx       0001bcf0  00000001f1259000  00000001f1259000  00296200  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 21 .gpb2dt       00000200  00000001f1275000  00000001f1275000  002b2000  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+(exit 0)

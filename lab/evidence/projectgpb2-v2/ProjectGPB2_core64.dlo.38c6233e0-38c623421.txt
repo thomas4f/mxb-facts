@@ -1,0 +1,22 @@
+$ objdump -d 'ProjectGPB2_core64.dlo' | awk -v a=38c6233e0 -v b=38c623421 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c6233e0:	56                   	push   %rsi
+   38c6233e1:	57                   	push   %rdi
+   38c6233e2:	53                   	push   %rbx
+   38c6233e3:	48 83 ec 40          	sub    $0x40,%rsp
+   38c6233e7:	0f 29 74 24 30       	movaps %xmm6,0x30(%rsp)
+   38c6233ec:	0f 28 f2             	movaps %xmm2,%xmm6
+   38c6233ef:	48 89 ce             	mov    %rcx,%rsi
+   38c6233f2:	80 3d 9f 7c 04 00 00 	cmpb   $0x0,0x47c9f(%rip)        # 38c66b098 <.debug_rnglists+0x4a04c>
+   38c6233f9:	75 26                	jne    38c623421 <.gpb2tx+0x1421>
+   38c6233fb:	4c 8b 05 2e d6 fe ff 	mov    -0x129d2(%rip),%r8        # 38c610a30 <__imp_AddVectoredExceptionHandler>
+   38c623402:	4d 85 c0             	test   %r8,%r8
+   38c623405:	74 1a                	je     38c623421 <.gpb2tx+0x1421>
+   38c623407:	c6 05 8a 7c 04 00 01 	movb   $0x1,0x47c8a(%rip)        # 38c66b098 <.debug_rnglists+0x4a04c>
+   38c62340e:	48 8d 05 0b 04 00 00 	lea    0x40b(%rip),%rax        # 38c623820 <.gpb2tx+0x1820>
+   38c623415:	31 c9                	xor    %ecx,%ecx
+   38c623417:	89 d7                	mov    %edx,%edi
+   38c623419:	48 89 c2             	mov    %rax,%rdx
+   38c62341c:	41 ff d0             	call   *%r8
+   38c62341f:	89 fa                	mov    %edi,%edx
+   38c623421:	48 85 f6             	test   %rsi,%rsi
+(exit 0)

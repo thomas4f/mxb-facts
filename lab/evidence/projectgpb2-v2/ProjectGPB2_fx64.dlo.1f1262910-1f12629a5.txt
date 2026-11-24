@@ -1,0 +1,36 @@
+$ objdump -d 'ProjectGPB2_fx64.dlo' | awk -v a=1f1262910 -v b=1f12629a5 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   1f1262910:	48 ff c7             	inc    %rdi
+   1f1262913:	48 39 fe             	cmp    %rdi,%rsi
+   1f1262916:	0f 84 f4 f6 ff ff    	je     1f1262010 <.gpb2tx+0x9010>
+   1f126291c:	48 8b 8c fc 80 03 00 	mov    0x380(%rsp,%rdi,8),%rcx
+   1f1262923:	00 
+   1f1262924:	48 8d 15 73 c3 00 00 	lea    0xc373(%rip),%rdx        # 1f126ec9e <.gpb2tx+0x15c9e>
+   1f126292b:	ff 15 ef 40 fe ff    	call   *-0x1bf11(%rip)        # 1f1246a20 <__imp_GetProcAddress>
+   1f1262931:	48 85 c0             	test   %rax,%rax
+   1f1262934:	74 da                	je     1f1262910 <.gpb2tx+0x9910>
+   1f1262936:	48 8b 8c fc 80 03 00 	mov    0x380(%rsp,%rdi,8),%rcx
+   1f126293d:	00 
+   1f126293e:	48 8d 15 b6 c5 00 00 	lea    0xc5b6(%rip),%rdx        # 1f126eefb <.gpb2tx+0x15efb>
+   1f1262945:	ff 15 d5 40 fe ff    	call   *-0x1bf2b(%rip)        # 1f1246a20 <__imp_GetProcAddress>
+   1f126294b:	48 85 c0             	test   %rax,%rax
+   1f126294e:	74 c0                	je     1f1262910 <.gpb2tx+0x9910>
+   1f1262950:	48 8b 8c fc 80 03 00 	mov    0x380(%rsp,%rdi,8),%rcx
+   1f1262957:	00 
+   1f1262958:	48 8d 15 45 bf 00 00 	lea    0xbf45(%rip),%rdx        # 1f126e8a4 <.gpb2tx+0x158a4>
+   1f126295f:	ff 15 bb 40 fe ff    	call   *-0x1bf45(%rip)        # 1f1246a20 <__imp_GetProcAddress>
+   1f1262965:	48 85 c0             	test   %rax,%rax
+   1f1262968:	74 a6                	je     1f1262910 <.gpb2tx+0x9910>
+   1f126296a:	48 8b 84 fc 80 03 00 	mov    0x380(%rsp,%rdi,8),%rax
+   1f1262971:	00 
+   1f1262972:	8b 48 3c             	mov    0x3c(%rax),%ecx
+   1f1262975:	8b 54 08 50          	mov    0x50(%rax,%rcx,1),%edx
+   1f1262979:	81 fa 00 30 67 00    	cmp    $0x673000,%edx
+   1f126297f:	75 18                	jne    1f1262999 <.gpb2tx+0x9999>
+   1f1262981:	48 89 05 c8 b3 17 00 	mov    %rax,0x17b3c8(%rip)        # 1f13ddd50 <.debug_rnglists+0x185d04>
+   1f1262988:	48 8d 0d de c3 00 00 	lea    0xc3de(%rip),%rcx        # 1f126ed6d <.gpb2tx+0x15d6d>
+   1f126298f:	e8 bc 33 ee ff       	call   1f1145d50 <_Z4logfPKcz>
+   1f1262994:	e9 77 f6 ff ff       	jmp    1f1262010 <.gpb2tx+0x9010>
+   1f1262999:	48 8d 0d ef bd 00 00 	lea    0xbdef(%rip),%rcx        # 1f126e78f <.gpb2tx+0x1578f>
+   1f12629a0:	e8 ab 33 ee ff       	call   1f1145d50 <_Z4logfPKcz>
+   1f12629a5:	e9 66 f6 ff ff       	jmp    1f1262010 <.gpb2tx+0x9010>
+(exit 0)

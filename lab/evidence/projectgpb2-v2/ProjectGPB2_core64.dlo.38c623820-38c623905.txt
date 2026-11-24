@@ -1,0 +1,66 @@
+$ objdump -d 'ProjectGPB2_core64.dlo' | awk -v a=38c623820 -v b=38c623905 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c623820:	56                   	push   %rsi
+   38c623821:	57                   	push   %rdi
+   38c623822:	53                   	push   %rbx
+   38c623823:	48 81 ec 60 01 00 00 	sub    $0x160,%rsp
+   38c62382a:	48 8b 01             	mov    (%rcx),%rax
+   38c62382d:	8b 30                	mov    (%rax),%esi
+   38c62382f:	66 0f 6e c6          	movd   %esi,%xmm0
+   38c623833:	66 0f 70 c0 00       	pshufd $0x0,%xmm0,%xmm0
+   38c623838:	66 0f 76 05 80 43 01 	pcmpeqd 0x14380(%rip),%xmm0        # 38c637bc0 <.gpb2tx+0x15bc0>
+   38c62383f:	00 
+   38c623840:	0f 50 c8             	movmskps %xmm0,%ecx
+   38c623843:	85 c9                	test   %ecx,%ecx
+   38c623845:	0f 84 ae 00 00 00    	je     38c6238f9 <.gpb2tx+0x18f9>
+   38c62384b:	83 3d 2a 7a 04 00 07 	cmpl   $0x7,0x47a2a(%rip)        # 38c66b27c <.debug_rnglists+0x4a230>
+   38c623852:	0f 8f a1 00 00 00    	jg     38c6238f9 <.gpb2tx+0x18f9>
+   38c623858:	48 8b 78 10          	mov    0x10(%rax),%rdi
+   38c62385c:	48 8b 58 28          	mov    0x28(%rax),%rbx
+   38c623860:	48 c7 44 24 28 00 00 	movq   $0x0,0x28(%rsp)
+   38c623867:	00 00 
+   38c623869:	66 c7 44 24 30 3f 00 	movw   $0x3f,0x30(%rsp)
+   38c623870:	48 8b 05 81 d2 fe ff 	mov    -0x12d7f(%rip),%rax        # 38c610af8 <__imp_GetModuleHandleExA>
+   38c623877:	48 85 c0             	test   %rax,%rax
+   38c62387a:	74 36                	je     38c6238b2 <.gpb2tx+0x18b2>
+   38c62387c:	4c 8d 44 24 28       	lea    0x28(%rsp),%r8
+   38c623881:	b9 06 00 00 00       	mov    $0x6,%ecx
+   38c623886:	48 89 fa             	mov    %rdi,%rdx
+   38c623889:	ff d0                	call   *%rax
+   38c62388b:	85 c0                	test   %eax,%eax
+   38c62388d:	74 23                	je     38c6238b2 <.gpb2tx+0x18b2>
+   38c62388f:	48 8b 4c 24 28       	mov    0x28(%rsp),%rcx
+   38c623894:	48 85 c9             	test   %rcx,%rcx
+   38c623897:	74 19                	je     38c6238b2 <.gpb2tx+0x18b2>
+   38c623899:	48 8b 05 48 d2 fe ff 	mov    -0x12db8(%rip),%rax        # 38c610ae8 <__imp_GetModuleFileNameA>
+   38c6238a0:	48 85 c0             	test   %rax,%rax
+   38c6238a3:	74 0d                	je     38c6238b2 <.gpb2tx+0x18b2>
+   38c6238a5:	48 8d 54 24 30       	lea    0x30(%rsp),%rdx
+   38c6238aa:	41 b8 2c 01 00 00    	mov    $0x12c,%r8d
+   38c6238b0:	ff d0                	call   *%rax
+   38c6238b2:	4c 8d 44 24 30       	lea    0x30(%rsp),%r8
+   38c6238b7:	48 8d 44 24 31       	lea    0x31(%rsp),%rax
+   38c6238bc:	eb 08                	jmp    38c6238c6 <.gpb2tx+0x18c6>
+   38c6238be:	66 90                	xchg   %ax,%ax
+   38c6238c0:	49 89 c0             	mov    %rax,%r8
+   38c6238c3:	48 ff c0             	inc    %rax
+   38c6238c6:	0f b6 48 ff          	movzbl -0x1(%rax),%ecx
+   38c6238ca:	83 f9 2f             	cmp    $0x2f,%ecx
+   38c6238cd:	74 f1                	je     38c6238c0 <.gpb2tx+0x18c0>
+   38c6238cf:	83 f9 5c             	cmp    $0x5c,%ecx
+   38c6238d2:	74 ec                	je     38c6238c0 <.gpb2tx+0x18c0>
+   38c6238d4:	85 c9                	test   %ecx,%ecx
+   38c6238d6:	75 eb                	jne    38c6238c3 <.gpb2tx+0x18c3>
+   38c6238d8:	ff 05 9e 79 04 00    	incl   0x4799e(%rip)        # 38c66b27c <.debug_rnglists+0x4a230>
+   38c6238de:	48 2b 7c 24 28       	sub    0x28(%rsp),%rdi
+   38c6238e3:	48 89 5c 24 20       	mov    %rbx,0x20(%rsp)
+   38c6238e8:	48 8d 0d 47 4e 01 00 	lea    0x14e47(%rip),%rcx        # 38c638736 <.gpb2tx+0x16736>
+   38c6238ef:	89 f2                	mov    %esi,%edx
+   38c6238f1:	49 89 f9             	mov    %rdi,%r9
+   38c6238f4:	e8 77 64 f3 ff       	call   38c559d70 <_Z4logfPKcz>
+   38c6238f9:	31 c0                	xor    %eax,%eax
+   38c6238fb:	48 81 c4 60 01 00 00 	add    $0x160,%rsp
+   38c623902:	5b                   	pop    %rbx
+   38c623903:	5f                   	pop    %rdi
+   38c623904:	5e                   	pop    %rsi
+   38c623905:	c3                   	ret
+(exit 0)

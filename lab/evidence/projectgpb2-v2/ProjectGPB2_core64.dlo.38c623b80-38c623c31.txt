@@ -1,0 +1,48 @@
+$ objdump -d 'ProjectGPB2_core64.dlo' | awk -v a=38c623b80 -v b=38c623c31 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c623b80:	41 57                	push   %r15
+   38c623b82:	41 56                	push   %r14
+   38c623b84:	41 55                	push   %r13
+   38c623b86:	41 54                	push   %r12
+   38c623b88:	56                   	push   %rsi
+   38c623b89:	57                   	push   %rdi
+   38c623b8a:	55                   	push   %rbp
+   38c623b8b:	53                   	push   %rbx
+   38c623b8c:	48 81 ec e8 04 00 00 	sub    $0x4e8,%rsp
+   38c623b93:	44 0f 29 bc 24 d0 04 	movaps %xmm15,0x4d0(%rsp)
+   38c623b9a:	00 00 
+   38c623b9c:	44 0f 29 b4 24 c0 04 	movaps %xmm14,0x4c0(%rsp)
+   38c623ba3:	00 00 
+   38c623ba5:	44 0f 29 ac 24 b0 04 	movaps %xmm13,0x4b0(%rsp)
+   38c623bac:	00 00 
+   38c623bae:	44 0f 29 a4 24 a0 04 	movaps %xmm12,0x4a0(%rsp)
+   38c623bb5:	00 00 
+   38c623bb7:	44 0f 29 9c 24 90 04 	movaps %xmm11,0x490(%rsp)
+   38c623bbe:	00 00 
+   38c623bc0:	44 0f 29 94 24 80 04 	movaps %xmm10,0x480(%rsp)
+   38c623bc7:	00 00 
+   38c623bc9:	44 0f 29 8c 24 70 04 	movaps %xmm9,0x470(%rsp)
+   38c623bd0:	00 00 
+   38c623bd2:	44 0f 29 84 24 60 04 	movaps %xmm8,0x460(%rsp)
+   38c623bd9:	00 00 
+   38c623bdb:	0f 29 bc 24 50 04 00 	movaps %xmm7,0x450(%rsp)
+   38c623be2:	00 
+   38c623be3:	0f 29 b4 24 40 04 00 	movaps %xmm6,0x440(%rsp)
+   38c623bea:	00 
+   38c623beb:	e8 a0 0e 00 00       	call   38c624a90 <.gpb2tx+0x2a90>
+   38c623bf0:	8b 0d 9a e6 06 00    	mov    0x6e69a(%rip),%ecx        # 38c692290 <.debug_rnglists+0x71244>
+   38c623bf6:	ff 15 bc d5 fe ff    	call   *-0x12a44(%rip)        # 38c6111b8 <__imp_GetAsyncKeyState>
+   38c623bfc:	0f b7 c8             	movzwl %ax,%ecx
+   38c623bff:	89 c8                	mov    %ecx,%eax
+   38c623c01:	c1 e8 0f             	shr    $0xf,%eax
+   38c623c04:	66 85 c9             	test   %cx,%cx
+   38c623c07:	79 28                	jns    38c623c31 <.gpb2tx+0x1c31>
+   38c623c09:	83 3d 84 e6 06 00 00 	cmpl   $0x0,0x6e684(%rip)        # 38c692294 <.debug_rnglists+0x71248>
+   38c623c10:	75 1f                	jne    38c623c31 <.gpb2tx+0x1c31>
+   38c623c12:	f6 05 7f e6 06 00 01 	testb  $0x1,0x6e67f(%rip)        # 38c692298 <.debug_rnglists+0x7124c>
+   38c623c19:	75 16                	jne    38c623c31 <.gpb2tx+0x1c31>
+   38c623c1b:	83 3d 7a e6 06 00 00 	cmpl   $0x0,0x6e67a(%rip)        # 38c69229c <.debug_rnglists+0x71250>
+   38c623c22:	75 0d                	jne    38c623c31 <.gpb2tx+0x1c31>
+   38c623c24:	83 3d 75 e6 06 00 00 	cmpl   $0x0,0x6e675(%rip)        # 38c6922a0 <.debug_rnglists+0x71254>
+   38c623c2b:	0f 84 4b 04 00 00    	je     38c62407c <.gpb2tx+0x207c>
+   38c623c31:	89 05 5d e6 06 00    	mov    %eax,0x6e65d(%rip)        # 38c692294 <.debug_rnglists+0x71248>
+(exit 0)

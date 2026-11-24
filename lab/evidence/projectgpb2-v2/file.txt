@@ -1,0 +1,99 @@
+$ file ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo README.txt CREDITS.txt rain_heavy.wav rain_light.wav *.ini *.frag *.vert *.glsl; unzip -l 1794501261-projectgpb2-v2.zip
+ProjectGPB2_core64.dlo: PE32+ executable for MS Windows 5.02 (DLL), x86-64, 22 sections
+ProjectGPB2_cam64.dlo:  PE32+ executable for MS Windows 5.02 (DLL), x86-64, 22 sections
+ProjectGPB2_fx64.dlo:   PE32+ executable for MS Windows 5.02 (DLL), x86-64, 22 sections
+README.txt:             ASCII text, with CRLF line terminators
+CREDITS.txt:            ASCII text
+rain_heavy.wav:         RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 32000 Hz
+rain_light.wav:         RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 32000 Hz
+GPB 1 Performance.ini:  Generic INItialization configuration [rendering]
+GPB 2 Balanced.ini:     Generic INItialization configuration [rendering]
+GPB 3 Quality.ini:      Generic INItialization configuration [rendering]
+adapt.frag:             C source, ASCII text
+bloom_down.frag:        C source, ASCII text
+bloom_up.frag:          C source, ASCII text
+blur.frag:              C source, ASCII text
+clouds.frag:            C source, ASCII text, with CRLF line terminators
+composite.frag:         ASCII text
+dof.frag:               C source, ASCII text
+dust.frag:              C source, ASCII text, with CRLF line terminators
+dust_shadow.frag:       C source, ASCII text
+final.frag:             ASCII text
+hud.frag:               C source, ASCII text
+lighting.frag:          C source, ASCII text
+linearize.frag:         C source, ASCII text
+luminance.frag:         C source, ASCII text
+motionblur.frag:        ASCII text
+ownmask.frag:           C source, ASCII text, with CRLF line terminators
+prepare.frag:           C source, ASCII text
+rain.frag:              C source, ASCII text
+skylut.frag:            C source, ASCII text, with CRLF line terminators
+snow.frag:              C source, ASCII text
+splash.frag:            C source, ASCII text
+sunprobe.frag:          C source, ASCII text
+sunshafts.frag:         C source, ASCII text
+taa.frag:               C source, ASCII text
+taau.frag:              C source, ASCII text
+volumetric.frag:        C source, ASCII text
+dust.vert:              C source, ASCII text, with CRLF line terminators
+fullscreen.vert:        C source, ASCII text
+hud.vert:               C source, ASCII text
+rain.vert:              C source, ASCII text, with CRLF line terminators
+snow.vert:              C source, ASCII text
+splash.vert:            C source, ASCII text, with CRLF line terminators
+common.glsl:            ASCII text, with CRLF line terminators
+Archive:  1794501261-projectgpb2-v2.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+    12470  2026-11-12 16:21   README.txt
+        0  2026-11-12 16:21   gpbikes/
+        0  2026-11-12 16:21   gpbikes/plugins/
+   850944  2026-11-12 16:21   gpbikes/plugins/ProjectGPB2_cam64.dlo
+  1478144  2026-11-12 16:21   gpbikes/plugins/ProjectGPB2_core64.dlo
+        0  2026-11-12 16:21   gpbikes/plugins/presets/
+      274  2026-11-12 16:21   gpbikes/plugins/presets/GPB 3 Quality.ini
+      207  2026-11-12 16:21   gpbikes/plugins/presets/GPB 2 Balanced.ini
+      313  2026-11-12 16:21   gpbikes/plugins/presets/GPB 1 Performance.ini
+        0  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/
+        0  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/sounds/
+      668  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/sounds/CREDITS.txt
+  3840044  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/sounds/rain_heavy.wav
+  3840044  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/sounds/rain_light.wav
+        0  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/
+     2065  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/skylut.frag
+     4932  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/dof.frag
+     8609  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/lighting.frag
+     1638  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/splash.frag
+     5738  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/taau.frag
+    12985  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/dust.frag
+    31775  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/final.frag
+     5099  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/taa.frag
+      327  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/dust_shadow.frag
+     1208  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/sunprobe.frag
+      364  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/snow.frag
+     1458  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/snow.vert
+      195  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/ownmask.frag
+      986  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/blur.frag
+      689  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/bloom_up.frag
+      580  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/luminance.frag
+     5751  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/dust.vert
+    47165  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/composite.frag
+     2665  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/hud.frag
+      334  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/rain.frag
+     3953  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/splash.vert
+      669  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/hud.vert
+      904  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/adapt.frag
+     3450  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/clouds.frag
+    13391  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/motionblur.frag
+     1865  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/prepare.frag
+     4990  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/common.glsl
+     1223  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/linearize.frag
+     2080  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/rain.vert
+     1010  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/bloom_down.frag
+     1786  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/volumetric.frag
+     1578  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/sunshafts.frag
+      216  2026-11-12 16:21   gpbikes/plugins/ProjGPB2/shaders/fullscreen.vert
+  2826752  2026-11-12 16:21   gpbikes/plugins/ProjectGPB2_fx64.dlo
+---------                     -------
+ 13021538                     49 files
+(exit 0)

@@ -1,0 +1,12 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do echo "== $f"; strings -n 6 $f | grep -E '^GCC: |winpthreads/src' | sort -u; done
+== ProjectGPB2_core64.dlo
+../../../mingw-w64-libraries/winpthreads/src/nanosleep.c
+../../../mingw-w64-libraries/winpthreads/src/rwlock.c
+GCC: (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 16.2.0
+== ProjectGPB2_cam64.dlo
+../../../mingw-w64-libraries/winpthreads/src/rwlock.c
+GCC: (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 16.2.0
+== ProjectGPB2_fx64.dlo
+../../../mingw-w64-libraries/winpthreads/src/rwlock.c
+GCC: (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 16.2.0
+(exit 0)

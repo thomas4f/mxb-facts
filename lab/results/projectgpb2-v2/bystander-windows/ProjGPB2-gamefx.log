@@ -1,0 +1,27 @@
+[17:31:25.365] GameFX+ 2.2.0 loaded (ProjectGPB2 (GPB))
+[17:31:25.393] roost off, exhaust effects on (F4: settings)
+[17:31:25.393] hook glMatrixMode: 1 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.393] hook glLoadIdentity: 2 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.393] hook glLoadMatrixf: 1 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.393] hook glFrustum: 2 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.393] hook glOrtho: 2 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.393] hook glDrawElements: 2 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.393] hook wglGetProcAddress: 1 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.395] hook SwapBuffers: 1 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.395] hook glGetFloatv: 1 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.395] hook glMultMatrixf: 0 pointer(s) swapped
+[17:31:25.396] hook glReadPixels: 2 pointer(s) swapped (after another overhaul plugin)
+[17:31:25.396] hook glCopyTexSubImage2D: 0 pointer(s) swapped
+[17:31:25.401] ProjectGPB2 fx: D:\a\_temp\mxbfacts\run-bystander\effects\particles\exhaustsmoke.cfg not found (packed) - stock exhaust smoke values
+[17:31:25.401] ProjectGPB2 fx: no D:\a\_temp\mxbfacts\run-bystander\bikes\ktm_450sxf_2024\gfx.cfg (bike packed in a .pkz?) - using the menu pipe position
+[17:31:25.401] ProjectGPB2 fx: bike "KTM 450 SX-F" -> four-stroke, max rpm 13000, limiter 12500
+[17:31:25.401] exhaust: 'KTM 450 SX-F' -> four-stroke, max 13000 rpm
+[17:31:29.360] ProjectGPB2 fx: graphics module found (sun / rain / snow shared)
+[17:31:31.339] hook glDrawRangeElements: 1 pointer(s) swapped
+[17:31:31.339] hook glDrawRangeElementsEXT: 0 pointer(s) swapped
+[17:31:31.340] hook glDrawElementsBaseVertex: 0 pointer(s) swapped
+[17:31:31.340] hook glDrawRangeElementsBaseVertex: 0 pointer(s) swapped
+[17:31:31.340] hook glUniformMatrix4fvARB: 0 pointer(s) swapped
+[17:31:31.340] hook glUseProgramObjectARB: 0 pointer(s) swapped
+[17:32:08.776] bike: telemetry acceleration looks like g (median 1.17)
+[17:32:23.960] Shutdown
