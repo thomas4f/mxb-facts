@@ -45,9 +45,9 @@ Tools the maintainer picked from mxb-mods.com. Not started yet. Counts are from 
 |---|---|---|---|---|---|
 | iNsane's 3D Viewer | [insanes-3d-viewer](https://mxb-mods.com/insanes-3d-viewer/) | None linked | 11,658 | 57,478 | Zip on file (`dmkrtz3DViewer.exe`, zip SHA-256 `abef11875615b3bea602c07b86a0c2d553cf1b4a69f808643b6bffc63fa2c317`) |
 | Resolute MXB Track Builder Helper | [resolute-mxb-track-builder-helper](https://mxb-mods.com/resolute-mxb-track-builder-helper/) | None linked | 4,592 | 37,170 | Zip on file (MSI installer, zip SHA-256 `1344d35ad68fabddbf128cf3e881252d13d1d50d03b0da18732caaeda19f5e55`) |
-| MX Bikes Setup Duper | [mx-bikes-setup-duper](https://mxb-mods.com/mx-bikes-setup-duper/) | [dmkrtz/MXBikesSetupDuperWPF](https://github.com/dmkrtz/MXBikesSetupDuperWPF) (linked from the page) | 1,865 | 25,764 | |
+| MX Bikes Setup Duper | [mx-bikes-setup-duper](https://mxb-mods.com/mx-bikes-setup-duper/) | [dmkrtz/MXBikesSetupDuperWPF](https://github.com/dmkrtz/MXBikesSetupDuperWPF) (linked from the page) | 1,865 | 25,764 | Registry `setup-duper` |
 | PaintHub | [painthub](https://mxb-mods.com/painthub/) | None linked | 1,662 | 89,964 | Zip on file |
-| TrackRelief | [trackrelief](https://mxb-mods.com/trackrelief/) | [Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief) (linked from the page) | 332 | 8,303 | |
+| TrackRelief | [trackrelief](https://mxb-mods.com/trackrelief/) | [Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief) (linked from the page) | 332 | 8,303 | Registry `trackrelief` |
 | MXBTT plugin installer | Not on mxb-mods.com; offered on [mxbtt.com](https://mxbtt.com) | None linked | | | To cover in the MXBTT card, next to the GitHub release's `mxbtt.dlo`. `MXBTT_Plugin_Setup.exe` on file (SHA-256 `13d0b6e92f4cd165303cdda60cf5bfce8f0e69db81ca21e8db74b00e0eab8047`) |
 
 ## To revisit
@@ -65,7 +65,7 @@ Other tools on mxb-mods.com without a card, kept so they aren't lost. Counts rea
 
 | Tool | mxb-mods.com | Downloads | Views | Note |
 |---|---|---|---|---|
-| PitKit MX Bikes Mod Manager | [pitkit-mx-bikes-mod-manager](https://mxb-mods.com/pitkit-mx-bikes-mod-manager/) | 1,756 | 31,336 | Mod manager |
+| PitKit MX Bikes Mod Manager | [pitkit-mx-bikes-mod-manager](https://mxb-mods.com/pitkit-mx-bikes-mod-manager/) | 1,756 | 31,336 | Mod manager. GitHub [bobby-rust/Pitkit](https://github.com/bobby-rust/Pitkit) (linked from the page). Registry `pitkit` |
 | MXB Studio | [mxb-studio-…](https://mxb-mods.com/mxb-studio-create-your-entire-mx-bikes-track-in-one-app/) | 1,381 | 17,284 | Track creation |
 | Resolute MXB Server Manager | [resolute-mxb-server-manager](https://mxb-mods.com/resolute-mxb-server-manager/) | 1,345 | 17,297 | |
 | MX Bikes Server Configurator | [mx-bikes-server-configurator](https://mxb-mods.com/mx-bikes-server-configurator/) | 935 | 18,126 | |
@@ -79,9 +79,11 @@ Other tools on mxb-mods.com without a card, kept so they aren't lost. Counts rea
 | MX Shortcuts | [140394-2](https://mxb-mods.com/140394-2/) | 346 | 19,951 | Hotkeys |
 | MX Ctrl | [mx-ctrl](https://mxb-mods.com/mx-ctrl/) | 331 | 14,260 | |
 | MXB Dropper V1 | [mxb-dropper-v1](https://mxb-mods.com/mxb-dropper-v1/) | 218 | 11,949 | |
-| Frost's Studio | [frosts-studio](https://mxb-mods.com/frosts-studio/) | 116 | 600 | By the maker of MXB App; homepage [mxbsecure.com/studio](https://mxbsecure.com/studio) |
+| Frost's Studio | [frosts-studio](https://mxb-mods.com/frosts-studio/) | 116 | 600 | By the maker of MXB App; homepage [mxbsecure.com/studio](https://mxbsecure.com/studio). GitHub [Frostn1/frost-studio](https://github.com/Frostn1/frost-studio) (linked from the page). Registry `frosts-studio` |
 | MX/GP Bikes Server Manager (DazTeamRacing) | [mx-gp-bikes-server-manager-…](https://mxb-mods.com/mx-gp-bikes-server-manager-by-dazteamracing/) | 113 | 14,667 | |
-| Libpnt | [libpnt](https://mxb-mods.com/libpnt/) | 56 | 9,313 | |
+| Performance Lab by LMG x JCD | [performance-lab-by-lmg-x-jcd](https://mxb-mods.com/performance-lab-by-lmg-x-jcd/) | | | Setup and riding analysis app, filed under Bikes, Others (found 24 Nov 2026). GitHub [JahRacing/Performance-Lab-by-LMG-x-JCD](https://github.com/JahRacing/Performance-Lab-by-LMG-x-JCD) (linked from the page). Registry `performance-lab` |
+| Knee Down (GP Bikes) | [gpb-mods.com: knee-down-launcher](https://gpb-mods.com/knee-down-launcher/) | | | Launcher (found 24 Nov 2026). GitHub [gsv-r/knee-down](https://github.com/gsv-r/knee-down) (linked from the page). Registry `knee-down` |
+| Libpnt | [libpnt](https://mxb-mods.com/libpnt/) | 56 | 9,313 | A library for the paint file format. GitHub [BatZupper/libpnt](https://github.com/BatZupper/libpnt) (linked from the page). Registry `libpnt` |
 
 Not listed: logo sheets, templates and guides (not software). Plugins published only on the PiBoSo forum haven't been searched.
 

@@ -17,8 +17,8 @@
     "homepage": "https://coremx.app",
     "cards": [],
     "mxb-mods": {
-      "post": null,
-      "note": "Not on mxb-mods.com (none found by search on 19 Nov 2026; the maintainer confirmed it isn't uploaded there)"
+      "post": 198444,
+      "tied_by": "github.com/rare621/Core-MX"
     }
   },
   "dirt-gear": {
@@ -67,6 +67,17 @@
     "mxb-mods": {
       "post": null,
       "note": "Not on mxb-mods.com (none found by search on 19 Nov 2026; the maintainer confirmed Frost's tools there are fbx3edf, Frost's Studio, MXB Coach and MXB App)"
+    }
+  },
+  "frosts-studio": {
+    "name": "Frost's Studio",
+    "author": "Frost (Frostn1)",
+    "github": "Frostn1/frost-studio",
+    "homepage": "https://mxbsecure.com/studio",
+    "cards": [],
+    "mxb-mods": {
+      "post": 197539,
+      "tied_by": "github.com/Frostn1/frost-studio"
     }
   },
   "gamefx-plus": {
@@ -124,6 +135,28 @@
     "mxb-mods": {
       "post": 189700,
       "tied_by": "github.com/LeadingTrendTechnologies/HoleshotHUD"
+    }
+  },
+  "knee-down": {
+    "name": "Knee Down",
+    "author": "gsv-r",
+    "github": "gsv-r/knee-down",
+    "homepage": null,
+    "cards": [],
+    "gpb-mods": {
+      "post": 5300,
+      "tied_by": "github.com/gsv-r/knee-down"
+    }
+  },
+  "libpnt": {
+    "name": "Libpnt",
+    "author": "BatZupper",
+    "github": "BatZupper/libpnt",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 175310,
+      "tied_by": "github.com/BatZupper/libpnt"
     }
   },
   "maxhud": {
@@ -293,6 +326,17 @@
       "tied_by": "github.com/daf0707pro-lgtm/MXPulse"
     }
   },
+  "performance-lab": {
+    "name": "Performance Lab by LMG x JCD",
+    "author": "JahRacing",
+    "github": "JahRacing/Performance-Lab-by-LMG-x-JCD",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 190889,
+      "tied_by": "github.com/JahRacing/Performance-Lab-by-LMG-x-JCD"
+    }
+  },
   "pitbox": {
     "name": "Pitbox",
     "author": "cristianboni22",
@@ -302,6 +346,17 @@
     "gpb-mods": {
       "post": 5412,
       "tied_by": "github.com/cristianboni22/pitbox"
+    }
+  },
+  "pitkit": {
+    "name": "PitKit MX Bikes Mod Manager",
+    "author": "bobby-rust",
+    "github": "bobby-rust/Pitkit",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 140272,
+      "tied_by": "github.com/bobby-rust/Pitkit"
     }
   },
   "rider-pov-plus": {
@@ -315,6 +370,17 @@
       "tied_by": "1794860628-rider-pov-plus.zip"
     }
   },
+  "setup-duper": {
+    "name": "MX Bikes Setup Duper",
+    "author": "dmkrtz",
+    "github": "dmkrtz/MXBikesSetupDuperWPF",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 69721,
+      "tied_by": "github.com/dmkrtz/MXBikesSetupDuperWPF"
+    }
+  },
   "suspension-tuner": {
     "name": "Suspension Tuner",
     "author": "Lilian1134",
@@ -326,6 +392,17 @@
     "mxb-mods": {
       "post": 191807,
       "tied_by": "github.com/Lilian1134/Suspension-Tuner"
+    }
+  },
+  "trackrelief": {
+    "name": "TrackRelief",
+    "author": "Lilian1134",
+    "github": "Lilian1134/TrackRelief",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": 192258,
+      "tied_by": "github.com/Lilian1134/TrackRelief"
     }
   }
 }
