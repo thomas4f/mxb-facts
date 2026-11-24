@@ -143,6 +143,9 @@ for ar in AREAN:
         else: cells+=f'<td data-t="{a}">{money_html(gl[ar],f"#r-{a}-{AREAK[ar]}")}</td>'
     lev.append(f'<tr class="mxlev"><th scope="row">{ar}</th>{cells}</tr>')
 mx.extend(lev)
+# Each answer shows its verdict (Yes, No, Partly, ...) drawn as its mark: the colour and icon say Good, Note, Concern or Major,
+# the tip names the mark, and a Concern keeps its cost. A question reads with its answer, as on the tool page.
+VWORD={'Opt':'Yes, not by default','Req':'Yes, on request'}
 for ar in AREAS:
     mx.append(f'<tr class="mxarea"><th colspan="{len(ALL)+1}" scope="colgroup">{ar}</th></tr>')
     for i,qa,qt in QS:
@@ -159,12 +162,12 @@ for ar in AREAS:
                 m=re.match(r'<span class="mk ([^"]*)" title="[^"]*">(.*?)</span>',sp)
                 # Its cost, as in the answer: "(−N)", "(±0)" when another answer of the same behaviour counts it.
                 ch=ST.get(i); cost=f' ({"±0" if ch[1] else "−"+str(ch[0])})' if ch else ' (±0)' if v in ('Yes','No','Partly') and i in GCOST else ''
-                cells+=f'<td data-t="{a}"><a class="mark {m.group(1)}" href="#q-{a}-{i}" title="{tip}">{m.group(2)}{cost}</a></td>'
+                cells+=f'<td data-t="{a}"><a class="mark {m.group(1)}" href="#q-{a}-{i}" title="{m.group(2)}: {tip}">{VWORD.get(v,v)}{cost}</a></td>'
                 continue
-            # Good or Note, as in the answer; with no mark, its grey state (Held back when a rule-9 item touches it). The verdict
-            # (Yes, No, Partly, ...) is in the tip, as the answer text is beside the mark on the tool page.
-            word,cls=STATES[{'+':'good','~':'note'}[mk] if mk else {'NC':'held' if i in HELDS[a] else 'nc','NA':'na','DNA':'dna'}[v]][:2]
-            cells+=f'<td data-t="{a}"><a class="mark {cls}" href="#q-{a}-{i}" title="{tip}">{word}</a></td>'
+            # Good or Note, as in the answer; with no mark, its grey state (Held back when a rule-9 item touches it), in words.
+            st={'+':'good','~':'note'}[mk] if mk else {'NC':'held' if i in HELDS[a] else 'nc','NA':'na','DNA':'dna'}[v]
+            word,cls=STATES[st][:2]
+            cells+=f'<td data-t="{a}"><a class="mark {cls}" href="#q-{a}-{i}" title="{word}: {tip}">{VWORD.get(v,v) if mk else word}</a></td>'
         mx.append(f'<tr><th scope="row"><span class="qid">{i}</span> {qt}</th>{cells}</tr>')
 mx.append('</tbody></table>')
 # For authors: made from the rules, so it can't drift from them. The drop-in check is authors/mxb-facts-check/SKILL.md, pinned to this commit.
