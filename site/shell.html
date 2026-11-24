@@ -124,7 +124,7 @@ pre code { padding: 0; background: none }
 /* The two boxes under the headline read as a pair: full-width text at the legend's size, and each box's closing note at its foot, level with the other's. */
 .toolhead .one { margin: 0 0 4px; font: 600 15px/1.4 var(--f-ui); color: var(--muted) }
 .tlist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--gap-card) }
-.trow { display: grid; grid-template-columns: auto minmax(0, 2fr) minmax(0, 3fr); grid-template-areas: "g n s" "g d s" "g a s"; grid-template-rows: auto auto 1fr; gap: 4px 16px }
+.trow { display: grid; grid-template-columns: auto minmax(0, 2fr) minmax(0, 3fr) auto; grid-template-areas: "g n s c" "g d s c" "g a s c"; grid-template-rows: auto auto 1fr; gap: 4px 16px }
 .trow .tl { grid-area: n; font: 700 17px/1.3 var(--f-ui); text-decoration: none }
 .trow .tv { font: 400 13px var(--f-mono); color: var(--muted) }
 .trow .td { grid-area: d; font-size: 14px; line-height: 1.4 }
@@ -142,6 +142,11 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 
 .filters, .pks { display: flex; flex-wrap: wrap; gap: 6px }
 .tbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px 16px } .tsort { font: 500 14px var(--f-ui); color: var(--muted); display: flex; align-items: center; gap: 8px }
+/* Search: matches a tool's name, version, one-line summary, author, category and tags, together with the category chips. */
+.tq { flex: 1 1 220px; max-width: 320px; font: 400 14px var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 6px 10px }
+.tq:focus-visible { outline: var(--focus); outline-offset: 1px }
+.tnone { color: var(--muted); padding: 12px 0 }
+.tbar > .filters { order: 3; flex-basis: 100% }
 .tsort select { font: 500 14px var(--f-ui); color: var(--ink); background: var(--surface); border: var(--border); border-radius: var(--r-ctl); padding: 5px 8px }
 .picker { display: grid; grid-template-columns: max-content 1fr; gap: 10px 16px; align-items: start }
 .pkg { display: contents }
@@ -161,8 +166,9 @@ button.more-opt, button.more-x { background: none; cursor: pointer }
 .pk input:checked, .tcmp input:checked { background: var(--accent); border-color: var(--accent) } .pk input:checked::before, .tcmp input:checked::before { transform: scale(1) }
 .pickhint { margin: 12px 0 0; color: var(--muted); font-size: 14px }
 /* Compare from the tools list: a tick box on each row, and a bar that stays in view while tools are ticked. */
-.tcmp { margin-left: 12px; color: var(--muted); cursor: pointer; white-space: nowrap }
-.tcmp input { margin: 0 5px 0 0; width: 13px; height: 13px; vertical-align: -2px } .tcmp:has(input:checked) { color: var(--accent) } .tcmp:has(input:focus-visible) { outline: var(--focus); outline-offset: 2px; border-radius: 4px }
+/* Compare: its own column on the right of every row, the same place on each, so ticking several reads down one line. */
+.tcmp { grid-area: c; align-self: center; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 13px; color: var(--muted); cursor: pointer; white-space: nowrap }
+.tcmp input { margin: 0; width: 16px; height: 16px } .tcmp:has(input:checked) { color: var(--accent) } .tcmp:has(input:focus-visible) { outline: var(--focus); outline-offset: 2px; border-radius: 4px }
 .cmpbar { position: sticky; bottom: 16px; z-index: 5; display: flex; align-items: center; flex-wrap: wrap; gap: 8px 12px; align-self: center; padding: 10px 14px; background: var(--surface); border: var(--border); border-radius: var(--r-card); box-shadow: 0 4px 18px rgba(0, 0, 0, .18); font: 14px/1.3 var(--f-ui) }
 .cmpgo { font-weight: 600; color: var(--bg); background: var(--accent); border-radius: var(--r-ctl); padding: 6px 12px; text-decoration: none }
 .cmpgo[aria-disabled="true"] { background: var(--sunk); color: var(--muted); pointer-events: none }
@@ -346,7 +352,8 @@ footer p { margin: 0 }
   .mx tbody th { min-width: 120px; max-width: 150px; font-size: 13px; padding: 8px }
   table.mx { min-width: 0 }
   /* Phones: name, description and byline, then the tags underneath. */
-  .trow { grid-template-columns: auto minmax(0, 1fr); grid-template-areas: "g n" "g d" "a a" "s s"; grid-template-rows: none; gap: 4px 12px }
+  .trow { grid-template-columns: auto minmax(0, 1fr) auto; grid-template-areas: "g n c" "g d d" "a a a" "s s s"; grid-template-rows: none; gap: 4px 12px }
+  .tcmp { align-self: start }
   .trow .tfind { margin-top: 8px }
 }
 @media (max-width: 620px) {
@@ -405,9 +412,10 @@ table.goodw td:first-child { width: 68% }
   <main>
   <section class="view" id="index" data-view>
     <h2 class="sech">Tools {{GNOTE}}</h2>
-    <div class="tbar"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div>
+    <div class="tbar"><input type="search" id="tq" class="tq" placeholder="Search tools, authors, findings" aria-label="Search the tools"><div class="filters" role="group" aria-label="Show category">{{FILTERS}}</div>
       <label class="tsort">Sort by <select id="tsort"><option value="name">Name</option><option value="score-hi">Score, highest first</option><option value="score-lo">Score, lowest first</option><option value="date">Newest analysis</option></select></label></div>
     <div>{{INDEX}}</div>
+    <p class="tnone" id="tnone" hidden>No tool matches. Try fewer words, or another category.</p>
     <details class="more legbox"><summary>How to read the results <span>scores, tags and counts</span></summary>
       <ul class="legend">
         <li><span class="sbox g-score" style="justify-self:start"><b>72</b><small>/100</small></span> <span>Higher is better. Each area starts at 100 and loses points for Concerns in the default setup, and for answers still open (<a href="#scores">how</a>).</span></li>
@@ -545,12 +553,24 @@ table.goodw td:first-child { width: 68% }
     sortrows(tsort.value);
     tsort.addEventListener('change', function () { sortrows(tsort.value); try { localStorage.setItem('mxbfacts-sort', tsort.value); } catch (e) {} });
   }
-  var chips = document.querySelectorAll('.filters .chip');
+  // The category chips and the search box narrow the list together: a row shows when it is in the chosen category and holds
+  // every word typed (in its name, version, summary, author, category or tags).
+  var chips = document.querySelectorAll('.filters .chip'), tq = document.getElementById('tq'), cat = '';
+  function filt() {
+    var words = (tq ? tq.value : '').toLowerCase().split(/\s+/).filter(Boolean), shown = 0;
+    Array.prototype.forEach.call(document.querySelectorAll('.tlist .trow'), function (r) {
+      var txt = r.textContent.toLowerCase();
+      r.hidden = (!!cat && r.getAttribute('data-cat') !== cat) || !words.every(function (w) { return txt.indexOf(w) >= 0; });
+      if (!r.hidden) shown++;
+    });
+    var none = document.getElementById('tnone'); if (none) none.hidden = shown > 0;
+  }
   Array.prototype.forEach.call(chips, function (c) { c.addEventListener('click', function () {
-    var cat = c.getAttribute('data-cat');
+    cat = c.getAttribute('data-cat') || '';
     Array.prototype.forEach.call(chips, function (x) { x.classList.toggle('on', x === c); x.setAttribute('aria-pressed', x === c ? 'true' : 'false'); });
-    Array.prototype.forEach.call(document.querySelectorAll('.tlist .trow'), function (r) { r.hidden = !!cat && r.getAttribute('data-cat') !== cat; });
+    filt();
   }); });
+  if (tq) tq.addEventListener('input', filt);
   // "+N more" shows the rest of a row's critical tags
   Array.prototype.forEach.call(document.querySelectorAll('.more-x'), function (btn) { btn.addEventListener('click', function () {
     Array.prototype.forEach.call(btn.parentNode.querySelectorAll('.xtra'), function (t) { t.hidden = false; });

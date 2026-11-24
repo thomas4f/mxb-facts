@@ -116,7 +116,7 @@ for f,a in CARDS:
     # in the default order, by name, so the page reads the same before its script runs.
     _num=f'{G["score"]:.1f}' if G['kind']=='score' else ''
     _day=datetime.datetime.strptime(h['Analysed on'],'%d %b %Y').date().isoformat()
-    rowsh.append((name.lower(),f'<li class="trow" data-cat="{cat}" data-t="{a}" data-name="{esc(name.lower())}" data-score="{_num}" data-date="{_day}">{score_html(G,a,'row').replace(f'href="#g-{a}"',f'href="#{a}"',1)}<a class="tl" href="#{a}"><span class="tn">{esc(name)}</span> <span class="tv">{esc(ver)}</span></a><span class="td">{inline(one)}</span><span class="ta">{byline(h["Author"])} · {cat}{" · "+CARD["header"]["Game"] if CARD["header"]["Game"]!="MX Bikes" else ""}<label class="tcmp"><input type="checkbox" data-cmp="{a}">Compare</label></span><div class="tfind">{tagrow(CARD,a,TAGCAP)}</div></li>'))
+    rowsh.append((name.lower(),f'<li class="trow" data-cat="{cat}" data-t="{a}" data-name="{esc(name.lower())}" data-score="{_num}" data-date="{_day}">{score_html(G,a,'row').replace(f'href="#g-{a}"',f'href="#{a}"',1)}<a class="tl" href="#{a}"><span class="tn">{esc(name)}</span> <span class="tv">{esc(ver)}</span></a><span class="td">{inline(one)}</span><span class="ta">{byline(h["Author"])} · {cat}{" · "+CARD["header"]["Game"] if CARD["header"]["Game"]!="MX Bikes" else ""}</span><label class="tcmp"><input type="checkbox" data-cmp="{a}">Compare</label><div class="tfind">{tagrow(CARD,a,TAGCAP)}</div></li>'))
     PICK.append((cat,name,a))
     slug=SLUG[f]
     views.append(tool(C,a,slug,gl,changes(f,CARD),tagrow(CARD,a),score_section(a,name,ver,G,GR[a][3],gl),CARD.get("by_maintainer",False)))
