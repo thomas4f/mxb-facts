@@ -36,6 +36,7 @@ Requested tools and releases, oldest first. Link the issue; remove the line when
 |---|---|---|---|
 | GP Bikes Content Manager (GP Bikes) | The newest when it runs | Requested by the maintainer, 20 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/), by FIXXER 1001. A large desktop app (C#/WPF). Registry `gpb-content-manager` |
 | Pitbox (GP Bikes) | [v3.0.4](https://github.com/cristianboni22/pitbox/releases/tag/v3.0.4) | Requested by the maintainer, 23 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/), by GitHub user [cristianboni22](https://github.com/cristianboni22). A launcher app with an in-game HUD. GitHub [cristianboni22/pitbox](https://github.com/cristianboni22/pitbox). Registry `pitbox` |
+| Dirt Gear | [v1.1.1](https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/tag/v1.1.1) | Requested by the maintainer, 24 Nov 2026 | [mxb-mods.com page](https://mxb-mods.com/dirt-gear-2/), by Dirt Graphic Studios. A PSD gear editor for Windows (Python, PyInstaller setup) with a signed self-updater. GitHub [Dirt-Graphic-Studios/Dirt-Gear](https://github.com/Dirt-Graphic-Studios/Dirt-Gear). Registry `dirt-gear` |
 
 ## Next to analyse
 
@@ -48,7 +49,6 @@ Tools the maintainer picked from mxb-mods.com. Not started yet. Counts are from 
 | MX Bikes Setup Duper | [mx-bikes-setup-duper](https://mxb-mods.com/mx-bikes-setup-duper/) | [dmkrtz/MXBikesSetupDuperWPF](https://github.com/dmkrtz/MXBikesSetupDuperWPF) (linked from the page) | 1,865 | 25,764 | |
 | PaintHub | [painthub](https://mxb-mods.com/painthub/) | None linked | 1,662 | 89,964 | Zip on file |
 | TrackRelief | [trackrelief](https://mxb-mods.com/trackrelief/) | [Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief) (linked from the page) | 332 | 8,303 | |
-| Dirt Gear | [dirt-gear-2](https://mxb-mods.com/dirt-gear-2/) | [Dirt-Graphic-Studios/Dirt-Gear](https://github.com/Dirt-Graphic-Studios/Dirt-Gear) (linked from the page) | 70 | 621 | |
 | MXBTT plugin installer | Not on mxb-mods.com; offered on [mxbtt.com](https://mxbtt.com) | None linked | | | To cover in the MXBTT card, next to the GitHub release's `mxbtt.dlo`. `MXBTT_Plugin_Setup.exe` on file (SHA-256 `13d0b6e92f4cd165303cdda60cf5bfce8f0e69db81ca21e8db74b00e0eab8047`) |
 
 ## To revisit
