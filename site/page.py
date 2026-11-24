@@ -382,7 +382,7 @@ BADGES=[  # (file suffix, name shown to authors, how it is drawn)
 def badge_json(ver,G):
     # The shields.io "endpoint" format, so shields.io can draw it in any of its styles.
     return json.dumps({'schemaVersion':1,'label':BLABEL,'message':gtext(G),'color':GCOL[G['kind']].lstrip('#')})
-def score_section(a,name,ver,G,date,gl):
+def score_section(a,slug,latest,name,ver,G,date,gl):
     # The Score card at the top of a tool page: the badge, words in place of a number where it has none, and one bar per area
     # (each links to its area's section). Also the badges authors can embed, which go under "For the tool's author".
     best=f'<em>{esc(gtext(G))}</em>' if G['kind'] in ('notscored','malware') else ''
@@ -391,7 +391,7 @@ def score_section(a,name,ver,G,date,gl):
     n=len(G['open'])
     gopen=(f'<p class="gopen">{n} answer{"s" if n>1 else ""} still open count{"" if n>1 else "s"} at full cost: '+', '.join(f'<a href="#q-{a}-{q}">{q}</a>' for q in G['open'])+'</p>') if n and G['kind']=='score' else '<p class="gopen">No answer still open costs points here.</p>' if G['kind']=='score' else ''
     card=(f'<div class="hcol"><h3 class="sech" id="g-{a}">Score <small class="gnote">{GNOTE}</small></h3><div class="scorecard">{score_html(G,a,"card").replace("</a>",best+"</a>",1)}<div class="abars">{bars}</div>{gopen}</div></div>')
-    bpath=f'badge/{a}/{ver}'; purl=f'{SITEURL}{a}/'; t=btitle(name,ver,G,date); opts=''
+    bpath=f'badge/{slug}/{ver}'; purl=f'{SITEURL}{slug}/' if latest else f'{SITEURL}#{a}'; t=btitle(name,ver,G,date); opts=''
     for suf,label,draw in BADGES:
         burl=f'{SITEURL}{bpath}{suf}.svg'
         opts+=(f'<div class="bopt"><h4>{label}</h4><p>{draw(G,t,a+suf)}</p><pre class="c-md"><code>[![MXB Facts score]({burl})]({purl})</code></pre>'
@@ -399,7 +399,7 @@ def score_section(a,name,ver,G,date,gl):
     emb=(f'<details class="sub badgebox"><summary>Add the badge to your page</summary><p class="bfmt">Code for: <label><input type="radio" name="bf-{a}" value="md" checked> Markdown</label> <label><input type="radio" name="bf-{a}" value="html"> HTML</label></p><div class="bopts">{opts}</div>'
          f'<p class="fn">Each is pinned to this version and rubric {RUBRICV}: a new release gets its own badges when it has a card. Other shields.io styles: <code>https://img.shields.io/endpoint?url={SITEURL}{bpath}.json&amp;style=plastic</code>. Every card\'s scores and badge links are also in <a href="api/cards.json"><code>api/cards.json</code></a>, for sites that list tools.</p></details>')
     return card,emb
-def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False):
+def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False,newest=''):
     # One tool's page: its header facts, score and key answers first, everything else in the report (All answers and evidence).
     h=C['h']; f=C['f']; name=C['name']; ver=C['ver']
     facts=[]
@@ -428,7 +428,7 @@ def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False):
     # "For the tool's author" comes last, after the report's sections, as on the page.
     nav=nav.replace('</div><div class="rtools">',f'<a href="#x-{a}">For the author</a></div><div class="rtools">',1)
     page=(f'<section class="view tool" id="{a}" data-view>{nav}'
-            f'<header class="toolhead"><h2>{esc(name)} <span class="ver">{esc(ver)}</span></h2><div class="hcard" id="d-{a}"><p class="sum">{esc(C["d"]["summary"])}</p><dl class="hmeta">{"".join(facts)}</dl>{MAINT if maint else ""}</div>'
+            f'<header class="toolhead"><h2>{esc(name)} <span class="ver">{esc(ver)}</span></h2><div class="hcard" id="d-{a}"><p class="sum">{esc(C["d"]["summary"])}</p><dl class="hmeta">{"".join(facts)}</dl>{newest}{MAINT if maint else ""}</div>'
             f'<div class="hgrid">{gsec[0]}'
             f'<div class="hcol htags"><h3 class="sech" id="t-{a}">Key findings</h3><div class="tagcard">{tags}</div></div></div></header>{keys}{extra}'
             f'<details class="full"><summary><span class="fs">All answers and evidence</span><span class="fn">Every question, area by area, with its evidence; the limits of this analysis; corrections and the card history</span></summary><div class="report">{rep}</div></details>{authorbox(a,f,name,ver,gsec[1])}</section>')

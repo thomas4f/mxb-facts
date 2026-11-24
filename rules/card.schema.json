@@ -136,7 +136,7 @@
     "Earlier reports": {
      "type": "string",
      "minLength": 1,
-     "description": "Only when the tool has earlier cards: a link to each, newest first, so a reader can see what changed between releases"
+     "description": "Only when the tool has earlier cards: a link to each, newest first, as [<version>](https://thomas4f.github.io/mxb-facts/#<card file without .yaml>), so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address"
     },
     "Method": {
      "type": "string",
