@@ -17,7 +17,7 @@ from cards import CORRFORM, JUDGE, MM, REG, REPO, SITES, SLUG, VT, check_card, e
 from page import (
     BADGES, COMMIT, GNOTE, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
     money_html, prm, share_page, tagrow, tool, tpl)
-CARDS=[  # (card file, page anchor), alphabetical
+CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('dirt-gear-1.1.1.yaml', 'dirt-gear'),
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
     ('holeshot-0.24.0.yaml', 'holeshot'),
@@ -51,6 +51,7 @@ for _c,_a in CARDS:
     _bad=stale_refs(yaml.safe_dump(_y,allow_unicode=True,width=10**6)); assert not _bad, 'cards/'+_c+': names questions that rules/scoring.yaml no longer has: '+', '.join(_bad)
 assert len(SLUG)==sum(len(e['cards']) for e in REG.values()), 'registry/tools.json: a card is listed under two tools'
 assert set(SLUG)=={f for f,_ in CARDS}, 'registry/tools.json: cards must match CARDS ('+', '.join(sorted(set(SLUG)^{f for f,_ in CARDS}))+')'
+assert all(SLUG[f]==t for f,t in CARDS), 'CARDS: each card names its tool in registry/tools.json'
 for s,e in REG.items():
     assert all(c.startswith(s+'-') for c in e['cards']), 'registry/tools.json: '+s+' lists a card of another tool'
     if e['github']: assert all('github.com/'+e['github']+')' in yaml.safe_load(open(D+c))['header']['GitHub'] for c in e['cards']), 'registry/tools.json: '+s+' GitHub differs from its card'
@@ -68,11 +69,18 @@ for k,_ in SITES.values():
 GR={};HELDS={};rowsh=[];views=[];ALL=[];KA=[];PICK=[];SHARE={}
 # What the rules set on each card (the score, each area's score or Money label, what each answer costs, key marks, tags), to compare one scoring.yaml with another.
 SET={}
-for f,a in CARDS:
+for f,slug in CARDS:
+    # A tool's newest card (the last in its registry list) is the tool's page, at #<tool> and <site>/<tool>/, in the tools list
+    # and Compare. An earlier card (rule 2: it stays) keeps a page of its own at #<card file without .yaml>, which the newer
+    # cards link under "Earlier reports", and its badges, but is left out of the list, Compare and the share pages.
+    older=REG[slug]['cards']; latest=older[-1]==f; older=older[:older.index(f)]
+    a=slug if latest else f[:-len('.yaml')]
     CARD=load_yaml(D+f); C=check_card(f,CARD)
     name,ver,h,rows,V,HELDQ=C['name'],C['ver'],C['h'],C['rows'],C['A'],C['held']
     for label in ('In one line','Category','Author','Game',SITES[h['Game']][1],'Homepage','GitHub','Version analysed'): assert h.get(label), f+': no "'+label+'" row'
     one=h['In one line']; assert len(one)<=90, f+': "In one line" is longer than 90 characters'
+    _miss=[o for o in older if '('+SITEURL+'#'+o[:-len('.yaml')]+')' not in h.get('Earlier reports','')]
+    assert not _miss, f+': "Earlier reports" must link each earlier card of the tool, newest first, as [<version>]('+SITEURL+'#<card file without .yaml>): '+', '.join(_miss)
     text='\n'.join(strings(C['d']))
     assert 'mxb-facts/actions/runs/' not in text, f+': link each file\'s VirusTotal entry, not our lookup run (readers can\'t open it)'
     cat=h['Category']; assert cat in CATS, f+': category must be one of '+'; '.join(CATS)
@@ -80,7 +88,8 @@ for f,a in CARDS:
     # Rule 6: "Not allowed" answers, and so "Not scored", need the licence clause that forbids the analysis, quoted on the card.
     assert any(v=='NA' for _m,v in V.values())==bool(h.get('Licence clause')), f+': a card with "Not allowed" answers needs the "Licence clause" row, and only such a card has it'
     G=scored(V,HELDQ)
-    gl=glance(V,G,HELDQ); ALL.append((name,a,rows,gl))
+    gl=glance(V,G,HELDQ)
+    if latest: ALL.append((name,a,rows,gl))
     # The P5 mark depends on whether the release can be traced to public source (T3 or T4).
     traced=any(rows[q].startswith('{+} Yes') for q in ('T3','T4'))
     if rows['P5'].startswith(('{!} No','{~} No')): assert rows['P5'].startswith('{~}' if traced else '{!}'), f+': P5 No is a Note only when T3 or T4 is Yes'
@@ -107,8 +116,8 @@ for f,a in CARDS:
     ka=C['key']
     KA.append((name,a,ka))
     _crit,_opt,_pos=tagsof(CARD)
-    SHARE[a]=(name,ver,G,one,CARD)
-    GR[a]=(name,ver,G,h.get('Analysed on') or ''); HELDS[a]=HELDQ
+    if latest: SHARE[a]=(name,ver,G,one,CARD)
+    GR[a]=(name,ver,G,h.get('Analysed on') or '',slug,latest); HELDS[a]=HELDQ
     SET[f]={'score':{'score':gtext(G)},'areas':{ar:f'{x}' for ar,x in gl.items()},
             'answers':{q:f'costs {x[0]}'+(' (open)' if x[2] else '')+(f', counted with {x[1]}' if x[1] else '') for q,x in charges(V,HELDQ).items()},
             'keys':{k:MW[x[0]][1] or 'no mark' for k,x in ka.items()},
@@ -117,10 +126,10 @@ for f,a in CARDS:
     # in the default order, by name, so the page reads the same before its script runs.
     _num=f'{G["score"]:.1f}' if G['kind']=='score' else ''
     _day=datetime.datetime.strptime(h['Analysed on'],'%d %b %Y').date().isoformat()
-    rowsh.append((name.lower(),f'<li class="trow" data-cat="{cat}" data-t="{a}" data-name="{esc(name.lower())}" data-score="{_num}" data-date="{_day}">{score_html(G,a,'row').replace(f'href="#g-{a}"',f'href="#{a}"',1)}<a class="tl" href="#{a}"><span class="tn">{esc(name)}</span> <span class="tv">{esc(ver)}</span></a><span class="td">{inline(one)}</span><span class="ta">{byline(h["Author"])} · {cat}{" · "+CARD["header"]["Game"] if CARD["header"]["Game"]!="MX Bikes" else ""}</span><label class="tcmp"><input type="checkbox" data-cmp="{a}">Compare</label><div class="tfind">{tagrow(CARD,a,TAGCAP)}</div></li>'))
-    PICK.append((cat,name,a))
-    slug=SLUG[f]
-    views.append(tool(C,a,slug,gl,changes(f,CARD),tagrow(CARD,a),score_section(a,name,ver,G,GR[a][3],gl),CARD.get("by_maintainer",False)))
+    if latest: rowsh.append((name.lower(),f'<li class="trow" data-cat="{cat}" data-t="{a}" data-name="{esc(name.lower())}" data-score="{_num}" data-date="{_day}">{score_html(G,a,'row').replace(f'href="#g-{a}"',f'href="#{a}"',1)}<a class="tl" href="#{a}"><span class="tn">{esc(name)}</span> <span class="tv">{esc(ver)}</span></a><span class="td">{inline(one)}</span><span class="ta">{byline(h["Author"])} · {cat}{" · "+CARD["header"]["Game"] if CARD["header"]["Game"]!="MX Bikes" else ""}</span><label class="tcmp"><input type="checkbox" data-cmp="{a}">Compare</label><div class="tfind">{tagrow(CARD,a,TAGCAP)}</div></li>'))
+    if latest: PICK.append((cat,name,a))
+    newest='' if latest else f'<p class="maint"><strong>An earlier report.</strong> The newest card for this tool is <a href="#{slug}">{esc(name)} {esc(load_yaml(D+REG[slug]["cards"][-1])["version"])}</a>.</p>'
+    views.append(tool(C,a,slug,gl,changes(f,CARD),tagrow(CARD,a),score_section(a,slug,latest,name,ver,G,GR[a][3],gl),CARD.get("by_maintainer",False),newest))
 used=[c for c in CATS if any(p[0]==c for p in PICK)]
 filters='<button type="button" class="chip on" data-cat="">All <span>'+str(len(PICK))+'</span></button>'+''.join(f'<button type="button" class="chip" data-cat="{c}">{c} <span>{sum(1 for p in PICK if p[0]==c)}</span></button>' for c in used)
 picker=''.join(f'<div class="pkg"><span class="pkh">{c}</span><div class="pks">'+''.join(f'<label class="pk"><input type="checkbox" id="pk-{a}" value="{a}"> {nm}</label>' for _c,nm,a in sorted((p for p in PICK if p[0]==c),key=lambda p:p[1].lower()))+'</div></div>' for c in used) or '<p class="pending">No tool is analysed yet, so there is nothing to compare.</p>'
@@ -251,17 +260,17 @@ open(OUT,'w').write(out)
 # only its "Held back" row), and the For authors check with its commit filled in.
 SITE=os.path.dirname(OUT)+'/'
 # One badge per card (rules/scores.md, "Badge"), at badge/<tool>/<version>.svg and .json.
-for _a,(_name,_ver,_G,_date) in GR.items():
-    os.makedirs(SITE+'badge/'+_a,exist_ok=True)
-    for _suf,_l,_draw in BADGES: open(SITE+f'badge/{_a}/{_ver}{_suf}.svg','w').write(_draw(_G,btitle(_name,_ver,_G,_date),'')+'\n')
-    open(SITE+f'badge/{_a}/{_ver}.json','w').write(badge_json(_ver,_G)+'\n')
+for _a,(_name,_ver,_G,_date,_t,_l) in GR.items():
+    os.makedirs(SITE+'badge/'+_t,exist_ok=True)
+    for _suf,_lab,_draw in BADGES: open(SITE+f'badge/{_t}/{_ver}{_suf}.svg','w').write(_draw(_G,btitle(_name,_ver,_G,_date),'')+'\n')
+    open(SITE+f'badge/{_t}/{_ver}.json','w').write(badge_json(_ver,_G)+'\n')
 # Every card's score and badges in one file, for a site that lists tools (such as a mods site) to show them by version.
 os.makedirs(SITE+'api',exist_ok=True)
-json.dump({'rubric':RUBRICV,'cards':[{'tool':_a,'name':_n,'version':_v,'page':f'{SITEURL}{_a}/','score':gtext(_G),
+json.dump({'rubric':RUBRICV,'cards':[{'tool':_t,'name':_n,'version':_v,'page':f'{SITEURL}{_t}/' if _l else f'{SITEURL}#{_a}','score':gtext(_G),
            'number':None if _G['kind'] in ('notscored','malware') else sround(_G['score']),'open_answers':len(_G['open']),
            'areas':None if _G['kind'] in ('notscored','malware') else {ar:_G['areas'][ar][0] for ar in AREAN if ar in CONCERN},
-           'analysed':_d,'badges':{(_suf or '-flat').lstrip('-'):f'{SITEURL}badge/{_a}/{_v}{_suf}.svg' for _suf,_l,_x in BADGES}}
-          for _a,(_n,_v,_G,_d) in GR.items()]},open(SITE+'api/cards.json','w'),indent=1,ensure_ascii=False)
+           'analysed':_d,'badges':{(_suf or '-flat').lstrip('-'):f'{SITEURL}badge/{_t}/{_v}{_suf}.svg' for _suf,_x,_y in BADGES}}
+          for _a,(_n,_v,_G,_d,_t,_l) in GR.items()]},open(SITE+'api/cards.json','w'),indent=1,ensure_ascii=False)
 os.makedirs(SITE+'cards',exist_ok=True)
 # Each tool's own address, for sharing: <site>/<tool>/ (page.share_page). A tool's anchor can't take a name the site uses for a folder.
 assert not set(SHARE)&{'api','badge','cards','authors'}, 'a tool anchor is also a folder name of the site'
