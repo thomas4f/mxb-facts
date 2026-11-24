@@ -466,13 +466,15 @@ table.goodw td:first-child { width: 68% }
       <div class="intro"><p>How a card is made, the ten rules every card follows, and, folded below, how answers are marked and scores worked out.</p></div>
       <h3>How a card is made</h3>
       <ol class="flow">
-        <li><b>A tool is requested</b> through the request form, or Thomas picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it.</li>
-        <li><b>Its files are pinned:</b> every file players download is hashed (SHA-256), and the release's commit is fixed when the source is public.</li>
-        <li><b>The licence is read first.</b> If it forbids analysis, only public facts are covered and the rest says "Not allowed".</li>
-        <li><b>The AI analyses it</b> from the published prompt: source or binaries, an offline run in a throwaway environment (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup.</li>
+        <li><b>A tool is requested</b> through the request form, or Thomas picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.</li>
+        <li><b>Its files are pinned:</b> the newest release, unless another is named. Every file players download is hashed (SHA-256), and the release's commit is fixed when the source is public.</li>
+        <li><b>The licence is read first.</b> If it forbids analysis, only public facts are covered, the rest says "Not allowed", nothing is run or uploaded, and the tool isn't scored.</li>
+        <li><b>The AI analyses it</b> from the published prompt: source or binaries, an offline run on a throwaway Windows machine (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup. A downloaded file VirusTotal has never seen is uploaded for a scan.</li>
         <li><b>Every question is answered</b> with its evidence: a pinned code link, a file hash or a test anyone can repeat. What can't be proven or run goes under "Limits of this analysis", linked to the answers it affects.</li>
         <li><b>The build checks the card</b> against the rules: it checks each answer's mark against the mark table, and sets every key-question mark, tag and score itself; nobody picks one of those by hand.</li>
+        <li><b>A security problem that isn't public is held back.</b> The finished card stays private until the author has been told; it is then published with a "Held back" row in place of the details (rule 9).</li>
         <li><b>Comments come in as issues:</b> a correction, something missing, or the author's context. While one is open, the answers it names show its count, and nothing else changes. When one holds, the line is fixed and the card's history says what changed and why.</li>
+        <li><b>A new release gets a new card.</b> The tool's page shows the newest; earlier cards stay under History, and Compare can put two releases side by side.</li>
       </ol>
       {{TPL}}
       <details class="more" id="prompt"><summary>The analysis prompt <span>the prompt every card starts from</span></summary>

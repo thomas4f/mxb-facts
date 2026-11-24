@@ -117,8 +117,6 @@ for f,slug in CARDS:
         assert ok, f+': P1 is "'+v+'", but the latest VirusTotal lookup (vt/results.json) puts it '+('nowhere on VirusTotal' if worst is None else f'at {worst:.1%} of engines at most')+'; update P1 and its history row'
     if rows['P1'].startswith('{+} No'):
         assert vt and all(vt.get(x['sha256'],{}).get('found') for x in CARD['files'] if 'inside' not in x), f+': P1 No is a Note while a file players download isn\'t on VirusTotal'
-    # Rule 9: the site isn't published while an item on MXBMRP3 is held back (PUBLISH=1 is set by the Pages workflow).
-    assert not (hb and os.environ.get('PUBLISH')=='1' and SLUG[f]=='mxbmrp3'), f+': the site isn\'t published while an item on MXBMRP3 is held back (CLAUDE.md, rule 9)'
     ka=C['key']
     KA.append((name,a,ka))
     _crit,_opt,_pos=tagsof(CARD)

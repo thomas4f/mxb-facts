@@ -56,7 +56,7 @@ flowchart LR
   LR --> B
   V --> B
   REG --> B
-  B --> O -->|push to main, PUBLISH=1| GP
+  B --> O -->|push to main| GP
   P -. steps 1 to 5 .-> A
 ```
 
@@ -89,7 +89,7 @@ flowchart LR
 | Workflow | When | Does |
 |---|---|---|
 | Check cards (`check.yml`) | Every PR and push to `main` (a newer push cancels the older run), when a draft PR is marked ready, and started by "Analyse a tool" on its PR | tests, build, link check, corrections check |
-| Publish (`pages.yml`) | Push to `main` that changes a file the site is made from (not `lab/`, `tests/`, `docs/`, the other workflows or `registry/releases.json`), and after Update inventory or a VirusTotal lookup on `main` (their commits use the workflow's token, which starts no other workflow); also by hand | build with `PUBLISH=1`, deploy `_site/` |
+| Publish (`pages.yml`) | Push to `main` that changes a file the site is made from (not `lab/`, `tests/`, `docs/`, the other workflows or `registry/releases.json`), and after Update inventory or a VirusTotal lookup on `main` (their commits use the workflow's token, which starts no other workflow); also by hand | build, deploy `_site/` |
 | VirusTotal lookup (`virustotal.yml`) | By hand only | lookups for a PR, one tool's cards (dropdown) or all cards; "Analyse a tool" makes its own |
 | Analyse a tool (`analyse.yml`) | By hand only | On one tool from `registry/tools.json` (dropdown): a new card if it has none, else a re-check of its newest card, or only the questions it names (same release). With the version and release inputs empty, it first looks up the tool's latest GitHub release (`tools/releases_fetch.py --latest`), so a release out since the last Update inventory run needs no typing; a tool with no GitHub release takes the newest one in `registry/releases.json`. Every later job, the card and the PR use that one release. Claude (Agent SDK, `tools/agent_run.py`, `ANTHROPIC_API_KEY`) first plans the run from the licence and readme ($2 limit; nothing runs when the licence forbids analysis); a throwaway Windows runner with no keys runs the plugins in the real game (`lab/real-game/windows/`, the demo kept in the Actions cache) and the rest in the test host (`lab/plugin-test-host/windows/`); Claude then runs `prompts/analyse-tool.md` with that evidence ($10 limit) in a job that can only read the repository, and never runs the tool itself; a job downloads the release once (`tools/fetch_release.py`: plain https links, MEGA file links and files in MEGA folders) for the Windows runner and the lookups; VirusTotal hash lookups of the release files and what 7-Zip unpacks from them run beside the Windows run (`tools/vt_release.py`; the key only in the job that reads the hashes), which also uploads the downloaded files VirusTotal has no record of when the plan's licence read is `allows` and the `skip_upload` input is off, waiting up to 15 minutes for their scans (one not finished is recorded as pending), and the analysis answers P1 from them; a last job applies its changes, writes `vt/results.json` from the same lookups, opens a draft PR and starts Check cards on it. When an item must be held back (rule 9), there is no PR: its report is encrypted to `.github/held-items.pem` and filed as a private draft security advisory (`HELD_ITEMS_KEY`, `ADVISORY_TOKEN`) |
 | Update inventory (`inventory.yml`) | Mondays, by hand | refreshes the mods-site snapshots and `registry/releases.json`; its summary lists tools with a release newer than their card, and it opens a "Re-check" issue for each (once) |
