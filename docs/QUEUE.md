@@ -3,30 +3,9 @@
 Which tools get a card:
 
 - every tool someone requests (an issue), in the order requested: that part is a rule;
-- beyond requests, tools the maintainer picks from mxb-mods.com, in the order he picks: that part is a choice, and this file shows it.
+- beyond requests, every other tool on mxb-mods.com and gpb-mods.com that runs on a player's PC (a plugin, an app, an installer), in the order the maintainer picks: that part is a choice, and this file shows it.
 
-Authors aren't told before their tool's card is published, except about a security problem (rule 9). They can send a correction afterwards, like anyone else.
-
-## On file
-
-Tools on file to analyse. The release named here is the one on file when the tool was added; the analysis covers the newest release when it runs. **Next** marks the tools to analyse first, in this order (Thomas's choice). Remove a line when its card is published.
-
-| | Tool | Release on file | Category | Author | GitHub | Homepage | Registry |
-|---|---|---|---|---|---|---|---|
-| **Next** | Graphics Overhaul | 2.4.0 | Gameplay and visuals | Finner24 on mxb-mods.com | None | Graphicsoverhaul.com | `graphics-overhaul` |
-|  | CoreMX | The newest when it runs | Mod managers | GitHub user [rare621](https://github.com/rare621) | [rare621/Core-MX](https://github.com/rare621/Core-MX) | [coremx.app](https://coremx.app) | `coremx` |
-|  | Frost Converter | [v0.6.2](https://github.com/Frostn1/frost-converter/releases/tag/v0.6.2) | Content creation | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/frost-converter](https://github.com/Frostn1/frost-converter) | [mxbsecure.com/convert](https://mxbsecure.com/convert) | `frost-converter` |
-|  | FrostMod | [v0.52.2](https://github.com/Frostn1/frostmod/releases/tag/v0.52.2) | Fixes and performance | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/frostmod](https://github.com/Frostn1/frostmod) | [mxbsecure.com/frostmod](https://mxbsecure.com/frostmod) | `frostmod` |
-|  | GameFX+ | 2.4.0 | Gameplay and visuals | Finner24 on mxb-mods.com | None | None found | `gamefx-plus` |
-|  | Heightmap Studio | [v26.11.6](https://github.com/bradenmackey/hms-public/releases/tag/v26.11.6) | Content creation | GitHub user [bradenmackey](https://github.com/bradenmackey) | [bradenmackey/hms-public](https://github.com/bradenmackey/hms-public) | None found | `heightmap-studio` |
-|  | MXB A-Kit Studio | [V1.7.0](https://github.com/DankMaps/MXB-AKit-Studio-Releases/releases/tag/V1.7.0) | Setup and coaching | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXB-AKit-Studio-Releases](https://github.com/DankMaps/MXB-AKit-Studio-Releases) | [mxbtt.com/akit-studio](https://mxbtt.com/akit-studio) | `akit-studio` |
-|  | MXB App | 0.20.11 | Mod managers | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-app](https://github.com/Frostn1/mxb-app) | [mxbsecure.com/app](https://mxbsecure.com/app) | `mxb-app` |
-|  | MXB Coach | [v0.1.27](https://github.com/Frostn1/mxb-coach/releases/tag/v0.1.27) | Setup and coaching | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-coach](https://github.com/Frostn1/mxb-coach) | [mxbsecure.com/coach](https://mxbsecure.com/coach) | `mxb-coach` |
-|  | MXB Ragdoll | v1.0 | Gameplay and visuals | "BoredDev / mxbikesmods" | None | None found | `mxb-ragdoll` |
-|  | MXBMRP3 | The newest when it runs | HUD | GitHub user [thomas4f](https://github.com/thomas4f) (the maintainer) | [thomas4f/mxbmrp3](https://github.com/thomas4f/mxbmrp3) | [thomas4f.github.io/mxbmrp3](https://thomas4f.github.io/mxbmrp3/) | `mxbmrp3` |
-|  | MXBTT | [V1.0.0](https://github.com/DankMaps/MXBTT.com-Releases/releases/tag/V1.0.0) | HUD | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXBTT.com-Releases](https://github.com/DankMaps/MXBTT.com-Releases) | [mxbtt.com](https://mxbtt.com) | `mxbtt` |
-|  | MXPulse Alpha | [v0.37.3-alpha](https://github.com/daf0707pro-lgtm/MXPulse/releases/tag/v0.37.3-alpha) | HUD | GitHub user [daf0707pro-lgtm](https://github.com/daf0707pro-lgtm) | [daf0707pro-lgtm/MXPulse](https://github.com/daf0707pro-lgtm/MXPulse) | None found | `mxpulse` |
-|  | Rider POV+ | 2.4.0 | Gameplay and visuals | Finner24 on mxb-mods.com | None found | None found | `rider-pov-plus` |
+Every tool here has an entry in `registry/tools.json` (its slug is the Registry column), so the weekly "Update inventory" run follows its page and its newest release, and "Analyse a tool" offers it. Authors aren't told before their tool's card is published, except about a security problem (rule 9). They can send a correction afterwards, like anyone else.
 
 ## Requests
 
@@ -34,20 +13,72 @@ Requested tools and releases, oldest first. Link the issue; remove the line when
 
 | Tool | Version | Issue | Note |
 |---|---|---|---|
-| GP Bikes Content Manager (GP Bikes) | The newest when it runs | Requested by the maintainer, 20 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/), by FIXXER 1001. A large desktop app (C#/WPF). Registry `gpb-content-manager` |
-| Pitbox (GP Bikes) | [v3.0.4](https://github.com/cristianboni22/pitbox/releases/tag/v3.0.4) | Requested by the maintainer, 23 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/), by GitHub user [cristianboni22](https://github.com/cristianboni22). A launcher app with an in-game HUD. GitHub [cristianboni22/pitbox](https://github.com/cristianboni22/pitbox). Registry `pitbox` |
+| GP Bikes Content Manager (GP Bikes) | The newest when it runs | Requested by the maintainer, 20 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/), by FIXXER 1001. A large desktop app (C#/WPF). Registry `gpb-content-manager`. On hold: too big for now (the maintainer's choice) |
+| Pitbox (GP Bikes) | [v3.0.4](https://github.com/cristianboni22/pitbox/releases/tag/v3.0.4) | Requested by the maintainer, 23 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/), by GitHub user [cristianboni22](https://github.com/cristianboni22). A launcher app with an in-game HUD. GitHub [cristianboni22/pitbox](https://github.com/cristianboni22/pitbox). Registry `pitbox`. On hold after two failed runs (the maintainer's choice) |
 
-## Next to analyse
+## To analyse
 
-Tools the maintainer picked from mxb-mods.com. Not started yet. Counts are from the site's Plugins, Tools and Code Mods listings, read 19 Nov 2026.
+In the order the maintainer chose (24 Nov 2026): by its weight, the downloads its mods-site page shows, halved for each full year since the page was last updated, so a popular tool comes first and one nobody has updated in years drops back. **Next** overrides the order. Counts and dates read 24 Nov 2026; the licence is read when the tool is analysed. Remove a line when its card is published.
 
-| Tool | mxb-mods.com | Source | Downloads | Views | Note |
+| # | Tool | Game | Author | Page | Hosted on | Downloads | Page updated | Registry | Note |
+|---|---|---|---|---|---|---|---|---|---|
+| 1 | iNsane's 3D Viewer | MX Bikes | insane | [mxb-mods.com](https://mxb-mods.com/insanes-3d-viewer/) | mxb-mods.com | 11,676 | 2025-01-20 | `insanes-3d-viewer` | Also posted on gpb-mods.com. Zip on file (`dmkrtz3DViewer.exe`, zip SHA-256 `abef11875615b3bea602c07b86a0c2d553cf1b4a69f808643b6bffc63fa2c317`) |
+| 2 | MXB App | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/mxb-app-one-click-mod-manager/) | GitHub ([Frostn1/mxb-app](https://github.com/Frostn1/mxb-app)) | 5,145 | 2026-11-12 | `mxb-app` |  |
+| 3 | Resolute MXB Track Builder Helper | MX Bikes | Resolute Kraken | [mxb-mods.com](https://mxb-mods.com/resolute-mxb-track-builder-helper/) | MediaFire | 4,602 | 2025-07-07 | `resolute-track-builder-helper` | Zip on file (MSI installer, zip SHA-256 `1344d35ad68fabddbf128cf3e881252d13d1d50d03b0da18732caaeda19f5e55`) |
+| 4 | PaintHub | MX Bikes | OhTea | [mxb-mods.com](https://mxb-mods.com/painthub/) | MediaFire | 1,688 | 2026-02-07 | `painthub` | Zip on file |
+| 5 | MXB Studio | MX Bikes | TannyGlover | [mxb-mods.com](https://mxb-mods.com/mxb-studio-create-your-entire-mx-bikes-track-in-one-app/) | MediaFire | 1,506 | 2026-11-21 | `mxb-studio` | Homepage [mxbstudio.com](https://mxbstudio.com) |
+| 6 | Heightmap Studio | MX Bikes | bradenmackey | [mxb-mods.com](https://mxb-mods.com/heightmap-studio-build-your-own-tracks/) | GitHub ([bradenmackey/hms-public](https://github.com/bradenmackey/hms-public)) | 1,282 | 2026-11-19 | `heightmap-studio` |  |
+| 7 | PitKit MX Bikes Mod Manager | MX Bikes | bobby-rust | [mxb-mods.com](https://mxb-mods.com/pitkit-mx-bikes-mod-manager/) | GitHub ([bobby-rust/Pitkit](https://github.com/bobby-rust/Pitkit)) | 1,765 | 2025-06-05 | `pitkit` |  |
+| 8 | MX Bike Mod Manager | MX Bikes | Noxo | [mxb-mods.com](https://mxb-mods.com/mx-bike-mod-manager/) | Google Drive | 863 | 2026-03-11 | `mx-bike-mod-manager` |  |
+| 9 | ProjectGPB2 | GP Bikes | X1mk_Z3 | [gpb-mods.com](https://gpb-mods.com/projectgpb2-2/) | gpb-mods.com | 845 | 2026-11-12 | `projectgpb2` |  |
+| 10 | MX Bikes Mods Cleaner | MX Bikes | nikomouk | [mxb-mods.com](https://mxb-mods.com/mx-bikes-mods-cleaner/) | MediaFire | 794 | 2025-12-26 | `mods-cleaner` |  |
+| 11 | MaXHUD (GP Bikes) | GP Bikes | HornetMaX | [gpb-mods.com](https://gpb-mods.com/maxhud/) | Mega | 6,044 | 2023-08-21 | `maxhud-gpb` | The GP Bikes build of MaXHUD, uploaded by Zonta_84 |
+| 12 | MXB Ragdoll | MX Bikes | BoredDev / mxbikesmods | [mxb-mods.com](https://mxb-mods.com/mx-bikes-ragdoll-v1-0-2/) | mxb-mods.com | 687 | 2026-10-30 | `mxb-ragdoll` |  |
+| 13 | MXPulse Alpha | MX Bikes | daf0707pro-lgtm | [mxb-mods.com](https://mxb-mods.com/mxpulse/) | GitHub ([daf0707pro-lgtm/MXPulse](https://github.com/daf0707pro-lgtm/MXPulse)) | 607 | 2026-08-01 | `mxpulse` |  |
+| 14 | Drag n Drop Creator | MX Bikes | bh5o | [mxb-mods.com](https://mxb-mods.com/drag-n-drop-creator/) | MediaFire | 581 | 2026-03-05 | `drag-n-drop-creator` |  |
+| 15 | MxTuner | MX Bikes | dfmc_dadogamer91 | [mxb-mods.com](https://mxb-mods.com/danj/) | MediaFire | 478 | 2026-01-19 | `mxtuner` |  |
+| 16 | Studio BW Skin Packer | MX Bikes | Phantomz | [mxb-mods.com](https://mxb-mods.com/studio-bw-skin-packer/) | MediaFire | 735 | 2025-05-14 | `studio-bw-skin-packer` |  |
+| 17 | TrackRelief | MX Bikes | Lilian1134 | [mxb-mods.com](https://mxb-mods.com/trackrelief/) | GitHub ([Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief)) | 337 | 2026-10-21 | `trackrelief` |  |
+| 18 | MX Ctrl | MX Bikes | itswillyferret | [mxb-mods.com](https://mxb-mods.com/mx-ctrl/) | MediaFire | 336 | 2026-06-04 | `mx-ctrl` |  |
+| 19 | MXB Dropper | MX Bikes | KST Design | [mxb-mods.com](https://mxb-mods.com/mxb-dropper-v1/) | MediaFire | 221 | 2026-03-07 | `mxb-dropper` |  |
+| 20 | MXB_Haptics_PS5 | MX Bikes | Sixze | [mxb-mods.com](https://mxb-mods.com/mxb_haptics_ps5/) | Google Drive | 209 | 2026-06-15 | `mxb-haptics-ps5` |  |
+| 21 | Tyre changer Tool (MX Bike Tool) | MX Bikes | Buck3ts41 | [mxb-mods.com](https://mxb-mods.com/tyre-changer-tool/) | MediaFire | 817 | 2024-11-21 | `tyre-changer` |  |
+| 22 | Performance Lab by LMG x JCD | MX Bikes | JahRacing | [mxb-mods.com](https://mxb-mods.com/performance-lab-by-lmg-x-jcd/) | GitHub ([JahRacing/Performance-Lab-by-LMG-x-JCD](https://github.com/JahRacing/Performance-Lab-by-LMG-x-JCD)) | 202 | 2026-09-24 | `performance-lab` | Filed under Bikes, Others on the site |
+| 23 | MX Shortcuts | MX Bikes | itswillyferret | [mxb-mods.com](https://mxb-mods.com/140394-2/) | gofile.io | 347 | 2025-09-20 | `mx-shortcuts` |  |
+| 24 | Resolute MXB Server Manager | MX Bikes | Resolute Kraken | [mxb-mods.com](https://mxb-mods.com/resolute-mxb-server-manager/) | MX Bikes forum | 1,348 | 2022-12-30 | `resolute-server-manager` |  |
+| 25 | Knee Down | GP Bikes | gsv-r | [gpb-mods.com](https://gpb-mods.com/knee-down-launcher/) | GitHub ([gsv-r/knee-down](https://github.com/gsv-r/knee-down)) | 137 | 2026-10-19 | `knee-down` |  |
+| 26 | Frost's Studio | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/frosts-studio/) | GitHub ([Frostn1/frost-studio](https://github.com/Frostn1/frost-studio)) | 128 | 2026-11-12 | `frosts-studio` |  |
+| 27 | Simhub Dash 2.0 | GP Bikes | Gonzo46 | [gpb-mods.com](https://gpb-mods.com/simhub-dash-2-0-public/) | Mega | 472 | 2024-08-17 | `simhub-dash-gpb` |  |
+| 28 | MX/GP Bikes Server Manager by DazTeamRacing | MX Bikes | DazTeamRacing | [mxb-mods.com](https://mxb-mods.com/mx-gp-bikes-server-manager-by-dazteamracing/) | Mega | 115 | 2026-09-04 | `dazteamracing-server-manager` | Also posted on gpb-mods.com |
+| 29 | MXBTT | MX Bikes | DankMaps | [mxb-mods.com](https://mxb-mods.com/mxbtt-com-the-weekly-time-trial-prize-money-racing-platform/) | GitHub ([DankMaps/MXBTT.com-Releases](https://github.com/DankMaps/MXBTT.com-Releases)) | 85 | 2026-08-27 | `mxbtt` | Also its plugin installer from [mxbtt.com](https://mxbtt.com): `MXBTT_Plugin_Setup.exe` on file (SHA-256 `13d0b6e92f4cd165303cdda60cf5bfce8f0e69db81ca21e8db74b00e0eab8047`) |
+| 30 | MaxTM | GP Bikes | HornetMaX | [gpb-mods.com](https://gpb-mods.com/maxtm-v2-5/) | Mega | 481 | 2023-08-22 | `maxtm` | Telemetry tool, uploaded by Zonta_84 |
+| 31 | Libpnt | MX Bikes | BatZupper | [mxb-mods.com](https://mxb-mods.com/libpnt/) | GitHub ([BatZupper/libpnt](https://github.com/BatZupper/libpnt)) | 56 | 2025-12-25 | `libpnt` | A code library for the paint file format |
+| 32 | MXB Coach | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/mxb-coach/) | GitHub ([Frostn1/mxb-coach](https://github.com/Frostn1/mxb-coach)) | 42 | 2026-11-12 | `mxb-coach` |  |
+| 33 | Frost Converter | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/fbx3edf/) | GitHub ([Frostn1/frost-converter](https://github.com/Frostn1/frost-converter)) | 32 | 2026-11-13 | `frost-converter` |  |
+| 34 | MX Bikes Server Configurator | MX Bikes | insane | [mxb-mods.com](https://mxb-mods.com/mx-bikes-server-configurator/) | mxb-mods.com | 940 | 2020-11-07 | `mxb-server-configurator` |  |
+| 35 | FrostMod | MX Bikes | Frost (Frostn1) | None | GitHub ([Frostn1/frostmod](https://github.com/Frostn1/frostmod)) | None | None | `frostmod` | Not on the mods sites |
+
+## On hold
+
+Tools that wait for something before they are analysed or published.
+
+| Tool | Game | Author | Page | Registry | Why |
 |---|---|---|---|---|---|
-| iNsane's 3D Viewer | [insanes-3d-viewer](https://mxb-mods.com/insanes-3d-viewer/) | None linked | 11,658 | 57,478 | Zip on file (`dmkrtz3DViewer.exe`, zip SHA-256 `abef11875615b3bea602c07b86a0c2d553cf1b4a69f808643b6bffc63fa2c317`) |
-| Resolute MXB Track Builder Helper | [resolute-mxb-track-builder-helper](https://mxb-mods.com/resolute-mxb-track-builder-helper/) | None linked | 4,592 | 37,170 | Zip on file (MSI installer, zip SHA-256 `1344d35ad68fabddbf128cf3e881252d13d1d50d03b0da18732caaeda19f5e55`) |
-| PaintHub | [painthub](https://mxb-mods.com/painthub/) | None linked | 1,662 | 89,964 | Zip on file |
-| TrackRelief | [trackrelief](https://mxb-mods.com/trackrelief/) | [Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief) (linked from the page) | 332 | 8,303 | Registry `trackrelief` |
-| MXBTT plugin installer | Not on mxb-mods.com; offered on [mxbtt.com](https://mxbtt.com) | None linked | | | To cover in the MXBTT card, next to the GitHub release's `mxbtt.dlo`. `MXBTT_Plugin_Setup.exe` on file (SHA-256 `13d0b6e92f4cd165303cdda60cf5bfce8f0e69db81ca21e8db74b00e0eab8047`) |
+| CoreMX | MX Bikes | rare621 | [mxb-mods.com](https://mxb-mods.com/coremx-your-mx-bikes-companion-app-2/) | `coremx` | Waits for the maintainer's go |
+| Graphics Overhaul | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/graphics-overhaul-2/) | `graphics-overhaul` | Paused (the maintainer's choice) |
+| GameFX+ | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/gamefx-2/) | `gamefx-plus` | Paused (the maintainer's choice) |
+| Rider POV+ | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/rider-pov-2/) | `rider-pov-plus` | Paused (the maintainer's choice) |
+| MXBMRP3 | MX Bikes | thomas4f | [mxb-mods.com](https://mxb-mods.com/mxbmrp3/) | `mxbmrp3` | The maintainer's own tool; waits for its next release (the maintainer's choice) |
+
+## Not allowed
+
+Tools whose licence or terms forbid reverse engineering, decompiling or AI analysis (rule 6). They are covered from public facts only, unless the author gives written permission.
+
+| Tool | Game | Author | Page | Registry | Terms |
+|---|---|---|---|---|---|
+| MXB A-Kit Studio | MX Bikes | DankMaps | [mxb-mods.com](https://mxb-mods.com/mxb-a-kit-studio/) | `akit-studio` | [mxbtt.com/terms](https://mxbtt.com/terms), clause 6.3, forbids reverse engineering and decompiling (read 23 Nov 2026) |
+
+Not listed: logo sheets, templates, guides, setups and other files that don't run, and web apps that run only in a browser (MXB Toolbox, Bodyshop). Plugins published only on the PiBoSo forum haven't been searched.
 
 ## To revisit
 
@@ -58,34 +89,6 @@ Tools the maintainer picked from mxb-mods.com. Not started yet. Counts are from 
 - **HoleShot HUD v0.24.0: the ride didn't reach the track, and the program never ran beside the game.** With the plugin loaded, the demo stayed on its Testing screen after "To Track" was clicked three times (the bare demo went on), so what the plugin shares while riding wasn't seen. A second real-game ride, then a run of `Holeshot-HUD.exe` beside the demo with F8 pressed and "Browser Source", the Pit Board widget and "MX Bikes menus" switched on, would show the compatibility flag, the pitboard override, the menu pack and the local server, and settle the run limits on `cards/holeshot-0.24.0.yaml`. A click-through of Setup with a dummy game folder, and an unpacker that reads Inno Setup 6.7.0, would cover Setup. T4 there is "Not checked": it needs a Windows build with Visual Studio 2022 and Rust.
 - **MXB DualSense Support 1.1.0: the HUD plugin never ran, and no button was clicked.** The plugin (`mxbds_hud64.dlo`) is packed inside the program, not in the zip, and the plan's real-game runs and test-host cases load plugins only from the unpacked release, so it wasn't run. A plan step that takes a file unpacked with `tools/carchive.py` (or a run of the app's `--install-hud` against the demo's folder) would let it ride in the real game with the app sending HUD data, and settle the plugin limit on `cards/mxb-dualsense-1.1.0.yaml`. A click-through of Set up proxy_udp.ini, Install and Uninstall in-game HUD and the Ctrl+Shift+H and Ctrl+Shift+M hotkeys, with a dummy game folder, would settle the buttons limit there.
 - **MX Bikes Setup Duper 0.1.8674.29660: the app never ran.** It needs Microsoft's .NET 6 Desktop Runtime, and the throwaway Windows machine had only .NET 8, 10 and 11, so .NET's host stopped before the app's code ran. A run with the .NET 6 Desktop Runtime installed (or `DOTNET_ROLL_FORWARD=Major`), a dummy `Documents\PiBoSo\MX Bikes` with a profile, saved setups and a track mod, and clicks through Copy with Specific Track and All Tracks, would show the update check, the folders it reads and the copies, and settle the run limit on `cards/setup-duper-0.1.8674.29660.yaml` (P4, P7, D1, D6, D8, C5).
-
-## Known, not planned
-
-Other tools on mxb-mods.com without a card, kept so they aren't lost. Counts read 19 Nov 2026; move a line up when it's picked.
-
-| Tool | mxb-mods.com | Downloads | Views | Note |
-|---|---|---|---|---|
-| PitKit MX Bikes Mod Manager | [pitkit-mx-bikes-mod-manager](https://mxb-mods.com/pitkit-mx-bikes-mod-manager/) | 1,756 | 31,336 | Mod manager. GitHub [bobby-rust/Pitkit](https://github.com/bobby-rust/Pitkit) (linked from the page). Registry `pitkit` |
-| MXB Studio | [mxb-studio-…](https://mxb-mods.com/mxb-studio-create-your-entire-mx-bikes-track-in-one-app/) | 1,381 | 17,284 | Track creation |
-| Resolute MXB Server Manager | [resolute-mxb-server-manager](https://mxb-mods.com/resolute-mxb-server-manager/) | 1,345 | 17,297 | |
-| MX Bikes Server Configurator | [mx-bikes-server-configurator](https://mxb-mods.com/mx-bikes-server-configurator/) | 935 | 18,126 | |
-| MX Bike Mod Manager | [mx-bike-mod-manager](https://mxb-mods.com/mx-bike-mod-manager/) | 846 | 17,115 | Mod manager |
-| Tyre changer Tool | [tyre-changer-tool](https://mxb-mods.com/tyre-changer-tool/) | 816 | 11,384 | |
-| MX Bikes Mods Cleaner | [mx-bikes-mods-cleaner](https://mxb-mods.com/mx-bikes-mods-cleaner/) | 790 | 84,363 | |
-| MXB Toolbox (WebApp) | [mxb-toolbox-webapp](https://mxb-mods.com/mxb-toolbox-webapp/) | 790 | 47,843 | Runs in the browser; may have nothing to download |
-| Studio BW Skin Packer | [studio-bw-skin-packer](https://mxb-mods.com/studio-bw-skin-packer/) | 733 | 20,706 | |
-| Drag n Drop Creator | [drag-n-drop-creator](https://mxb-mods.com/drag-n-drop-creator/) | 581 | 33,637 | |
-| MxTuner | [danj](https://mxb-mods.com/danj/) | 476 | 15,916 | Setups |
-| MX Shortcuts | [140394-2](https://mxb-mods.com/140394-2/) | 346 | 19,951 | Hotkeys |
-| MX Ctrl | [mx-ctrl](https://mxb-mods.com/mx-ctrl/) | 331 | 14,260 | |
-| MXB Dropper V1 | [mxb-dropper-v1](https://mxb-mods.com/mxb-dropper-v1/) | 218 | 11,949 | |
-| Frost's Studio | [frosts-studio](https://mxb-mods.com/frosts-studio/) | 116 | 600 | By the maker of MXB App; homepage [mxbsecure.com/studio](https://mxbsecure.com/studio). GitHub [Frostn1/frost-studio](https://github.com/Frostn1/frost-studio) (linked from the page). Registry `frosts-studio` |
-| MX/GP Bikes Server Manager (DazTeamRacing) | [mx-gp-bikes-server-manager-…](https://mxb-mods.com/mx-gp-bikes-server-manager-by-dazteamracing/) | 113 | 14,667 | |
-| Performance Lab by LMG x JCD | [performance-lab-by-lmg-x-jcd](https://mxb-mods.com/performance-lab-by-lmg-x-jcd/) | | | Setup and riding analysis app, filed under Bikes, Others (found 24 Nov 2026). GitHub [JahRacing/Performance-Lab-by-LMG-x-JCD](https://github.com/JahRacing/Performance-Lab-by-LMG-x-JCD) (linked from the page). Registry `performance-lab` |
-| Knee Down (GP Bikes) | [gpb-mods.com: knee-down-launcher](https://gpb-mods.com/knee-down-launcher/) | | | Launcher (found 24 Nov 2026). GitHub [gsv-r/knee-down](https://github.com/gsv-r/knee-down) (linked from the page). Registry `knee-down` |
-| Libpnt | [libpnt](https://mxb-mods.com/libpnt/) | 56 | 9,313 | A library for the paint file format. GitHub [BatZupper/libpnt](https://github.com/BatZupper/libpnt) (linked from the page). Registry `libpnt` |
-
-Not listed: logo sheets, templates and guides (not software). Plugins published only on the PiBoSo forum haven't been searched.
 
 ## Removed
 

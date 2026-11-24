@@ -35,7 +35,9 @@ on:
           # tools:start
           - akit-studio
           - coremx
+          - dazteamracing-server-manager
           - dirt-gear
+          - drag-n-drop-creator
           - fixxers-rumble
           - frost-converter
           - frostmod
@@ -45,29 +47,48 @@ on:
           - graphics-overhaul
           - heightmap-studio
           - holeshot
+          - insanes-3d-viewer
           - knee-down
           - libpnt
           - maxhud
+          - maxhud-gpb
+          - maxtm
+          - mods-cleaner
+          - mx-bike-mod-manager
+          - mx-ctrl
           - mx-dirt-mod
           - mx-dirt-mod-alt
+          - mx-shortcuts
           - mxb-app
           - mxb-coach
           - mxb-damage
           - mxb-discord-rpc
+          - mxb-dropper
           - mxb-dualsense
           - mxb-fps-booster
+          - mxb-haptics-ps5
           - mxb-ragdoll
+          - mxb-server-configurator
+          - mxb-studio
           - mxbfix
           - mxbmrp3
           - mxbtt
           - mxpulse
+          - mxtuner
+          - painthub
           - performance-lab
           - pitbox
           - pitkit
+          - projectgpb2
+          - resolute-server-manager
+          - resolute-track-builder-helper
           - rider-pov-plus
           - setup-duper
+          - simhub-dash-gpb
+          - studio-bw-skin-packer
           - suspension-tuner
           - trackrelief
+          - tyre-changer
           # tools:end
       questions:
         description: "Only these questions, e.g. P4, D5 (leave empty for a full analysis; needs a card, same release)"
