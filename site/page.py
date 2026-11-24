@@ -5,7 +5,7 @@ Everything here turns checked card data (cards.py) and the rules (rules.py) into
 import json, markdown, math, re
 from rules import (
     AREAK, AREAN, CONCERN, D, GCOST, GCOVER, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PFX, PMEANS, QCELL, QIDS, QTXT, ROOT, RUBRICV, SC,
-    SCHEMA, SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagcls, tagsof, verdict)
+    SCHEMA, SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, sround, state_html, state_of, tagcls, tagsof, verdict)
 from icons import group as icon_group
 from cards import COMMIT, CORR, CORRTIP, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, correction_link, esc, files_table
 # The hint beside every score: one text and one style (.gnote), on the line of the tools list's heading (shell.html, {{GNOTE}})
@@ -237,7 +237,38 @@ def changes(f,card):
         if ar in g0 and g0[ar][0]!=g1[ar][0]: rows.append(f'<li>{ar}: {g0[ar][0]} → {g1[ar][0]}</li>')
     same=len(QIDS)-sum(1 for q in QIDS if va(old,q)!=va(card,q))
     body=''.join(rows) or '<li>No answer changed.</li>'
-    return f'<h3 class="sech">Changes since {esc(old["version"])}</h3><ul class="chg">{body}<li class="same">{same} answers unchanged</li></ul>'
+    return f'<ul class="chg">{body}<li class="same">{same} answers unchanged</li></ul>'
+def history(C,a,R):
+    # One History section at the foot of a tool's page, after the report: every card of the tool (rule 2: a new release gets a
+    # new card, the old one stays), what changed since the previous one, and this card's own history (corrections and re-checks).
+    # R maps each card file to (its anchor, version, score result, analysis date). Returns the section and the line for the
+    # header that points at it ("Up from 70 on 0.24.0").
+    f=C['f']; lst=REG[SLUG[f]]['cards']; i=lst.index(f); secs=[]
+    num=lambda G:sround(G['score']) if G['kind']=='score' else None
+    line=''
+    if len(lst)>1:
+        rows=[]
+        for o in reversed(lst):
+            oa,over,oG,oday=R[o]
+            # Under each version: "This card", or a link to Compare that card with this one.
+            v=(f'<b>{esc(over)}</b><span class="hsub">This card</span>' if o==f else
+               f'<a href="#{oa}">{esc(over)}</a><a class="hsub hcmp" href="#compare" data-cmpv="{a},{oa}">Compare with this</a>')
+            rows.append((v,esc(oday),esc(gtext(oG))))
+        secs.append(('releases','Releases',table(['Version','Analysed on','Score'],rows,' rels')))
+        _a,_v,G,_d=R[f]
+        if i:
+            pa,pv,pG,_pd=R[lst[i-1]]; n0,n1=num(pG),num(G)
+            word=('Up from' if n1>n0 else 'Down from' if n1<n0 else 'Same as') if n0 is not None and n1 is not None else 'Was'
+            what=f' {n0}' if n0 is not None and n1 is not None and n1!=n0 else '' if word=='Same as' else f' {esc(gtext(pG))}'
+            line=f'{word}{what} on <a href="#{pa}">{esc(pv)}</a> · <a href="#h-{a}">See what changed</a>'
+            secs.append(('changes',f'Changes since {esc(pv)}',changes(f,C['d']).replace('<ul class="chg">',f'<ul class="chg"><li>Score: {esc(gtext(pG))} → {esc(gtext(G))}</li>',1)))
+        else:
+            na,nv,nG,_nd=R[lst[-1]]
+            line=f'Newest is <a href="#{na}">{esc(nv)}</a> ({esc(gtext(nG))}) · <a href="#h-{a}">See all releases</a>'
+    secs.append(('history','Card history',post(table(['Date','Change'],[(cell(r['date']),cell(r['change'])) for r in C['d']['history']],' hist'),a)))
+    note='Every release analysed, what changed since the one before, and changes to this card' if len(lst)>1 else 'Changes to this card: corrections and re-checks'
+    body=''.join(f'<details class="rsec" id="r-{a}-{k}" open><summary><h3>{t}</h3></summary><div class="rbody">{b}</div></details>' for k,t,b in secs)
+    return (f'<details class="full" id="h-{a}"><summary><span class="fs">History</span><span class="fn">{note}</span></summary><div class="report">{body}</div></details>',line)
 # The header rows shown at the top of a tool's page; the report's header table holds the others.
 TOPROWS=('In one line','What it is','Category','Author','Game','mxb-mods.com','gpb-mods.com','Homepage','GitHub','Version analysed','Analysed on','Earlier reports')
 # The report's sections that aren't areas: their anchor key and their short label in the contents bar (kept short, so the bar fits one line).
@@ -268,7 +299,6 @@ def report(C,a,gl):
             secs.append((AREAK[ar],title,ar,side,body))
         elif bl: secs.append((RSECS[title][0],title,RSECS[title][1],'',blocks(C,bl,a)))
     secs.append(('corr','Corrections','Corrections','',md(C['corrections'],a)))
-    secs.append(('history','Card history','History','',post(table(['Date','Change'],[(cell(r['date']),cell(r['change'])) for r in d['history']],' hist'),a)))
     links=''.join(f'<a href="#r-{a}-{k}">{l}</a>' for k,_t,l,_s,_b in secs)
     body=''.join(f'<details class="rsec" id="r-{a}-{k}" open><summary><h3>{t}</h3>{side}</summary><div class="rbody">{b}</div></details>' for k,t,_l,side,b in secs)
     opts=''.join(f'<optgroup label="{esc(ar)}">'+''.join(f'<option value="q-{a}-{q}">{q} {esc(QTXT[q])}</option>' for q in QIDS if q[0]==PFX[i])+'</optgroup>' for i,ar in enumerate(AREAN))
@@ -405,15 +435,16 @@ def score_section(a,slug,latest,name,ver,G,date,gl):
     emb=(f'<details class="sub badgebox"><summary>Add the badge to your page</summary><p class="bfmt">Code for: <label><input type="radio" name="bf-{a}" value="md" checked> Markdown</label> <label><input type="radio" name="bf-{a}" value="html"> HTML</label></p><div class="bopts">{opts}</div>'
          f'<p class="fn">Each is pinned to this version and rubric {RUBRICV}: a new release gets its own badges when it has a card. Other shields.io styles: <code>https://img.shields.io/endpoint?url={SITEURL}{bpath}.json&amp;style=plastic</code>. Every card\'s scores and badge links are also in <a href="api/cards.json"><code>api/cards.json</code></a>, for sites that list tools.</p></details>')
     return card,emb
-def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False,newest=''):
+def tool(C,a,slug,gl,hist,tags='',gsec='',maint=False,newest=''):
     # One tool's page: its header facts, score and key answers first, everything else in the report (All answers and evidence).
     h=C['h']; f=C['f']; name=C['name']; ver=C['ver']
     facts=[]
     k,ms=SITES[h['Game']]
-    for label,show in (('Game','Game'),('Version analysed','Version'),('Category','Category'),('Author','Author'),(ms,ms),('Homepage','Homepage'),('GitHub','GitHub'),('Analysed on','Analysed on'),('Earlier reports','Earlier reports')):
+    for label,show in (('Game','Game'),('Version analysed','Version'),('Category','Category'),('Author','Author'),(ms,ms),('Homepage','Homepage'),('GitHub','GitHub'),('Analysed on','Analysed on'),('Releases','Releases')):
         v=h.get(label)
         if label==ms and slug in MM[k]['tools']: v=f'[{re.sub(r"^https?://(www\.)?|/$","",MM[k]["tools"][slug]["link"])}]({MM[k]["tools"][slug]["link"]})'  # the address, never the page's own title (author text)
-        if v: facts.append(f'<div><dt>{show}</dt><dd>{inline(short(v))}</dd></div>')
+        if label=='Releases' and hist[1]: facts.append(f'<div><dt>{show}</dt><dd>{hist[1]}</dd></div>')  # from the registry, pointing at History
+        elif v: facts.append(f'<div><dt>{show}</dt><dd>{inline(short(v))}</dd></div>')
     nav,rep=report(C,a,gl)
     items=''
     for k,q,_s,src in KEYS:
@@ -428,16 +459,15 @@ def tool(C,a,slug,gl,extra='',tags='',gsec='',maint=False,newest=''):
                 '</div></li>')
     keys=f'<h3 class="sech" id="k-{a}">Key questions</h3><ol class="keys">{items}</ol>'
     # The contents bar lists the page's parts in the order they appear: the parts above the report, then the report's sections.
-    if extra.startswith('<h3 class="sech">'): extra=extra.replace('<h3 class="sech">',f'<h3 class="sech" id="c-{a}">',1)
-    top=[(f't-{a}','Key findings'),(f'k-{a}','Key questions')]+([(f'c-{a}','Changes')] if extra else [])
+    top=[(f't-{a}','Key findings'),(f'k-{a}','Key questions')]
     nav=nav.replace('<div class="rlinks">','<div class="rlinks">'+''.join(f'<a href="#{i}">{l}</a>' for i,l in top),1)
-    # "For the tool's author" comes last, after the report's sections, as on the page.
-    nav=nav.replace('</div><div class="rtools">',f'<a href="#x-{a}">For the author</a></div><div class="rtools">',1)
+    # History, then "For the tool's author", come last, after the report's sections, as on the page.
+    nav=nav.replace('</div><div class="rtools">',f'<a href="#h-{a}">History</a><a href="#x-{a}">For the author</a></div><div class="rtools">',1)
     page=(f'<section class="view tool" id="{a}" data-view>{nav}'
             f'<header class="toolhead"><h2>{esc(name)} <span class="ver">{esc(ver)}</span></h2><div class="hcard" id="d-{a}"><p class="sum">{esc(C["d"]["summary"])}</p><dl class="hmeta">{"".join(facts)}</dl>{newest}{MAINT if maint else ""}</div>'
             f'<div class="hgrid">{gsec[0]}'
-            f'<div class="hcol htags"><h3 class="sech" id="t-{a}">Key findings</h3><div class="tagcard">{tags}</div></div></div></header>{keys}{extra}'
-            f'<details class="full"><summary><span class="fs">All answers and evidence</span><span class="fn">Every question, area by area, with its evidence; the limits of this analysis; corrections and the card history</span></summary><div class="report">{rep}</div></details>{authorbox(a,f,name,ver,gsec[1])}</section>')
+            f'<div class="hcol htags"><h3 class="sech" id="t-{a}">Key findings</h3><div class="tagcard">{tags}</div></div></div></header>{keys}'
+            f'<details class="full"><summary><span class="fs">All answers and evidence</span><span class="fn">Every question, area by area, with its evidence; the limits of this analysis; corrections under review</span></summary><div class="report">{rep}</div></details>{hist[0]}{authorbox(a,f,name,ver,gsec[1])}</section>')
     # The contents bar follows the page: every link's target exists, in the same order as the links.
     ids=re.findall(r'<a href="#([^"]+)">',page[page.index('class="rlinks"'):page.index('</div>',page.index('class="rlinks"'))])
     pos=[page.find(f'id="{i}"') for i in ids]

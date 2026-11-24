@@ -15,7 +15,7 @@ from rules import (
 from icons import LICENCE as ICON_LICENCE, LUCIDE, STROKE, logo, mask_url
 from cards import CORRFORM, JUDGE, MM, REG, REPO, SITES, SLUG, VT, check_card, esc, glance, strings
 from page import (
-    BADGES, COMMIT, GNOTE, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
+    BADGES, COMMIT, GNOTE, MW, SITEURL, TAGCAP, badge_json, btitle, byline, history, score_html, score_section, inline,
     money_html, prm, share_page, tagrow, tool, tpl)
 CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('dirt-gear-1.1.1.yaml', 'dirt-gear'),
@@ -70,13 +70,14 @@ for s,e in REG.items():
         assert MM[k]['tools'][s]['still_tied'] or m.get('confirmed'), 'registry/'+k+'.json: post '+str(pid)+' no longer holds "'+m['tied_by']+'"; check it and update registry/tools.json'
 for k,_ in SITES.values():
     assert set(MM[k]['tools'])<={s for s,e in REG.items() if k in e and e[k]['post']}, 'registry/'+k+'.json: tools not in the registry, run tools/mxbmods_fetch.py'
-GR={};HELDS={};rowsh=[];views=[];ALL=[];KA=[];PICK=[];SHARE={}
+GR={};HELDS={};rowsh=[];views=[];ALL=[];KA=[];PICK=[];PICKV=[];SHARE={};TOOLV=[]
 # What the rules set on each card (the score, each area's score or Money label, what each answer costs, key marks, tags), to compare one scoring.yaml with another.
 SET={}
 for f,slug in CARDS:
-    # A tool's newest card (the last in its registry list) is the tool's page, at #<tool> and <site>/<tool>/, in the tools list
-    # and Compare. An earlier card (rule 2: it stays) keeps a page of its own at #<card file without .yaml>, which the newer
-    # cards link under "Earlier reports", and its badges, but is left out of the list, Compare and the share pages.
+    # A tool's newest card (the last in its registry list) is the tool's page, at #<tool> and <site>/<tool>/, in the tools list.
+    # An earlier card (rule 2: it stays) keeps a page of its own at #<card file without .yaml>, which the newer cards link under
+    # "Earlier reports" and every card of the tool lists under History, and its badges; it is left out of the list and the share
+    # pages, and Compare offers it beside the newest, so two releases of one tool can be compared.
     older=REG[slug]['cards']; latest=older[-1]==f; older=older[:older.index(f)]
     a=slug if latest else f[:-len('.yaml')]
     CARD=load_yaml(D+f); C=check_card(f,CARD)
@@ -93,7 +94,7 @@ for f,slug in CARDS:
     assert any(v=='NA' for _m,v in V.values())==bool(h.get('Licence clause')), f+': a card with "Not allowed" answers needs the "Licence clause" row, and only such a card has it'
     G=scored(V,HELDQ)
     gl=glance(V,G,HELDQ)
-    if latest: ALL.append((name,a,rows,gl))
+    ALL.append((name,a,rows,gl))
     # The P5 mark depends on whether the release can be traced to public source (T3 or T4).
     traced=any(rows[q].startswith('{+} Yes') for q in ('T3','T4'))
     if rows['P5'].startswith(('{!} No','{~} No')): assert rows['P5'].startswith('{~}' if traced else '{!}'), f+': P5 No is a Note only when T3 or T4 is Yes'
@@ -132,11 +133,16 @@ for f,slug in CARDS:
     _day=datetime.datetime.strptime(h['Analysed on'],'%d %b %Y').date().isoformat()
     if latest: rowsh.append((name.lower(),f'<li class="trow" data-cat="{cat}" data-t="{a}" data-name="{esc(name.lower())}" data-score="{_num}" data-date="{_day}">{score_html(G,a,'row').replace(f'href="#g-{a}"',f'href="#{a}"',1)}<a class="tl" href="#{a}"><span class="tn">{esc(name)}</span> <span class="tv">{esc(ver)}</span></a><span class="td">{inline(one)}</span><span class="ta">{byline(h["Author"])} · {cat}{" · "+CARD["header"]["Game"] if CARD["header"]["Game"]!="MX Bikes" else ""}</span><label class="tcmp"><input type="checkbox" data-cmp="{a}">Compare</label><div class="tfind">{tagrow(CARD,a,TAGCAP)}</div></li>'))
     if latest: PICK.append((cat,name,a))
+    PICKV.append((cat,name,a,ver,len(REG[slug]['cards'])>1,REG[slug]['cards'].index(f)))
     newest='' if latest else f'<p class="maint"><strong>An earlier report.</strong> The newest card for this tool is <a href="#{slug}">{esc(name)} {esc(load_yaml(D+REG[slug]["cards"][-1])["version"])}</a>.</p>'
-    views.append(tool(C,a,slug,gl,changes(f,CARD),tagrow(CARD,a),score_section(a,slug,latest,name,ver,G,GR[a][3],gl),CARD.get("by_maintainer",False),newest))
+    TOOLV.append((C,a,slug,gl,tagrow(CARD,a),score_section(a,slug,latest,name,ver,G,GR[a][3],gl),CARD.get("by_maintainer",False),newest))
+# The tool pages, once every card's score is known, since History lists every card of the tool with its score.
+REL={f:(a,GR[a][1],GR[a][2],GR[a][3]) for f,_s in CARDS for a in [_s if REG[_s]['cards'][-1]==f else f[:-len('.yaml')]]}
+for C,a,slug,gl,tg,gs,mt,nw in TOOLV: views.append(tool(C,a,slug,gl,history(C,a,REL),tg,gs,mt,nw))
 used=[c for c in CATS if any(p[0]==c for p in PICK)]
 filters='<button type="button" class="chip on" data-cat="">All <span>'+str(len(PICK))+'</span></button>'+''.join(f'<button type="button" class="chip" data-cat="{c}">{c} <span>{sum(1 for p in PICK if p[0]==c)}</span></button>' for c in used)
-picker=''.join(f'<div class="pkg"><span class="pkh">{c}</span><div class="pks">'+''.join(f'<label class="pk"><input type="checkbox" id="pk-{a}" value="{a}"> {nm}</label>' for _c,nm,a in sorted((p for p in PICK if p[0]==c),key=lambda p:p[1].lower()))+'</div></div>' for c in used) or '<p class="pending">No tool is analysed yet, so there is nothing to compare.</p>'
+# A tool with several cards offers each release, newest first, each named with its version.
+picker=''.join(f'<div class="pkg"><span class="pkh">{c}</span><div class="pks">'+''.join(f'<label class="pk"><input type="checkbox" id="pk-{a}" value="{a}"> {nm}'+(f' <span class="tv">{esc(v)}</span>' if many else '')+'</label>' for _c,nm,a,v,many,_i in sorted((p for p in PICKV if p[0]==c),key=lambda p:(p[1].lower(),-p[5])))+'</div></div>' for c in used) or '<p class="pending">No tool is analysed yet, so there is nothing to compare.</p>'
 AREAS=[]
 for i,ar,_ in QS:
     if ar not in AREAS: AREAS.append(ar)
