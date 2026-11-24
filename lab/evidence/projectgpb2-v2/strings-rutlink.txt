@@ -1,0 +1,18 @@
+$ strings -n 5 ProjectGPB2_core64.dlo | grep -nE '^Ruts|ruts|physical'
+1664:uniform sampler2D ov_skyLut;  // the physical sky panorama from the post chain
+1785:RutsDrive
+1786:RutsGetMap
+1787:ruts plugin found: ruts are lit by the graphics overhaul
+2228:; instant, smooth tyre ruts behind your bike (the game's own ruts take over after)
+2229:ruts=0
+2231:; EXPERIMENTAL, offline testing sessions only: physical=1 digs the ruts into the game's own
+2233:; physical_probe=1 only finds and calibrates it, and logs to ruts.log
+2234:physical=0
+2235:physical_probe=0
+2253:; 0 = game sky, 1 = physical sky model (clouds are kept)
+2258:; ambient occlusion: darkens creases, ruts, under bikes and trees
+2387:snow_ruts=1
+2461:physical
+2462:physical_probe
+2546:snow_ruts
+(exit 0)

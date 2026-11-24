@@ -1,0 +1,22 @@
+[17:38:11.978] Helmet Camera 2.2.0 loaded (ProjectGPB2 (GPB))
+[17:38:12.006] helmet camera on, shake 1.00
+[17:38:12.008] hook glMatrixMode: 1 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook glLoadIdentity: 2 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook glLoadMatrixf: 1 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook glFrustum: 2 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook glOrtho: 2 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook glDrawElements: 2 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook wglGetProcAddress: 1 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook SwapBuffers: 1 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.008] hook glGetFloatv: 1 pointer(s) swapped
+[17:38:12.008] hook glMultMatrixf: 0 pointer(s) swapped
+[17:38:12.010] hook glReadPixels: 2 pointer(s) swapped (after another overhaul plugin)
+[17:38:12.010] hook glCopyTexSubImage2D: 0 pointer(s) swapped
+[17:38:18.064] hook glDrawRangeElements: 1 pointer(s) swapped (after another overhaul plugin)
+[17:38:18.064] hook glDrawRangeElementsEXT: 0 pointer(s) swapped
+[17:38:18.064] hook glDrawElementsBaseVertex: 0 pointer(s) swapped
+[17:38:18.064] hook glDrawRangeElementsBaseVertex: 0 pointer(s) swapped
+[17:38:18.064] hook glUniformMatrix4fvARB: 0 pointer(s) swapped
+[17:38:18.064] hook glUseProgramObjectARB: 0 pointer(s) swapped
+[17:38:55.638] bike: telemetry acceleration looks like g (median 1.17)
+[17:39:10.907] Shutdown

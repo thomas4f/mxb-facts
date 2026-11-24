@@ -530,7 +530,9 @@
     "author": "X1mk_Z3",
     "github": null,
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "projectgpb2-v2.yaml"
+    ],
     "gpb-mods": {
       "post": 6392,
       "tied_by": "1794501261-projectgpb2-v2.zip"

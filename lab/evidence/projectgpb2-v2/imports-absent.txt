@@ -1,0 +1,2 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do iat.py $f; done | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|SendInput|keybd_event|mouse_event|SetWindowsHookEx|CreateProcess|ShellExecute|WinExec|RegSetValue|RegCreateKey|RegDeleteKey|RegOpenKey|WriteProcessMemory|CreateRemoteThread|DeleteFile|SHFileOperation'
+(exit 1)

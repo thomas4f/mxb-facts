@@ -1,0 +1,57 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do echo "== $f"; { strings -n 5 $f; strings -el -n 5 $f; } | grep -E 'ProjGPB2|\.ini|\.log|\.txt|\.bin|\.png|screenshots|presets|gfx\.cfg|exhaustsmoke|\.pkz|\.wav' | grep -vE '^_Z|^\.|^__' | sort -u; done
+== ProjectGPB2_core64.dlo
+%s %04d-%02d-%02d %02d%02d%02d.ini
+*.ini
+; physical_probe=1 only finds and calibrates it, and logs to ruts.log
+; write a short summary of how the game updates its track surface to overhaul.log
+Export failed: can't write plugi plugins\presetsuView
+No presets yet: Ctrl+C saves one000102030405060708091011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495293949596979899
+ProjGPB2.ini
+ProjGPB2.log
+ProjGPB2\
+ProjectGPB2 screenshots
+Save screenshots to
+Where should ProjectGPB2 save screenshots?
+on (overhaul.log every ~25 s)
+panel: %d changed setting(s) saved to overhaul.ini
+presets\
+race_offset.txt
+rain sound: sounds\rain_light.wav / rain_heavy.wav missing or not 16-bit stereo %d Hz - no rain sound
+rain_heavy.wav
+rain_light.wav
+rig_default_mx.bin
+shader build failed - see overhaul.log
+where screenshots go - CHOOSE opens a folder picker
+== ProjectGPB2_cam64.dlo
+%s %04d-%02d-%02d %02d%02d%02d.ini
+*.ini
+; physical_probe=1 only finds and calibrates it, and logs to ruts.log
+; write a short summary of how the game updates its track surface to overhaul.log
+?Export failed: can't write plugi plugins\presetsbasic_string::append
+No presets yet: Ctrl+C saves one000102030405060708091011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495293949596979899
+ProjGPB2.ini
+ProjGPB2\
+camera.log
+panel: %d changed setting(s) saved to overhaul.ini
+presets\
+race_offset.txt
+== ProjectGPB2_fx64.dlo
+%s %04d-%02d-%02d %02d%02d%02d.ini
+*.ini
+; physical_probe=1 only finds and calibrates it, and logs to ruts.log
+; write a short summary of how the game updates its track surface to overhaul.log
+Export failed: can't write plugi plugins\presets
+No presets yet: Ctrl+C saves one000102030405060708091011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495293949596979899
+ProjGPB2.ini
+ProjGPB2\
+ProjectGPB2 fx: exhaustsmoke.cfg life %.1f grav %.2f fric %.2f size %.2f-%.2f alpha %.2f exit %.3f freq %.1f
+ProjectGPB2 fx: game version not known (image 0x%x) - pipes from gfx.cfg / the menu
+ProjectGPB2 fx: no %s (bike packed in a .pkz?) - using the menu pipe position
+ROOST: SHADER ERROR on this graphics card (gamefx.log)
+\gfx.cfgH
+effects\particles\exhaustsmoke.cfg
+gamefx.log
+panel: %d changed setting(s) saved to overhaul.ini
+presets\
+race_offset.txt
+(exit 0)

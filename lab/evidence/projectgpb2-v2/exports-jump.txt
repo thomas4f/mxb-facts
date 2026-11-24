@@ -1,0 +1,10 @@
+$ objdump -d ProjectGPB2_core64.dlo | grep -A1 -E '^[0-9a-f]+ <(GetInterfaceVersion|RunTelemetry|EventInit)>:'
+000000038c518740 <GetInterfaceVersion>:
+   38c518740:	e9 cb b1 10 00       	jmp    38c623910 <.debug_rnglists+0x28c4>
+--
+000000038c519620 <EventInit>:
+   38c519620:	e9 eb e9 10 00       	jmp    38c628010 <.debug_rnglists+0x6fc4>
+--
+000000038c519680 <RunTelemetry>:
+   38c519680:	e9 5b 9d 10 00       	jmp    38c6233e0 <.debug_rnglists+0x2394>
+(exit 0)

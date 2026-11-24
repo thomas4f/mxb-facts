@@ -1,0 +1,14 @@
+$ objdump -s --start-address=0x38c637bc0 --stop-address=0x38c637bd0 ProjectGPB2_core64.dlo; objdump -s --start-address=0x38c638736 --stop-address=0x38c638762 ProjectGPB2_core64.dlo
+
+ProjectGPB2_core64.dlo:     file format pei-x86-64
+
+Contents of section .gpb2tx:
+ 38c637bc0 1d0000c0 050000c0 940000c0 fd0000c0  ................
+
+ProjectGPB2_core64.dlo:     file format pei-x86-64
+
+Contents of section .gpb2tx:
+ 38c638736 4352 41534820 30782530 38782061 7420 CRASH 0x%08x at 
+ 38c638746 2573 2b307825 6c6c7820 28616464 7265 %s+0x%llx (addre
+ 38c638756 7373 20307825 6c6c7829 0072          ss 0x%llx).r    
+(exit 0)

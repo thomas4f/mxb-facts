@@ -1,0 +1,8 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do objdump -p $f | grep -E 'file format|Security Directory'; done
+ProjectGPB2_core64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+ProjectGPB2_cam64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+ProjectGPB2_fx64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

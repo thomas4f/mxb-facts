@@ -1,0 +1,981 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do echo "== $f"; objcopy -O binary --only-section=.gpb2tx $f $W/s.bin; strings -n 5 $W/s.bin | grep -E '[A-Za-z]{3}' | grep -vE '^(f+\.|[A-Z]{2,4}[A-Z\\]*H)$'; done
+== ProjectGPB2_core64.dlo
+ sME1
+gfffffffA
+Uffffff.
+E%IDATf
+T$PLc
+gfffH
+!fff.
+ ffffff.
+?ffffff.
+gfffH
+!ffffff.
+0fff.
+iffffff.
+UAWAVSP
+)T$Pup
+Yffffff.
+)t$`ffff.
+5fff.
+)D$`fffff.
+gfffH
+\$,tDI
+pA[AZAYAXZYX
+A[AZAYAXZYX
+=fff?
+fff?fff?
+?post: window minimised / tiny (%dx%d) - effects paused
+Couldn't save the screenshot in 
+shell32.dll
+ settings
+Enter or Left: fold this section
+click, then press any key: it opens and closes this menu from now on
+WHEEL
+FAILED
+CreateDirectoryA
+PRESS A KEY
+press the key you want for the menu - Esc cancels
+saves every setting on all three pages as a preset you can load later
+click or Left / Right to choose
+VirtualAlloc
+failed
+screenshot: %s (%dx%d) %s
+GetModID
+click to name it
+shot_key
+Preset loaded: 
+glEnableClientState
+VirtualFree
+CreateFileA
+opengl32.dll
+glReadBuffer
+direction blur: %s, own-bike state %d, bikes %d, pan %.3f, shutter %.0f, uDirBlur %d
+ScreenToClient
+ole32.dll
+ setting
+every change applies live
+where screenshots go - CHOOSE opens a folder picker
+%s: locked at %.3f %.3f %.3f (%d samples in %.1f s; it wandered up to %.1f deg)
+ProjectGPB2 screenshots
+CameraPassOffset
+Preset saved: 
+close
+ProjectGPB2_
+SetWindowLongPtrA
+SHGetPathFromIDListA
+drag, or Left / Right (Shift = fine steps), Ctrl + wheel over a row
+That preset has no settings in it
+GetCursorInfo
+applies live in the helmet view
+riding
+ProjectGPB2 menu: wheel while closed
+glPixelStorei
+GetCursorPos
+kernel32.dll
+shot_dir
+folded
+CoInitialize
+for replay photos: pause the replay, frame the bike - the background streaks behind it
+saved
+glReadPixels
+Where should ProjectGPB2 save screenshots?
+click or Enter to switch
+OverhaulDrawInScene
+CoTaskMemFree
+FOLD ALL
+select
+OPEN ALL
+blur while riding - taking a photo in a replay? use Photo pan blur in PHOTO MODE below
+%s: locked %.3f %.3f %.3f, now %.3f %.3f %.3f (%.1f deg away)
+ProjGPB2.ini
+SHBrowseForFolderA
+click, then press any key: it saves a screenshot of exactly what you see (no menu)
+IsIconic
+CLICK A SECTION TO FOLD IT
+adjust
+scroll
+My preset
+preset: %s.%s = %s
+motion_blur
+CRASH 0x%08x at %s+0x%llx (address 0x%llx)
+replay
+not installed
+glColorPointer
+view check: post ran %d time(s) on the HDR scene, %d on a copy (last second)%s
+CloseHandle
+changes apply live - try them on track
+glVertexPointer
+user32.dll
+CallWindowProcA
+none saved yet
+type a name - Enter saves, Esc cancels
+GetCommandLineA
+WriteFile
+Screenshot saved: 
+presets\
+OVERHAUL
+ - COPY PATH: this view gets the reduced look
+ProjectGPB2 menu: mouse wheel hook %s
+GetLocalTime
+Enter or Right: open this section
+sky sun
+zDuDirBlur
+glUniform4f
+uSkyFx
+uPaintSun
+MENU AND PRESETS
+Menu key (open / close)
+Load preset
+Save current settings as
+OVERHAUL
+Graphics overhaul (F9)
+general
+graphics
+COLOUR AND EXPOSURE
+New colour look
+new_look
+Colour depth
+natural_colour
+Exposure
+exposure
+Exposure speed
+rendering
+adapt_speed
+Contrast
+contrast
+Saturation
+saturation
+Vibrance
+vibrance
+Warmth
+warmth
+AgX punchy
+Filmic
+Gran Turismo
+Neutral
+Reinhard
+Tone map
+tonemap
+Highlights
+highlights
+Shadows
+tone_shadows
+Bloom
+bloom
+LIGHTING
+Sun strength
+sun_intensity
+Ambient occlusion
+ao_strength
+AO quality
+ao_quality
+Colour bleed
+gi_strength
+Sun shafts
+sun_shafts
+Rays from the sky's sun
+sun_detect
+Sun glow
+sun_glow
+SURFACES
+Shine
+atmosphere
+shine
+Reflections
+reflections
+Reflection colour
+gpb2fx
+reflection_colour
+Wet glints
+wet_glint
+SHARPNESS AND SPEED
+Sharpen
+sharpen
+Anti-aliasing (TAA)
+Render scale
+render_scale
+RIDING CAMERA
+Motion blur (while riding)
+motion_blur
+Depth of field in helmet view
+dof_helmet
+PHOTO MODE (REPLAYS)
+Photo pan blur
+direction_blur
+Shutter speed
+shutter_speed
+Depth of field
+Focus distance (m)
+dof_focus
+Blur nearer things
+dof_near
+SCREENSHOTS
+Screenshot key
+Save screenshots to
+Lens flare
+lens_flare
+Cinematic
+Lens flare style
+lens_flare_style
+Lens colour fringe
+fringe
+Vignette
+vignette
+Film grain
+grain
+TIME OF DAY AND SKY
+Time of day
+time_of_day
+track's own
+Sun moves with the time of day
+sun_follows_time_of_day
+Weather look
+weather
+auto (unsteady)
+Dust in the air (dry track)
+air_dust
+Sunrise / sunset sky
+sunset_sky
+Light shafts through clouds
+cloud_light_shafts
+Night brightness
+night_light
+Star amount
+stars
+Star brightness
+star_bright
+Shooting stars (per minute)
+shooting_stars
+Stars
+Stars + lines
+Constellations
+constellations
+Star sky turn (deg)
+sky_turn
+Rain sound
+rain_sound
+Rain fog
+rain_fog
+Rain fog distance (m)
+rain_fog_dist
+Track wetness
+track_wet
+Drying speed
+drying
+Puddles
+puddles
+STORMS
+Thunderstorm
+thunderstorm
+Lightning per minute
+lightning_per_min
+Thunder volume
+thunder_volume
+SEASONS
+Snowfall
+Snow on grass and trees
+snow_on_grass_trees
+Snow on the track
+snow_on_track
+Autumn tree colours
+autumn_colours
+Falling leaves
+falling_leaves
+Leaves lying on the track
+leaves_on_track
+Rainbow
+rainbow
+Rider POV camera
+camera
+MOUNT
+Helmet (eyes)
+Chest
+Camera position
+mount
+CHEST CAM
+Chest height (m)
+chest_height
+Chest forward (m)
+chest_forward
+Chest tilt (deg)
+chest_tilt
+Chest wider view (%)
+chest_fov
+Smoothing
+smooth
+Overall shake
+shake
+WHAT MOVES THE HEAD
+Head motion
+Landing / hit jolts
+impacts
+Bumps / chatter
+terrain
+Engine buzz
+engine
+Wind buffeting
+EXHAUST
+Exhaust effects
+exhaust
+Auto (bike name)
+Two-stroke
+Four-stroke
+Engine
+SMOKE AND HEAT
+Exhaust smoke
+smoke
+Two-stroke smoke colour
+smoke_tint
+Smoke thickness
+smoke_thickness
+Smoke puff size
+smoke_size
+Smoke hangs for
+smoke_length
+Smoke smoothing (s)
+smoke_smoothing
+Heat haze
+heat_haze
+BACKFIRES
+Backfires
+backfires
+Flame size
+flame_size
+Sparks
+sparks
+Spark hue (red .. yellow)
+spark_hue
+Spark colour strength
+spark_saturation
+Spark brightness
+spark_brightness
+Backfire smoke puff
+backfire_smoke
+Pop volume
+pop_volume
+PIPE POSITION
+Use the bike's exact pipes
+bike_pipes
+Height (m)
+pipe_up
+Forward (m)
+pipe_forward
+Side (m)
+pipe_right
+Exit angle (deg)
+pipe_angle
+Twin pipes (mirrored)
+twin_pipes
+OFF-TRACK DUST
+Dust on grass / gravel
+offtrack_dust
+Dust amount
+dust_amount
+Grass bits / stones
+debris
+BIKE LIGHTS
+Auto (at night)
+Always on
+Headlight
+headlight
+Halogen
+Light type
+headlight_type
+Two headlights
+headlight_twin
+Headlight brightness
+headlight_brightness
+Headlight reach (m)
+headlight_reach
+Headlight width
+headlight_width
+Brake light
+brake_light
+OTHER RIDERS
+Effects on other riders
+other_riders
+Other riders up to (m)
+other_riders_dist
+GRAPHICS
+CAMERA
+WEATHER
+RIDER POV
+EFFECTS
+ENTER
+PAUSE
+ SPACE
+!PGUP
+"PGDN
+$HOME
+%LEFT
+'RIGHT
+(DOWN
+jNUM *
+kNUM +
+mNUM -
+nNUM .
+oNUM /
+NUMLK
+SCRLK
+@33SAff
+DAglUniform4fv
+glUniform1fv
+uBikeN
+uBike
+uBikeG
+uFrameDt
+== ProjectGPB2_cam64.dlo
+ sME1
+gfffffffA
+Uffffff.
+kernel32.dll
+GetCommandLineA
+== ProjectGPB2_fx64.dlo
+ sME1
+gfffffffA
+Uffffff.
+bikef
+\gfx.cfgH
+E9'tLI
+9+tBH
+L$PtY
+9+tOH
+$ffff.
+\?THc
+Cfffff.
+(fff.
+gfffH
+UAWAVSP
+"fffff.
+ Afff?
+fff?fff?
+exhaust
+uSparkCol
+thunder_volume
+ProjectGPB2 fx: %s not found (packed) - stock exhaust smoke values
+off (depth copy not supported)
+uInvVP
+OverhaulSnowCover
+uPass
+backfires
+cloud_light_shafts
+sun_follows_time_of_day
+frequency
+uScene
+falling_leaves
+headlight_reach
+start_size
+uMaxLod
+autumn_colours
+ProjectGPB2 fx: game version not known (image 0x%x) - pipes from gfx.cfg / the menu
+ProjectGPB2 fx: sun %.2f %.2f %.2f
+gpb2fx
+flame_size
+reflection_colour
+ProjectGPB2 fx: soft particles %s
+opengl32.dll
+four-stroke
+end_size
+uCam4
+pipe_forward
+leaves_on_track
+headlight
+SetSystemProcAddress
+ProjectGPB2 fx: missing %s
+smoke_length
+smoke_smoothing
+snow_on_track
+exit_variance
+engine
+other_riders_dist
+headlight_brightness
+brake_light
+view_distance
+max_rpm
+fwd_sign
+ProjectGPB2 fx: graphics module %s
+two-stroke
+ProjectGPB2 fx: renderer ready
+ProjectGPB2 fx: weather link error: %s
+backfire_smoke
+up_sign
+ProjectGPB2 fx: shader error: %s
+smoke_tint
+headlight_twin
+top_rpm
+effects\particles\exhaustsmoke.cfg
+exit_speed_scale
+ProjectGPB2 fx: exhaust table %d - bike position at +0x%x%s
+uDepth
+other_riders
+max_life
+shutter_speed
+smoke
+learned
+uDepthP
+dust_amount
+kernel32.dll
+uSun4
+debris
+lens_flare_style
+friction
+uView
+pop_volume
+offtrack_dust
+thunderstorm
+WAVEfmt 
+uTime
+twin_pipes
+uProj
+headlight_type
+ProjectGPB2 fx: weather pass ready
+smoke_size
+helmet_fov_add
+ProjectGPB2 fx: no %s (bike packed in a .pkz?) - using the menu pipe position
+ProjGPB2.ini
+not found - weather uses defaults
+uNoise
+pipe_angle
+lightning_per_min
+sunset_sky
+FolderName
+spark_saturation
+spark_brightness
+spark_hue
+rainbow
+gravity
+ (double)
+ProjectGPB2_core64.dlo
+uHasDepth
+uFull
+direction_blur
+ProjectGPB2 fx: bike "%s" -> %s, max rpm %d, limiter %d
+ProjectGPB2 fx: reading each bike's exhaust from the game
+ProjectGPB2 fx: lightning %d m away (thunder in %.1f s)
+found (sun / rain / snow shared)
+ProjectGPB2 fx: link error: %s
+uSnowT
+heat_haze
+pipe_up
+bike_pipes
+ProjectGPB2 fx: %s -> %d pipe(s), smoke %s (top %d, max %d rpm)
+motogp
+ProjectGPB2 fx: exhaustsmoke.cfg life %.1f grav %.2f fric %.2f size %.2f-%.2f alpha %.2f exit %.3f freq %.1f
+ServerName
+pipe_right
+smoke_thickness
+GetCommandLineA
+alpha
+gpb2calib
+snow_on_grass_trees
+headlight_width
+sparks
+2-stroke
+two stroke
+2 stroke
+yzr500
+aprilia rs
+smoke
+WAVEfmt 
+glCreateShader
+glShaderSource
+glCompileShader
+glGetShaderiv
+glGetShaderInfoLog
+glCreateProgram
+glAttachShader
+glLinkProgram
+glGetProgramiv
+glGetProgramInfoLog
+glUseProgram
+glGetUniformLocation
+glUniform1i
+glUniform1f
+glUniform2f
+glUniform4f
+glUniformMatrix4fv
+glGenBuffers
+glBindBuffer
+glBufferData
+glGenVertexArrays
+glBindVertexArray
+glEnableVertexAttribArray
+glVertexAttribPointer
+glActiveTexture
+glGenFramebuffers
+glBindFramebuffer
+glFramebufferTexture2D
+glCheckFramebufferStatus
+glBlitFramebuffer
+glGenerateMipmap
+glBlendFuncSeparate
+glBlendEquation
+glBindSampler
+glVertexAttribDivisor
+glDrawArraysInstanced
+glTexImage3D
+glBlendEquationSeparate
+glUniform4fv
+#version 330
+layout(location=0) in vec3 aPos;
+layout(location=1) in vec2 aSizeRot;      // size, rotation (one record per particle: instanced)
+layout(location=2) in vec3 aVel;
+layout(location=3) in vec4 aColor;
+layout(location=4) in vec4 aParam;        // kind, life 0..1, seed, heat
+uniform mat4 uView, uProj;
+uniform sampler2D uScene; uniform float uMaxLod;
+out vec2 vCorner; out vec4 vColor; out vec4 vParam; out float vZ; out float vStretch;
+flat out vec3 vSky, vGnd; flat out float vEmis;
+const vec2 C[6] = vec2[6](vec2(-1.0,-1.0), vec2(1.0,-1.0), vec2(1.0,1.0), vec2(-1.0,-1.0), vec2(1.0,1.0), vec2(-1.0,1.0));
+void main(){
+  // the same for every pixel: fetched once per vertex instead of per pixel
+  vSky = textureLod(uScene, vec2(0.5, 0.86), uMaxLod - 2.0).rgb;
+  vGnd = textureLod(uScene, vec2(0.5, 0.12), uMaxLod - 2.0).rgb;
+  vEmis = 5.0 + 14.0 * clamp(dot(textureLod(uScene, vec2(0.5), uMaxLod).rgb, vec3(0.2126, 0.7152, 0.0722)), 0.0, 4.0);
+  vec4 c = uView * vec4(aPos, 1.0);
+  int kind = int(aParam.x + 0.5);
+  vec2 k = C[gl_VertexID]; float size = aSizeRot.x;
+  vec2 off; vStretch = 1.0;
+  if (kind == 9) {
+    // lightning: a ribbon from aPos to aPos + aVel, facing the camera
+    vec4 cb = uView * vec4(aPos + aVel, 1.0);
+    vec2 dd = cb.xy / max(-cb.z, 1.0) - c.xy / max(-c.z, 1.0);
+    vec2 ax = length(dd) > 1e-6 ? normalize(dd) : vec2(0.0, 1.0); vec2 ay = vec2(-ax.y, ax.x);
+    vec4 e = k.x < 0.0 ? c : cb;
+    e.xy += ay * k.y * size * 6.0 + ax * k.x * size * 3.0;
+    gl_Position = uProj * e;
+    vCorner = k; vColor = aColor; vParam = aParam; vZ = -e.z; vStretch = 1.0;
+    return;
+  if (kind == 2 || kind == 3 || kind == 8) {
+    vec3 vv = mat3(uView) * aVel;
+    vec2 d = vv.xy / max(-c.z, 0.3);
+    float L = length(d);
+    vec2 ax = L > 1e-5 ? d / L : vec2(1.0, 0.0); vec2 ay = vec2(-ax.y, ax.x);
+    float streak = kind == 3 ? 0.016 : kind == 8 ? 0.008 : 0.03;
+    float along = size + L * max(-c.z, 0.3) * streak;
+    vStretch = along / size;
+    off = ax * (k.x * along - (kind == 3 || kind == 8 ? along * 0.8 : along * 0.5)) + ay * k.y * size * (kind == 3 ? 0.25 : kind == 8 ? 0.5 : 0.8);
+  } else {
+    float cr = cos(aSizeRot.y), sr = sin(aSizeRot.y);
+    off = vec2(cr * k.x - sr * k.y, sr * k.x + cr * k.y) * size;
+  c.xy += off;
+  gl_Position = uProj * c;
+  vCorner = k; vColor = aColor; vParam = aParam; vZ = -c.z;
+#version 330
+in vec2 vCorner; in vec4 vColor; in vec4 vParam; in float vZ; in float vStretch;
+flat in vec3 vSky, vGnd; flat in float vEmis;
+uniform sampler2D uScene;   // HDR scene so far (mipmapped)
+uniform sampler2D uDepth;   // scene depth copy
+uniform sampler2D uFull;    // full-size scene copy (the haze bends it)
+uniform sampler3D uNoise;   // baked tiling fbm: r 4 octaves, g 3 finer ones
+uniform vec4 uVp;           // viewport x, y, w, h
+uniform vec2 uDepthP;       // projection P[10], P[14]
+uniform float uTime, uHasDepth, uLod, uMaxLod;
+uniform int uPass;
+uniform vec4 uSparkCol;    // spark hue / saturation / brightness from the menu
+layout(location=0) out vec4 o;
+float h3(vec3 p){ p = fract(p * 0.3183099 + 0.1); p *= 17.0; return fract(p.x * p.y * p.z * (p.x + p.y + p.z)); }
+float n3(vec3 x){ vec3 i = floor(x), f = fract(x); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(mix(h3(i), h3(i + vec3(1,0,0)), f.x), mix(h3(i + vec3(0,1,0)), h3(i + vec3(1,1,0)), f.x), f.y),
+             mix(mix(h3(i + vec3(0,0,1)), h3(i + vec3(1,0,1)), f.x), mix(h3(i + vec3(0,1,1)), h3(i + vec3(1,1,1)), f.x), f.y), f.z); }
+float fbm(vec3 p){ float a = 0.5, s = 0.0; for (int i = 0; i < 4; i++){ s += a * n3(p); p = p * 2.07 + vec3(1.7, 9.2, 3.1); a *= 0.5; } return s; }
+float fbm3(vec3 p){ return n3(p) * 0.57 + n3(p * 2.07 + vec3(1.7, 9.2, 3.1)) * 0.29 + n3(p * 4.28 + vec3(5.2, 1.1, 7.7)) * 0.14; }
+vec3 fire(float T){
+  vec3 c = mix(vec3(0.35, 0.02, 0.0), vec3(1.0, 0.28, 0.03), smoothstep(0.0, 0.35, T));
+  c = mix(c, vec3(1.0, 0.62, 0.16), smoothstep(0.3, 0.6, T));
+  c = mix(c, vec3(1.0, 0.9, 0.62), smoothstep(0.55, 0.82, T));
+  return mix(c, vec3(1.0, 0.96, 0.86), smoothstep(0.84, 1.0, T));   // white-hot, never blue
+void main(){
+  int kind = int(vParam.x + 0.5); float life = vParam.y, seed = vParam.z, heat = vParam.w;
+  // emissive scale follows the scene's exposure, so fire reads bright by day and by night
+  float uEmis = vEmis;
+  if ((uPass == 1) != (kind == 2 || kind == 3 || kind == 4 || kind == 9)) discard;
+  vec2 q = vCorner; float r = length(q);
+  if (r > 1.0 && kind != 9) discard;
+  vec2 suv = (gl_FragCoord.xy - uVp.xy) / uVp.zw;
+  float soft = 1.0;
+  if (uHasDepth > 0.5) {
+    float d = texture(uDepth, suv).r * 2.0 - 1.0;
+    float sz = uDepthP.y / (d + uDepthP.x);
+    soft = clamp((sz - vZ) / (kind == 5 ? 0.05 : kind == 1 ? 0.25 : 0.45), 0.0, 1.0);
+  float fadeIn = smoothstep(0.0, 0.06, life), fadeOut = 1.0 - smoothstep(0.45, 1.0, life);
+  if (kind == 0 || kind == 6) {
+    // smoke / dust: a billowing volume lit by the scene around it
+    float t = uTime * 0.28 + seed;
+    vec3 p = vec3(q * 1.25 + seed * 3.1, t - life * 0.9);
+    float n = texture(uNoise, p * (1.5 / 4.0)).r;
+    float n2 = texture(uNoise, (p * 3.4 + 7.0) / 8.0).g;
+    float edge = smoothstep(1.0, 0.25, r);
+    float dens = clamp((n * 0.85 + n2 * 0.3 - 0.3 - r * r * 0.5) * 2.3, 0.0, 1.0) * edge;
+    vec3 N = normalize(vec3(q + vec2(n - 0.5, n2 - 0.5) * 0.9, sqrt(max(1.0 - r * r, 0.0)) + 0.35));
+    vec3 sky = vSky;
+    vec3 gnd = vGnd;
+    vec3 amb = textureLod(uScene, suv, uLod).rgb;
+    float skyL = max(dot(sky, vec3(0.3333)), 0.02);
+    vec3 hemi = mix(gnd * 0.7 + sky * 0.15, sky * 1.05, 0.5 + 0.5 * N.y);
+    vec3 light = hemi * 1.1 + amb * 0.2 + vec3(skyL) * (0.6 + 0.4 * N.y);   // + sun, neutral white
+    light += sky * 0.35 * pow(1.0 - abs(N.z), 2.0);   // bright rim where it thins
+    float thick = clamp(dens * vColor.a * 2.2, 0.0, 1.0);
+    vec3 col = vColor.rgb * light * (1.0 - 0.38 * thick);
+    float a = dens * vColor.a * soft * fadeIn * fadeOut * smoothstep(0.35, 1.4, vZ);
+    o = vec4(col * a, a);
+  } else if (kind == 1) {
+    // heat haze: bend what is behind with a rising, wobbling field
+    float t = uTime * 5.0 + seed * 13.0;
+    vec2 w = vec2(n3(vec3(q * 2.6, t)) - 0.5, n3(vec3(q * 2.6 + 11.0, t * 1.13 - 3.0)) - 0.5);
+    float s = vColor.a * smoothstep(1.0, 0.15, r) * soft * fadeIn * (1.0 - life);
+    vec2 uv2 = suv + w * s * 0.06 / max(vZ, 0.6);
+    vec3 c = textureLod(uFull, uv2, 0.0).rgb;
+    float a = clamp(s * 1.6, 0.0, 1.0);
+    o = vec4(c * a, a);
+  } else if (kind == 2) {
+    // flame tongue: wide and white-hot at the root (q.x = -1, toward the pipe), narrowing to a
+    // sharp ragged point (q.x = 1), wiggling along its length and flickering
+    float x = q.x * 0.5 + 0.5;
+    float ts = uTime * 9.0 + seed * 7.0;
+    float wig = (texture(uNoise, vec3(x * 0.35 + seed * 1.7, seed * 2.3, ts * 0.03)).r - 0.5) * 1.4 * x;
+    float y = q.y + wig;
+    float n1 = texture(uNoise, vec3(x * 0.9 * vStretch + seed * 3.1, y * 0.45, ts * 0.05)).g;
+    float rid = 1.0 - abs(n1 * 2.0 - 1.0);                         // ridges -> sharp fingers
+    float w = 0.9 * pow(max(1.0 - x, 0.0), 0.75) * (1.0 - 0.55 * x * (1.0 - rid));
+    w *= smoothstep(-0.05, 0.12, x);                                 // rounded root
+    float edge = w - abs(y);
+    float body = smoothstep(0.0, 0.06, edge);                        // crisp edge, not a soft blob
+    float core = smoothstep(0.08, 0.5, edge) * (1.0 - 0.8 * x);
+    float T = clamp(heat * (1.0 - life * 0.55) * (0.38 + 0.8 * core - 0.25 * x), 0.0, 1.0);
+    float I = body * vColor.a * soft * (1.0 - life * life);
+    I *= 0.4 + 0.6 * smoothstep(0.08, 0.4, T);
+    // a touch of blue at the root, where the fuel burns hottest and cleanest
+    vec3 fc = mix(fire(T), vec3(0.55, 0.7, 1.0) * 1.3, (1.0 - smoothstep(0.0, 0.2, x)) * smoothstep(0.75, 1.0, heat) * 0.3);
+    o = vec4(fc * I * uEmis * (0.7 + 2.6 * T * T), 0.0);
+  } else if (kind == 3) {
+    // spark: a thin hot streak cooling from white to deep orange
+    float across = exp(-q.y * q.y * 9.0);
+    float alongF = smoothstep(-1.0, 0.6, q.x) * smoothstep(1.0, 0.75, q.x);
+    float T = clamp(heat * (1.0 - life), 0.0, 1.0);
+    vec3 hc = clamp(abs(fract(uSparkCol.x + vec3(0.0, 2.0/3.0, 1.0/3.0)) * 6.0 - 3.0) - 1.0, 0.0, 1.0);
+    hc = mix(vec3(1.0), hc, uSparkCol.y);
+    vec3 sc = mix(hc * mix(0.35, 1.0, smoothstep(0.0, 0.5, T)), vec3(1.0, 0.93, 0.8), smoothstep(0.72, 1.0, T) * 0.85);
+    o = vec4(sc * across * alongF * vColor.a * soft * uEmis * uSparkCol.z * (0.6 + 2.0 * T), 0.0);
+  } else if (kind == 4) {
+    // flash glow
+    float g = exp(-r * r * 9.0) * 0.6 + exp(-r * r * 40.0);
+    float k = (1.0 - life); k *= k;
+    o = vec4(vColor.rgb * g * k * vColor.a * soft * uEmis * 0.9, 0.0);
+  } else if (kind == 9) {
+    // lightning channel: a blinding white-violet core in a wide glow
+    float y = abs(q.y);
+    float core = exp(-y * y * 30.0), glow = exp(-y * y * 3.0) * 0.6;
+    float k = vColor.a * (1.0 - life) * (1.0 - life) * (0.75 + 0.25 * sin(uTime * 90.0 + seed));
+    o = vec4(mix(vec3(0.75, 0.78, 1.0), vec3(1.0), core) * (core * 8.0 + glow) * k * uEmis * 4.0, 0.0);
+  } else if (kind == 8) {
+    // hail: a small white stone streaking down
+    float across = exp(-q.y * q.y * 6.0);
+    float alongF = smoothstep(-1.0, 0.4, q.x) * smoothstep(1.0, 0.7, q.x);
+    vec3 sky = vSky;
+    float a = across * alongF * vColor.a * clamp(soft * 4.0, 0.0, 1.0) * fadeOut;
+    vec3 col = vec3(0.88, 0.92, 0.97) * max(dot(sky, vec3(0.3333)), 0.03) * 1.6;
+    o = vec4(col * a, a);
+  } else if (kind == 7) {
+    // a leaf: pointed oval with a midrib, lit by the scene (and glowing a little against the light)
+    vec2 lq = q * vec2(1.0, 1.9);
+    float e = dot(lq, lq) * (1.0 + 0.35 * q.x);
+    float m = 1.0 - smoothstep(0.82, 1.0, e);
+    float rib = 1.0 - 0.3 * (1.0 - smoothstep(0.0, 0.08, abs(q.y)));
+    vec3 amb = textureLod(uScene, suv, uLod).rgb;
+    vec3 sky = vSky;
+    vec3 light = amb * 0.6 + sky * 0.5;
+    float a = m * vColor.a * clamp(soft * 3.0, 0.0, 1.0) * (1.0 - smoothstep(0.85, 1.0, life));
+    vec3 col = vColor.rgb * rib * light * (0.8 + 0.4 * (0.5 + 0.5 * sin(seed * 9.0 + uTime * 2.0)));
+    o = vec4(col * a, a);
+  } else {
+    // debris: grass bits / stones
+    float a = smoothstep(1.0, 0.6, r) * vColor.a * fadeOut * clamp(soft * 3.0, 0.0, 1.0);
+    vec3 amb = textureLod(uScene, suv, uLod).rgb;
+    vec3 col = vColor.rgb * amb * (0.9 + 0.3 * (q.y * 0.5 + 0.5));
+    o = vec4(col * a, a);
+  // emissive passes mark (in alpha) how much they cover, so the final grade keeps them over the sky
+  if (uPass == 1) o.a = 1.0 - clamp(dot(o.rgb, vec3(0.3333)) / max(uEmis * 0.35, 1e-3), 0.0, 0.96);
+#version 330
+out vec2 vUV;
+void main(){ vec2 p = vec2((gl_VertexID << 1) & 2, gl_VertexID & 2); vUV = p; gl_Position = vec4(p * 2.0 - 1.0, 0.0, 1.0); }
+#version 330
+in vec2 vUV;
+uniform sampler2D uScene, uDepth, uLow;   // full-size copy, depth, small lit copy (mips)
+uniform vec4 uVp;
+uniform mat4 uInvVP;
+uniform vec4 uCam4, uSun4;
+vec3 uCam, uSun;
+uniform vec4 uA;      // autumn, leaves on track, snow on grass/trees, rainbow
+uniform vec4 uB;      // flash, storm darkening, has depth, time
+uniform float uSnowT; // snow lying on the track
+uniform vec4 uBk[8];  // bikes near you: position, track height under it
+uniform float uBkN;
+uniform float uMaxLod;
+uniform vec4 uL[32];  // bike lights, 4 each: pos + range, dir + cos(outer), colour + cos(inner), bike up + cut-off softness (0 = none)
+uniform float uLN;
+layout(location=0) out vec4 o;
+float luma(vec3 c){ return dot(c, vec3(0.2126, 0.7152, 0.0722)); }
+// hash from the float bits: no period (the old fract() hash repeated every ~10 cells: tiled snow)
+float h2(vec2 p){ uvec2 q = floatBitsToUint(p); uint h = q.x * 0x8da6b343u ^ q.y * 0xd8163841u ^ 0x9e3779b9u;
+  h ^= h >> 15; h *= 0x2c1b3c6du; h ^= h >> 12; h *= 0x297a2d39u; h ^= h >> 15; return float(h & 0xffffffu) / 16777216.0; }
+float vn(vec2 p){ vec2 i = floor(p), f = fract(p); f = f * f * (3.0 - 2.0 * f);
+  return mix(mix(h2(i), h2(i + vec2(1,0)), f.x), mix(h2(i + vec2(0,1)), h2(i + vec2(1,1)), f.x), f.y); }
+float fb(vec2 p){ return vn(p) * 0.55 + vn(p * 2.13 + 7.1) * 0.3 + vn(p * 4.7 + 3.3) * 0.15; }
+// anti-aliased noise: each layer fades to its average once it's finer than a pixel on the ground
+// (far away, at a shallow angle, a pixel covers metres of track: the sub-pixel TAA jitter then hit a
+// different bit of the pattern every frame - the snow, leaves and autumn colours crawled)
+float gFp = 0.0;
+float aaK(float f){ return 1.0 - smoothstep(0.2, 0.8, gFp * f); }
+float vnA(vec2 q, float f){ return mix(0.5, vn(q), aaK(f)); }
+float fbA(vec2 q, float f){ return vnA(q, f) * 0.55 + vnA(q * 2.13 + 7.1, f * 2.13) * 0.3 + vnA(q * 4.7 + 3.3, f * 4.7) * 0.15; }
+vec3 autumnPal(float h){
+  vec3 a = vec3(0.86, 0.36, 0.06), r = vec3(0.68, 0.12, 0.04), y = vec3(0.92, 0.66, 0.12), b = vec3(0.45, 0.25, 0.08), g = vec3(0.30, 0.42, 0.10);
+  return h < 0.28 ? a : h < 0.45 ? r : h < 0.68 ? y : h < 0.86 ? b : g; }
+vec3 hue(float t){ return clamp(abs(fract(t + vec3(0.0, 2.0/3.0, 1.0/3.0)) * 6.0 - 3.0) - 1.0, 0.0, 1.0); }
+void main(){
+  uCam = uCam4.xyz; uSun = uSun4.xyz;
+  ivec2 ip = ivec2(gl_FragCoord.xy);
+  vec3 col = texelFetch(uScene, ip - ivec2(uVp.xy), 0).rgb;
+  float d = uB.z > 0.5 ? texelFetch(uDepth, ip - ivec2(uVp.xy), 0).r : 1.0;
+  vec2 uv = (gl_FragCoord.xy - uVp.xy) / uVp.zw;
+  vec4 w = uInvVP * vec4(uv * 2.0 - 1.0, d * 2.0 - 1.0, 1.0); vec3 P = w.xyz / w.w;
+  vec4 wf = uInvVP * vec4(uv * 2.0 - 1.0, 1.0, 1.0);
+  vec3 ray = normalize(wf.xyz / wf.w - uCam);
+  bool sky = d >= 0.999999 && ray.y > -0.012;
+  bool glass = d >= 0.999999 && !sky;     // seen through the windscreen (no depth)
+  float dist = sky || glass ? 1e5 : length(P - uCam);
+  gFp = sky ? 1e3 : min(max(length(dFdx(P.xz)), length(dFdy(P.xz))), 50.0);
+  vec3 N = normalize(cross(dFdx(P), dFdy(P))); if (dot(N, ray) > 0.0) N = -N;
+  if (sky || glass) N = vec3(0.0, 1.0, 0.0);
+  float mx = max(col.r, max(col.g, col.b)), mn = min(col.r, min(col.g, col.b));
+  float sat = (mx - mn) / max(mx, 1e-4), lum = luma(col);
+  float green = (sky || glass) ? 0.0 : smoothstep(0.04, 0.16, (col.g - max(col.r, col.b)) / max(mx, 1e-4)) * smoothstep(0.004, 0.02, lum);
+  // painted things (tyre walls, boards, kerbs) are flat, strongly coloured and smooth - foliage is
+  // speckled: keep the paint out of the autumn / snow colouring
+  float dl = (abs(dFdx(lum)) + abs(dFdy(lum))) / max(lum, 1e-3);
+  green *= 1.0 - smoothstep(0.45, 0.7, sat) * (1.0 - smoothstep(0.04, 0.14, dl));
+  float up = smoothstep(0.55, 0.85, N.y);
+  vec3 res = col;
+  float mark = 0.0;     // how much of this pixel the final grade must keep (over the sky)
+  // what the ground is: asphalt (dark, grey) or the rest (grass, sand, gravel) - from the blurred copy,
+  // so the texture's own pixels don't make a mosaic; bikes and riders are never ground
+  // (performance: none of this unless a season effect is on)
+  bool seasonsOn = uA.x > 0.0 || uA.y > 0.0 || uA.z > 0.0 || uSnowT > 0.0;
+  vec3 cl = seasonsOn ? textureLod(uLow, uv, 2.5).rgb : vec3(0.5); float mxl = max(cl.r, max(cl.g, cl.b)), mnl = min(cl.r, min(cl.g, cl.b));
+  float satL = (mxl - mnl) / max(mxl, 1e-4), lumL = luma(cl);
+  float greenL = smoothstep(0.02, 0.12, (cl.g - max(cl.r, cl.b)) / max(mxl, 1e-4));
+  // bikes and riders (and, close to the camera, your own bike, dash and hands) are never ground or
+  // foliage: anything within ~1.7 m of a bike that isn't the flat track surface under it
+  bool nearBike = dist < 1.4;
+  if (seasonsOn) for (int i = 0; i < 8; i++) { if (float(i) >= uBkN) break;
+    vec3 dbk = P - uBk[i].xyz; float gY = min(uBk[i].w, uBk[i].y - 0.25);
+    // the bike and rider: near it, and either not facing up or above the ground under it (the bike's
+    // reference point is around its middle) - the track under the bike keeps its snow
+    if (length(dbk) < 1.7 && (N.y < 0.75 || P.y > uBk[i].y - 0.15)) nearBike = true; }
+  float ground = (sky || glass || nearBike) ? 0.0 : up;
+  // asphalt: grey (any brightness - sunlit or in shadow); sand and gravel are beige, grass green
+  float asph = ground * (1.0 - smoothstep(0.08, 0.16, satL));
+  float detailK = 1.0 - smoothstep(6.0, 30.0, dist);   // fine detail only up close (it shimmered far away)
+  float rest = ground * (1.0 - asph);
+  // autumn: green leaves and grass turn orange, red, yellow and brown, tree by tree
+  if (uA.x > 0.0 && green > 0.0 && !nearBike) {
+    float cell = fbA(P.xz * 0.11 + P.y * 0.05, 0.11);
+    float fine = vnA(P.xz * 1.7 + P.y * 1.3, 1.7);
+    vec3 pal = autumnPal(fract(cell * 1.7 + fine * 0.25));
+    vec3 dry = vec3(0.58, 0.50, 0.22);
+    vec3 tgt = mix(pal, dry, up * 0.7);
+    tgt = tgt / max(luma(tgt), 1e-3) * lum * mix(1.05, 0.95, up);
+    res = mix(res, tgt, green * uA.x * mix(1.0, 0.6, up));
+  // snow on grass and trees: the trees' leaves, and all the ground that isn't the track (grass, sand,
+  // gravel run-off), lit as the scene is
+  if (uA.z > 0.0 && (green > 0.0 || rest > 0.0)) {
+    float light = clamp(lum / 0.14, 0.0, 12.0);
+    vec3 snowC = vec3(0.90, 0.93, 1.0) * light * 0.8;
+    float patchy = fbA(P.xz * 0.22, 0.22) * 0.75 + vnA(P.xz * 1.9, 1.9) * 0.25;
+    float clump = fbA(P.xz * 1.3 + P.y * 1.1, 1.3);
+    float coverG = smoothstep(0.15, 0.55, uA.z * 1.3 - (patchy - 0.5) * 0.6);
+    float coverT = smoothstep(0.45, 0.85, N.y * 0.45 + 0.35 + (clump - 0.5) * 0.9 + uA.z * 0.35) * uA.z
+                 + smoothstep(0.55, 0.9, lum / max(luma(textureLod(uLow, uv, 1.0).rgb), 1e-3) * 0.5 + clump * 0.3) * uA.z * 0.35;
+    float gS = mix(greenL, green, 0.45);   // the leaves, steadied by the blurred copy (grass blades speckled)
+    float m = max(rest * coverG, (nearBike ? 0.0 : gS) * (1.0 - up) * clamp(coverT, 0.0, 1.0));
+    snowC *= 0.96 + 0.06 * vnA(P.xz * 9.0, 9.0) * detailK;
+    res = mix(res, snowC, clamp(m, 0.0, 1.0));
+  // snow on the track: only the asphalt, a patchy white cover, thinner and slushy in places
+  if (uSnowT > 0.0 && asph > 0.0) {
+    float light = clamp(lum / 0.11, 0.0, 12.0);
+    float big = fbA(P.xz * 0.06, 0.06), mid = fbA(P.xz * 0.5, 0.5), fineS = vnA(P.xz * 6.0, 6.0);
+    float cover = smoothstep(0.2, 0.6, uSnowT * 1.25 - (big - 0.5) * 0.7 - (mid - 0.5) * 0.35);
+    vec3 snowC = vec3(0.88, 0.91, 0.97) * light * (0.76 + 0.12 * (fineS - 0.5) * detailK);
+    vec3 slush = mix(col, vec3(0.55, 0.58, 0.62) * light * 0.45, 0.6);
+    vec3 s2 = mix(slush, snowC, smoothstep(0.3, 0.8, cover + (mid - 0.5) * 0.4));
+    res = mix(res, s2, clamp(cover * 1.4, 0.0, 1.0) * asph * (1.0 - smoothstep(150.0, 400.0, dist) * 0.3));
+  // leaves lying on the track: on grey, flat ground, scattered leaf shapes in drifting patches
+  if (uA.y > 0.0 && !sky && !glass && !nearBike && up > 0.5 && sat < 0.22 && dist < 60.0) {
+    float patchD = uA.y * (0.35 + 1.1 * smoothstep(0.35, 0.75, fbA(P.xz * 0.07, 0.07)));
+    float cov = 0.0; vec3 leafC = vec3(0.0);
+    for (int L = 0; L < 2; L++) {
+      float cs = L == 0 ? 0.34 : 0.27;
+      vec2 g = P.xz / cs + float(L) * 0.5;
+      vec2 c = floor(g), f = fract(g);
+      float h = h2(c + float(L) * 17.0);
+      if (h < patchD * 0.55) {
+        vec2 ctr = 0.3 + 0.4 * vec2(h2(c + 3.1), h2(c + 7.7));
+        float a = h2(c + 11.0) * 6.2831; vec2 q = f - ctr;
+        q = mat2(cos(a), -sin(a), sin(a), cos(a)) * q * cs;
+        float sz = 0.045 + 0.04 * h2(c + 5.0);
+        float e = q.x * q.x + q.y * q.y * 3.2 * (1.0 + 0.6 * q.x);
+        float aa = max(fwidth(e), 1e-3) * 1.5;
+        float m = 1.0 - smoothstep(1.0 - aa, 1.0 + aa, e);
+        float rib = 1.0 - 0.25 * (1.0 - smoothstep(0.0, 0.12, abs(q.y)));
+        vec3 pc = autumnPal(h2(c + 9.0)) * rib;
+        leafC = mix(leafC, pc, m); cov = max(cov, m);
+    float far = smoothstep(18.0, 55.0, dist);
+    cov = mix(cov, patchD * 0.25, far);
+    leafC = mix(leafC, vec3(0.6, 0.35, 0.1), far);
+    float light = clamp(lum / 0.11, 0.0, 12.0);
+    res = mix(res, leafC * light * 0.45, cov * up);
+  // storm: the day dims under the thunderclouds
+  res *= 1.0 - 0.32 * uB.y;
+  // rainbow: 42 degrees round the point opposite the sun, red outside, a fainter reversed bow at 51
+  if (uA.w > 0.0 && uSun.y > 0.0 && (sky || dist > 120.0)) {
+    float ang = degrees(acos(clamp(dot(ray, -uSun), -1.0, 1.0)));
+    float t1 = (ang - 40.3) / 2.2, t2 = (53.6 - ang) / 3.2;
+    vec3 bow = vec3(0.0);
+    if (t1 > 0.0 && t1 < 1.0) bow += hue(0.78 * (1.0 - t1)) * sin(t1 * 3.14159) * 1.0;
+    if (t2 > 0.0 && t2 < 1.0) bow += hue(0.78 * (1.0 - t2)) * sin(t2 * 3.14159) * 0.35;
+    float inside = (1.0 - smoothstep(30.0, 40.5, ang)) * step(15.0, ang) * 0.08;
+    vec3 skyRef = textureLod(uLow, vec2(0.5, 0.9), uMaxLod - 2.0).rgb;
+    float k = uA.w * smoothstep(0.0, 0.06, uSun.y) * (1.0 - smoothstep(0.55, 0.75, uSun.y));
+    k *= sky ? smoothstep(-0.01, 0.04, ray.y) : 0.25;
+    k *= 0.55 + 0.45 * vn(vec2(atan(ray.z, ray.x) * 3.0, 0.0) + uB.w * 0.02);
+    float bm = clamp(length(bow) * k * 1.2, 0.0, 0.7) * smoothstep(0.03, 0.2, luma(skyRef));
+    res += (bow * 0.65 + vec3(inside)) * luma(skyRef) * k / max(bm, 0.25);   // the final grade shows this much of it over the game's sky
+    mark = max(mark, bm);
+  // bike lights: headlight beams and the red of brake lights on what they hit
+  if (uLN > 0.5 && !sky && !glass) {
+    // surface colour from the blurred copy: per-pixel it amplified the night scene's grain into speckle
+    vec3 lo = textureLod(uLow, uv, 1.5).rgb; float ll = luma(lo);
+    vec3 alb = mix(vec3(1.0), lo / max(ll, 1e-4), smoothstep(0.002, 0.03, ll));
+    alb = clamp(alb, vec3(0.4), vec3(1.8)) * 0.2;
+    for (int i = 0; i < 8; i++) {
+      if (float(i) >= uLN) break;
+      vec4 lp = uL[i * 4], ld4 = uL[i * 4 + 1], lc = uL[i * 4 + 2], lu = uL[i * 4 + 3];
+      vec3 dl = P - lp.xyz; float r = length(dl);
+      if (r > lp.w) continue;
+      vec3 ld = dl / max(r, 1e-3);
+      float cone = smoothstep(ld4.w, lc.w, dot(ld, ld4.xyz));
+      // low-beam cut-off: hardly any light above a line just over the beam's aim
+      if (lu.w > 0.0) cone *= 1.0 - smoothstep(0.02, 0.02 + lu.w, dot(ld, lu.xyz) - dot(ld4.xyz, lu.xyz));
+      // inverse square from the lamp (not closer than 1 m), faded to nothing at the range
+      float q = r / lp.w, att = (1.0 - q * q); att = att * att / max(r * r, 1.0) * 6.0;
+      // only what faces the lamp (soft: normals from depth are noisy at night)
+      float nl = mix(0.25, 1.0, clamp(dot(N, -ld), 0.0, 1.0));
+      res += alb * lc.rgb * (cone * att * nl);
+  // lightning flash: the sky lights up, the scenery a little
+    vec3 fc = vec3(0.82, 0.86, 1.0);
+    res += fc * uB.x * (sky ? (luma(textureLod(uLow, vec2(0.5, 0.9), uMaxLod - 2.0).rgb) * 2.5 + 0.35) : lum * 1.4 + 0.02);
+    if (sky) mark = max(mark, clamp(uB.x * 0.8, 0.0, 0.9));
+  o = vec4(res, (1.0 - mark) * texelFetch(uScene, ip - ivec2(uVp.xy), 0).a);
+(exit 0)

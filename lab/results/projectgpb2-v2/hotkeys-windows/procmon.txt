@@ -1,0 +1,66 @@
+    3  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\presets  NAME COLLISION
+    3  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2  NAME COLLISION
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\camera.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\gamefx.log  SUCCESS
+    8  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\ProjGPB2.ini  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\ProjGPB2.log  SUCCESS
+    2  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\race_offset.txt  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\ProjectGPB2 screenshots  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\ProjectGPB2 screenshots\ProjectGPB2_2026-11-24_17-35-10.png  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\save  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0120.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0150.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0170.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0220.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0270.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0320.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0330.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0420.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0598.bmp  SUCCESS
+    1  gpbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  gpbikes.exe  Process Exit    SUCCESS
+    1  gpbikes.exe  Process Start    SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-hotkeys\gpbikes.exe  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\opengl32.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjectGPB2_cam64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjectGPB2_core64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjectGPB2_fx64.dlo  SUCCESS
+    7  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\ProjGPB2.ini  SUCCESS
+   90  gpbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   19  gpbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   85  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\hotkeys\host.log  FAST IO DISALLOWED
+  172  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\hotkeys\host.log  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\opengl32.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjectGPB2_cam64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjectGPB2_core64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjectGPB2_fx64.dlo  SUCCESS
+    9  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\camera.log  FAST IO DISALLOWED
+   22  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\camera.log  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\gamefx.log  FAST IO DISALLOWED
+   27  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\gamefx.log  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\ProjGPB2.ini  FAST IO DISALLOWED
+    9  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\ProjGPB2.ini  SUCCESS
+   12  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\ProjGPB2.log  FAST IO DISALLOWED
+  108  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\ProjGPB2.log  SUCCESS
+    2  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\ProjGPB2\race_offset.txt  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\ProjectGPB2 screenshots\ProjectGPB2_2026-11-24_17-35-10.png  SUCCESS
+   77  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0120.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0120.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0150.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0150.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0170.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0170.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0220.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0220.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0270.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0270.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0320.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0320.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0330.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0330.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0420.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0420.bmp  SUCCESS
+   48  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0598.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0598.bmp  SUCCESS

@@ -1,0 +1,5 @@
+$ { strings -n 5 ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; strings -el -n 5 ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; } | grep -niE 'https?://|www\.|\.(com|net|org|io)\b|ws2_32|wininet|winhttp|urlmon|socket'
+2602:not enough space for format expansion (Please submit full bug report at https://gcc.gnu.org/bugs/):
+13426:not enough space for format expansion (Please submit full bug report at https://gcc.gnu.org/bugs/):
+24934:not enough space for format expansion (Please submit full bug report at https://gcc.gnu.org/bugs/):
+(exit 0)

@@ -1,0 +1,2 @@
+$ for f in ProjectGPB2_core64.dlo ProjectGPB2_cam64.dlo ProjectGPB2_fx64.dlo; do { strings -n 5 $f; strings -el -n 5 $f; } | grep -iE 'copyright|licen[cs]e|stb_|zlib|miniz|lodepng|imgui|glew|glad|nlohmann|Mark Adler|Sean Barrett'; done
+(exit 1)

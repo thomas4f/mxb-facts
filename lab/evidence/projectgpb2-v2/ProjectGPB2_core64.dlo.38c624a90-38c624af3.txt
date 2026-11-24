@@ -1,0 +1,22 @@
+$ objdump -d 'ProjectGPB2_core64.dlo' | awk -v a=38c624a90 -v b=38c624af3 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c624a90:	80 3d 91 f3 06 00 00 	cmpb   $0x0,0x6f391(%rip)        # 38c693e28 <.debug_rnglists+0x72ddc>
+   38c624a97:	0f 85 a4 01 00 00    	jne    38c624c41 <.gpb2tx+0x2c41>
+   38c624a9d:	55                   	push   %rbp
+   38c624a9e:	53                   	push   %rbx
+   38c624a9f:	48 81 ec 98 02 00 00 	sub    $0x298,%rsp
+   38c624aa6:	c6 05 7b f3 06 00 01 	movb   $0x1,0x6f37b(%rip)        # 38c693e28 <.debug_rnglists+0x72ddc>
+   38c624aad:	48 8d 15 ad 3b 01 00 	lea    0x13bad(%rip),%rdx        # 38c638661 <.gpb2tx+0x16661>
+   38c624ab4:	48 8d 5c 24 40       	lea    0x40(%rsp),%rbx
+   38c624ab9:	48 89 df             	mov    %rbx,%rdi
+   38c624abc:	be 58 02 00 00       	mov    $0x258,%esi
+   38c624ac1:	e8 8a e8 ff ff       	call   38c623350 <.gpb2tx+0x1350>
+   38c624ac6:	48 89 5c 24 28       	mov    %rbx,0x28(%rsp)
+   38c624acb:	c7 44 24 20 10 00 00 	movl   $0x10,0x20(%rsp)
+   38c624ad2:	00 
+   38c624ad3:	48 8d 0d ef 35 01 00 	lea    0x135ef(%rip),%rcx        # 38c6380c9 <.gpb2tx+0x160c9>
+   38c624ada:	48 8d 15 ea 36 01 00 	lea    0x136ea(%rip),%rdx        # 38c6381cb <.gpb2tx+0x161cb>
+   38c624ae1:	4c 8d 05 1a 38 01 00 	lea    0x1381a(%rip),%r8        # 38c638302 <.gpb2tx+0x16302>
+   38c624ae8:	4c 8d 4c 24 30       	lea    0x30(%rsp),%r9
+   38c624aed:	ff 15 0d c0 fe ff    	call   *-0x13ff3(%rip)        # 38c610b00 <__imp_GetPrivateProfileStringA>
+   38c624af3:	0f b6 44 24 30       	movzbl 0x30(%rsp),%eax
+(exit 0)
