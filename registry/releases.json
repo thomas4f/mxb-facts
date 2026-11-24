@@ -75,30 +75,48 @@
     "seen": "2026-11-24"
    }
   },
+  "dazteamracing-server-manager": {
+   "mxb-mods": {
+    "source": "mega.nz",
+    "version": null,
+    "date": null,
+    "url": "https://mega.nz/file/TkRFhJQa#mvk5aRCieRsBtCFNKb_883PmHk_Oc4U5MZPzPXSAM6g",
+    "files": [
+     {
+      "name": null,
+      "size": 2548813,
+      "sha256": null,
+      "url": null
+     }
+    ],
+    "via": "https://mxb-mods.com/mx-gp-bikes-server-manager-by-dazteamracing/",
+    "seen": "2026-11-24"
+   }
+  },
   "dirt-gear": {
    "github": {
     "source": "github",
-    "version": "v1.1.1",
-    "date": "2026-11-13",
-    "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/tag/v1.1.1",
+    "version": "v1.2.0",
+    "date": "2026-11-24",
+    "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/tag/v1.2.0",
     "files": [
      {
-      "name": "Dirt-Gear-Setup-1.1.1.exe",
-      "size": 103987213,
-      "sha256": "35101904445a9729b57af0f166ff422c8d94293163c29442c0c696f30902b628",
-      "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/download/v1.1.1/Dirt-Gear-Setup-1.1.1.exe"
+      "name": "Dirt-Gear-Setup-1.2.0.exe",
+      "size": 103529063,
+      "sha256": "beb61dc284d92e3ecf9b8027f310aba9fa99d1d4c7d909e5d37325e1e44ddfe4",
+      "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/download/v1.2.0/Dirt-Gear-Setup-1.2.0.exe"
      },
      {
       "name": "update.json",
       "size": 160,
-      "sha256": "6b059fbbba88b8b90aa020e73fe1ed3693b0af1420bca3907b277538f16eadf1",
-      "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/download/v1.1.1/update.json"
+      "sha256": "2dfd76e04fe3ebfc44695f4c549b71cce5c7951e338c77c58d0c2bb498609330",
+      "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/download/v1.2.0/update.json"
      },
      {
       "name": "update.json.sig",
       "size": 88,
-      "sha256": "f4a9b3fba32c5864f6753264a3d540ee9f380795ff2f027f4c61abe500359f38",
-      "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/download/v1.1.1/update.json.sig"
+      "sha256": "754f1956d12005f417d55213bfa474c284c0188eafd6ca46828c7f9cdfc20ab2",
+      "url": "https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/download/v1.2.0/update.json.sig"
      }
     ],
     "seen": "2026-11-24"
@@ -106,9 +124,27 @@
    "mxb-mods": {
     "source": "mxb-mods",
     "version": null,
-    "date": "2026-11-17",
+    "date": "2026-11-24",
     "url": "https://mxb-mods.com/dirt-gear-2/",
     "files": [],
+    "seen": "2026-11-24"
+   }
+  },
+  "drag-n-drop-creator": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2026-03-04",
+    "url": "https://www.mediafire.com/file/8bv1khcxzngguv1/bh5oDragnDrop_Creator_V4.1.zip/file",
+    "files": [
+     {
+      "name": "bh5oDragnDrop Creator V4.1.zip",
+      "size": "12.26MB",
+      "sha256": "74841842d57443251146652e0900d0a19d5fd3663e3bc201a865401b8fd43717",
+      "url": "https://download1531.mediafire.com/16o19ubghnxgRG6AK8k8jyRYX3lYx7R0esOudt2A0jkya-4jd9mt6f1VOIdmBtp4R8SM-g1wGci77a5cUkouqvtoN2BLnU4HuTWaVsUvNtH9oGP8cK3YSgKBcR0HOdvRCVe6JH3EtVfzMiCKkDOZU6NgCr4Fr0LLZ6RVmN38pAY/8bv1khcxzngguv1/bh5oDragnDrop+Creator+V4.1.zip"
+     }
+    ],
+    "via": "https://mxb-mods.com/drag-n-drop-creator/",
     "seen": "2026-11-24"
    }
   },
@@ -176,75 +212,75 @@
   "frostmod": {
    "github": {
     "source": "github",
-    "version": "v0.53.0",
-    "date": "2026-11-23",
-    "url": "https://github.com/Frostn1/frostmod/releases/tag/v0.53.0",
+    "version": "v0.53.1",
+    "date": "2026-11-24",
+    "url": "https://github.com/Frostn1/frostmod/releases/tag/v0.53.1",
     "files": [
      {
       "name": "frostmod.dll",
-      "size": 1327376,
-      "sha256": "7d94ba06b2761bbbe61e1b4bfb95bb8e7840c9b4b11766f45f2e62baa3af3f91",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/frostmod.dll"
+      "size": 1334032,
+      "sha256": "becdd57cab59ea6704ef51c8634682bf51b065edd133edc4a600d93fb8053d08",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/frostmod.dll"
      },
      {
       "name": "frostmod.dlo",
-      "size": 1327376,
-      "sha256": "7d94ba06b2761bbbe61e1b4bfb95bb8e7840c9b4b11766f45f2e62baa3af3f91",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/frostmod.dlo"
+      "size": 1334032,
+      "sha256": "becdd57cab59ea6704ef51c8634682bf51b065edd133edc4a600d93fb8053d08",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/frostmod.dlo"
      },
      {
       "name": "frostmod.exe",
       "size": 101648,
-      "sha256": "260d564ef678a9e07ef5bfca49a8d3fd42f83758d7c93b7a1b5d25f12cfbc9d5",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/frostmod.exe"
+      "sha256": "930e9061c7500594d4260c0cd8a4bccb4729c56282d8063a7a42161061d16c7d",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/frostmod.exe"
      },
      {
       "name": "FrostModFixes.zip",
-      "size": 59180,
-      "sha256": "e82e6b32d907c5796964f3128dabebc7ce1f5075627758a16a5bf057211ad491",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/FrostModFixes.zip"
+      "size": 61562,
+      "sha256": "317eef2fb67499039fb05f952f89f1d1df091800b75065b0033eec7ae0b522ad",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/FrostModFixes.zip"
      },
      {
       "name": "frostmod_fixes.dlo",
-      "size": 117008,
-      "sha256": "d0a21cb1f2836e73d68a302b58be331562ccdeef96dd77051e281d761ed06754",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/frostmod_fixes.dlo"
+      "size": 123152,
+      "sha256": "d342617d17038a8eebd41bcedf96f63f3cc5bc76369acb79d43653d3e9d348c5",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/frostmod_fixes.dlo"
      },
      {
       "name": "frostserver.dll",
       "size": 146192,
-      "sha256": "43e94080c2f808483b6fac2f9472a753d914be9c80d635c72d89e050f1973f08",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/frostserver.dll"
+      "sha256": "86d2425df06effe955834ffa8c24bca7579e94c63bb05d803030d40a5c2affcb",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/frostserver.dll"
      },
      {
       "name": "frostserver.dlo",
       "size": 146192,
-      "sha256": "43e94080c2f808483b6fac2f9472a753d914be9c80d635c72d89e050f1973f08",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/frostserver.dlo"
+      "sha256": "86d2425df06effe955834ffa8c24bca7579e94c63bb05d803030d40a5c2affcb",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/frostserver.dlo"
      },
      {
       "name": "frostserver.exe",
       "size": 127760,
-      "sha256": "62b4fc47085d5422dddc2fae9fb1ceacdf4b30f7fa6011e773540694d097faaa",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/frostserver.exe"
+      "sha256": "51d13aeb86fefe89ea6c7fa505ef0301fe1e51f7b61bc06c9c250bf1d44e9c2e",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/frostserver.exe"
      },
      {
       "name": "FrostServer.zip",
-      "size": 133817,
-      "sha256": "fbd15373e09711800cba46ab0a6f2c7f8d63cd1fa5732f504c123672a2862bd0",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/FrostServer.zip"
+      "size": 133827,
+      "sha256": "996e20ef57a6b462cc5097f740397f4fec3fc1e80bdc30815482c6c0fc8b5232",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/FrostServer.zip"
      },
      {
       "name": "mxbcoach.dlo",
       "size": 1461008,
-      "sha256": "19d183f7c08b4778b4c3724e4353e00e5cc71b9d925ebdb6645d32a8165cf7c8",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/mxbcoach.dlo"
+      "sha256": "0dc0f1c792059fb357bcce01a57377b130858b137cd76019d97b52191a236564",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/mxbcoach.dlo"
      },
      {
       "name": "Release.zip",
-      "size": 769306,
-      "sha256": "228272635edf4fc61fdf3b10a0d8de80cb61e33f71dff4b606170a500d7680bf",
-      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.0/Release.zip"
+      "size": 774298,
+      "sha256": "b3bd715e04732eecdbd1167ddbae44c2205fec1371250373097c97d1940e78fc",
+      "url": "https://github.com/Frostn1/frostmod/releases/download/v0.53.1/Release.zip"
      }
     ],
     "seen": "2026-11-24"
@@ -403,24 +439,30 @@
   "holeshot": {
    "github": {
     "source": "github",
-    "version": "v0.24.0",
-    "date": "2026-10-26",
-    "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/tag/v0.24.0",
+    "version": "v0.24.2",
+    "date": "2026-11-24",
+    "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/tag/v0.24.2",
     "files": [
      {
-      "name": "Holeshot-HUD-0.24.0-windows-x64.zip",
-      "size": 14343956,
-      "sha256": "6fc20a6367a6bd5d6f27dbabec73978645615fe96bb36458b9272bc8ae7b728c",
-      "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/download/v0.24.0/Holeshot-HUD-0.24.0-windows-x64.zip"
+      "name": "Holeshot-HUD-0.24.2-windows-x64.zip",
+      "size": 14397336,
+      "sha256": "aeaadd66c9f2c0fe10ee09cabf5737b65cfda0182623b058d6c8ee5f9ee956cd",
+      "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/download/v0.24.2/Holeshot-HUD-0.24.2-windows-x64.zip"
+     },
+     {
+      "name": "Holeshot-HUD-0.24.2-windows-x64.zip.minisig",
+      "size": 279,
+      "sha256": "1ba7238bd00d49de8993a703f892a0bb2ff9dadbe293b33ddaac0bc39d6e2541",
+      "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/download/v0.24.2/Holeshot-HUD-0.24.2-windows-x64.zip.minisig"
      },
      {
       "name": "HoleshotHUD-Setup.exe",
-      "size": 14878976,
-      "sha256": "8faa862dc2b081d6e56b223b06fefecee84e02adee00d3d96ffc9dbd785b2846",
-      "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/download/v0.24.0/HoleshotHUD-Setup.exe"
+      "size": 14910076,
+      "sha256": "3fd5b0fdfcaae246c9eea5b2ebbcb1595b7715e977dd12acec021dbcd42ea086",
+      "url": "https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/download/v0.24.2/HoleshotHUD-Setup.exe"
      }
     ],
-    "seen": "2026-11-22"
+    "seen": "2026-11-24"
    },
    "mxb-mods": {
     "source": "mxb-mods",
@@ -429,6 +471,16 @@
     "url": "https://mxb-mods.com/holeshot-hud/",
     "files": [],
     "seen": "2026-11-22"
+   }
+  },
+  "insanes-3d-viewer": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2025-01-20",
+    "url": "https://mxb-mods.com/insanes-3d-viewer/",
+    "files": [],
+    "seen": "2026-11-24"
    }
   },
   "knee-down": {
@@ -485,6 +537,72 @@
     "date": null,
     "url": "https://forum.piboso.com/index.php?topic=79.0",
     "files": [],
+    "seen": "2026-11-24"
+   }
+  },
+  "maxhud-gpb": {
+   "gpb-mods": {
+    "source": "gpb-mods",
+    "version": null,
+    "date": "2023-08-21",
+    "url": "https://gpb-mods.com/maxhud/",
+    "files": [],
+    "seen": "2026-11-24"
+   }
+  },
+  "maxtm": {
+   "gpb-mods": {
+    "source": "gpb-mods",
+    "version": null,
+    "date": "2023-08-22",
+    "url": "https://gpb-mods.com/maxtm-v2-5/",
+    "files": [],
+    "seen": "2026-11-24"
+   }
+  },
+  "mods-cleaner": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2025-12-26",
+    "url": "https://mxb-mods.com/mx-bikes-mods-cleaner/",
+    "files": [],
+    "seen": "2026-11-24"
+   }
+  },
+  "mx-bike-mod-manager": {
+   "mxb-mods": {
+    "source": "drive.google.com",
+    "version": null,
+    "date": null,
+    "url": "https://drive.google.com/file/d/1Y0gIyeM3Wd6ap0P3pOMiw2N87oteLXjt/view?usp=sharing",
+    "files": [
+     {
+      "name": "MX Bikes Mod Manager-Setup-1.0.0.exe",
+      "size": null,
+      "sha256": null,
+      "url": null
+     }
+    ],
+    "via": "https://mxb-mods.com/mx-bike-mod-manager/",
+    "seen": "2026-11-24"
+   }
+  },
+  "mx-ctrl": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2026-06-04",
+    "url": "https://www.mediafire.com/file/ec7wptg4wx8xlc9/MXCtrl.exe/file",
+    "files": [
+     {
+      "name": "MXCtrl.exe",
+      "size": "64.66MB",
+      "sha256": "9145548fcf6f12bef21aed60d7b452b414354fecd9486e288df095cb6f1572dd",
+      "url": "https://download1503.mediafire.com/loj78drqn3agfLBEvfVo6n0_XDEQ91cWyJsMk3eFrVEdRVSu_gEo1nZW5L99_XwtV_NDCVajiLP27GaHtjsmo4_qi5tmrT1GAMOudlYatO0XxYf14VOeoLsLGaCSSCut8YdTDizKf6jRMbVPFL0h2YnreTCQDlf8Y-JtvOcpymA/ec7wptg4wx8xlc9/MXCtrl.exe"
+     }
+    ],
+    "via": "https://mxb-mods.com/mx-ctrl/",
     "seen": "2026-11-24"
    }
   },
@@ -547,6 +665,16 @@
      }
     ],
     "seen": "2026-11-22"
+   }
+  },
+  "mx-shortcuts": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2025-09-20",
+    "url": "https://mxb-mods.com/140394-2/",
+    "files": [],
+    "seen": "2026-11-24"
    }
   },
   "mxb-app": {
@@ -702,6 +830,24 @@
     "seen": "2026-11-22"
    }
   },
+  "mxb-dropper": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2026-03-06",
+    "url": "https://www.mediafire.com/file/rq8b4f7q5vuegaq/MXBdropper.exe/file",
+    "files": [
+     {
+      "name": "MXBdropper.exe",
+      "size": "12.77MB",
+      "sha256": "a952915f9728387ce8a8c84233cb861529fc2b8603887e4e6b0b2976b5a68ae7",
+      "url": "https://download1586.mediafire.com/sbzmbh5nwjiguU81PYQUh1QJJBdfmUyNJPZkTxcMY30mEnqNWc54iSRud-4Ow-hO3w2m5d6b-1mkTKa7S4PGHXglp1CZocNH2KKfmE5hmiLV648KQYME4oOwzVT5jve9j71ucj_nSt3WIfdsjDMLXlt1C8E84Do1SD28DhWpKlE/rq8b4f7q5vuegaq/MXBdropper.exe"
+     }
+    ],
+    "via": "https://mxb-mods.com/mxb-dropper-v1/",
+    "seen": "2026-11-24"
+   }
+  },
   "mxb-dualsense": {
    "mxb-mods": {
     "source": "mxb-mods",
@@ -737,6 +883,24 @@
     "seen": "2026-11-22"
    }
   },
+  "mxb-haptics-ps5": {
+   "mxb-mods": {
+    "source": "drive.google.com",
+    "version": null,
+    "date": null,
+    "url": "https://drive.google.com/file/d/1X32iypa3roRUWJFWBOd4kf1R97cEoUNi/view?usp=sharing",
+    "files": [
+     {
+      "name": "MX Bikes DualSense Haptics v1.0.zip",
+      "size": null,
+      "sha256": null,
+      "url": null
+     }
+    ],
+    "via": "https://mxb-mods.com/mxb_haptics_ps5/",
+    "seen": "2026-11-24"
+   }
+  },
   "mxb-ragdoll": {
    "mxb-mods": {
     "source": "mediafire",
@@ -753,6 +917,16 @@
     ],
     "via": "https://mxb-mods.com/mx-bikes-ragdoll-v1-0-2/",
     "seen": "2026-11-22"
+   }
+  },
+  "mxb-server-configurator": {
+   "mxb-mods": {
+    "source": "mxb-mods",
+    "version": null,
+    "date": "2020-11-07",
+    "url": "https://mxb-mods.com/mx-bikes-server-configurator/",
+    "files": [],
+    "seen": "2026-11-24"
    }
   },
   "mxbfix": {
@@ -871,6 +1045,42 @@
     "url": "https://mxb-mods.com/mxpulse/",
     "files": [],
     "seen": "2026-11-22"
+   }
+  },
+  "mxtuner": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2026-01-19",
+    "url": "https://www.mediafire.com/file/kf4kw0mdv4c7ze5/MxTuner_setup.exe/file",
+    "files": [
+     {
+      "name": "MxTuner_setup.exe",
+      "size": "20.56MB",
+      "sha256": "dec82153330a5aa9db34fde7c978be12f455724f02f2ce4740e756c7b6d2ff87",
+      "url": "https://download1650.mediafire.com/knwh9ugpbu8g6Bra3RSo_rABVbhcFGZD5dyRZtR-JwISf6QX62BJ7UDhk2HOKXp_5Kg9pKAB5uREK5Tw07otUor_W9YhHe1MNvAFvHdk5HfE7WOYdNE81et2Ekf4MVoVhXHgl4OE_K5BStPpsgux2KIsx-k1DZe2b2E27es-ggA/kf4kw0mdv4c7ze5/MxTuner_setup.exe"
+     }
+    ],
+    "via": "https://mxb-mods.com/danj/",
+    "seen": "2026-11-24"
+   }
+  },
+  "painthub": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": null,
+    "url": "https://www.mediafire.com/file/84hht91q4bhzfjs/PaintHub.zip/file",
+    "files": [
+     {
+      "name": null,
+      "size": null,
+      "sha256": null,
+      "url": null
+     }
+    ],
+    "via": "https://mxb-mods.com/painthub/",
+    "seen": "2026-11-24"
    }
   },
   "performance-lab": {
@@ -1004,6 +1214,75 @@
     "seen": "2026-11-24"
    }
   },
+  "projectgpb2": {
+   "gpb-mods": {
+    "source": "gpb-mods",
+    "version": null,
+    "date": "2026-11-12",
+    "url": "https://gpb-mods.com/projectgpb2-2/",
+    "files": [
+     {
+      "name": "1794501261-projectgpb2-v2.zip",
+      "size": 8651871,
+      "sha256": "af15f5529cc66fb1c0c7190c90a3881f726073e982946c280b1ef243b6f46948",
+      "url": "https://gpb-mods.com/wp-content/uploads/2026/11/1794501261-projectgpb2-v2.zip"
+     }
+    ],
+    "seen": "2026-11-24"
+   }
+  },
+  "resolute-server-manager": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2022-12-29",
+    "url": "https://www.mediafire.com/file/sxla9o2gsmqio6m/Resolute_MXB_Server_Manager_Manual.pdf/file",
+    "files": [
+     {
+      "name": "Resolute MXB Server Manager Manual.pdf",
+      "size": "1.75MB",
+      "sha256": "9e0d76c7d30b2378b54e08a739d8a45cdf59d53ea241bfa818c399353c40b246",
+      "url": "https://download1335.mediafire.com/o2onw65ijatgRfTHcYQ9nBbPSO3wWRaffXqCatXeUUIv9sbmeyCIJAqyTTOhWOd7Rv23lsgBRiLLq6enLXB-AZhE5QSSzAmdOhi8R9Xi3bbYgK5XMKdz_WHdWBha00EhrEF3Jdbj4qhyyQUl3BoXk6RxJlLg2fvQ0tIB6_VXGA/sxla9o2gsmqio6m/Resolute+MXB+Server+Manager+Manual.pdf"
+     }
+    ],
+    "via": "https://mxb-mods.com/resolute-mxb-server-manager/",
+    "seen": "2026-11-24"
+   },
+   "http://forum.mx-bikes.com/index.php?topic=3949.0": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2022-12-29",
+    "url": "https://www.mediafire.com/file/sxla9o2gsmqio6m/Resolute_MXB_Server_Manager_Manual.pdf/file",
+    "files": [
+     {
+      "name": "Resolute MXB Server Manager Manual.pdf",
+      "size": "1.75MB",
+      "sha256": "9e0d76c7d30b2378b54e08a739d8a45cdf59d53ea241bfa818c399353c40b246",
+      "url": "https://download1335.mediafire.com/ju1kt4473o9g-jYwzjp1RO6HV_6kkimHgknjnTBQKC8WiergytUcZx_iLBL5J0qVNB6Upgp86vNmTDOOQk99W4plRyyKCtBKAvfYGNZC57OgIMXKvYq42NRTAUWK3kMqw_gUYj9qpzKZzwdfdu4nGoby79gXn1xblVDueoz09Gc/sxla9o2gsmqio6m/Resolute+MXB+Server+Manager+Manual.pdf"
+     }
+    ],
+    "via": "http://forum.mx-bikes.com/index.php?topic=3949.0",
+    "seen": "2026-11-24"
+   }
+  },
+  "resolute-track-builder-helper": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2025-04-07",
+    "url": "https://www.mediafire.com/file/317o3iwyof2o4a2/MXB_Track_Builder_Helper_Installer1.1.9.zip/file",
+    "files": [
+     {
+      "name": "MXB Track Builder Helper Installer1.1.9.zip",
+      "size": "9.24MB",
+      "sha256": "1344d35ad68fabddbf128cf3e881252d13d1d50d03b0da18732caaeda19f5e55",
+      "url": "https://download843.mediafire.com/w42e1hy71kpgV6Q94onqGwrf_lm8MUwMVyYzTFq2i_Jn6io6uyOvQKP5wGwZb7mqBrNbXDE1P3jHwyMz_rXu_PwnjkK8MzVujIUqSAuMhRjZX2Tlkitr21OmcCdtzXTbIrh1MV20PcyMl0hbkLVvVMgZ-AshFtgrNJOhdZ9UiDQ/317o3iwyof2o4a2/MXB+Track+Builder+Helper+Installer1.1.9.zip"
+     }
+    ],
+    "via": "https://mxb-mods.com/resolute-mxb-track-builder-helper/",
+    "seen": "2026-11-24"
+   }
+  },
   "rider-pov-plus": {
    "mxb-mods": {
     "source": "mxb-mods",
@@ -1043,6 +1322,42 @@
     "date": "2023-10-01",
     "url": "https://mxb-mods.com/mx-bikes-setup-duper/",
     "files": [],
+    "seen": "2026-11-24"
+   }
+  },
+  "simhub-dash-gpb": {
+   "gpb-mods": {
+    "source": "mega.nz",
+    "version": null,
+    "date": null,
+    "url": "https://mega.nz/file/bc0UGRRa#DGX9_SKrpP2o938so11WKBWay8KUusyZjijOs-5HUok",
+    "files": [
+     {
+      "name": null,
+      "size": 17287051,
+      "sha256": null,
+      "url": null
+     }
+    ],
+    "via": "https://gpb-mods.com/simhub-dash-2-0-public/",
+    "seen": "2026-11-24"
+   }
+  },
+  "studio-bw-skin-packer": {
+   "mxb-mods": {
+    "source": "mediafire",
+    "version": null,
+    "date": "2025-05-14",
+    "url": "https://www.mediafire.com/file/6db0d17r2g3tjbz/StudioBW-SkinPacker.zip/file",
+    "files": [
+     {
+      "name": "StudioBW-SkinPacker.zip",
+      "size": "461.99KB",
+      "sha256": "c26a7416b58c8c24e9a1d37e4c374868583a79f0d4083ae449c3d1320c836996",
+      "url": "https://download1072.mediafire.com/9jditisesnlguNA9jRqUofm1ms99LECxyPpK5AMRTLjnH0HcusM1qMN00dIk7ORRqpT_AwuzclQTkxzimgOYYT8OOFqf0wxrh1WRIzTzSJ7NKdF3nUxAOmAxgHfVQgHMEfPdqjZ5WE5cUu5sFnvl39d4Ti2qn72w4pl_in7R6A/6db0d17r2g3tjbz/StudioBW-SkinPacker.zip"
+     }
+    ],
+    "via": "https://mxb-mods.com/studio-bw-skin-packer/",
     "seen": "2026-11-24"
    }
   },
