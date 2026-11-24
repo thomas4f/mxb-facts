@@ -1,0 +1,11 @@
+$ for f in SuspensionTuner_Setup.exe zip/SuspensionTuner/SuspensionTuner.exe zip/SuspensionTuner/app/SuspensionTuner.exe; do echo "$f"; objdump -p "$f" | grep -E 'file format|Security Directory'; done
+SuspensionTuner_Setup.exe
+SuspensionTuner_Setup.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+zip/SuspensionTuner/SuspensionTuner.exe
+zip/SuspensionTuner/SuspensionTuner.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+zip/SuspensionTuner/app/SuspensionTuner.exe
+zip/SuspensionTuner/app/SuspensionTuner.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

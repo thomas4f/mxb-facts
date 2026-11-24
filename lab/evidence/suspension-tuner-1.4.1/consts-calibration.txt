@@ -1,0 +1,338 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe calibration
+aload_plan
+aPLAN_FILE
+uutf-8
+ajson
+aload
+nnnC�
+asave_plan
+aplan
+adump
+aindent
+aensure_ascii
+aid
+ashifts
+aB1
+acreate_plan
+abase_stp
+afolder
+abike_key
+ashift
+aruns
+wiafp
+arp
+amult
+wraplan
+aPAIRS
+u<lambda>
+ucreate_plan.<locals>.<lambda>
+u<lambda>
+ucreate_plan.<locals>
+aid
+wPashifts
+afront
+arear
+aid
+ashifts
+aB2
+ajoin
+asuspension_tuner_calib_
+u.stp
+astp_setup
+awrite_shifted
+adone
+ametrics
+aduration
+acreated
+adatetime
+anow
+aisoformat
+aseconds
+atimespec
+abike
+atrack
+ashift
+abase
+aruns
+asave_plan
+aPOSITION
+aDAMPING_MULT
+anext_run
+aplan
+a.0
+wrunext_run.<locals>
+unext_run.<locals>.<genexpr>
+adescribe
+arun
+uBASE (setup inchangé)
+u + 
+a.0
+wawpwsudescribe.<locals>
+aAX_FR
+w aLABEL
+u +
+udescribe.<locals>.<genexpr>
+aprint_next
+aplan
+wradone
+anext_run
+Essais faits : 
+uEssai suivant : 
+u = 
+adescribe
+u  1. Dans le garage de MX Bikes, charge : 
+u  2. Roule la MÊME map, le MÊME nombre de tours que les essais précédents (au moins 
+aMIN_RUN_S
+u.0f
+u s de piste), sans changer de façon de piloter.
+u  3. Ctrl+C, puis relance : python suspension_tuner.py udp --calibrate
+a.0
+wxuprint_next.<locals>
+uprint_next.<locals>.<genexpr>
+aextract
+ametrics
+aout
+aax
+wmwd
+afront
+arear
+aKEYS
+aret_med
+aresp
+aret_med
+arecord_run
+aplan
+ametrics
+atrack
+arun
+afirst
+awarn
+FuTous les essais sont faits. Résultat : calibration_model.json.
+uEssai trop court (
+u s < 
+u s) : refais-le, rien n'est enregistré.
+atrack
+uMap différente (
+u au lieu de 
+u) : les essais doivent être sur la même map. Rien n'est enregistré.
+aextract
+around
+f�������?u
+  Attention : durée 
+u s très différente de l'essai de base (
+u s).
+uEssai 
+u (
+u) enregistré, 
+u s.
+a_stats
+avals
+amean
+asd
+nnamath
+asqrt
+a.0
+wvamean
+u_stats.<locals>
+u_stats.<locals>.<genexpr>
+aanalyse
+aplan
+abase
+atests
+amodel
+aref
+aax
+amean
+asd
+wdarun
+aaxle
+aparam
+ashift
+akey
+arows
+ametric
+afirmer
+wxanoise
+wzastrong
+asign
+aconf
+abest
+wsaopposite
+azmax
+astartswith
+wBT
+wPabaselines
+asign
+aconfidence
+adetail
+awarnings
+aappend
+uPas d'essai de base : impossible de conclure.
+uUn seul essai de base : le bruit n'est pas mesuré (conclusions moins sûres, jamais 'élevée').
+a_stats
+amedian
+��Q��?u : le sag de base a dérivé de 
+u.0%
+u entre B1 et B2 (fatigue, pneus, pilotage) : calibration moins fiable.
+w|aSIGNATURE
+aFLOOR
+f��&�
+>ametric
+arun
+wzafirmer_z
+aZ_SOFT
+aaucune
+amax
+uanalyse.<locals>.<lambda>
+u<lambda>
+uanalyse.<locals>
+akey
+aconflit
+apop
+aZ_HIGH
+uélevée
+afaible
+u<lambda>
+uanalyse.<locals>
+aper_click
+a.0
+wrasign
+uanalyse.<locals>
+aZ_OPP
+uanalyse.<locals>.<genexpr>
+a.0
+wruanalyse.<locals>
+aprint_model
+amodel
+wwakey
+aaxle
+aparam
+asign
+aconf
+wdahead
+aeff
+awhy
+aword
+ause
+=== RÉSULTAT DE LA CALIBRATION ===
+u  ! 
+uprint_model.<locals>.<lambda>
+u<lambda>
+uprint_model.<locals>
+w|u  
+u<8
+u<26
+u aucune mesure exploitable
+u.2f
+u -> 
+u (z=
+u+.1f
+w)uconflit entre mesures
+upas d'effet net au-dessus du bruit
+u INDÉTERMINÉ : 
+u ; 
+u. Sens non vérifié (utilise signtest en jeu).
+usens OK (+1 = plus ferme)
+usens INVERSÉ (+1 brut = plus mou/plus rapide)
+uappliqué
+uNON appliqué (confiance faible)
+u, confiance 
+u, 
+afinish
+aplan
+amodel
+aanalyse
+aMODEL_FILE
+aprint_model
+Modèle écrit : 
+uLes sens à confiance élevée sont appliqués automatiquement aux prochains .stp. Charge ton setup d'origine pour rouler normalement.
+aorigin
+ahas_location
+aos
+ashutil
+adatetime
+aHERE
+ucalibration.json
+ucalibration_model.json
+aspring_rate
+aspring_rate
+apreload
+apreload
+aoil
+acompression_low
+acompression
+acompression_high
+arebound
+arebound
+�V@T
+amedian
+ap95
+ap99
+abottom_per_min
+ahit_depth
+ahit_per_min
+aext_p95
+atopout_per_min
+atopout_fast_per_min
+akick_frac
+apack_frac
+aret_med
+amedian
+ap95
+ap99
+ahit_depth
+aret_med
+aext_p95
+�G�z�?f{
+�G�z�?f{
+�G�z�?f{
+�G�z�?f{
+�G�z�?f
+�?D
+aspring_rate
+apreload
+arebound
+acompression
+acompression_low
+acompression_high
+aoil
+amedian
+amedian
+aret_med
+aext_p95
+ahit_depth
+ap95
+ahit_depth
+ap95
+ahit_depth
+ap95
+ahit_depth
+ap95
+�?T
+aspring_rate
+apreload
+aspring_rate
+apreload
+aoil
+acompression
+acompression_low
+acompression_high
+arebound
+aressort
+uprécontrainte
+ahuile
+acompression
+ucompression basse vit.
+ucompression haute vit.
+udétente
+afront
+arear
+aAvant
+uArrière
+aload_plan
+acreate_plan
+aprint_next
+arecord_run
+afinish
+ucalibration.py
+(exit 0)

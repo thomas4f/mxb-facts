@@ -1,0 +1,2081 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe suspension_rules
+a_p
+adiscipline
+akey
+adefault
+aPROFILES
+aDEFAULT_DISCIPLINE
+araw_floor
+aparam
+aCLICK_PARAMS
+aRAW_MIN_CLICK
+aRAW_MIN
+apercentile
+avals
+wpws
+amin
+nC�
+aairborne_windows
+T	ats
+afront
+arear
+awindows
+astart
+wtwfwraair
+aAIR_POS
+aAIR_MIN
+aappend
+e���C�
+acount_bottoming
+T	ats
+apos
+adebounce
+aevents
+alast
+aprev
+wtwpaabove
+aBOTTOM_POS
+acount_topout
+ats
+apos
+awindows
+adebounce
+aevents
+alast
+apeak
+awi
+wtwp
+amax
+aTOPOUT_POS
+f333333�?C�
+apacking_ratio
+T	ats
+apos
+awindows
+asegs
+apacked
+wawbamid
+avals
+nnaMIN_SEGMENT
+aPACKING_POS
+avelocities
+ats
+apos
+atravel_m
+wkwnwvwiadt
+e���L
+ahit_stats
+ats
+apos
+wvaduration
+awindow
+adebounce
+aevents
+alast
+adepths
+wnwiwjabest
+aper_min
+aHIT_V
+l<C�
+awindow_mask
+ats
+awindows
+amask
+awi
+anw
+wiwt
+pnZ
+adedupe
+T	asamples
+achannels
+akeep
+ashifted
+alast
+aoffset
+wiwswt
+aDEDUP_JITTER
+aitems
+e���FC�
+abottom_causes
+ats
+apos
+wuadebounce
+aout
+alast
+aprev
+wiwtwpaabove
+abisect
+abisect_left
+f333333�?C�
+atopout_events
+ats
+apos
+wuaair
+adebounce
+atotal
+afast
+alast
+apeak
+wiwtwpaground
+aext_frac
+aEXT_WIN
+aEXT_FAST
+a.0
+wautopout_events.<locals>
+utopout_events.<locals>.<genexpr>
+a.0
+wpwautopout_events.<locals>
+ahit_profile
+ats
+apos
+wuaduration
+awindow
+adebounce
+wnaevents
+alast
+adepths
+agains
+wiwjabest
+aper_min
+��Q��?aper_min
+adepth
+again
+aharsh_frac
+wnY�
+a.0
+wguhit_profile.<locals>
+aHIT_GAIN_LOW
+uhit_profile.<locals>.<genexpr>
+aresponse_events
+ats
+apos
+aair
+abase
+wnapeaks
+atrough
+arunmax
+atmax
+wiwparets
+apacked
+akicks
+api
+agoal
+atr
+wkapair_pack
+wjaseg
+alow
+at_low
+acnt
+aPEAK_DROP
+aPEAK_PROM
+aPEAK_ABOVE_SAG
+paRET_FRAC
+aRET_MAX
+aPACK_GAP
+aPACK_TROUGH
+aKICK_WIN
+aKICK_UNDER
+adefault
+aKICK_AGAIN
+apack_frac
+akick_frac
+aret_med
+apercentile
+�?aret_p90
+f�������?Y�
+a.0
+wpw_uresponse_events.<locals>
+uresponse_events.<locals>.<genexpr>
+a.0
+wpwtalow
+uresponse_events.<locals>
+a.0
+wpwtat_low
+uresponse_events.<locals>
+avalidate_channels
+ach
+wnwkaproblems
+abad
+agood_speed
+aCHANNELS
+uchannel '
+u' missing or wrong size
+athrottle
+abrake_f
+abrake_r
+�G�z�?u' outside 0..1 (
+u.0%
+u of samples): packet offset to check
+aspeed
+��@aSTOP_SPEED
+uchannel 'speed' always zero or invalid: packet offset to check
+a.0
+wxuvalidate_channels.<locals>
+f��������f�������?uvalidate_channels.<locals>.<genexpr>
+adecel_series
+T	ats
+aspeed
+wwwnaout
+wiwawbadt
+abisect_right
+f�������?C�
+achannel_warnings
+ach
+aout
+acrashed
+acrash_flag
+u'crashed' channel inconsistent (ignored): crashes are detected only through the sudden speed drop.
+acrash_flag
+ach
+aCRASH_FLAG_MAX
+a.0
+wxucrash_flag.<locals>
+�f
+�?ucrash_flag.<locals>.<genexpr>
+a.0
+wxucrash_flag.<locals>
+adetect_crashes
+T	ats
+ach
+wnasp
+aflag
+aonsets
+aprev
+wiwx
+akinematic_onsets
+agame
+abuild_windows
+akinematic_onsets
+T	ats
+asp
+wnaonsets
+alast
+wiwjwkalowest
+aCRASH_WIN
+aCRASH_DROP
+@aCRASH_LOOK
+aCRASH_STOP_FRAC
+aCRASH_RESUME_SPEED
+abuild_windows
+ats
+asp
+aflag
+aonsets
+wnawins
+wiasrc
+waalow
+wjwkwb
+aCRASH_PRE
+aCRASH_MARGIN
+aCRASH_MAX_S
+wtwaasource
+aspeed_before
+alabel_phases
+ats
+awindows
+ach
+adec
+alabels
+awi
+anw
+wiwtalab
+adecel_series
+aLANDING_S
+aair
+alanding
+astopped
+abrake_f
+abrake_r
+aBRAKE_ON
+aDECEL_ON
+athrottle
+f�������?abraking
+aTHROTTLE_ON
+aaccel
+aneutral
+asteer_scale
+asteer
+aspeed
+avals
+f�G�z
+��?C�
+acorner_mask
+alabels
+achannels
+asc
+asteer_scale
+asteer
+aSTEER_CORNER
+aCORNER_MIN_SPEED
+aair
+alanding
+astopped
+asample_dt
+ats
+f�������?C�
+aregime_share
+wvwnals
+ahs
+alow
+amid
+ahigh
+a.0
+wxuregime_share.<locals>
+aLS_V
+uregime_share.<locals>.<genexpr>
+a.0
+wxuregime_share.<locals>
+aHS_V
+alabel_bottoming
+ats
+apos
+alabels
+atarget
+adebounce
+aevents
+alast
+aprev
+wtwpwlaabove
+alabel_hits
+ats
+apos
+wvalabels
+atarget
+awindow
+adebounce
+aevents
+alast
+agains
+wnwiwjabest
+nnC�
+abraking_segments
+ats
+alabels
+agap
+amin_len
+asegs
+astart
+alast
+wiwtwl
+a_phase_block
+ats
+apos
+wvalabels
+aph
+adts
+aidx
+atsum
+wdavals
+anb
+ahits
+again
+atime
+aPHASE_MIN_TIME
+alabel_bottoming
+amedian
+amean
+ap95
+fffffff�?adeep_frac
+ahigh_frac
+aunloaded_frac
+awheelie_frac
+an_bottom
+abottom_per_min
+alabel_hits
+an_hits
+ahit_per_min
+ahit_gain
+a.0
+wiadts
+u_phase_block.<locals>
+u_phase_block.<locals>.<genexpr>
+a.0
+wxu_phase_block.<locals>
+aDEEP_POS
+a.0
+wxu_phase_block.<locals>
+aHIGH_POS
+a.0
+wxu_phase_block.<locals>
+aUNLOAD_POS
+a.0
+wxu_phase_block.<locals>
+aWHEELIE_POS
+aphase_axle
+T ats
+apos
+wvalabels
+awindows
+aref
+adts
+acorner
+aout
+abase_labels
+aphases
+akey
+aph
+aidx
+atsum
+wdavals
+ahits
+again
+atot
+acl
+apeaks
+w_wbalo
+ahi
+arecs
+waapeak
+agoal
+arec
+abraking
+aaccel
+ac_
+abraking
+abraking
+aaccel
+aaccel
+abraking_corner
+ac_braking
+aaccel_corner
+ac_accel
+abraking
+abraking
+aaccel
+aaccel
+a_straight
+a_phase_block
+acorner
+wxamean_peak
+abottom_ratio
+abraking_segments
+�?amedian_s
+arecovery
+a.0
+wiadts
+uphase_axle.<locals>
+uphase_axle.<locals>.<genexpr>
+a.0
+wxuphase_axle.<locals>
+a.0
+wxuphase_axle.<locals>
+a.0
+wxuphase_axle.<locals>
+a.0
+wxuphase_axle.<locals>
+a.0
+wpuphase_axle.<locals>
+aanalyze
+T1asamples
+atravel
+achannels
+acrashes
+aexcluded
+angaps
+ats0
+awins
+akeep
+wwalo
+ahi
+aoff
+aprev_i
+aprev_t
+ashifted
+ai_
+as_
+ats
+acols
+awindows
+aduration
+alabels
+acorner
+adts
+ametrics
+apt
+alab
+wdaair
+apitch_d
+apitch_swing
+aidx
+aaxle
+apos
+aevents
+aground
+amed
+wmwuahp
+aext
+abc
+an_top
+an_fast
+aext_frac
+amins
+ahist
+ap_
+adedupe
+adetect_crashes
+apeak_front
+apeak_rear
+acount_bottoming
+abottoms
+nnL
+afront
+arear
+aairborne_windows
+f�����ư>alabel_phases
+acorner_mask
+asample_dt
+aduration
+ajumps
+ahas_phases
+awarnings
+achannel_warnings
+acrashes
+aexcluded_s
+aphase_time
+acorner_frac
+awindow_mask
+ap99
+apacking
+apacking_ratio
+ahit_depth
+aext_p95
+abottom_fast_frac
+atopout_fast_per_min
+avelocities
+ahit_profile
+��Q�
+տaregime_share
+aregime
+abottom_causes
+atopout_events
+atopout_per_min
+aground_ext_frac
+apitch_swing
+l	l
+apos_hist
+aresponse_events
+aresp
+aphase_axle
+aphase
+a.0
+wwwtuanalyze.<locals>
+uanalyze.<locals>.<genexpr>
+a.0
+wxuanalyze.<locals>
+a.0
+wxuanalyze.<locals>
+a.0
+wwats0
+uanalyze.<locals>
+a.0
+wcwduanalyze.<locals>
+a.0
+wxuanalyze.<locals>
+a_conf
+@C�
+a_z_count
+wnaexpected
+amath
+asqrt
+a_z_frac
+afrac
+athr
+aaxle_votes
+TOaaxle
+wmaduration
+adiscipline
+aother
+afront
+asm
+wPabottom_thr
+abrake_deep
+aaccel_squat
+akick_thr
+aret_slow
+ahit_w
+aland_min
+apack_thr
+agext_thr
+ahigh_p
+alow_p
+avotes
+anotes
+amins
+avote
+areb_votes
+arvote
+abottom_votes
+abvote
+asag_lo
+asag_hi
+amed
+astate
+agap
+abpm
+abottoming
+adeep_hits
+aunder
+aph
+abrk
+aacc
+alnd
+arec
+abrkc
+abrks
+aaccc
+acor
+aharsh_brake
+wdatxt
+awhy
+apos_first
+anb
+aconf
+asev
+afast
+auw
+amag
+aharsh_voted
+an_hit
+adeep
+abm
+adeep_all
+adeep_c
+ars
+wnakconf
+wwapk
+afm
+arm
+afa
+awf
+aps
+athr
+asign
+agrp
+atop
+aothers
+aparam
+avs
+asupermoto
+u<lambda>
+uaxle_votes.<locals>.<lambda>
+u<lambda>
+akey
+adefault
+adiscipline
+uaxle_votes.<locals>
+adiscipline
+aBOTTOM_PER_MIN
+aBRAKE_DEEP_FRAC
+aACCEL_SQUAT
+aKICK_FRAC
+aRET_SLOW
+aHIT_W
+�?aLAND_MIN
+aPACK_FRAC
+aGROUND_EXT_FRAC
+acompression
+acompression
+acompression_high
+acompression_low
+avote
+uaxle_votes.<locals>.vote
+avote
+aparam
+wwareason
+avotes
+uaxle_votes.<locals>
+avotes
+arvote
+uaxle_votes.<locals>.rvote
+arvote
+wwareason
+areb_votes
+uaxle_votes.<locals>
+areb_votes
+abvote
+uaxle_votes.<locals>.bvote
+abvote
+aparam
+wwareason
+abottom_votes
+uaxle_votes.<locals>
+abottom_votes
+aSAG
+aok
+aHIT_MIN_PER_MIN
+aHIT_DEEP
+aUNDER_P95
+aUNDER_P99
+aphase
+abraking_corner
+abraking_straight
+aaccel_corner
+unot enough sag
+usag too deep
+umedian sag 
+u (target 
+w-u): 
+apreload
+��Q��?f
+@aSAG_BIG_GAP
+aspring_rate
+usag is 
+u off target: spring rate not suited
+usag 
+u: more low-speed support
+u too low: too firm at low speed
+aground_ext_frac
+u of ground time fully extended: wheel not following the ground
+aPOS_FIRST_GAP
+usag off target (
+u): ride height corrected first; compression and oil judged next session
+a_conf
+a_z_count
+abottom_fast_frac
+ubottoms out 
+u.1f
+ux/min (
+u.0f
+u times, 
+u on fast arrivals)
+u: barely above tolerance (
+u/min), too few events to conclude.
+u: fast hit, more high-speed compression
+aoil
+u: fast hit, more oil (progressive end-stroke)
+u with sag already deep: stiffer spring
+u: sustained load, more preload
+�?u: sustained load, stiffer spring
+u: sustained load, more low-speed compression
+u: heavy bottoming
+utravel barely used (p95 
+u, p99 
+w)T
+aUNDER_W
+�u: less oil
+u: open up high-speed compression
+fffffff�?u: softer spring
+wnl
+aLAND_BOTTOM_RATIO
+a_z_frac
+f333333�?f
+@ulandings: 
+u of 
+u jumps bottom out
+u: more high-speed compression
+u: more oil at end-stroke
+u: stiffer spring
+aLAND_SHALLOW
+aLAND_SHALLOW_RULE
+tulandings: only 
+u of travel used: high-speed compression too stiff
+aHARSH_FRAC
+u fast hits/min, 
+u add almost no travel: high-speed compression too stiff (the wheel is kicked back)
+aHIT_SHALLOW
+u sharp hits/min use only 
+u of travel: high-speed compression too stiff
+amedian
+aPHASE_MIN_EVENTS
+ahit_per_min
+aHIT_BRAKE_MIN
+ahit_gain
+ubraking: front at 
+u (median), 
+u of the time beyond 
+u, bottoms out 
+ux/min
+acompression
+u: more compression (support)
+u: more oil
+u: more preload
+u bumps/min under braking add only 
+u of travel: compression too stiff
+aBRAKE_SHALLOW
+u while turning
+u: front only at 
+u of travel: too stiff to load the front for corner entry
+uacceleration: rear at 
+u of travel (squat)
+acompression_low
+��Q��?u: heavy squat, stiffer spring
+aunloaded_frac
+aACCEL_UNLOAD
+uacceleration: rear almost fully extended 
+u of the time (wheel unloads under power)
+u: possibly too stiff
+u: rebound too fast
+aACCEL_PACK_FRAC
+urear compressed beyond 
+u for 
+u of throttle time
+u: more low-speed support to hold the attitude
+u: slightly faster rebound
+u: faster rebound
+ubraking while turning: front at 
+u (straight-line braking only 
+u: more compression (support at corner entry)
+ufront dives 
+u of travel deeper when braking in a turn than in a straight line.
+ahigh_frac
+ucorner exit (steering + throttle): rear compressed beyond 
+u of the time
+��u: faster rebound (packing out of the turn)
+ucorner exit: rear almost fully extended 
+u of the time under throttle: rebound too fast (traction)
+ucorner exit: rear at 
+u of travel (squat while leaning)
+an_hits
+u bumps/min while turning add only 
+u of travel: compression too stiff (grip lost mid-corner)
+aresp
+aRESP_MIN
+aREBOUND_DEADBAND
+u impacts did not return to sag within 
+u s: rebound too slow
+umedian recovery 
+u.2f
+u s after an impact: rebound rather slow
+u impacts followed by a rebound below sag: rebound too fast
+aRET_FAST
+u s (< 
+u s) with rebounds: the wheel kicks back
+aTOPOUT_PER_MIN
+u top-outs/min at high extension speed: rebound too fast
+uextension at 
+u strokes/s (p95): rebound too fast
+aPACKING_RATIO
+ustays compressed between jumps (
+u): faster rebound
+aREC_MIN_SEGMENTS
+aREC_SLOW
+uafter braking the front takes 
+u s to recover: faster rebound
+aREC_FAST
+uafter braking the front recovers in 
+u s: rebound too fast
+awheelie_frac
+aWHEELIE_FRAC
+f�������?uacceleration: front fully extended 
+u of the time (wheeling)
+u: slower front rebound keeps the front down
+u: less rear squat keeps the bike level
+u: more rear preload limits squat
+apitch_swing
+aPITCH_SWING
+f333333�?fffffff�?upitch swing 
+u of travel (limit 
+u): more low-speed support to hold the attitude
+u<lambda>
+uaxle_votes.<locals>
+akey
+asetdefault
+arebound
+u; 
+u<lambda>
+uaxle_votes.<locals>
+a_p
+apressure_advice
+�	T	afeel
+adisc
+ashift
+areasons
+atag
+aaxle
+a_d
+awhy
+aneed
+aTIRE_RULES
+afront
+arear
+aextra_factor
+atire_
+f��&�
+>akey
+aaxle
+adelta
+atext
+atitle
+u tire pressure: -1 step (less pressure)
+awhy
+u. 
+aTIRE_NOTE
+aextra_factor
+�	T
+akey
+adisp
+asign
+aevidence_threshold
+aEXTRA_DRIFT_MAX
+aAPPLY_MIN
+aevidence_threshold
+�	T
+adisp
+adrift_max
+asign
+afrac
+aAPPLY
+aAPPLY_MAX
+adecide
+�	T	avs
+athr_up
+athr_dn
+apos
+aneg
+atop
+anet
+asign
+athr
+aok
+uon target: nothing to correct
+udecide.<locals>.<lambda>
+u<lambda>
+�	T
+asign
+avs
+udecide.<locals>
+avs
+aconflict
+uconflicting readings, left unchanged. For +: 
+u. For -: 
+achange
+aSTRONG
+aweak
+uevidence too weak to act (
+u+.1f
+u, 
+u required
+�G�z�?u, raised because this setting is already far from the original
+�	T
+a.0
+www_udecide.<locals>
+udecide.<locals>.<genexpr>
+�	T
+a.0
+www_udecide.<locals>
+udecide.<locals>.<lambda>.<locals>.<lambda>
+u<lambda>
+�	T
+udecide.<locals>.<lambda>.<locals>
+�	T
+a.0
+wwwrasign
+udecide.<locals>.<lambda>.<locals>
+avs
+udecide.<locals>.<lambda>.<locals>.<genexpr>
+arecommend
+�	T(ametrics
+abase
+afeel
+adiscipline
+adisp
+asetup
+achanges
+areport
+aaxle
+avotes
+anotes
+atag
+aax_f
+avv
+aparam
+wwa_dec
+adec
+asd
+astatus
+adelta
+atext
+aold
+anew
+amine
+astrength
+arank
+aordered
+adropped
+aseen
+adistinct
+wcwgakeep
+agroup
+arest
+aother
+awhy
+ar_
+ajson
+aloads
+adumps
+aDEFAULT
+paaxle_votes
+aFEEL
+urider feel: 
+aFEEL_TEXT
+a_dec
+urecommend.<locals>._dec
+a_dec
+�	T
+wpad_
+adm
+avs
+astatus
+adelta
+atext
+anet
+away
+ast
+wkaaxle
+avotes
+adisp
+urecommend.<locals>
+aaxle
+adisp
+avotes
+aAXLE_PARAMS
+uspring 
+w+u: rebound follows
+arebound
+araw_floor
+aSTEP_AX
+aSTEP
+uadjustment limit reached: the setting is already at the end of its range
+aparam
+astatus
+aold
+anew
+urecommend.<locals>.<lambda>
+u<lambda>
+�	T
+wcavotes
+urecommend.<locals>
+avotes
+u<lambda>
+�	T
+wcastrength
+urecommend.<locals>
+astrength
+atarget_metric
+ukept for the next session (same target as 
+aPARAM_NAME
+u: one change at a time per measurement, otherwise we cannot tell which one helped): 
+aMAX_CHANGES_PER_AXLE
+u<lambda>
+urecommend.<locals>
+ukept for the next session (max 
+u changes per suspension at a time): 
+aremove
+aupdate
+astatus
+anew
+atext
+anote
+aMAX_DRIFT_AX
+adecide
+�	T
+a.0
+www_urecommend.<locals>._dec.<locals>
+aaxle
+adisp
+avotes
+urecommend.<locals>._dec.<locals>.<genexpr>
+�	T
+a.0
+www_urecommend.<locals>.<lambda>.<locals>
+avotes
+urecommend.<locals>.<lambda>.<locals>.<genexpr>
+aPRIORITY
+aindex
+lcaPOSITION_PARAMS
+aposition
+adamping
+a.0
+wcakeep
+agroup
+urecommend.<locals>
+urecommend.<locals>.<genexpr>
+asession_cost
+ametrics
+adiscipline
+aparts
+amins
+asm
+abottom_thr
+akick_thr
+au95
+au99
+apack_thr
+agext_thr
+aland_min
+aaxle
+wmalo_hi
+agap
+wcanb
+alnd
+an_hit
+ars
+aacc_u
+awf
+awthr
+aps
+apthr
+aaccel
+aWHEELIE_FRAC
+aPITCH_SWING
+around
+avalues
+a_log_binom_pmf
+wkwnwp
+ainf
+algamma
+alog
+alog1p
+arate_test
+ak1
+at1
+ak2
+at2
+wnwpaobs
+atot
+wialp
+a_log_binom_pmf
+aexp
+aprop_test
+as1
+an1
+as2
+an2
+wKwNalo
+ahi
+adenom
+apmf
+aobs
+acomb
+a.0
+wvaobs
+uprop_test.<locals>
+f0�D
+�?uprop_test.<locals>.<genexpr>
+ametric_counts
+am_axle
+akey
+aduration_s
+amins
+wvwn
+aRATE_KEYS
+arate
+wnaprop
+asession_counts
+ametrics
+aout
+aax
+wdwkwc
+aCOUNT_KEYS
+ametric_counts
+aentry_counts
+aentry
+aaxle
+akey
+wcarate
+adur
+acounts
+ametrics
+asnap
+aduration
+acompare_counts
+abefore
+anow
+wpavb
+avn
+arate_test
+aprop_test
+wpadir
+aworse
+abetter
+asame
+abefore
+anow
+a_band_dist
+wvaband
+alo
+ahi
+astat_verdict
+ametrics
+aprev
+adiscipline
+ares
+aax
+wkwrathr
+abetter
+aworse
+abands
+apm
+wdwv
+acompare_counts
+aentry_counts
+aP_ALPHA
+a_band_dist
+aSAG_TOL
+atested
+averdict
+acost
+aprev
+ametrics
+adiscipline
+asv
+apc
+astat_verdict
+acost
+aWORSE_ABS
+aWORSE_REL
+aBETTER_ABS
+aupdate_blocked
+aprev
+aworse
+ablocked
+aonly
+wawpwd
+ablocked
+achanges
+aBLOCK_SESSIONS
+w|C�
+aapply_blocked
+T	achanges
+ablocked
+akept
+aheld
+wawpwownwr
+upushing this way made the measurements worse: blocked for a few sessions
+agate_key
+aparam
+aup
+aoil
+acompression
+acompression_high
+aspring_rate
+atarget_metric
+aparam
+aup
+agate_key
+a_last_push
+aprev
+arecent
+aaxle
+aparam
+wewd
+nnT
+nY�
+a.0
+wawpwdaparam
+aaxle
+u_last_push.<locals>
+u_last_push.<locals>.<genexpr>
+aown_test
+aentry
+aaxle
+akey
+ametrics
+asignificant
+wradirection
+a_fmt_m
+akey
+aendswith
+a_frac
+aworsened_own
+aprev
+ametrics
+aout
+wawpwdakey
+aown_test
+asignificant
+agate_changes
+achanges
+ametrics
+aprev
+arecent
+areverts
+akept
+aheld
+aaxle
+aparam
+aold
+anew
+areason
+akey
+aprev_delta
+aentry
+wraname
+aspan
+a_last_push
+aMETRIC_NAME
+a_fmt_m
+u -> 
+ugoing back 
+u+d
+u: 
+u got worse after the 
+u change (
+u, p=
+u: unlikely to be chance)
+upushed 
+u recently, but 
+u went 
+u (p=
+u, chance explains it): inconclusive, no measurable effect, not stacking. Not blocked and not reverted. If this keeps happening, the cause is probably elsewhere
+aescalate_spring
+achanges
+aheld
+ametrics
+asetup
+adiscipline
+adisp
+aout
+aaxle
+wmastalled
+ad_sp
+aold
+aoil
+acompression
+acompression_high
+uno measurable effect
+aESCALATE_EVIDENCE
+ux/min and pushing oil / compression had no measurable effect: the cause is probably the spring, one step stiffer
+a.0
+wcaaxle
+uescalate_spring.<locals>
+uescalate_spring.<locals>.<genexpr>
+a.0
+wcaaxle
+uescalate_spring.<locals>
+a.0
+wcaaxle
+uescalate_spring.<locals>
+adiagnose
+ametrics
+adiscipline
+aout
+asrc_names
+wcapt
+anames
+aaxle
+alabel
+wmaph
+arg
+akey
+anm
+wdaline
+alnd
+acause
+ahf
+ars
+arec
+af_brk
+ar_brk
+afa
+athr
+aps
+ahas_phases
+aAlerts
+uThrottle / brake / speed channels unavailable: global analysis only (no phases and no crash detection: a crash would skew bottom-outs and hits).
+aAlerts
+uWarning: 
+agame
+aspeed
+ugame flag
+uspeed drop
+uCrash at t=
+u s (detected by: 
+u m/s before): 
+u s excluded from the analysis; peaks front 
+u / rear 
+u bottom-out(s) ignored (they say nothing about the setup).
+abraking
+aaccel
+alanding
+aneutral
+aair
+astopped
+abraking
+aacceleration
+alanding
+aneutral
+aairborne
+astopped
+acorner_frac
+aGeneral
+uSteering: 
+u of the session spent turning (handlebar angle above 
+u of max lock)
+uTime per phase: 
+udiagnose.<locals>.<lambda>
+u<lambda>
+akv
+udiagnose.<locals>
+afront
+aFront
+arear
+aRear
+aregime
+utime at low / mid / high suspension speed = 
+u / 
+abraking
+abraking
+aaccel
+aacceleration
+u: not enough data (
+atime
+u s, minimum 
+u s)
+u: median 
+u, p95 
+u beyond 
+u/min (
+u event(s))
+u, unloaded 
+u hits/min
+abraking_straight
+ubraking straight
+abraking_corner
+ubraking while turning
+aaccel_straight
+uacceleration straight
+aaccel_corner
+uacceleration while turning
+u jumps, mean peak 
+u bottom out
+uhigh-speed compression / oil
+uspring / preload / low-speed compression
+uend of travel: 
+u bottom-outs/min, 
+u arrived fast (hit) -> cause: 
+aharsh_frac
+u too sharp
+ufast hits: 
+u/min, mean depth 
+urebound: 
+u impacts, median recovery 
+aret_med
+un/a
+u s
+apack_frac
+u not recovered, 
+akick_frac
+u followed by a rebound; top-outs 
+u/min, of which 
+u/min at high speed (the others = unloaded wheel, not rebound)
+aFront
+urecovery after braking: 
+u s (median over 
+u braking events)
+aUNLOAD_FRAC
+aAlerts
+uFront deep AND rear unloaded under braking: risk of going over the bars (front support setting, but also braking technique).
+uRear unloaded for 
+u of braking (braking technique, or rear spring too stiff).
+aAlerts
+uFront conflict: braking wants more support, braking bumps want more softness. Front compression (a single setting) is left alone; oil and preload are adjusted instead.
+uunder power the front is fully extended (<
+u of travel) 
+u of the time (wheeling threshold 
+upitch swing (front - rear, off the ground): 
+a.0
+wkwvanames
+udiagnose.<locals>
+w udiagnose.<locals>.<genexpr>
+aplateaus
+ats
+asp
+athr
+avmax
+aruns
+wawnaok
+wiaseg
+amean
+adur
+aFULL_THROTTLE
+aPLATEAU_SPEED
+aPLATEAU_MIN_S
+aPLATEAU_FLAT
+asuggest_top_gear
+asamples
+achannels
+atop_speed_ms
+agear_pos
+ashift
+ats
+asp
+athr
+amoving
+avmax
+aruns
+atotal
+atip
+ash
+af_long
+af_short
+apos
+alonger
+aspeed
+athrottle
+aplateaus
+agear_
+aTOP_GEAR
+agear_5
+aPLATEAU_MIN_RUNS
+aPLATEAU_TOTAL_S
+agear
+aplateau_s
+aruns
+avmax_kmh
+f������
+@areason
+utop speed reached at full throttle and held 
+u times (
+u s at ~
+u km/h): gear 
+u is too short, a longer one would give more speed
+aTOO_LONG_RATIO
+utop speed of the session (
+u km/h) stays well below what gear 
+u can do (
+u km/h): a shorter gear would accelerate harder
+aLAST_POS
+aat_limit
+ufront sprocket +1 or rear sprocket -1 (longer final drive)
+urear sprocket +1 or front sprocket -1 (shorter final drive)
+aalt
+u; gear 
+u is already at the 
+alongest
+ashortest
+u position of its range, so change the final drive instead
+a.0
+wkasamples
+achannels
+usuggest_top_gear.<locals>
+usuggest_top_gear.<locals>.<genexpr>
+a.0
+wawbusuggest_top_gear.<locals>
+a_ph
+wmakey
+a_moved
+ashift
+akeys
+a_fmt
+a.0
+wkwvu_fmt.<locals>
+aGEOM_NAME
+u+g
+u_fmt.<locals>.<genexpr>
+ageometry_reading
+ametrics
+ashift
+adiscipline
+asag
+abrake_deep
+wfwraout
+asag_off
+asymptoms
+ara
+aaxle
+alabel
+amv
+aeffects
+afa
+awthr
+asag_off
+ugeometry_reading.<locals>.sag_off
+asag_off
+wmaaxle
+alo
+ahi
+asag
+ugeometry_reading.<locals>
+asag
+afront
+arear
+pu off target
+a_ph
+adeep_frac
+u of braking in deep travel
+ahigh_frac
+urear compressed under power (median 
+a_moved
+aEFFECT
+u. Geometry moved from the original setup (
+a_fmt
+u): it changes 
+u, so this reading does not come from springs and damping alone. The suspension steps stay small: check them next session before pushing further.
+aWHEELIE_DEFAULT
+aDRIVE_KEYS
+uUnder power: final drive / gearing moved from the original setup (
+u): it changes the torque at the wheel, so wheelie and rear squat readings partly reflect gearing.
+ageometry_metrics
+ametrics
+wfwraraw
+abrake_front_deep_frac
+adeep_frac
+abrake_rear_unloaded_frac
+a_add
+atips
+aparam
+adelta
+atext
+awhy
+aalt
+awrite
+awrite
+tawrite
+ageometry_why_none
+ametrics
+afeel
+adiscipline
+wfwraout
+awf
+awthr
+afb
+arb
+acf
+uSwingarm (wheeling): front fully extended under power 
+u of the time, proposed from 
+uSwingarm (braking): front deep 
+u (from 
+u) and rear unloaded 
+u) under braking: both are needed.
+afront_pushes
+uFork offset is only proposed when you tick "front pushes" in How it felt.
+uFork offset: 
+u of the session spent turning, proposed from 
+aCORNER_FRAC_MIN
+uTire pressure is only proposed from what you tick in How it felt (harsh, washes out, pushes, slides at exit).
+a.0
+wtw_afeel
+ugeometry_why_none.<locals>
+unot enough values to unpack (expected at least 1, got %d)
+ugeometry_why_none.<locals>.<genexpr>
+ageometry_advice
+ametrics
+ashift
+afeel
+adiscipline
+wfwratips
+afa
+afb
+arb
+asw_note
+af_sw
+af_fo
+araised
+awthr
+awf
+awfeel
+acf
+afo
+aswingarm
+u (already 
+aswingarm
+u from the original)
+afork_offset
+afork_offset
+ugeometry_advice.<locals>.<lambda>
+u<lambda>
+wkwfashift
+ugeometry_advice.<locals>
+ashift
+afront_wheelie
+arear_wheelie
+a_add
+uSwingarm +1 (longer)
+ufront fully extended 
+u of the time under power (threshold 
+u): a longer wheelbase keeps the front down
+aSPRING_CHECK
+uor shorter final gearing: rear sprocket +1 / front sprocket -1
+aalt
+ufront deep 
+u AND rear unloaded 
+u under braking: a longer wheelbase reduces the tendency to lift the rear
+u. Low confidence: game sources say a longer swingarm can make the rear livelier under hard braking, so this is advice only and is never written automatically. 
+awrite
+uFork offset -1 (more front grip, quicker turn-in)
+ufront pushes (rider feel) and 
+u of the session spent turning: in MX Bikes a smaller offset shifts weight to the front (more front grip, less rear grip, quicker steering), the opposite of real life. Only after the front suspension changes above have been tried
+u (trigger raised x
+u: already 
+a.0
+wtafeel
+ugeometry_advice.<locals>
+ugeometry_advice.<locals>.<genexpr>
+aorigin
+ahas_location
+ףp=
+�?f�������?f
+ףp=
+�?f{
+�G�z�?f�������?f�������?f�������?f
+@f������
+ @f333333�?f
+!@aDECEL_WIN
+ףp=�?f������
+@f{
+�G�z�?f
+"@f
+>@l
+fffffff�?f
+aspeed
+asteer
+athrottle
+abrake_f
+abrake_r
+aCORNER_MIN_TIME
+afront
+arear
+��Q��?f�Q�
+���?T
+�?f�z
+�G��?T
+amotocross
+asupermoto
+aenduro
+aDISCIPLINES
+amotocross
+amotocross
+asupermoto
+aenduro
+aMotocross
+aSupermoto
+aEnduro
+aDISCIPLINE_LABEL
+amotocross
+asupermoto
+aenduro
+aSAG
+aBOTTOM_PER_MIN
+aUNDER_P95
+aUNDER_P99
+aUNDER_W
+aHIT_W
+aLAND_MIN
+aLAND_SHALLOW_RULE
+aBRAKE_DEEP_FRAC
+aBRAKE_SHALLOW
+aACCEL_SQUAT
+aKICK_FRAC
+aRET_SLOW
+aWHEELIE_FRAC
+aPITCH_SWING
+afront
+arear
+ףp=
+�?f�z
+�G��?T
+ףp=
+�?f{
+�G�z�?f
+�?f333333�?f�������?f
+�?f
+�?l
+Ff�������?f�Q�
+���?f�������?f
+ףp=
+�?f333333�?f�������?f333333�?D
+aSAG
+aBOTTOM_PER_MIN
+aUNDER_P95
+aUNDER_P99
+aHIT_W
+aLAND_MIN
+aLAND_SHALLOW_RULE
+aLAND_SHALLOW
+aBRAKE_DEEP_FRAC
+aACCEL_SQUAT
+aKICK_FRAC
+aRET_SLOW
+aPACK_FRAC
+aGROUND_EXT_FRAC
+afront
+arear
+�G�z�?f{
+�G�z�?T
+f�Q�
+���?f�������?f
+�?f�(\����?f
+�?l
+tf�������?fffffff�?f333333�?f)\���(�?f�������?f333333�?f333333�?D
+afront
+aspring_rate
+afront
+apreload
+afront
+aoil
+afront
+acompression
+afront
+arebound
+arear
+aspring_rate
+arear
+apreload
+arear
+acompression_low
+arear
+acompression_high
+arear
+arebound
+ppppppD
+afront
+aspring_rate
+afront
+apreload
+afront
+aoil
+afront
+acompression
+afront
+arebound
+arear
+aspring_rate
+arear
+apreload
+arear
+acompression_low
+arear
+acompression_high
+arear
+arebound
+l	l
+apreload
+aspring_rate
+aoil
+aspring_rate
+apreload
+acompression
+acompression_low
+acompression_high
+arebound
+aoil
+aPARAMS
+arebound
+acompression
+acompression_low
+acompression_high
+f�������?T
+f333333�?acount_topout
+�?f333333�?ahit_stats
+avalidate_channels
+nnaanalyze
+afront
+arear
+aspring_rate
+apreload
+aoil
+acompression
+arebound
+aspring_rate
+apreload
+acompression_low
+acompression_high
+arebound
+aspring_rate
+apreload
+aoil
+acompression
+acompression_low
+acompression_high
+arebound
+uSpring rate
+aPreload
+uOil level
+aCompression
+uLow-speed compression
+uHigh-speed compression
+aRebound
+aPARAM_FR
+akick_frac
+apack_frac
+abottom_per_min
+aharsh_frac
+urebound kicks
+apacking
+ubottom-outs/min
+uharsh hits
+afront_harsh
+afront_bouncy
+afront_soft
+afront_washes_out
+arear_harsh
+arear_kicky
+arear_soft
+arear_slides_exit
+afront_pushes
+afront_wheelie
+arear_wheelie
+afront_packs
+arear_packs
+afront
+acompression
+��T
+apreload
+�T
+afront
+arebound
+�?T
+afront
+acompression
+�?T
+aoil
+�?T
+afront
+acompression
+�T
+arebound
+�?T
+arear
+acompression_low
+��T
+acompression_high
+�T
+arear
+arebound
+�?T
+arear
+acompression_low
+�?T
+aspring_rate
+�?T
+arear
+acompression_low
+��T
+arebound
+�?T
+afront
+acompression
+�T
+apreload
+�T
+afront
+arebound
+�?T
+arear
+acompression_low
+�?T
+apreload
+�?T
+afront
+arebound
+��T
+arear
+arebound
+��D
+afront_harsh
+afront_bouncy
+afront_soft
+afront_washes_out
+arear_harsh
+arear_kicky
+arear_soft
+arear_slides_exit
+afront_pushes
+afront_wheelie
+arear_wheelie
+afront_packs
+arear_packs
+ufront too harsh
+ufront bounces back
+ufront too soft, dives under braking
+ufront washes out at corner entry
+urear too harsh
+urear kicky, bounces
+urear too soft, squats
+urear slides at corner exit
+ufront pushes, no grip mid-corner
+ufront lifts too easily
+ubike wheelies too easily (rear squats)
+ufront packs down on successive bumps
+urear packs down on successive bumps
+afront_harsh
+afront
+ufront feels harsh: a slightly lower front pressure softens small-bump feel
+arear_harsh
+arear
+urear feels harsh: a slightly lower rear pressure softens small-bump feel
+afront_washes_out
+afront
+ufront washes out at corner entry: a lower front pressure gives a larger contact patch
+afront_pushes
+afront
+ufront pushes mid-corner: a lower front pressure gives more grip
+arear_slides_exit
+arear
+urear slides at corner exit: a lower rear pressure gives more traction
+uLow confidence: no solid source says the game simulates tire pressure. Lower pressure = more grip and comfort, but a vaguer feel in corners. One step at a time.
+apressure_advice
+afork_offset
+aswingarm
+atire_front
+atire_rear
+agear_5
+ppT
+apreload
+aspring_rate
+aoil
+acompression
+acompression_low
+acompression_high
+arebound
+arecommend
+asession_cost
+abottom_per_min
+atopout_per_min
+aharsh_frac
+akick_frac
+apack_frac
+aPROP_KEYS
+asession_counts
+averdict
+aupdate_blocked
+aapply_blocked
+aworsened_own
+agate_changes
+@aescalate_spring
+adiagnose
+nnnasuggest_top_gear
+afork_height
+afork_offset
+arod_length
+aswingarm
+afront
+ufront ride height and rake (weight balance)
+afront
+utrail (turn-in and front grip in corners)
+arear
+urear ride height and linkage leverage
+arear
+uwheelbase and rear weight balance
+asprocket_front
+asprocket_rear
+agear_1
+agear_2
+agear_3
+agear_4
+agear_5
+afork_offset
+ufork offset
+aswingarm
+aswingarm
+afork_height
+ufork height
+arod_length
+urod length
+asprocket_front
+ufront sprocket
+asprocket_rear
+urear sprocket
+ugear 
+amotocross
+ageometry_reading
+uCheck the rear preload afterwards (changing the swingarm changes the rear shock leverage).
+ageometry_metrics
+ntT
+amotocross
+ageometry_why_none
+amotocross
+ageometry_advice
+ususpension_rules.py
+(exit 0)

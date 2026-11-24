@@ -841,6 +841,71 @@
         "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45106494160",
         "permalink": "https://www.virustotal.com/gui/file/458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb"
       }
+    },
+    "suspension-tuner-1.4.1.yaml": {
+      "58b8463c7e49f8e30268df4b78d7200668a721eb170b51c571f7962bb66af525": {
+        "found": false,
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45376740299",
+        "permalink": "https://www.virustotal.com/gui/file/58b8463c7e49f8e30268df4b78d7200668a721eb170b51c571f7962bb66af525"
+      },
+      "5cbc4f49e300bb7b5daaa2497404749444878caef499abcd52439b90e860989a": {
+        "found": true,
+        "flagged": 4,
+        "engines": 71,
+        "flagged_by": [
+          "DeepInstinct",
+          "Google",
+          "Skyhigh",
+          "Varist"
+        ],
+        "last_scanned": "2026-11-21",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45376740299",
+        "permalink": "https://www.virustotal.com/gui/file/5cbc4f49e300bb7b5daaa2497404749444878caef499abcd52439b90e860989a"
+      },
+      "0e30010abc3af54ae71947612f9dea4e4e0bbefac52b5fb57d73419f270e15be": {
+        "found": true,
+        "flagged": 9,
+        "engines": 66,
+        "flagged_by": [
+          "APEX",
+          "DeepInstinct",
+          "Google",
+          "Kingsoft",
+          "Malwarebytes",
+          "Paloalto",
+          "SentinelOne",
+          "Trapmine",
+          "Varist"
+        ],
+        "last_scanned": "2026-11-22",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45376740299",
+        "permalink": "https://www.virustotal.com/gui/file/0e30010abc3af54ae71947612f9dea4e4e0bbefac52b5fb57d73419f270e15be"
+      },
+      "8edf41c3bf2705f5dab19ff5351d9bc0dc72deb4645ebfd5565bcc00e0a7e72f": {
+        "found": true,
+        "flagged": 0,
+        "engines": 63,
+        "flagged_by": [],
+        "last_scanned": "2026-11-07",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45376740299",
+        "permalink": "https://www.virustotal.com/gui/file/8edf41c3bf2705f5dab19ff5351d9bc0dc72deb4645ebfd5565bcc00e0a7e72f"
+      },
+      "8ccd6128481d5a3a15993c2f8a69585694ff972652a6b06dcaee276fc65633a7": {
+        "found": true,
+        "flagged": 1,
+        "engines": 71,
+        "flagged_by": [
+          "Cynet"
+        ],
+        "last_scanned": "2026-11-11",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45376740299",
+        "permalink": "https://www.virustotal.com/gui/file/8ccd6128481d5a3a15993c2f8a69585694ff972652a6b06dcaee276fc65633a7"
+      }
     }
   }
 }

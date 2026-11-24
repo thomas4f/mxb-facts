@@ -1,0 +1,12 @@
+$ strings -n 6 SuspensionTuner_Setup.exe | grep -m3 -E 'Inno Setup'; innoextract --version | head -1; innoextract -l SuspensionTuner_Setup.exe
+Inno Setup Setup Data (6.7.0)
+Inno Setup Messages (6.5.0) (u)
+<description>Inno Setup</description>
+innoextract 1.9
+Warning: Unexpected setup loader revision: 2
+Warning: Setup loader checksum mismatch!
+Could not determine setup data version!
+If you are sure the setup file is not corrupted, consider 
+filing a bug report at https://innoextract.constexpr.org/issues
+Done with 1 error and 2 warnings.
+(exit 2)

@@ -27,7 +27,6 @@ Tools on file to analyse. The release named here is the one on file when the too
 |  | MXBTT | [V1.0.0](https://github.com/DankMaps/MXBTT.com-Releases/releases/tag/V1.0.0) | HUD | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXBTT.com-Releases](https://github.com/DankMaps/MXBTT.com-Releases) | [mxbtt.com](https://mxbtt.com) | `mxbtt` |
 |  | MXPulse Alpha | [v0.37.3-alpha](https://github.com/daf0707pro-lgtm/MXPulse/releases/tag/v0.37.3-alpha) | HUD | GitHub user [daf0707pro-lgtm](https://github.com/daf0707pro-lgtm) | [daf0707pro-lgtm/MXPulse](https://github.com/daf0707pro-lgtm/MXPulse) | None found | `mxpulse` |
 |  | Rider POV+ | 2.4.0 | Gameplay and visuals | Finner24 on mxb-mods.com | None found | None found | `rider-pov-plus` |
-|  | Suspension Tuner | [1.4.1](https://github.com/Lilian1134/Suspension-Tuner/releases/tag/1.4.1) | Setup and coaching | GitHub user [Lilian1134](https://github.com/Lilian1134) | [Lilian1134/Suspension-Tuner](https://github.com/Lilian1134/Suspension-Tuner) | None found | `suspension-tuner` |
 
 ## Requests
 
@@ -92,3 +91,4 @@ Not listed: logo sheets, templates and guides (not software). Plugins published 
 Cards taken off the site, with the date and the reason, so a removal stays visible.
 
 None yet.
+- **Suspension Tuner 1.4.1: its installer wasn't unpacked or run.** `SuspensionTuner_Setup.exe` is Inno Setup 6.7, which innoextract 1.9 (the newest release) can't read. A tool that reads Inno Setup 6.7, or a run of the installer and its uninstaller on the throwaway Windows machine with a dummy game folder, would show what it installs, any licence page, its shortcuts and what uninstalling leaves, and settle the installer limit on `cards/suspension-tuner-1.4.1.yaml` (P6, P8, G9, T7). A run that clicks Start listening with a dummy `proxy_udp.ini` would show the rewrite the card reads from the app's constants (P4, G6).

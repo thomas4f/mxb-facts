@@ -1,0 +1,101 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe suspension_tuner | awk '/^afind_game_dirs$/{p=1} p; /set enable = 1 by hand/{exit}'
+afind_game_dirs
+aroots
+awinreg
+ahive
+akey
+aname
+wkwdasub
+alibs
+wravdf
+atxt
+acands
+afound
+awinreg
+aHKEY_CURRENT_USER
+uSoftware\Valve\Steam
+aSteamPath
+aHKEY_LOCAL_MACHINE
+uSOFTWARE\WOW6432Node\Valve\Steam
+aInstallPath
+aOpenKey
+aadd
+aQueryValueEx
+aCDEFGH
+uProgram Files (x86)\Steam
+uProgram Files\Steam
+aSteam
+aSteamLibrary
+uGames\Steam
+u:\
+asteamapps
+ulibraryfolders.vdf
+aignore
+aupdate
+are
+afindall
+u"path"\s+"([^"]+)"
+u:\Program Files\MX Bikes
+u:\Program Files (x86)\MX Bikes
+u:\MX Bikes
+u:\Games\MX Bikes
+umxbikes.exe
+uproxy_udp.ini
+a.0
+wpufind_game_dirs.<locals>
+areplace
+u\\
+w\ufind_game_dirs.<locals>.<genexpr>
+aenable_plugin
+agame_dir
+aport
+apath
+aexists
+atext
+anew
+akey
+aval
+apat
+u[params]
+enable = 0
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+aenable
+w1aip
+u127.0.0.1:
+u^(\s*
+u\s*=\s*)[^\r\n]*
+wMwIasearch
+asub
+u<lambda>
+uenable_plugin.<locals>.<lambda>
+u<lambda>
+wmaval
+uenable_plugin.<locals>
+aval
+arstrip
+u = 
+aok
+u.bak
+achanged
+agroup
+aauto_setup
+aport
+adirs
+wdwe
+afind_game_dirs
+awarn
+uMX Bikes installation not found automatically. Make sure proxy_udp.ini contains enable = 1.
+aenable_plugin
+uTelemetry plugin just enabled (backup: proxy_udp.ini.bak). Restart MX Bikes if it is already running.
+uCould not modify proxy_udp.ini in 
+u (
+u). Run as administrator, or set enable = 1 by hand.
+Traceback (most recent call last):
+  File "/home/runner/work/mxb-facts/mxb-facts/lab/evidence/nuitka.py", line 44, in <module>
+    consts(d[start:start + size])
+  File "/home/runner/work/mxb-facts/mxb-facts/lab/evidence/nuitka.py", line 33, in consts
+    print(line)
+BrokenPipeError: [Errno 32] Broken pipe
+(exit 0)

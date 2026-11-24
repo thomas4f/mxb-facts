@@ -1,0 +1,500 @@
+tool: Suspension Tuner
+version: 1.4.1
+summary: >-
+  A Windows app that listens for the ride data MX Bikes' own proxy_udp plugin sends, analyses your laps and writes a new
+  `.stp` suspension setup into the game's setups folder. With its default settings it switches the game's proxy_udp plugin
+  on itself (after a backup) and checks GitHub for a newer version each time it starts.
+header:
+  What it is: >-
+    A closed-source Windows app you run beside the game: a small .NET launcher, `SuspensionTuner.exe`, that starts the real
+    program in `app\`, a Python app compiled with Nuitka. It receives the game's proxy_udp data over UDP, analyses the
+    suspension and writes `ST_<track>_<bike>.stp` setup files. It is offered as a zip and as an Inno Setup installer; it is
+    not a plugin.
+  In one line: App that reads MX Bikes telemetry and writes suggested suspension setups (.stp)
+  Category: Setup and coaching
+  Author: Lilian1134 (GitHub name)
+  Game: MX Bikes
+  mxb-mods.com: '[Suspension Tuner](https://mxb-mods.com/suspension-tuner/), published 9 Oct 2026, updated 21 Oct 2026'
+  Homepage: None found
+  GitHub: '[Lilian1134/Suspension-Tuner](https://github.com/Lilian1134/Suspension-Tuner)'
+  Version analysed: >-
+    1.4.1: the GitHub release [1.4.1](https://github.com/Lilian1134/Suspension-Tuner/releases/tag/1.4.1) (20 Oct 2026),
+    `SuspensionTuner.zip` and `SuspensionTuner_Setup.exe`; the newest release in the inventory (`registry/releases.json`,
+    from GitHub; its mxb-mods.com page lists no files of its own).
+  Source commit: >-
+    [895a62d8dfdaba844a85878c4eae0cd2295fa3dc](https://github.com/Lilian1134/Suspension-Tuner/tree/895a62d8dfdaba844a85878c4eae0cd2295fa3dc)
+    ("Update README.md", 16 Oct 2026), the commit tag `1.4.1` points to. At that commit the repository holds only
+    `README.md`: the source isn't public.
+  Analysed on: 24 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    No licence was found (none in the repository, the zip or on its pages), so nothing forbids the analysis; closed source,
+    so the release was examined without running it here. The launcher (.NET) was decompiled with ILSpy (`ilspycmd`
+    11.2.0). The app is compiled with Nuitka, so its Python code is machine code: it was read through the constants each of
+    its nine own modules keeps (the names it calls, its texts, its defaults), listed with `lab/evidence/nuitka.py`, and
+    through its imports; its control flow wasn't traced instruction by instruction. Every program file in the zip was listed
+    with its type, hash and code-signing entry. The installer (Inno Setup 6.7) could not be unpacked: innoextract 1.9 can't
+    read that version. Every command is in `lab/evidence/suspension-tuner-1.4.1/run.sh`. The release was not rebuilt (no
+    public source). A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a
+    real GPU), no game, no Steam and no keys started the launcher and, separately, the app for 90 s, under Process Monitor,
+    with the run folder's programs blocked by the firewall, and clicked nothing; the installer wasn't run. VirusTotal: hash
+    lookups only, made before the analysis (24 Nov 2026), nothing uploaded.
+files:
+  - name: SuspensionTuner.zip
+    sha256: 58b8463c7e49f8e30268df4b78d7200668a721eb170b51c571f7962bb66af525
+    note: The zip download of the GitHub release (no installation).
+  - name: SuspensionTuner_Setup.exe
+    sha256: 5cbc4f49e300bb7b5daaa2497404749444878caef499abcd52439b90e860989a
+    note: The installer download of the same release (Inno Setup 6.7); not unpacked or run (see Limits).
+  - name: SuspensionTuner.exe
+    sha256: 0e30010abc3af54ae71947612f9dea4e4e0bbefac52b5fb57d73419f270e15be
+    inside: SuspensionTuner.zip
+    note: The launcher (`SuspensionTuner\SuspensionTuner.exe`, .NET), which starts the app below.
+  - name: app\SuspensionTuner.exe
+    sha256: 8edf41c3bf2705f5dab19ff5351d9bc0dc72deb4645ebfd5565bcc00e0a7e72f
+    inside: SuspensionTuner.zip
+    note: >-
+      The app (Nuitka, Python 3.13.3), with the tool's own modules compiled in. Beside it in `app\` are Python's DLL and
+      modules, Pillow, Tcl/Tk, OpenSSL and the C runtime; every program file of the zip, with its SHA-256 and type, is in
+      `lab/evidence/suspension-tuner-1.4.1/bundled.txt`.
+  - name: app\PIL\_imagingtk.pyd
+    sha256: 8ccd6128481d5a3a15993c2f8a69585694ff972652a6b06dcaee276fc65633a7
+    inside: SuspensionTuner.zip
+    note: Pillow 12.3.0's Tk module, listed here because one engine flags it (P1).
+files_note: >-
+  None of the installer, the launcher or the app is code-signed (`lab/evidence/suspension-tuner-1.4.1/signature.txt`). The
+  zip's and the installer's hashes match the ones the Windows machine ran
+  (`lab/results/suspension-tuner-1.4.1/app-direct-windows/machine.txt`), and the launcher's and app's the ones it started
+  (`lab/results/suspension-tuner-1.4.1/app-direct-windows/plugins.sha256`).
+key:
+  K1: 'Flagged; no malware found. 9 of 66 engines flag the launcher and 4 of 71 the installer; the zip isn''t on VirusTotal.'
+  K2: 'No. It checks GitHub for a newer version and only tells you; it installs nothing.'
+  K3: >-
+    Yes. With its default settings, starting an analysis rewrites the game's `proxy_udp.ini` (after a copy to
+    `proxy_udp.ini.bak`) to switch the plugin on and point it at the tool.
+  K4: 'No. The only thing it sends off your PC is the update check to GitHub.'
+  K5: 'No. It changes nothing in the game; it reads the data the game''s own proxy_udp plugin sends.'
+  K6: 'No. It opens no one''s content.'
+  K7: 'No. Only the compiled program is published, with no licence.'
+  K8: 'Yes, as far as checked.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'Yes. Each start it asks GitHub for the tool''s release list.'
+areas:
+  Your PC and files: >-
+    No updater; with default settings it switches on the game's proxy_udp plugin by rewriting `proxy_udp.ini` (with a
+    backup) and writes its setups into the game's setups folder; not code-signed, and 9 of 66 engines flag the launcher.
+  Your data: >-
+    Asks GitHub for its release list at each start, with no switch; the game's data comes in over UDP and stays on your PC.
+  Your game: >-
+    A separate program that reads the game's own proxy_udp output; it changes that plugin's settings file, and nothing
+    in the game.
+  Creators' content: Opens no mods, paints, tracks or models; ships only Tk's licence terms for the code it packs.
+  Transparency: Closed source with no licence; the GitHub repository holds only a README and the release files.
+  Money: Free; a "Support on Gumroad" button links to an optional support page.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: its settings (`settings.json`) and session data (`raw_session.json`, `tuning_history.json`,
+          `travel_by_bike.json` and others) are kept in `%APPDATA%\SuspensionTuner`; the app made that folder when it started
+          in the run (`lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`,
+          `lab/results/suspension-tuner-1.4.1/launcher-windows/outside.txt`).
+        mark: note
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: >-
+              A request for the tool's release list (`/repos/Lilian1134/Suspension-Tuner/releases?per_page=20`), with the
+              User-Agent `SuspensionTuner/1.4.1`
+            Where to: '`api.github.com` (GitHub), HTTPS'
+            When: >-
+              At each start ("Checked automatically at startup"), and on Check now in Settings; seen about 4 s after the start
+              in the app run
+            Switch: None
+          - What: Nothing sent; it listens for the game's proxy_udp data (speed, controls, suspension travel and more)
+            Where to: 'UDP port 30001 (the UDP port setting), on every network interface (`0.0.0.0`)'
+            When: From Start listening until you finish or stop
+            Switch: Stop, or close it
+          - What: Your browser opens the Discord invite, the Gumroad page or the release page
+            Where to: '`discord.gg`, `gumroad.com`, `github.com`'
+            When: Only when you click Join the Discord, Support on Gumroad or the update notice's Download
+            Switch: Don't click them
+      - text: >-
+          Also found: it listens on every network interface (`0.0.0.0`), not only on your own PC (`127.0.0.1`), so while it
+          listens, another device on your network could send it data that ends up in the analysis; the game's plugin sends to
+          `127.0.0.1` (`lab/evidence/suspension-tuner-1.4.1/udp.txt`, `lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`).
+        mark: note
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks:
+      - text: >-
+          Also found: the repository's history shows a `SuspensionTuner.exe` uploaded on 14 Oct 2026 and deleted on 16 Oct
+          2026 ([bc338e4](https://github.com/Lilian1134/Suspension-Tuner/commit/bc338e4a6076b8b5af82ecab9940be77a03f8874),
+          [252738a](https://github.com/Lilian1134/Suspension-Tuner/commit/252738ad3961e6463bbba887d51b93b70189b769)); no
+          source file was ever added.
+        mark: note
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "It's free, no account, no key, no paid features, just open it and use it." (its mxb-mods.com page)
+            Verdict: Matches
+            Evidence: >-
+              Its code has no account, licence key or payment step; the only money link is the optional "Support on
+              Gumroad" button, and its window says "No account, no license key, nothing to unlock."
+              (`lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`).
+          - Claim: >-
+              "On first launch the tool enables the game's UDP plugin (proxy_udp.ini). If it has just done so, restart MX
+              Bikes once." (its Settings, Configure MX Bikes automatically)
+            Verdict: Partly
+            Evidence: >-
+              The switch is on by default and its code holds the rewrite of `proxy_udp.ini` (after a copy to
+              `proxy_udp.ini.bak`) (`lab/evidence/suspension-tuner-1.4.1/defaults.txt`,
+              `lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`). It isn't done at the first start: in the 90 s app run it
+              didn't look for the game or `proxy_udp.ini`
+              (`lab/results/suspension-tuner-1.4.1/app-direct-windows/raw/procmon.csv.gz`); the window passes `--no-setup` to
+              the analysis when the switch is off, so it comes with Start listening
+              (`lab/evidence/suspension-tuner-1.4.1/auto-plugin.txt`).
+          - Claim: >-
+              "Put the newly generated .stp file into your bike's setup folder and load it in the garage."
+              ([README.md](https://github.com/Lilian1134/Suspension-Tuner/blob/895a62d8dfdaba844a85878c4eae0cd2295fa3dc/README.md#L10))
+            Verdict: Partly
+            Evidence: >-
+              The app writes `ST_<track>_<bike>.stp` into the setups folder itself (by default the bike's folder under
+              `Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\setups`); you only load it
+              (`lab/evidence/suspension-tuner-1.4.1/file-writes.txt`, `lab/evidence/suspension-tuner-1.4.1/telemetry.txt`).
+          - Claim: '"Your .stp files are untouched." (its window, on Reset history)'
+            Verdict: Not checked
+            Evidence: >-
+              Reset history wasn't clicked in the runs, and which files it removes can't be read from the constants alone
+              (`lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`).
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real
+              GPU, without the game or Steam, so no game data was received, and nothing was clicked: Start listening, Finish &
+              analyze, the settings, Reset history, the Discord and Gumroad buttons and the update notice weren't run. What
+              they do rests on the app's constants.
+            questions: [P4, P7, P8, G6, D6]
+          - text: >-
+              The app is compiled to machine code by Nuitka; the analysis read the names, texts and defaults each module keeps,
+              not the order its code runs them in. That `proxy_udp.ini` gets `enable = 1` and `ip = 127.0.0.1:<port>`, and that
+              the Download button opens the release page rather than fetching a file, rest on those constants: the update
+              module's only internet call reads the release list, and no module holds a download or write of a fetched file.
+            questions: [P2, P4, G6]
+          - text: >-
+              The installer, `SuspensionTuner_Setup.exe` (Inno Setup 6.7), couldn't be unpacked (innoextract 1.9 doesn't read
+              that version) and wasn't run, so what it installs, any licence page in it, its shortcuts and its uninstaller
+              weren't seen. The card covers the zip's files.
+            questions: [P6, P8, G9, T7]
+          - text: >-
+              The launcher run ended about 5 s after the launcher started the app (the launcher exits at once), before the
+              app's update check; the app's own 90 s run is the one that shows its start.
+            questions: []
+answers:
+  P1:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      9 of 66 engines (APEX, DeepInstinct, Google, Kingsoft, Malwarebytes, Paloalto, SentinelOne, Trapmine, Varist) flag the
+      launcher `SuspensionTuner.exe` (last scanned 22 Nov 2026); 4 of 71 (DeepInstinct, Google, Skyhigh, Varist) flag
+      `SuspensionTuner_Setup.exe` (21 Nov 2026); 1 of 71 (Cynet) flags `app\PIL\_imagingtk.pyd` (11 Nov 2026); 0 of 63 flag
+      the app `app\SuspensionTuner.exe` (7 Nov 2026). `SuspensionTuner.zip` is not on VirusTotal (hash lookup on 24 Nov 2026).
+      All 31 program files of the release are on VirusTotal, and no engine flags the others; the zip's Tcl/Tk scripts weren't
+      looked up (over 40 files). Nothing uploaded.
+    evidence: >-
+      [SuspensionTuner.zip](https://www.virustotal.com/gui/file/58b8463c7e49f8e30268df4b78d7200668a721eb170b51c571f7962bb66af525),
+      [SuspensionTuner_Setup.exe](https://www.virustotal.com/gui/file/5cbc4f49e300bb7b5daaa2497404749444878caef499abcd52439b90e860989a),
+      [SuspensionTuner.exe](https://www.virustotal.com/gui/file/0e30010abc3af54ae71947612f9dea4e4e0bbefac52b5fb57d73419f270e15be),
+      [app\SuspensionTuner.exe](https://www.virustotal.com/gui/file/8edf41c3bf2705f5dab19ff5351d9bc0dc72deb4645ebfd5565bcc00e0a7e72f),
+      [app\PIL\_imagingtk.pyd](https://www.virustotal.com/gui/file/8ccd6128481d5a3a15993c2f8a69585694ff972652a6b06dcaee276fc65633a7)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It installs no updates. The update check reads GitHub's release list and keeps the newest version's number, notes and
+      page; a newer version shows an "Update available" notice with a Download button. No module of the tool downloads or
+      writes a fetched file.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/update.txt`, `lab/evidence/suspension-tuner-1.4.1/update-ui.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater that installs anything; the update check only tells you about a newer version (P2).
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/update.txt`, `lab/evidence/suspension-tuner-1.4.1/update-ui.txt`.'
+  P4:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      With Configure MX Bikes automatically on, as it is by default, starting an analysis looks for the game (Steam's folder
+      from the registry, Steam's `libraryfolders.vdf`, four fixed folders) and rewrites its `proxy_udp.ini` after copying it
+      to `proxy_udp.ini.bak`, setting `enable = 1` and `ip = 127.0.0.1:<port>`. It writes its own `ST_*.stp` setups and
+      calibration test files; no code deletes other programs' files.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/auto-plugin.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Neither the installer, the launcher nor the app is code-signed, and they can't be traced to public source.
+    evidence: Empty Security Directory for each (`lab/evidence/suspension-tuner-1.4.1/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its code only reads the registry (Steam's folder) and writes nothing there; its other Windows calls set its own
+      window's DPI and taskbar name. In the runs, the registry writes were Windows' own (WMI, the network stack, the app-use
+      record `bam`).
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/registry.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`; `lab/results/suspension-tuner-1.4.1/app-direct-windows/registry.txt`, `lab/results/suspension-tuner-1.4.1/launcher-windows/registry.txt`.'
+  P7:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It writes `proxy_udp.ini` and `proxy_udp.ini.bak` in the game folder (P4) when an analysis starts, and its setups
+      (`ST_<track>_<bike>.stp`, or `ST_general_<bike>.stp`) into the game's setups folder in Documents after Finish &
+      analyze. Nothing else is added; nothing was written when the app only started.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`, `lab/evidence/suspension-tuner-1.4.1/telemetry.txt`; `lab/results/suspension-tuner-1.4.1/app-direct-windows/files.diff`, `lab/results/suspension-tuner-1.4.1/app-direct-windows/outside.txt`.'
+  P8:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      The zip has no uninstaller; deleting its folder leaves the changed `proxy_udp.ini` (its backup sits next to it, to put
+      back by hand), the `.stp` files it wrote and `%APPDATA%\SuspensionTuner`. The installer's uninstaller wasn't examined
+      (Limits).
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/file.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The flagged launcher is a .NET program that starts `app\SuspensionTuner.exe` with the same arguments
+      and exits. The app's own modules do what its window shows: listen for the game's data, analyse it, write setups and
+      `proxy_udp.ini`, and check GitHub for a version; they hold no code to start programs, open other processes or press
+      keys.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/launcher.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`, `lab/evidence/suspension-tuner-1.4.1/blocks.txt`; `lab/results/suspension-tuner-1.4.1/launcher-windows/procmon.txt`.'
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      At each start it asks `api.github.com` for the tool's release list over HTTPS; the app run tried it about 4 s after the
+      start (to 140.82.112.6, GitHub). The Discord, Gumroad and release-page buttons open your browser only when clicked.
+    evidence: '`lab/results/suspension-tuner-1.4.1/app-direct-windows/network.txt`; `lab/evidence/suspension-tuner-1.4.1/update.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`.'
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Only the plain update check leaves your PC: a request for the release list, with the tool's version in its User-Agent.
+      The game's data stays on your PC.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/update.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: The update check carries no identifier; the tool makes none.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/update.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: It reads only your own bike's data from the game and sends nothing about other players.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/telemetry.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: It runs no web server; its only listener is the UDP socket for the game's data (see "Also found").
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/udp.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      To find the game it reads Steam's folder from the registry and Steam's `libraryfolders.vdf`; it reads the game's
+      `proxy_udp.ini` and your own `.stp` setups. None of it is other people's data.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/registry.txt`, `lab/evidence/suspension-tuner-1.4.1/telemetry.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; the update check only reads.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/update.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`.'
+  D8:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The update check at start has no switch (Settings shows "Checked automatically at startup" and Check now). It carries
+      nothing about you.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/update-ui.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/update.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the download and the app need none.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It sends the game's data to no other program; it only receives it. Its session files in `%APPDATA%\SuspensionTuner`
+      are its own.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/network.txt`, `lab/evidence/suspension-tuner-1.4.1/udp.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It doesn't open or write into the game's process; it only receives the data the game's own plugin sends.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/absent.txt`, `lab/evidence/suspension-tuner-1.4.1/udp.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: It doesn't touch the game's code or memory.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/absent.txt`, `lab/evidence/suspension-tuner-1.4.1/imports.txt`.'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It changes nothing in the game (G2). The setups it writes are ordinary `.stp` files you load in the garage yourself.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/absent.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: It gets the game's data only from the game's own proxy_udp plugin, over UDP.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/udp.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It takes input only in its own window; it has no code to press keys or read them elsewhere.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
+  G6:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      Starting an analysis with its default settings rewrites the settings file of the game's own proxy_udp plugin (P4): it
+      switches the plugin on and sets the address it sends to, so a program that got that data before gets none until you
+      put the backup back.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It reads no keys through Windows; its own modules hold no keyboard functions.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/absent.txt`, `lab/evidence/suspension-tuner-1.4.1/registry.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: It doesn't run in the game, so it sets no crash handler there.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/file.txt`, `lab/evidence/suspension-tuner-1.4.1/imports.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; its code writes no registry value and the runs wrote no start-up entry.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/registry.txt`; `lab/results/suspension-tuner-1.4.1/app-direct-windows/registry.txt`.'
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: The tool is a separate program you start yourself and keep open while you ride.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/file.txt`, `lab/evidence/suspension-tuner-1.4.1/launcher.txt`; `lab/results/suspension-tuner-1.4.1/app-direct-windows/loaded.txt`.'
+  G11:
+    verdict: 'No'
+    mark: good
+    text: It ships no plugin and loads nothing into the game.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/bundled.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check is got around; it uses the game's own proxy_udp output.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/udp.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; it reads the game's ride data and `.stp` setups.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/telemetry.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves no models or textures; it writes setups, its settings and session files, and `proxy_udp.ini`.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/file-writes.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; the only thing it sends off your PC is the update check.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/network.txt`.'
+  C4:
+    verdict: Partly
+    mark: note
+    text: >-
+      Tk's licence terms ship with Tk's files (`app\tk\license.terms`); nothing credits Python, Pillow, customtkinter,
+      darkdetect, OpenSSL, Tcl or Nuitka, and the repository has only a README.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/thirdparty.txt`, `lab/evidence/suspension-tuner-1.4.1/versions.txt`, `lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It opens no mods, paints, tracks or models; it reads setups (`.stp`) and the names of the bike folders you saved setups
+      in.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/file-writes.txt`, `lab/evidence/suspension-tuner-1.4.1/telemetry.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source of its own code isn't public. Prebuilt program files: `SuspensionTuner.exe` (PE32 .NET program, the
+      launcher, no public source); `app\SuspensionTuner.exe` (PE32+ GUI program, x86-64, Nuitka), holding the tool's nine
+      compiled modules (no public source) and customtkinter 6.0.0 and darkdetect 0.8.0; `python313.dll` and 12 `.pyd`
+      modules (Python 3.13.3); 7 `.pyd` modules in `PIL\` (Pillow 12.3.0); `libcrypto-3.dll` and `libssl-3.dll` (OpenSSL
+      3.0.16); `libffi-8.dll`; `tcl86t.dll` and `tk86t.dll` (Tcl/Tk 8.6.15); `zlib1.dll`; `vcruntime140.dll` and
+      `vcruntime140_1.dll` (Microsoft's C runtime); and `SuspensionTuner_Setup.exe` (Inno Setup 6.7 installer, contents not
+      unpacked).
+    evidence: '`file` on each (`lab/evidence/suspension-tuner-1.4.1/file.txt`, `lab/evidence/suspension-tuner-1.4.1/bundled.txt`), `lab/evidence/suspension-tuner-1.4.1/versions.txt`, `lab/evidence/suspension-tuner-1.4.1/setup.txt`; [the repository at the tag](https://github.com/Lilian1134/Suspension-Tuner/tree/895a62d8dfdaba844a85878c4eae0cd2295fa3dc) (only README.md).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing its README, page or window says on these questions differs from what its code does; the claims are in "What
+      it says vs what it does".
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`, `lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release files are uploaded to a GitHub release; the repository has no source and no build.
+    evidence: '[The repository at the tag](https://github.com/Lilian1134/Suspension-Tuner/tree/895a62d8dfdaba844a85878c4eae0cd2295fa3dc), [release 1.4.1](https://github.com/Lilian1134/Suspension-Tuner/releases/tag/1.4.1).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[The repository at the tag](https://github.com/Lilian1134/Suspension-Tuner/tree/895a62d8dfdaba844a85878c4eae0cd2295fa3dc).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No code history is public: the repository's five commits only add and edit the README and once add and delete a
+      program file. The GitHub releases have short notes for each version.
+    evidence: '[Commit history](https://github.com/Lilian1134/Suspension-Tuner/commits/895a62d8dfdaba844a85878c4eae0cd2295fa3dc), [releases](https://github.com/Lilian1134/Suspension-Tuner/releases).'
+  T6:
+    verdict: Not checked
+    text: >-
+      No source or build files are public, so how its dependencies are pinned can't be read; the packed files show the
+      exact versions that were packed.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/versions.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      No licence was found: GitHub reports none, the repository holds only a README without one, and the zip has none of
+      its own.
+    evidence: '[The repository at the tag](https://github.com/Lilian1134/Suspension-Tuner/tree/895a62d8dfdaba844a85878c4eae0cd2295fa3dc), `lab/evidence/suspension-tuner-1.4.1/thirdparty.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold or unlocked; its window says "No account, no license key, nothing to unlock."
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Its window has a "Support Suspension Tuner (optional)" panel with a "Support on Gumroad" button ("Entirely optional.
+      It changes nothing in the app.") that opens [its Gumroad page](https://lilian12.gumroad.com/l/SuspensionTuner).
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`.'
+history:
+  - date: 24 Nov 2026
+    change: First card, for 1.4.1.

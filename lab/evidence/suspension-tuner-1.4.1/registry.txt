@@ -1,0 +1,20 @@
+$ for m in __main__ calibration gameplay_analysis proof stp_setup suspension_rules suspension_settings suspension_tuner suspension_update; do nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe $m | sed "s/^/$m: /"; done | grep -nE 'winreg|HKEY|OpenKey|QueryValueEx|SetValue|CreateKey|DeleteKey|Valve|windll|shell32|user32|shcore|ole32|SetCurrentProcess|SetProcessDpi|SHGetKnownFolderPath'
+27:__main__: awindll
+28:__main__: ashell32
+29:__main__: aSetCurrentProcessExplicitAppUserModelID
+159:__main__: ashcore
+160:__main__: aSetProcessDpiAwareness
+161:__main__: auser32
+7653:suspension_tuner: awindll
+7654:suspension_tuner: ashell32
+7655:suspension_tuner: aSHGetKnownFolderPath
+7658:suspension_tuner: aole32
+7706:suspension_tuner: awinreg
+7716:suspension_tuner: awinreg
+7717:suspension_tuner: aHKEY_CURRENT_USER
+7718:suspension_tuner: uSoftware\Valve\Steam
+7720:suspension_tuner: aHKEY_LOCAL_MACHINE
+7721:suspension_tuner: uSOFTWARE\WOW6432Node\Valve\Steam
+7723:suspension_tuner: aOpenKey
+7725:suspension_tuner: aQueryValueEx
+(exit 0)

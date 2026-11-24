@@ -1,0 +1,11 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe suspension_tuner | grep -nE -B2 -A6 '^asocket$'
+554-aclutch
+555-wkwv
+556:asocket
+557-aAF_INET
+558-aSOCK_DGRAM
+559-abind
+560-u0.0.0.0
+561-uPort 
+562-u is already in use. Close the other program that is listening on it.
+(exit 0)

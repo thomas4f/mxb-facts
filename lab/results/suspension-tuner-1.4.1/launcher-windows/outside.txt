@@ -1,0 +1,3 @@
+SuspensionTuner.exe  CreateFile  \Device\NamedPipe  SUCCESS
+SuspensionTuner.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\SuspensionTuner  SUCCESS
+SuspensionTuner.exe  WriteFile  \Device\NamedPipe  SUCCESS

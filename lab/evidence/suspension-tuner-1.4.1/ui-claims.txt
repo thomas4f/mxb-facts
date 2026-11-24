@@ -1,0 +1,13 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe __main__ | grep -nE 'untouched|100% free|nothing to unlock|Entirely optional|first launch|Join the Discord|15 seconds|Open the setups folder'
+1044:uOpen the setups folder
+2850:uJoin the Discord :)
+3118:uOn first launch the tool enables the game's UDP plugin (proxy_udp.ini). If it has just done so, restart MX Bikes once.
+3140:uFound a bug or want a new feature? Join the Discord and tell us.
+3141:uJoin the Discord
+3143:uA small "Join the Discord" popup shown for 15 seconds when the app starts.
+3235:l&uEntirely optional. It changes nothing in the app.
+3310:uThe next analysis will not be compared with earlier sessions, and for this bike the setup it uses as base becomes the new original (drift = 0). Other bikes keep their drift reference. Your .stp files are untouched.
+3311:uThe next analysis will not be compared with earlier sessions. No bike is selected, so no drift reference was reset: pick a bike in the Bike menu and reset again to restart drift at zero. Your .stp files are untouched.
+3388:uSuspension Tuner is 100% free:
+3393:No account, no license key, nothing to unlock.
+(exit 0)

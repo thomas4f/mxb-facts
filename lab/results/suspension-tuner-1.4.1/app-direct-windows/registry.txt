@@ -1,0 +1,4 @@
+SuspensionTuner.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS
+SuspensionTuner.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+SuspensionTuner.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+SuspensionTuner.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-app-direct\release\SuspensionTuner.zip\SuspensionTuner\app\SuspensionTuner.exe  SUCCESS

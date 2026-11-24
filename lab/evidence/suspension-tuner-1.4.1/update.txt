@@ -1,0 +1,100 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe suspension_update; nuitka.py raw zip/SuspensionTuner/app/SuspensionTuner.exe suspension_update aok 60
+aconfigured
+aGITHUB_REPO
+uOWNER/REPO
+aparse_version
+atag
+are
+afindall
+u\d+
+w-T
+a.0
+wxuparse_version.<locals>
+uparse_version.<locals>.<genexpr>
+ais_newer
+aremote
+alocal
+wawbwn
+aparse_version
+amax
+a_get
+aurl
+aaccept
+areq
+aurllib
+arequest
+aRequest
+aAccept
+uUser-Agent
+uSuspensionTuner/
+aAPP_VERSION
+aheaders
+aurlopen
+aTIMEOUT
+atimeout
+D	aok
+anewer
+aversion
+anotes
+apage
+aurl
+asize
+asha256
+aerror
+FpnsnnnnnC�
+acheck_latest
+aout
+wrarels
+wearel
+atag
+aconfigured
+uupdate source not configured
+aerror
+a_get
+uhttps://api.github.com/repos/
+u/releases?per_page=20
+ajson
+aloads
+adecode
+uutf-8
+nnnaHTTPError
+acode
+uGitHub answered 404: repository not found or private (check GITHUB_REPO)
+uGitHub rate limit reached, try again later
+uGitHub error 
+uno connection to GitHub (
+w)T
+adraft
+aprerelease
+atag_name
+uno published release found: on GitHub, create a Release (a simple tag is not enough)
+u<lambda>
+ucheck_latest.<locals>.<lambda>
+u<lambda>
+ucheck_latest.<locals>
+akey
+atag_name
+aok
+aversion
+alstrip
+avV
+anotes
+abody
+astrip
+apage
+ahtml_url
+uhttps://github.com/
+u/releases/latest
+anewer
+ais_newer
+aorigin
+ahas_location
+uurllib.error
+uurllib.request
+u1.4.1
+uLilian1134/Suspension-Tuner
+uapplication/vnd.github+json
+acheck_latest
+ususpension_update.py
+b'aok\x00anewer\x00aversion\x00anotes\x00apage\x00aurl\x00asize\x00asha256\x00aerror\x00F'
+(exit 0)

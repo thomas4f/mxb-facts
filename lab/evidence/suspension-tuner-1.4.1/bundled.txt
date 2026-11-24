@@ -1,0 +1,62 @@
+$ cd zip; find . -type f \( -iname '*.dll' -o -iname '*.pyd' -o -iname '*.exe' \) | sort | while read f; do sha256sum "$f"; file -b "$f"; done
+0e30010abc3af54ae71947612f9dea4e4e0bbefac52b5fb57d73419f270e15be  ./SuspensionTuner/SuspensionTuner.exe
+PE32 executable for MS Windows 4.00 (GUI), Intel i386 Mono/.Net assembly, 3 sections
+2e3e5cce3aea38c603680ca3da5d161fad123ce23a803bb692a56aff608989be  ./SuspensionTuner/app/PIL/_avif.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+88756e8e0e3f6180e518da25d379597c861e2d20d716ef001894789b515c1777  ./SuspensionTuner/app/PIL/_imaging.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+7ecb50b954d13d72b7a0ff565872332443cdbc83a36e58a56b2b949a56f32549  ./SuspensionTuner/app/PIL/_imagingcms.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+e94673a471a0b6fd5e92e8b6cdbdfe16e2e91bcf5689e9e4c9b391ab43788d85  ./SuspensionTuner/app/PIL/_imagingft.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+9d5bbea6a877a48ed7995a0640ecb0a5567d9fad544a4a1fbf9f22d507029b57  ./SuspensionTuner/app/PIL/_imagingmath.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+8ccd6128481d5a3a15993c2f8a69585694ff972652a6b06dcaee276fc65633a7  ./SuspensionTuner/app/PIL/_imagingtk.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+9918faf8d90faa86e03e48479c6a62383be71da759254afded18591a406a92fe  ./SuspensionTuner/app/PIL/_webp.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+8edf41c3bf2705f5dab19ff5351d9bc0dc72deb4645ebfd5565bcc00e0a7e72f  ./SuspensionTuner/app/SuspensionTuner.exe
+PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+449058efc99fccb9e24d640084d845c78f3f86dd34c5c126cf69e523d6320d75  ./SuspensionTuner/app/_bz2.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+5c0d5082fba1a2a3eb8d5e23073be25164c19f21304b09cecaab340dc7198815  ./SuspensionTuner/app/_ctypes.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+4e27c06b84401039d10f800a0f06446b58508784ee366c7c8324d8fe9794e1a5  ./SuspensionTuner/app/_decimal.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+52f29aebe9886e830dedc363cd64eb53b6830d84b26e14f1b6faa655a0900b5d  ./SuspensionTuner/app/_hashlib.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+48f16b587c6faa44a9e073365b19599200b0f0a0ccb70121e76c2dac4ed53281  ./SuspensionTuner/app/_lzma.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+af8ac8ab8b39f53b5dc192fbf58ad704a709db34e69753b97b83d087202e3a36  ./SuspensionTuner/app/_queue.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+bced17d6f081d81ea7cd92f1e071e38f8840e61ee0fe1524221b776bcfa78650  ./SuspensionTuner/app/_socket.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+3301ff340d26495c95108199b67fdf3402742d13070af8b6bf4eb2e0c5e13781  ./SuspensionTuner/app/_ssl.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+7d163581822bdcdb94cee24115c37a511cb6bd880b007fc7e5cc5099fac58506  ./SuspensionTuner/app/_tkinter.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+ebd252d21af9c84128fca04c994093a5bd6ee857f1581f06f4026fdd6a2c40e0  ./SuspensionTuner/app/_wmi.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+ccfffddcd3defb8d899026298af9af43bc186130f8483d77e97c93233d5f27d7  ./SuspensionTuner/app/libcrypto-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+eff52743773eb550fcc6ce3efc37c85724502233b6b002a35496d828bd7b280a  ./SuspensionTuner/app/libffi-8.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+007142039f04d04e0ed607bda53de095e5bc6a8a10d26ecedde94ea7d2d7eefe  ./SuspensionTuner/app/libssl-3.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+69fd86ea29370697c203f7e12830084f920f490766a8e3045af52c036a9ad529  ./SuspensionTuner/app/python313.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+6393121130a3e85d0f6562948024d8614c4c144b84ab102af711c638344d1599  ./SuspensionTuner/app/select.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+137972bf582984df7ffe8983fa66d92dba6cc5887fe6784ffe1165bab57304b0  ./SuspensionTuner/app/tcl86t.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+ddc6b69c3897ddf3ea9fdfb4b4a6b9c3a667958d4dbf6b4bbcc50c93eb341370  ./SuspensionTuner/app/tk86t.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+071494856fdad0042964769aa2fb1de4ea95c2cfcbe27cc7132293c68d13d710  ./SuspensionTuner/app/unicodedata.pyd
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+052ad6a20d375957e82aa6a3c441ea548d89be0981516ca7eb306e063d5027f4  ./SuspensionTuner/app/vcruntime140.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+6a99bc0128e0c7d6cbbf615fcc26909565e17d4ca3451b97f8987f9c6acbc6c8  ./SuspensionTuner/app/vcruntime140_1.dll
+PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+f687e5dd99faab1023d036f09ef8ba3c09bd3464c8ced523341780e301bdf6a8  ./SuspensionTuner/app/zlib1.dll
+PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 12 sections
+(exit 0)

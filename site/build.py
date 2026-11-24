@@ -28,6 +28,7 @@ CARDS=[  # (card file, page anchor), alphabetical
     ('mxb-dualsense-1.1.0.yaml', 'mxb-dualsense'),
     ('mxb-fps-booster-v1.yaml', 'mxb-fps-booster'),
     ('mxbfix-0.1.8.yaml', 'mxbfix'),
+    ('suspension-tuner-1.4.1.yaml', 'suspension-tuner'),
 ]
 # The dropdowns of the hand-started workflows (GitHub can only offer a fixed list), written like the rules tables. Both offer
 # the tools in registry/tools.json, never the cards: a new card then never changes a workflow file, which the "Analyse a

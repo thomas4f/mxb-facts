@@ -1,0 +1,17 @@
+$ for m in __main__ calibration gameplay_analysis proof stp_setup suspension_rules suspension_settings suspension_tuner suspension_update; do nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe $m | sed "s/^/$m: /"; done | grep -nE ': (a|u)(urllib|urlopen|socket|AF_INET|SOCK_DGRAM|SOCK_STREAM|bind|recvfrom|sendto|connect|webbrowser|http|ssl|0\.0\.0\.0|127\.0\.0\.1:?)$|https?://'
+357:__main__: abind
+2836:__main__: awebbrowser
+3387:__main__: uhttps://lilian12.gumroad.com/l/SuspensionTuner
+3703:__main__: uhttps://discord.gg/Tg3xVH7XHz
+7768:suspension_tuner: u127.0.0.1:
+8112:suspension_tuner: asocket
+8113:suspension_tuner: aAF_INET
+8114:suspension_tuner: aSOCK_DGRAM
+8115:suspension_tuner: abind
+8116:suspension_tuner: u0.0.0.0
+8130:suspension_tuner: arecvfrom
+9552:suspension_update: aurllib
+9560:suspension_update: aurlopen
+9582:suspension_update: uhttps://api.github.com/repos/
+9614:suspension_update: uhttps://github.com/
+(exit 0)
