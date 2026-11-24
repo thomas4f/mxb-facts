@@ -168,7 +168,13 @@ def inline(s):
     return re.sub(r'^<p>|</p>$','',h).replace('<a href="http','<a target="_blank" rel="noopener" href="http')
 def short(v):
     # The header shows the first clause of a row, without asides in brackets; the full row stays in the report.
-    v=re.split(r'(?<!\w\.\w)\. |; ',v)[0]
+    # Only a break outside brackets ends the clause, so an aside in brackets with a "; " in it is dropped whole.
+    d=0
+    for m in re.finditer(r'[()]|(?<!\w\.\w)\. |; ',v):
+        t=m.group()
+        if t=='(': d+=1
+        elif t==')': d=max(d-1,0)
+        elif d==0: v=v[:m.start()]; break
     return re.sub(r' \((?![^()]*\]\()[^()]*\)','',v).strip()
 def byline(v):
     s=re.sub(r'<[^>]+>','',inline(short(v)))
@@ -295,10 +301,10 @@ def score_html(G,a,cls=''):
     # Signs of malware and Not scored show their icon in place of a number, with the words for screen readers.
     if G['kind'] in ('malware','notscored'):
         lab,_c,ic,_m=STATES[G['kind']]
-        return f'<a class="sbox g-{G["kind"]}{" "+cls if cls else ""}" href="#g-{a}" title="{esc(lab+". "+"; ".join(G["why"]))}" aria-label="{esc(lab)}"><b class="gicon" aria-hidden="true"></b><small>&nbsp;</small></a>'
+        return f'<a class="sbox g-{G["kind"]}{" "+cls if cls else ""}" href="#g-{a}" title="{esc(lab+". "+"; ".join(G["why"]))}" aria-label="{esc(lab)}"><b class="gicon" aria-hidden="true"></b>{"<small>&nbsp;</small>" if G["kind"]=="malware" else ""}</a>'
     tip=f"Score (rubric {RUBRICV}): {gtext(G)}, higher is better. From the costs of its Concern answers"+(('; '+'; '.join(G['why'])) if G['why'] else '')
     return f'<a class="sbox g-{G["kind"]}{" "+cls if cls else ""}" href="#g-{a}" title="{esc(tip)}"><b>{esc(gsym(G))}</b>{"<small>/100</small>" if G["kind"]!="malware" else "<small>&nbsp;</small>"}</a>'
-GCOL={'score':'#3d4a5c','notscored':'#6e7682','malware':'#cf222e'}  # as .g-* in shell.html; red is for signs of malware alone
+GCOL={'score':'#3d4a5c','notscored':'#3d4a5c','malware':'#cf222e'}  # as .g-* in shell.html; red is for signs of malware alone
 # Badges (rules/scores.md, "Badge"): three shields in the shields.io styles (flat, flat-square, for-the-badge: same sizes,
 # padding, font and text shadow), a score tile, and a card with the area scores. Text is sized from DejaVu Sans widths, the
 # shields.io fallback for Verdana, and pinned with textLength so every viewer draws it the same width.
