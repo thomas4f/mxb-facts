@@ -5,7 +5,7 @@ Everything here turns checked card data (cards.py) and the rules (rules.py) into
 import json, markdown, math, re
 from rules import (
     AREAK, AREAN, CONCERN, D, GCOST, GCOVER, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PFX, PMEANS, QCELL, QIDS, QTXT, ROOT, RUBRICV, SC,
-    SCHEMA, SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagsof, verdict)
+    SCHEMA, SECTIONS, STATES, ans_md, concern_span, gsym, gtext, load_yaml, maxcost, qcost, scored, state_html, state_of, tagcls, tagsof, verdict)
 from icons import group as icon_group
 from cards import COMMIT, CORR, CORRTIP, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, correction_link, esc, files_table
 # The hint beside every score: one text and one style (.gnote), on the line of the tools list's heading (shell.html, {{GNOTE}})
@@ -182,7 +182,8 @@ def tagrow(card,a,cap=None):
     crit=sorted(crit,key=lambda t:-(qcost(t[1],A[t[1]]['verdict']) or maxcost(t[1])))
     # A severe Concern's tag shows as Major (orange, with a triangle), like its answer's mark.
     bad=lambda q:'bad'+(' hi' if (qcost(q,A[q]['verdict']) or maxcost(q))>=GT['severe'] else '')
-    def tg(cls,label,tip,q=None): return f'<a class="mark {cls}" href="#{"q-"+a+"-"+q if q else a}" title="{esc(tip)}">{esc(label)}</a>'
+    # A tag from an answer shows its own icon (tagcls); the counts and states keep their state's icon.
+    def tg(cls,label,tip,q=None,own=True): return f'<a class="mark {cls}{tagcls(label) if own else ""}" href="#{"q-"+a+"-"+q if q else a}" title="{esc(tip)}">{esc(label)}</a>'
     # An optional tag shows which choice brings it: Off by default (a setting) or On request (you start it, each time).
     def ost(q): return 'req' if A[q]['verdict']=='Yes, on request' else 'off'
     OTIP={'off':'only after a setting or choice you make','req':'only when you start it, each time'}
@@ -194,7 +195,7 @@ def tagrow(card,a,cap=None):
     cq=', '.join(dict.fromkeys(q for c in oc for q in c['questions']))
     corr=f'<a class="mark corr" href="#r-{a}-corr" title="{esc("Corrections under review about "+cq+". Nothing on the card changes until each is decided.")}">{len(oc)} under review</a>' if oc else ''
     shown,extra=(crit[:cap],crit[cap:]) if cap and len(crit)>cap+1 else (crit,[])
-    h=corr+(''.join(tg(bad(q),l,f'From {q}: {QTXT[q]}',q) for l,q in shown) or ('' if hb or unanswered else tg('good','No critical findings','Every question is answered, and no answer is a Concern by default')))
+    h=corr+(''.join(tg(bad(q),l,f'From {q}: {QTXT[q]}',q) for l,q in shown) or ('' if hb or unanswered else tg('good','No critical findings','Every question is answered, and no answer is a Concern by default',own=False)))
     if extra: h+=f'<button type="button" class="mark bad more-x" title="{esc(", ".join(l for l,_q in extra))}">+{len(extra)} more</button>'+''.join(tg(bad(q)+' xtra',l,f'From {q}: {QTXT[q]}',q).replace('<a ','<a hidden ',1) for l,q in extra)
     # Optional tags start hidden behind one button; they are plain tags in the row, so they wrap and space like the others.
     if opt:
@@ -204,11 +205,11 @@ def tagrow(card,a,cap=None):
     held=set()
     if hb:
         m=re.match(HELD,hb); held=set(m.group(2).split(', '))
-        h+=tg(STATES['held'][1],f'{m.group(1)} held back',f'Held back under rule 9, not published yet: {m.group(2)}',m.group(2).split(', ')[0])
+        h+=tg(STATES['held'][1],f'{m.group(1)} held back',f'Held back under rule 9, not published yet: {m.group(2)}',m.group(2).split(', ')[0],own=False)
     nc=[q for q in QIDS if A[q]['verdict']=='Not checked' and q not in held]
-    if nc: h+=tg(STATES['nc'][1],f'{len(nc)} not checked','Not checked: '+', '.join(nc),nc[0])
+    if nc: h+=tg(STATES['nc'][1],f'{len(nc)} not checked','Not checked: '+', '.join(nc),nc[0],own=False)
     na=[q for q in QIDS if A[q]['verdict']=='Not allowed']
-    if na: h+=tg(STATES['na'][1],'Licence forbids analysis','Its licence forbids analysing it, so some answers are "Not allowed": '+', '.join(na),na[0])
+    if na: h+=tg(STATES['na'][1],'Licence forbids analysis','Its licence forbids analysing it, so some answers are "Not allowed": '+', '.join(na),na[0],own=False)
     h+=''.join(tg('good',l,f'From {q}: {QTXT[q]}',q) for l,q in pos)
     return f'<div class="tags">{h}</div>'
 def changes(f,card):
