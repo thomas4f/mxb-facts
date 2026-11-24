@@ -6,9 +6,10 @@ name: Analyse a tool
 #
 # Rule 9: Claude's own output stays out of the logs (tools/agent_run.py keeps only the final result); only its
 # last message is shown, and not even that when an item is held back. If the analysis finds a security problem that isn't
-# public, it writes the question IDs to HOLD.txt and its report to HOLD.md, and nothing about it anywhere else; the run
-# then stops without a pull request, and the report reaches the maintainer encrypted, as a private draft security advisory
-# (the "advisory" job). Without .github/held-items.pem no report is kept, and the maintainer takes it up in a private session.
+# public, it writes the question IDs to HOLD.txt and its report to HOLD.md, and nothing about it anywhere else, and goes on
+# to finish the whole card (with its "Held back" row). Then there is no pull request: the report, with every held item, and
+# the finished card reach the maintainer encrypted, as a private draft security advisory (the "advisory" job), and the
+# whole change (card, registry, evidence) is kept sealed beside it as the run's "held-analysis" artifact. Without .github/held-items.pem no report is kept, and the maintainer takes it up in a private session.
 # How a tool gets at creators' protected content goes to PROTECTED.md instead: sealed as its own advisory, never published,
 # while the card (which says only "Details withheld (rule 9).") still goes on to its pull request.
 #
@@ -423,12 +424,15 @@ jobs:
             If you can't get the release files (no download reachable from here), change nothing: write one line with the
             reason to STOP.txt at the repository root, and stop.
 
-            Rule 9 (CLAUDE.md) instead of step 10: if you find a security problem that isn't public and fixed, write nothing
-            about it in the card, a commit, any other file or your output, with two exceptions at the repository root:
+            Rule 9 (CLAUDE.md), step 10: if you find a security problem that isn't public and fixed, write nothing about
+            its details in the card, a commit, any other file or your output, with two exceptions at the repository root:
             HOLD.txt, the question IDs it touches, one per line; and HOLD.md, the report the maintainer will send the author:
-            the tool, release and file SHA-256, what the problem is, where (permalinks or file and offset), how to see it
-            (the test, step by step), what it lets someone do, and a fix if one is plain. The workflow encrypts HOLD.md and
-            files it as a private draft advisory for the maintainer; it never reaches a log. Then stop.
+            for each problem, the tool, release and file SHA-256, what the problem is, where (permalinks or file and offset),
+            how to see it (the test, step by step), what it lets someone do, and a fix if one is plain. Don't stop there:
+            finish the whole analysis and the card as step 10 says (its "Held back" row, those answers not Good, no details),
+            and add every further problem you find to HOLD.txt and HOLD.md, so the maintainer gets them all at once. The
+            workflow then opens no pull request: it encrypts HOLD.md and the finished card and files them as a private draft
+            advisory for the maintainer; neither reaches a log.
 
             Protected content (rule 9, C1 to C3): how a tool gets at creators' protected content (the format, where a key is,
             the code that does it, logs that show it) goes only into PROTECTED.md at the repository root, written like
@@ -453,6 +457,18 @@ jobs:
           # How it gets at creators' protected content (rule 9): sealed the same way, while the card goes on to its pull request.
           [ -f PROTECTED.md ] && echo "protected=true" >> "$GITHUB_OUTPUT"
           if [ -f HOLD.txt ] && [ ! -f HOLD.md ]; then echo "Claude wrote no report (HOLD.md) for the held item." > HOLD.md; fi
+          # A held run opens no pull request, so the finished card goes into the same sealed report, and the whole change
+          # (card, registry, evidence; the same paths "Save the changes" takes) is sealed on its own, for when the hold ends.
+          if [ -f HOLD.txt ]; then
+            git add -A -- . ':!.github/workflows' ':!HOLD.txt' ':!HOLD.md' ':!PROTECTED.md' ':!STOP.txt'
+            git diff --cached --binary > "$RUNNER_TEMP/analysis.patch"
+            cards=$(git diff --cached --name-only --diff-filter=AM -- 'cards/*.yaml')
+            git reset -q
+            { echo; echo "## The finished card"; echo
+              if [ -z "$cards" ]; then echo "The analysis changed no card."; fi
+              for c in $cards; do echo "### $c"; echo; echo '```yaml'; head -c 45000 "$c"; echo; echo '```'; done
+              echo; echo "The whole change (card, registry, evidence) is sealed in this run's \"held-analysis\" artifact."; } >> HOLD.md
+          fi
           # The key as committed, never a copy the analysis could have changed in the checkout.
           # Each kind is sealed on its own (held.cms, protected.cms), so a vulnerability published after its 30 days never
           # carries the how of protected content with it.
@@ -464,14 +480,25 @@ jobs:
               { echo "Tool: $TOOL. Questions: $(tr '\n' ' ' < HOLD.txt 2>/dev/null). Run: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"; echo; cat "$f"; } |
                 openssl cms -encrypt -aes256 -binary -outform DER -out "$RUNNER_TEMP/held/$kind.cms" "$RUNNER_TEMP/held-items.pem"
             done
+            if [ -s "$RUNNER_TEMP/analysis.patch" ]; then
+              mkdir -p "$RUNNER_TEMP/held-analysis"
+              openssl cms -encrypt -aes256 -binary -outform DER -in "$RUNNER_TEMP/analysis.patch" \
+                -out "$RUNNER_TEMP/held-analysis/analysis.patch.cms" "$RUNNER_TEMP/held-items.pem"
+            fi
             echo "held=true" >> "$GITHUB_OUTPUT"
           fi
+          rm -f "$RUNNER_TEMP/analysis.patch"
           for f in HOLD.md PROTECTED.md; do [ -f "$f" ] && shred -u "$f"; done; true
         env:
           TOOL: ${{ inputs.tool }}
       - if: always() && steps.seal.outputs.held == 'true'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: held, path: "${{ runner.temp }}/held/", retention-days: 1 }
+      # Encrypted to the maintainer's key, like the report; kept past the 30-day hold. To use it once the hold ends:
+      # openssl cms -decrypt -inform DER -in analysis.patch.cms -inkey <the private key> -out analysis.patch; git apply analysis.patch
+      - if: always() && steps.seal.outputs.held == 'true'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with: { name: held-analysis, path: "${{ runner.temp }}/held-analysis/", retention-days: 35, if-no-files-found: ignore }
       - name: Report
         if: always()
         env:
@@ -488,7 +515,7 @@ jobs:
           fi
           if [ -f HOLD.txt ]; then
             if [ "$SEALED" = true ]; then
-              echo "::error::The analysis found an item to hold back (rule 9). No pull request; its report goes to a private draft security advisory in this repository (never to this log)."
+              echo "::error::The analysis found an item to hold back (rule 9). No pull request; its report, every held item and the finished card go to a private draft security advisory in this repository (never to this log)."
             else
               echo "::error::The analysis found an item to hold back (rule 9). No pull request, and no report kept (.github/held-items.pem is missing); take it up in a private session."
             fi
@@ -561,7 +588,8 @@ jobs:
             [ -f "$RUNNER_TEMP/held/$kind.cms" ] || continue
             openssl cms -decrypt -inform DER -in "$RUNNER_TEMP/held/$kind.cms" -inkey "$RUNNER_TEMP/key.pem" -out "$RUNNER_TEMP/held.md"
             if [ $kind = held ]; then title="HELD, rule 9, never publish"; else title="PROTECTED, rule 9, never publish"; fi
-            python3 -I -c 'import json,sys; print(json.dumps({"summary": sys.argv[3] + ": " + sys.argv[1], "description": open(sys.argv[2]).read(),
+            # An advisory's description holds at most 65,535 characters: a longer report is cut, and says so.
+            python3 -I -c 'import json,sys; d=open(sys.argv[2]).read(); d=d if len(d)<=65000 else d[:65000]+"\n\n(Cut at 65,000 characters: the rest is in the run'"'"'s sealed held-analysis artifact.)"; print(json.dumps({"summary": sys.argv[3] + ": " + sys.argv[1], "description": d,
               "vulnerabilities": [{"package": {"ecosystem": "other", "name": sys.argv[1]}}]}))' "$TOOL" "$RUNNER_TEMP/held.md" "$title" > "$RUNNER_TEMP/advisory.json"
             shred -u "$RUNNER_TEMP/held.md"
             curl -sf -o /dev/null -X POST -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
