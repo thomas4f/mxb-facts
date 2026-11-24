@@ -1,0 +1,4 @@
+$ unzip -l SuspensionTuner.zip | grep -iE 'licen|copying|credit|notice|readme'
+     2307  2025-04-08 13:46   SuspensionTuner/app/tk/license.terms
+      329  2025-04-08 13:46   SuspensionTuner/app/tk/images/README
+(exit 0)

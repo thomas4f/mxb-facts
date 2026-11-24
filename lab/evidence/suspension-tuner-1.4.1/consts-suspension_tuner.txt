@@ -1,0 +1,1975 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe suspension_tuner
+a_data_dir
+afrozen
+ajoin
+aAPPDATA
+aexpanduser
+w~aSuspensionTuner
+amakedirs
+aexist_ok
+ain_gui
+aSTOP_EVENT
+astop_hint
+ain_gui
+u Press Ctrl+C when you are done.
+aheading
+atitle
+aupper
+u─
+arow
+alabel
+avalue
+awidth
+u  
+w<C�
+apara
+atext
+aindent
+abullet
+aini
+w atextwrap
+afill
+aOUT_W
+ainitial_indent
+asubsequent_indent
+awarn
+atext
+uWARNING: 
+u         
+asubsequent_indent
+aalert
+atext
+aline
+awrap
+u!! 
+aapply_changes_warning
+aalert
+uApply these changes in the garage and ride with them before analyzing again, or the suspension will end up badly configured.
+ano_file_warning
+afolder
+uChanges are suggested, but NO setup file was generated. Possible causes:
+aNO_FILE_REASONS
+apara
+u!! 
+abullet
+uFolder searched: 
+u! 
+afmt_dur
+wswmasec
+around
+l<u min 
+u02d
+u s
+a_documents_dirs
+T	adirs
+actypes
+awintypes
+aGUID
+wgaptr
+ahome
+aout
+aStructure
+a__prepare__
+aGUID
+a__getitem__
+u%s.__prepare__() must return a mapping, not %s
+u<metaclass>
+asuspension_tuner
+u_documents_dirs.<locals>.GUID
+a__qualname__
+a__firstlineno__
+aGUID
+a__class__
+awintypes
+actypes
+u_documents_dirs.<locals>
+waaDWORD
+aWORD
+wcwdac_ubyte
+a_fields_
+a__static_attributes__
+a__orig_bases__
+е��
+l�Gl��
+lll�
+lHl
+lil�
+ac_wchar_p
+awindll
+ashell32
+aSHGetKnownFolderPath
+abyref
+avalue
+aole32
+aCoTaskMemFree
+aDocuments
+aOneDrive
+adefault_setups_dir
+acands
+a_documents_dirs
+aPiBoSo
+uMX Bikes
+aprofiles
+aunnamedProfile
+asetups
+acommon
+aload_travel_by_bike
+aout
+wfwkwv
+aKNOWN_TRAVEL
+aitems
+aTRAVEL_FILE
+uutf-8
+ajson
+aload
+nnnT
+EOSError
+EValueError
+a.0
+wxuload_travel_by_bike.<locals>
+Oint
+Ofloat
+uload_travel_by_bike.<locals>.<genexpr>
+aremember_travel
+abike
+atravel
+astored
+wfadata
+adumps
+aindent
+awrite
+EOSError
+ETypeError
+EValueError
+atravel_for_bike
+abike
+wkwv
+aload_travel_by_bike
+asame_bike_names
+afind_game_dirs
+aroots
+awinreg
+ahive
+akey
+aname
+wkwdasub
+alibs
+wravdf
+atxt
+acands
+afound
+awinreg
+aHKEY_CURRENT_USER
+uSoftware\Valve\Steam
+aSteamPath
+aHKEY_LOCAL_MACHINE
+uSOFTWARE\WOW6432Node\Valve\Steam
+aInstallPath
+aOpenKey
+aadd
+aQueryValueEx
+aCDEFGH
+uProgram Files (x86)\Steam
+uProgram Files\Steam
+aSteam
+aSteamLibrary
+uGames\Steam
+u:\
+asteamapps
+ulibraryfolders.vdf
+aignore
+aupdate
+are
+afindall
+u"path"\s+"([^"]+)"
+u:\Program Files\MX Bikes
+u:\Program Files (x86)\MX Bikes
+u:\MX Bikes
+u:\Games\MX Bikes
+umxbikes.exe
+uproxy_udp.ini
+a.0
+wpufind_game_dirs.<locals>
+areplace
+u\\
+w\ufind_game_dirs.<locals>.<genexpr>
+aenable_plugin
+agame_dir
+aport
+apath
+aexists
+atext
+anew
+akey
+aval
+apat
+u[params]
+enable = 0
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+aenable
+w1aip
+u127.0.0.1:
+u^(\s*
+u\s*=\s*)[^\r\n]*
+wMwIasearch
+asub
+u<lambda>
+uenable_plugin.<locals>.<lambda>
+u<lambda>
+wmaval
+uenable_plugin.<locals>
+aval
+arstrip
+u = 
+aok
+u.bak
+achanged
+agroup
+aauto_setup
+aport
+adirs
+wdwe
+afind_game_dirs
+awarn
+uMX Bikes installation not found automatically. Make sure proxy_udp.ini contains enable = 1.
+aenable_plugin
+uTelemetry plugin just enabled (backup: proxy_udp.ini.bak). Restart MX Bikes if it is already running.
+uCould not modify proxy_udp.ini in 
+u (
+u). Run as administrator, or set enable = 1 by hand.
+acstr
+abuf
+aoffset
+asize
+araw
+adecode
+uutf-8
+areplace
+aerrors
+astrip
+aparse_event
+apkt
+ainfo
+acstr
+arider
+liabike_id
+abike
+acategory
+atrack_id
+atrack
+c[\x20-\x7e]{1,200}?\.stp
+aflags
+aascii
+areplace
+asetup_file
+aactive_setup_path
+ainfo
+afolder
+aname
+abase
+aroot
+acandidates
+wcadirpath
+a_dirs
+afiles
+asetup_file
+w\w/asetups_root_of
+aSETUPS_ROOT
+awalk
+aos
+asetups_root_of
+afolder
+wpaparent
+avalid_stp
+apath
+astp_setup
+EValueError
+EOSError
+astp_bike_name
+apath
+wfahead
+l :l
+nnT
+asame_bike
+apath
+afolder
+awant
+agot
+astp_bike_name
+astartswith
+astp_rejection
+apath
+afolder
+wfadata
+ucannot be read (
+w)aSIZE
+usize is 
+u bytes, expected 
+u (this bike's setup format is not supported yet)
+:nl
+naMAGIC
+uunexpected header 
+ahex
+u, expected 
+asame_bike
+umade for bike '
+w?u', not '
+w'T
+aexplain_stp_rejections
+T	aroots
+alimit
+alines
+ashown
+aseen
+aroot
+afiles
+wpawhy
+aendswith
+u.stp
+asigntest
+acalib
+aappend
+u: no .stp file in it (point the setups folder to your bike's folder or to 'common')
+agetmtime
+astp_rejection
+u: 
+asame_bike_names
+wawb
+nanewest
+ufind_base_stp.<locals>.newest
+anewest
+aroot
+aprefer
+afound
+adirpath
+a_d
+afiles
+wfafull
+apref
+afolder
+aloose
+ufind_base_stp.<locals>
+afolder
+aloose
+afind_base_stp
+afolder
+abike_id
+aloose
+anewest
+asearched
+aroot
+aprefer
+ahit
+avalid_stp
+amax
+akey
+ais_sm_bike
+aname
+u(^|[_\-\s])SM(R|\d)?(OEM)?($|[_\-\s])
+aSUPERMOTO
+ais_enduro_bike
+aname
+u(^|[_\-\s])(EN\d?(OEM)?|EXC|XC-?W)($|[_\-\s])
+aENDURO
+abike_discipline
+aname
+ais_sm_bike
+asupermoto
+ais_enduro_bike
+aenduro
+amotocross
+anewest_stp_any_bike
+T	aroot
+adiscipline
+afound
+adirpath
+a_d
+afiles
+wfafull
+amatch
+aST_
+abike_discipline
+alist_stps
+aroot
+aout
+adirpath
+a_d
+afiles
+wfafull
+anewest_changed_stp
+aroot
+abefore
+achanged
+alist_stps
+�?C�
+abike_parent
+afolder
+abike_folders
+afolder
+aparent
+anames
+wdafull
+abike_parent
+a.0
+wfubike_folders.<locals>
+ubike_folders.<locals>.<genexpr>
+afolder_is_bike
+afolder
+a.0
+wfafolder
+ufolder_is_bike.<locals>
+ufolder_is_bike.<locals>.<genexpr>
+asafe_name
+atext
+u[<>:"/\\|?*\x00-\x1f]
+w w_aunknown
+abuild_output_path
+ainfo
+awhen
+aout_dir
+aname
+aDATA_DIR
+asafe_name
+abike
+a__
+atrack
+u%Y-%m-%d_%H-%M-%S
+u.json
+aread_csv
+apath
+ainvert
+aout
+wfwrafr
+are_
+acsv
+aDictReader
+asusp_front
+asusp_rear
+wtC�
+aload_history
+wfwh
+aHISTORY_FILE
+areset_history
+wnwf
+aload_history
+avalues
+aremove
+u{}
+a.0
+wvureset_history.<locals>
+ureset_history.<locals>.<genexpr>
+areset_drift_reference
+abike_dir
+wnadirpath
+a_d
+afiles
+u.origin
+aextras_text
+aextras
+u, 
+a.0
+wkwduextras_text.<locals>
+aEXTRA_LABEL
+aGEOM_NAME
+w_w u+d
+uextras_text.<locals>.<genexpr>
+aextras_effect
+aprev
+ametrics
+ageo_now
+aextras
+alines
+aax
+apm
+aparts
+apg
+awanted
+aextras
+aEXTRA_AXLE
+ametrics
+a_EFFECT_KEYS
+u.2f
+u -> 
+atitle
+u suspension: 
+ageo_metrics
+a_GEO_FOR
+a_GEO_LABEL
+u.0%
+uHandling: 
+asave_history
+ahist
+akey
+aentry
+akeep
+adata
+asetdefault
+aindent
+aensure_ascii
+aparse_channels
+apkt
+avals
+aCH_MIN_LEN
+aCH_FLOATS
+astruct
+aunpack_from
+u<i
+aCRASH_IDX
+a.0
+wiapkt
+uparse_channels.<locals>
+u<f
+uparse_channels.<locals>.<genexpr>
+achannels_from
+aextras
+acrashed
+a.0
+weuchannels_from.<locals>
+uchannels_from.<locals>.<genexpr>
+asave_channels
+achannels
+aRAW_CH_FILE
+adump
+aload_channels
+wnwfach
+a.0
+wvwnuload_channels.<locals>
+uload_channels.<locals>.<genexpr>
+aread_monitor
+aport
+asock
+apeak
+adiffer
+aseen
+alast
+apkt
+avals
+aspeed
+asteer
+athr
+abf
+abr
+acrashed
+aclutch
+wkwv
+asocket
+aAF_INET
+aSOCK_DGRAM
+abind
+u0.0.0.0
+uPort 
+u is already in use. Close the other program that is listening on it.
+asettimeout
+�?D
+athrottle
+ufront brake
+urear brake
+aclutch
+aheading
+uChannel check
+uRide or stay on track, then press one control at a time: front brake only, rear brake only, throttle, clutch.
+astop_hint
+ais_set
+arecvfrom
+l� atimeout
+cdata
+aparse_channels
+:nl
+naCLUTCH_IDX
+athrottle
+ufront brake
+urear brake
+aclutch
+f�������?atime
+f333333�?u
+ speed 
+u5.1f
+u m/s | throttle 
+u4.2f
+u | front brake 
+u | rear brake 
+u | clutch 
+u | crash 
+u   
+aResult
+arow
+uPackets seen
+w,uPeak values
+u · 
+uNo brake detected. Either you did not brake during the test, the brake controls are not bound, or packet offsets 37/38 are wrong.
+uFront and rear brake are always identical: the game (or your control binding) sends the same value to both. The channels work, but front and rear braking cannot be told apart.
+uOK: front and rear brake channels are distinct, the channels are good.
+a.0
+wkwvuread_monitor.<locals>
+uread_monitor.<locals>.<genexpr>
+a_round
+woand
+a_round
+aload_cache
+aCACHE_FILE
+asave_cache
+atravel
+ainfo
+adata
+atravel
+ainfo
+FOstr
+aensure_ascii
+adefault
+afind_start_travel
+araw
+astart
+aprev
+wtwfwr
+aestimate_travel
+araw
+amf
+amr
+a.0
+wxuestimate_travel.<locals>
+uestimate_travel.<locals>.<genexpr>
+atravel_reached_stop
+araw
+atravel
+atol
+amin_samples
+wiamx
+a.0
+wxatol
+amx
+wiutravel_reached_stop.<locals>
+utravel_reached_stop.<locals>.<genexpr>
+aread_udp
+T!aport
+ainvert
+amanual_travel
+amax_silence
+abike_resolver
+asock
+atravel
+ainfo
+araw
+aother
+alast
+aextras
+aseen
+afirst_pkt
+aended
+apkt
+akind
+ams
+wfwrwkwvasize
+apkts
+wpachannels
+acache
+abike_name
+abike_for_travel
+amf
+amr
+aout
+aREAD_DIAG
+aclear
+aport
+aport_busy
+�?T
+aListening
+uWaiting for MX Bikes on port 
+uClick Start BEFORE loading the track: from the MX Bikes main menu, load the track, then ride.
+astopped
+asilence
+wnasizes
+wnasizes
+cevnt
+u<2f
+aparse_event
+alive
+atravel_source
+asave_cache
+l	l�
+  Receiving telemetry: 
+u samples
+aended
+adata_samples
+aevnt
+apackets
+aunrecognized
+uSession ended: no more data from the game.
+uRecording stopped.
+aVERBOSE
+uPackets received
+u packets, sizes 
+aDUMP_FILE
+u# 
+u size=
+w u
+aRAW_FILE
+achannels_from
+asave_channels
+aload_cache
+atravel_source
+amanual
+afind_start_travel
+atravel_source
+astart
+atravel_for_bike
+aestimate_travel
+atravel_source
+aestimate
+atravel_reached_stop
+uThe game did not send the suspension travel: it was estimated from the largest extension measured in this session (both wheels reached their fully extended stop, so the estimate should be close).
+uThe game did not send the suspension travel, and no wheel reached its fully extended stop in this session (no jump, wheelie or unloaded wheel): the travel is probably underestimated, so compression percentages read a little high. Click Start BEFORE loading the track to get the exact value.
+atravel_low
+uTravel unknown
+uMaximum suspension travel is unknown, so no analysis was made. The session was saved.
+uClick 'Start listening' BEFORE loading the track (from the MX Bikes main menu), then load the track and ride.
+uOr give the travel by hand: python suspension_tuner.py replay --travel-front <mm> --travel-rear <mm>
+a_no_travel
+atravel_source
+alive
+astart
+abike_id
+acallable
+aremember_travel
+atravel_adjusted
+uPackets are arriving but not recognized (type, size): 
+achannels
+a.0
+wkwnuread_udp.<locals>
+uread_udp.<locals>.<genexpr>
+a.0
+wxuread_udp.<locals>
+ano_data_reasons
+aport
+wdaout
+apk
+agot
+aport_busy
+u is already in use, so nothing could be recorded. Close every other Suspension Tuner window (check Task Manager) and any other program listening on UDP port 
+u, then try again.
+apackets
+uNo packet at all was received from MX Bikes on port 
+u. Check proxy_udp.ini in the MX Bikes folder (enable = 1, ip = 127.0.0.1:
+u), fully restart MX Bikes after any change, and allow the tuner through the firewall.
+adata_samples
+uMX Bikes is reachable (packets received: 
+u) but it sent no suspension data. Click Start BEFORE loading the track, and ride on track (not in the menu or garage).
+uOnly 
+u telemetry sample(s) were received (packets received: 
+u). Ride on track for at least one full lap.
+aunrecognized
+uPackets that were not recognized (type, size): 
+u. This bike or mod may use a different telemetry format.
+aended
+uThe game stopped sending data for more than 15 s (pause, menu or session end), so the recording ended.
+a.0
+wkwnuno_data_reasons.<locals>
+uno_data_reasons.<locals>.<genexpr>
+a.0
+wkasz
+uno_data_reasons.<locals>
+aread_replay
+T	ainvert
+amanual_travel
+abike_resolver
+wfaraw
+acache
+abike_name
+atravel
+ainfo
+uNo saved session found (raw_session.json).
+uMaximum travel unknown: give it with --travel-front <mm> --travel-rear <mm>.
+aload_channels
+asession_problems
+asamples
+ametrics
+adiscipline
+apercentile
+aout
+amin_range
+wiaaxle
+avals
+aused
+asuspension_rules
+apercentile
+apercentile
+aMIN_RANGE_BY_DISC
+aMIN_RANGE
+aduration
+aMIN_DURATION
+utoo short (
+u.0f
+u s, minimum 
+u s)
+afront
+arear
+f�G�z
+��?f{
+�G�z�?u suspension almost motionless (travel used 
+u, minimum 
+u): bike stopped or not being ridden
+l�.l
+aread_demo
+aout
+wiwtaph
+wfwr
+@fffffff�?f
+�?amath
+asin
+asign_test
+waafolder
+atarget
+aaxle
+aparams
+aparam
+aout
+astp_dir
+astp
+afind_setup_file
+uNo .stp found in 
+u (use --stp or --stp-dir).
+uSign test
+aBase
+aOFFSETS
+asuspension_tuner_signtest_
+u.stp
+awrite_test_file
+u  written: 
+uWhat to do in MX Bikes (5 minutes, once)
+uLoad each signtest file in the garage and look at the setting named in the file name (the others must NOT have moved).
+uDid the right setting move? If not, the offset is wrong.
+u- 
+uDid the displayed value increase in the 'firmer' direction (stiffer spring, more preload, more compression, SLOWER rebound, more oil)? Then the direction is right.
+u- 
+uIf it is the opposite (larger raw value = softer / faster rebound), set -1 for that setting in SIGN (stp_setup.py).
+u- 
+uUntil this test is done, every setting written to the .stp relies on an unverified assumption.
+acalib_cmd
+waafolder
+aplan
+atarget
+acalibration
+aload_plan
+anew_plan
+uCalibration in progress
+anext_run
+afinish
+aprint_next
+acreate_plan
+ashift
+uCalibration plan
+uCreated from 
+aruns
+u runs, each shifting one front and one rear setting (+
+u clicks for spring/preload, +
+aDAMPING_MULT
+u for damping/oil).
+aid
+u<3
+adescribe
+uRules: always the SAME track, the SAME number of laps, the same riding style. One run = at least 90 s on track.
+aprint_session
+ainfo
+ametrics
+an_samples
+adiscipline
+atr
+anote
+aSession
+uRiding style
+aDISCIPLINE_LABEL
+aBike
+aTrack
+aDuration
+afmt_dur
+u   ·   
+ajumps
+u jumps   ·   
+atravel
+aSOURCE_LABEL
+atravel_adjusted
+uraised to the measured maximum
+uMax travel
+ufront 
+u mm  ·  rear 
+u mm
+u   (
+aprint_suspension
+ametrics
+adiscipline
+wfwrarows
+alabel
+akey
+afmt
+asag
+asf
+asr
+aSuspension
+afront
+arear
+u<24
+aFront
+u>10
+aRear
+uMedian sag
+amedian
+u{:.0%}
+u95th percentile
+ap95
+u{:.0%}
+u99th percentile
+ap99
+u{:.0%}
+uBottom-outs / min
+abottom_per_min
+u{:.1f}
+uTop-outs / min
+atopout_per_min
+u{:.1f}
+a_p
+aSAG
+uSag target
+w-C�
+arelative_text
+T	aaxle
+aparam
+aold
+anew
+wdaval
+aunit
+aper
+atxt
+apreload
+amm
+aoil
+aspring_rate
+f�������?uN/mm
+ustep(s)
+u+.1f
+w0afirmer
+asofter
+achange_text
+aaxle
+aparam
+aold
+anew
+asign
+aclicks
+aword
+aunit
+aCLICK_PARAMS
+aSIGN_OVERRIDE
+w|aSIGN
+arebound
+aslower
+afaster
+aclick
+aclicks
+arelative_text
+aprint_change
+�	T	aaxle
+aparam
+aold
+anew
+awhy
+aside
+achange_str
+areasons
+areason
+uRear 
+achange_text
+aPARAM_NAME
+u; 
+:nl
+l	u· 
+aindent
+abullet
+u         · +
+u more in the saved report
+aprint_item
+�	T
+aaxle
+aparam
+atext
+asave_last_screen
+�	T
+ainfo
+aentry
+wfadata
+abikes
+atext
+atmp
+aexc
+aLAST_REPORT
+aLAST_METRICS
+asaved
+adatetime
+anow
+aisoformat
+aseconds
+atimespec
+aLAST_BIKE
+aLAST_STP
+areport
+ametrics
+aSCREEN_FILE
+abikes
+apop
+alast
+abikes
+u.tmp
+uLast screen not saved: 
+aload_last_screen
+�	T
+abike
+wfadata
+alast
+aBASE_KNOWN
+amain
+�	T�
+wpwaadisc
+ainfo
+astp_snap
+abike_dir
+aknown_travel
+aresolve_bike
+asamples
+amanual
+areasons
+ar_
+achannels
+ach_problems
+ametrics
+adiagnostics
+aexc
+ach_alerts
+adiag_alerts
+aalerts
+wtagroup
+alines
+aproblems
+ap_
+aplan
+aok
+amsg
+afolder
+aout_stp
+atarget
+aorigin
+aactive
+areal_bike
+aheader_bike
+aexplicit
+afound_folder
+agame_bike
+aref
+ahow
+aparent
+aref_dir
+aname
+aalt
+ashown_bike
+atrack_part
+asuffix
+asearched
+aline
+abase
+wfadata
+aax
+avals
+weageom_now
+ageom_shift
+aextras_shift
+asetup_now
+atires_now
+asib0
+asib
+afeel
+adisp
+asib_
+acur_v
+aref_v
+asetup
+achanges
+areport
+acost
+acost_parts
+abike_key
+ahistory
+ahist_list
+aprev_run
+asame_track
+ageom_moved
+aprev_extras
+aexpected_geom
+ageo_now_metrics
+acomparable
+aprev_cmp
+aexpected
+aloaded
+avd
+ahist_track
+aorigin_key
+acur_snap
+aman_ch
+aman_ex
+astored_origin
+anever_changed
+aorigin_snap
+aorigin_kind
+acum_store
+acum_prior
+aax_
+apa_
+ad_
+aod
+ach_
+ak_
+acum_list
+acx_store
+acum_extras_list
+aextras_revert
+aextras_revert_why
+ae_
+areverted_keys
+atag
+aword
+aln_
+arevert
+aheld
+areverts
+ahas_prev_changes
+aworsened_info
+aworsened
+ano_key
+apa
+wdacur
+awi
+awhy_
+arecent
+aplateau
+asv
+ablocked_now
+aheld2
+wownwrapd
+aspring_axles
+wcaaxle
+aparam
+aold
+anew
+areason
+asib_c
+aheld3
+ablocked
+an_rev
+achanged
+aheld_d
+akey
+awhy
+ainconclusive
+aon_target
+anames
+anotes
+agear_tip
+ageo_tips
+ageo_notes
+agear_pos
+aapply_x
+astp_report
+awritten
+asibling
+aorigin_src
+adone
+askipped
+anew_origin
+atire_tips
+aextras_done
+at_
+awanted
+atodo
+asrc
+aextras_shown
+a_item
+arstatus
+anow
+aresult
+aout_path
+areport_json
+ao_
+an_
+w_acx_
+akeys
+astdout
+areplace
+aargparse
+aArgumentParser
+uRecommends suspension settings from telemetry
+adescription
+aadd_argument
+asource
+w?audp
+acsv
+audp
+ademo
+areplay
+amonitor
+asigntest
+acalib
+anargs
+adefault
+achoices
+u--file
+uCSV file (csv source)
+ahelp
+u--port
+Oint
+l��
+atype
+adefault
+u--invert
+astore_true
+ucsv: 0 = compressed in the source
+aaction
+ahelp
+u--no-invert
+astore_true
+uudp/replay: disable the inversion (the game sends extension)
+u--no-setup
+astore_true
+udo not touch proxy_udp.ini
+u--current
+uJSON of the current settings (otherwise default values)
+u--out
+uoutput file path (otherwise: setups/<bike>__<track>__<date>.json)
+u--bike
+ubike name (if not detected automatically)
+u--bike-folder
+suname of the bike's setups folder (e.g. MX1OEM_2025_Triumph_TF_450); default: detected automatically
+adefault
+ahelp
+u--track
+utrack name (if not detected automatically)
+u--travel-front
+Ofloat
+ufront max travel in mm (if not received from the game)
+atype
+ahelp
+u--travel-rear
+Ofloat
+urear max travel in mm (if not received from the game)
+u--stp
+u.stp file to use as base (otherwise the last .stp of the bike folder, excluding suspension_tuner_* test files)
+u--stp-dir
+ubike setups folder (otherwise: default MX Bikes profile)
+u--no-stp
+astore_true
+udo not write a .stp (JSON report only)
+u--not-loaded
+astore_true
+uforce: the setup generated last session was NOT reloaded in the game, conclude nothing
+u--calibrate
+astore_true
+urecord this session as the next calibration run (see: calib)
+u--new-plan
+astore_true
+ucalib: start a new calibration plan
+u--shift
+Oint
+ucalib: number of clicks (raw value) each setting is shifted by for the run
+atype
+adefault
+ahelp
+w*aFEEL
+urider feel (see FEEL in suspension_rules.py), e.g. --feel front_bouncy rear_slides_exit
+u--feel
+anargs
+adefault
+achoices
+ahelp
+aDISCIPLINES
+aDEFAULT_DISCIPLINE
+uriding style: motocross (default), supermoto (grip, attitude, no wheeling instead of absorbing bumps and jumps) or enduro (compliance and traction on rocks and roots, fast recovery between impacts)
+u--discipline
+achoices
+adefault
+ahelp
+u--apply-extras
+astore_true
+ualso WRITE the extra advice (tire pressure, ...) into the .stp; off by default = advice only
+u--dry-run
+astore_true
+ushow the .stp changes without writing
+u--verbose
+astore_true
+ushow technical details (packets, per-phase diagnostics)
+aparse_args
+averbose
+adiscipline
+asource
+asign_test
+acalib_cmd
+amonitor
+ano_setup
+aauto_setup
+aread_monitor
+aDEFAULT_BIKE_DIR
+aresolve_bike
+umain.<locals>.resolve_bike
+aresolve_bike
+aexplicit
+aroot
+aref
+adisc
+astp_snap
+umain.<locals>
+waadisc
+astp_snap
+aerror
+u--file is required with the csv source
+aread_csv
+ainvert
+audp
+atravel_front
+atravel_rear
+ano_stp
+aread_udp
+ano_invert
+abike_resolver
+aCANCEL_REQUESTED
+uListening cancelled
+uNothing was analyzed and no setup was written.
+areplay
+aread_replay
+aread_demo
+abike
+atrack
+uDemo bike
+uDemo track
+aDemo
+uSimulated bike and track.
+a_no_travel
+astatus
+atravel_unknown
+afolder
+agap
+averdict
+achanges
+aheld
+ainconclusive
+aon_target
+aalerts
+uMaximum suspension travel is unknown. Click 'Start listening' BEFORE loading the track.
+achannel_alerts
+aunknown_base
+agearing
+ano_data_reasons
+uNot enough data received.
+u Make sure you are riding on track (port 
+u).
+anot_enough_data
+uNot enough data received. Make sure you are riding on track.
+adetails
+avalidate_channels
+achannels
+aanalyze
+adiagnose
+aprint_session
+aprint_suspension
+asag
+abottom_thr
+aBOTTOM_PER_MIN
+acost
+agameplay
+agameplay_analysis
+acrashes
+uGameplay analysis failed: 
+uChannels ignored: 
+audp
+areplay
+uNo throttle / brake / speed channels in this session: global analysis only.
+aAlerts
+aAlerts
+aGeneral
+aFront
+aRear
+uDetails · 
+u· 
+asession_problems
+uSession not usable
+uNo setting was changed.
+u- 
+uRide at least a minute on track (45 s minimum) (bumps, jump landings), then analyze again.
+asession_too_short
+asession_not_usable
+acalibrate
+uNo calibration plan: first run  python suspension_tuner.py calib
+arecord_run
+aBIKE_NOW
+abike_folder
+uchosen by you
+aactive_setup_path
+udefault.stp
+uactive setup reported by the game
+anewest_changed_stp
+usetup saved in the garage during this session
+anewest_stp_any_bike
+adiscipline
+umost recently modified setup (save a setup with your bike in the garage to be sure)
+uGame reports: bike_id=
+u, bike=
+u, setup=
+u | reference file: 
+anone
+u (bike 
+anormcase
+uBike: 
+u Wrong bike? Pick it in the Bike menu.
+u Wrong bike? Use --bike-folder <name>.
+uNo setups folder named 
+u in 
+uSetups folder not found: 
+u. 
+uChoose it in Settings.
+uUse --stp-dir.
+astdin
+aisatty
+uTrack name (used in the file name, empty = general): 
+ageneral
+aDISC_SUFFIX
+:nl
+naST_
+uActive setup '
+u' is not a valid setup for 
+u: looking for another one.
+afind_base_stp
+aloose
+uNo setup file
+uSet the setups folder in Settings.
+uUse --stp or --stp-dir.
+uSearched: 
+u ; 
+aexplain_stp_rejections
+uSave a setup once in the MX Bikes garage WITH THIS BIKE (any name), then analyze again: it is used as the base and the result is written to 
+uThe game reports the active setup as: 
+uBike mismatch
+uThe bike being ridden looks like 
+u, but the base setup found is for 
+u. Nothing was written, to avoid overwriting the wrong bike's setup.
+uSave a setup with this bike in the garage (any name except default) during the session, or pick the bike 
+uin the Bike menu
+uwith --bike-folder <name>
+u, then analyze again.
+abike_mismatch
+uBike mismatch: ridden bike is 
+u, base setup is for 
+uNo bike detected: the new setup will be saved in the shared folder 
+u, not in a bike folder. The game may not list it for your bike.
+uTo fix this: in the MX Bikes garage, save a setup with YOUR bike (any name except default), then analyze again. The bike is then detected and the file goes in its own folder.
+uYou can also pick the bike in the Bike menu (it only appears there once a setup has been saved with it).
+uYou can also use --bike-folder <name> (the bike folder only exists once a setup has been saved with it).
+uTrack unknown: the general file ST_general_<bike>.stp is used. 
+uEnter the track name in the Track field
+uAdd --track <name>
+u to get one file per track.
+acurrent
+asetup
+aloads
+aDEFAULT
+acurrent_values
+uCurrent settings could not be read from the .stp (
+u): default values used for display.
+pasplitext
+u.origin
+aextras_shift
+atire_
+ageometry_display
+aproof
+ageom_diff
+uYour current settings are unknown
+uNo readable setup file was found, so the real values of your suspension are NOT known. Changes below are differences from YOUR current settings (e.g. +2 mm, -3 clicks), and no .stp is written.
+u!! 
+afeel
+aFEEL_NOW
+EValueError
+EOSError
+EKeyError
+arecommend
+afeel
+adiscipline
+adisp
+asession_cost
+asnap
+ageom
+aGEOM
+ageometry_metrics
+achanges
+adry_run
+astp_file
+anot_loaded
+uPrevious setup not loaded
+uThis session was ridden with a different setup than the one generated last time
+u (the game reports '
+u', expected '
+u').
+uNo comparison and no new change, otherwise adjustments would stack up. Nothing was saved.
+uLoad the generated setup in the MX Bikes garage, ride the same track, then analyze again.
+asetup_not_loaded
+uThis session was ridden with a different setup than the one generated last time.
+asnapshot
+agameplay
+amanual_changes
+amanual_extras
+uChanges made by hand since the previous session
+uDetected in the setup file: 
+umain.<locals>.<lambda>
+u<lambda>
+apa
+umain.<locals>
+aextras_text
+a__origin__
+astored
+anew
+asnap_from_entry
+aapprox
+adate
+adate
+acost
+a__cum__
+amanual_changes
+w|l
+a__cum_extras__
+amanual_extras
+abuild
+u<lambda>
+apa
+umain.<locals>
+abottom_thr
+astored
+aapprox
+acum
+acum_extras
+acur_geo
+uProof analysis failed: 
+arevert
+aextras_revert
+acomparable
+aexpected_geom
+aeffects_extras
+aextras
+anet
+aworse
+aparam
+adelta
+atargets
+uExtras check failed: 
+uRider feel taken into account
+aFEEL_TEXT
+aProgress
+uTarget gap
+u   (front 
+u · rear 
+u)   0 = everything on target
+abetter
+asame
+aworse
+aBETTER
+uabout the same
+aWORSE
+uPrevious session
+u   →   
+uGeometry changed since the previous session (
+ageom_text
+u): the difference may come from it, so no comparison and no automatic revert this time.
+uPrevious session was on another track (
+u): no comparison.
+uEffect of the last geometry / tire change
+uApplied after the previous session: 
+u. This session was ridden with it.
+aextras_effect
+uSuspension clicks changed at the same time: the effect below is a mix of both.
+u! 
+uOne session is noisy: confirm over a second session before judging.
+u! 
+paworsened_own
+agate_key
+aeffects
+u<lambda>
+apa
+umain.<locals>
+aax
+uScore went up, but not on the measurements these changes target: probably session-to-session noise, so nothing is reverted.
+ugoing back to the previous setting (
+aMETRIC_NAME
+u went 
+u after the 
+u change)
+ugoing back to the previous setting (its own measurements got worse)
+nnagate_changes
+aPLATEAU_SESSIONS
+astat_verdict
+abetter
+amin
+aPLATEAU_GAIN
+uno clear improvement over the last 
+u sessions with changes (target gap 
+u): tuning stops here, the remaining gap probably does not come from these settings (track, riding, geometry). Use 'Reset history' in the main menu to start again
+aupdate_blocked
+aapply_blocked
+aescalate_spring
+adisp
+uonly followed a spring change that was not applied
+aclamp_to_drift
+aorigin
+adrift_limit
+aBLOCK_SESSIONS
+uSecond revert in a short time: the changes keep making the measurements worse, so the cause of the problem is probably elsewhere (riding conditions, geometry, or a setting not covered by the tuner).
+uReverted to previous settings
+uThe last set of changes made the measurements worse, so the previous setup is restored. This session was ridden with the old settings, so no new change is proposed.
+aprint_change
+aprint_item
+unot restored: 
+uRecommended changes
+aaxle
+uNone: everything measurable is on target, or there is not enough evidence to act.
+uHeld back
+aweak
+aconflict
+aInconclusive
+atext
+afront
+arear
+uOn target
+aNotes
+p;l
+agear_
+asuggest_top_gear
+agear_pos
+ashift
+ageometry_reading
+ageometry_advice
+uGearing / geometry analysis failed: 
+aAPPLY_EXTRAS
+aapply_extras
+aGearing
+u (advice only, not applied)
+aat_limit
+u  Final drive: 
+aalt
+alonger
+ashorter
+u  Gear 
+agear
+u  1 step 
+u in the garage
+areason
+aGeometry
+uMoved from the original setup: 
+awhy
+aalt
+uChange these yourself in the garage, one at a time.
+u Fork offset and swingarm are written below when 'Apply extras' is on and confirmed.
+u Nothing is written to the .stp (tick 'Apply extras' in Settings for fork offset and swingarm).
+amissing_axles
+u suspension NOT written to the .stp (unknown offsets, see stp_setup.py).
+aapply_changes
+aSTEP
+aout_path
+adry_run
+aorigin
+adrift_limit
+uunknown offsets
+:nq
+nasamefile
+ashutil
+acopyfile
+uNew setup ready
+aFile
+uSaved in
+uBased on
+u (file updated)
+aapply_changes_warning
+uLoad this file in the MX Bikes garage, then ride the same track.
+uDry run: no .stp file written.
+uNot applied (safety limit): 
+aapplied
+askipped
+u.stp not modified: 
+ano_file_warning
+papressure_advice
+akey
+uTire advice failed: 
+uTire pressure
+uGeometry / tire change made things worse: putting it back
+uLast time: 
+u. Under comparable riding, the measurements it affects got worse.
+aref
+alabel
+acur
+u  (back to the previous value)
+agear
+agear_5
+aparam
+afork_offset
+aswingarm
+adelta
+awrite
+taextra_confirmed
+uChange these yourself in the garage, or tick 'Apply extras' in Settings to let the tool write them.
+u! 
+uExtras not written (no setup file, test run or --no-stp).
+u! 
+uExtras not written: their position / direction in the .stp is not confirmed yet. Change them yourself in the garage.
+u! 
+uWritten to 
+u. Load the file in the garage.
+uExtras not written: limit from the original setup reached.
+u! 
+uExtras not written: 
+aEXTRAS
+asign
+a_item
+umain.<locals>._item
+a_item
+aax_
+apa_
+ao_
+an_
+awhy_
+umain.<locals>
+arevert
+anew_setup
+ano_file
+ano_change
+agap_front
+agap_rear
+aprev_gap
+:nl
+natires
+aadvice
+ageometry
+atips
+anotes
+ageometry_why_none
+aextras_applied
+aextras_reverted
+ano_file_reasons
+uFinal drive: 
+uGear 
+u: 1 step 
+abike
+aunknown
+atrack
+aunknown
+arider
+asession
+aduration_s
+aphase_time_s
+aphase_time
+acrashes
+adiagnostics
+aold
+areading
+afront
+arear
+Odict
+Olist
+aout
+abuild_output_path
+FOstr
+aindent
+aensure_ascii
+adefault
+uReport file not saved: 
+uReport saved to 
+a__origin__
+a__cum__
+a__cum_extras__
+abottom_per_min
+atopout_per_min
+amedian
+akick_frac
+apack_frac
+aharsh_frac
+asave_history
+ablocked
+astp_file
+asnap
+acounts
+asession_counts
+aextras_revert
+ageo_metrics
+asave_last_screen
+a.0
+ap_
+umain.<locals>
+utoo short
+umain.<locals>.<genexpr>
+a.0
+at_
+umain.<locals>
+a.0
+weumain.<locals>
+a.0
+weumain.<locals>
+a.0
+weumain.<locals>
+a.0
+as_
+umain.<locals>
+urebound follows
+a.0
+weumain.<locals>
+a.0
+aax
+apa
+w_umain.<locals>
+a.0
+wka_o
+a_n
+umain.<locals>
+achange
+aorigin
+ahas_location
+asys
+adatetime
+aescalate_spring
+aanalyze
+arecommend
+adiagnose
+avalidate_channels
+agate_changes
+aSTEP
+aDEFAULT
+asession_cost
+averdict
+aupdate_blocked
+aapply_blocked
+aworsened_own
+agate_key
+aMETRIC_NAME
+aBLOCK_SESSIONS
+aAXLE_PARAMS
+aPARAM_NAME
+aFEEL
+aFEEL_TEXT
+aSAG
+aDISCIPLINES
+aDEFAULT_DISCIPLINE
+aDISCIPLINE_LABEL
+aBOTTOM_PER_MIN
+a_p
+asession_counts
+astat_verdict
+aAXLE_PARAMS
+apressure_advice
+asuggest_top_gear
+ageometry_reading
+ageometry_advice
+ageometry_metrics
+ageometry_why_none
+aGEOM_NAME
+a_data_dir
+l\T
+suBike folder: there is no .stp saved with this bike. The tuner needs a base setup saved in the MX Bikes garage WITH THIS BIKE (any name except default), then analyze again.
+uBike name: the bike name stored in the header of the .stp does not match the bike folder name (e.g. a modded bike). The tuner then refuses the file (same_bike check). Save a new setup with this bike in the garage, or pick the bike in the Bike menu.
+u'common' folder: no bike was detected, so the file goes to setups\common and you will not find it with your bike. Save a setup with your bike in the garage so the bike is detected and the file goes in its own folder.
+alive
+acache
+astart
+amanual
+abike
+aestimate
+ufrom the game
+ulast known session
+uread at track entry
+uset manually
+uknown for this bike
+uestimated from the measured maximum, approximate
+adefault_setups_dir
+uMX1OEM_2023_KTM_450_SX-F
+uMX1OEM_2023_KTM_450_SX-F
+f��ʡE��?f����Mb�?utravel_by_bike.json
+ldT
+nFD
+amotocross
+asupermoto
+aenduro
+sa_SM
+a_EN
+abike_folders
+afolder_is_bike
+upackets_dump.txt
+uraw_session.json
+ulast_event.json
+utuning_history.json
+areset_history
+areset_drift_reference
+afork_offset
+atire_front
+aswingarm
+atire_rear
+afront
+afront
+arear
+arear
+atire_front
+atire_rear
+ufront tire pressure
+urear tire pressure
+amedian
+umedian travel
+abottom_per_min
+ubottom-outs/min
+atopout_per_min
+utop-outs/min
+akick_frac
+akicks
+apack_frac
+apacking
+aharsh_frac
+aharshness
+awheelie_frac
+acorner_frac
+abrake_front_deep_frac
+abrake_rear_unloaded_frac
+ufront extended under power
+utime turning
+ufront deep under braking
+urear unloaded under braking
+aswingarm
+afork_offset
+awheelie_frac
+abrake_front_deep_frac
+abrake_rear_unloaded_frac
+acorner_frac
+uraw_channels.json
+aspeed
+asteer
+athrottle
+abrake_f
+abrake_r
+aacc_x
+aacc_y
+aacc_z
+apitch
+apitch_rate
+awheel_f
+awheel_r
+l#l$l%l&l
+l(l)l"l'T
+f����Mb@?l
+�F@D
+asupermoto
+aenduro
+�G�z�?f�������?T
+amotocross
+acompression
+arebound
+acompression_low
+acompression_high
+ulast_screen.json
+aload_last_screen
+amain
+ususpension_tuner.py
+(exit 0)

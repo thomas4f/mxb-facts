@@ -307,7 +307,9 @@
     "author": "Lilian1134",
     "github": "Lilian1134/Suspension-Tuner",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "suspension-tuner-1.4.1.yaml"
+    ],
     "mxb-mods": {
       "post": 191807,
       "tied_by": "github.com/Lilian1134/Suspension-Tuner"

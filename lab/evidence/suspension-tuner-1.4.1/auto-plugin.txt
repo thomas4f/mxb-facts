@@ -1,0 +1,28 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe __main__ | grep -nE -B1 -A2 'auto_plugin|Configure MX Bikes|--no-setup'; nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe suspension_tuner | grep -nE -A1 -- '--no-setup|aauto_setup'
+2328-u--discipline
+2329:aauto_plugin
+2330:tu--no-setup
+2331-u--bike-folder
+2332-abike_folder
+--
+3116-a_switch_row
+3117:uConfigure MX Bikes automatically
+3118-uOn first launch the tool enables the game's UDP plugin (proxy_udp.ini). If it has just done so, restart MX Bikes once.
+3119:aauto_plugin
+3120:aauto_plugin
+3121-uApply extras to the file
+3122-uTire pressure, 5th gear, fork offset and swingarm are only SUGGESTED by default. Turn this on to let the tool also write these changes into the generated .stp. Off = advice only.
+--
+4018-adir_entry
+4019:aauto_plugin
+4020-aapply_extras
+4021-aport_entry
+229:aauto_setup
+230-aport
+--
+1237:u--no-setup
+1238-astore_true
+--
+1313:aauto_setup
+1314-aread_monitor
+(exit 0)

@@ -1,0 +1,27 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe __main__ | grep -nE -A3 'Checked automatically|Update available|_install_update|Could not check'
+3131:u. Checked automatically at startup.
+3132-uCheck now
+3133-uApp._build_settings.<locals>.<lambda>
+3134-CÁ
+--
+3188:uCould not check for updates.
+3189-uUpdate check failed
+3190-awarn
+3191-l�]T
+--
+3199:uUpdate available
+3200:a_install_update
+3201-aDownload
+3202-l�uT
+3203-atitle
+--
+3210:a_install_update
+3211-aself
+3212-ainfo
+3213-aApp
+--
+3942:uApp._install_update
+3943-uApp._build_support
+3944-uApp._browse_folder
+3945-uApp._autosave_settings
+(exit 0)

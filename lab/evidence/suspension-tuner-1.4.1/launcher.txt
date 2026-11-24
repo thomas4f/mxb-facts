@@ -1,0 +1,5 @@
+$ objdump -p zip/SuspensionTuner/SuspensionTuner.exe | grep -E 'DLL Name|CorExeMain'; "$ILSPYCMD" zip/SuspensionTuner/SuspensionTuner.exe
+	DLL Name: mscoree.dll
+	00002000  <none>  0000  _CorExeMain
+bash: line 1: ilspycmd: command not found
+(exit 127)

@@ -1,0 +1,32 @@
+$ for m in __main__ calibration gameplay_analysis proof stp_setup suspension_rules suspension_settings suspension_tuner suspension_update; do nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe $m | sed "s/^/$m: /"; done | grep -niE 'gumroad|donat|support|paypal|ko-?fi|patreon|buy|price|premium|free|licen[cs]e key|unlock|discord\.gg'
+1038:__main__: a_open_support
+1039:__main__: asupport_btn
+1043:__main__: uSupport Suspension Tuner (optional)
+2759:__main__: a_build_support
+2763:__main__: asupport_pop
+3062:__main__: a_open_support
+3217:__main__: a_build_support
+3221:__main__: uSuspension Tuner is free
+3222:__main__: aSUPPORT_TEXT
+3230:__main__: u♥  Support on Gumroad
+3231:__main__: uApp._build_support.<locals>.<lambda>
+3234:__main__: uApp._build_support.<locals>
+3236:__main__: aSUPPORT_URL
+3387:__main__: uhttps://lilian12.gumroad.com/l/SuspensionTuner
+3388:__main__: uSuspension Tuner is 100% free:
+3393:__main__: No account, no license key, nothing to unlock.
+3703:__main__: uhttps://discord.gg/Tg3xVH7XHz
+3920:__main__: uApp._open_support
+3943:__main__: uApp._build_support
+3970:__main__: asupport_btn
+4010:__main__: asupport_pop
+6129:suspension_rules: u: more low-speed support
+6193:suspension_rules: u: more compression (support)
+6216:suspension_rules: u: more low-speed support to hold the attitude
+6221:suspension_rules: u: more compression (support at corner entry)
+6272:suspension_rules: u): more low-speed support to hold the attitude
+6872:suspension_rules: uFront deep AND rear unloaded under braking: risk of going over the bars (front support setting, but also braking technique).
+6876:suspension_rules: uFront conflict: braking wants more support, braking bumps want more softness. Front compression (a single setting) is left alone; oil and preload are adjusted instead.
+7659:suspension_tuner: aCoTaskMemFree
+7865:suspension_tuner: u (this bike's setup format is not supported yet)
+(exit 0)

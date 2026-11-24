@@ -1,0 +1,7 @@
+$ file SuspensionTuner.zip SuspensionTuner_Setup.exe zip/SuspensionTuner/SuspensionTuner.exe zip/SuspensionTuner/app/SuspensionTuner.exe; unzip -l SuspensionTuner.zip | tail -1
+SuspensionTuner.zip:                         Zip archive data, at least v2.0 to extract, compression method=store
+SuspensionTuner_Setup.exe:                   PE32 executable for MS Windows 6.01 (GUI), Intel i386, 11 sections
+zip/SuspensionTuner/SuspensionTuner.exe:     PE32 executable for MS Windows 4.00 (GUI), Intel i386 Mono/.Net assembly, 3 sections
+zip/SuspensionTuner/app/SuspensionTuner.exe: PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+ 56292056                     1018 files
+(exit 0)

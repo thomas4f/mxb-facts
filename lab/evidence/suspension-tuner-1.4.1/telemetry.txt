@@ -1,0 +1,28 @@
+$ nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe suspension_tuner | grep -nE '^a(steer|throttle|brake_f|brake_r|susp_front|susp_rear|speed|rpm|gear|parse_channels|parse_event|recvfrom)$|ST_|default.stp'
+251:aparse_event
+391:aST_
+447:asusp_front
+448:asusp_rear
+510:aparse_channels
+548:aspeed
+549:asteer
+565:athrottle
+574:arecvfrom
+577:aparse_channels
+580:athrottle
+685:aparse_event
+1003:aLAST_REPORT
+1004:aLAST_METRICS
+1011:aLAST_BIKE
+1012:aLAST_STP
+1411:udefault.stp
+1440:naST_
+1470:uTrack unknown: the general file ST_general_<bike>.stp is used. 
+1661:agear
+1709:agear
+1946:aspeed
+1947:asteer
+1948:athrottle
+1949:abrake_f
+1950:abrake_r
+(exit 0)

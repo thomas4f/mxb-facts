@@ -1,0 +1,23 @@
+$ echo '- python313.dll:'; strings -el zip/SuspensionTuner/app/python313.dll | grep -A1 -xE 'FileVersion|ProductName'; echo '- libcrypto-3.dll:'; strings -n 5 zip/SuspensionTuner/app/libcrypto-3.dll | grep -E '^OpenSSL [0-9]' | head -1; echo '- tcl86t.dll:'; strings zip/SuspensionTuner/app/tcl86t.dll | grep -xE '8\.6\.[0-9]+' | head -1; echo '- Pillow (PIL._version):'; nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe PIL._version | grep -xE 'u[0-9.]+'; echo '- customtkinter:'; nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe customtkinter | grep -xE 'u[0-9]+\.[0-9]+\.[0-9]+'; echo '- darkdetect:'; nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe darkdetect | grep -xE 'u[0-9.]+'; echo '- Nuitka (lines naming it in the app):'; strings -n 8 zip/SuspensionTuner/app/SuspensionTuner.exe | grep -cE 'Nuitka'; strings -n 8 zip/SuspensionTuner/app/SuspensionTuner.exe | grep -m3 -E 'nuitka\.net|__nuitka_version__|__compiled__'
+- python313.dll:
+FileVersion
+3.13.3
+--
+ProductName
+Python
+- libcrypto-3.dll:
+OpenSSL 3.0.16 11 Feb 2025
+- tcl86t.dll:
+8.6.15
+- Pillow (PIL._version):
+u12.3.0
+- customtkinter:
+u6.0.0
+- darkdetect:
+u0.8.0
+- Nuitka (lines naming it in the app):
+16
+__nuitka_version__
+__compiled__\n\nVersion information as a named tuple.
+a__compiled__
+(exit 0)

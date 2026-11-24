@@ -1,0 +1,2 @@
+$ for m in __main__ calibration gameplay_analysis proof stp_setup suspension_rules suspension_settings suspension_tuner suspension_update; do nuitka.py consts zip/SuspensionTuner/app/SuspensionTuner.exe $m | sed "s/^/$m: /"; done | grep -nE ': a(subprocess|Popen|system|OpenProcess|ReadProcessMemory|WriteProcessMemory|VirtualProtect|CreateRemoteThread|SendInput|keybd_event|SetWindowsHookExW|SetWindowsHookExA|GetAsyncKeyState|GetKeyState|urlretrieve|SetValueEx|CreateKey|DeleteKey|rmtree|unlink|kill|terminate)$'
+(exit 1)
