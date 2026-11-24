@@ -22,7 +22,6 @@ Tools on file to analyse. The release named here is the one on file when the too
 |  | MXB A-Kit Studio | [V1.7.0](https://github.com/DankMaps/MXB-AKit-Studio-Releases/releases/tag/V1.7.0) | Setup and coaching | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXB-AKit-Studio-Releases](https://github.com/DankMaps/MXB-AKit-Studio-Releases) | [mxbtt.com/akit-studio](https://mxbtt.com/akit-studio) | `akit-studio` |
 |  | MXB App | 0.20.11 | Mod managers | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-app](https://github.com/Frostn1/mxb-app) | [mxbsecure.com/app](https://mxbsecure.com/app) | `mxb-app` |
 |  | MXB Coach | [v0.1.27](https://github.com/Frostn1/mxb-coach/releases/tag/v0.1.27) | Setup and coaching | Frost (GitHub [Frostn1](https://github.com/Frostn1)) | [Frostn1/mxb-coach](https://github.com/Frostn1/mxb-coach) | [mxbsecure.com/coach](https://mxbsecure.com/coach) | `mxb-coach` |
-|  | MXB DualSense Support | 1.0.0 | Controllers | "Slimerex" | None | None found | `mxb-dualsense` |
 |  | MXB Ragdoll | v1.0 | Gameplay and visuals | "BoredDev / mxbikesmods" | None | None found | `mxb-ragdoll` |
 |  | MXBMRP3 | The newest when it runs | HUD | GitHub user [thomas4f](https://github.com/thomas4f) (the maintainer) | [thomas4f/mxbmrp3](https://github.com/thomas4f/mxbmrp3) | [thomas4f.github.io/mxbmrp3](https://thomas4f.github.io/mxbmrp3/) | `mxbmrp3` |
 |  | MXBTT | [V1.0.0](https://github.com/DankMaps/MXBTT.com-Releases/releases/tag/V1.0.0) | HUD | GitHub user [DankMaps](https://github.com/DankMaps) | [DankMaps/MXBTT.com-Releases](https://github.com/DankMaps/MXBTT.com-Releases) | [mxbtt.com](https://mxbtt.com) | `mxbtt` |
@@ -38,6 +37,7 @@ Requested tools and releases, oldest first. Link the issue; remove the line when
 |---|---|---|---|
 | GP Bikes Content Manager (GP Bikes) | The newest when it runs | Requested by the maintainer, 20 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/), by FIXXER 1001. A large desktop app (C#/WPF). Registry `gpb-content-manager` |
 | Pitbox (GP Bikes) | [v3.0.4](https://github.com/cristianboni22/pitbox/releases/tag/v3.0.4) | Requested by the maintainer, 23 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/), by GitHub user [cristianboni22](https://github.com/cristianboni22). A launcher app with an in-game HUD. GitHub [cristianboni22/pitbox](https://github.com/cristianboni22/pitbox). Registry `pitbox` |
+| MXB DualSense Support | [1.1.0](https://mxb-mods.com/wp-content/uploads/2026/11/1795198224-mxb-dualsense-support-1.1.0.zip) | Requested by the maintainer, 24 Nov 2026 | [mxb-mods.com page](https://mxb-mods.com/mxb-dualsense-support-ps5-adaptive-triggers-2/), by "Slimerex". A controller app (PyInstaller exe) with an optional in-game HUD plugin. No public source found. Registry `mxb-dualsense` |
 
 ## Next to analyse
 
