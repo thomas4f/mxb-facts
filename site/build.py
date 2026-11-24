@@ -227,6 +227,8 @@ _th=[dict(re.findall(r'--(accent|surface): (#[0-9a-f]{6})',x)) for x in re.finda
 assert len(_th)==2 and all(set(t)=={'accent','surface'} for t in _th), 'site/shell.html: the light and dark themes each need --accent and --surface'
 shell=(shell.replace('{{FAVICON}}','data:image/svg+xml,'+quote(logo(_th[0]['accent'],_th[0]['surface'],_th[1]['accent'],_th[1]['surface']),safe=" =:/'.,-"))
        .replace('{{LOGO}}',f'<svg viewBox="-2 -2 28 28" {STROKE} stroke="currentColor">{LUCIDE["search-check"]}</svg>'))
+# The footer names the commit the page was built from, linked on GitHub, so a reader can see exactly which rules and cards it shows.
+shell=shell.replace('{{BUILD}}',f'<a href="{REPO}commit/{COMMIT}">{COMMIT[:12]}</a>')
 # The legend's example tags show their own icons, like the tags they stand for.
 shell=re.sub(r'\{\{TI:([^}]+)\}\}',lambda m:tagcls(m.group(1)),shell)
 out=(shell.replace('{{ICONCSS}}',iconcss).replace('{{FILTERS}}',filters).replace('{{GNOTE}}',f'<small class="gnote">{GNOTE}</small>').replace('{{MARKS}}',marks).replace('{{PICKER}}',picker).replace('{{INDEX}}',('<ul class="tlist">'+''.join(h for _k,h in sorted(rowsh))+'</ul>') if rowsh else '<p class="pending">No tool is analysed yet. The first analyses are under way.</p>').replace('{{TOOLS}}','\n'.join(views))
