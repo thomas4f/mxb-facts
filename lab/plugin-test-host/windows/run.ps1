@@ -31,6 +31,21 @@ Get-Pinned 'https://github.com/pal1000/mesa-dist-win/releases/download/26.3.0/me
 $env:GALLIUM_DRIVER = 'llvmpipe'
 $pm = "$work\pm\Procmon64.exe"
 
+# The runner has .NET 8, 10 and 11, and .NET starts an app only on the major version it was built for. So for apps,
+# Microsoft's .NET Desktop Runtimes 6, 7 and 9 (each with its base runtime) are installed too, pinned by SHA-256, so
+# each app runs on the runtime its players have rather than rolled forward to a newer one.
+$dotnet = if ($cfg.apps) {
+  foreach ($r in @(@('6.0.36', '0d20debb26fc8b2bc84f25fbd9d4596a6364af8517ebf012e8b871127b798941'),
+                   @('7.0.20', '57e7c16e7226c9a29dbc3faedd9e5876cec494c7660528052f52160521e7b714'),
+                   @('9.0.23', 'eefb60bd0f3fb33c0787074cebc0467ffba32bcb01088613121649fc3bdb4a27'))) {
+    $exe = "$work\windowsdesktop-runtime-$($r[0]).exe"
+    Get-Pinned "https://builds.dotnet.microsoft.com/dotnet/WindowsDesktop/$($r[0])/windowsdesktop-runtime-$($r[0])-win-x64.exe" $r[1] $exe | Out-Null
+    $inst = Start-Process $exe '/install', '/quiet', '/norestart' -Wait -PassThru
+    if ($inst.ExitCode -notin 0, 3010) { throw ".NET Desktop Runtime $($r[0]) didn't install (exit code $($inst.ExitCode))" }
+  }
+  " .NET runtimes: $((& dotnet --list-runtimes) -join '; ')."
+}
+
 # The release files, downloaded by the workflow's fetch job (tools/fetch_release.py, which also reads MEGA links) and
 # listed in release.json, checked again against their SHA-256 and unpacked (zip, 7z, rar) into rel\<file name>\.
 $rel = New-Item -ItemType Directory -Force "$work\rel"
@@ -86,7 +101,7 @@ function Invoke-Run($name, $exe, [string[]]$exeArgs, $seconds) {
 
 $vc = (Get-CimInstance Win32_VideoController | Select-Object -First 1).Name
 $os = (Get-CimInstance Win32_OperatingSystem).Caption
-@("Machine: $os, video: $vc (no GPU). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: $pmSha.",
+@("Machine: $os, video: $vc (no GPU). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: $pmSha.$dotnet",
   'Release files (SHA-256):') + $fileLines | Set-Content (Join-Path $Out 'machine.txt')
 Set-NetFirewallProfile -All -LogBlocked True -LogMaxSizeKilobytes 32767
 
