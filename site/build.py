@@ -207,6 +207,8 @@ authors=(f'<div class="intro"><p>MXB Facts answers the same questions about ever
          f'<li><b>Release, then <a href="{REPO}issues/new?template=analyse-tool.yml">request a re-check</a>.</b> The new release gets a new card; the old one stays.</li>'
          f'<li><b>Something wrong, missing, or context to add?</b> Use the comment icon beside any answer, Good ones included, or <a href="{CORRFORM}">comment on an answer</a> with its evidence; it is answered in public (<a href="#rules">how corrections work</a>).</li>'
          f'<li><b>Add the badge to your page:</b> your score in five styles, three of them drawn like shields.io badges, each pinned to the card\'s version (<a href="#scores">how scores are worked out</a>).</li></ol>')
+# The icon in a tile in place of a score: a cross for signs of malware fills it, Not scored's stays small beside its words.
+GICON={'malware':.42,'notscored':.3}
 shell=open(ROOT+'site/shell.html').read()
 # The page is a full HTML document and asks no other site for anything (fonts, scripts, images).
 assert shell.startswith('<!doctype html>\n<html lang="en">\n<meta charset="utf-8">'), 'site/shell.html must start with the doctype, the language and the charset'
@@ -235,7 +237,7 @@ iconcss=('.mark::before, .mk::before { flex: none } '
                    for k,(_l,c,ic,_m) in STATES.items())
          # Then each tag's own icon (TAGICON in rules.py), after the states' so it wins over the colour's icon.
          +' '.join(f' .mark.ti.ti-{ic}::before {{ -webkit-mask: {mask_url(ic)} center / contain no-repeat; mask: {mask_url(ic)} center / contain no-repeat }}' for ic in TAGICON.values())
-         +' '.join(f' .g-{k} .gicon {{ display: block; width: calc(var(--gs) * .42); height: calc(var(--gs) * .42); background: #fff; -webkit-mask: {mask_url(STATES[k][2])} center / contain no-repeat; mask: {mask_url(STATES[k][2])} center / contain no-repeat }}' for k in ('malware','notscored')))
+         +' '.join(f' .g-{k} .gicon {{ display: block; width: calc(var(--gs) * {GICON[k]}); height: calc(var(--gs) * {GICON[k]}); background: #fff; -webkit-mask: {mask_url(STATES[k][2])} center / contain no-repeat; mask: {mask_url(STATES[k][2])} center / contain no-repeat }}' for k in ('malware','notscored')))
 # The icons' licence goes with them into the built page, as their licence asks.
 shell=shell.replace('<meta charset="utf-8">','<meta charset="utf-8">\n<!--\n'+ICON_LICENCE+'-->',1)
 # The site's icon: in the header drawn in the theme's colours (shell.html, .logo), and as the favicon in the accent and surface

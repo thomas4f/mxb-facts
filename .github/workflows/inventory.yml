@@ -41,7 +41,10 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
           git commit -m "Update inventory"
-          git push
+          # main may have moved during the run (a merged pull request, or a re-run of an older commit): put this commit on
+          # top of it, which only ever touches registry/, and try again a few times.
+          for i in 1 2 3; do git pull --rebase -q origin "$GITHUB_REF_NAME" && git push && exit 0; sleep 10; done
+          exit 1
       - name: Open re-check issues
         if: ${{ !cancelled() }}
         env:
