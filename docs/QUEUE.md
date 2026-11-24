@@ -14,7 +14,6 @@ Requested tools and releases, oldest first. Link the issue; remove the line when
 | Tool | Version | Issue | Note |
 |---|---|---|---|
 | GP Bikes Content Manager (GP Bikes) | The newest when it runs | Requested by the maintainer, 20 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/), by FIXXER 1001. A large desktop app (C#/WPF). Registry `gpb-content-manager`. On hold: too big for now (the maintainer's choice) |
-| Pitbox (GP Bikes) | [v3.0.4](https://github.com/cristianboni22/pitbox/releases/tag/v3.0.4) | Requested by the maintainer, 23 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/), by GitHub user [cristianboni22](https://github.com/cristianboni22). A launcher app with an in-game HUD. GitHub [cristianboni22/pitbox](https://github.com/cristianboni22/pitbox). Registry `pitbox`. On hold after two failed runs (the maintainer's choice) |
 
 ## To analyse
 

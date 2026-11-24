@@ -1,0 +1,15 @@
+$ sed -n '1,13p' win/Pitbox/gpbmods/graficos.py
+"""Calidad gráfica de GP Bikes: la sección [gfx] del profile.ini del perfil activo.
+
+El juego (OpenGL) lee [gfx] al arrancar y la reescribe al salir: solo se edita con el juego CERRADO
+(perfil.JuegoAbierto). Se cambian solo las claves pedidas, conservando todo lo demás tal cual (orden, saltos de línea,
+codificación). Antes del primer cambio se guarda la [gfx] original en <perfil>/gfx.gpbmods.json para poder volver a
+ella (restaurar) y, en cada cambio, una copia completa en profile.ini.gpbmods.bak (como perfil.escribir_seleccion).
+
+Qué es cada clave (oct. 2026, GP Bikes beta 22): ver CLAVES. «verificado» = comprobado en las cadenas de
+gpbikes.exe (orden de lectura/escritura de [gfx]), en ui/options.mnu de ui.pkz (controles del menú Opciones → Gráficos)
+y en profile.ini reales; el significado exacto de los valores numéricos de los deslizadores no se puede leer del
+ejecutable (va cifrado con SteamStub) y está marcado como supuesto. Por eso los perfiles predefinidos solo tocan claves
+cuyo efecto es seguro (interruptores 0/1, filtro, anisotrópico, antialiasing, distancia de dibujado) y nunca la
+resolución, el modo de pantalla, el tamaño de texturas ni el detalle de modelos.
+(exit 0)

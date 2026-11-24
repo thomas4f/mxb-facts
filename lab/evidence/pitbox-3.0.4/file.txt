@@ -1,0 +1,140 @@
+$ find win lin -type f \( -iname '*.dlo' -o -iname '*.dll' -o -iname '*.exe' -o -iname '*.pyd' -o -iname '*.so' \) | sort | xargs -d '\n' file; echo; ls -la win/Pitbox win/Pitbox/vendor/7z; echo; ls lin/Pitbox
+lin/Pitbox/asistente/asistente_reglaje64.dlo:                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+lin/Pitbox/hud/gpbmods_hud64.dlo:                                        PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+win/Pitbox/asistente/asistente_reglaje64.dlo:                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+win/Pitbox/hud/gpbmods_hud64.dlo:                                        PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+win/Pitbox/lib/Crypto/Cipher/_ARC4.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_Salsa20.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_Salsa20_avx2_bmi2.pyd:                     PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_chacha20.pyd:                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_chacha20_avx2_bmi2.pyd:                    PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_pkcs1_decode.pyd:                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_aes.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_aesni.pyd:                             PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_arc2.pyd:                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_blowfish.pyd:                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_cast.pyd:                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_cbc.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_cfb.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_ctr.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_des.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_des3.pyd:                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_ecb.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_eksblowfish.pyd:                       PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_ocb.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Cipher/_raw_ofb.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_BLAKE2b.pyd:                                 PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_BLAKE2s.pyd:                                 PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_MD2.pyd:                                     PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_MD4.pyd:                                     PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_MD5.pyd:                                     PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_RIPEMD160.pyd:                               PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_SHA1.pyd:                                    PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_SHA224.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_SHA224_shani.pyd:                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_SHA256.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_SHA256_shani.pyd:                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_SHA384.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_SHA512.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_ghash_clmul.pyd:                             PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_ghash_portable.pyd:                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_k12.pyd:                                     PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_k12_avx2_bmi2.pyd:                           PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_keccak.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_keccak_avx2_bmi2.pyd:                        PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Hash/_poly1305.pyd:                                PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Math/_nat.pyd:                                     PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Math/_nat_bmi2_adx.pyd:                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Protocol/_scrypt.pyd:                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/PublicKey/_curve25519.pyd:                         PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/PublicKey/_ec_nat.pyd:                             PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/PublicKey/_ec_nat_bmi2_adx.pyd:                    PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/PublicKey/_ed25519.pyd:                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/PublicKey/_mldsa.pyd:                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/PublicKey/_mldsa_avx2_bmi2.pyd:                    PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Util/_cpuid_c.pyd:                                 PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/Crypto/Util/_strxor.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/_cffi_backend.cp312-win_amd64.pyd:                        PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/charset_normalizer/cd.cp312-win_amd64.pyd:                PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/charset_normalizer/md.cp312-win_amd64.pyd:                PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/lib/clr_loader/ffi/dlls/amd64/ClrLoader.dll:                  PE32+ executable for MS Windows 6.00 (DLL), x86-64 Mono/.Net assembly, 4 sections
+win/Pitbox/lib/clr_loader/ffi/dlls/x86/ClrLoader.dll:                    PE32 executable for MS Windows 6.00 (DLL), Intel i386 Mono/.Net assembly, 4 sections
+win/Pitbox/lib/pythonnet/runtime/Python.Runtime.dll:                     PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+win/Pitbox/lib/webview/lib/Microsoft.Web.WebView2.Core.dll:              PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+win/Pitbox/lib/webview/lib/Microsoft.Web.WebView2.WinForms.dll:          PE32 executable for MS Windows 6.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+win/Pitbox/lib/webview/lib/WebBrowserInterop.x64.dll:                    PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+win/Pitbox/lib/webview/lib/WebBrowserInterop.x86.dll:                    PE32 executable for MS Windows 4.00 (DLL), Intel i386 Mono/.Net assembly, 3 sections
+win/Pitbox/lib/webview/lib/runtimes/win-arm64/native/WebView2Loader.dll: PE32+ executable for MS Windows 10.00 (DLL), ARM64, 8 sections
+win/Pitbox/lib/webview/lib/runtimes/win-x64/native/WebView2Loader.dll:   PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+win/Pitbox/lib/webview/lib/runtimes/win-x86/native/WebView2Loader.dll:   PE32 executable for MS Windows 10.00 (DLL), Intel i386, 7 sections
+win/Pitbox/python/_asyncio.pyd:                                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_bz2.pyd:                                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_ctypes.pyd:                                           PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_decimal.pyd:                                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_elementtree.pyd:                                      PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_hashlib.pyd:                                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_lzma.pyd:                                             PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_msi.pyd:                                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_multiprocessing.pyd:                                  PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_overlapped.pyd:                                       PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_queue.pyd:                                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_socket.pyd:                                           PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_sqlite3.pyd:                                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_ssl.pyd:                                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_uuid.pyd:                                             PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_wmi.pyd:                                              PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/_zoneinfo.pyd:                                         PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/libcrypto-3.dll:                                       PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+win/Pitbox/python/libffi-8.dll:                                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 5 sections
+win/Pitbox/python/libssl-3.dll:                                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+win/Pitbox/python/pyexpat.pyd:                                           PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/python.exe:                                            PE32+ executable for MS Windows 6.00 (console), x86-64, 6 sections
+win/Pitbox/python/python3.dll:                                           PE32+ executable for MS Windows 6.00 (DLL), x86-64, 2 sections
+win/Pitbox/python/python312.dll:                                         PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+win/Pitbox/python/pythonw.exe:                                           PE32+ executable for MS Windows 6.00 (GUI), x86-64, 6 sections
+win/Pitbox/python/select.pyd:                                            PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/sqlite3.dll:                                           PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/unicodedata.pyd:                                       PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/vcruntime140.dll:                                      PE32+ executable for MS Windows 6.00 (DLL), x86-64, 8 sections
+win/Pitbox/python/vcruntime140_1.dll:                                    PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/python/winsound.pyd:                                          PE32+ executable for MS Windows 6.00 (DLL), x86-64, 6 sections
+win/Pitbox/vendor/7z/7z.dll:                                             PE32+ executable for MS Windows 5.02 (DLL), x86-64, 6 sections
+win/Pitbox/vendor/7z/7z.exe:                                             PE32+ executable for MS Windows 5.02 (console), x86-64, 6 sections
+
+win/Pitbox:
+total 188
+drwxrwxr-x  8 runner runner   4096 Nov 20 18:48 .
+drwxr-xr-x  3 runner runner   4096 Nov 24 20:27 ..
+-rw-rw-r--  1 runner runner  10995 Nov  6 16:04 GUIA.html
+-rw-rw-r--  1 runner runner  11106 Nov  6 16:04 GUIDE.html
+-rw-rw-r--  1 runner runner    840 Nov 20 18:48 Instalar.bat
+-rw-rw-r--  1 runner runner   1164 Nov 20 18:48 Si algo falla (con registro).bat
+drwxrwxr-x  3 runner runner   4096 Nov 20 18:48 asistente
+drwxrwxr-x  6 runner runner   4096 Nov 20 18:26 gpbmods
+-rw-rw-r--  1 runner runner  12280 Oct 27 01:31 gpbmods_app.py
+drwxrwxr-x  3 runner runner   4096 Nov 20 18:48 hud
+-rw-rw-r--  1 runner runner 109159 Nov 20 18:48 integridad.json
+-rw-rw-r--  1 runner runner     89 Nov 20 18:48 integridad.json.sig
+drwxrwxr-x 29 runner runner   4096 Nov 20 18:48 lib
+drwxrwxr-x  2 runner runner   4096 Nov 20 18:48 python
+drwxrwxr-x  3 runner runner   4096 Nov 20 18:48 vendor
+
+win/Pitbox/vendor/7z:
+total 2444
+drwxrwxr-x 2 runner runner    4096 Nov 20 18:48 .
+drwxrwxr-x 3 runner runner    4096 Nov 20 18:48 ..
+-rw-rw-r-- 1 runner runner 1906176 Aug  3  2025 7z.dll
+-rw-rw-r-- 1 runner runner  575488 Aug  3  2025 7z.exe
+-rw-rw-r-- 1 runner runner    6031 Jul  5  2025 License.txt
+
+GUIA.html
+GUIDE.html
+asistente
+gpbmods
+gpbmods_app.py
+hud
+instalar.sh
+integridad.json
+integridad.json.sig
+requirements.txt
+(exit 0)

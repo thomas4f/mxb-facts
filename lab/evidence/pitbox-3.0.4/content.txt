@@ -1,0 +1,179 @@
+$ grep -niE 'cifrad|descifr|decrypt|iNLock' win/Pitbox/gpbmods/*.py | grep -v '^win/Pitbox/gpbmods/i18n'; echo '== inventory.py'; sed -n '80,90p' win/Pitbox/gpbmods/inventory.py; echo '== fisicas_moto.py'; sed -n '14,19p' win/Pitbox/gpbmods/fisicas_moto.py; echo '== modders.py'; sed -n '1,8p' win/Pitbox/gpbmods/modders.py
+win/Pitbox/gpbmods/acceso.py:47:TEXTO_STEAM = N_("De Steam no se guarda nada: ni tu ID, ni tu nombre, ni tu foto. Solo una huella cifrada (HMAC) para "
+win/Pitbox/gpbmods/anadir.py:68:    pide_tipo: bool = False        # .pkz cifrado: hay que decir si es un circuito o una moto
+win/Pitbox/gpbmods/calibracion.py:1:"""Calibración oficial de los límites de una moto cifrada (solo para el administrador del ranking mundial).
+win/Pitbox/gpbmods/calibracion.py:179:    """Vista previa de la calibración de una moto cifrada instalada (objeto de contenido.Contenido.motos)."""
+win/Pitbox/gpbmods/calibracion.py:183:    if not moto.cifrada:
+win/Pitbox/gpbmods/calibracion.py:184:        return {**base, "errores": [_t("Esta moto no está cifrada: sus límites ya se leen de sus ficheros.")]}
+win/Pitbox/gpbmods/classify.py:102:    """`tipo` es el del mod en la web (tracks, bikes…): decide adónde va un .pkz cifrado, que no se puede mirar.
+win/Pitbox/gpbmods/classify.py:119:                    kind = tipo   # .pkz cifrado (lo normal en mods): manda la ficha de la web
+win/Pitbox/gpbmods/classify.py:180:    """«X/X.pkz» + «X/paints/»: una moto empaquetada (aunque el .pkz esté cifrado) con sus pinturas, que van a
+win/Pitbox/gpbmods/compartidos.py:1:"""Límites compartidos de las motos cifradas y biblioteca de reglajes compartidos (cliente del ranking mundial).
+win/Pitbox/gpbmods/compartidos.py:4:vistos en los reglajes que el JUEGO ha guardado de las motos cifradas (nunca los que escribe Pitbox o el asistente:
+win/Pitbox/gpbmods/compartidos.py:9:cola (la página lo enseña ~20 s después de abrir y, al verlo, sincroniza enseguida). Todos descargan los límites de sus motos cifradas (oficiales del administrador o confirmados
+win/Pitbox/gpbmods/compartidos.py:203:    """Para cada moto cifrada instalada: sube sus rangos (siempre, si han cambiado; solo de reglajes guardados por el
+win/Pitbox/gpbmods/compartidos.py:214:    for m in [x for x in getattr(contenido, "motos", []) if x.cifrada]:
+win/Pitbox/gpbmods/contenido.py:16:from .inventory import _cat_en_pkz_cifrado, _categoria_probable
+win/Pitbox/gpbmods/contenido.py:36:    cifrada: bool
+win/Pitbox/gpbmods/contenido.py:304:    cifradas: dict[str, Path] = {}
+win/Pitbox/gpbmods/contenido.py:322:                        else:  # .ini cifrado dentro de la carpeta
+win/Pitbox/gpbmods/contenido.py:324:                            cifradas[e.name.casefold()] = ini
+win/Pitbox/gpbmods/contenido.py:341:                cifradas[e.stem.casefold()] = e
+win/Pitbox/gpbmods/contenido.py:354:    if cifradas:
+win/Pitbox/gpbmods/contenido.py:358:        for k, ruta in cifradas.items():
+win/Pitbox/gpbmods/contenido.py:363:                    cat = _cat_en_pkz_cifrado(ruta)
+win/Pitbox/gpbmods/engine.py:547:            shutil.copy2(f, out / f.name)   # .pkz cifrado (lo normal en mods): classify usa el tipo de la web
+win/Pitbox/gpbmods/fisicas_moto.py:14:Lo cifrado (bloqueado con iNLock, o el .pkz entero) NUNCA se intenta leer: solo se mira la cabecera, como hace
+win/Pitbox/gpbmods/fisicas_moto.py:607:        raise FisicasError(_t("Esta moto está cifrada: no se puede leer ni cambiar."))
+win/Pitbox/gpbmods/fisicas_moto.py:616:        raise FisicasError(_t("Esta moto está cifrada: no se puede leer ni cambiar.")) from e
+win/Pitbox/gpbmods/fisicas_moto.py:641:        cifrada, cat = False, ""
+win/Pitbox/gpbmods/fisicas_moto.py:644:            cifrada = not any(not a.bloqueado and a.rol == "cfg" for a in m.archivos)
+win/Pitbox/gpbmods/fisicas_moto.py:647:            cifrada, cat = True, categoria("", nombre)
+win/Pitbox/gpbmods/fisicas_moto.py:649:        out.append({"nombre": nombre, "ruta": str(h), "cifrada": cifrada, "categoria": cat, "juego": False})
+win/Pitbox/gpbmods/fisicas_moto.py:667:                            "cifrada": not any(not a.bloqueado and a.rol == "cfg" for a in m.archivos)})
+win/Pitbox/gpbmods/fisicas_moto.py:700:            if x["cifrada"]:
+win/Pitbox/gpbmods/fisicas_moto.py:965:            errores.append({"rel": str(rel), "id": "", "error": _t("Ese fichero no se puede cambiar (no existe o está cifrado).")})
+win/Pitbox/gpbmods/graficos.py:11:ejecutable (va cifrado con SteamStub) y está marcado como supuesto. Por eso los perfiles predefinidos solo tocan claves
+win/Pitbox/gpbmods/guias_modders.py:19:    "inlock": modders.URL_INLOCK,
+win/Pitbox/gpbmods/inventory.py:17:    sin_categoria: list[str] = None  # motos .pkz cifradas de las que no se puede leer la categoría
+win/Pitbox/gpbmods/inventory.py:73:            return _cat_en_pkz_cifrado(bike)
+win/Pitbox/gpbmods/inventory.py:80:def _cat_en_pkz_cifrado(pkz: Path) -> str | None:
+win/Pitbox/gpbmods/inventory.py:81:    """Los .pkz de mods van cifrados, pero muchos guardan el .ini legible al final del archivo."""
+win/Pitbox/gpbmods/inventory.py:115:    """Para .pkz totalmente cifrados: "MotoGP 2025 v1.2" encaja con MotoGP_2025_HONDA_HRC.pkz."""
+win/Pitbox/gpbmods/jobs.py:227:        """Instala un archivo que ya tiene el usuario. `tipo` ("tracks" | "bikes") solo hace falta para un .pkz cifrado,
+win/Pitbox/gpbmods/limites.py:7:  b) si no (moto cifrada), el mínimo y el máximo vistos en los reglajes que el juego ha guardado de esa moto
+win/Pitbox/gpbmods/limites.py:14:  c) para las cifradas, además, los límites que descarga Pitbox (<PiBoSo>/asistente_limites/<moto>.txt, el mismo
+win/Pitbox/gpbmods/limites.py:543:    """Cómo de completos son los límites de una moto cifrada: «oficial» o «comunidad» (rango completo), «parcial»
+win/Pitbox/gpbmods/limites.py:673:    """Lo que se sube (anónimo) de una moto cifrada: los rangos vistos (solo de reglajes del juego con la versión
+win/Pitbox/gpbmods/modders.py:1:"""«Para modders»: preparar un mod para bloquearlo con iNLock y montarlo después con lo que devuelve.
+win/Pitbox/gpbmods/modders.py:3:iNLock (https://lock.mxb-mods.com/) es una web de mxb-mods.com, no de Pitbox: allí el modder entra con su Steam, sube
+win/Pitbox/gpbmods/modders.py:8:2. COPIA (nunca mueve) lo que se puede bloquear a <config>/modders/<id>/para_inlock/, en lotes de como mucho
+win/Pitbox/gpbmods/modders.py:16:iNLock exactamente (¿los mismos nombres? ¿un .zip? ¿un .pkz?): se aceptan las tres cosas.
+win/Pitbox/gpbmods/modders.py:36:URL_INLOCK = "https://lock.mxb-mods.com/"
+win/Pitbox/gpbmods/modders.py:40:# Lo que admite iNLock (lo demás —sonidos, texturas .tga…— se queda como está)
+win/Pitbox/gpbmods/modders.py:46:PARA_INLOCK, DEVUELTOS, FINAL, FUENTE = "para_inlock", "devueltos", "final", "fuente"
+win/Pitbox/gpbmods/modders.py:159:               "inlock": bool(viejo.get("inlock"))}
+win/Pitbox/gpbmods/modders.py:187:# ---------- 3. preparar para iNLock ----------
+win/Pitbox/gpbmods/modders.py:217:    """Copia lo bloqueable a para_inlock/ (en lotes si pasa de los límites de iNLock) y escribe el manifiesto."""
+win/Pitbox/gpbmods/modders.py:233:        return {"ok": False, "error": _t("Este mod no trae nada que iNLock pueda bloquear.")}
+win/Pitbox/gpbmods/modders.py:236:        return {"ok": False, "error": _t("iNLock admite como mucho {limite} por subida y esto pasa de ahí: {archivos}.",
+win/Pitbox/gpbmods/modders.py:247:    destino = dir_ / PARA_INLOCK
+win/Pitbox/gpbmods/modders.py:275:    base = dir_ / PARA_INLOCK
+win/Pitbox/gpbmods/modders.py:288:_MARCA = re.compile(r"(?i)[\s._-]*(?:locked|lock|inlock)$")
+win/Pitbox/gpbmods/modders.py:302:    """Copia a devueltos/ lo que el usuario se ha bajado de iNLock (ficheros, carpetas o .zip) y lo empareja."""
+win/Pitbox/gpbmods/modders.py:371:            estado_ = _estado(f, dir_ / PARA_INLOCK / a["subido"], Path(man.get("raiz", "")) / a["rel"]
+win/Pitbox/gpbmods/modders.py:377:    if not man.get("es_pkz"):   # ¿ha vuelto el mod entero en un .pkz cifrado con su nombre?
+win/Pitbox/gpbmods/modders.py:424:                "aviso": _t("iNLock ha devuelto un .pkz entero: pruébalo en el juego por si le falta algo.")}
+win/Pitbox/gpbmods/modders.py:454:    """Apunta algo del proyecto (que se abrió iNLock, que se instaló)."""
+win/Pitbox/gpbmods/modders.py:455:    permitidos = {k: v for k, v in cambios.items() if k in ("inlock", "instalado")}
+win/Pitbox/gpbmods/modders.py:482:        return 4 if e.get("inlock") else 3
+win/Pitbox/gpbmods/modders.py:495:        preparado = {"carpeta": str(dir_ / PARA_INLOCK), "lotes": lotes,
+win/Pitbox/gpbmods/modders.py:506:            "inlock": bool(e.get("inlock")), "paso": paso(e, dir_),
+win/Pitbox/gpbmods/mods_al_dia.py:629:    # Lo que instaló esta app (p. ej. motos .pkz cifradas sin categoría legible): por id del post.
+win/Pitbox/gpbmods/mods_pitbox.py:1:"""Mods de Pitbox: publicar tu mod cifrado (solo el enlace y su ficha) e instalar los de otros con un clic.
+win/Pitbox/gpbmods/mods_pitbox.py:7:- antes de nada se mira el archivo EN TU PC: tiene que estar cifrado (un .pkz cifrado, o un .zip con lo bloqueado de
+win/Pitbox/gpbmods/mods_pitbox.py:8:  iNLock dentro; un .zip o .pkz normal o un mod sin bloquear no se publica), y se calculan su SHA-256 y su tamaño;
+win/Pitbox/gpbmods/mods_pitbox.py:14:su SHA-256 son los publicados (si no, el archivo del enlace cambió: no se instala y se avisa), que sigue cifrado, y
+win/Pitbox/gpbmods/mods_pitbox.py:40:# Lo que necesita el instalador para un .pkz cifrado (que no se puede mirar por dentro).
+win/Pitbox/gpbmods/mods_pitbox.py:50:# Bloqueados que no pueden quedar sin bloquear para que el mod cuente como cifrado: la física, la geometría y los .pkz.
+win/Pitbox/gpbmods/mods_pitbox.py:54:SIN_CIFRAR = N_("Este archivo no está cifrado: en Pitbox solo se publican mods cifrados (un .pkz cifrado o lo que "
+win/Pitbox/gpbmods/mods_pitbox.py:55:                "devuelve iNLock). Bloquéalo antes en «Crear mods» → «iNLock».")
+win/Pitbox/gpbmods/mods_pitbox.py:56:SIN_BLOQUEAR = N_("Este mod tiene archivos sin bloquear ({archivos}): bloquéalos con iNLock antes de publicarlo.")
+win/Pitbox/gpbmods/mods_pitbox.py:139:def cifrado(ruta: Path | str) -> dict:
+win/Pitbox/gpbmods/mods_pitbox.py:140:    """¿Está cifrado/bloqueado? {cifrado, motivo, bloqueados, sin_bloquear: [rutas]} (solo lee, sin descomprimir a
+win/Pitbox/gpbmods/mods_pitbox.py:141:    disco: de cada fichero, como mucho sus primeros 64 KB). Un .pkz que no es un zip está cifrado; un .zip (o .pkz
+win/Pitbox/gpbmods/mods_pitbox.py:146:            return {"cifrado": True, "motivo": "", "bloqueados": 1, "sin_bloquear": []}
+win/Pitbox/gpbmods/mods_pitbox.py:147:        return {"cifrado": False, "motivo": _t("{archivo} no es un .zip válido.", archivo=ruta.name), "bloqueados": 0,
+win/Pitbox/gpbmods/mods_pitbox.py:154:                return {"cifrado": False, "motivo": _t("{archivo} es demasiado grande para mirarlo.", archivo=ruta.name),
+win/Pitbox/gpbmods/mods_pitbox.py:160:                    return {"cifrado": False, "bloqueados": 0, "sin_bloquear": [],
+win/Pitbox/gpbmods/mods_pitbox.py:175:        return {"cifrado": False, "motivo": _t("No se pudo abrir {archivo}: {error}", archivo=ruta.name, error=e),
+win/Pitbox/gpbmods/mods_pitbox.py:178:        return {"cifrado": False, "bloqueados": bloqueados, "sin_bloquear": sin_bloquear[:20],
+win/Pitbox/gpbmods/mods_pitbox.py:181:        return {"cifrado": False, "bloqueados": 0, "sin_bloquear": sin_bloquear[:20], "motivo": _t(SIN_CIFRAR)}
+win/Pitbox/gpbmods/mods_pitbox.py:182:    return {"cifrado": True, "motivo": "", "bloqueados": bloqueados, "sin_bloquear": sin_bloquear[:20]}
+win/Pitbox/gpbmods/mods_pitbox.py:189:    """Lo que hace falta para publicar un archivo: {ok, archivo, ruta, tam, sha256, cifrado, motivo, bloqueados,
+win/Pitbox/gpbmods/mods_pitbox.py:193:    base = {"ok": False, "archivo": ruta.name, "ruta": str(ruta), "tam": 0, "sha256": "", "cifrado": False,
+win/Pitbox/gpbmods/mods_pitbox.py:210:    c = cifrado(ruta)
+win/Pitbox/gpbmods/mods_pitbox.py:215:    r = {**base, **c, "ok": bool(c["cifrado"]), "tam": st.st_size, "sha256": sha}
+win/Pitbox/gpbmods/mods_pitbox.py:513:    """Baja el archivo del enlace y comprueba tamaño, SHA-256 y que sigue cifrado. Lo que no cuadra se borra.
+win/Pitbox/gpbmods/mods_pitbox.py:544:    c = cifrado(f)
+win/Pitbox/gpbmods/mods_pitbox.py:545:    if not c["cifrado"]:
+win/Pitbox/gpbmods/mods_pitbox.py:547:        raise ModsPitboxError(_t("El archivo del enlace ya no está cifrado: no se instala."))
+win/Pitbox/gpbmods/mods_pitbox_web.py:105:        instala), baja, comprueba (tamaño, SHA-256, cifrado) e instala con el instalador de siempre; lo apunta. La
+win/Pitbox/gpbmods/mods_pitbox_web.py:131:            self._ui.log(_t("Comprobado: es el archivo que se publicó (SHA-256 y tamaño) y está cifrado."))
+win/Pitbox/gpbmods/mods_pitbox_web.py:183:        """¿Se puede publicar este archivo? (cifrado, SHA-256 y tamaño, calculados aquí)."""
+win/Pitbox/gpbmods/pinturas.py:24:por «PNT\\0» está cifrado (p. ej. por iNLock) o no es un .pnt: Pitbox no lo abre ni intenta descifrarlo.
+win/Pitbox/gpbmods/pinturas.py:65:    """No empieza por «PNT\\0»: cifrado o no es un .pnt. No se toca."""
+win/Pitbox/gpbmods/pinturas.py:94:    """Un .pnt entero en memoria → Pnt (comprueba tamaños y MD5). PntBloqueada si está cifrado."""
+win/Pitbox/gpbmods/pinturas.py:223:        if info.file_size > MAX_PNT or info.flag_bits & 0x1:   # entrada cifrada del zip: no se toca
+win/Pitbox/gpbmods/ranking_mundial.py:31:«Entrar con Steam»: Steam solo confirma quién eres en su web (OpenID); el servidor guarda una huella cifrada,
+win/Pitbox/gpbmods/ranking_mundial.py:116:                            "solo una huella cifrada para reconocerte.")
+win/Pitbox/gpbmods/revisar_mod.py:16:MAP, WSS, RIFF, PK para los .pkz). Pitbox nunca bloquea, desbloquea ni descifra nada: solo mira si lo está.
+win/Pitbox/gpbmods/revisar_mod.py:278:                r._h(ERROR, "cifrado", _t("Este .pkz ya está cifrado: no se puede revisar ni volver a bloquear. "
+win/Pitbox/gpbmods/revision_mods.py:26:                motos .pkz cifradas no se pueden leer: no se miran.
+win/Pitbox/gpbmods/revision_mods.py:485:                # cifrado (lo normal) o solo en OneDrive (abrirlo lo bajaría): el de la carpeta donde está
+win/Pitbox/gpbmods/revision_mods.py:661:        cifrado o solo en la nube). El principal es el que trae «rider {» o «tyres {»; primero el que se llama como
+win/Pitbox/gpbmods/revision_mods.py:675:        """Una moto .pkz: lo que pide, si es un zip que se puede leer (las cifradas, lo normal, no se miran)."""
+win/Pitbox/gpbmods/revision_mods.py:804:    """El texto de un .cfg en latin-1 (como lo lee el juego); "" si es demasiado grande o binario (cifrado)."""
+win/Pitbox/gpbmods/revision_mods.py:823:    """Lo que pide la moto de un .pkz que es un zip que se puede leer (<moto>/<moto>.cfg dentro); {} si está cifrado."""
+win/Pitbox/gpbmods/webapp.py:1885:    # ---------- Reglajes compartidos y límites de las motos cifradas ----------
+win/Pitbox/gpbmods/webapp.py:1887:    TEXTO_LIMITES = N_("Para que el editor de reglajes funcione con todas las motos cifradas, Pitbox envía siempre, "
+win/Pitbox/gpbmods/webapp.py:1901:            "motos": [{"id": m.id, "nombre": m.nombre, "categoria": compartidos.categoria_de(m), "cifrada": m.cifrada}
+win/Pitbox/gpbmods/webapp.py:2184:        """Estado de los límites de cada moto cifrada instalada (Mis mods) y si este PC es del administrador."""
+win/Pitbox/gpbmods/webapp.py:2187:            if not m.cifrada:
+win/Pitbox/gpbmods/webapp.py:2199:            motos.append({"id": m.id, "nombre": m.nombre, "cifrada": True, "estado": e, "completa": completa,
+win/Pitbox/gpbmods/webapp.py:2205:    def _moto_cifrada(self, moto_id) -> "contenido.Moto | None":
+win/Pitbox/gpbmods/webapp.py:2207:        return m if m and m.cifrada else None
+win/Pitbox/gpbmods/webapp.py:2224:        m = self._moto_cifrada(moto_id)
+win/Pitbox/gpbmods/webapp.py:2226:            return {"ok": False, "errores": [_t("Esa moto no está instalada o no está cifrada.")]}
+win/Pitbox/gpbmods/webapp.py:2233:        m = self._moto_cifrada(moto_id) if calibracion.es_admin() else None
+win/Pitbox/gpbmods/webapp.py:2236:                    else _t("Esa moto no está instalada o no está cifrada.")}
+win/Pitbox/gpbmods/webapp.py:2246:        m = self._moto_cifrada(moto_id) if calibracion.es_admin() else None
+win/Pitbox/gpbmods/webapp.py:2249:                    else _t("Esa moto no está instalada o no está cifrada.")}
+win/Pitbox/gpbmods/webapp.py:2259:        """Sube (siempre) y descarga los límites de tus motos cifradas en segundo plano. Desde la página: al abrir y
+win/Pitbox/gpbmods/webapp.py:2271:                    self._ui.log(_t("Límites de las motos cifradas: {errores}", errores=" · ".join(r.errores[:3])))
+win/Pitbox/gpbmods/webapp.py:2273:                self._ui.log(_t("Límites de las motos cifradas: error inesperado: {error}", error=e))
+win/Pitbox/gpbmods/webapp.py:3702:    # ---------- Para modders (sin tocar iNLock: ver modders.py) ----------
+win/Pitbox/gpbmods/webapp.py:3705:        """Proyectos recientes y los límites de iNLock (lo que se enseña en la página)."""
+win/Pitbox/gpbmods/webapp.py:3706:        return {"proyectos": modders.resumen(), "url": modders.URL_INLOCK, "dias": modders.DIAS_SERVIDOR,
+win/Pitbox/gpbmods/webapp.py:3743:        """Selector de varios archivos: lo que te has bajado de iNLock (sueltos, .zip o .pkz)."""
+win/Pitbox/gpbmods/webapp.py:3769:        """Copia lo bloqueable a para_inlock/ y abre esa carpeta en el explorador."""
+win/Pitbox/gpbmods/webapp.py:3779:        """Abre una carpeta del proyecto: «para_inlock», «devueltos», «final» o el proyecto entero. Nada más."""
+win/Pitbox/gpbmods/webapp.py:3781:        if p is None or que not in ("para_inlock", "devueltos", "final", "proyecto"):
+win/Pitbox/gpbmods/webapp.py:3865:    def modders_abrir_inlock(self, id_=None) -> bool:
+win/Pitbox/gpbmods/webapp.py:3866:        """Abre iNLock en el navegador del usuario (siempre la misma dirección: nunca una que mande la página)."""
+win/Pitbox/gpbmods/webapp.py:3868:            modders.marcar(id_, inlock=True)
+win/Pitbox/gpbmods/webapp.py:3869:        return game.abrir_url(modders.URL_INLOCK)
+win/Pitbox/gpbmods/webapp.py:3926:                return {"ok": False, "error": _t("Esta moto está cifrada: no se puede leer ni cambiar.")}
+win/Pitbox/gpbmods/webapp.py:3940:            if not isinstance(ruta, str) or ruta not in motos or motos[ruta]["cifrada"]:
+win/Pitbox/gpbmods/webapp.py:3941:                return {"ok": False, "error": _t("Elige una moto que no esté cifrada.")}
+win/Pitbox/gpbmods/webapp.py:4942:    def modders_abrir_inlock(self, id_=None) -> bool:
+win/Pitbox/gpbmods/webapp.py:4943:        return self.__bridge.modders_abrir_inlock(id_)
+== inventory.py
+def _cat_en_pkz_cifrado(pkz: Path) -> str | None:
+    """Los .pkz de mods van cifrados, pero muchos guardan el .ini legible al final del archivo."""
+    with open(pkz, "rb") as f:
+        f.seek(0, 2)
+        f.seek(max(0, f.tell() - (1 << 20)))
+        cola = f.read()
+    m = _CAT_RE.search(cola)
+    return m.group(1).decode("latin-1").strip() if m else None
+
+
+def _escanear_motos(mods_dir: Path) -> tuple[dict[str, list[str]], list[str]]:
+== fisicas_moto.py
+Lo cifrado (bloqueado con iNLock, o el .pkz entero) NUNCA se intenta leer: solo se mira la cabecera, como hace
+revisar_mod, para decir que está bloqueado.
+
+Se guarda SIEMPRE en una copia dentro del proyecto de «Para modders» (<config>/modders/<id>/fisicas/<Moto>/, la moto
+entera) con la versión anterior de cada fichero cambiado en <id>/fisicas_bak/<fichero>.bak. El original (la carpeta
+del modder o la moto instalada) no se toca nunca.
+== modders.py
+"""«Para modders»: preparar un mod para bloquearlo con iNLock y montarlo después con lo que devuelve.
+
+iNLock (https://lock.mxb-mods.com/) es una web de mxb-mods.com, no de Pitbox: allí el modder entra con su Steam, sube
+sus archivos y se baja los bloqueados. El formato del bloqueo es de PiBoSo y Pitbox NUNCA lo implementa, lo revierte
+ni lo esquiva: no entra en esa web, no sube nada ni la automatiza. Solo:
+
+1. revisa el mod (revisar_mod.py);
+2. COPIA (nunca mueve) lo que se puede bloquear a <config>/modders/<id>/para_inlock/, en lotes de como mucho
+(exit 0)

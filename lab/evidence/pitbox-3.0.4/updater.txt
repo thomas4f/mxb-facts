@@ -1,0 +1,211 @@
+$ sed -n '1,60p;93,104p' win/Pitbox/gpbmods/actualizar.py; echo '== actualizar.py: after an update'; sed -n '738,775p' win/Pitbox/gpbmods/actualizar.py; echo '== webapp.py'; sed -n '1209,1262p' win/Pitbox/gpbmods/webapp.py; echo '== web/index.html'; sed -n '6508,6549p' win/Pitbox/gpbmods/web/index.html
+"""Actualizaciones automáticas y seguras de Pitbox (programa, Asistente de reglaje e idiomas).
+
+Cómo se protege:
+  1. El autor firma `actualizacion.json` con su clave privada Ed25519 (solo está en su PC).
+     Aquí va la pública: lo que no esté firmado por él se rechaza ANTES de leerlo.
+  2. El manifiesto dice versión, tamaño y SHA-256 de cada paquete: el paquete descargado tiene que
+     coincidir byte a byte. Nunca se baja de versión.
+     Por eso da igual de dónde venga: si no se llega al Worker (operadora que bloquea Cloudflare), se baja lo mismo
+     de GitHub Releases (cristianboni22/pitbox). Solo de esos sitios, también al seguir redirecciones.
+  3. El paquete se descomprime aparte (`<instalación>/.actualizacion/<versión>/`) rechazando rutas con
+     `..`, absolutas o enlaces, y se comprueba que está completo antes de tocar la instalación.
+  4. Se cambia pieza a pieza: lo viejo va a `.anterior/` (copia de seguridad) y, si algo falla, se
+     restaura. Lo que no viene en el paquete (p. ej. `.venv` en Linux) no se toca nunca.
+     En Windows lo hace un ayudante en Python (aplicar_windows.py, con el intérprete del paquete NUEVO) cuando
+     Pitbox se ha cerrado (python.exe está en uso). Sin PowerShell: a un PowerShell oculto lo pueden bloquear el
+     antivirus o las directivas del equipo, y Pitbox se cerraba sin actualizarse.
+  5. Al arrancar la versión nueva, `tras_arrancar()` pone al día el plugin y los idiomas del juego.
+"""
+from __future__ import annotations
+
+import base64
+import binascii
+import hashlib
+import json
+import os
+import re
+import shutil
+import stat
+import subprocess
+import sys
+import tarfile
+import time
+import zipfile
+from contextlib import contextmanager
+from pathlib import Path, PurePosixPath
+from typing import Callable
+from urllib.parse import urljoin, urlsplit
+
+import requests
+
+from . import aplicar_windows
+from .i18n import t as _t
+from .version import VERSION
+
+URL_ACTUALIZACIONES = "https://gpbmods-ranking.secundariac2003.workers.dev/actualizaciones/"
+# Copia de lo mismo (firmado igual) en GitHub Releases: se usa si no se llega al Worker (p. ej. una operadora que
+# bloquea las IP de Cloudflare durante los partidos de LaLiga). La firma y el SHA-256 hacen que el sitio dé igual.
+URL_GITHUB = "https://github.com/cristianboni22/pitbox/releases/"
+# Únicos sitios de los que se descarga (también tras redirecciones): el Worker y GitHub (que redirige a sus CDN).
+HOSTS_GITHUB = frozenset({"github.com", "objects.githubusercontent.com", "release-assets.githubusercontent.com"})
+MAX_REDIRECCIONES = 5
+# Clave pública Ed25519 (32 bytes en hex) del autor. La privada: ~/.config/gpbmods-firma.key en su PC.
+CLAVE_PUBLICA = "04976bafdc6518927075032205a5bdf571d88d46c2a86cab84884a7714afc94b"
+
+MANIFIESTO = "actualizacion.json"
+FIRMA = MANIFIESTO + ".sig"
+TAMANO_MAXIMO = 25 * 1024 * 1024       # Cloudflare no sirve archivos estáticos mayores
+MAX_MANIFIESTO = 64 * 1024
+MAX_DESCOMPRIMIDO = 600 * 1024 * 1024  # contra «bombas» zip
+MAX_ARCHIVOS = 20_000
+def verificar_firma(datos: bytes, firma: bytes, clave_publica: str | None = None) -> None:
+    """Ed25519 sobre los bytes exactos. `firma` es el contenido de .sig (base64 de 64 bytes)."""
+    from Crypto.Signature import eddsa
+
+    try:
+        crudo = base64.b64decode(firma.strip(), validate=True)
+        if len(crudo) != 64:
+            raise ValueError
+        clave = eddsa.import_public_key(bytes.fromhex(clave_publica or CLAVE_PUBLICA))
+        eddsa.new(clave, "rfc8032").verify(datos, crudo)
+    except (ValueError, binascii.Error):
+        raise ErrorActualizacion(_t("La actualización no está firmada por el autor de Pitbox: no se instala.")) from None
+== actualizar.py: after an update
+def tras_arrancar(carpeta: Path | None = None, esperar: Callable[[], None] = lambda: time.sleep(15)) -> str:
+    """Tras una actualización: borra lo temporal y la copia `.anterior` (la nueva ya arranca) y pone al día
+    el plugin, el HUD y los idiomas del juego. Si GP Bikes está abierto espera a que se cierre (llámala en un hilo).
+    Devuelve qué hizo (para el registro)."""
+    inst = Path(carpeta) if carpeta else ROOT
+    if es_desarrollo(inst):
+        return "desarrollo"
+    limpiar_restos(inst)   # en cada arranque: lo que quedó en uso la última vez se borra ahora
+    marca = _marca()
+    try:
+        if marca.read_text(encoding="utf-8").strip() == VERSION:
+            return "al día"
+    except OSError:
+        pass
+    from . import ajustes, game, instalacion
+
+    datos = ajustes.cargar()
+    juego = Path(datos["juego"]) if datos.get("juego") else None
+    resultado = "sin instalar"
+    if datos.get("instalado") and juego and (juego / "gpbikes.exe").is_file():
+        dlo, idiomas = instalacion.recursos()
+        while game.is_running():  # el juego tiene el plugin cargado: al cerrarlo
+            esperar()
+        try:
+            if dlo:
+                instalacion.instalar_plugin(juego, dlo)
+            if idiomas:
+                instalacion.instalar_idiomas(juego, idiomas, quitar=False)   # nunca quitar el del juego
+            resultado = "asistente e idiomas al día"
+            # El HUD, si el del paquete es otro (más nuevo) que el instalado y el usuario no lo ha quitado.
+            if instalacion.hud_activado(datos) and instalacion.sincronizar_hud(juego, True) == "instalado":
+                resultado += " + HUD"
+        except (OSError, zipfile.BadZipFile) as e:
+            print(f"Actualización: no se pudo poner al día el asistente o el HUD: {e}", file=sys.stderr)
+            return "error"  # sin marca: se reintenta en el próximo arranque
+    try:   # de «GPB Mods» a «Pitbox»: el acceso directo del escritorio (solo el nuestro, de esta instalación)
+        if instalacion.migrar_acceso_directo(juego, inst):
+            resultado += " + acceso directo «Pitbox»"
+== webapp.py
+    def actualizacion_comprobar(self) -> dict | None:
+        """None si no hay versión nueva (o no se puede saber); si la hay, {"version", "notas", "tamano"}."""
+        mod = self._modulo_actualizar()
+        if mod is None:
+            return None
+        try:
+            r = mod.comprobar()
+        except Exception as e:   # sin red, servidor caído…: no molestar, solo dejar rastro
+            self._ui.log(_t("No se pudo comprobar si hay una versión nueva: {error}", error=e))
+            return None
+        if not isinstance(r, dict) or not r.get("version"):
+            return None
+        try:
+            tamano = max(0, int(r.get("tamano") or 0))
+        except (TypeError, ValueError):
+            tamano = 0
+        return {"version": str(r["version"]), "notas": str(r.get("notas") or ""), "tamano": tamano}
+
+    def actualizacion_fallo(self) -> dict | None:
+        """Al arrancar: si la última actualización no se pudo instalar (Windows), {"error"} para enseñarlo una vez."""
+        mod = self._modulo_actualizar()
+        if mod is None:
+            return None
+        try:
+            texto = mod.fallo_anterior()
+        except Exception:   # noqa: BLE001 (nunca romper el arranque por esto)
+            return None
+        return {"error": str(texto)} if texto else None
+
+    def actualizacion_aplicar(self) -> bool:
+        """Descarga e instala la versión nueva en segundo plano, con la barra de progreso (evento «progreso»)."""
+        mod = self._modulo_actualizar()
+        if mod is None:
+            return False
+        error = getattr(mod, "ErrorActualizacion", None)
+        ultimo = [0.0]
+
+        def progreso(fraccion, texto="") -> None:
+            ahora = time.monotonic()
+            try:
+                f = min(1.0, max(0.0, float(fraccion)))
+            except (TypeError, ValueError):
+                f = 0.0
+            if ahora - ultimo[0] < PROGRESS_EVERY_S and f < 1.0:
+                return
+            ultimo[0] = ahora
+            self._push({"type": "progreso", "fraccion": f, "texto": str(texto or "")})
+
+        def trabajo():
+            try:
+                mod.descargar_y_aplicar(progreso)
+            except Exception as e:
+                if error is None or not isinstance(e, error):
+                    raise   # _run lo apunta como error inesperado
+== web/index.html
+  function pintarUpdate() {
+    const u = state.update;
+    $("updBtn").hidden = !u;
+    $("homeUpd").hidden = !u;
+    if (!u) return;
+    $("updTxt").textContent = t("Versión {version} disponible", { version: u.version });
+    $("updBtn").disabled = state.busy;
+    $("homeUpd").innerHTML = `<span><b>${esc(t("Versión {version} disponible.", { version: u.version }))}</b> ${state.version ? esc(t("Tienes la {version}.", { version: state.version })) : ""}</span><span class="spacer"></span>
+      <button class="btn sm ghost" id="homeUpdVer">${esc(t("Qué hay de nuevo"))}</button><button class="btn sm pri" id="homeUpdOk" ${state.busy ? "disabled" : ""}>${ico("down")}${esc(t("Actualizar"))}</button>`;
+    $("homeUpdVer").addEventListener("click", dialogoUpdate);
+    $("homeUpdOk").addEventListener("click", aplicarUpdate);
+  }
+  const mb = (b) => b >= 1e6 ? `${fNum(b / 1e6, 1)} MB` : b > 0 ? `${fNum(Math.max(1, Math.round(b / 1e3)))} KB` : "";
+  function dialogoUpdate() {
+    const u = state.update; if (!u) return;
+    modal(`<div class="dbody"><h3 id="dlgT">Pitbox ${esc(u.version)}</h3>
+        <div class="meta">${state.version ? `<span>${tHtml("Tienes {version}", { version: `<b>${esc(state.version)}</b>` })}</span>` : ""}${u.tamano ? `<span>${tHtml("Descarga {tamano}", { tamano: `<b>${esc(mb(u.tamano))}</b>` })}</span>` : ""}</div>
+        ${u.notas ? `<div class="notas">${esc(u.notas)}</div>` : `<p>${esc(t("Sin notas de esta versión."))}</p>`}
+        <p class="note">${esc(t("Tus ajustes, vueltas y presets no se tocan. Al terminar, cierra Pitbox y vuelve a abrirlo."))}</p></div>
+      <div class="dacts"><button class="btn" data-close data-cancel>${esc(t("Ahora no"))}</button><button class="btn pri" id="upOk" data-focus ${state.busy ? "disabled" : ""}>${ico("down")}${esc(t("Actualizar ahora"))}</button></div>`,
+      (d, close) => { d.querySelector("#upOk").addEventListener("click", () => { close(); aplicarUpdate(); }); }, { wide: true });
+  }
+  function aplicarUpdate() {
+    if (state.busy) return;
+    log("» " + (state.update ? t("Actualizar Pitbox a la {version}", { version: state.update.version }) : t("Actualizar Pitbox a la versión nueva")));
+    api().actualizacion_aplicar().then((ok) => { if (!ok) log(t("No se pudo empezar la actualización (¿ya hay una tarea en marcha?).")); });
+  }
+  $("updBtn").addEventListener("click", dialogoUpdate);
+  let updEstado = "";   // "buscando" | "hay" | "nada": lo último que se enseñó en Ajustes (para repintarlo al cambiar de idioma)
+  function pintarUpdEstado() {
+    $("updEstado").textContent = updEstado === "buscando" ? t("Buscando…")
+      : updEstado === "hay" && state.update ? t("Versión {version} disponible.", { version: state.update.version })
+      : updEstado ? t("Tienes la última versión (o no se pudo comprobar).") : "";
+  }
+  async function comprobarUpdate(manual) {
+    if (manual) { $("updCheck").disabled = true; updEstado = "buscando"; pintarUpdEstado(); }
+    let u = null;
+    try { u = await api().actualizacion_comprobar(); } catch { u = null; }
+    state.update = u && u.version ? u : null;
+    pintarUpdate();
+    if (manual) { $("updCheck").disabled = false; updEstado = state.update ? "hay" : "nada"; pintarUpdEstado(); if (state.update) dialogoUpdate(); }
+  }
+(exit 0)

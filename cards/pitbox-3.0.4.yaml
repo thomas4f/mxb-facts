@@ -1,0 +1,580 @@
+tool: Pitbox
+version: 3.0.4
+summary: >-
+  A GP Bikes launcher (online rooms, mod installs, a world lap ranking) with an in-game HUD and Setup Assistant plugin.
+  To use it you must sign in with Steam, link Discord and share your lap times and lap telemetry publicly; updates are
+  signed and install when you click.
+header:
+  What it is: >-
+    A Windows and Linux app in Python, shown in a WebView2 window, that lists GP Bikes' online rooms, installs missing
+    tracks and bikes from gpb-mods.com, runs your own room and uploads your best laps to its own world ranking. Its
+    "Instalar" button copies two closed-source plugins into the game's `plugins` folder: a HUD and a Setup Assistant
+    (F8) that records your laps and telemetry.
+  In one line: GP Bikes launcher, mod installer and lap ranking, with a HUD and setup assistant plugin
+  Category: Mod managers
+  Author: cristianboni22 (GitHub user [cristianboni22](https://github.com/cristianboni22))
+  Game: GP Bikes
+  gpb-mods.com: '[Pitbox – Launcher, Setup Assistant & HUD for GP Bikes](https://gpb-mods.com/pitbox-launcher-setup-assistant-hud-for-gp-bikes/)'
+  Homepage: None found
+  GitHub: '[cristianboni22/pitbox](https://github.com/cristianboni22/pitbox)'
+  Version analysed: >-
+    3.0.4, GitHub release [v3.0.4](https://github.com/cristianboni22/pitbox/releases/tag/v3.0.4) (20 Nov 2026), the
+    tool's latest GitHub release when the analysis started. The repository holds only a README: the app's Python code is
+    read as it ships in the release, and the plugins have no public source.
+  Source commit: >-
+    [dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3](https://github.com/cristianboni22/pitbox/tree/dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3)
+    (tag v3.0.4; its only file is README.md)
+  Analysed on: 24 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    No licence was found (the repository and the release hold none), so the release was examined: the app's Python code,
+    which ships as source, was searched and read for every network call, file deletion, registry, process and server
+    call; the two plugins (no public source) by their imports, sections, code-signing entry, text and the call sites of
+    their memory-protection, file and key imports (`objdump`, `strings`); the update notice and file list were checked
+    against the Ed25519 key in the app. Every command is in `lab/evidence/pitbox-3.0.4/run.sh`. Nothing could be rebuilt.
+    A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU) and no
+    keys ran, under Process Monitor with every program in the run folder blocked by the firewall: the GP Bikes demo
+    (beta22b) bare as baseline, then with the HUD plugin on track pressing its keys (twice, the second pressing the
+    Setup Assistant's keys too); the plugin test host with the HUD, the Setup Assistant, both with a crash and helmet
+    view, and the bystander plugin's checks; and the app for 120 seconds, without signing in (it needs a Steam and a
+    Discord account). The Linux package wasn't run. VirusTotal: hash lookups made before the analysis (24 Nov 2026);
+    nothing uploaded, because no licence was found.
+files:
+  - name: Pitbox-Windows-3.0.4.zip
+    sha256: 4f58df6c82845d181779854aaddaf64f9af29e3b9d5b617e9bbe964f4675d776
+    note: The Windows download (the same file as `Pitbox-Windows.zip` on the release page).
+  - name: Pitbox-Linux-3.0.4.tar.gz
+    sha256: 45619e401d7d0662a1d945f3651d91b4623cb327f3994a28df9cba35c92f08ab
+    note: The Linux download (the same file as `Pitbox-Linux.tar.gz`).
+  - name: actualizacion.json
+    sha256: dbbbe144d8f9641a1fbbb99ad54a33b06d530d40d795888fc91a5cf21cb70c1b
+    note: The update notice the app reads (version, notes, each package's size and SHA-256).
+  - name: actualizacion.json.sig
+    sha256: ef47a970bea5e897d77e1892a750cdf4f2a1743f03f26d0b3386cf997c939d9b
+    note: Its Ed25519 signature.
+  - name: gpbmods_hud64.dlo
+    sha256: bd2b0af56a4bd4c471409e65a947ef829625fee3d691e96a00157a8513ddaa43
+    inside: Pitbox-Windows-3.0.4.zip
+    note: 'The HUD plugin, in `Pitbox\hud\` (the same file is in the Linux package).'
+  - name: asistente_reglaje64.dlo
+    sha256: 2f6a3454bb27e28f4f6bc5f2367c6ed8687fe036bca1167dd7a6d47a5a495bf4
+    inside: Pitbox-Windows-3.0.4.zip
+    note: 'The Setup Assistant plugin, in `Pitbox\asistente\` (the same file is in the Linux package).'
+  - name: gpbmods_app.py
+    sha256: 32ef7791605ecf6120fb54a0f9af05b5787854fafcbce1b726a3b9beb3b39c7d
+    inside: Pitbox-Windows-3.0.4.zip
+    note: 'The app''s start script; its code is in `Pitbox\gpbmods\` (Python source).'
+  - name: Instalar.bat
+    sha256: 9ded5964f331ad7a0e0b7f54f322ab80e17ea8153b064efdd03848dd355db0b0
+    inside: Pitbox-Windows-3.0.4.zip
+    note: Starts the app with the bundled Python.
+  - name: Si algo falla (con registro).bat
+    sha256: 4da3a0309a07cd5f88175142bf16f5f639ef3b957cab9ff7a53b0e34a5d7c180
+    inside: Pitbox-Windows-3.0.4.zip
+    note: Starts the app with a log of its errors.
+  - name: integridad.json
+    sha256: 0a276c58c31d985baef91ac24ddfcc2417b2d357905736c945352f52d510218e
+    inside: Pitbox-Windows-3.0.4.zip
+    note: The signed list of the package's 823 files and their SHA-256, checked at every start.
+  - name: 7z.exe
+    sha256: 4cd7d776c686427226a151789d2d61f0b2ed2c392148cc4e69c0238362fafecf
+    inside: Pitbox-Windows-3.0.4.zip
+    note: '7-Zip 25.01, in `Pitbox\vendor\7z\`, to unpack mods.'
+  - name: python.exe
+    sha256: 4d6f5f81a4bca11191c4c7c6b43632694d0a4ce74e068619d8fdc161d469859a
+    inside: Pitbox-Windows-3.0.4.zip
+    note: 'The bundled Python 3.12, in `Pitbox\python\`.'
+  - name: requirements.txt
+    sha256: d20a1163084de0782fc3ef7ef086f8701374795c1ad934ce8dec0c3d3e0f4cff
+    inside: Pitbox-Linux-3.0.4.tar.gz
+    note: The libraries the Linux package installs with pip.
+files_note: >-
+  The Windows zip holds 825 files, 99 of them program files (`lab/evidence/pitbox-3.0.4/file.txt`); the table lists the
+  release files and the ones the card's lines rest on. The plugins' hashes match the ones the game loaded
+  (`lab/results/pitbox-3.0.4/ride-hud-windows/plugins.sha256`), and the release files the ones the Windows machine ran
+  (`lab/results/pitbox-3.0.4/ride-hud-windows/machine.txt`).
+key:
+  K1: 'No malware found. No engine flags the files that were looked up; the Linux package isn''t on VirusTotal.'
+  K2: 'No. It looks for updates at every start but installs one only when you click "Actualizar", after checking its signature and SHA-256.'
+  K3: 'Only on request. Deleting mods (kept in its own bin until you empty it), installing mods, and its "Instalar" button.'
+  K4: 'Yes. To use it you must sign in with Steam; it then sends your best lap times, their telemetry, your alias, country and presence.'
+  K5: 'No. Its plugins use the plugin interface and change nothing in the game''s code or memory.'
+  K6: 'No. It decrypts, copies and shares no one''s protected content; it reads mods'' readable files and headers.'
+  K7: 'No. The app''s Python code ships in the release, but the two plugins have no public source and the repository holds only a README.'
+  K8: 'No. Its README says it updates itself when you open it; it installs an update only when you click.'
+  K9: 'Partly. Updates are signed and checked against a key in the app, but the release isn''t code-signed and can''t be traced to source.'
+  K10: 'Yes. Its ranking server, gpb-mods.com, stats.gp-bikes.com and GitHub; nothing can be switched off.'
+areas:
+  Your PC and files: >-
+    Signed updates installed on a click; it deletes or overwrites mod files only when you ask; a desktop shortcut on first
+    start; not code-signed.
+  Your data: >-
+    Steam sign-in, a linked Discord account, a public alias and shared lap telemetry are required; it sends your laps,
+    telemetry and presence to its own server, with no switch.
+  Your game: >-
+    Two plugins that draw through the plugin interface; the app runs next to the game, and starts it and its server when
+    you ask.
+  Creators' content: It reads mods' readable files and headers and installs mods from their authors' links; it decrypts nothing.
+  Transparency: >-
+    The app's code ships as Python source, but the plugins are closed, there is no licence or public history, and its README
+    says it updates itself when it asks first.
+  Money: Free; it links to a Ko-fi page for donations.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: `Instalar.bat` runs PowerShell's `Unblock-File` on every file in the Pitbox folder, and the app does the
+          same at each start, so Windows no longer marks them as downloaded from the internet
+          (`lab/evidence/pitbox-3.0.4/install.txt`, `Instalar.bat`, and `_limpieza_al_arrancar` in `gpbmods_app.py`).
+        mark: note
+      - text: >-
+          Also found: at every start it checks each of its 823 files against the signed list `integridad.json`, and won't
+          open while one differs (`lab/evidence/pitbox-3.0.4/install.txt`, `gpbmods_app.py`, `_autocomprobacion`;
+          `lab/evidence/pitbox-3.0.4/ed25519.txt`).
+        mark: good
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: 'Update check; Steam and Discord sign-in; access check; lap times, telemetry, alias, country, profile picture, presence, friends, shared setups, setup limits, bug reports (`lab/evidence/pitbox-3.0.4/sends.txt`, `lab/evidence/pitbox-3.0.4/updater.txt`; tried in `lab/results/pitbox-3.0.4/pitbox-app-windows/network.txt` (104.21.16.12, 172.67.209.193; `lab/evidence/pitbox-3.0.4/hosts.txt`))'
+            Where to: '`gpbmods-ranking.secundariac2003.workers.dev` (the author''s server, on Cloudflare)'
+            When: 'Update check at start; the rest after sign-in, or when you use the feature'
+            Switch: 'None (the update check runs at every start; the rest is required for access)'
+          - What: 'The public list of online rooms and who is in them (`lab/evidence/pitbox-3.0.4/probe.txt`; tried in `lab/results/pitbox-3.0.4/pitbox-app-windows/network.txt` (45.131.60.38))'
+            Where to: '`stats.gp-bikes.com`'
+            When: 'At start and while the rooms list is open'
+            Switch: 'None'
+          - What: 'The mod catalogue (WordPress API) and mod pages (`lab/evidence/pitbox-3.0.4/urls.txt`; tried in `lab/results/pitbox-3.0.4/pitbox-app-windows/network.txt` (172.67.203.202, 104.21.14.154))'
+            Where to: '`gpb-mods.com`'
+            When: 'At start, and when you install or update mods'
+            Switch: 'None'
+          - What: 'A check that the internet works when its server can''t be reached, and the copy of each update (`lab/evidence/pitbox-3.0.4/probe.txt`, `lab/evidence/pitbox-3.0.4/updater.txt`; tried in `lab/results/pitbox-3.0.4/pitbox-app-windows/network.txt` (140.82.114.6, 140.82.112.3))'
+            Where to: '`api.github.com/zen`, `github.com` releases'
+            When: 'After a failed call to its server'
+            Switch: 'None'
+          - What: 'Downloading a mod you install (`lab/evidence/pitbox-3.0.4/urls.txt`)'
+            Where to: 'MEGA, Google Drive, MediaFire and the other links on mod pages'
+            When: 'On request'
+            Switch: 'Only when you install a mod'
+          - What: 'Your public IP address, for the join link of your own room (`lab/evidence/pitbox-3.0.4/urls.txt` (sala_propia.py))'
+            Where to: '`api.ipify.org`, `ipv4.icanhazip.com`'
+            When: 'When you open "Mi sala"'
+            Switch: 'Only when you open "Mi sala"'
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: "Mi sala" (your own online room, on request) starts the game's dedicated server and asks your router,
+          through UPnP, to forward the room's port; that is on by default once you start a room (`upnp: bool = True`)
+          (`lab/evidence/pitbox-3.0.4/upnp.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"Pitbox updates itself when you open it." (README.md, Updates)'
+            Verdict: Doesn't match
+            Evidence: 'At start it only checks; the page shows "Versión … disponible" with an "Actualizar" button, and installs only on that click (`lab/evidence/pitbox-3.0.4/updater.txt`, web/index.html lines 6508 to 6549; `lab/evidence/pitbox-3.0.4/readme-claims.txt`).'
+          - Claim: '"Every update is signed (Ed25519) and Pitbox checks the signature and the package''s SHA-256 before installing anything" (README.md)'
+            Verdict: Matches
+            Evidence: '`verificar_firma` and the SHA-256 check in `descargar_paquete`; the release''s notice verifies against the key in the app (`lab/evidence/pitbox-3.0.4/updater.txt`, `lab/evidence/pitbox-3.0.4/ed25519.txt`).'
+          - Claim: '"You''ll get a "Pitbox" shortcut on your desktop" after pressing Install (README.md, Install on Windows)'
+            Verdict: Partly
+            Evidence: 'The shortcut is made at the first start, before Install is pressed (`acceso_primera_vez`); the app''s run wrote `Desktop\Pitbox.lnk` (`lab/evidence/pitbox-3.0.4/install.txt`; `lab/results/pitbox-3.0.4/pitbox-app-windows/outside.txt`).'
+          - Claim: '"Nothing is kept from Steam: not your ID, your name or your photo. Only an encrypted fingerprint (HMAC) to recognise you on another PC." (the access screen)'
+            Verdict: Not checked
+            Evidence: 'What the server keeps can''t be seen from here; the app sends only its session token after sign-in (`lab/evidence/pitbox-3.0.4/access.txt`, `lab/evidence/pitbox-3.0.4/sends.txt`; see Limits).'
+          - Claim: '"The full telemetry of your best laps is shared … It carries no personal data or data about your PC." (the access screen)'
+            Verdict: Matches
+            Evidence: 'The upload carries track, layout, bike, lap time, date and the compacted telemetry, with your session token (`lab/evidence/pitbox-3.0.4/sends.txt`, `subir_telemetrias`).'
+          - Claim: '"Unofficial app. Not affiliated with PiBoSo or gpb-mods.com." (README.md)'
+            Verdict: Not checked
+            Evidence: 'An affiliation can''t be seen in the files (`lab/evidence/pitbox-3.0.4/readme-claims.txt`).'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the
+              GP Bikes demo, offline.
+            questions: []
+          - text: >-
+              The app wasn't signed in: that needs a Steam and a Discord account. So nothing it sends after sign-in (laps,
+              telemetry, presence, friends, setup limits) was seen in a run; those answers rest on its code. Its server's side
+              (what it keeps, who sees it, how long) can't be seen at all.
+            questions: [D2, D3, D4, D7]
+          - text: >-
+              In the real game only the HUD was loaded, from a `plugins\datos` folder instead of the `plugins\gpbmods_hud` its
+              installer makes, so its panels drew without text; the Setup Assistant ran only in the test host. Neither was run
+              on an online server (the demo has no online play).
+            questions: [G3, G4, P7, D6]
+          - text: >-
+              The plugins are closed source: they were read from their imports, text and the call sites named on the lines, not
+              decompiled in full. A read or write of the game's memory through a pointer worked out at run time wouldn't show
+              there; the test host's checks of the game's OpenGL pointers saw none.
+            questions: [G2, G4, G7, P9]
+          - text: >-
+              The app's 35,000 lines of Python were searched for every network, file, registry, process and server call and the
+              matching code read; not every line was read.
+            questions: [P9, D2, D6]
+          - text: >-
+              No newer release existed, so an update wasn't installed in a run; the "Instalar" button, mod installs and
+              deletions, "Mi sala" and "Jugar solo" weren't pressed either. What they do rests on the code.
+            questions: [P2, P4, P6, P7, P8]
+          - text: >-
+              The Windows machine's firewall blocked only programs in the run folder: Microsoft's WebView2 runtime that draws
+              the app's window connected to Microsoft's servers (150.171.x), which is that runtime's own traffic, not Pitbox's code.
+            questions: []
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No engine flags any file that was looked up: `Pitbox-Windows-3.0.4.zip` 0 of 63 (last scanned 23 Nov 2026),
+      `asistente_reglaje64.dlo` 0 of 70, `Instalar.bat` and `Si algo falla (con registro).bat` 0 of 61. Not on VirusTotal:
+      `Pitbox-Linux-3.0.4.tar.gz`, a file players download, `actualizacion.json` and `gpbmods_app.py`. Not looked up (the
+      lookup stops at 40 files): `actualizacion.json.sig`, `gpbmods_hud64.dlo`, `integridad.json`, `7z.exe`, `python.exe`,
+      `requirements.txt`. Hash lookups on 24 Nov 2026; nothing uploaded.
+    evidence: >-
+      [Pitbox-Windows-3.0.4.zip](https://www.virustotal.com/gui/file/4f58df6c82845d181779854aaddaf64f9af29e3b9d5b617e9bbe964f4675d776),
+      [Pitbox-Linux-3.0.4.tar.gz](https://www.virustotal.com/gui/file/45619e401d7d0662a1d945f3651d91b4623cb327f3994a28df9cba35c92f08ab),
+      [actualizacion.json](https://www.virustotal.com/gui/file/dbbbe144d8f9641a1fbbb99ad54a33b06d530d40d795888fc91a5cf21cb70c1b),
+      [asistente_reglaje64.dlo](https://www.virustotal.com/gui/file/2f6a3454bb27e28f4f6bc5f2367c6ed8687fe036bca1167dd7a6d47a5a495bf4),
+      [gpbmods_app.py](https://www.virustotal.com/gui/file/32ef7791605ecf6120fb54a0f9af05b5787854fafcbce1b726a3b9beb3b39c7d),
+      [Instalar.bat](https://www.virustotal.com/gui/file/9ded5964f331ad7a0e0b7f54f322ab80e17ea8153b064efdd03848dd355db0b0),
+      [Si algo falla (con registro).bat](https://www.virustotal.com/gui/file/4da3a0309a07cd5f88175142bf16f5f639ef3b957cab9ff7a53b0e34a5d7c180)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      At every start it asks its server (or GitHub) whether a newer version exists and shows it with an "Actualizar" button;
+      it downloads and installs only after you click it.
+    evidence: '`lab/evidence/pitbox-3.0.4/updater.txt` (webapp.py `actualizacion_aplicar`; web/index.html `aplicarUpdate`, called only from the two buttons).'
+  P3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The update notice must carry a valid Ed25519 signature from the key built into the app, and the package must match the
+      size and SHA-256 the notice gives; it never installs an older version. The release's own notice and file list verify
+      against that key.
+    evidence: '`lab/evidence/pitbox-3.0.4/updater.txt` (actualizar.py lines 1 to 60 and 93 to 104), `lab/evidence/pitbox-3.0.4/ed25519.txt`.'
+  P4:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      "Mis mods" moves a mod you delete into an "Eliminados de Pitbox" folder beside the mods folder, and deletes it for good
+      only when you empty that folder; installing or updating a mod you pick replaces the old files after copying them to its
+      cache or a versions folder. It won't touch the game's own files or plugins. Installing its languages deletes only `.str`
+      files it put there itself (checked by hash).
+    evidence: '`lab/evidence/pitbox-3.0.4/deletes.txt`, `lab/evidence/pitbox-3.0.4/install.txt` (`instalar_idiomas`).'
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Pitbox's own files aren't code-signed: neither plugin, nor the bundled 7-Zip; only the bundled Python and Microsoft
+      WebView2 files carry their makers' signatures. Nothing can be traced to public source.
+    evidence: '`lab/evidence/pitbox-3.0.4/signature.txt`.'
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It writes no registry value: the app only reads Steam's keys, and the plugins import no registry function. In the app's
+      run the only registry writes were Windows' own caches (MuiCache, the zone map) made by the PowerShell it starts.
+    evidence: >-
+      `lab/evidence/pitbox-3.0.4/registry.txt`, `lab/evidence/pitbox-3.0.4/imports-absent.txt`;
+      `lab/results/pitbox-3.0.4/pitbox-app-windows/registry.txt`.
+  P7:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      When you press "Instalar", it copies its two plugins and their data into `plugins`, one language file into the game's
+      `ui` folder, two fonts from the game's `ui.pkz` into its plugin folder, and sets the language in `global.ini` and your
+      `profile.ini` (keeping a `.gpbmods.bak` copy). Its "Gráficos" page edits your `profile.ini`, and mods you install go
+      into the mods folder. The Setup Assistant writes setups you create into your profile's setups folder.
+    evidence: >-
+      `lab/evidence/pitbox-3.0.4/install.txt`, `lab/evidence/pitbox-3.0.4/graphics.txt`, `lab/evidence/pitbox-3.0.4/strings-plugins.txt`;
+      `lab/results/pitbox-3.0.4/hud-keys-windows/files.diff`, `lab/results/pitbox-3.0.4/assistant-keys-windows/files.diff`.
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It has no uninstaller. Deleting the Pitbox folder leaves its settings in `%APPDATA%\GPBMods`, its cache in
+      `%LOCALAPPDATA%\GPBMods` and the desktop shortcut, and, after "Instalar", the plugins in the game; nothing in Windows.
+      The language lines it sets in `global.ini` and `profile.ini` (on request) stay too.
+    evidence: '`lab/results/pitbox-3.0.4/pitbox-app-windows/outside.txt`, `lab/evidence/pitbox-3.0.4/install.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The app's code is readable Python, and what it does matches its screens: rooms, mods, ranking, sign-in,
+      updates, its own room. The plugins import nothing that connects, starts a program, writes the registry or another
+      process; their text and imports belong to the HUD and the Setup Assistant.
+    evidence: >-
+      `lab/evidence/pitbox-3.0.4/urls.txt`, `lab/evidence/pitbox-3.0.4/processes.txt`, `lab/evidence/pitbox-3.0.4/imports-absent.txt`,
+      `lab/evidence/pitbox-3.0.4/strings-plugins.txt`, `lab/evidence/pitbox-3.0.4/strings-urls.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The app connects to its own server, gpb-mods.com, stats.gp-bikes.com and GitHub at start (nine attempts in its run,
+      all blocked), and to mod download sites and IP lookup services when you use those features. The plugins have no network
+      code, and no game run tried a connection.
+    evidence: >-
+      `lab/results/pitbox-3.0.4/pitbox-app-windows/network.txt`, `lab/evidence/pitbox-3.0.4/hosts.txt`, `lab/evidence/pitbox-3.0.4/urls.txt`;
+      `lab/evidence/pitbox-3.0.4/imports-absent.txt`, `lab/results/pitbox-3.0.4/ride-hud-windows/network.txt`.
+  D2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      To use the app you must sign in and share. It then uploads your best lap per track and bike (time, date, weather, and
+      your setup only where you chose to share it), the full telemetry of each best lap, your alias, country and profile
+      picture, and, every 3 minutes while you have friends in it, that you're online and which room you're in ("Mostrar a mis
+      amigos en qué sala estoy" is on by default). Separately, at start and every hour after its one-time notice is closed
+      ("Entendido"), it uploads the setting ranges seen in your saved setups of encrypted bikes, with the bike file's SHA-256
+      and a random token, without your session; the page says these are always shared.
+    evidence: >-
+      `lab/evidence/pitbox-3.0.4/access.txt`, `lab/evidence/pitbox-3.0.4/sends.txt`, `lab/evidence/pitbox-3.0.4/presence.txt`,
+      `lab/evidence/pitbox-3.0.4/limits.txt`.
+  D3:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      After you sign in with Steam (required), every call carries your session token ("Authorization: Bearer …"), which ties
+      your laps to your Steam account on any PC; the server learns who you are on Steam through Steam's sign-in. The setup
+      limits carry a random token it makes, and without Steam the ranking uses a random install ID.
+    evidence: '`lab/evidence/pitbox-3.0.4/sends.txt` (ranking_mundial.py lines 1 to 45, `_peticion`, `_identidad`), `lab/evidence/pitbox-3.0.4/limits.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      What it sends is about you: your laps, telemetry, alias and presence. It reads who is in each room from stats.gp-bikes.com
+      to alert you about friends, and a bug report strips your friends' nicknames before it is sent.
+    evidence: '`lab/evidence/pitbox-3.0.4/sends.txt`, `lab/evidence/pitbox-3.0.4/presence.txt`, `lab/evidence/pitbox-3.0.4/report.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its local servers listen on `127.0.0.1` only: pywebview's, which serves the app's own page files; one that serves your
+      chosen background image under a random path and only to a `127.0.0.1` or `localhost` Host; and, during a Steam or
+      Discord sign-in, one that takes the browser's return and closes. None serves your data to another website.
+    evidence: '`lab/evidence/pitbox-3.0.4/servers.txt`; `lab/results/pitbox-3.0.4/pitbox-app-windows/network.txt` (only WebView2 connected to the local port).'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads Steam's install path and running state from Steam's registry keys and the process list, the game's profiles,
+      setups, lap and telemetry files, and, for a bug report you send, the game's and its plugins' logs. None of it is other
+      people's data.
+    evidence: '`lab/evidence/pitbox-3.0.4/registry.txt`, `lab/evidence/pitbox-3.0.4/processes.txt`, `lab/evidence/pitbox-3.0.4/report.txt`, `lab/evidence/pitbox-3.0.4/sends.txt`.'
+  D7:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      Being in the public ranking is required: your alias, country, profile picture, lap times (track and bike) and the
+      telemetry of your best laps are public in Pitbox and its Discord, by its own access screen. Bug reports are posted to
+      its Discord forum (on request).
+    evidence: '`lab/evidence/pitbox-3.0.4/access.txt` (TEXTO_PUBLICO, TEXTO_OBLIGATORIO), `lab/evidence/pitbox-3.0.4/report.txt`.'
+  D8:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      There is no switch for its connections: the update check, rooms list and catalogue run at start, and the access screen
+      blocks the app until you share your laps and telemetry; to stop sharing you must delete your data, which locks the app.
+    evidence: '`lab/evidence/pitbox-3.0.4/access.txt` (TEXTO_BORRAR, TEXTO_TELEMETRIA), `lab/results/pitbox-3.0.4/pitbox-app-windows/network.txt`.'
+  D9:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      You need a Steam account and a Discord account linked to it, and must stay in Pitbox's Discord server; signing in creates
+      your rider profile on its server.
+    evidence: '`lab/evidence/pitbox-3.0.4/access.txt` (lines 1 to 10).'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugins share nothing with other programs: no shared memory, socket or pipe. They write their laps, telemetry and
+      settings as files in the game's folders, which the app reads.
+    evidence: '`lab/evidence/pitbox-3.0.4/imports-absent.txt`, `lab/evidence/pitbox-3.0.4/strings-plugins.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugins run only because the game loads them; the app imports nothing that writes into another process.
+    evidence: '`lab/evidence/pitbox-3.0.4/imports-absent.txt`, `lab/evidence/pitbox-3.0.4/processes.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No change to the game's code or memory found. The plugins' only memory-protection calls sit in their compiler runtime's
+      start-up fix-up (beside its "pseudo relocation" messages), and the test host found every OpenGL pointer it checks in the
+      game and in the bystander plugin untouched.
+    evidence: >-
+      `lab/evidence/pitbox-3.0.4/vp-hud.txt`, `lab/evidence/pitbox-3.0.4/vp-assistant.txt`;
+      `lab/results/pitbox-3.0.4/both-crash-helmet-windows/host.log`, `lab/results/pitbox-3.0.4/hud-keys-windows/host.log`.
+  G3:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It changes nothing in the game's code or memory (G2), so nothing online either: the plugins draw a HUD and a panel and
+      read the game's data through the plugin interface. Not seen on a server (see Limits).
+    evidence: '`lab/results/pitbox-3.0.4/hud-keys-windows/host.log`, `lab/results/pitbox-3.0.4/assistant-keys-windows/host.log`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      None found: the plugins import nothing that reads another process or the game's modules, and nothing in their text points
+      at the game's memory.
+    evidence: '`lab/evidence/pitbox-3.0.4/imports-absent.txt`, `lab/evidence/pitbox-3.0.4/strings-plugins.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugins read their keys (F6 and Ctrl for the HUD; F8, F7, arrows and Enter for the Setup Assistant) without taking
+      them from the game; nothing imports a function that presses keys or hooks input.
+    evidence: '`lab/evidence/pitbox-3.0.4/keys.txt`, `lab/evidence/pitbox-3.0.4/imports-absent.txt`, `lab/evidence/pitbox-3.0.4/processes.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It touches no other plugin or tool: "Mis mods" refuses paths in the game folder and `plugins`, and the installer replaces
+      only its own two plugins.
+    evidence: '`lab/evidence/pitbox-3.0.4/deletes.txt` (mis_mods.py lines 49 and 488 to 500), `lab/evidence/pitbox-3.0.4/install.txt`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Both plugins read keys with GetAsyncKeyState only after checking that the window in front belongs to the game's own
+      process (GetForegroundWindow, GetWindowThreadProcessId, GetCurrentProcessId).
+    evidence: >-
+      `lab/evidence/pitbox-3.0.4/keys.txt`, `lab/evidence/pitbox-3.0.4/asistente_reglaje64.dlo.180003776-1800037d6.txt`,
+      `lab/evidence/pitbox-3.0.4/gpbmods_hud64.dlo.180002900-180002a24.txt`.
+  G8:
+    verdict: 'No'
+    mark: good
+    text: Neither plugin imports an exception or crash handler function.
+    evidence: '`lab/evidence/pitbox-3.0.4/imports-absent.txt`; the crash case ended cleanly (`lab/results/pitbox-3.0.4/both-crash-helmet-windows/host.log`).'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing is added to Windows start-up; it writes no registry value and no Startup-folder entry, only a desktop shortcut.
+    evidence: '`lab/evidence/pitbox-3.0.4/registry.txt`, `lab/results/pitbox-3.0.4/pitbox-app-windows/outside.txt`.'
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The app is a separate program (the bundled Python with a WebView2 window), and it starts the game, the game's dedicated
+      server and Steam when you ask.
+    evidence: '`lab/results/pitbox-3.0.4/pitbox-app-windows/procmon.txt`, `lab/evidence/pitbox-3.0.4/processes.txt`.'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`gpbmods_hud64.dlo` and `asistente_reglaje64.dlo` are game plugins that the game loads from `plugins`.'
+    evidence: '`lab/evidence/pitbox-3.0.4/gpbmods_hud64.dlo.objdump-p.txt` (exports); `lab/results/pitbox-3.0.4/ride-hud-windows/loaded.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check was found being got around.
+    evidence: '`lab/evidence/pitbox-3.0.4/imports-absent.txt`, `lab/evidence/pitbox-3.0.4/graphics.txt`, `lab/evidence/pitbox-3.0.4/content.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It decrypts no creator's content: of an encrypted `.pkz` it reads only the header or the readable `.ini` some keep at
+      the end, and its physics editor refuses encrypted bikes. (Downloads from MEGA are decrypted with the key in the link,
+      as MEGA serves every file.)
+    evidence: '`lab/evidence/pitbox-3.0.4/content.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It saves no model or texture; its physics editor works on a copy of a bike's readable files, never the encrypted ones.
+    evidence: '`lab/evidence/pitbox-3.0.4/content.txt` (fisicas_moto.py lines 14 to 19).'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It shares no one's content; what it uploads are your laps, telemetry, setups you choose to share and the setting ranges
+      of encrypted bikes.
+    evidence: '`lab/evidence/pitbox-3.0.4/sends.txt`, `lab/evidence/pitbox-3.0.4/limits.txt`.'
+  C4:
+    verdict: Partly
+    mark: note
+    text: >-
+      It ships the licences of Python, 7-Zip, its two fonts (OFL) and each Python library (in their `.dist-info` folders), and
+      its page names pywebview. The runtime built into the plugins isn't named.
+    evidence: '`lab/evidence/pitbox-3.0.4/thirdparty.txt`, `lab/evidence/pitbox-3.0.4/vp-hud.txt`.'
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It opens installed mods to list them (bike `.ini` files, `.pkz` headers and tails), lets you edit readable bike physics
+      files on a copy, and copies two fonts from the game's `ui.pkz` for its Setup Assistant.
+    evidence: '`lab/evidence/pitbox-3.0.4/content.txt`, `lab/evidence/pitbox-3.0.4/install.txt` (`extraer_fuentes`).'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The app's own code ships as Python source in the release, but its repository holds only a README. Prebuilt program
+      files: `gpbmods_hud64.dlo` and `asistente_reglaje64.dlo` (PE32+ DLLs, no public source); `7z.exe` and `7z.dll` (7-Zip
+      25.01); Python 3.12's embeddable runtime; the native parts of pycryptodome 4.1.0, cffi 2.1.1, charset_normalizer 3.5.2,
+      pythonnet 3.2.1 and clr_loader 0.3.1 (named open-source projects); Microsoft's WebView2 files (part of the WebView2
+      runtime the app runs on).
+    evidence: '`file` on each (`lab/evidence/pitbox-3.0.4/file.txt`), `lab/evidence/pitbox-3.0.4/thirdparty.txt`; [the repository at the tag](https://github.com/cristianboni22/pitbox/tree/dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3).'
+  T2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      Its README says "Pitbox updates itself when you open it"; the code asks first and installs only on your click (P2). See
+      "What it says vs what it does".
+    evidence: '`lab/evidence/pitbox-3.0.4/readme-claims.txt`, `lab/evidence/pitbox-3.0.4/updater.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The packages are uploaded to the GitHub release; there is no public source or build to tie them to.
+    evidence: '[the repository at the tag](https://github.com/cristianboni22/pitbox/tree/dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3) (README.md only).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source for the plugins or build files for the packages to rebuild from.
+    evidence: '[the repository at the tag](https://github.com/cristianboni22/pitbox/tree/dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: The repository's history is one commit with the README; the app shows release notes ("Novedades").
+    evidence: '[the commit](https://github.com/cristianboni22/pitbox/commit/dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3).'
+  T6:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The Linux package installs its libraries with pip at ranges, not exact versions (`requests>=2.31`, `pycryptodome>=3.20`,
+      `pywebview>=5`); the Windows package ships one exact version of each.
+    evidence: '`lab/evidence/pitbox-3.0.4/thirdparty.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      No licence in the repository or the packages; the README says only "Files are provided as is, without warranty".
+    evidence: '`lab/evidence/pitbox-3.0.4/readme-claims.txt`, `lab/evidence/pitbox-3.0.4/file.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; it asks for no payment or key.
+    evidence: '`lab/evidence/pitbox-3.0.4/money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the only payment link is the Ko-fi donation page.
+    evidence: '`lab/evidence/pitbox-3.0.4/money.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: Its README and the app's "Comunidad" screen link to the author's Ko-fi page ("buy me a coffee").
+    evidence: '`lab/evidence/pitbox-3.0.4/money.txt`, `lab/evidence/pitbox-3.0.4/readme-claims.txt`.'
+history:
+  - date: 24 Nov 2026
+    change: First card, for 3.0.4.

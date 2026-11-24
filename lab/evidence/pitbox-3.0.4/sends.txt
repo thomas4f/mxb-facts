@@ -1,0 +1,203 @@
+$ grep -n '_peticion("\(POST\|PUT\|DELETE\)"\|requests\.\(put\|post\)' win/Pitbox/gpbmods/*.py; echo '== ranking_mundial.py'; sed -n '1,45p;239,253p;261,267p;511,556p;601,620p;814,852p' win/Pitbox/gpbmods/ranking_mundial.py
+win/Pitbox/gpbmods/amigos.py:162:    d = rm._json_ok(rm._peticion("POST", url, f"/v1/amigos/{que}", {"piloto": p}, sesion=sesion))
+win/Pitbox/gpbmods/amigos.py:171:    return rm._json_ok(rm._peticion("POST", url, "/v1/amigos/ajustes", {"encontrable": si}, sesion=sesion)).get("encontrable") is True
+win/Pitbox/gpbmods/amigos.py:181:    rm._json_ok(rm._peticion("POST", url, "/v1/amigos/presencia", cuerpo, sesion=sesion))
+win/Pitbox/gpbmods/compartidos.py:123:    return rm._json_ok(rm._peticion("POST", rm._url(ajustes.cargar()), "/v1/limites", cuerpo))
+win/Pitbox/gpbmods/compartidos.py:330:    d = rm._json_ok(rm._peticion("POST", rm._url(datos), "/v1/reglajes", cuerpo, sesion=sesion))
+win/Pitbox/gpbmods/compartidos.py:361:    return rm._json_ok(rm._peticion("POST", rm._url(datos), "/v1/reglajes/circuitos", {**identidad, **cuerpo_extra},
+win/Pitbox/gpbmods/compartidos.py:389:    rm._json_ok(rm._peticion("POST", rm._url(datos), f"/v1/reglajes/{int(id_)}/usado", cuerpo, sesion=sesion))
+win/Pitbox/gpbmods/compartidos.py:400:    rm._json_ok(rm._peticion("POST", rm._url(datos), f"/v1/reglajes/{int(id_)}/reportar",
+win/Pitbox/gpbmods/compartidos.py:408:    r = rm._peticion("DELETE", rm._url(datos), f"/v1/reglajes/{int(id_)}", identidad or None, sesion=sesion)
+win/Pitbox/gpbmods/informe.py:623:        r = requests.post(base + "/v1/informe", json=datos, timeout=TIMEOUT,
+win/Pitbox/gpbmods/mods_pitbox.py:487:        r = requests.put(f"{url}/v1/mods/{int(id_)}/imagen/{int(n)}", data=jpeg, timeout=rm.TIMEOUT, headers=cab)
+win/Pitbox/gpbmods/ranking_mundial.py:343:    datos = _json_ok(_peticion("POST", url, "/v1/piloto", cuerpo, sesion=sesion))
+win/Pitbox/gpbmods/ranking_mundial.py:407:        r = _peticion("DELETE", _url(datos), "/v1/piloto", cuerpo or None, sesion=sesion)
+win/Pitbox/gpbmods/ranking_mundial.py:618:            r = _peticion("POST", url, "/v1/vueltas", {**identidad, "vueltas": lote, "formato": FORMATO}, sesion=sesion)
+win/Pitbox/gpbmods/ranking_mundial.py:783:    r = _peticion("DELETE", _url(datos), "/v1/telemetria", identidad or None, sesion=sesion)
+win/Pitbox/gpbmods/ranking_mundial.py:851:        r = _peticion("POST", url, "/v1/telemetria", cuerpo, sesion=sesion)
+win/Pitbox/gpbmods/ranking_mundial.py:878:        _json_ok(_peticion("POST", _url(datos), "/v1/telemetria/compartir", {"compartir": True}, sesion=sesion))
+win/Pitbox/gpbmods/ranking_mundial.py:1016:        d = _json_ok(_peticion("POST", url, "/v1/steam/iniciar",
+win/Pitbox/gpbmods/ranking_mundial.py:1043:    d = _json_ok(_peticion("POST", _url(datos), "/v1/steam/canjear",
+win/Pitbox/gpbmods/ranking_mundial.py:1102:            r = _peticion("POST", _url(datos), "/v1/steam/salir", sesion=sesion)
+win/Pitbox/gpbmods/ranking_mundial.py:1123:    d = _json_ok(_peticion("POST", _url(datos), "/v1/piloto/publico", {"publico": bool(si)}, sesion=sesion))
+win/Pitbox/gpbmods/ranking_mundial.py:1179:    r = _peticion("POST", _url(datos), ruta, {"codigo": limpio}, sesion=sesion)
+win/Pitbox/gpbmods/ranking_mundial.py:1225:        r = _peticion("POST", _url(datos), "/v1/discord/oauth/iniciar", {"puerto": login.puerto, "reto": login.reto},
+win/Pitbox/gpbmods/ranking_mundial.py:1261:    r = _peticion("POST", _url(datos), "/v1/discord/oauth/canjear",
+win/Pitbox/gpbmods/ranking_mundial.py:1275:    _json_ok(_peticion("POST", _url(datos), "/v1/discord/desvincular", sesion=sesion))
+win/Pitbox/gpbmods/ranking_mundial.py:1302:    return _json_ok(_peticion("POST", _url(datos), "/v1/piloto/yo", cuerpo or None, sesion=sesion))
+win/Pitbox/gpbmods/ranking_mundial.py:1311:        r = requests.put(_url(datos) + "/v1/piloto/avatar", data=png, timeout=TIMEOUT, headers=cab)
+win/Pitbox/gpbmods/ranking_mundial.py:1332:    _json_ok(_peticion("DELETE", _url(datos), "/v1/piloto/avatar", cuerpo or None, sesion=sesion))
+== ranking_mundial.py
+"""Ranking mundial: subir las vueltas del asistente al servidor común y consultar el ranking.
+
+Privacidad: participar está desactivado por defecto. Solo se envía un alias elegido por el piloto y un
+id de instalación aleatorio (UUID v4 creado aquí); nada de email, nombre real ni datos del ordenador.
+El servidor (Cloudflare Worker en ranking-mundial/) es el único que escribe y valida: aquí no hay claves.
+
+Ajustes usados (config.json, ver ajustes.py):
+  ranking_activo (False), ranking_alias, ranking_id (uuid4 creado al activar), ranking_url (vacío = URL_RANKING),
+  ranking_compartir_reglaje (False), ranking_ultima_subida (fecha unix de la última vuelta subida),
+  ranking_pais (código ISO 3166-1 alfa-2 o vacío), ranking_subida_hora (unix de la última subida completa),
+  ranking_sesion (sesión tras «Entrar con Steam»; vacía = sin Steam), ranking_publico (True = sale en el ranking
+  público; False = solo guarda sus vueltas), ranking_mejores (clave_mejor() → mejor tiempo en ms ya subido),
+  ranking_compartir_telemetria (False por defecto; True = compartir la telemetría de tus mejores vueltas: hace falta
+  Steam y salir en el ranking público; el «sí» también se guarda en el servidor), ranking_telemetria_consentimiento
+  ({version, fecha, si}: la respuesta a la pregunta del aviso; se vuelve a preguntar si cambia VERSION_AVISO_TELEMETRIA),
+  ranking_telemetrias (clave_mejor() → «tiempo_ms:fecha» de la vuelta cuya telemetría ya se procesó),
+  ranking_telemetria_borrar (True = falta pedir al servidor que borre tu telemetría compartida),
+  ranking_circuitos_reglaje ([[circuito, moto], …]: en qué circuitos compartes tus reglajes, la última lista del
+  servidor; sin ella manda ranking_compartir_reglaje y el servidor descarta lo de circuitos no elegidos).
+
+Telemetría compartida: de cada mejor vuelta tuya que el servidor aceptó (ranking_mejores) se sube también una versión
+compacta de su telemetría (telemetria.compactar_para_ranking: todos los canales de la moto a 10 Hz, ≤ 192 KB) para
+que otros pilotos comparen sus vueltas con la tuya (gráficas, suspensión, neumáticos…). Sin datos personales. Solo si sales en el ranking público y no lo has desactivado; al desactivarlo o pasar
+a privado se borra del servidor.
+
+Solo la mejor vuelta: al ranking va solo TU MEJOR vuelta por (circuito, versión, trazado, moto). De las vueltas
+nuevas se sube solo la mejor de cada clave y solo si mejora la que ya subiste (ranking_mejores; si no se sabe, se
+sube y decide el servidor, que también la ignora si no mejora). Las demás se dan por procesadas.
+El juego da el circuito como «<carpeta>/<trazado>»: se manda circuito = carpeta y trazado aparte ('' = el normal).
+
+«Entrar con Steam»: Steam solo confirma quién eres en su web (OpenID); el servidor guarda una huella cifrada,
+nunca el ID de Steam, el nombre ni la foto. Con sesión, todas las llamadas identifican al piloto por ella
+(«Authorization: Bearer …») en vez de por el id de instalación, y así el mismo perfil sirve en cualquier PC.
+El final del login queda atado a este Pitbox (RFC 8252 + PKCE): se abre un servidor HTTP temporal solo en
+127.0.0.1 (puerto libre al azar; se cierra al recibir la respuesta o a los 10 min), el ranking manda allí el
+navegador con un código de un solo uso, y ese código solo se canjea junto con un verificador secreto que nunca
+sale de este PC (al servidor solo va su SHA-256). Así, pasarle a otro tu enlace de Steam no le da tu perfil.
+
+Errores: todas las funciones lanzan ErrorRanking con un mensaje en español listo para enseñar, salvo
+subir(), que si se corta a medias (sin red, demasiados envíos…) devuelve lo hecho y el motivo en `aviso`.
+"""
+import base64
+import binascii
+import hashlib
+import hmac
+def _peticion(metodo: str, url: str, ruta: str, cuerpo: dict | None = None, params: dict | None = None,
+              sesion: str | None = None):
+    cabeceras = {"User-Agent": USER_AGENT, "Accept": "application/json"}
+    if sesion:
+        cabeceras["Authorization"] = f"Bearer {sesion}"
+    try:
+        r = requests.request(metodo, url + ruta, json=cuerpo, params=params, timeout=TIMEOUT, headers=cabeceras)
+    except requests.RequestException as e:
+        raise ErrorRanking(sin_conexion(e)) from e
+    conectividad.registrar_exito()
+    if sesion and r.status_code == 401:
+        _olvidar_steam()   # la sesión ya no vale (salió desde otro PC, se borró el piloto…)
+        raise ErrorRanking(_t(SESION_CADUCADA))
+    return r
+
+def _identidad(datos: dict) -> tuple[dict, str | None]:
+    """Cómo se identifica este PC: (cuerpo con el id de instalación, None) o ({}, sesión de Steam)."""
+    sesion = datos.get("ranking_sesion") or None
+    if sesion:
+        return {}, sesion
+    return {"id_instalacion": datos.get("ranking_id")}, None
+
+def _preparar(paths, contenido=None) -> tuple[list[dict], list[int]]:
+    """(vueltas que hay que subir, fechas de las nuevas que no hace falta subir).
+
+    De las vueltas nuevas (después de la última subida) se queda la mejor de cada clave_mejor() (en empate, la más
+    antigua) y solo si mejora la mejor ya subida (ranking_mejores; si no se sabe, se sube)."""
+    piboso = getattr(paths, "piboso_dir", None)
+    if not piboso:
+        return [], []
+    datos = ajustes.cargar()
+    desde = int(datos.get("ranking_ultima_subida") or 0)
+    nuevas = []
+    for v in _leer_csv(piboso):
+        if not (v["fecha"] > desde and v["fecha"] >= FECHA_MINIMA and TIEMPO_MIN_MS <= v["tiempo_ms"] <= TIEMPO_MAX_MS):
+            continue
+        carpeta, trazado = separar_circuito(v["circuito"])
+        if not carpeta:
+            continue
+        v["circuito"], v["trazado"] = carpeta, trazado
+        v["version_circuito"] = version_circuito(v["circuito_nombre"], carpeta)
+        nuevas.append(v)
+    if not nuevas:
+        return [], []
+    mejor: dict[str, dict] = {}
+    for v in nuevas:
+        k = clave_mejor(v)
+        if k not in mejor or (v["tiempo_ms"], v["fecha"]) < (mejor[k]["tiempo_ms"], mejor[k]["fecha"]):
+            mejor[k] = v
+    subidas = _mejores_subidas(datos)
+    elegidas = [v for k, v in mejor.items() if k not in subidas or v["tiempo_ms"] < subidas[k]]
+    ids = {id(v) for v in elegidas}
+    descartadas = [v["fecha"] for v in nuevas if id(v) not in ids]
+    categorias = _categorias(paths, contenido) if elegidas else {}
+    compartir = bool(datos.get("ranking_compartir_reglaje"))
+    salida = []
+    for v in sorted(elegidas, key=lambda x: x["fecha"]):
+        w = {k: x for k, x in v.items() if k not in ("copia", "grupo_meteo")}   # el grupo lo saca el servidor
+        w["categoria"] = categorias.get(w["moto"].casefold(), "")
+        por_circuito = comparte_reglaje_en(datos, w["circuito"], w["moto"])
+        if por_circuito if por_circuito is not None else compartir:
+            reglaje = leer_reglaje(piboso, v["copia"], w["moto_nombre"])
+            if reglaje:
+                w["reglaje"] = reglaje
+        salida.append(w)
+    return salida, descartadas
+
+
+def subir(paths, contenido=None) -> Subida:
+    """Sube tus nuevas mejores vueltas (ver _preparar) en lotes de 50. Solo avanza `ranking_ultima_subida` con lo que
+    el servidor aceptó, ya tenía o no mejoraba (y con las vueltas que no hacía falta subir): si algo falla, lo que
+    falta se vuelve a intentar la próxima vez."""
+    datos = ajustes.cargar()
+    if not _participa(datos):
+        raise ErrorRanking(_t(DESACTIVADO))
+    url = _url(datos)
+    identidad, sesion = _identidad(datos)
+    pendientes, descartadas = _preparar(paths, contenido)
+    res = Subida(pendientes=len(pendientes), no_mejoran=len(descartadas))
+    if not pendientes and descartadas:
+        _apuntar([], descartadas, None, {})
+    for i in range(0, len(pendientes), LOTE):
+        lote = pendientes[i:i + LOTE]
+        try:
+            # formato 2: entendemos «no_mejora» (a los clientes antiguos el servidor les dice «ignorada»)
+            r = _peticion("POST", url, "/v1/vueltas", {**identidad, "vueltas": lote, "formato": FORMATO}, sesion=sesion)
+        except ErrorRanking as e:
+            res.aviso = str(e) if str(e) == _t(conectividad.AVISO_BLOQUEO) else \
+def subir_telemetrias(paths, maximo: int = TELEMETRIA_POR_SUBIDA) -> int:
+    """Sube la telemetría compacta de tus mejores vueltas pendientes (telemetrias_pendientes). Devuelve cuántas subió.
+    Las vueltas sin telemetría en este PC (o que el servidor no admite) se apuntan para no volver a intentarlo; si se
+    corta (sin red, demasiadas subidas…) lo que falte se intenta la próxima vez."""
+    from . import telemetria   # aquí: telemetria no hace falta para el resto del ranking
+
+    datos = ajustes.cargar()
+    if datos.get("ranking_telemetria_borrar") and _participa(datos):
+        try:
+            _borrar_telemetria_servidor(datos)
+        except ErrorRanking:
+            return 0
+    pendientes = telemetrias_pendientes(paths)[:maximo]
+    if not pendientes:
+        return 0
+    url = _url(datos)
+    identidad, sesion = _identidad(datos)
+    piboso = paths.piboso_dir
+    sesiones = telemetria.listar_sesiones(piboso)
+    subidas = 0
+    for v in pendientes:
+        objetivo = SimpleNamespace(fecha=datetime.fromtimestamp(v["fecha"], timezone.utc), circuito=v["circuito_juego"],
+                                   moto=v["moto"], segundos=v["tiempo_ms"] / 1000)
+        info = telemetria.buscar_de_vuelta(piboso, objetivo, sesiones)
+        try:
+            if info is None or not info.valida or info.salida or info.truncada:
+                raise ValueError("sin telemetría válida")
+            blob = telemetria.compactar_para_ranking(telemetria.leer_vuelta(info.ruta), v["tiempo_ms"])
+        except (ValueError, telemetria.FormatoInvalido):
+            _apuntar_telemetria(v["clave"], _SIN_TELEMETRIA + _marca(v))
+            continue
+        cuerpo = {**identidad, "circuito": v["circuito"], "version_circuito": v["version_circuito"],
+                  "trazado": v["trazado"], "moto": v["moto"], "tiempo_ms": v["tiempo_ms"], "fecha": v["fecha"],
+                  "datos": base64.b64encode(blob).decode("ascii")}
+        # Justo antes de cada envío: si mientras tanto ha dicho que no (o ya no es público), no se manda nada más.
+        if not _telemetria_activa(ajustes.cargar()):
+            break
+        r = _peticion("POST", url, "/v1/telemetria", cuerpo, sesion=sesion)
+        if r.status_code in (200, 201):
+(exit 0)

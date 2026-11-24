@@ -1,0 +1,16 @@
+$ $H/imports_at.sh gpbmods_hud64.dlo GetForegroundWindow GetWindowThreadProcessId GetCurrentProcessId GetAsyncKeyState; $H/imports_at.sh asistente_reglaje64.dlo GetForegroundWindow GetWindowThreadProcessId GetCurrentProcessId GetAsyncKeyState
+GetForegroundWindow (import slot 0x180074a10): 180002912: 180002978: 1800498e0: 
+GetWindowThreadProcessId (import slot 0x180074a20): 18000292b: 180002994: 180049900: 
+GetCurrentProcessId (import slot 0x180074bd0): 180002934: 18000299d: 180049b60: 
+GetAsyncKeyState (import slot 0x1800749f8): 180002a1e: 180002e58: 180002eab: 180002ebf: 180002ecf: 1800498b0: 
+"Unknown pseudo relocation protocol version %d." at 0x18006aeba, loaded by: 18002157e: 
+"Unknown pseudo relocation bit size %d." at 0x18006aeec, loaded by: 18002156e: 
+"%d bit pseudo relocation at %p out of range, targeting %p, yielding the value %p." at 0x18006af16, loaded by: 18002155b: 
+GetForegroundWindow (import slot 0x1800f4b30): 180003776: 180048000: 
+GetWindowThreadProcessId (import slot 0x1800f4b38): 180003795: 180048010: 
+GetCurrentProcessId (import slot 0x1800f4d38): 1800037a5: 1800482f0: 
+GetAsyncKeyState (import slot 0x1800f4b28): 1800037be: 1800038b1: 180047ff0: 
+"Unknown pseudo relocation protocol version %d." at 0x1800eb35a, loaded by: 180020dae: 
+"Unknown pseudo relocation bit size %d." at 0x1800eb38c, loaded by: 180020d9e: 
+"%d bit pseudo relocation at %p out of range, targeting %p, yielding the value %p." at 0x1800eb3b6, loaded by: 180020d8b: 
+(exit 0)

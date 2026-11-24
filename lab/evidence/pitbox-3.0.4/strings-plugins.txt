@@ -1,0 +1,860 @@
+$ for f in gpbmods_hud64.dlo asistente_reglaje64.dlo; do echo "== $f"; strings -n 6 $f | grep -E '%s|\.(stp|csv|ini|log|txt|tlm|cfg|fnt|tga)' | grep -vE '^[^A-Za-z]*$|\[_\^' | sort -u; done
+== gpbmods_hud64.dlo
+ %s %d
+ e mira %s
+%.*s%s%s
+%s (%d)
+%s = #%06x
+%s = %d
+%s AR 
+%s EFTIR
+%s FALTA
+%s IGJEN
+%s KVAR
+%s NA LANG
+%s QALIB
+%s TILBAGE
+%s TO GO
+%s%lld
+%s%lld.%0*lld
+%s%s%s
+%s.tmp
+%s: %d valores no v
+%s: %s
+%s\gpbmods_hud.log
+%s\hud.ini
+%s\linea_central.txt
+%s\referencias
+%s\referencias\%s
+%sglobal.ini
+%sgpbmods_hud
+%sprofiles\%s\profile.ini
+ATLICIS %s
+AVISO: %s lleg
+BAKI %s
+Ctrl+F6 (estado %d, %s, %.0f km/h, edici
+EDHE %s
+En la carrera soy el #%d (%s)
+FADAL %s
+FALTAM %s
+IMEBAKI %s
+Idioma: %s (perfil %s)
+KALAN %s
+LIKO %s
+MAI SUNT %s
+MANCANO %s
+NOCH %s
+NOG %s
+No se pudo guardar %s (error %lu)
+Nueva vuelta de referencia %d ms: %s
+QUEDAN %s
+QUEDEN %s
+RESTE %s
+SISA %s
+Session %s
+Sin %s: configuraci
+Sin vuelta de referencia guardada (%s)
+Vuelta de referencia: %d ms (%s)
+ance %s
+asti %s
+azkena %s
+bedste %s
+best %s
+beste %s
+besti %s
+bora %s
+cel mai bun %s
+deireanach %s
+dernier %s
+e fundit %s
+en iyi %s
+escala = %s
+geriausias %s
+gorau %s
+gpbmods_hud/fuente_num.fnt
+gpbmods_hud/fuente_texto.fnt
+gpbmods_hud/marca.tga
+gpbmods_hud/sombra.tga
+hud.ini %s
+hud.ini cambi
+hud.ini de la versi
+hud.ini pendiente de guardar (en pista)
+huli %s
+is fearr %s
+jais %s
+jar %s
+kais %s
+kipindi %s
+laaste %s
+laatste %s
+last %s
+legjobb %s
+letzte %s
+lota %s
+ltima %s
+mapa: %d puntos, %.0f m, escala %.4f dp/m, caja dp x %.1f..%.1f y %.1f..%.1f, meta del juego %s %.1f m, desfase propio %.1f m %s, de los dem
+meilleur %s
+mejor %s
+melhor %s
+mellor %s
+migliore %s
+millor %s
+mwisho %s
+n (%s)
+n (copia del original: %s)
+najbolji %s
+najlepsze %s
+nea central: %d tramos, mapa %s
+olaf %s
+onena %s
+ostatnie %s
+pantalla_ancha = %s
+paras %s
+parim %s
+paskutinis %s
+poslednji %s
+posljednji %s
+s %.1f m %s, espejo %d
+saioa %s
+seans %s
+seja %s
+senaste %s
+sesi %s
+sesija %s
+sesioni %s
+sesiune %s
+sesiwn %s
+sesja %s
+sessie %s
+sessio %s
+session %s
+sessione %s
+sessioon %s
+sessiya %s
+sessjoni %s
+sidste %s
+siste %s
+son %s
+sta %s
+szakasz %s
+terakhir %s
+terbaik %s
+ultimo %s
+ultimul %s
+viimane %s
+viimeisin %s
+x = %s
+y = %s
+zadnji %s
+== asistente_reglaje64.dlo
+ %d / %d: %s
+ %d de %d: %s
+ %d muestras%s
+ %d z %d: %s
+ %d: %s
+ %s %s
+ %s s apl
+ %s s mais lento por volta: talvez o anterior fosse melhor.
+ %s s mais r
+ %s s n
+ %s s na kolo pri plyne v n
+ %s s na kolo s nastaven
+ %s s na kolo v %d. stupni
+ %s s na kolo: mo
+ %s s na krog pri plinu v nagibu
+ %s s po krugu ubrzavaju
+ %s s sa chuaird ag luasgh
+ %s s za kolo (%d. p
+ %s s za kolo p
+ (R): %s
+ (yaw) suoralla: %s astetta/s
+ Enter: create "%s"
+ Enter: creu "%s"
+ Enter: cruthaigh "%s"
+ Enter: skep "%s"
+ Enter: unda "%s"
+ aftan: %s
+ edir: %s %s
+ ert %s s flj
+ ert %s s h
+ framan: %s
+ gosodiad "%s"
+ ilmassa %s s kierroksessa
+ ilmassa %s s kierroksessa jarruttaessa
+ k dispozici: %s
+ langsiden: %s grader/s
+ lofti %s s 
+ na rovince: %s st./s
+ nije dostupan: %s
+ opstelling "%s"
+ patina %s s por volta acelerando inclinado
+ rakan: %s grader/s
+ setup "%s"
+ sutii %s s kierroksessa kallistettuna kiihdytt
+ usanidi "%s"
+ w powietrzu %s s na okr
+"%s" gestoor met %d verandering
+"%s" gestoor met %d veranderinge
+"%s" issejvjat b'%d bidla
+"%s" issejvjat b'%d bidliet
+"%s" s
+"%s" saved with %d change
+"%s" saved with %d changes
+"%s" umehifadhiwa na badiliko %d
+"%s" umehifadhiwa na mabadiliko %d
+"%s" wedi'i gadw gyda %d newid
+%04d%02d%02d-%02d%02d%02d_%s_%s
+%d. gomendioa (%d guztira): %s
+%d:%s%s
+%d;%s;%lld;%s;%s;%s;%d;%d;%d;%d;%s;%s;%d
+%s (%d > %d)
+%s ...
+%s : %d > %d dents
+%s : cran %d > %d
+%s > %s %s
+%s > %s%s%s%s
+%s motorhoz, minden p
+%s s azkarrago itzuliko, 
+%s s mas mabilis bawat lap gamit ang 
+%s s motelago zoaz itzuliko: agian aurrekoa hobea zen.
+%s s pro Runde Durchdrehen in Schr
+%s%ld.%ld
+%s%s%.20s
+%s%s%s
+%s%s.cfg
+%s%s\%s\
+%s%s\%s\%.90s.stp
+%s%s\%s\%s.stp
+%s*.%s
+%s.stp
+%s.tmp
+%s: %d > %d Z
+%s: %d > %d dant
+%s: %d > %d dant.
+%s: %d > %d dentes
+%s: %d > %d denti
+%s: %d > %d dents
+%s: %d > %d dh
+%s: %d > %d di
+%s: %d > %d dientes
+%s: %d > %d din
+%s: %d > %d fiacail
+%s: %d > %d fog
+%s: %d > %d gigi
+%s: %d > %d hammast
+%s: %d > %d hammasta
+%s: %d > %d hortz
+%s: %d > %d kuggar
+%s: %d > %d mata gir
+%s: %d > %d ngipin
+%s: %d > %d snien
+%s: %d > %d t
+%s: %d > %d tande
+%s: %d > %d tanden
+%s: %d > %d teeth
+%s: %d > %d tenner
+%s: %d > %d tennur
+%s: %d > %d urratsa
+%s: %d > %d z
+%s: %d > %d zob
+%s: %d > %d zobi
+%s: %d > %d zub
+%s: %d > %d zuba
+%s: %d > %d zubov
+%s: %s
+%s: Stufe %d > %d
+%s: ad
+%s: add
+%s: askel %d > %d
+%s: cam %d > %d
+%s: hakbang %d > %d
+%s: hapi %d > %d
+%s: hatua %d > %d
+%s: korak %d > %d
+%s: krok %d > %d
+%s: meno %d > %d
+%s: pas %d > %d
+%s: paso %d > %d
+%s: pass %d > %d
+%s: passo %d > %d
+%s: pasul %d > %d
+%s: samm %d > %d
+%s: solis %d > %d
+%s: stap %d > %d
+%s: steg %d > %d
+%s: step %d > %d
+%s: tahap %d > %d
+%s: trin %d > %d
+%s: trinn %d > %d
+%s\%s.stp
+%s\%s\*
+%s\.%s.plugin.tmp
+%s\_escritos.lock
+%s\asistente_reglaje\config.ini
+%s\config.ini
+%s\gpbikes.ini
+%s\indice.csv
+%sasistente_limites
+%sasistente_limites\%s.txt
+%sasistente_limites\%s.version
+%sasistente_reglaje.log
+%sasistente_reglajes
+%sasistente_telemetria
+%sasistente_vueltas.csv
+%sbikes\%s.pkz
+%sbikes\%s\%s
+%sbikes\%s\%s.cfg
+%scommon
+%scommon\%s
+%scommon\%s\Asistente %d.stp
+%sexports\%s
+%sexports\*.html
+%sglobal.ini
+%smods\
+%smods\bikes\%s.pkz
+%smods\bikes\%s\%s.cfg
+%sprofiles\%s\profile.ini
+%sprofiles\%s\setups\
+%styres\%s\
+.tlm.tmp
+1. Dos i Garej > Gosodiad a llwytha "%s".
+1. Gaan na Garage > Opstelling en laai "%s".
+1. Go to Garage > Setup and load "%s".
+1. Mur f'Garaxx > Setup u tella' "%s".
+1. Nenda Gereji > Usanidi na upakie "%s".
+: %s gr
+: %s grade/s
+;%s;%s;%s
+Aanbeveling %d van %d: %s
+Achterkant %s s per ronde in de lucht
+Achterkant %s s per ronde in de lucht bij remmen
+Advies %d van %d: %s
+Agterkant %s s per rondte in die lug
+Agterkant %s s per rondte in die lug onder remwerk
+Anbefaling %d af %d: %s
+Anbefaling %d av %d: %s
+Anda lebih laju %s s sepusingan dengan 
+Anda lebih perlahan %s s sepusingan: mungkin yang lama lebih baik.
+Ar aghaidh (R): %s
+Ar gyfer %s, ar bob trac
+Argymhelliad %d o %d: %s
+Arka hamur: %s
+Asisten menyarankan %s %s
+Asistentas rekomenduoja %s %s
+Asistenti rekomandon %s %s
+Asistents iesaka %s %s
+Assistent soovitab: %s %s
+Assistenten anbefaler %s %s
+Assistenten rekommenderar %s %s
+Asystent zaleca %s %s
+Atzeko konposatua: %s
+Atzekoa airean %s s itzuliko
+Atzekoa airean %s s itzuliko balaztatzean
+Aurreko konposatua: %s
+Average na yaw sa straight: %s deg/s
+Average yaw on straights: %s deg/s
+Avustaja suosittelee: %s %s
+Az asszisztens javaslata: %s %s
+Baghjul i luften %s s pr. omgang
+Baghjul i luften %s s pr. omgang ved bremsning
+Bakhjul i luften %s s per runde
+Bakhjul i luften %s s per runde ved bremsing
+Bakhjul i luften %s s per varv
+Bakhjul i luften %s s per varv vid broms
+Ban spin %s s per lap saat gas sambil miring
+Batez besteko kulunka zuzenean: %s gradu/s
+Before "%s" (%d l.)  >  Now "%s" (%d l.)
+Begrenser %s s per rondte in rat %d
+Begrenser %s s per runde i %d. gir
+Begrenzer %s s per ronde in %de
+Begrenzer %s s pro Runde im %d. Gang
+Belakang melayang %s s per lap
+Belakang melayang %s s per lap saat rem
+Belakang terangkat %s s sepusingan
+Belakang terangkat %s s sepusingan semasa brek
+Berikutnya (R): %s
+Blanding bag: %s
+Blanding bak: %s
+Blanding foran: %s
+Buksid %s s ringis kallutatult kiirendades
+Buksujesz %s s na okr
+Buksuoji %s s per rat
+CREATE "%s"
+CREU "%s"
+CRUTHAIGH "%s"
+Caballito %s s por vuelta en 1.
+Cadangan %d daripada %d: %s
+Cavallet %s s per volta en 1a i 2a
+Cefn yn yr awyr %s s y lap
+Cefn yn yr awyr %s s y lap wrth frecio
+Compost davanter: %s
+Compost posterior: %s
+Composto dianteiro: %s
+Composto traseiro: %s
+Compound achter: %s
+Compound sa harap: %s
+Compound sa likod: %s
+Compound voor: %s
+Compuesto delantero: %s
+Compuesto trasero: %s
+Compus spate: %s
+Conseil %d sur %d : %s
+Consiglio %d di %d: %s
+Copi o "%s" gyda'r newidiadau hyn
+Copy of "%s" with these changes
+Corte %s s por volta em %d
+Corte %s s por volta en %d.
+Corte %s s por vuelta en %d.
+Creado %s a partir de %s con %d cambios
+Cyfansoddyn blaen: %s
+Cyfansoddyn cefn: %s
+Cyfyngydd %s s y lap yn g
+Cynt "%s" (%d l.)  >  Nawr "%s" (%d l.)
+Darrere enlaire %s s per volta
+Darrere enlaire %s s per volta frenant
+De assistent raadt %s %s aan
+Der Assistent empfiehlt %s %s
+Die assistent beveel %s %s aan
+Diukur: %s
+Dla %s, na wszystkich torach
+Do %s, ar gach rian
+Du bist %s s pro Runde langsamer: vielleicht war das alte besser.
+Du bist %s s pro Runde schneller mit 
+Du er %s s hurtigere pr. omgang med 
+Du er %s s langsommere pr. omgang: m
+Du er %s s raskere per runde med 
+Du er %s s tregere per runde: kanskje det forrige var bedre.
+Du spinner %s s per runde n
+E%scommon\%s\%.90s.stp
+Editor indisponibil: %s
+Editor niet beschikbaar: %s
+Editor nije dostupan: %s
+Editor no disponible: %s
+Editor non disponibile: %s
+Editor not available: %s
+Editor tidak tersedia: %s
+Editor: %s
+Editorea ez dago erabilgarri: %s
+Editoren er ikke tilgjengelig: %s
+Editur mhux disponibbli: %s
+El asistente recomienda %s %s
+Empfehlung %d von %d: %s
+Empinada %s s por volta em 1
+Error escribiendo %s
+Esi %s s greitesnis per rat
+Esi %s s l
+Esisegu: %s
+Etuseos: %s
+For %s, on every track
+For %s, p
+Front compound: %s
+Fyrir %s, 
+Galas ore %s s per rat
+Gemeet: %s
+Gemessen: %s
+Gemeten: %s
+Gemiddeld gieren rechtdoor: %s graden/s
+Gemiddelde gier op die reguit stuk: %s grade/s
+Golygydd ddim ar gael: %s
+Gomme avant : %s
+Guinyada mitjana a la recta: %s graus/s
+Gummiblandning bak: %s
+Gummiblandning fram: %s
+Gurudumu huteleza sekunde %s kwa mzunguko ukiongeza kasi umeinama
+Gwyro cyfartalog ar y syth: %s gradd/e
+Heck %s s pro Runde in der Luft
+Heck beim Bremsen %s s pro Runde in der Luft
+Hindi available ang editor: %s
+Hjulspin %s s pr. omgang p
+Hjulspinn %s s per varv p
+Hurrengoa (R): %s
+Idioma: %s (perfil %s)
+Ieteikums %d no %d: %s
+Imbardata media in rettilineo: %s gradi/s
+Imkejjel: %s
+Impennata %s s per giro in 1
+Int %s s aktar bil-mod kull dawra: forsi ta' qabel kien a
+Int %s s aktar mg
+Irristatzea %s s itzuliko, makurtuta azeleratzean
+Izmereno: %s
+Izmerjeno: %s
+Izmjereno: %s
+Je %s s m
+Je bent %s s per ronde sneller met 
+Je bent %s s per ronde trager: misschien was de vorige beter.
+Jy is %s s per rondte stadiger: dalk was die vorige beter.
+Jy is %s s per rondte vinniger met "%s".
+Jy tol %s s per rondte terwyl jy skuins versnel
+Kabla "%s" (miz. %d)  >  Sasa "%s" (miz. %d)
+Kamu lebih cepat %s s per lap dengan 
+Kamu lebih lambat %s s per lap: mungkin yang lama lebih baik.
+Keuliminen %s s kierroksessa 1. ja 2. vaihteella
+Kihariri hakipatikani: %s
+Kikomo sekunde %s kwa mzunguko kwenye gia %d
+Kipimo: %s
+Kita (R): %s
+Kompaun belakang: %s
+Kompaun depan: %s
+Kompon belakang: %s
+Kompon depan: %s
+Kompost ta' quddiem: %s
+Kompost ta' wara: %s
+Kopie van "%s" met hierdie veranderinge
+Kopja ta' "%s" b'dawn il-bidliet
+Kufizuesi %s s p
+Kwa %s, kwenye saketi zote
+L'assistant recommande %s %s
+L'assistent recomana %s %s
+L'assistente consiglia %s %s
+L-assistent jirrakkomanda %s %s
+LOQ "%s"
+Lacet moyen en ligne droite : %s degr
+Laguntzaileak gomendatzen du: %s %s
+Li jmiss (R): %s
+Limitador %s s per volta en %da
+Limitator %s s pe tur 
+Limitatore %s s per giro in %d
+Limitatur %s s kull dawra fil-ger %d
+Limiter %s s bawat lap sa gear %d
+Limiter %s s per lap di gigi %d
+Limiter %s s per lap in gear %d
+Limiter %s s po krugu u %d. brzini
+Limiter %s s sepusingan di gear %d
+Linalofuata (R): %s
+Mae'r cynorthwyydd yn argymell %s %s
+Mas mabagal ka nang %s s bawat lap: baka mas maayos ang dati.
+Matur: %s
+Mchanganyiko wa mbele: %s
+Mchanganyiko wa nyuma: %s
+Measured: %s
+Medido: %s
+Mengsel agter: %s
+Mengsel voor: %s
+Mescola anteriore: %s
+Mescola posteriore: %s
+Mesurat: %s
+Mischung hinten: %s
+Mischung vorne: %s
+Misurato: %s
+Mitattu: %s
+Mittleres Gieren auf Geraden: %s Grad/s
+Moladh %d as %d: %s
+Moto %s: versi
+Motoa: %s 
+Motociklam %s, vis
+Motociklui %s, visoms trasoms
+Msaidizi anapendekeza %s %s
+Mugagailua: %s s itzuliko %d. martxan
+Na krog si za %s s hitrej
+Na krog si za %s s po
+Nag-i-spin %s s bawat lap sa gas nang nakakiling
+Nakaangat ang likod %s s bawat lap
+Nakaangat ang likod %s s bawat lap sa preno
+Nakala ya "%s" yenye mabadiliko haya
+Naslednje (R): %s
+Nesaf (R): %s
+Neste (R): %s
+Neurtua: %s
+Next (R): %s
+No se pudo escribir %s
+Nyuma hewani sekunde %s kwa mzunguko
+Nyuma hewani sekunde %s kwa mzunguko kwenye breki
+O asistente recomenda %s %s
+O assistente recomenda %s %s
+Ogranicznik %s s na okr
+Oled %s s ringis aeglasem: v
+Oled %s s ringis kiirem seadistusega 
+Olet %s s kierroksessa hitaampi: ehk
+Olet %s s kierroksessa nopeampi asetuksella 
+Olwyn yn troelli %s s y lap wrth gyflymu wedi pwyso
+Omejevalnik %s s na krog v %d. prestavi
+Para %s, em todas as pistas
+Para %s, en todos los circuitos
+Para %s, en todos os circu
+Para sa %s, sa lahat ng track
+Patinas %s s por volta acelerando inclinado
+Patinas %s s por vuelta acelerando inclinado
+Patines %s s per volta accelerant inclinat
+Patinezi %s s pe tur acceler
+Pattini %s s per giro accelerando in piega
+Payo %d ng %d: %s
+Payo ng assistant: %s %s
+Pembantu mencadangkan %s %s
+Pendekezo %d kati ya %d: %s
+Pentru %s, pe toate circuitele
+Per %s, su tutte le piste
+Per a %s, a tots els circuits
+Piirajas %s s ringis, k
+Pomiar: %s
+Posteriore in aria %s s per giro
+Posteriore in aria %s s per giro in frenata
+Pour %s, sur tous les circuits
+Pre %s, na v
+Preporuka %d od %d: %s
+Priekis ore %s s per rat
+Pro %s, na v
+Propinjanje %s s po krugu u 1. i 2.
+Prossimo (R): %s
+Purata yaw di trek lurus: %s darjah/s
+Qabel "%s" (%d d.)  >  Issa "%s" (%d d.)
+Rajoittimella %s s kierroksessa, vaihde %d
+Rakkomandazzjoni %d minn %d: %s
+Rattale %s, k
+Rear compound: %s
+Rear in the air %s s per lap
+Rear in the air %s s per lap braking
+Recomandarea %d din %d: %s
+Recommendation %d of %d: %s
+Redaktor pole saadaval: %s
+Redaktori nuk ofrohet: %s
+Redaktorius neprieinamas: %s
+Redaktors nav pieejams: %s
+Redigeerder onbeskikbaar: %s
+Reglaje: %s 
+Reglajes escritos: %d apuntados en %s%s
+Rekomandimi %d nga %d: %s
+Rekommendation %d av %d: %s
+Ribotuvas %s s per rat
+Roimhe "%s" (%d c.)  >  Anois "%s" (%d c.)
+Roth tosaigh in airde %s s sa chuaird i ngiar 1 agus 2
+Rupteur %s s par tour en rapport %d
+Rwyt ti %s s yn arafach y lap: efallai bod yr un blaenorol yn well.
+Rwyt ti %s s yn gyflymach y lap gyda "%s".
+SKEP "%s"
+Saran %d dari %d: %s
+Seguinte (R): %s
+Sei %s s pi
+Seterusnya (R): %s
+Seuraava (R): %s
+Si o %s s na kolo pomal
+Si o %s s na kolo r
+Siguiente (R): %s
+Sinukat: %s
+Smjesa naprijed: %s
+Smjesa pozadi: %s
+Smjesa sprijeda: %s
+Smjesa straga: %s
+Soovitus %d/%d: %s
+Sporiji si %s s po krugu: mo
+Suivant (R) : %s
+Suositus %d/%d: %s
+Susunod (R): %s
+Tagasegu: %s
+Takaseos: %s
+Takmarkari %s s 
+Tayar spin %s s sepusingan memecut condong
+The assistant recommends %s %s
+Til %s, p
+Tjetri (R): %s
+Tomhaiste: %s
+Tracisz %s s na okr
+Traseira no aire %s s por volta
+Traseira no aire %s s por volta freando
+Traseira no ar %s s por volta
+Traseira no ar %s s por volta freando
+Trasera en el aire %s s por vuelta
+Trasera en el aire %s s por vuelta frenando
+Tu esi %s s 
+Tu esi %s s l
+Tu patines %s s par tour en acc
+Tu perds %s s par tour : le pr
+Tu vas %s s plus vite par tour avec 
+UNDA "%s"
+Uko %s s haraka zaidi kwa mzunguko ukiwa na "%s".
+Uko %s s polepole zaidi kwa mzunguko: huenda uliopita ulikuwa bora.
+Untuk %s, di semua litar
+Untuk %s, di semua sirkuit
+Urejevalnik ni na voljo: %s
+Vas %s s m
+Vir %s, op alle bane
+Volgende (R): %s
+Voor %s, op alle circuits
+Voorheen "%s" (%d r.)  >  Nou "%s" (%d r.)
+Vuelta %d: %.3f s%s 
+Wara fl-arja %s s kull dawra
+Wara fl-arja %s s kull dawra fl-ibbrejkjar
+Wastani wa kuyumba (yaw) kwenye njia nyoofu: %s nyuzi/s
+Wedi'i fesur: %s
+Wheelie %s s bawat lap sa G1 at G2
+Wheelie %s s kull dawra fil-ger 1 u 2
+Wheelie %s s na kolo v 1. a 2. stupni
+Wheelie %s s na krog v 1. in 2. prestavi
+Wheelie %s s na okr
+Wheelie %s s pe tur 
+Wheelie %s s per lap di gigi 1 dan 2
+Wheelie %s s per lap in 1st and 2nd
+Wheelie %s s per ronde in 1e en 2e
+Wheelie %s s per rondte in 1ste en 2de
+Wheelie %s s per runde i 1. og 2. gir
+Wheelie %s s per varv i 1:an och 2:an
+Wheelie %s s pr. omgang i 1. og 2. gear
+Wheelie %s s pro Runde im 1. und 2. Gang
+Wheelie %s s sepusingan di gear 1 dan 2
+Wheelie %s s za kolo (1. a 2. p
+Wheelie sekunde %s kwa mzunguko kwenye gia ya 1 na ya 2
+Wheelie: %s s itzuliko 1. eta 2. martxetan
+Wheeling %s s par tour en 1re et 2e
+Wielspin %s s per ronde bij gas in schuine stand
+Wili %s s y lap yn g
+Yaw medju fid-dritti: %s gradi/s
+Yaw rata-rata di lurusan: %s derajat/s
+You are %s s faster per lap with "%s".
+You are %s s slower per lap: maybe the previous one was better.
+You spin %s s per lap accelerating leaned over
+Za %s, na svim stazama
+Za %s, na vseh progah
+Zadek v zraku %s s na krog
+Zadek v zraku %s s na krog pri zaviranju
+Zadek ve vzduchu %s s za kolo
+Zadek ve vzduchu %s s za kolo p
+Zadnji deo u vazduhu %s s po krugu
+Zadnji deo u vazduhu %s s po krugu pri ko
+Zadnji dio u zraku %s s po krugu
+Zadnji dio u zraku %s s po krugu pri ko
+Zadok vo vzduchu %s s na kolo
+Zadok vo vzduchu %s s na kolo pri brzden
+Zalecenie %d z %d: %s
+Zmes spredaj: %s
+Zmes vpredu: %s
+Zmes vzadu: %s
+Zmes zadaj: %s
+Zyskujesz %s s na okr
+_escritos.txt
+a %s %s
+a (R): %s
+a napred: %s
+a pozadi: %s
+a: %s 
+a: %s\%s 
+a: no se pudo escribir %s
+ada media en recta: %s grados/s
+ada media en recta: %s graos/s
+al %s, fuq i
+alanma: %s d
+anie %d z %d: %s
+anie na rovinke: %s stup
+asistente_reglaje/fuente.fnt
+asistente_reglaje/fuente_fija.fnt
+atan deyil: %s
+ben: %s s k
+chste (R): %s
+detud: %s
+dia na reta: %s graus/s
+diteur indisponible : %s
+edu: %s
+el kull dawra b'"%s".
+enje (yaw) na pravcu: %s st./s
+eno: %s
+ent (R): %s
+flum: %s gr
+gbar: %s
+huella=%s
+hus %s s ringis
+hus %s s ringis pidurdades
+i si %s s po krugu sa 
+ible: %s
+ie (R): %s
+il "%s".
+il thosaigh: %s
+il: %s
+ilo %d od %d: %s
+indice.csv
+indice.csv.tmp
+inys: %s
+ip de "%s" leis na hathruithe seo
+ir %s %s
+ir %s s sa chuaird i ngiar %d
+ir: %s
+js %s s apl
+jums: %s
+kamais (R): %s
+kte ortalama yalpa: %s derece/s
+l san aer %s s sa chuaird
+l san aer %s s sa chuaird ag cosc
+l): %s
+la sa chuaird le "%s".
+lar %s s 
+legging %d af %d: %s
+len: %s
+lijs %s s apl
+lle %s, kaikilla radoilla
+loq "%s"
+loq %s s kull dawra meta ta
+lt: %s
+matuota: %s
+mites compartidos (%s), %d ajustes con rango
+n %d de %d: %s
+n %s s 
+n %s, reglajes desde %lld
+n aer %s s pe tur
+n aer %s s pe tur la fr
+n hamur: %s
+na %s s
+na %s s buksovka edirs
+na %s s daha h
+na %s s daha s
+na %s s daha yava
+na %s s havada
+na %s s, 
+na %s s, %d. viteste
+na %s s, 1-ci v
+na %s s, 1. ve 2. viteste
+neri %d/%d: %s
+nerisi: %s %s
+ngelig: %s
+nglig: %s
+nica: TC %d (%s), freno motor %d (%s), anti-caballito %d (%s)
+nik %s s po krugu u %d. brzini
+nji kraj u zraku %s s po krugu
+nji kraj u zraku %s s po krugu pri ko
+no zakretanje (yaw) na pravcu: %s st./s
+no zakretanje (yaw) na ravnini: %s st./s
+no zibanje na ravnini: %s stopinj/s
+nsare %s s per varv i %d:an
+nser %s s pr. omgang i %d. gear
+nt %s s el
+nt %s s h
+o %d de %d: %s
+o %s s por volta en 1.
+pne (R): %s
+pny: %s
+r %s s l
+r %s s p
+r %s s snabbare per varv med 
+r %s, auf allen Strecken
+r %s, n
+r %s, p
+radaki (R): %s
+rdumine sirgel: %s kraadi/s
+re : %s
+re en l'air %s s par tour
+re en l'air %s s par tour au freinage
+reacha: %s c
+rednie odchylenie (yaw) na prostej: %s st./s
+rgmine (R): %s
+rja e pasme: %s
+rparme: %s
+s egyenesben: %s fok/s
+s vzadu: %s
+s: %s s k
+shqet %s s p
+skor: %s s k
+sta (R): %s
+ste (R): %s
+surat: %s
+ti (R): %s
+ti cu %s s mai lent pe tur: poate cel anterior era mai bun.
+ti cu %s s mai rapid pe tur cu 
+ticos: %s 
+toarea (R): %s
+ts: %s
+tt: %s
+tymas tiesiojoje: %s laipsn./s
+uje %s %s
+us %s s ringis 1. ja 2. k
+vel: %s
+vuelta_%03d.tlm
+xima (R): %s
+yor: %s
+z: %s grad
+(exit 0)

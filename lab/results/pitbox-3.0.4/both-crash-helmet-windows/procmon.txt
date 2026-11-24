@@ -1,0 +1,45 @@
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save  SUCCESS
+   10  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\asistente_reglaje.log  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\asistente_telemetria  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\asistente_telemetria\config.ini  SUCCESS
+    2  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud  NAME COLLISION
+    3  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud  SUCCESS
+    6  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud\gpbmods_hud.log  SUCCESS
+    4  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud\hud.ini.tmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0150.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0170.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0320.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0330.bmp  SUCCESS
+    1  gpbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0598.bmp  SUCCESS
+    2  gpbikes.exe  FlushBuffersFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud\hud.ini.tmp  SUCCESS
+    1  gpbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  gpbikes.exe  Process Exit    SUCCESS
+    1  gpbikes.exe  Process Start    SUCCESS
+    1  gpbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-both-crash-helmet\gpbikes.exe  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\opengl32.dll  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\plugins\gpbmods_hud64.dlo  SUCCESS
+    1  gpbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo  SUCCESS
+    2  gpbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud\hud.ini.tmp  SUCCESS
+  205  gpbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  gpbikes.exe  WriteFile  D:\$Mft  SUCCESS
+  191  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\both-crash-helmet\host.log  FAST IO DISALLOWED
+  384  gpbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\both-crash-helmet\host.log  SUCCESS
+    8  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\libgallium_wgl.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\opengl32.dll  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\plugins\gpbmods_hud64.dlo  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\release\Pitbox-Windows-3.0.4.zip\Pitbox\asistente\asistente_reglaje64.dlo  SUCCESS
+   10  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\asistente_reglaje.log  SUCCESS
+    1  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\asistente_telemetria\config.ini  SUCCESS
+    6  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud\gpbmods_hud.log  SUCCESS
+    4  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\save\gpbmods_hud\hud.ini.tmp  SUCCESS
+   49  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0150.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0150.bmp  SUCCESS
+   45  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0170.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0170.bmp  SUCCESS
+   46  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0320.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0320.bmp  SUCCESS
+   47  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0330.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0330.bmp  SUCCESS
+   47  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0598.bmp  FAST IO DISALLOWED
+  676  gpbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-both-crash-helmet\shot_0598.bmp  SUCCESS

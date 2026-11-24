@@ -1,0 +1,309 @@
+$ sed -n '1,2p;54,90p;114,121p;137,154p;248,296p;350,372p;468,484p;598,636p;661,708p' win/Pitbox/gpbmods/instalacion.py; echo '== gpbmods_app.py'; sed -n '103,125p;236,261p' win/Pitbox/gpbmods_app.py; echo '== Instalar.bat'; cat win/Pitbox/Instalar.bat
+"""Instalar en el juego lo que trae el paquete: Asistente de reglaje, fuentes, idiomas, idioma del perfil
+y el acceso directo a Pitbox. Nada original del juego se modifica: todo son archivos añadidos."""
+def extraer_fuentes(juego: Path, destino: Path) -> None:
+    """Fuentes del propio juego (ui.pkz es un zip normal): así no hace falta MaxHUD."""
+    destino.mkdir(parents=True, exist_ok=True)
+    pares = {"fuente.fnt": "ui/main.fnt", "fuente_fija.fnt": "ui/data.fnt"}
+    with zipfile.ZipFile(juego / "ui.pkz") as z:
+        nombres = {n.lower(): n for n in z.namelist()}
+        for local, interno in pares.items():
+            if (destino / local).exists():
+                continue
+            real = nombres.get(interno) or nombres.get("ui/main.fnt")
+            if real:
+                (destino / local).write_bytes(z.read(real))
+
+
+def instalar_plugin(juego: Path, dlo: Path) -> None:
+    carpeta = juego / "plugins" / "asistente_reglaje"
+    extraer_fuentes(juego, carpeta)
+    if not (carpeta / "config.ini").exists():
+        (carpeta / "config.ini").write_text(CONFIG_PANEL, encoding="utf-8")
+    destino = juego / "plugins" / "asistente_reglaje64.dlo"
+    tmp = destino.with_suffix(".dlo.nuevo")
+    shutil.copy2(dlo, tmp)
+    os.replace(tmp, destino)  # archivo nuevo de golpe: nunca a medio copiar
+
+
+# ---------- HUD de Pitbox (hud/) ----------
+# En el juego: plugins/gpbmods_hud64.dlo y plugins/gpbmods_hud/ con estos archivos (ver hud/instalar.sh). Su
+# disposición (gpbmods_hud/hud.ini) vive en la carpeta de PiBoSo, no en plugins/: instalar o quitar nunca la toca.
+# MaxHUD (MaxHUD_GPB64.dlo) no es nuestro: Pitbox nunca lo toca; quien quiera solo el nuestro lo saca a mano.
+HUD_DLO = "gpbmods_hud64.dlo"
+HUD_CARPETA = "gpbmods_hud"
+HUD_DATOS = ("marca.tga", "sombra.tga", "fuente_texto.fnt", "fuente_num.fnt",
+             "OFL-BarlowSemiCondensed.txt", "OFL-IBMPlexMono.txt")
+CLAVE_HUD = "hud"   # ajuste: False si el usuario lo ha quitado en Ajustes (por defecto, puesto)
+_NUEVO = ".gpbmods.nuevo"
+
+
+def instalar_hud(juego: Path, dlo: Path, datos: Path) -> None:
+    """Copia los datos y, lo último, el .dlo (sin sus datos el plugin no pinta). Nada más de plugins/ se toca."""
+    carpeta = Path(juego) / "plugins" / HUD_CARPETA
+    carpeta.mkdir(parents=True, exist_ok=True)
+    for n in HUD_DATOS:
+        _copiar_atomico(Path(datos) / n, carpeta / n)
+    _copiar_atomico(Path(dlo), Path(juego) / "plugins" / HUD_DLO)
+
+def quitar_hud(juego: Path) -> bool:
+    """Quita SOLO los archivos que pone Pitbox (el .dlo y HUD_DATOS); la carpeta, solo si queda vacía.
+    True si había algo que quitar."""
+    plugins = Path(juego) / "plugins"
+    carpeta = plugins / HUD_CARPETA
+    habia = False
+    for f in [plugins / HUD_DLO, *(carpeta / n for n in HUD_DATOS)]:
+        for g in (f, f.with_name(f.name + _NUEVO)):
+            if g.is_file():
+                g.unlink()
+                habia = True
+    try:
+        carpeta.rmdir()
+    except OSError:
+        pass   # no existe o tiene algo que no es nuestro
+    return habia
+
+
+def instalar_idiomas(juego: Path, carpeta_str: Path, idioma: str | None = None, quitar: bool = True) -> Idiomas:
+    """Deja en <juego>/ui/ SOLO el .str del idioma elegido (el inglés va dentro de ui.pkz y no se toca).
+
+    El menú de idiomas del juego lista todos los ui/*.str y con muchos se desborda (los últimos no se ven): por eso
+    se quitan los demás .str que puso Pitbox. Solo se borra un .str si es de Pitbox: idéntico a uno del paquete
+    (`carpeta_str`) o con una huella apuntada al instalarlo. Los que haya puesto el usuario u otro programa no se tocan.
+    `idioma` None = el guardado en los ajustes.
+
+    `quitar=False` (al actualizar Pitbox): no se borra ninguno; los demás .str de Pitbox que haya se ponen al día
+    con los del paquete. El idioma elegido en el juego (global.ini/profile.ini) puede no ser el de Pitbox y su .str
+    no debe desaparecer sin que el usuario haya pedido nada.
+    """
+    idioma = (_idioma_guardado() if idioma is None else idioma).strip().lower()
+    ui = juego / "ui"
+    ui.mkdir(exist_ok=True)
+    paquete = {f.name.lower(): f for f in carpeta_str.glob("*.str")}
+    nuestras = {_sha(f.read_bytes()) for f in paquete.values()} | _str_apuntados()
+    elegido = paquete.get(f"{idioma}.str") if idioma and idioma != "english" else None
+    hecho = Idiomas(None)
+    if elegido is not None:
+        destino = ui / elegido.name
+        datos = elegido.read_bytes()
+        _apuntar_str({_sha(datos)})   # antes de copiar: si algo falla después, sobra una huella, nunca falta
+        tmp = ui / f".{elegido.name}.gpbmods.tmp"
+        tmp.write_bytes(datos)
+        os.replace(tmp, destino)
+        hecho.instalado = elegido.stem
+    for f in sorted(ui.iterdir()):
+        n = f.name.lower()
+        if not n.endswith(".str") or n == "english.str" or (elegido is not None and n == elegido.name.lower()):
+            continue
+        try:
+            if not (f.is_file() and _sha(f.read_bytes()) in nuestras):
+                continue
+            if quitar:
+                f.unlink()
+                hecho.quitados.append(f.name)
+            elif n in paquete:   # se queda, pero al día
+                datos = paquete[n].read_bytes()
+                _apuntar_str({_sha(datos)})
+                tmp = ui / f".{f.name}.gpbmods.tmp"
+                tmp.write_bytes(datos)
+                os.replace(tmp, f)
+        except OSError:
+            pass
+    return hecho
+
+
+# ---------- idioma elegido: global.ini [ui] y profile.ini [info] ----------
+def poner_idioma(piboso: Path, idioma: str, esta_abierto=None) -> bool:
+    """Pone el idioma de los menús del juego en LOS DOS sitios donde lo guarda GP Bikes:
+    <PiBoSo>/global.ini [ui] language= y <PiBoSo>/profiles/<perfil>/profile.ini [info] language=
+    (si solo se cambia uno, el juego puede seguir en el otro idioma). Inglés: language=english en global.ini y sin
+    línea en el perfil (el del juego).
+
+    False si aún no hay perfil (no se ha abierto el juego). Lanza perfil.JuegoAbierto con el juego abierto: lo
+    sobrescribiría al salir. Copia de cada fichero en *.gpbmods.bak antes de cambiarlo.
+    """
+    if esta_abierto is None:
+        from . import game
+
+        esta_abierto = game.is_running
+    carpeta = perfil.perfil_activo(piboso)
+    if carpeta is None:
+        return False
+    if esta_abierto():
+        raise perfil.JuegoAbierto()
+    idioma = (idioma or "english").strip().lower()
+    _reescribir(carpeta / "profile.ini",
+                lambda t: _poner_clave(t, "info", "language", None if idioma == "english" else idioma))
+    _reescribir(Path(piboso) / "global.ini", lambda t: _poner_clave(t, "ui", "language", idioma))
+    return True
+def acceso_primera_vez(escritorio: Path | None = None, inst: Path | None = None) -> Path | None:
+    """La primera vez que se abre Pitbox (instalado, no la copia de desarrollo) crea el acceso directo del
+    escritorio sin esperar a que se pulse «Instalar». Solo una vez: si luego lo borras, no vuelve a aparecer. Si el
+    nuestro apunta a una carpeta de Pitbox que ya no existe (se movió), se rehace para esta."""
+    from . import ajustes, actualizar
+
+    inst = inst or ROOT
+    if actualizar.es_desarrollo(inst):
+        return None
+    datos = ajustes.cargar()
+    juego = Path(datos["juego"]) if datos.get("juego") else None
+    if datos.get(CLAVE_ACCESO_HECHO):
+        return _rehacer_acceso_perdido(juego, escritorio or _escritorio(), inst)
+    lnk = crear_acceso_directo(juego, escritorio)
+    if lnk:
+        ajustes.modificar(lambda todo: todo.__setitem__(CLAVE_ACCESO_HECHO, True))   # sin pisar otros ajustes
+    return lnk
+def crear_acceso_directo(juego: Path | None, escritorio: Path | None = None) -> Path | None:
+    escritorio = escritorio or _escritorio()
+    escritorio.mkdir(parents=True, exist_ok=True)
+    icono = icono_acceso(juego)
+    if sys.platform.startswith("win"):
+        destino = escritorio / (ACCESO_NOMBRE + ".lnk")
+        pythonw = Path(sys.executable).with_name("pythonw.exe")
+        objetivo = pythonw if pythonw.is_file() else Path(sys.executable)
+        ps = (
+            "$s=(New-Object -ComObject WScript.Shell).CreateShortcut($env:LNK);"
+            "$s.TargetPath=$env:OBJ;$s.Arguments=$env:APP;$s.WorkingDirectory=$env:DIR;"
+            + ("$s.IconLocation=$env:ICO;" if icono else "")
+            + "$s.Save()"
+        )
+        app = '"' + str(ROOT / "gpbmods_app.py") + '"'
+        if nativo.compilado():   # el ejecutable compilado, sin argumentos
+            objetivo, app = nativo.binario(), ""
+        env = dict(os.environ, LNK=str(destino), OBJ=str(objetivo), APP=app, DIR=str(ROOT),
+                   ICO=f"{icono},0" if icono else "")
+        subprocess.run(["powershell", "-NoProfile", "-Command", ps], env=env, capture_output=True, timeout=30,
+                       creationflags=getattr(subprocess, "CREATE_NO_WINDOW", 0))
+        return destino if destino.exists() else None
+    destino = escritorio / (ACCESO_NOMBRE + ".desktop")
+    python = ROOT / ".venv" / "bin" / "python"
+    destino.write_text(
+        "[Desktop Entry]\nName=Pitbox\nComment=Pitbox — launcher para GP Bikes: salas, mods y asistente de reglaje (no oficial)\n"
+        + (f'Exec="{nativo.binario()}"\n' if nativo.compilado() else
+           f'Exec="{python if python.is_file() else sys.executable}" "{ROOT / "gpbmods_app.py"}"\n')
+        + f"Path={ROOT}\nIcon={icono}\nTerminal=false\nType=Application\nCategories=Game;\n",
+        encoding="utf-8",
+    )
+    destino.chmod(0o755)
+    try:   # sin gio (o si falla) el acceso vale igual: solo pedirá confirmación al abrirlo
+        subprocess.run(["gio", "set", str(destino), "metadata::trusted", "true"], capture_output=True, timeout=10)
+    except (OSError, subprocess.SubprocessError):
+        pass
+    return destino
+
+
+def instalar_todo(ajustes: dict, idioma: str) -> list[str]:
+    """Hace la instalación completa y devuelve lo hecho, una línea por paso (para enseñarlo)."""
+    hecho: list[str] = []
+    juego = Path(ajustes["juego"]) if ajustes.get("juego") else None
+    if not juego or not (juego / "gpbikes.exe").is_file():
+        return ["✗ No sé dónde está GP Bikes: elige su carpeta (la que tiene gpbikes.exe)."]
+    dlo, idiomas = recursos()
+    from . import game
+
+    if dlo and game.is_running():
+        hecho.append("• Cierra GP Bikes y vuelve a pulsar Instalar para poner el Asistente de reglaje")
+        dlo = None
+    if dlo:
+        try:
+            instalar_plugin(juego, dlo)
+            hecho.append("✓ Asistente de reglaje instalado (en el juego, pulsa F8 en pista)")
+        except (OSError, zipfile.BadZipFile) as e:
+            hecho.append(f"✗ Asistente de reglaje: {e}")
+    hecho += _paso_hud(juego, hud_activado(ajustes))
+    if idiomas:
+        try:
+            r = instalar_idiomas(juego, idiomas, idioma)
+            if r.instalado:
+                hecho.append(f"✓ Menús del juego en {IDIOMAS.get(r.instalado, r.instalado)} copiados al juego")
+            if r.quitados:
+                hecho.append(f"✓ Quitados {len(r.quitados)} idiomas que no usas (el menú de idiomas del juego ya cabe)")
+        except OSError as e:
+            hecho.append(f"✗ Idiomas: {e}")
+    if ajustes.get("piboso"):
+        try:
+            if poner_idioma(Path(ajustes["piboso"]), idioma):
+                hecho.append(f"✓ Idioma del juego: {IDIOMAS.get(idioma, idioma)}")
+            else:
+                hecho.append("• Abre GP Bikes una vez y vuelve a pulsar Instalar para poner el idioma")
+        except perfil.JuegoAbierto:
+            hecho.append("• Cierra GP Bikes y vuelve a pulsar Instalar para poner el idioma")
+        except OSError as e:
+            hecho.append(f"✗ Idioma del juego: {e}")
+    try:
+        lnk = crear_acceso_directo(juego)
+        if lnk:   # el «GPB Mods» de antes (solo el nuestro, de esta instalación) sobra
+            viejo = _acceso_antiguo_nuestro(lnk.parent, ROOT)
+            if viejo and viejo != lnk:
+                viejo.unlink(missing_ok=True)
+        hecho.append("✓ Acceso directo «Pitbox» en el escritorio" if lnk else "• No se pudo crear el acceso directo")
+    except (OSError, subprocess.SubprocessError) as e:
+        hecho.append(f"• Acceso directo: {e}")
+    return hecho
+== gpbmods_app.py
+def _limpieza_al_arrancar() -> None:
+    """Windows: quita la marca «descargado de internet» de los .dll/.pyd/.exe de la instalación (por si se abrió
+    GPBMods.exe con doble clic, sin Instalar.bat; si pythonnet ya falló no sirve para esta vez, pero sí para la
+    siguiente). Y, en segundo plano, borra temporales viejos de la caché. Nunca rompe el arranque."""
+    try:
+        if sys.platform.startswith("win"):
+            from gpbmods import ficheros, nativo
+
+            ficheros.desbloquear(nativo.ROOT)
+    except Exception:
+        import traceback
+
+        traceback.print_exc()
+
+    def trabajo():
+        try:
+            from gpbmods import ajustes, ficheros
+
+            ficheros.limpiar_temporales(ajustes.carpeta_cache())
+        except Exception:
+            import traceback
+
+            traceback.print_exc()
+def _autocomprobacion() -> bool:
+    """Los archivos son los firmados (salvo en la copia de desarrollo). Si no, aviso con «Reparar» y no se abre."""
+    try:
+        from gpbmods import integridad
+    except Exception:
+        import traceback
+
+        traceback.print_exc()
+        return "__compiled__" not in globals()   # el compilado sin su comprobación no arranca
+    try:
+        r = integridad.comprobar()
+    except Exception as e:  # noqa: BLE001 — p. ej. falta algo para verificar la firma
+        import traceback
+
+        traceback.print_exc()
+        if "__compiled__" not in globals():
+            return True
+        r = integridad.Resultado("alterado", [f"{integridad.MANIFIESTO} ({type(e).__name__})"])
+    if integridad.debe_bloquear(r):
+        integridad.mostrar_aviso(r)
+        return False
+    if r.estado == "ok" and r.hasheados == 0:
+        integridad.en_segundo_plano()   # camino rápido: la huella completa, en segundo plano
+    return True
+
+
+== Instalar.bat
+@echo off
+rem Abre Pitbox: la primera vez busca GP Bikes e instala el asistente, el HUD y los idiomas.
+if not exist "%~dp0python\pythonw.exe" goto sin_descomprimir
+if not exist "%~dp0python\python.exe" goto sin_descomprimir
+if not exist "%~dp0gpbmods_app.py" goto sin_descomprimir
+set PYTHONUTF8=1
+rem Quita la marca "descargado de internet" para que Windows deje cargar las librerias.
+set "PITBOX_DIR=%~dp0"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "Get-ChildItem -LiteralPath $env:PITBOX_DIR -Recurse | Unblock-File" >nul 2>&1
+start "" "%~dp0python\pythonw.exe" "%~dp0gpbmods_app.py"
+exit /b
+:sin_descomprimir
+echo Descomprime el zip primero: clic derecho en el zip, "Extraer todo", y abre este archivo
+echo desde la carpeta que sale, por ejemplo "%USERPROFILE%\Juegos\Pitbox", no desde dentro del zip.
+pause
+(exit 0)

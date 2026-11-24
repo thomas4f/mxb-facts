@@ -32,6 +32,7 @@ CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('mxb-dualsense-1.1.0.yaml', 'mxb-dualsense'),
     ('mxb-fps-booster-v1.yaml', 'mxb-fps-booster'),
     ('mxbfix-0.1.8.yaml', 'mxbfix'),
+    ('pitbox-3.0.4.yaml', 'pitbox'),
     ('projectgpb2-v2.yaml', 'projectgpb2'),
     ('setup-duper-0.1.8674.29660.yaml', 'setup-duper'),
     ('suspension-tuner-1.4.1.yaml', 'suspension-tuner'),
