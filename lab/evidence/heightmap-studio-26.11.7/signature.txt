@@ -1,0 +1,4 @@
+$ objdump -p Heightmap-Studio-setup.exe | grep -E 'file format|Security Directory'
+Heightmap-Studio-setup.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+(exit 0)

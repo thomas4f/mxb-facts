@@ -1,0 +1,13 @@
+$ curl -sSL https://heightmapstudio.com/terms | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r\"(?s)<(script|style).*?</\\1>\",\"\",t);t=re.sub(r\"<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>\",\"\\n\",t);t=re.sub(r\"<[^>]+>\",\"\",t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | grep -nE 'Effective|reverse engineer|^Personal license|^You may use every|^Commercial license|You need an active Commercial|currently \$|checks heightmapstudio.com for updates|Third-Party Notices|^5\. Plugins|can install game plugins'
+16:Effective: October 21, 2026
+21:Personal license (free)
+22:You may use every feature of Heightmap Studio for free for:
+25:Commercial license (paid)
+26:You need an active Commercial license for any commercial use. Commercial use means using Heightmap Studio, or anything you make with it, where money or other value is involved, including:
+49:reverse engineer, decompile, disassemble, decrypt or otherwise try to get the source code of the app or of locked plugins (.hmp), except where the law gives you that right regardless of this agreement;
+54:5. Plugins
+55:Heightmap Studio can install game plugins, from us or from other authors.
+66:The Commercial license is a yearly subscription, currently $19.99 USD per user per year plus any applicable taxes. Payments are handled by Stripe. Prices are shown before you pay and may change for future billing periods; we will tell you before a price change applies to your subscription.
+72:The app checks heightmapstudio.com for updates and downloads plugins, presets and textures you ask for. Updates may add, change or remove features. Some features depend on third-party services (map tiles, elevation data, texture and model libraries) that we do not control and that may change or stop working. See the Privacy Policy for what these connections send.
+78:Heightmap Studio includes open-source software under its own licenses. Those licenses are listed in the app (Preferences > Legal > Third-Party Notices) and on our website. Nothing in these terms limits your rights under those licenses.
+(exit 0)

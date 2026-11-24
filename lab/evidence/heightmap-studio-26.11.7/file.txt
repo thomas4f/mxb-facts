@@ -1,0 +1,9 @@
+$ file Heightmap-Studio-setup.exe Heightmap-Studio-setup.exe.sig Heightmap-Studio.AppImage Heightmap-Studio.AppImage.sig Heightmap-Studio.deb Heightmap-Studio.rpm latest.json
+Heightmap-Studio-setup.exe:     PE32 executable for MS Windows 4.00 (GUI), Intel i386, Nullsoft Installer self-extracting archive, 5 sections
+Heightmap-Studio-setup.exe.sig: ASCII text, with very long lines (432), with no line terminators
+Heightmap-Studio.AppImage:      ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), static-pie linked, BuildID[sha1]=ef655b05ac26feebfd3bc24ec7ccb30389cefc33, stripped
+Heightmap-Studio.AppImage.sig:  ASCII text, with very long lines (432), with no line terminators
+Heightmap-Studio.deb:           Debian binary package (format 2.0), with control.tar.gz , data compression gz
+Heightmap-Studio.rpm:           RPM v3.0 bin
+latest.json:                    JSON text data
+(exit 0)

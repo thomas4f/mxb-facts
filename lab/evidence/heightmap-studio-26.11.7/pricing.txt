@@ -1,0 +1,8 @@
+$ curl -sSL https://heightmapstudio.com/pricing | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r\"(?s)<(script|style).*?</\\1>\",\"\",t);t=re.sub(r\"<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>\",\"\\n\",t);t=re.sub(r\"<[^>]+>\",\"\",t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | grep -nE 'Free to build|per user, per year|For hobby|For anything you sell|Unsigned for now|Version 2[0-9]\.'
+15:Free to build. Paid to sell.
+19:For hobby tracks and free community releases.
+25:$19.99per user, per year
+26:For anything you sell or get paid for.
+40:Version 26.11.6. Free for personal use. Updates keep your presets, templates and projects.
+45:Unsigned for now, see the note below.
+(exit 0)

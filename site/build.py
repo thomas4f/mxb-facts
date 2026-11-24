@@ -21,6 +21,7 @@ CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('dirt-gear-1.1.1.yaml', 'dirt-gear'),
     ('dirt-gear-1.2.0.yaml', 'dirt-gear'),
     ('fixxers-rumble-1.0.yaml', 'fixxers-rumble'),
+    ('heightmap-studio-26.11.7.yaml', 'heightmap-studio'),
     ('holeshot-0.24.0.yaml', 'holeshot'),
     ('maxhud-2.2.7.yaml', 'maxhud'),
     ('mx-dirt-mod-1.7.1.yaml', 'mx-dirt-mod'),

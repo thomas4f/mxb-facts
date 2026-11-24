@@ -141,7 +141,7 @@
     "author": "bradenmackey",
     "github": "bradenmackey/hms-public",
     "homepage": null,
-    "cards": [],
+    "cards": ["heightmap-studio-26.11.7.yaml"],
     "mxb-mods": {
       "post": 185826,
       "tied_by": "github.com/bradenmackey/hms-public"

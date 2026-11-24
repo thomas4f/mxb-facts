@@ -1,0 +1,10 @@
+$ curl -sS https://api.github.com/repos/bradenmackey/hms-public/releases/tags/v26.11.7 | python3 -I -c 'import json,sys;r=json.load(sys.stdin);print(r["tag_name"],r["published_at"],"target:",r["target_commitish"]);[print(a["name"],a["size"],a["digest"]) for a in r["assets"]]'
+v26.11.7 2026-11-19T19:51:32Z target: svelte-app
+Heightmap-Studio-setup.exe 19217680 sha256:787220208773078061a85caba7ba860665502af2b16528a34471856500418004
+Heightmap-Studio-setup.exe.sig 432 sha256:a9850fe28b5bcb7a6cedba6167799d62fea983d8e0d0da40e6f42f949d08871d
+Heightmap-Studio.AppImage 100628984 sha256:b32b1961c2c0e92a9416a79f277fc384142f83992e823c0da350ce45164b6f7d
+Heightmap-Studio.AppImage.sig 432 sha256:0556a8b978fb2f3352805ad8b2e752effe81fdb2c217689fe4febb73a7cfae3e
+Heightmap-Studio.deb 22996740 sha256:068128c365a20caa284ca0e46b1ca367b4b1cae953258177a7e62357a788d67d
+Heightmap-Studio.rpm 22999089 sha256:2d2f830bdb0feff60f504ef0a7b35516c89e757b41bec02069ff314e44a73edf
+latest.json 13743 sha256:50b2dd7f634307135da04ecba31f444a558ece8abfff23d14254ed3b743a00f1
+(exit 0)

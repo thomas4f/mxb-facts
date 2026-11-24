@@ -1,0 +1,4 @@
+$ for s in .sha256_sig .sig_key; do printf '%s non-zero bytes: ' $s; objdump -s -j $s Heightmap-Studio.AppImage | awk 'NR>4{for(i=2;i<=5;i++)print $i}' | grep -o .. | grep -vc 00; done
+.sha256_sig non-zero bytes: 0
+.sig_key non-zero bytes: 0
+(exit 1)

@@ -1,0 +1,8 @@
+$ for f in *.sig; do echo "$f:"; base64 -d "$f" | head -1; echo; done
+Heightmap-Studio-setup.exe.sig:
+untrusted comment: signature from tauri secret key
+
+Heightmap-Studio.AppImage.sig:
+untrusted comment: signature from tauri secret key
+
+(exit 0)
