@@ -1,0 +1,14 @@
+$ python3 -I "$E/rsrc.py" MX_Bikes_Setup_Duper.exe "$SRC/MXBikesSetupDuperWPF/mxbsd.ico"; echo '- the app assembly:'; python3 -I "$E/rsrc.py" app/MX_Bikes_Setup_Duper.dll
+RT_ICON           1 lang     0  270376 bytes  bb23617f6421f33c969159df6b245952525081c9d2ffb103890b0eb5acb0f667
+RT_GROUP_ICON  32512 lang     0      20 bytes  8affd1fa69a6c5a5b54e504d72d4e9a0eba9b7d702a445ea1399a5978794719a
+RT_VERSION        1 lang     0     806 bytes  374df4e0dfdbbe9eafd3d42e458f4ec52f5e3fdc6ce00684aa748d096ef44578
+RT_MANIFEST       1 lang     0     490 bytes  539dc26a14b6277e87348594ab7d6e932d16aabb18612d77f29fe421a9f1d46a
+/tmp/w/src/repo/MXBikesSetupDuperWPF/mxbsd.ico: 1 images; 1 of them are RT_ICON resources byte for byte; the program has 1 RT_ICON
+RT_VERSION strings: VS_VERSION_INFO | Translation | dmkrtz | MX_Bikes_Setup_Duper | 0.1.* | MX_Bikes_Setup_Duper.dll | MX_Bikes_Setup_Duper.dll | MX Bikes Setup Duper | 1.0.0 | 0.1.8674.29660
+- the app assembly:
+RT_ICON           1 lang     0  270376 bytes  bb23617f6421f33c969159df6b245952525081c9d2ffb103890b0eb5acb0f667
+RT_GROUP_ICON  32512 lang     0      20 bytes  8affd1fa69a6c5a5b54e504d72d4e9a0eba9b7d702a445ea1399a5978794719a
+RT_VERSION        1 lang     0     806 bytes  374df4e0dfdbbe9eafd3d42e458f4ec52f5e3fdc6ce00684aa748d096ef44578
+RT_MANIFEST       1 lang     0     490 bytes  539dc26a14b6277e87348594ab7d6e932d16aabb18612d77f29fe421a9f1d46a
+RT_VERSION strings: VS_VERSION_INFO | Translation | dmkrtz | MX_Bikes_Setup_Duper | 0.1.* | MX_Bikes_Setup_Duper.dll | MX_Bikes_Setup_Duper.dll | MX Bikes Setup Duper | 1.0.0 | 0.1.8674.29660
+(exit 0)

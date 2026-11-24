@@ -1,0 +1,18 @@
+$ cd "$SRC" && grep -nE 'MyDocuments|global\.ini|GetDirectories|GetFiles|EnumerateDirectories|GetCreationTime|GetLastWriteTime|ReadAll|GetPrivateProfileString|IniFile\(' MXBikesSetupDuperWPF/MainWindow.xaml.cs
+80:        static extern int GetPrivateProfileString(string Section, string Key, string Default, StringBuilder RetVal, int Size, string FilePath);
+82:        public IniFile(string IniPath = null)
+90:            GetPrivateProfileString(Section ?? EXE, Key, "", RetVal, 255, Path);
+169:            pibosoDir = Path.Join(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "PiBoSo", "MX Bikes");
+172:            var MyIni = new IniFile(Path.Join(pibosoDir, "global.ini"));
+186:                string[] subFolders = Directory.GetDirectories(tracksFolder);
+190:                    foreach (string pkzFile in Directory.GetFiles(subFolder, "*.pkz"))
+194:                    foreach (string trackDir in Directory.GetDirectories(subFolder))
+221:            folders = Directory.GetDirectories(profilesDir);
+293:                .EnumerateDirectories()
+294:                .OrderBy(d => Directory.GetLastWriteTime(d.FullName))
+331:            string[] bikes = new DirectoryInfo(selectedTrackDir).EnumerateDirectories().OrderBy(f => f.LastWriteTime).ThenBy(f => f.Name).Select(f => f.FullName).ToArray();
+368:            string[] setups = new DirectoryInfo(selectedBikeDir).GetFiles("*.stp").OrderBy(f => f.LastWriteTime).ThenBy(f => f.Name).Select(f => f.FullName).ToArray();
+410:            string createdDate = File.GetCreationTime(selectedSetupPath).ToString("G");
+411:            string changedDate = File.GetLastWriteTime(selectedSetupPath).ToString("G");
+529:                    foreach (string track in Directory.GetDirectories(profileSetupsDir))
+(exit 0)

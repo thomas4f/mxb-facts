@@ -1,0 +1,4 @@
+$ objdump -p MX_Bikes_Setup_Duper.exe | grep -E 'file format|Security Directory'
+MX_Bikes_Setup_Duper.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

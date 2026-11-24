@@ -1,0 +1,7 @@
+    1  MX_Bikes_Setup_Duper.exe  Process Exit    SUCCESS
+    1  MX_Bikes_Setup_Duper.exe  Process Start    SUCCESS
+    1  MX_Bikes_Setup_Duper.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-setup-duper\release\MX_Bikes_Setup_Duper.exe\MX_Bikes_Setup_Duper.exe  SUCCESS
+   40  MX_Bikes_Setup_Duper.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  MX_Bikes_Setup_Duper.exe  WriteFile  D:\$Mft  SUCCESS
+   37  MX_Bikes_Setup_Duper.exe  WriteFile  D:\a\_temp\mxbfacts\setup-duper-stderr.log  FAST IO DISALLOWED
+   76  MX_Bikes_Setup_Duper.exe  WriteFile  D:\a\_temp\mxbfacts\setup-duper-stderr.log  SUCCESS

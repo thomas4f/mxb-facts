@@ -1,0 +1,477 @@
+tool: MX Bikes Setup Duper
+version: 0.1.8674.29660
+summary: >-
+  A small Windows app that copies one of your saved MX Bikes setups to another track, or to every track you have,
+  inside your own profile. Its public source rebuilds to the same program; it asks GitHub for a newer version when it
+  opens and installs nothing itself.
+header:
+  What it is: >-
+    A Windows desktop app (C#, WPF, .NET 6, one framework-dependent `.exe`) that lists your MX Bikes profiles and their
+    saved setups (`.stp`) and copies the setup you pick to one track's folder, or to every track's folder, in that
+    profile. You start it yourself; it is not a plugin and needs neither the game running nor an installer.
+  In one line: Windows app that copies a saved MX Bikes setup to one track or to all your tracks
+  Category: Setup and coaching
+  Author: dmkrtz (GitHub); the app's Info tab says "insane"
+  Game: MX Bikes
+  mxb-mods.com: '[MX Bikes Setup Duper](https://mxb-mods.com/mx-bikes-setup-duper/), published 1 Oct 2023'
+  Homepage: None found
+  GitHub: '[dmkrtz/MXBikesSetupDuperWPF](https://github.com/dmkrtz/MXBikesSetupDuperWPF)'
+  Version analysed: >-
+    0.1.8674.29660: the GitHub release
+    [0.1.8674.29660](https://github.com/dmkrtz/MXBikesSetupDuperWPF/releases/tag/0.1.8674.29660) ("Release candidate 2",
+    1 Oct 2023), `MX_Bikes_Setup_Duper.exe`. It is the newest release in the inventory (`registry/releases.json`, GitHub,
+    seen 24 Nov 2026).
+  Source commit: >-
+    [2e030e0873b043e5eab485ce9902761f999b9edf](https://github.com/dmkrtz/MXBikesSetupDuperWPF/tree/2e030e0873b043e5eab485ce9902761f999b9edf)
+    ("minor changes, added github link", 1 Oct 2023), the commit tag `0.1.8674.29660` points to.
+  Analysed on: 24 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    No licence was found, so nothing forbids the analysis. The source was read at the commit. The program's .NET bundle
+    was unpacked without running it (`lab/evidence/netbundle.py`); its libraries were compared with the NuGet packages and
+    its host code with .NET 6.0.16's `apphost.exe`, and the source was rebuilt with the .NET SDK 7.0.302 (on Linux, for
+    Windows) and compared byte for byte (T4). Every command is in `lab/evidence/setup-duper-0.1.8674.29660/run.sh`. A
+    throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU), no game,
+    no Steam and no keys started the program for 90 s under Process Monitor, with the run folder's programs blocked by the
+    firewall; it had no .NET 6 runtime, so only .NET's host ran and the app's window never opened. VirusTotal: hash
+    lookups made before the analysis (24 Nov 2026); nothing uploaded.
+files:
+  - name: MX_Bikes_Setup_Duper.exe
+    sha256: 235bcb1122e8ada26e469123a3aa4dd3c16da7de8a96b6bd70e98ba501e2003c
+    note: >-
+      The release's one download: a .NET 6 single-file program (framework-dependent: it needs Microsoft's .NET 6 Desktop
+      Runtime) with 132 files packed in. Every packed file, with its SHA-256, is in
+      `lab/evidence/setup-duper-0.1.8674.29660/bundle.txt`.
+  - name: MX_Bikes_Setup_Duper.dll
+    sha256: b5c639953747cce77b1d5e65a10ee0b71d305c8f5ffe02bb9e3c0bb6743aba83
+    inside: MX_Bikes_Setup_Duper.exe
+    note: The app's own code (the source's `MainWindow.xaml.cs` and its window), packed in the program.
+files_note: >-
+  The program isn't code-signed (`lab/evidence/setup-duper-0.1.8674.29660/signature.txt`). Its hash matches the one the
+  Windows machine ran (`lab/results/setup-duper-0.1.8674.29660/setup-duper-windows/machine.txt`).
+key:
+  K1: 'No; no malware found. 0 of 71 engines flagged the program.'
+  K2: 'No. It only tells you a newer version is out; a button opens the release page in your browser.'
+  K3: >-
+    Only when you confirm. Copy replaces a setup of the same name in your profile after asking, and All Tracks replaces
+    them in every track's folder after one warning.
+  K4: 'No. The only thing it sends off your PC is the update check to GitHub.'
+  K5: "No. It doesn't run in or touch the game; it copies setup files in your profile."
+  K6: 'No. It reads only the names of your track mods and copies only your own setups.'
+  K7: 'Yes. The full source is public, and the release rebuilds from it.'
+  K8: 'Yes, as far as checked.'
+  K9: 'Yes. Not code-signed, but a rebuild of the public source gives the same program.'
+  K10: 'Yes. When its window opens it asks GitHub for the latest release; there is no switch.'
+areas:
+  Your PC and files: >-
+    One `.exe`, no installer and no settings; copies and replaces setups only when you click Copy and confirm; not
+    code-signed, but rebuilt from the source; 0 of 71 engines flag it.
+  Your data: An update check to GitHub each time its window opens, with nothing about you and no switch.
+  Your game: A separate program that copies setup files in your MX Bikes profile; it doesn't touch the game.
+  Creators' content: >-
+    Reads only the names of your track mods; ships two MIT-licensed libraries without their licence or a credit.
+  Transparency: >-
+    Full source public and the release rebuilds from it byte for byte, but for build stamps; built on the author's PC,
+    no CI; no licence.
+  Money: Free; nothing is sold and there are no donation links.
+sections:
+  - title: Your PC and files
+    blocks: []
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: >-
+              A request for the tool's latest release (`/repos/dmkrtz/MXBikesSetupDuperWPF/releases/latest`), with the
+              User-Agent `YourAppName`; the version is compared on your PC
+            Where to: '`api.github.com`, HTTPS'
+            When: Each time its window opens
+            Switch: None
+          - What: Your browser opens the release page, or the repository
+            Where to: '`github.com`'
+            When: Only when you click Get latest version (shown when a newer version is out) or the GitHub button
+            Switch: Don't click them
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: if `Documents\PiBoSo\MX Bikes\profiles` doesn't exist, it shows "Profiles folder not found!
+          Aborting." and closes; it doesn't look anywhere else, so a game whose Documents folder is elsewhere isn't found
+          ([MainWindow.xaml.cs lines 206-216](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L206-L216)).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "When launching MXBSD, it first scans your Documents/PiBoSo/MX Bikes/profiles folders." (its
+              [mxb-mods.com page](https://mxb-mods.com/mx-bikes-setup-duper/))
+            Verdict: Matches
+            Evidence: >-
+              [MainWindow.xaml.cs lines 167-229](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L167-L229);
+              `lab/evidence/setup-duper-0.1.8674.29660/src-reads.txt`.
+          - Claim: >-
+              "By reading the global.ini from your PiBoSo/MX Bikes/ folder, it checks for your mods path. If none is set, it
+              assumes that the default mods folder is your active mods folder" … "creates folders for ALL installed mod
+              tracks and copies the selected setup into them as well." (its
+              [mxb-mods.com page](https://mxb-mods.com/mx-bikes-setup-duper/))
+            Verdict: Matches
+            Evidence: >-
+              [MainWindow.xaml.cs lines 172-204](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L172-L204),
+              [lines 520-562](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L520-L562);
+              `lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.
+          - Claim: >-
+              "The app also has a built-in version checker which compares your local with the latest version hosted on
+              Github." (its [mxb-mods.com page](https://mxb-mods.com/mx-bikes-setup-duper/))
+            Verdict: Matches
+            Evidence: >-
+              [MainWindow.xaml.cs lines 27-56](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L27-L56),
+              [lines 143-164](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L143-L164);
+              `lab/evidence/setup-duper-0.1.8674.29660/src-update.txt`.
+          - Claim: >-
+              "Your browser will probably say there is a risk downloading this tool but I can assure you, there's not."
+              (the [release notes](https://github.com/dmkrtz/MXBikesSetupDuperWPF/releases/tag/0.1.8674.29660))
+            Verdict: Matches
+            Evidence: >-
+              No malware found (P9): the program rebuilds from the public source (T4), and 0 of 71 engines flagged it (P1);
+              it isn't code-signed, which is a common reason for such warnings (P5).
+              `lab/evidence/setup-duper-0.1.8674.29660/rebuild.txt`, `lab/evidence/setup-duper-0.1.8674.29660/signature.txt`.
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The run was on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real
+              GPU, without the game or Steam. It had no .NET 6 runtime (only 8, 10 and 11), so .NET's host stopped before the
+              app's code ran: its window, the update check, the folders it reads and the copies weren't seen. What they do
+              rests on the source, which the release rebuilds from.
+            questions: [P4, P7, D1, D6, D8, C5]
+          - text: >-
+              `MX_Bikes_Setup_Duper.dll` and the other files packed in the program weren't among the VirusTotal lookups
+              (7-Zip doesn't unpack .NET bundles); the program itself was.
+            questions: [P1]
+answers:
+  P1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      0 of 71 engines flagged `MX_Bikes_Setup_Duper.exe` on 26 Oct 2025 (hash lookup on 24 Nov 2026). The app's own
+      `MX_Bikes_Setup_Duper.dll` packed inside it wasn't looked up (Limits). Nothing uploaded.
+    evidence: >-
+      [MX_Bikes_Setup_Duper.exe](https://www.virustotal.com/gui/file/235bcb1122e8ada26e469123a3aa4dd3c16da7de8a96b6bd70e98ba501e2003c),
+      [MX_Bikes_Setup_Duper.dll](https://www.virustotal.com/gui/file/b5c639953747cce77b1d5e65a10ee0b71d305c8f5ffe02bb9e3c0bb6743aba83)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It installs no updates. When GitHub's latest release has a higher version, it shows "Update available!" and a Get
+      latest version button on its Info tab, which opens the release page in your browser; nothing is downloaded.
+    evidence: >-
+      [MainWindow.xaml.cs lines 148-164](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L148-L164),
+      [lines 231-234](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L231-L234);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-update.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater that installs anything; the update check only tells you about a newer version (P2).
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-update.txt`.'
+  P4:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Copy writes the setup you picked into your profile's `setups` folder. With Specific Track, a setup of the same name
+      there is replaced after you answer Yes to "Setup with same name exists here already. Overwrite?"; No asks for a new
+      name, and a new name that matches another setup in that folder replaces it without asking. With All Tracks, after
+      one warning ("This action will overwrite existing setups and create new folders for every track you have
+      installed."), it replaces the setup of that name for that bike on every track. It deletes nothing and keeps no file
+      of its own.
+    evidence: >-
+      [MainWindow.xaml.cs lines 454-564](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L454-L564);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.
+  P5:
+    verdict: 'No'
+    mark: note
+    text: The program isn't code-signed; a rebuild of the public source gives the same program (T4).
+    evidence: Empty Security Directory (`lab/evidence/setup-duper-0.1.8674.29660/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its code writes no registry value or Windows setting. In the run the only registry write was Windows' own app-use
+      record (`bam`), which Windows makes for every program started.
+    evidence: >-
+      `lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`;
+      `lab/results/setup-duper-0.1.8674.29660/setup-duper-windows/registry.txt`.
+  P7:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Copy writes the setup you picked (`<name>.stp`) into `Documents\PiBoSo\MX Bikes\profiles\<profile>\setups\<track>\<bike>`,
+      making the folders it needs; All Tracks does so for every track that already has setups in that profile and every
+      track mod in the mods folder. It writes nothing else in the game's folders.
+    evidence: >-
+      [MainWindow.xaml.cs lines 478-485](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L478-L485),
+      [lines 526-558](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L526-L558);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.
+  P8:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      There is nothing to uninstall: deleting the `.exe` removes it, and it keeps no settings or files of its own. The
+      setups it copied, the track folders it made and the setups it replaced when you confirmed stay as they are.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The program is .NET 6.0.16's host, the NuGet packages' libraries byte for byte, and an app
+      assembly that a rebuild of the source at the commit matches byte for byte but for its build stamps. The source does
+      what its window shows: it lists your profiles and setups, copies the one you pick, and asks GitHub for the latest
+      version.
+    evidence: >-
+      `lab/evidence/setup-duper-0.1.8674.29660/rebuild.txt`, `lab/evidence/setup-duper-0.1.8674.29660/apphost.txt`,
+      `lab/evidence/setup-duper-0.1.8674.29660/nuget-libs.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`,
+      `lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Each time its window opens it asks `api.github.com` for the tool's latest release over HTTPS. The Get latest version
+      and GitHub buttons open your browser only when clicked. The run saw no connection, but the app's code never ran there
+      (Limits).
+    evidence: >-
+      [MainWindow.xaml.cs lines 32-43](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L32-L43),
+      [line 143](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L143);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`;
+      `lab/results/setup-duper-0.1.8674.29660/setup-duper-windows/network.txt`.
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Only the plain update check leaves your PC: a GET request with the User-Agent `YourAppName`, without its version,
+      which it compares on your PC. Your profiles and setups stay on your PC.
+    evidence: >-
+      [MainWindow.xaml.cs lines 32-48](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L32-L48);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.
+  D3:
+    verdict: 'No'
+    mark: good
+    text: The update check carries no identifier, and the tool makes none.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: It reads no other players' data and sends nothing about anyone.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-reads.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: It runs no server; its only network code is the one request to GitHub.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads the game's `global.ini` in `Documents\PiBoSo\MX Bikes` for the mods folder, the names of the `.pkz` files and
+      folders in each folder of the mods folder's `tracks`, the names of the profiles, and the names and dates of the
+      tracks, bikes and setups saved in the profile you pick; it doesn't open the setups except to copy one. None of it is
+      other people's data.
+    evidence: >-
+      [MainWindow.xaml.cs lines 167-229](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L167-L229),
+      [lines 259-419](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L259-L419);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-reads.txt`.
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; the update check only reads.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.'
+  D8:
+    verdict: 'No'
+    mark: note
+    text: The update check when its window opens has no switch. It carries nothing about you.
+    evidence: >-
+      [MainWindow.xaml.cs lines 134-146](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L134-L146);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-update.txt`.
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; the download and the app need none.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`, `lab/evidence/setup-duper-0.1.8674.29660/strings-money.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing with other programs; the only files it writes are the setups you copy.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It doesn't open or write into the game's process; it never looks for the game running.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: It doesn't touch the game's code or memory.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`.'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game (G2); the setups it copies are ordinary setup files the game loads.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: It doesn't read the game's memory; it reads only the game's `global.ini` and folder and file names (D6).
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-reads.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It takes input only in its own window; its code holds no function to press keys or read them elsewhere.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: It changes no other plugin or tool; it writes only setup files in your profile.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It reads no keys through Windows; it has no hotkeys.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: It doesn't run in the game, so it sets no crash handler there.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/bundle.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; its code writes no registry value or start-up entry.
+    evidence: >-
+      `lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`;
+      `lab/results/setup-duper-0.1.8674.29660/setup-duper-windows/registry.txt`.
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: The tool is a separate program you open yourself; it doesn't need the game running.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/file.txt`.'
+  G11:
+    verdict: 'No'
+    mark: good
+    text: It ships no plugin and loads nothing into the game.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/bundle.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check is got around; it copies setup files in the game's own folders.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; it copies `.stp` files as they are.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-reads.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It copies only the setup files saved in your profile, no models or textures.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-files.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; the only thing it sends off your PC is the update check.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.'
+  C4:
+    verdict: 'No'
+    mark: note
+    text: >-
+      It packs ModernWpf (ModernWpfUI 0.9.6) and Newtonsoft.Json 13.0.3, both under the MIT licence, which asks for its
+      notice to be included; neither the program, its window nor the repository has their licence or a credit.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/thirdparty.txt`, `lab/evidence/setup-duper-0.1.8674.29660/nuget-libs.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads only the names of the track mods in your mods folder (their `.pkz` files and folders), to make setup folders
+      for them; it doesn't open them.
+    evidence: >-
+      [MainWindow.xaml.cs lines 182-199](https://github.com/dmkrtz/MXBikesSetupDuperWPF/blob/2e030e0873b043e5eab485ce9902761f999b9edf/MXBikesSetupDuperWPF/MainWindow.xaml.cs#L182-L199);
+      `lab/evidence/setup-duper-0.1.8674.29660/src-reads.txt`.
+  T1:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The tool's own code is public at the commit and the release's matches it (T4); the repository holds no prebuilt
+      program file. Prebuilt program files in the release: `MX_Bikes_Setup_Duper.exe` (PE32+ GUI program, x86-64), .NET
+      6.0.16's `apphost.exe` from Microsoft's open-source .NET runtime with the app packed in; `MX_Bikes_Setup_Duper.dll`
+      (the tool's code, built from the commit); `ModernWpf.dll`, `ModernWpf.Controls.dll` and their 124 language files
+      (ModernWpfUI 0.9.6, open source at `Kinnara/ModernWpf` tag `v0.9.6`); and `Newtonsoft.Json.dll` (13.0.3, open source
+      at `JamesNK/Newtonsoft.Json`). It runs on Microsoft's .NET 6 Desktop Runtime, which isn't packed in.
+    evidence: >-
+      `file` on each (`lab/evidence/setup-duper-0.1.8674.29660/file.txt`), `lab/evidence/setup-duper-0.1.8674.29660/bundle.txt`,
+      `lab/evidence/setup-duper-0.1.8674.29660/apphost.txt`, `lab/evidence/setup-duper-0.1.8674.29660/nuget-libs.txt`,
+      `lab/evidence/setup-duper-0.1.8674.29660/repo-files.txt`.
+  T2:
+    verdict: 'No'
+    mark: good
+    text: What its mxb-mods.com page and release notes say on these questions matches its code (see "What it says vs what it does").
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/src-reads.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-update.txt`, `lab/evidence/setup-duper-0.1.8674.29660/release-page.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The repository has no build workflow; the program was built on the author's PC (its debug record names a Windows path)
+      and uploaded to the release by `dmkrtz`.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/deps.txt`, `lab/evidence/setup-duper-0.1.8674.29660/release-page.txt`, `lab/evidence/setup-duper-0.1.8674.29660/repo-files.txt`.'
+  T4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Rebuilt from the commit with the .NET SDK 7.0.302 (whose WPF build tasks, 7.0.5, the release names) and matched: 129
+      of the 132 packed files are the same, the two JSON files are the same but for Windows line ends, and the app's
+      `MX_Bikes_Setup_Duper.dll` is the same byte for byte except its build stamps (time stamps, module ID, debug record
+      with the build's path, and the version `0.1.*` takes from the build's date and time). The host code is the same; the
+      resources a Windows build copies in (icon, version, manifest) are the app assembly's, and the icon is the source's
+      `mxbsd.ico`.
+    evidence: >-
+      `lab/evidence/setup-duper-0.1.8674.29660/rebuild.txt`, `lab/evidence/setup-duper-0.1.8674.29660/apphost.txt`,
+      `lab/evidence/setup-duper-0.1.8674.29660/rsrc.txt`.
+  T5:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The public history up to the commit has 15 commits on 5 days, from 27 Sep to 1 Oct 2023, each a small step ("added
+      empty cbTargetTrack check", "added version control with github latest release").
+    evidence: '[Commits up to the commit](https://github.com/dmkrtz/MXBikesSetupDuperWPF/commits/2e030e0873b043e5eab485ce9902761f999b9edf); `lab/evidence/setup-duper-0.1.8674.29660/history.txt`.'
+  T6:
+    verdict: Partly
+    mark: note
+    text: >-
+      The project names one version of each of its two NuGet packages (ModernWpfUI 0.9.6, Newtonsoft.Json 13.0.3), which
+      NuGet takes while it exists, but has no lock file; the .NET SDK isn't named (no `global.json`), and the release was
+      built with 7.0.302.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/deps.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: The repository and the release have no licence file, GitHub detects none, and the release notes name none.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/thirdparty.txt`, `lab/evidence/setup-duper-0.1.8674.29660/release-page.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold or unlocked in this release.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: It has no donation or support link; its only links are to its GitHub repository and releases.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/strings-money.txt`.'
+history:
+  - date: 24 Nov 2026
+    change: First card, for 0.1.8674.29660.

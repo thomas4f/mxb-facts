@@ -1,0 +1,11 @@
+$ cd "$W" && curl -sSL -o h.nupkg https://api.nuget.org/v3-flatcontainer/microsoft.netcore.app.host.win-x64/6.0.16/microsoft.netcore.app.host.win-x64.6.0.16.nupkg && echo '330a4bf23d9c4aa8ab3dc5ae3af563d880461e00952ad153e679612decf6663b  h.nupkg' | sha256sum -c && unzip -q -o h.nupkg runtimes/win-x64/native/apphost.exe && cd "$R" && python3 -I "$E/apphost_cmp.py" "$W/runtimes/win-x64/native/apphost.exe" MX_Bikes_Setup_Duper.exe
+h.nupkg: OK
+app name written over the placeholder: MX_Bikes_Setup_Duper.dll
+.text      97792 bytes: same
+.rdata     37888 bytes: same
+.data       2560 bytes: 65 bytes differ, at file offsets 0x21669-0x2166a, 0x216d0-0x216e4, 0x216e6-0x2170f - all in those two fields
+.pdata      5632 bytes: same
+_RDATA       512 bytes: same
+.reloc      1024 bytes: same
+.rsrc     272384 bytes: only in the program
+(exit 0)

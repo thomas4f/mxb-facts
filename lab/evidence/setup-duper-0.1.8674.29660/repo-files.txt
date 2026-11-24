@@ -1,0 +1,15 @@
+$ cd "$SRC" && git ls-tree -r --name-only 2e030e0873b043e5eab485ce9902761f999b9edf | while read f; do printf '%s: %s\n' "$f" "$(git show 2e030e0873b043e5eab485ce9902761f999b9edf:"$f" | file -b -)"; done
+.gitattributes: ASCII text
+.gitignore: ASCII text
+MXBikesSetupDuperWPF.sln: Unicode text, UTF-8 (with BOM) text
+MXBikesSetupDuperWPF/App.xaml: Unicode text, UTF-8 (with BOM) text
+MXBikesSetupDuperWPF/App.xaml.cs: C++ source, Unicode text, UTF-8 (with BOM) text
+MXBikesSetupDuperWPF/AssemblyInfo.cs: ASCII text
+MXBikesSetupDuperWPF/MXBikesSetupDuperWPF.csproj: Unicode text, UTF-8 (with BOM) text
+MXBikesSetupDuperWPF/MainWindow.xaml: Unicode text, UTF-8 (with BOM) text
+MXBikesSetupDuperWPF/MainWindow.xaml.cs: C++ source, Unicode text, UTF-8 (with BOM) text
+MXBikesSetupDuperWPF/github.png: PNG image data, 32 x 32, 8-bit/color RGBA, non-interlaced
+MXBikesSetupDuperWPF/logo_2021_100.png: PNG image data, 100 x 100, 8-bit/color RGBA, non-interlaced
+MXBikesSetupDuperWPF/logo_2021_512.png: PNG image data, 512 x 512, 8-bit/color RGBA, non-interlaced
+MXBikesSetupDuperWPF/mxbsd.ico: MS Windows icon resource - 1 icon, 256x256, 32 bits/pixel
+(exit 0)

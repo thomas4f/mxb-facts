@@ -375,7 +375,7 @@
     "author": "dmkrtz",
     "github": "dmkrtz/MXBikesSetupDuperWPF",
     "homepage": null,
-    "cards": [],
+    "cards": ["setup-duper-0.1.8674.29660.yaml"],
     "mxb-mods": {
       "post": 69721,
       "tied_by": "github.com/dmkrtz/MXBikesSetupDuperWPF"

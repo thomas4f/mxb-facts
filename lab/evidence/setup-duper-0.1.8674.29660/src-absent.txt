@@ -1,0 +1,6 @@
+$ cd "$SRC" && grep -rnE 'Registry|HKEY|CurrentVersion|Startup|OpenProcess|GetProcesses|WriteProcessMemory|ReadProcessMemory|VirtualProtect|CreateRemoteThread|SetWindowsHookEx|GetAsyncKeyState|keybd_event|SendInput|mxbikes|DllImport|LoadLibrary|Assembly\.Load|Environment\.SetEnvironment' MXBikesSetupDuperWPF
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:76:        [DllImport("kernel32", CharSet = CharSet.Unicode)]
+MXBikesSetupDuperWPF/MainWindow.xaml.cs:79:        [DllImport("kernel32", CharSet = CharSet.Unicode)]
+MXBikesSetupDuperWPF/App.xaml:5:             StartupUri="MainWindow.xaml"
+MXBikesSetupDuperWPF/MainWindow.xaml:10:        ui:WindowHelper.UseModernWindowStyle="True" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen"
+(exit 0)

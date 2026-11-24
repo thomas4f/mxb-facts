@@ -1,0 +1,13 @@
+$ curl -sSL https://api.github.com/repos/dmkrtz/MXBikesSetupDuperWPF/releases/tags/0.1.8674.29660 | python3 -I -c 'import json,sys; r=json.load(sys.stdin); print(r["tag_name"], r["published_at"], "by", r["author"]["login"], "target", r["target_commitish"]); print([(a["name"], a["size"], a["uploader"]["login"]) for a in r["assets"]]); print(r["body"])'; curl -sSL https://api.github.com/repos/dmkrtz/MXBikesSetupDuperWPF/git/refs/tags/0.1.8674.29660 | grep -E '"sha"|"type"'; curl -sSL https://api.github.com/repos/dmkrtz/MXBikesSetupDuperWPF | grep -E '"license"'
+0.1.8674.29660 2023-10-01T14:28:25Z by dmkrtz target master
+[('MX_Bikes_Setup_Duper.exe', 4810997, 'dmkrtz')]
+Release candidate 2
+- added github link to info page
+- some minor changes
+- changed build name
+
+Down below, click on the "**MX_Bikes_Setup_Duper.exe**" to start the download. Your browser will probably say there is a risk downloading this tool but I can assure you, there's not.
+    "sha": "2e030e0873b043e5eab485ce9902761f999b9edf",
+    "type": "commit",
+  "license": null,
+(exit 0)
