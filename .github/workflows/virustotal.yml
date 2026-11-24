@@ -22,11 +22,14 @@ on:
           - fixxers-rumble
           - frost-converter
           - frostmod
+          - frosts-studio
           - gamefx-plus
           - gpb-content-manager
           - graphics-overhaul
           - heightmap-studio
           - holeshot
+          - knee-down
+          - libpnt
           - maxhud
           - mx-dirt-mod
           - mx-dirt-mod-alt
@@ -41,9 +44,13 @@ on:
           - mxbmrp3
           - mxbtt
           - mxpulse
+          - performance-lab
           - pitbox
+          - pitkit
           - rider-pov-plus
+          - setup-duper
           - suspension-tuner
+          - trackrelief
           # tools:end
       pr:
         description: "Pull request number: look up the cards it adds or changes and comment there (leave empty otherwise)"
