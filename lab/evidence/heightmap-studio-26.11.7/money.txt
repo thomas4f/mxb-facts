@@ -1,0 +1,8 @@
+$ for p in '' pricing terms; do echo "== heightmapstudio.com/$p"; curl -sSL https://heightmapstudio.com/$p | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r\"(?s)<(script|style).*?</\\1>\",\"\",t);t=re.sub(r\"<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>\",\"\\n\",t);t=re.sub(r\"<[^>]+>\",\"\",t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | grep -niE 'donat|ko-?fi|patreon|paypal|buymeacoffee|buy a license|stripe'; done
+== heightmapstudio.com/
+== heightmapstudio.com/pricing
+32:shopping_cartBuy a license
+== heightmapstudio.com/terms
+29:subscriber-only, supporter-only, Patreon-style, early-access or paywalled releases;
+66:The Commercial license is a yearly subscription, currently $19.99 USD per user per year plus any applicable taxes. Payments are handled by Stripe. Prices are shown before you pay and may change for future billing periods; we will tell you before a price change applies to your subscription.
+(exit 0)

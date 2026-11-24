@@ -1,0 +1,7 @@
+$ curl -sS https://api.github.com/repos/bradenmackey/hms-public/git/refs/tags/v26.11.7 | python3 -I -c 'import json,sys;print("tag v26.11.7 ->",json.load(sys.stdin)["object"]["sha"])'; curl -sS 'https://api.github.com/repos/bradenmackey/hms-public/git/trees/dcafa91992d4e556abc9fcf1c7d28af32e69bec8?recursive=1' | python3 -I -c 'import json,sys;[print(t["type"],t["path"]) for t in json.load(sys.stdin)["tree"]]'; curl -sS https://api.github.com/repos/bradenmackey/hms-public | python3 -I -c 'import json,sys;r=json.load(sys.stdin);print("license:",r["license"])'; curl -sS https://api.github.com/repos/bradenmackey/hms-public/commits | python3 -I -c 'import json,sys;[print(c["sha"],c["commit"]["committer"]["date"],c["commit"]["message"].splitlines()[0]) for c in json.load(sys.stdin)]'
+tag v26.11.7 -> dcafa91992d4e556abc9fcf1c7d28af32e69bec8
+blob README.md
+license: None
+dcafa91992d4e556abc9fcf1c7d28af32e69bec8 2026-10-22T17:59:57Z Update README.md
+071e399ec44eeac3f65b186e31011409ab331936 2026-10-22T17:33:06Z Initial commit
+(exit 0)

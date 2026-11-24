@@ -1,0 +1,10 @@
+$ curl -sS https://heightmapstudio.com/third-party-notices.txt | sed -n 1,8p
+Heightmap Studio - Third-Party Notices
+
+Heightmap Studio includes the open-source software listed below. Each
+component is used under its own license, reproduced here. Nothing in the
+Heightmap Studio Terms of Use limits your rights under these licenses.
+Where a package ships no license file, it is used under the license named
+next to it, whose standard text is at https://spdx.org/licenses/. Source
+code for every package is available from npmjs.com and crates.io.
+(exit 0)

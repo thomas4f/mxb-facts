@@ -1,0 +1,5 @@
+$ python3 -I -c 'import json,base64;d=json.load(open("latest.json"));print("version:",d["version"],"pub_date:",d["pub_date"]);[print(p,v["url"],"signature:",base64.b64decode(v["signature"]).decode().splitlines()[0]) for p,v in d["platforms"].items()]'
+version: 26.11.7 pub_date: 2026-11-19T19:37:59.492Z
+windows-x86_64 https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio-setup.exe signature: untrusted comment: signature from tauri secret key
+linux-x86_64 https://github.com/bradenmackey/hms-public/releases/download/v26.11.7/Heightmap-Studio.AppImage signature: untrusted comment: signature from tauri secret key
+(exit 0)

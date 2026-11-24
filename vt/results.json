@@ -88,6 +88,24 @@
         "permalink": "https://www.virustotal.com/gui/file/04ee15cf9897b596342cf5529499c13e0664bba09ef880ca03f667ecebef1031"
       }
     },
+    "heightmap-studio-26.11.7.yaml": {
+      "787220208773078061a85caba7ba860665502af2b16528a34471856500418004": {
+        "found": true,
+        "flagged": 0,
+        "engines": 70,
+        "flagged_by": [],
+        "last_scanned": "2026-11-24",
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45439672487",
+        "permalink": "https://www.virustotal.com/gui/file/787220208773078061a85caba7ba860665502af2b16528a34471856500418004"
+      },
+      "a9850fe28b5bcb7a6cedba6167799d62fea983d8e0d0da40e6f42f949d08871d": {
+        "found": false,
+        "looked_up": "2026-11-24",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45439672487",
+        "permalink": "https://www.virustotal.com/gui/file/a9850fe28b5bcb7a6cedba6167799d62fea983d8e0d0da40e6f42f949d08871d"
+      }
+    },
     "holeshot-0.24.0.yaml": {
       "6fc20a6367a6bd5d6f27dbabec73978645615fe96bb36458b9272bc8ae7b728c": {
         "found": false,

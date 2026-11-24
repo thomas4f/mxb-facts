@@ -1,0 +1,11 @@
+$ objdump -h Heightmap-Studio.AppImage | grep -E 'file format|sig'; ar t Heightmap-Studio.deb; rpm -Kv Heightmap-Studio.rpm
+Heightmap-Studio.AppImage:     file format elf64-x86-64
+ 23 .sha256_sig   00000400  00000000000e3d10  00000000000e3d10  000e3d10  2**0
+ 24 .sig_key      00002000  00000000000e4110  00000000000e4110  000e4110  2**0
+debian-binary
+control.tar.gz
+data.tar.gz
+Heightmap-Studio.rpm:
+    Header SHA256 digest: OK
+    Payload SHA256 digest: OK
+(exit 0)

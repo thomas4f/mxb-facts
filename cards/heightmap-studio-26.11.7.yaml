@@ -1,0 +1,383 @@
+tool: Heightmap Studio
+version: 26.11.7
+summary: >-
+  A closed-source terrain and track editor for MX Bikes and other games, free for personal use and sold as a yearly
+  Commercial license for paid work. Its Terms of Use forbid reverse engineering it, so this card covers public facts only.
+header:
+  What it is: >-
+    A desktop app for building tracks and terrain, released for Windows (`Heightmap-Studio-setup.exe`, a Nullsoft installer)
+    and Linux. It is not a game plugin; its pages say it installs game plugins from inside the app. Its Terms of Use forbid
+    reverse engineering, so nothing in the release was run or looked inside.
+  In one line: Closed-source track and terrain editor app; its terms forbid looking inside it
+  Category: Content creation
+  Author: Braden Mackey (bradenmackey on GitHub; the name on its Terms of Use)
+  Game: MX Bikes
+  mxb-mods.com: '[Heightmap Studio](https://mxb-mods.com/heightmap-studio-build-your-own-tracks/)'
+  Homepage: '[heightmapstudio.com](https://heightmapstudio.com)'
+  GitHub: '[bradenmackey/hms-public](https://github.com/bradenmackey/hms-public) (releases only)'
+  Version analysed: >-
+    [v26.11.7](https://github.com/bradenmackey/hms-public/releases/tag/v26.11.7), published 19 Nov 2026: the tool's latest
+    GitHub release when this run started, and the newest in the inventory (`registry/releases.json`).
+  Source commit: >-
+    No source is public. The tag v26.11.7 points to
+    [dcafa91992d4e556abc9fcf1c7d28af32e69bec8](https://github.com/bradenmackey/hms-public/tree/dcafa91992d4e556abc9fcf1c7d28af32e69bec8),
+    which holds only `README.md` (`lab/evidence/heightmap-studio-26.11.7/repo.txt`).
+  Analysed on: 24 Nov 2026
+  Licence clause: >-
+    "You may not, and may not help anyone else to: [...] reverse engineer, decompile, disassemble, decrypt or otherwise try to
+    get the source code of the app or of locked plugins (.hmp), except where the law gives you that right regardless of this
+    agreement" ([Terms of Use](https://heightmapstudio.com/terms), section 4, effective 21 Oct 2026, covering "the Heightmap
+    Studio desktop app, its installer and updates"; `lab/evidence/heightmap-studio-26.11.7/terms.txt`). The repository has no licence file.
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Its Terms of Use forbid reverse engineering, so only public facts are covered (rule 6): the release files' SHA-256, the
+    code-signature entries of the release files, the update feed `latest.json`, the release page, the GitHub repository, and
+    the tool's Terms of Use, Privacy Policy, pricing and third-party notices pages; every command is in
+    `lab/evidence/heightmap-studio-26.11.7/run.sh`. Nothing was run, installed, unpacked or disassembled, here or on the
+    throwaway Windows machine (its plan ran nothing, for the same reason), so no answer comes from a run, and none from Windows
+    on a real GPU. VirusTotal: hash lookups of the Windows installer and its `.sig`, made before the analysis (24 Nov
+    2026); nothing was uploaded, as the licence forbids analysis.
+files:
+  - name: Heightmap-Studio-setup.exe
+    sha256: 787220208773078061a85caba7ba860665502af2b16528a34471856500418004
+    note: The Windows installer (Nullsoft), the download its README and website give for Windows.
+  - name: Heightmap-Studio-setup.exe.sig
+    sha256: a9850fe28b5bcb7a6cedba6167799d62fea983d8e0d0da40e6f42f949d08871d
+    note: The installer's update signature, the same text as the Windows entry of `latest.json`.
+  - name: Heightmap-Studio.AppImage
+    sha256: b32b1961c2c0e92a9416a79f277fc384142f83992e823c0da350ce45164b6f7d
+    note: The Linux build.
+  - name: Heightmap-Studio.AppImage.sig
+    sha256: 0556a8b978fb2f3352805ad8b2e752effe81fdb2c217689fe4febb73a7cfae3e
+    note: The AppImage's update signature.
+  - name: Heightmap-Studio.deb
+    sha256: 068128c365a20caa284ca0e46b1ca367b4b1cae953258177a7e62357a788d67d
+    note: The Linux build as a Debian package.
+  - name: Heightmap-Studio.rpm
+    sha256: 2d2f830bdb0feff60f504ef0a7b35516c89e757b41bec02069ff314e44a73edf
+    note: The Linux build as an RPM package.
+  - name: latest.json
+    sha256: 50b2dd7f634307135da04ecba31f444a558ece8abfff23d14254ed3b743a00f1
+    note: The update feed, naming version 26.11.7 and the Windows and Linux files with a signature for each.
+files_note: >-
+  Every hash matches the digest GitHub publishes for the asset (`lab/evidence/heightmap-studio-26.11.7/files.txt`,
+  `lab/evidence/heightmap-studio-26.11.7/release.txt`).
+key:
+  K1: 'None flag it. 0 of 70 engines flag the Windows installer; looking inside it for malware is not allowed by its licence.'
+  K2: 'Not allowed. Its licence forbids looking at how it updates; its README says "the app updates itself".'
+  K3: 'Not allowed. Its licence forbids looking at what it writes or deletes.'
+  K4: 'Not allowed. Its licence forbids looking at what it sends.'
+  K5: 'Not allowed. Its licence forbids looking at what it does to the game.'
+  K6: 'Not allowed. Its licence forbids looking at how it treats other people''s content.'
+  K7: 'No. The repository holds only a README and the release files.'
+  K8: 'Not allowed. Its licence forbids comparing its docs with its code.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'Not allowed. Its licence forbids looking at its connections.'
+areas:
+  Your PC and files: >-
+    A Windows installer, not code-signed, with signed entries in an update feed; what it installs, changes and updates is not
+    allowed to be looked at.
+  Your data: Not allowed to be looked at; its Privacy Policy describes update checks, a license server and map and texture services.
+  Your game: Not allowed to be looked at; a desktop app, not a game plugin, that its pages say installs game plugins.
+  Creators' content: Not allowed to be looked at; it publishes a third-party notices file.
+  Transparency: Closed source under proprietary Terms of Use; the public repository holds only a README.
+  Money: Free for personal use; a Commercial license for paid work costs $19.99 per user per year.
+sections:
+  - title: Your PC and files
+    blocks: []
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"Once installed, the app updates itself." (README)'
+            Verdict: Not allowed
+            Evidence: >-
+              The update feed `latest.json` names the installer and a signature for it (`lab/evidence/heightmap-studio-26.11.7/feed.txt`); what the app does
+              with it can't be looked at (licence, section 4). `lab/evidence/heightmap-studio-26.11.7/readme.txt`.
+          - Claim: >-
+              "We do not track you. The app has no analytics, telemetry, advertising or crash reporting" (Privacy Policy)
+            Verdict: Not allowed
+            Evidence: Its connections can't be looked at (licence, section 4). `lab/evidence/heightmap-studio-26.11.7/privacy.txt`.
+          - Claim: >-
+              "The app checks heightmapstudio.com for a newer version [...] These requests contain no personal information"
+              (Privacy Policy)
+            Verdict: Not allowed
+            Evidence: What its requests carry can't be looked at (licence, section 4). `lab/evidence/heightmap-studio-26.11.7/privacy.txt`.
+          - Claim: >-
+              "When you verify or refresh a license, or open Manage, the app sends the email you entered to our license server"
+              (Privacy Policy)
+            Verdict: Not allowed
+            Evidence: What it sends can't be looked at (licence, section 4). `lab/evidence/heightmap-studio-26.11.7/privacy.txt`.
+          - Claim: >-
+              "Heightmap Studio includes open-source software under its own licenses. Those licenses are listed in the app
+              (Preferences > Legal > Third-Party Notices) and on our website." (Terms of Use)
+            Verdict: Not allowed
+            Evidence: >-
+              The website's notices file is published (`lab/evidence/heightmap-studio-26.11.7/notices.txt`); what the release ships can't be looked at to
+              compare (licence, section 4). `lab/evidence/heightmap-studio-26.11.7/terms.txt`.
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              Its Terms of Use forbid reverse engineering, decompiling and disassembling the app (Licence clause), so nothing in
+              the release was run, installed, unpacked or disassembled, and every answer that would need it is "Not allowed".
+            questions: []
+          - text: >-
+              Only the Windows installer and its `.sig` were looked up on VirusTotal, before the analysis; the AppImage, its
+              `.sig`, the `.deb`, the `.rpm` and `latest.json` weren't. Nothing was uploaded.
+            questions: [P1]
+          - text: >-
+              Whether it asks for donations was read on its release page, README and website only; the app's own screens
+              weren't seen.
+            questions: [M3]
+          - text: >-
+              The public pages (Terms of Use, Privacy Policy, pricing, third-party notices) are quoted as they read on 24 Nov
+              2026; they aren't pinned to the release and can change.
+            questions: [M1, M2]
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: >-
+      0 of 70 engines flagged `Heightmap-Studio-setup.exe` on 24 Nov 2026 (last scanned 24 Nov 2026).
+      `Heightmap-Studio-setup.exe.sig` is not on VirusTotal (hash lookup on 24 Nov 2026), and wasn't uploaded, as the licence
+      forbids analysis. `Heightmap-Studio.AppImage`, `Heightmap-Studio.AppImage.sig`, `Heightmap-Studio.deb`,
+      `Heightmap-Studio.rpm` and `latest.json` weren't looked up.
+    evidence: >-
+      [Heightmap-Studio-setup.exe](https://www.virustotal.com/gui/file/787220208773078061a85caba7ba860665502af2b16528a34471856500418004),
+      [Heightmap-Studio-setup.exe.sig](https://www.virustotal.com/gui/file/a9850fe28b5bcb7a6cedba6167799d62fea983d8e0d0da40e6f42f949d08871d)
+  P2:
+    verdict: Not allowed
+    text: >-
+      Whether it installs updates without asking can't be looked at (licence, section 4). Its README says "Once installed, the app
+      updates itself."
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`, `lab/evidence/heightmap-studio-26.11.7/readme.txt`.'
+  P3:
+    verdict: Not allowed
+    text: >-
+      Whether the app checks an update before installing it can't be looked at (licence, section 4). The update feed gives each
+      file a signature ("signature from tauri secret key").
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/feed.txt`, `lab/evidence/heightmap-studio-26.11.7/sig-files.txt`, `lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  P4:
+    verdict: Not allowed
+    text: What it deletes or overwrites can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The Windows installer has no code signature (its website says "Unsigned for now"). The AppImage's signature sections are
+      empty, the `.deb` has no signature member and the `.rpm` only digests. The `.sig` files are update signatures, not code
+      signing. There is no public source to trace the files to.
+    evidence: >-
+      Empty Security Directory for `Heightmap-Studio-setup.exe` (`lab/evidence/heightmap-studio-26.11.7/signature.txt`); `lab/evidence/heightmap-studio-26.11.7/signature-linux.txt`,
+      `lab/evidence/heightmap-studio-26.11.7/signature-appimage.txt`, `lab/evidence/heightmap-studio-26.11.7/pricing.txt`.
+  P6:
+    verdict: Not allowed
+    text: What it changes in Windows can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  P7:
+    verdict: Not allowed
+    text: >-
+      What it writes into the game's folders can't be looked at (licence, section 4). Its Terms say it "can install game
+      plugins, from us or from other authors".
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  P8:
+    verdict: Not allowed
+    text: What uninstalling leaves behind can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  P9:
+    verdict: Not allowed
+    text: Looking inside the release for signs of malware isn't allowed (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D1:
+    verdict: Not allowed
+    text: >-
+      Its connections can't be looked at (licence, section 4). Its Privacy Policy names update checks, a license server and
+      map, texture and model services.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`, `lab/evidence/heightmap-studio-26.11.7/privacy.txt`.'
+  D2:
+    verdict: Not allowed
+    text: What it sends can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D3:
+    verdict: Not allowed
+    text: Whether it sends an identifier can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D4:
+    verdict: Not allowed
+    text: Whether it sends other players' data can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D5:
+    verdict: Not allowed
+    text: Whether it runs a local web server can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D6:
+    verdict: Not allowed
+    text: What it reads on your PC can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D7:
+    verdict: Not allowed
+    text: Whether data about its users is published can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D8:
+    verdict: Not allowed
+    text: Whether its connections can be switched off can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D9:
+    verdict: Not allowed
+    text: >-
+      Whether it needs an online account can't be looked at (licence, section 4). Its Terms tie a Commercial license to the
+      email used to buy it.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  D10:
+    verdict: Not allowed
+    text: Whether it shares your game data with other programs can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G1:
+    verdict: Not allowed
+    text: Whether it injects code into the game can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G2:
+    verdict: Not allowed
+    text: Whether it changes the game's code or memory can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G3:
+    verdict: Not allowed
+    text: Whether it changes the game on online servers can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G4:
+    verdict: Not allowed
+    text: Whether it reads the game's memory can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G5:
+    verdict: Not allowed
+    text: Whether it takes over the game's input can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G6:
+    verdict: Not allowed
+    text: Whether it changes other plugins or tools can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G7:
+    verdict: Not allowed
+    text: Whether it reads the keyboard through Windows can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G8:
+    verdict: Not allowed
+    text: Whether it installs a crash handler can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G9:
+    verdict: Not allowed
+    text: Whether it starts with Windows can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G10:
+    verdict: Not allowed
+    text: Whether it runs next to the game can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G11:
+    verdict: Not allowed
+    text: >-
+      Whether anything of it runs inside the game can't be looked at (licence, section 4). The release itself is a desktop app;
+      its Terms say it can install game plugins.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/file.txt`, `lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  G12:
+    verdict: Not allowed
+    text: Whether it gets around a check in the game can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  C1:
+    verdict: Not allowed
+    text: Whether it decrypts protected content can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  C2:
+    verdict: Not allowed
+    text: Whether it saves copies of other people's models or textures can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  C3:
+    verdict: Not allowed
+    text: Whether it shares other people's content with protection removed can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  C4:
+    verdict: Not allowed
+    text: >-
+      What third-party code it ships can't be looked at to compare (licence, section 4). Its website publishes a third-party
+      notices file naming open-source packages from npmjs.com and crates.io.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/notices.txt`, `lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  C5:
+    verdict: Not allowed
+    text: Whether it opens other people's mods, tracks or models can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      No source is public: the repository's only file is `README.md`, which says "This repository holds releases only". Prebuilt
+      program files in the release: `Heightmap-Studio-setup.exe` (PE32 Nullsoft installer), `Heightmap-Studio.AppImage` (ELF
+      64-bit), `Heightmap-Studio.deb` and `Heightmap-Studio.rpm` (Linux packages), none with public source; what they hold
+      wasn't listed (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/repo.txt`, `lab/evidence/heightmap-studio-26.11.7/readme.txt`, `lab/evidence/heightmap-studio-26.11.7/file.txt`.'
+  T2:
+    verdict: Not allowed
+    text: Its docs can't be compared with its code (licence, section 4); the claims are in "What it says vs what it does".
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The release files are uploaded to a releases-only repository with no build files; there is no public source or build to
+      tie them to.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/repo.txt`, `lab/evidence/heightmap-studio-26.11.7/release.txt`.'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/repo.txt`.'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No code history is public: the repository has two commits, both on 22 Oct 2026, for the README. Each release page carries
+      a changelog.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/repo.txt`.'
+  T6:
+    verdict: Not allowed
+    text: No build files are public, and how its dependencies are pinned can't be looked at in the release (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/repo.txt`, `lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      It is under its own Terms of Use ("licensed, not sold"), which forbid redistributing and reverse engineering it; the
+      repository has no licence file.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/repo.txt`, `lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Free to use for private projects and for tracks released for free, with every feature (the Personal license in its Terms
+      of Use).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`, `lab/evidence/heightmap-studio-26.11.7/pricing.txt`.'
+  M2:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Commercial use (selling tracks, commissions, paywalled releases, free tracks in paid events, studio work) needs a
+      Commercial license, $19.99 per user per year, paid through Stripe.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`, `lab/evidence/heightmap-studio-26.11.7/pricing.txt`, `lab/evidence/heightmap-studio-26.11.7/money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Its release page, README and website ask for no donations.
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/money.txt`, `lab/evidence/heightmap-studio-26.11.7/readme.txt`.'
+history:
+  - date: 24 Nov 2026
+    change: First card, for v26.11.7.

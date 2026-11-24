@@ -1,0 +1,8 @@
+$ curl -sSL https://heightmapstudio.com/privacy | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r\"(?s)<(script|style).*?</\\1>\",\"\",t);t=re.sub(r\"<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>\",\"\\n\",t);t=re.sub(r\"<[^>]+>\",\"\",t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | grep -nE 'Effective|We do not track you|license server|checks heightmapstudio.com for a newer version|Place searches send|token is sent only'
+16:Effective: October 21, 2026
+19:We do not track you. The app has no analytics, telemetry, advertising or crash reporting, and the website uses no tracking or advertising cookies.
+29:When you verify or refresh a license, or open Manage, the app sends the email you entered to our license server (hosted on Vercel). The server looks up your subscription in Stripe and returns a signed license token. The license server does not keep its own database of users. Vercel may keep short-lived technical logs (such as IP address and request time) as part of hosting.
+31:The app checks heightmapstudio.com for a newer version and downloads the plugins, preset textures and catalogs you ask for. These requests contain no personal information, but like any website request they reveal your IP address and basic device details to our host (Netlify), which may keep them in short-lived server logs. We do not use these logs to identify you.
+36:Real-World Capture: map tiles from OpenStreetMap and USGS The National Map, elevation tiles from AWS Terrain Tiles (Amazon S3) and USGS, and place searches from Photon (komoot). Place searches send the text you typed.
+38:Sketchfab models: Sketchfab, using the API token you entered. The token is sent only to Sketchfab.
+(exit 0)
