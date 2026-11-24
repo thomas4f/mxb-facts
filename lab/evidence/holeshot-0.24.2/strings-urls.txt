@@ -1,0 +1,17 @@
+$ for f in zip/Holeshot-HUD.exe zip/Holeshot-HUD.dlo; do echo "== $f"; strings -n 6 $f | grep -oE 'https?://[A-Za-z0-9./{}_?=-]+' | sort -u; done
+== zip/Holeshot-HUD.exe
+http://127.0.0.1
+http://J
+http://ns.adobe.http
+https://api.github.com/repos/
+https://docs.rs/rustls/latest/rustls/manual/_03_howto/index.html
+https://fontawesome.comFont
+https://github.com/leadingtrendtechnologies/holeshothud/releases/download/..windows-x64.zipsetupholeshot-apply.exe--apply-updatetag_nameRelease
+https://holeshot-hud.vercel.app/api/feedback
+https://linktr.ee/Tloubih
+https://mxb-ranked.com/Rider/
+https://mymxb.com/
+https://src
+https://www.cbrservers.com/player/
+== zip/Holeshot-HUD.dlo
+(exit 0)

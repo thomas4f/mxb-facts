@@ -1,0 +1,9 @@
+$ cd "$SRC" && grep -nE 'SetUnhandledExceptionFilter|MiniDumpWriteDump"|crash-|EXCEPTION_CONTINUE_SEARCH' src/crash_log.cpp
+116:            GetProcAddress(g_dbg.mod, "MiniDumpWriteDump"));
+522:            return EXCEPTION_CONTINUE_SEARCH;
+531:            return EXCEPTION_CONTINUE_SEARCH;
+534:        _snwprintf_s(txtPath, MAX_PATH, _TRUNCATE, L"%s\\crash-%s.txt", dir, stamp);
+535:        _snwprintf_s(dmpPath, MAX_PATH, _TRUNCATE, L"%s\\crash-%s.dmp", dir, stamp);
+611:        return EXCEPTION_CONTINUE_SEARCH;
+620:        g_prevFilter = SetUnhandledExceptionFilter(onUnhandled);
+(exit 0)

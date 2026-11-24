@@ -1,0 +1,283 @@
+$ objdump -p zip/Holeshot-HUD.dlo | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+zip/Holeshot-HUD.dlo:     file format pei-x86-64
+
+Characteristics 0x2022
+	executable
+	large address aware
+	DLL
+
+Time/Date		Tue Nov 24 15:55:10 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	44
+SizeOfCode		000000000003c400
+SizeOfInitializedData	000000000001ec00
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	0000000000014574
+BaseOfCode		0000000000001000
+ImageBase		0000000180000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		00061000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00000160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 00000000000540f0 00000304 Export Directory [.edata (or where ever we found it)]
+Entry 1 00000000000543f4 0000003c Import Directory [parts of .idata]
+Entry 2 000000000005f000 000001e0 Resource Directory [.rsrc]
+Entry 3 000000000005a000 0000384c Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 0000000000060000 000009c0 Base Relocation Directory [.reloc]
+Entry 6 000000000004cbc0 00000070 Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 000000000004ce00 00000028 Thread Storage Directory [.tls]
+Entry a 000000000004ca80 00000140 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 000000000003e000 000003b8 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x1800543f4
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 000543f4	00054480 00000000 00000000 00054a30 0003e050
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	0003e050  <none>  00eb  CreateFileW
+	0003e058  <none>  024b  GetCurrentThreadId
+	0003e060  <none>  011d  CreateToolhelp32Snapshot
+	0003e068  <none>  02a8  GetModuleHandleExA
+	0003e070  <none>  024a  GetCurrentThread
+	0003e078  <none>  00a2  CloseHandle
+	0003e080  <none>  03fc  LoadLibraryW
+	0003e088  <none>  0293  GetLocalTime
+	0003e090  <none>  02e2  GetProcAddress
+	0003e098  <none>  0247  GetCurrentProcessId
+	0003e0a0  <none>  041b  Module32First
+	0003e0a8  <none>  05bd  SetUnhandledExceptionFilter
+	0003e0b0  <none>  057d  SetLastError
+	0003e0b8  <none>  0603  UnmapViewOfFile
+	0003e0c0  <none>  0292  GetLastError
+	0003e0c8  <none>  0487  QueryPerformanceFrequency
+	0003e0d0  <none>  00e8  CreateFileMappingW
+	0003e0d8  <none>  0417  MapViewOfFile
+	0003e0e0  <none>  0486  QueryPerformanceCounter
+	0003e0e8  <none>  0621  VirtualQuery
+	0003e0f0  <none>  0269  GetEnvironmentVariableW
+	0003e0f8  <none>  041d  Module32Next
+	0003e100  <none>  0665  WriteFile
+	0003e108  <none>  0246  GetCurrentProcess
+	0003e110  <none>  02a5  GetModuleFileNameA
+	0003e118  <none>  00d9  CreateDirectoryW
+	0003e120  <none>  0138  DeleteFileA
+	0003e128  <none>  0271  GetFileAttributesExA
+	0003e130  <none>  0341  GetTickCount
+	0003e138  <none>  00b4  CompareFileTime
+	0003e140  <none>  015c  EnterCriticalSection
+	0003e148  <none>  03f5  LeaveCriticalSection
+	0003e150  <none>  039c  InitializeCriticalSectionEx
+	0003e158  <none>  0134  DeleteCriticalSection
+	0003e160  <none>  0158  EncodePointer
+	0003e168  <none>  012d  DecodePointer
+	0003e170  <none>  0428  MultiByteToWideChar
+	0003e178  <none>  0651  WideCharToMultiByte
+	0003e180  <none>  03e8  LCMapStringEx
+	0003e188  <none>  031f  GetSystemTimeAsFileTime
+	0003e190  <none>  02aa  GetModuleHandleW
+	0003e198  <none>  030d  GetStringTypeW
+	0003e1a0  <none>  01ef  GetCPInfo
+	0003e1a8  <none>  04ef  ReleaseSRWLockExclusive
+	0003e1b0  <none>  0000  AcquireSRWLockExclusive
+	0003e1b8  <none>  0632  WakeAllConditionVariable
+	0003e1c0  <none>  05cf  SleepConditionVariableSRW
+	0003e1c8  <none>  050e  RtlCaptureContext
+	0003e1d0  <none>  0516  RtlLookupFunctionEntry
+	0003e1d8  <none>  051d  RtlVirtualUnwind
+	0003e1e0  <none>  0600  UnhandledExceptionFilter
+	0003e1e8  <none>  05dd  TerminateProcess
+	0003e1f0  <none>  03bd  IsProcessorFeaturePresent
+	0003e1f8  <none>  03b5  IsDebuggerPresent
+	0003e200  <none>  0306  GetStartupInfoW
+	0003e208  <none>  039f  InitializeSListHead
+	0003e210  <none>  051c  RtlUnwindEx
+	0003e218  <none>  0518  RtlPcToFileHeader
+	0003e220  <none>  049d  RaiseException
+	0003e228  <none>  03a3  InterlockedFlushSList
+	0003e230  <none>  039b  InitializeCriticalSectionAndSpinCount
+	0003e238  <none>  05ef  TlsAlloc
+	0003e240  <none>  05f1  TlsGetValue
+	0003e248  <none>  05f3  TlsSetValue
+	0003e250  <none>  05f0  TlsFree
+	0003e258  <none>  01d9  FreeLibrary
+	0003e260  <none>  03fb  LoadLibraryExW
+	0003e268  <none>  018b  ExitProcess
+	0003e270  <none>  02a9  GetModuleHandleExW
+	0003e278  <none>  02a6  GetModuleFileNameW
+	0003e280  <none>  027d  GetFileSizeEx
+	0003e288  <none>  056e  SetFilePointerEx
+	0003e290  <none>  0308  GetStdHandle
+	0003e298  <none>  027f  GetFileType
+	0003e2a0  <none>  01cd  FlushFileBuffers
+	0003e2a8  <none>  022e  GetConsoleOutputCP
+	0003e2b0  <none>  022a  GetConsoleMode
+	0003e2b8  <none>  0385  HeapFree
+	0003e2c0  <none>  0381  HeapAlloc
+	0003e2c8  <none>  01c7  FlsAlloc
+	0003e2d0  <none>  01c9  FlsGetValue
+	0003e2d8  <none>  01cb  FlsSetValue
+	0003e2e0  <none>  01c8  FlsFree
+	0003e2e8  <none>  061f  VirtualProtect
+	0003e2f0  <none>  03e9  LCMapStringW
+	0003e2f8  <none>  0296  GetLocaleInfoW
+	0003e300  <none>  03c5  IsValidLocale
+	0003e308  <none>  034e  GetUserDefaultLCID
+	0003e310  <none>  0180  EnumSystemLocalesW
+	0003e318  <none>  04ae  ReadFile
+	0003e320  <none>  04ab  ReadConsoleW
+	0003e328  <none>  0388  HeapReAlloc
+	0003e330  <none>  01a2  FindClose
+	0003e338  <none>  01a8  FindFirstFileExW
+	0003e340  <none>  01b9  FindNextFileW
+	0003e348  <none>  03c3  IsValidCodePage
+	0003e350  <none>  01e0  GetACP
+	0003e358  <none>  02cb  GetOEMCP
+	0003e360  <none>  0204  GetCommandLineA
+	0003e368  <none>  0205  GetCommandLineW
+	0003e370  <none>  0267  GetEnvironmentStringsW
+	0003e378  <none>  01d8  FreeEnvironmentStringsW
+	0003e380  <none>  02e9  GetProcessHeap
+	0003e388  <none>  0598  SetStdHandle
+	0003e390  <none>  038a  HeapSize
+	0003e398  <none>  0664  WriteConsoleW
+	0003e3a0  <none>  055b  SetEndOfFile
+	0003e3a8  <none>  051b  RtlUnwind
+
+ 00054408	00054430 00000000 00000000 00054b00 0003e000
+
+	DLL Name: ADVAPI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	0003e000  <none>  02e4  SetSecurityDescriptorDacl
+	0003e008  <none>  0020  AllocateAndInitializeSid
+	0003e010  <none>  0211  OpenProcessToken
+	0003e018  <none>  011f  FreeSid
+	0003e020  <none>  017a  InitializeSecurityDescriptor
+	0003e028  <none>  0179  InitializeAcl
+	0003e030  <none>  0136  GetLengthSid
+	0003e038  <none>  0010  AddAccessAllowedAce
+	0003e040  <none>  015b  GetTokenInformation
+
+ 0005441c	00000000 00000000 00000000 00000000 00000000
+
+There is an export table in .rdata at 0x1800540f0
+
+The Export Tables (interpreted .rdata section contents)
+
+Export Flags 			0
+Time/Date stamp 		ffffffff
+Major/Minor 			0/0
+Name 				0000000000054258 Holeshot-HUD.dlo
+Ordinal Base 			1
+Number in:
+	Export Address Table 		00000020
+	[Name Pointer/Ordinal] Table	00000020
+Table Addresses
+	Export Address Table 		0000000000054118
+	Name Pointer Table 		0000000000054198
+	Ordinal Table 			0000000000054218
+
+Export Address Table -- Ordinal Base 1
+	          Ordinal  Address  Type
+	[   0] +base[   1] 00003900 Export RVA
+	[   1] +base[   2] 00003820 Export RVA
+	[   2] +base[   3] 00002d40 Export RVA
+	[   3] +base[   4] 00002c90 Export RVA
+	[   4] +base[   5] 000024d0 Export RVA
+	[   5] +base[   6] 00002440 Export RVA
+	[   6] +base[   7] 000023b0 Export RVA
+	[   7] +base[   8] 00003ca0 Export RVA
+	[   8] +base[   9] 000043c0 Export RVA
+	[   9] +base[  10] 00004330 Export RVA
+	[  10] +base[  11] 00003c10 Export RVA
+	[  11] +base[  12] 00003b20 Export RVA
+	[  12] +base[  13] 00004240 Export RVA
+	[  13] +base[  14] 00004060 Export RVA
+	[  14] +base[  15] 00003d90 Export RVA
+	[  15] +base[  16] 00003e80 Export RVA
+	[  16] +base[  17] 00003f70 Export RVA
+	[  17] +base[  18] 00004150 Export RVA
+	[  18] +base[  19] 00004490 Export RVA
+	[  19] +base[  20] 00004550 Export RVA
+	[  20] +base[  21] 00003090 Export RVA
+	[  21] +base[  22] 00002dd0 Export RVA
+	[  22] +base[  23] 00003240 Export RVA
+	[  23] +base[  24] 00003330 Export RVA
+	[  24] +base[  25] 00003120 Export RVA
+	[  25] +base[  26] 000031b0 Export RVA
+	[  26] +base[  27] 00003420 Export RVA
+	[  27] +base[  28] 00002c00 Export RVA
+	[  28] +base[  29] 00004920 Export RVA
+	[  29] +base[  30] 00004810 Export RVA
+	[  30] +base[  31] 00002560 Export RVA
+	[  31] +base[  32] 00003a60 Export RVA
+
+[Ordinal/Name Pointer] Table -- Ordinal Base 1
+	          Ordinal   Hint Name
+	[   0] +base[   1]  0000 Draw
+	[   1] +base[   2]  0001 DrawInit
+	[   2] +base[   3]  0002 EventDeinit
+	[   3] +base[   4]  0003 EventInit
+	[   4] +base[   5]  0004 GetInterfaceVersion
+	[   5] +base[   6]  0005 GetModDataVersion
+	[   6] +base[   7]  0006 GetModID
+	[   7] +base[   8]  0007 RaceAddEntry
+	[   8] +base[   9]  0008 RaceClassification
+	[   9] +base[  10]  0009 RaceCommunication
+	[  10] +base[  11]  000a RaceDeinit
+	[  11] +base[  12]  000b RaceEvent
+	[  12] +base[  13]  000c RaceHoleshot
+	[  13] +base[  14]  000d RaceLap
+	[  14] +base[  15]  000e RaceRemoveEntry
+	[  15] +base[  16]  000f RaceSession
+	[  16] +base[  17]  0010 RaceSessionState
+	[  17] +base[  18]  0011 RaceSplit
+	[  18] +base[  19]  0012 RaceTrackPosition
+	[  19] +base[  20]  0013 RaceVehicleData
+	[  20] +base[  21]  0014 RunDeinit
+	[  21] +base[  22]  0015 RunInit
+	[  22] +base[  23]  0016 RunLap
+	[  23] +base[  24]  0017 RunSplit
+	[  24] +base[  25]  0018 RunStart
+	[  25] +base[  26]  0019 RunStop
+	[  26] +base[  27]  001a RunTelemetry
+	[  27] +base[  28]  001b Shutdown
+	[  28] +base[  29]  001c SpectateCameras
+	[  29] +base[  30]  001d SpectateVehicles
+	[  30] +base[  31]  001e Startup
+	[  31] +base[  32]  001f TrackCenterline
+
+(exit 0)

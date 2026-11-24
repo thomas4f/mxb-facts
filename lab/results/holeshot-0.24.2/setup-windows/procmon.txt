@@ -1,0 +1,12 @@
+    1  HoleshotHUD-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp  SUCCESS
+    1  HoleshotHUD-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS
+    1  HoleshotHUD-Setup.exe  Process Create  C:\Users\RUNNER~1\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS
+    1  HoleshotHUD-Setup.exe  Process Exit    SUCCESS
+    1  HoleshotHUD-Setup.exe  Process Start    SUCCESS
+    1  HoleshotHUD-Setup.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS
+    2  HoleshotHUD-Setup.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS
+    1  HoleshotHUD-Setup.exe  WriteFile  C:\$LogFile  SUCCESS
+    2  HoleshotHUD-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS
+    1  HoleshotHUD-Setup.tmp  Process Exit    SUCCESS
+    1  HoleshotHUD-Setup.tmp  Process Start    SUCCESS
+    1  HoleshotHUD-Setup.tmp  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume3\Users\RUNNER~1\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS

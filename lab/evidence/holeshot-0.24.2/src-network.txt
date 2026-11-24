@@ -1,0 +1,32 @@
+$ cd "$SRC" && grep -rnE 'ureq::|\.post\(|IcmpSendEcho\(|FALLBACK: u32|TcpListener::bind|origin_is_local|host == "127.0.0.1"|HOME_URL: &str|mxb-ranked.com/Rider|cbrservers.com/player|holeshot-hud.vercel.app' overlay/src --include=*.rs | grep -v '/tests/'
+overlay/src/presence.rs:458:        let agent = ureq::AgentBuilder::new()
+overlay/src/presence.rs:468:                .post(&url)
+overlay/src/presence.rs:481:                .post(&url)
+overlay/src/ping.rs:14:const FALLBACK: u32 = u32::from_ne_bytes([1, 1, 1, 1]);
+overlay/src/ping.rs:75:        IcmpSendEcho(
+overlay/src/plugin.rs:410:    format!("https://mxb-ranked.com/Rider/{}", steam_guid(steam_id64))
+overlay/src/plugin.rs:419:    format!("https://www.cbrservers.com/player/{}", steam_guid(steam_id64))
+overlay/src/stream/mod.rs:1533:        match TcpListener::bind(("127.0.0.1", port)) {
+overlay/src/stream/mod.rs:1601:    if !origin_is_local(&req_head) {
+overlay/src/stream/mod.rs:1758:fn origin_is_local(req_head: &str) -> bool {
+overlay/src/stream/mod.rs:1792:    host == "127.0.0.1" || host.eq_ignore_ascii_case("localhost")
+overlay/src/stream/mod.rs:2425:    use super::origin_is_local;
+overlay/src/stream/mod.rs:2428:    fn missing_origin_is_local() {
+overlay/src/stream/mod.rs:2429:        assert!(origin_is_local(
+overlay/src/stream/mod.rs:2435:    fn loopback_origin_is_local() {
+overlay/src/stream/mod.rs:2436:        assert!(origin_is_local(
+overlay/src/stream/mod.rs:2439:        assert!(origin_is_local(
+overlay/src/stream/mod.rs:2442:        assert!(origin_is_local(
+overlay/src/stream/mod.rs:2449:        assert!(!origin_is_local(
+overlay/src/stream/mod.rs:2452:        assert!(!origin_is_local(
+overlay/src/update.rs:218:    let agent = ureq::AgentBuilder::new()
+overlay/src/update.rs:229:            ureq::Error::Status(404, _) => "No release has been published yet.".into(),
+overlay/src/update.rs:587:    let agent = ureq::AgentBuilder::new()
+overlay/src/feedback.rs:16:const FEEDBACK_URL: &str = "https://holeshot-hud.vercel.app/api/feedback";
+overlay/src/feedback.rs:644:    let agent = ureq::AgentBuilder::new()
+overlay/src/feedback.rs:649:        .post(&url)
+overlay/src/feedback.rs:1141:    let agent = ureq::AgentBuilder::new()
+overlay/src/feedback.rs:1146:        .post(&url)
+overlay/src/feedback.rs:1173:    let agent = ureq::AgentBuilder::new()
+overlay/src/settings/mymxb.rs:25:const HOME_URL: &str = "https://mymxb.com/";
+(exit 0)

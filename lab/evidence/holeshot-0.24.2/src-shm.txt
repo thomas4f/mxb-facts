@@ -1,0 +1,17 @@
+$ cd "$SRC" && grep -nE 'define MXBO_(SHM|CMD)_NAME |char name\[MXBO_NAME\]|serverName|eventGuid' src/shm/mxbo_shm.h; grep -nE 'CreateFileMappingW|AddAccessAllowedAce|SECURITY_LOCAL_SYSTEM_RID|TokenUser|attributes = nullptr' src/shm_writer.cpp
+13:#define MXBO_SHM_NAME L"Local\\MXBOHudV19"
+16:#define MXBO_CMD_NAME L"Local\\MXBOHudCmdV1"
+40:    char name[MXBO_NAME];
+62:    char name[MXBO_NAME];
+164:    char serverName[MXBO_TRACK_NAME];
+165:    char eventGuid[MXBO_GUID];
+38:    GetTokenInformation(token, TokenUser, nullptr, 0, &needed);
+42:            TokenUser,
+58:            SECURITY_LOCAL_SYSTEM_RID,
+78:        && AddAccessAllowedAce(acl, ACL_REVISION, FILE_MAP_ALL_ACCESS, userSid)
+79:        && AddAccessAllowedAce(acl, ACL_REVISION, FILE_MAP_ALL_ACCESS, systemSid)
+105:    m_map = CreateFileMappingW(
+114:        attributes = nullptr;
+116:        m_map = CreateFileMappingW(
+163:    m_cmdMap = CreateFileMappingW(
+(exit 0)

@@ -1,0 +1,19 @@
+$ objdump -h zip/Holeshot-HUD.exe
+
+zip/Holeshot-HUD.exe:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         006d0ef8  0000000140001000  0000000140001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        00c574c0  00000001406d2000  00000001406d2000  006d1400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .data         00017600  000000014132a000  000000014132a000  01328a00  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .pdata        0003bcdc  0000000141342000  0000000141342000  01340000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .rsrc         00026988  000000014137e000  000000014137e000  0137be00  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .reloc        00008e88  00000001413a5000  00000001413a5000  013a2800  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)

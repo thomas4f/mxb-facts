@@ -1,0 +1,9 @@
+game: MX Bikes beta21e (demo), mxbikes.exe, installer SHA-256 a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0
+steps (unix time, step):
+1795543077 started mxbikes.exe, screen 1280x720, window found, in front: True
+1795543083 login
+1795543092 demo
+1795543123 testing
+1795543135 start
+1795543182 to-track
+1795543272 ride

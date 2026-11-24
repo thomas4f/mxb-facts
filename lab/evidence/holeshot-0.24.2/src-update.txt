@@ -1,0 +1,29 @@
+$ cd "$SRC" && grep -nE 'check_for_updates|auto_update_on_launch|update::check|apply_on_launch' overlay/src/main.rs; grep -nE 'releases/latest|"digest"|sha256:|starts_with\("https://github.com|got != rel.digest|UPDATE_PUBLIC_KEY|minisig|signature_is_valid|minisign::verify|fs::copy\(&src_exe|join\(PLUGIN_DLO\)|const UA' overlay/src/update.rs; grep -nE 'Hit::CheckForUpdates =>|c.check_for_updates = |c.auto_update_on_launch = false' overlay/src/settings/dispatch.rs
+288:    if loaded.check_for_updates
+289:        && loaded.auto_update_on_launch
+291:        && crate::update::apply_on_launch()
+296:    if loaded.check_for_updates && !loaded.auto_update_on_launch {
+297:        crate::update::check();
+17:const UA: &str = "mxbo-overlay";
+19:const UPDATE_PUBLIC_KEY: &str = "RWT0JpV1brlxW+0WclDYGnxODmCVXghmuSfj52Omk515ap2zkufrnar2";
+222:    let url = format!("https://api.github.com/repos/{REPO}/releases/latest");
+277:                    digest: json_string(obj, "digest").unwrap_or_default(),
+318:    release_zip_url_ok(zip_url) && url == format!("{zip_url}.minisig")
+322:    let want = format!("{zip_url}.minisig");
+338:/// True when `signature_text` is a minisign signature of `file` for `public_key`.
+339:pub(crate) fn signature_is_valid(public_key: &str, file: &[u8], signature_text: &str) -> bool {
+340:    let Ok(key) = minisign::PublicKey::from_base64(public_key.trim()) else {
+343:    let Ok(signature) = minisign::SignatureBox::from_string(signature_text) else {
+346:    minisign::verify(
+360:        .starts_with("https://github.com/leadingtrendtechnologies/holeshothud/releases/download/")
+373:        .strip_prefix("sha256:")
+390:    if got != rel.digest {
+394:    let sig_path = work.join("update.zip.minisig");
+399:    if !signature_is_valid(UPDATE_PUBLIC_KEY, &bytes, &sig_text) {
+496:    fs::copy(&src_exe, &dst_exe).map_err(|e| format!("Could not replace overlay: {e}"))?;
+499:            let _ = fs::copy(&dlo, dir.join(PLUGIN_DLO));
+937:        Hit::CheckForUpdates => {
+941:                c.check_for_updates = on;
+943:                    c.auto_update_on_launch = false;
+957:                    c.check_for_updates = true;
+(exit 0)

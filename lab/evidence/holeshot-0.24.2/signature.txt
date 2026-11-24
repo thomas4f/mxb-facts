@@ -1,0 +1,8 @@
+$ objdump -p zip/Holeshot-HUD.exe zip/Holeshot-HUD.dlo HoleshotHUD-Setup.exe | grep -E 'file format|Security Directory'
+zip/Holeshot-HUD.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+zip/Holeshot-HUD.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+HoleshotHUD-Setup.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+(exit 0)

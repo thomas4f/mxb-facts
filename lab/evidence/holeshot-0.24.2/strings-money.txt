@@ -1,0 +1,41 @@
+$ { strings -n 6 zip/Holeshot-HUD.exe zip/Holeshot-HUD.dlo zip/README.txt; strings -el -n 6 zip/Holeshot-HUD.exe zip/Holeshot-HUD.dlo zip/README.txt; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+2577:=http://J
+30974:--disable-features=msWebOOUI,msPdfOOUI,msSmartScreenProtection --autoplay-policy=no-user-gesture-required --proxy-server=http:// --proxy-server=socks5://
+42557:https://api.github.com/repos/
+42563:https://github.com/leadingtrendtechnologies/holeshothud/releases/download/..windows-x64.zipsetupholeshot-apply.exe--apply-updatetag_nameRelease zip URL is not the Holeshot HUD GitHub download.Release signature URL is not the Holeshot HUD GitHub download.update source is not Holeshot-HUD.exeupdate dest is not Holeshot-HUD.exeupdate plugin is not Holeshot-HUD.dlo1missing --apply-updatedigest
+42918:- Shoutout to Tloubih, who streams with our HUD: https://linktr.ee/Tloubih
+44969:http://127.0.0.1:
+44972:http://127.0.0.1:
+45099:HOLESHOT_FEEDBACK_URLLOCALAPPDATAHoleshot HUDfeedback-url.txthttps://holeshot-hud.vercel.app/api/feedback
+46260:"https://www.cbrservers.com/player/
+46261:https://mxb-ranked.com/Rider/
+46797:https://mymxb.com/
+46798:WebView2MyMxbhttps://src\settings\whats_new.rs
+47379:www.digicert.com1 0
+47444:www.digicert.com1!0
+47515:www.digicert.com1$0"
+47520:www.digicert.com1$0"
+47629:www.digicert.com1 0
+47894:chunk size must be non-zeropeer closed connection without sending TLS close_notify: https://docs.rs/rustls/latest/rustls/manual/_03_howto/index.html#unexpected-eof
+50983:clflushopt
+68154:Version 773.01953125 (Font Awesome version: 6.5.2)The web's most popular icon set and toolkit.Font Awesome 6 FreeFont Awesome 6 Free Solid-6.5.2https://fontawesome.comFont Awesome 6 Free SolidFontAwesome6Free-SolidCopyright (c) Font AwesomeSolid
+68187:shop-slash
+68251:file-circle-plus	shop-lock
+68528:cart-shopping
+68761:bag-shopping
+68762:basket-shopping
+68835:chess-bishop
+72354:http://ns.adobe.http://ns.adobe.com/xmp/extension/
+74973:Icons use Font Awesome Free (https://fontawesome.com/license/free)
+75351:RomanNormalItalicWidthWeighthttps://openfontlicense.orgRoboto-RegularVersion 3.009; 2024Roboto Regular3.009;GOOG;Roboto-RegularRegularRobotoCopyright 2011 The Roboto Project Authors (https://github.com/googlefonts/roboto-classic)
+75356:Copyright 2013 The Exo 2 Project Authors (https://github.com/googlefonts/Exo-2.0)Exo 2Italic2.010;NONE;Exo2-ItalicExo 2 ItalicVersion 2.010Exo2-ItalicNatanael Gamawww.ndiscovered.comThis Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.orghttps://openfontlicense.orgExo2ItalicWeightExtraBold
+75372:Copyright 2013 The Exo 2 Project Authors (https://github.com/googlefonts/Exo-2.0)Exo 2Italic2.010;NONE;Exo2-ItalicExo 2 ItalicVersion 2.010Exo2-ItalicNatanael Gamawww.ndiscovered.comThis Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.orghttps://openfontlicense.orgExo2ItalicWeightBlack
+75392:vCopyright 2013 The Exo 2 Project Authors (https://github.com/NDISCOVER/Exo-2.0)Exo 2 SemiBoldItalic2.001;NONE;Exo2-SemiBoldItalicExo 2 SemiBold ItalicVersion 2.001; ttfautohint (v1.8.3)Exo2-SemiBoldItalicNatanael GamaNatanael Gamawww.ndiscovered.comwww.ndiscovered.comThis Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFLhttp://scripts.sil.org/OFLExo 2SemiBold Italic
+75406:>Copyright 2023 The Teko Project Authors (https://www.github.com/googlefonts/teko)Teko LightRegular2.000;IFF ;Teko-LightVersion 2.000;gftools[0.9.28.dev9+g7d2139d.d20230707]Teko-LightIndian Type FoundryManushi Parikh, Jonny PinhornThis Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFLhttp://scripts.sil.org/OFLTekoLightWeightSemiBold
+75414:>Copyright 2023 The Teko Project Authors (https://www.github.com/googlefonts/teko)Teko LightRegular2.000;IFF ;Teko-LightVersion 2.000;gftools[0.9.28.dev9+g7d2139d.d20230707]Teko-LightIndian Type FoundryManushi Parikh, Jonny PinhornThis Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFLhttp://scripts.sil.org/OFLTekoLightWeightBold
+75420:Copyright 2018 The Goldman Project Authors (https://github.com/magictype/goldman)GoldmanRegular1.000;NONE;Goldman-RegularGoldman RegularVersion 1.000; ttfautohint (v1.8.3)Goldman-RegularJaikishan Patelmagictype.inhttp://jaiki.inThis Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFLhttps://scripts.sil.org/OFL
+75429:Copyright 2018 The Goldman Project Authors (https://github.com/magictype/goldman)GoldmanBold1.000;NONE;Goldman-BoldGoldman BoldVersion 1.000; ttfautohint (v1.8.3)Goldman-BoldJaikishan Patelmagictype.inhttp://jaiki.inThis Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFLhttps://scripts.sil.org/OFL
+75438:pCopyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat)Montserrat ExtraBoldRegular9.000;ULA;Montserrat-ExtraBoldVersion 9.000; ttfautohint (v1.8.4.7-5d5b)Montserrat-ExtraBoldJulieta Ulanovskyhttp://www.zkysky.com.ar/This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.orghttps://openfontlicense.orgMontserratExtraBoldAlternate
+75468:PCopyright 2011 The Montserrat Project Authors (https://github.com/JulietaUla/Montserrat)Montserrat BlackRegular9.000;ULA;Montserrat-BlackVersion 9.000; ttfautohint (v1.8.4.7-5d5b)Montserrat-BlackJulieta Ulanovskyhttp://www.zkysky.com.ar/This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://openfontlicense.orghttps://openfontlicense.orgMontserratBlackAlternate
+75549:dVersion 773.01953125 (Font Awesome version: 6.5.2)The web's most popular icon set and toolkit.Font Awesome 6 FreeFont Awesome 6 Free Solid-6.5.2https://fontawesome.comFont Awesome 6 Free SolidFontAwesome6Free-SolidCopyright (c) Font AwesomeSolid
+(exit 0)

@@ -1,0 +1,15 @@
+$ objdump -p zip/Holeshot-HUD.dlo | grep 'DLL Name'; iat.py zip/Holeshot-HUD.dlo | grep -E 'SetUnhandledExceptionFilter|CreateFileMappingW|MapViewOfFile|OpenProcessToken|AddAccessAllowedAce|SetSecurityDescriptorDacl|LoadLibraryW|GetProcAddress|VirtualProtect'; echo '--- absent:'; iat.py zip/Holeshot-HUD.dlo | grep -iE 'RegCreateKey|RegSetValue|ws2_32|wsock|wininet|winhttp|urlmon|user32|WriteProcessMemory|ReadProcessMemory|OpenProcess\b|CreateRemoteThread|CreateProcess|ShellExecute|WinExec|AddVectoredExceptionHandler' || echo 'none of: registry writes, network, user32 (no key reads), Read/WriteProcessMemory, OpenProcess, CreateRemoteThread, CreateProcess, ShellExecute, WinExec, AddVectoredExceptionHandler'
+	DLL Name: KERNEL32.dll
+	DLL Name: ADVAPI32.dll
+0x18003e080  KERNEL32.dll!LoadLibraryW
+0x18003e090  KERNEL32.dll!GetProcAddress
+0x18003e0a8  KERNEL32.dll!SetUnhandledExceptionFilter
+0x18003e0d0  KERNEL32.dll!CreateFileMappingW
+0x18003e0d8  KERNEL32.dll!MapViewOfFile
+0x18003e2e8  KERNEL32.dll!VirtualProtect
+0x18003e000  ADVAPI32.dll!SetSecurityDescriptorDacl
+0x18003e010  ADVAPI32.dll!OpenProcessToken
+0x18003e038  ADVAPI32.dll!AddAccessAllowedAce
+--- absent:
+none of: registry writes, network, user32 (no key reads), Read/WriteProcessMemory, OpenProcess, CreateRemoteThread, CreateProcess, ShellExecute, WinExec, AddVectoredExceptionHandler
+(exit 0)

@@ -1,0 +1,30 @@
+$ unzip -l Holeshot-HUD-0.24.2-windows-x64.zip; file HoleshotHUD-Setup.exe zip/*
+Archive:  Holeshot-HUD-0.24.2-windows-x64.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+   366592  2026-11-24 15:55   Holeshot-HUD.dlo
+ 20625408  2026-11-24 15:59   Holeshot-HUD.exe
+     2785  2026-11-24 15:54   Install-Plugin.ps1
+      121  2026-11-24 15:54   Install.bat
+     6163  2026-11-24 15:54   Install.ps1
+     1104  2026-11-24 15:54   LICENSE
+     4764  2026-11-24 15:54   OFL.txt
+     1692  2026-11-24 15:54   README.txt
+     7057  2026-11-24 15:59   THIRD-PARTY.txt
+      100  2026-11-24 15:54   Uninstall.bat
+     8336  2026-11-24 15:54   Uninstall.ps1
+---------                     -------
+ 21024122                     11 files
+HoleshotHUD-Setup.exe:  PE32 executable for MS Windows 6.01 (GUI), Intel i386, 11 sections
+zip/Holeshot-HUD.dlo:   PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+zip/Holeshot-HUD.exe:   PE32+ executable for MS Windows 6.00 (GUI), x86-64, 6 sections
+zip/Install-Plugin.ps1: ASCII text, with CRLF line terminators
+zip/Install.bat:        DOS batch file, ASCII text, with CRLF line terminators
+zip/Install.ps1:        ASCII text, with CRLF line terminators
+zip/LICENSE:            ASCII text, with CRLF line terminators
+zip/OFL.txt:            ASCII text, with CRLF line terminators
+zip/README.txt:         Unicode text, UTF-8 text, with CRLF line terminators
+zip/THIRD-PARTY.txt:    Unicode text, UTF-8 (with BOM) text, with CRLF line terminators
+zip/Uninstall.bat:      DOS batch file, ASCII text, with CRLF line terminators
+zip/Uninstall.ps1:      Unicode text, UTF-8 text, with CRLF line terminators
+(exit 0)
