@@ -1,0 +1,16 @@
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs  NAME COLLISION
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\race.jsonl  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews  NAME COLLISION
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-shm  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-wal  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\track-pbs  NAME COLLISION
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD\logs  NAME COLLISION
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards  NAME COLLISION
+Holeshot-HUD.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\holeshot.png  SUCCESS
+Holeshot-HUD.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-shm  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\holeshot.png  SUCCESS

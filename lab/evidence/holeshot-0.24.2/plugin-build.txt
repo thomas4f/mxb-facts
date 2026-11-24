@@ -1,0 +1,15 @@
+$ grep -nE 'ClCompile Include|AdditionalDependencies' "$SRC/mxbo.vcxproj"
+59:      <AdditionalDependencies>gdi32.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+78:      <AdditionalDependencies>gdi32.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+89:    <ClCompile Include="src\plugin.cpp" />
+90:    <ClCompile Include="src\crash_log.cpp" />
+91:    <ClCompile Include="src\state.cpp" />
+92:    <ClCompile Include="src\config.cpp" />
+93:    <ClCompile Include="src\shm_writer.cpp" />
+94:    <ClCompile Include="src\shm_publish.cpp" />
+96:    <ClCompile Include="src\hud\draw_list.cpp" Condition="'$(MXBO_INGAME_HUD)'=='1'" />
+97:    <ClCompile Include="src\hud\map_hud.cpp" Condition="'$(MXBO_INGAME_HUD)'=='1'" />
+98:    <ClCompile Include="src\hud\widgets.cpp" Condition="'$(MXBO_INGAME_HUD)'=='1'" />
+99:    <ClCompile Include="src\hud\font_atlas.cpp" Condition="'$(MXBO_INGAME_HUD)'=='1'" />
+100:    <ClCompile Include="src\layout.cpp" Condition="'$(MXBO_INGAME_HUD)'=='1'" />
+(exit 0)

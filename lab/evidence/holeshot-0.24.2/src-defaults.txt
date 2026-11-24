@@ -1,0 +1,17 @@
+$ cd "$SRC" && grep -nE '^ +show: false,|^ +(game_ui|start_with_windows|open_with_game|close_with_game|stream_enabled|auto_update_on_launch): false,|check_for_updates: true,' overlay/hud/src/config.rs; grep -nE '"(Check for updates|Update automatically on launch|Open when Windows starts|Open when MX Bikes opens|MX Bikes menus|Browser Source)"' overlay/src/settings/app.rs
+1089:            show: false,
+2791:            game_ui: false,
+2799:            start_with_windows: false,
+2801:            close_with_game: false,
+2802:            open_with_game: false,
+2803:            stream_enabled: false,
+2805:            check_for_updates: true,
+2806:            auto_update_on_launch: false,
+245:        "MX Bikes menus",
+457:        "Open when Windows starts",
+539:        "Open when MX Bikes opens",
+580:        "Browser Source",
+808:        "Check for updates",
+832:            "Update automatically on launch",
+968:            "Check for updates",
+(exit 0)

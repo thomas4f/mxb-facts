@@ -1,0 +1,16 @@
+$ cat Holeshot-HUD-0.24.2-windows-x64.zip.minisig; K=$(grep -oE 'RW[A-Za-z0-9+/=]{54}' "$SRC/overlay/src/update.rs"); echo "key in update.rs: $K"; echo "times in Holeshot-HUD.exe: $(strings -n 20 zip/Holeshot-HUD.exe | grep -c "$K")"; minisig.py "$K" Holeshot-HUD-0.24.2-windows-x64.zip Holeshot-HUD-0.24.2-windows-x64.zip.minisig; echo '--- a cut copy of the zip:'; head -c 1000000 Holeshot-HUD-0.24.2-windows-x64.zip > "$W/cut.zip"; minisig.py "$K" "$W/cut.zip" Holeshot-HUD-0.24.2-windows-x64.zip.minisig | grep 'file signature'
+untrusted comment: signature from rsign secret key
+RUT0JpV1brlxWw4n0Pibp8CXZSngmImMRmUVoBWoNq5ip7JBwtw4Sva+ufKUHJeIdtn2RxVhz9DTnYOCWGs5h9cSZpDqMi8svgg=
+trusted comment: timestamp:1795535975
+kOy/ABNwuq6J4ZECVtM99Ygxxh3nDsF3ow4R2sneTmti37zmjzbAkJXujYayZYdC5b7oyH3JORywg2eoiec+AA==
+key in update.rs: RWT0JpV1brlxW+0WclDYGnxODmCVXghmuSfj52Omk515ap2zkufrnar2
+times in Holeshot-HUD.exe: 1
+public key ID: 5B71B96E759526F4
+signature key ID: 5B71B96E759526F4 algorithm: ED
+trusted comment: timestamp:1795535975
+key IDs match: True
+file signature valid: True
+trusted comment signature valid: True
+--- a cut copy of the zip:
+file signature valid: False
+(exit 0)

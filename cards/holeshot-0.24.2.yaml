@@ -1,0 +1,704 @@
+tool: HoleShot HUD
+version: 0.24.2
+summary: >-
+  A transparent HUD window (standings, relative, map, radar, lap times and more) that draws on top of MX Bikes from data its
+  game plugin shares, with an installer that puts the plugin in the game. Its source is on GitHub under the MIT licence, the
+  release is built from the tag by GitHub Actions, and its updater checks a signature before it installs.
+header:
+  What it is: >-
+    Two parts: `Holeshot-HUD.dlo`, a plugin in the game's `plugins` folder that reads the game through the plugin interface and
+    shares it in memory, and `Holeshot-HUD.exe`, a separate program that draws the HUD widgets in a transparent window over the
+    game, with F8 settings, feedback, an updater and an optional local page for streaming. Setup (or the zip's `Install.bat`)
+    installs the program to `%LOCALAPPDATA%\Holeshot HUD` and copies the plugin into the game.
+  In one line: A HUD window drawn over MX Bikes from data its game plugin shares
+  Category: HUD
+  Author: LeadingTrendTechnologies (GitHub organisation [LeadingTrendTechnologies](https://github.com/LeadingTrendTechnologies))
+  Game: MX Bikes
+  mxb-mods.com: '[Holeshot HUD](https://mxb-mods.com/holeshot-hud/)'
+  Homepage: None found
+  GitHub: '[LeadingTrendTechnologies/HoleshotHUD](https://github.com/LeadingTrendTechnologies/HoleshotHUD)'
+  Version analysed: >-
+    [v0.24.2](https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/tag/v0.24.2) (tag `v0.24.2`, published 24 Nov
+    2026), the tool's latest GitHub release when this run started; the mxb-mods.com page lists no file of its own.
+  Source commit: >-
+    [5f4905e94f2423cc67c79a4bf7b684c31dd13cf7](https://github.com/LeadingTrendTechnologies/HoleshotHUD/tree/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7)
+    ("Ship 0.24.2 so the startup update check can be turned off and the release carries its licences.", 24 Nov 2026), the
+    commit tag `v0.24.2` points to.
+  Analysed on: 24 Nov 2026
+  Earlier reports: '[0.24.0](https://thomas4f.github.io/mxb-facts/#holeshot-0.24.0) (23 Nov 2026)'
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    The licence is MIT, which allows the analysis. The source was read at the commit, with the changes since v0.24.0; the
+    zip's scripts, README and licences were compared with it (the same apart from line endings), the plugin was found byte for
+    byte inside the program, the zip's minisign signature was checked with the key in the program, and the imports,
+    code-signing entries and text of both program files were read with `objdump` and `strings`. The release wasn't rebuilt
+    (T4). Setup (Inno Setup 6.7.0) couldn't be unpacked here (innoextract 1.9 doesn't read that version). Every command is in
+    `lab/evidence/holeshot-0.24.2/run.sh`. A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software
+    OpenGL, not Windows on a real GPU) and no keys ran the plugin in the MX Bikes demo (beta21e), offline behind a firewall
+    block, under Process Monitor: the bare demo as baseline, a 90 s ride, and a 90 s ride with F8, F8, F9 and Ctrl pressed;
+    all three reached the track. Then the plugin test host with the bystander plugin, the program for 60 s and for 240 s on
+    its own (no game), and Setup for 60 s without clicking through it. No key was pressed in the program. VirusTotal: hash
+    lookups made before the analysis (24 Nov 2026); every file was already on VirusTotal, so nothing was uploaded.
+files:
+  - name: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: aeaadd66c9f2c0fe10ee09cabf5737b65cfda0182623b058d6c8ee5f9ee956cd
+    note: The zip on the GitHub release (program, plugin, install scripts and licences); the file the updater downloads.
+  - name: Holeshot-HUD-0.24.2-windows-x64.zip.minisig
+    sha256: 1ba7238bd00d49de8993a703f892a0bb2ff9dadbe293b33ddaac0bc39d6e2541
+    note: The zip's minisign signature, on the GitHub release.
+  - name: HoleshotHUD-Setup.exe
+    sha256: 3fd5b0fdfcaae246c9eea5b2ebbcb1595b7715e977dd12acec021dbcd42ea086
+    note: The installer on the GitHub release (Inno Setup 6.7.0), the download the README links.
+  - name: Holeshot-HUD.exe
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: 8e969f1506654bd62ba7f15352fbffa0da600af516d2aa301529a7dd6a7532f6
+    note: The HUD program; it also carries the plugin inside it.
+  - name: Holeshot-HUD.dlo
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: a15c80625c415f8b8e5f89c7e7e32aeec15c4f2df408f2e445ceaa331fa70bce
+    note: The game plugin, copied into the game's `plugins` folder.
+  - name: Install.bat
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: 4640ea10b04ff0ccfa138b36f41bf39020235ce813a71e92971b93b821258b1a
+  - name: Install.ps1
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: 2bcd5adf57843c6fb3f35122f0ccadb9f0ca7a614e2d16c8fe50afbc71e7a1a0
+  - name: Install-Plugin.ps1
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: 24b9f5d087c8cf64ab5eee830a26693b4ebc9e4be2b591f8eb70c46c37d50de6
+  - name: Uninstall.bat
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: 2d0e85e92f493825293373b2a79023e7a94149bc5d00df79b58e1f3e206adfe7
+  - name: Uninstall.ps1
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: 967caf8601c802abaffc5bdf5c20466fa800d98c49b98d843ae10b94ca04dcf6
+  - name: README.txt
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: a19ebe4d928c564ca80f58dc506784b0acbe3271a83f67de443fdef952bbb336
+  - name: LICENSE
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: a18be22c4fc32edeff0acdc90ca51398c31a12a3ef52f1a6691c1983011423ec
+  - name: OFL.txt
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: d49343b4cadd0d55f2846f1cc46b7a1eb4df691516e5fff0f348fcc7e753af8d
+  - name: THIRD-PARTY.txt
+    inside: Holeshot-HUD-0.24.2-windows-x64.zip
+    sha256: 33a99f01c2ba63efb8d96bea4ea5d37df8808ff165f1a9ecb4444c21665f691e
+files_note: >-
+  No program file carries a Windows code signature (`lab/evidence/holeshot-0.24.2/signature.txt`); the zip has a minisign
+  signature that checks out with the key in the program (`lab/evidence/holeshot-0.24.2/minisign.txt`). The scripts, README,
+  `LICENSE` and `OFL.txt` in the zip are the repository's files at the commit apart from line endings, and `THIRD-PARTY.txt`
+  is written by the build (`lab/evidence/holeshot-0.24.2/same-as-source.txt`); the program carries the plugin byte for byte
+  (`lab/evidence/holeshot-0.24.2/embedded-dlo.txt`). Setup holds the same files, by its script
+  ([holeshot.iss lines 46-55](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/holeshot.iss#L46-L55)); it wasn't unpacked (`lab/evidence/holeshot-0.24.2/setup.txt`).
+  The hashes match the files the Windows machine ran (`lab/results/holeshot-0.24.2/ride-windows/machine.txt`,
+  `lab/results/holeshot-0.24.2/ride-windows/plugins.sha256`).
+key:
+  K1: No malware found. 2 of 69 engines flagged Setup; no engine flagged any other file.
+  K2: 'No by default; with "Update automatically on launch" on it installs without asking, after checking a signature.'
+  K3: 'Only on your choice; its optional menus rewrite game files, with a backup, and uninstalling clears a Windows compatibility flag.'
+  K4: 'Only on request; feedback sends your report and last race log, and two profile pages carry your Steam ID.'
+  K5: 'No by default; it reads the game through the plugin interface, and two options change what you see in the game.'
+  K6: No. It doesn't unlock, copy or share other people's content.
+  K7: Yes. The full source is public, under the MIT licence.
+  K8: Yes, as far as checked; uninstalling clears the compatibility flag in more cases than the README says.
+  K9: Yes. The release is built from the tag by GitHub Actions, and the zip is signed with minisign.
+  K10: 'Yes. By default it asks GitHub for the newest release at every start; "Check for updates" turns that off.'
+areas:
+  Your PC and files: >-
+    The updater checks a signature as well as GitHub's hash and installs without asking only if you turn that on; optional
+    menus rewrite game files with a backup; no Windows code signature, but the release is built by CI.
+  Your data: >-
+    Asks GitHub for updates at every start unless you turn it off; feedback and profile pages send your report or Steam ID only
+    when you use them, and the plugin shares riders' names in memory any program of yours can read.
+  Your game: >-
+    A plugin that only uses the plugin interface and catches the game's crashes, plus a separate HUD window that reads F8 and
+    the mouse; two options hide the game's pitboard or restyle its menus.
+  Creators' content: Doesn't touch other people's content; it credits the fonts, the icons and the Rust libraries built in.
+  Transparency: >-
+    Full source public under the MIT licence; the release is built from the tag by GitHub Actions, not rebuilt here.
+  Money: Free; no shop and no donation request.
+sections:
+  - title: Your PC and files
+    blocks: []
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: A request for the newest release, with the user agent `mxbo-overlay`; then the zip and its signature, to update
+            Where to: '`api.github.com`, then `github.com`'
+            When: Every program start; the download with auto-update on, or when you click install
+            Switch: '"Check for updates" (on) for the check; "Update automatically on launch" (off) for the download'
+          - What: Your feedback, version, first version, OS, and for a bug report the last race log; later, your ticket IDs to fetch replies
+            Where to: '`holeshot-hud.vercel.app` (the author''s feedback service)'
+            When: When you press Send in Feedback; replies while settings are open, after you have sent one
+            Switch: Only sent when you press Send
+          - What: The pages, in a window inside settings; the MXB-Ranked and CBR addresses carry your Steam ID
+            Where to: '`mymxb.com`, `mxb-ranked.com`, `cbrservers.com`'
+            When: When you open those Profile tabs
+            Switch: Only when you open them
+          - What: An ICMP ping every 2 s
+            Where to: The game server you are on, or `1.1.1.1`
+            When: While the Systems widget shows its meters
+            Switch: The Systems widget (off)
+          - What: The stream HUD as images, and its layout
+            Where to: '`127.0.0.1`, ports 8765 to 8775 (a server on your PC)'
+            When: While "Browser Source" is on
+            Switch: '"Browser Source" (off)'
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks:
+      - text: >-
+          Also found: the MyMXB tab shows mymxb.com inside the program and adds a script to that site that hides and removes its
+          Google ad slots
+          ([mymxb.rs lines 72-185](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/settings/mymxb.rs#L72-L185),
+          [mymxb.rs line 414](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/settings/mymxb.rs#L414);
+          `lab/evidence/holeshot-0.24.2/src-mymxb.txt`).
+        mark: note
+  - title: Transparency
+    blocks:
+      - text: >-
+          Also found: the repository holds a presence service (`overlay/src/presence.rs`, `presence/`) that would post your race
+          number and name to a Cloudflare worker, but the program doesn't build it: `main.rs` declares no such module and the
+          program holds no `workers.dev` address
+          ([main.rs lines 3-27](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L3-L27);
+          `lab/evidence/holeshot-0.24.2/presence-absent.txt`).
+        mark: note
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "Setup finds Steam MX Bikes (registry + Steam library folders) and copies `Holeshot-HUD.dlo` into the game `plugins`
+              folder." (README)
+            Verdict: Matches
+            Evidence: >-
+              [install-plugin.ps1 lines 9-35](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/install-plugin.ps1#L9-L35),
+              [install-plugin.ps1 lines 78-86](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/install-plugin.ps1#L78-L86),
+              [holeshot.iss lines 165-194](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/holeshot.iss#L165-L194). Setup wasn't clicked through in the run.
+          - Claim: '"The overlay copies the plugin again on launch if it is missing or outdated." (README)'
+            Verdict: Matches
+            Evidence: >-
+              It writes the plugin it carries when the game's copy is missing or differs
+              ([plugin.rs lines 157-185](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/plugin.rs#L157-L185),
+              [main.rs line 313](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L313)).
+          - Claim: >-
+              "Uninstall deletes that file, AppData leftovers, temp logs, the fullscreen-optimizations flag on `mxbikes.exe` if
+              an older version set it, and any menu or pitboard overrides. Pit boards saved under
+              `Documents\PiBoSo\MX Bikes\Holeshot-HUD` stay." (README)
+            Verdict: Partly
+            Evidence: >-
+              Every uninstall path runs `Uninstall.ps1`, which has the program restore the menu files and the pitboard override
+              and deletes the settings, logs, temp logs and Run values
+              ([uninstall.ps1 lines 89-167](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/uninstall.ps1#L89-L167),
+              [uninstall.rs lines 30-38](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/uninstall.rs#L30-L38),
+              [holeshot.iss lines 65-80](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/holeshot.iss#L65-L80)). It takes the flag out of every `mxbikes.exe`
+              compatibility entry whoever set it, not only one an older version set (P6). Not run.
+          - Claim: >-
+              "Settings → Updates → Check for updates. It is on until you turn it off. Off, Holeshot HUD does not contact
+              GitHub at startup." (CHANGELOG)
+            Verdict: Matches
+            Evidence: >-
+              [main.rs lines 286-298](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L286-L298),
+              [config.rs line 2805](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/hud/src/config.rs#L2805);
+              `lab/evidence/holeshot-0.24.2/src-update.txt`.
+          - Claim: >-
+              "An update zip must match the signature from the key in the app, and the GitHub SHA-256, before it is
+              installed." (CHANGELOG)
+            Verdict: Matches
+            Evidence: >-
+              [update.rs lines 382-401](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L382-L401);
+              `lab/evidence/holeshot-0.24.2/minisign.txt`.
+          - Claim: '"Browser Source answers `127.0.0.1` and `localhost`. Another site''s Origin gets 403." (CHANGELOG)'
+            Verdict: Matches
+            Evidence: >-
+              [stream/mod.rs lines 1601-1606](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stream/mod.rs#L1601-L1606),
+              [stream/mod.rs lines 1757-1793](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stream/mod.rs#L1757-L1793). Not run.
+          - Claim: '"This build does not set the fullscreen-optimizations flag." (CHANGELOG)'
+            Verdict: Matches
+            Evidence: >-
+              No code sets it, and neither ride wrote to `AppCompatFlags` (`lab/evidence/holeshot-0.24.2/src-registry.txt`,
+              `lab/evidence/holeshot-0.24.2/runs.txt`).
+          - Claim: >-
+              "In-app feedback (F8 → Feedback) posts to `/api/feedback` and stores **private gists**, not GitHub issues." (README)
+            Verdict: Not checked
+            Evidence: >-
+              The program posts to `https://holeshot-hud.vercel.app/api/feedback`, and the service's source in the repository makes
+              private gists ([feedback.rs line 16](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/feedback.rs#L16),
+              [feedback.js line 84](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/api/feedback.js#L84)); what runs on that server can't be seen from here.
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX
+              Bikes demo, offline.
+            questions: []
+          - text: >-
+              The program never ran beside the game: the real-game rides ran only the plugin, and the program ran on its own.
+              What the plugin shares while the program reads it, and what the program does when it finds the game (copying the
+              plugin, the pitboard override, the menu files), rest on the source.
+            questions: [P7, D10, G3, G5, G7]
+          - text: >-
+              No key was pressed and no setting was changed in the program: the settings window, Feedback, the Profile tabs, the
+              Systems widget, "Browser Source", "MX Bikes menus", the Pit Board widget, "Check for updates" and "Update
+              automatically on launch" rest on the source, read at the commit, which the release is built from by CI but wasn't
+              rebuilt here. The updater's signature check wasn't run; the signature was checked here with the same key.
+            questions: [P2, P3, P4, D2, D3, D4, D5, D6, D8, G9]
+          - text: >-
+              Setup ran 60 s without being clicked through, so it installed nothing, and the zip's install and uninstall scripts
+              weren't run; what they do rests on reading them (the zip's are the repository's files) and on Setup's script.
+              Setup itself couldn't be unpacked here (innoextract 1.9 doesn't read Inno Setup 6.7.0).
+            questions: [P6, P8]
+          - text: >-
+              In the test host, the case meant to make the game crash logged no crash and no key presses, so the crash handler
+              wasn't seen at work; it rests on the source and the plugin's imports.
+            questions: [G8]
+          - text: >-
+              Not rebuilt: the plugin is a Visual Studio 2022 project and the program is built with Microsoft's toolchain on
+              Windows, which this setup doesn't have; the Rust toolchain isn't pinned either (T6). The website demo's
+              WebAssembly file in the repository wasn't rebuilt from its source either.
+            questions: [T1, T4]
+          - text: >-
+              The Rust libraries (331 packages in `overlay/Cargo.lock`, from crates.io) weren't read; they are named and pinned
+              by checksum in the lock file.
+            questions: [P9]
+answers:
+  P1:
+    verdict: Partly
+    mark: note
+    text: >-
+      2 of 69 engines flagged `HoleshotHUD-Setup.exe` (APEX, Skyhigh); 0 flagged the zip (of 67), its signature (60),
+      `Holeshot-HUD.exe` (70), `Holeshot-HUD.dlo` (70), `Install.bat` (61), `Install.ps1` (60), `Install-Plugin.ps1` (61),
+      `Uninstall.bat` (60), `Uninstall.ps1` (62), `README.txt` (60), `LICENSE` (60), `OFL.txt` (60) and `THIRD-PARTY.txt` (61),
+      on the hash lookup of 24 Nov 2026. Every file was already on VirusTotal; nothing was uploaded.
+    evidence: >-
+      [HoleshotHUD-Setup.exe](https://www.virustotal.com/gui/file/3fd5b0fdfcaae246c9eea5b2ebbcb1595b7715e977dd12acec021dbcd42ea086),
+      [Holeshot-HUD-0.24.2-windows-x64.zip](https://www.virustotal.com/gui/file/aeaadd66c9f2c0fe10ee09cabf5737b65cfda0182623b058d6c8ee5f9ee956cd),
+      [Holeshot-HUD-0.24.2-windows-x64.zip.minisig](https://www.virustotal.com/gui/file/1ba7238bd00d49de8993a703f892a0bb2ff9dadbe293b33ddaac0bc39d6e2541),
+      [Holeshot-HUD.exe](https://www.virustotal.com/gui/file/8e969f1506654bd62ba7f15352fbffa0da600af516d2aa301529a7dd6a7532f6),
+      [Holeshot-HUD.dlo](https://www.virustotal.com/gui/file/a15c80625c415f8b8e5f89c7e7e32aeec15c4f2df408f2e445ceaa331fa70bce),
+      [Install.bat](https://www.virustotal.com/gui/file/4640ea10b04ff0ccfa138b36f41bf39020235ce813a71e92971b93b821258b1a),
+      [Install.ps1](https://www.virustotal.com/gui/file/2bcd5adf57843c6fb3f35122f0ccadb9f0ca7a614e2d16c8fe50afbc71e7a1a0),
+      [Install-Plugin.ps1](https://www.virustotal.com/gui/file/24b9f5d087c8cf64ab5eee830a26693b4ebc9e4be2b591f8eb70c46c37d50de6),
+      [Uninstall.bat](https://www.virustotal.com/gui/file/2d0e85e92f493825293373b2a79023e7a94149bc5d00df79b58e1f3e206adfe7),
+      [Uninstall.ps1](https://www.virustotal.com/gui/file/967caf8601c802abaffc5bdf5c20466fa800d98c49b98d843ae10b94ca04dcf6),
+      [README.txt](https://www.virustotal.com/gui/file/a19ebe4d928c564ca80f58dc506784b0acbe3271a83f67de443fdef952bbb336),
+      [LICENSE](https://www.virustotal.com/gui/file/a18be22c4fc32edeff0acdc90ca51398c31a12a3ef52f1a6691c1983011423ec),
+      [OFL.txt](https://www.virustotal.com/gui/file/d49343b4cadd0d55f2846f1cc46b7a1eb4df691516e5fff0f348fcc7e753af8d),
+      [THIRD-PARTY.txt](https://www.virustotal.com/gui/file/33a99f01c2ba63efb8d96bea4ea5d37df8808ff165f1a9ecb4444c21665f691e)
+  P2:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      With "Update automatically on launch" on (off by default), each program start downloads the newest GitHub release's zip
+      and, if it is newer and passes the checks (P3), replaces the program and the plugin beside it without asking, then
+      restarts; the program then copies the new plugin into the game. By default it only checks GitHub at start and shows that
+      an update is there; installing takes a click. Turning "Check for updates" off also turns automatic updates off.
+    evidence: >-
+      [main.rs lines 286-298](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L286-L298),
+      [update.rs lines 141-155](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L141-L155),
+      [update.rs lines 185-208](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L185-L208),
+      [update.rs lines 494-500](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L494-L500),
+      [config.rs lines 2805-2806](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/hud/src/config.rs#L2805-L2806);
+      `lab/evidence/holeshot-0.24.2/src-update.txt`, `lab/evidence/holeshot-0.24.2/src-defaults.txt`.
+  P3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Before installing, the zip's SHA-256 must equal the `digest` GitHub gives for it, and its minisign signature (the
+      `.minisig` beside it in the same release) must check out with the public key built into the program; the private key
+      isn't in the repository, and the Release workflow signs with it from a secret. A download that fails either check is
+      deleted. The v0.24.2 zip's signature checks out with that key here, and a cut copy of the zip doesn't.
+    evidence: >-
+      [update.rs line 19](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L19),
+      [update.rs lines 237-258](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L237-L258),
+      [update.rs lines 317-355](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L317-L355),
+      [update.rs lines 382-401](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L382-L401),
+      [release.yml lines 56-89](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/.github/workflows/release.yml#L56-L89);
+      `lab/evidence/holeshot-0.24.2/minisign.txt`, `lab/evidence/holeshot-0.24.2/src-update.txt`.
+  P4:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      With "MX Bikes menus" on (off by default), it rewrites the game's `ui\english.str` (two menu labels) and writes its menu
+      files over the game's in `ui`, after copying the stock files (and the game's `ui.pkz` contents) to `ui.holeshot-bak` in the
+      game folder; turning it off, or uninstalling, deletes its files, copies the backup back and then deletes the backup. By
+      default it deletes only its own files: its earlier plugin name `plugins\mxbo.dlo`, and its settings and logs when you
+      uninstall.
+    evidence: >-
+      [pack.rs lines 177-210](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/game_ui/pack.rs#L177-L210),
+      [pack.rs lines 314-345](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/game_ui/pack.rs#L314-L345),
+      [io.rs lines 11-27](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/game_ui/io.rs#L11-L27),
+      [plugin.rs lines 187-189](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/plugin.rs#L187-L189);
+      `lab/evidence/holeshot-0.24.2/src-gamefiles.txt`, `lab/evidence/holeshot-0.24.2/src-defaults.txt`.
+  P5:
+    verdict: Partly
+    mark: note
+    text: >-
+      The zip is signed with minisign (P3), and its signature is published beside it; no file carries a Windows code
+      signature: not Setup, the program or the plugin. They are built from the public tag by GitHub Actions (T3).
+    evidence: >-
+      Empty Security Directory (`lab/evidence/holeshot-0.24.2/signature.txt`); `lab/evidence/holeshot-0.24.2/minisign.txt`,
+      `lab/evidence/holeshot-0.24.2/release-api.txt`.
+  P6:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      It no longer sets the Windows compatibility flag for `mxbikes.exe`: the plugin has no registry call, and neither ride
+      wrote to `AppCompatFlags`. When you uninstall, it takes `DISABLEDXMAXIMIZEDWINDOWEDMODE` ("Disable fullscreen
+      optimisations") out of every `mxbikes.exe` entry under `HKCU\Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers`,
+      also one you set yourself, and keeps that entry's other settings. "Open when Windows starts" and "Open when MX Bikes
+      opens" add its own Run values (G9).
+    evidence: >-
+      [compat.rs lines 393-497](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/compat.rs#L393-L497),
+      [uninstall.ps1 lines 126-142](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/uninstall.ps1#L126-L142),
+      [uninstall.rs lines 30-38](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/uninstall.rs#L30-L38);
+      `lab/evidence/holeshot-0.24.2/src-registry.txt`, `lab/evidence/holeshot-0.24.2/imports-dlo.txt`,
+      `lab/evidence/holeshot-0.24.2/runs.txt`; `lab/results/holeshot-0.24.2/ride-windows/registry.txt`.
+  P7:
+    verdict: Yes, not by default
+    mark: note
+    text: >-
+      By default only its plugin goes in the game folder. While a Pit Board widget is shown (off by default) it writes an empty
+      `misc\hud\pitboard.cfg`, which hides the game's own pitboard, and a marker file beside it, unless a `pitboard.cfg` is
+      already there; with "MX Bikes menus" on, its menu files go in `ui` and a backup folder `ui.holeshot-bak` (P4).
+    evidence: >-
+      [stock_pitboard.rs lines 1-3](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stock_pitboard.rs#L1-L3),
+      [stock_pitboard.rs lines 33-40](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stock_pitboard.rs#L33-L40),
+      [stock_pitboard.rs lines 71-85](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stock_pitboard.rs#L71-L85),
+      [config.rs lines 1086-1094](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/hud/src/config.rs#L1086-L1094);
+      `lab/evidence/holeshot-0.24.2/src-gamefiles.txt`.
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Uninstalling (Windows Settings, `Uninstall.bat` or the program's own Uninstall) removes the program, the plugin, settings,
+      logs, temp logs and its Run values, and puts back the game's menu files and pitboard if those options were on. It leaves
+      only its own folder of pit boards, `Documents\PiBoSo\MX Bikes\Holeshot-HUD`.
+    evidence: >-
+      [uninstall.ps1 lines 89-167](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/uninstall.ps1#L89-L167),
+      [holeshot.iss lines 65-80](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/installer/holeshot.iss#L65-L80),
+      [uninstall.rs lines 30-38](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/uninstall.rs#L30-L38);
+      `lab/evidence/holeshot-0.24.2/src-registry.txt`; `lab/results/holeshot-0.24.2/overlay-windows/outside.txt`.
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The release files were uploaded by the GitHub Actions run that built the tag; the scripts are the
+      repository's, the plugin's imports (no network, no registry writes, no other process; its VirtualProtect calls take only
+      its own C runtime table) and the program's imports and web addresses match the source, and the runs showed nothing the
+      source doesn't do.
+    evidence: >-
+      `lab/evidence/holeshot-0.24.2/release-api.txt`, `lab/evidence/holeshot-0.24.2/same-as-source.txt`,
+      `lab/evidence/holeshot-0.24.2/imports-dlo.txt`, `lab/evidence/holeshot-0.24.2/virtualprotect.txt`,
+      `lab/evidence/holeshot-0.24.2/imports-exe.txt`, `lab/evidence/holeshot-0.24.2/strings-urls.txt`,
+      `lab/evidence/holeshot-0.24.2/runs.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      With "Check for updates" on (its default), the program asks `api.github.com` for the newest release at every start; in
+      both runs it tried `github.com` on port 443 at once. The rest only on your choice: the update download, Feedback, the
+      Profile pages, the Systems widget's ping, and a server on your own PC for "Browser Source" (table above). The plugin makes
+      no connection.
+    evidence: >-
+      [update.rs lines 217-236](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/update.rs#L217-L236),
+      [main.rs lines 296-298](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L296-L298);
+      `lab/evidence/holeshot-0.24.2/src-network.txt`, `lab/evidence/holeshot-0.24.2/imports-dlo.txt`;
+      `lab/results/holeshot-0.24.2/overlay-windows/network.txt`, `lab/results/holeshot-0.24.2/ride-windows/network.txt`.
+  D2:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      When you press Send in Feedback, it sends your message and rating, its version, the version you first installed and your
+      OS; for a bug report, with "attach" on (its default), also the last race log: the track, your lap times and places, and the
+      log's file name (its folder path, which holds your Windows user name, is cut off). Nothing else about you is sent.
+    evidence: >-
+      [feedback.rs line 56](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/feedback.rs#L56),
+      [feedback.rs lines 393-430](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/feedback.rs#L393-L430),
+      [feedback.rs lines 695-736](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/feedback.rs#L695-L736),
+      [feedback.rs lines 772-812](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/feedback.rs#L772-L812),
+      [record.rs lines 229-232](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/record.rs#L229-L232);
+      `lab/evidence/holeshot-0.24.2/src-feedback.txt`.
+  D3:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      When you open the MXB-Ranked or CBR tab under Profile, the page it loads is the one for your Steam account, with your Steam
+      ID in the address, read from Steam's settings on your PC. Feedback carries no identifier; reply IDs come from the service.
+    evidence: >-
+      [plugin.rs lines 369-420](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/plugin.rs#L369-L420),
+      [ranked.rs lines 340-355](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/settings/ranked.rs#L340-L355);
+      `lab/evidence/holeshot-0.24.2/src-steam.txt`, `lab/evidence/holeshot-0.24.2/src-network.txt`.
+  D4:
+    verdict: Yes, on request
+    mark: concern
+    text: >-
+      A bug report's race log, sent when you press Send, holds every rider's race number, place, laps and position on the track,
+      without names.
+    evidence: >-
+      [record.rs lines 403-443](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/record.rs#L403-L443),
+      [feedback.rs lines 721-732](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/feedback.rs#L721-L732);
+      `lab/evidence/holeshot-0.24.2/src-feedback.txt`.
+  D5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      With "Browser Source" on (off by default), it runs a server on `127.0.0.1` (port 8765 to 8775) for your streaming
+      software. It answers no other website: a request whose Origin isn't `127.0.0.1` or `localhost` gets 403, its WebSocket
+      included, and its answers carry no header that lets another site read them.
+    evidence: >-
+      [stream/mod.rs lines 1531-1541](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stream/mod.rs#L1531-L1541),
+      [stream/mod.rs lines 1601-1606](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stream/mod.rs#L1601-L1606),
+      [stream/mod.rs lines 1757-1802](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stream/mod.rs#L1757-L1802),
+      [config.rs line 2803](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/hud/src/config.rs#L2803);
+      `lab/evidence/holeshot-0.24.2/src-network.txt`.
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads Steam's registry key and `libraryfolders.vdf` to find the game, and Steam's `loginusers.vdf` and active user for
+      your Steam ID (Profile tabs); the Systems widget reads the list of running programs and their CPU and memory use, and
+      whether ReShade is loaded in the game. None of it is other people's data.
+    evidence: >-
+      [plugin.rs lines 237-357](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/plugin.rs#L237-L357),
+      [plugin.rs lines 377-391](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/plugin.rs#L377-L391),
+      [sys.rs lines 281-310](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/sys.rs#L281-L310);
+      `lab/evidence/holeshot-0.24.2/src-steam.txt`, `lab/evidence/holeshot-0.24.2/imports-exe.txt`.
+  D7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing it sends is published by the program; the feedback service's source keeps reports as private gists, which can't
+      be checked on the server from here. The presence service in the repository isn't built (Transparency).
+    evidence: '[feedback.js line 84](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/api/feedback.js#L84); `lab/evidence/holeshot-0.24.2/presence-absent.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      "Check for updates" (Settings → Updates) turns off the update check at start; every other connection needs a setting or a
+      click.
+    evidence: >-
+      [main.rs lines 286-298](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L286-L298),
+      [dispatch.rs lines 937-950](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/settings/dispatch.rs#L937-L950);
+      `lab/evidence/holeshot-0.24.2/src-update.txt`, `lab/evidence/holeshot-0.24.2/src-defaults.txt`.
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account is needed or created; the Profile tabs show other sites' public pages.
+    evidence: '`lab/evidence/holeshot-0.24.2/src-network.txt`, `lab/evidence/holeshot-0.24.2/strings-urls.txt`.'
+  D10:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      The plugin shares the game's data in memory named `Local\MXBOHudV19`, open to your Windows account and SYSTEM, so any
+      program running as you can read it: every rider's name and race number, standings, positions, the server name and the
+      event's ID.
+    evidence: >-
+      [mxbo_shm.h lines 13-17](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/shm/mxbo_shm.h#L13-L17),
+      [mxbo_shm.h lines 32-62](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/shm/mxbo_shm.h#L32-L62),
+      [mxbo_shm.h lines 164-165](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/shm/mxbo_shm.h#L164-L165),
+      [shm_writer.cpp lines 30-124](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/shm_writer.cpp#L30-L124);
+      `lab/evidence/holeshot-0.24.2/src-shm.txt`, `lab/evidence/holeshot-0.24.2/imports-dlo.txt`.
+  G1:
+    verdict: 'No'
+    mark: good
+    text: The plugin is loaded by the game; the program writes nothing into the game's process.
+    evidence: '`lab/evidence/holeshot-0.24.2/imports-exe.txt` (no WriteProcessMemory, VirtualAllocEx or CreateRemoteThread).'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugin uses only the plugin interface; its VirtualProtect calls all take its own `.fptable` section (the C runtime's),
+      not the game's code. Clicking a rider while spectating asks the game, through the interface, to show that rider.
+    evidence: >-
+      `lab/evidence/holeshot-0.24.2/virtualprotect.txt`, `lab/evidence/holeshot-0.24.2/imports-dlo.txt`;
+      [plugin.cpp lines 605-637](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/plugin.cpp#L605-L637); `lab/results/holeshot-0.24.2/bystander-crash-windows/host.log`.
+  G3:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      With a Pit Board widget shown, it hides the game's own pitboard, also online; with "MX Bikes menus" on, the game's menus
+      look different. Both change only what you see, and both are off by default; by default it only reads the game.
+    evidence: >-
+      [stock_pitboard.rs lines 1-3](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/stock_pitboard.rs#L1-L3),
+      [pack.rs lines 177-210](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/game_ui/pack.rs#L177-L210);
+      `lab/evidence/holeshot-0.24.2/src-defaults.txt`.
+  G4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It doesn't read the game's memory: the program opens the game's process only to read its path, CPU and memory use and its
+      list of loaded modules.
+    evidence: >-
+      [sys.rs lines 389-420](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/sys.rs#L389-L420);
+      `lab/evidence/holeshot-0.24.2/imports-exe.txt` (no ReadProcessMemory).
+  G5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It takes input only for its own menu and widgets: the settings key (F8 by default), a click on a rider while spectating,
+      and Ctrl+drag to move widgets, during which it keeps the pointer inside its window. It presses no keys.
+    evidence: >-
+      [main.rs lines 578-600](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L578-L600),
+      [compat.rs lines 581-593](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/compat.rs#L581-L593);
+      `lab/evidence/holeshot-0.24.2/src-keys.txt`, `lab/evidence/holeshot-0.24.2/imports-exe.txt` (no SendInput or keybd_event).
+  G6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It leaves other plugins and tools alone: it deletes only its own earlier plugin name, it ends only `Holeshot-HUD.exe`
+      processes, and the bystander plugin's tables stayed untouched in the test host.
+    evidence: >-
+      [startup.rs lines 233-270](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/startup.rs#L233-L270);
+      `lab/evidence/holeshot-0.24.2/src-gamefiles.txt`; `lab/results/holeshot-0.24.2/bystander-crash-windows/host.log`.
+  G7:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The program reads the settings key, F9 and the left mouse button with GetAsyncKeyState in its main loop, also while the game
+      isn't in front. The plugin reads no keys (its key-reading code isn't built into the release, and it imports nothing that
+      reads them); pressing F8, F9 and Ctrl in the game with the plugin loaded wrote nothing beyond the ride without keys.
+    evidence: >-
+      [main.rs lines 578-604](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/main.rs#L578-L604);
+      `lab/evidence/holeshot-0.24.2/src-keys.txt`, `lab/evidence/holeshot-0.24.2/plugin-build.txt`,
+      `lab/evidence/holeshot-0.24.2/imports-dlo.txt`, `lab/evidence/holeshot-0.24.2/runs.txt`.
+  G8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      At start, the plugin sets a crash handler for the whole game (SetUnhandledExceptionFilter) that writes a crash report and
+      a minidump to `%LOCALAPPDATA%\Holeshot HUD\logs`, then lets the crash go on.
+    evidence: >-
+      [crash_log.cpp lines 534-535](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/crash_log.cpp#L534-L535),
+      [crash_log.cpp lines 609-622](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/crash_log.cpp#L609-L622),
+      [plugin.cpp line 187](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/plugin.cpp#L187);
+      `lab/evidence/holeshot-0.24.2/src-crash.txt`, `lab/evidence/holeshot-0.24.2/imports-dlo.txt`.
+  G9:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      "Open when Windows starts" adds the program to Windows start-up, and "Open when MX Bikes opens" adds a helper there that
+      waits for the game; both are off by default.
+    evidence: >-
+      [startup.rs lines 24-54](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/src/startup.rs#L24-L54),
+      [config.rs lines 2799-2802](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/overlay/hud/src/config.rs#L2799-L2802);
+      `lab/results/holeshot-0.24.2/overlay-windows/registry.txt` (only removals of absent values).
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: '`Holeshot-HUD.exe` is a separate program that draws the HUD over the game; you start it.'
+    evidence: '`lab/evidence/holeshot-0.24.2/file.txt`; `lab/results/holeshot-0.24.2/overlay-windows/procmon.txt`.'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`Holeshot-HUD.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: >-
+      It exports Startup, Draw and the other plugin functions (`lab/evidence/holeshot-0.24.2/Holeshot-HUD.dlo.objdump-p.txt`);
+      `lab/results/holeshot-0.24.2/ride-windows/loaded.txt`.
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No check or protection of the game is got around; it uses the plugin interface.
+    evidence: '`lab/evidence/holeshot-0.24.2/imports-dlo.txt`, `lab/evidence/holeshot-0.24.2/virtualprotect.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing.
+    evidence: '[The source at the commit](https://github.com/LeadingTrendTechnologies/HoleshotHUD/tree/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7).'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It saves no copy of other people's models or textures; "MX Bikes menus" backs up the game's own menu files (P4).
+    evidence: '`lab/evidence/holeshot-0.24.2/src-gamefiles.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares no one's content.
+    evidence: '`lab/evidence/holeshot-0.24.2/src-network.txt`.'
+  C4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The release carries `THIRD-PARTY.txt`, which names the 170 Rust packages built into the program with their versions and
+      licences, the icon font and the five fonts, and `OFL.txt`, the fonts' licence. The plugin's only outside code is the
+      game's own plugin-interface header.
+    evidence: '`lab/evidence/holeshot-0.24.2/strings-thirdparty.txt`, `lab/evidence/holeshot-0.24.2/same-as-source.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It opens no one's mods, paints, tracks or models; it gets the track's shape through the plugin interface.
+    evidence: '[plugin.cpp lines 413-426](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/src/plugin.cpp#L413-L426); `lab/evidence/holeshot-0.24.2/imports-dlo.txt`.'
+  T1:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The release's program files, `Holeshot-HUD.exe` and `Holeshot-HUD.dlo` (PE32+ x86-64), and Setup (Inno Setup 6.7.0) are
+      built from the source at the commit by GitHub Actions (T3). The repository holds one prebuilt program file,
+      `web/pkg/mxbo_web_preview_bg.wasm`, the website's demo, not in the release; it was last changed with its source in
+      `web-preview/`, in the public history. The Python bytecode file without source that the 0.24.0 card found is gone.
+    evidence: '`lab/evidence/holeshot-0.24.2/file.txt`, `lab/evidence/holeshot-0.24.2/repo-files.txt`, `lab/evidence/holeshot-0.24.2/release-api.txt`.'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      What its docs say about installing, copying the plugin, updates, Browser Source and uninstalling matches the code; uninstalling
+      clears the compatibility flag in a few more cases than the README says (see "What it says vs what it does").
+    evidence: '`lab/evidence/holeshot-0.24.2/same-as-source.txt`, `lab/evidence/holeshot-0.24.2/src-registry.txt`, `lab/evidence/holeshot-0.24.2/src-update.txt`.'
+  T3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The Release workflow builds the plugin, the program, the zip and Setup on a `v*` tag, signs the zip and publishes them;
+      all three release files were uploaded by `github-actions[bot]` in the run for tag `v0.24.2` at the commit.
+    evidence: >-
+      [release.yml lines 3-107](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/.github/workflows/release.yml#L3-L107);
+      `lab/evidence/holeshot-0.24.2/release-api.txt`, `lab/evidence/holeshot-0.24.2/deps.txt`.
+  T4:
+    verdict: Not checked
+    text: >-
+      Not rebuilt: the plugin is a Visual Studio 2022 project and the program is built with Microsoft's Rust toolchain on
+      Windows, which this setup doesn't have.
+    evidence: '`lab/evidence/holeshot-0.24.2/deps.txt`, `lab/evidence/holeshot-0.24.2/plugin-build.txt`.'
+  T5:
+    verdict: Partly
+    mark: note
+    text: >-
+      The public history has 99 commits, from 14 Aug to 24 Nov 2026, on 38 days; most are named for a version ("Ship 0.24.2 …"),
+      so the work between releases is mostly not in it.
+    evidence: '[Commits up to the commit](https://github.com/LeadingTrendTechnologies/HoleshotHUD/commits/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7); `lab/evidence/holeshot-0.24.2/repo-files.txt`.'
+  T6:
+    verdict: Partly
+    mark: note
+    text: >-
+      The Rust packages are pinned by checksum in the committed `Cargo.lock` files; the build tools aren't: the workflow takes
+      the latest stable Rust, the latest Inno Setup from Chocolatey and the runner's Visual Studio, and its actions by version tag.
+    evidence: '`lab/evidence/holeshot-0.24.2/deps.txt`.'
+  T7:
+    verdict: 'Yes'
+    mark: good
+    text: The repository and the release carry the MIT licence (`LICENSE`), and the README names it.
+    evidence: '`lab/evidence/holeshot-0.24.2/repo-files.txt`, `lab/evidence/holeshot-0.24.2/same-as-source.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/holeshot-0.24.2/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold, and no shop is linked.
+    evidence: '`lab/evidence/holeshot-0.24.2/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Neither the program, the release nor its GitHub page asks for donations.
+    evidence: '`lab/evidence/holeshot-0.24.2/strings-money.txt`; [release page](https://github.com/LeadingTrendTechnologies/HoleshotHUD/releases/tag/v0.24.2).'
+history:
+  - date: 24 Nov 2026
+    change: First card, for release v0.24.2.

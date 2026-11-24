@@ -1,0 +1,113 @@
+$ cd "$RES" && echo '== real game: steps (all three reached the track)'; for r in baseline ride ride-keys; do echo "-- $r"; grep -E 'to-track|key-|ride' "$r-windows/host.log"; done; echo '== real game: files written outside the game folder, against the baseline (texture cache names are random)'; for r in ride ride-keys; do echo "-- $r"; diff <(sed -E 's/textures\\[a-z0-9]{8}/textures\\<random>/' "baseline-windows/outside.txt" | sort -u) <(sed -E 's/textures\\[a-z0-9]{8}/textures\\<random>/' "$r-windows/outside.txt" | sort -u); done; echo '== real game: registry writes not in the baseline (none to AppCompatFlags)'; for r in ride ride-keys; do echo "-- $r"; diff <(sort -u "baseline-windows/registry.txt") <(sort -u "$r-windows/registry.txt") | grep '^>'; grep -c AppCompatFlags "$r-windows/registry.txt"; done; echo '== network'; for r in ride ride-keys overlay overlay-wait setup bystander-crash; do echo "-- $r"; cat "$r-windows/network.txt"; done; echo '== overlay: registry'; cat "overlay-windows/registry.txt"; echo '== overlay: files written outside its folder'; grep -E 'WriteFile|SetRename' "overlay-windows/outside.txt" | sort -u; echo '== setup: processes started'; zcat "setup-windows/raw/procmon.csv.gz" | grep 'Process Create' | cut -d, -f2,5; echo '== bystander'; grep -E 'Startup\(|untouched|changed|clean exit|crash|key' "bystander-crash-windows/host.log" | sort | uniq -c
+== real game: steps (all three reached the track)
+-- baseline
+1795542924 to-track
+1795543015 ride
+-- ride
+1795543182 to-track
+1795543272 ride
+-- ride-keys
+1795543429 to-track
+1795543451 key-F8
+1795543466 key-F8
+1795543482 key-F9
+1795543497 key-ctrl
+1795543520 ride
+== real game: files written outside the game folder, against the baseline (texture cache names are random)
+-- ride
+0a1,5
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD  NAME COLLISION
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD  SUCCESS
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs  NAME COLLISION
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs  SUCCESS
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS
+52a58,59
+> mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  FAST IO DISALLOWED
+> mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS
+-- ride-keys
+0a1,3
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD  NAME COLLISION
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs  NAME COLLISION
+> mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS
+52a56
+> mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS
+== real game: registry writes not in the baseline (none to AppCompatFlags)
+-- ride
+> mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\realgame\run-ride\mxbikes.exe  SUCCESS
+0
+-- ride-keys
+> mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\realgame\run-ride-keys\mxbikes.exe  SUCCESS
+0
+== network
+-- ride
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+-- ride-keys
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+-- overlay
+Internet connections the run's processes tried (Process Monitor), then the firewall's drops for them. Every program in the run folder was blocked by the firewall, so this shows attempts, not traffic.
+6:07:24.3119603 PM  Holeshot-HUD.exe (10000)  TCP Disconnect  runnervmbpeip.1caujdj35v1ufpb3c5iokzbrmh.gx.internal.cloudapp.net:58441 -> lb-140-82-113-6-iad.github.com:https  SUCCESS
+2026-11-24 18:07:24 DROP TCP 10.1.0.12 140.82.113.6 58441 443 0 - 0 0 0 - - - SEND 10000
+-- overlay-wait
+Internet connections the run's processes tried (Process Monitor), then the firewall's drops for them. Every program in the run folder was blocked by the firewall, so this shows attempts, not traffic.
+6:08:50.4640182 PM  Holeshot-HUD.exe (6876)  TCP Disconnect  runnervmbpeip.1caujdj35v1ufpb3c5iokzbrmh.gx.internal.cloudapp.net:58479 -> lb-140-82-112-6-iad.github.com:https  SUCCESS
+2026-11-24 18:08:50 DROP TCP 10.1.0.12 140.82.112.6 58479 443 0 - 0 0 0 - - - SEND 6876
+-- setup
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+-- bystander-crash
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+== overlay: registry
+Holeshot-HUD.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Run  SUCCESS
+Holeshot-HUD.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+Holeshot-HUD.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+Holeshot-HUD.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Holeshot HUD  NAME NOT FOUND
+Holeshot-HUD.exe  RegDeleteValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\Holeshot HUD game  NAME NOT FOUND
+Holeshot-HUD.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-overlay\release\Holeshot-HUD-0.24.2-windows-x64.zip\Holeshot-HUD.exe  SUCCESS
+== overlay: files written outside its folder
+Holeshot-HUD.exe  SetRenameInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD.ini.tmp  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\race.jsonl  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-journal  FAST IO DISALLOWED
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-journal  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-wal  FAST IO DISALLOWED
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\reviews\reviews.sqlite-wal  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\Holeshot HUD\logs\boot.txt  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD.ini.tmp  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\board.json  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\holeshot.png  SUCCESS
+Holeshot-HUD.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\Holeshot-HUD\pitboards\sample.png  SUCCESS
+== setup: processes started
+"HoleshotHUD-Setup.exe","C:\Users\RUNNER~1\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp"
+== bystander
+      4   SwapBuffers        untouched
+      4   glBegin            untouched
+      1   glBegin          untouched
+      4   glBlendFunc        untouched
+      4   glClear            untouched
+      4   glDrawElements     untouched
+      1   glDrawElements   untouched
+      4   glDrawRangeElements untouched  (global from wglGetProcAddress)
+      4   glFrustum          untouched
+      1   glFrustum        untouched
+      4   glGetFloatv        untouched
+      4   glLoadIdentity     untouched
+      1   glLoadIdentity   untouched
+      4   glLoadMatrixf      untouched
+      4   glMatrixMode       untouched
+      4   glOrtho            untouched
+      1   glOrtho          untouched
+      4   glReadPixels       untouched
+      1   glReadPixels     untouched
+      4   glScissor          untouched
+      1   glScissor        untouched
+      4   glViewport         untouched
+      1   glViewport       untouched
+      1   import glBegin    untouched
+      1   import glOrtho    untouched
+      1   import glViewport untouched
+      4   wglGetProcAddress  untouched
+      1 Startup(plugins\Holeshot-HUD.dlo) -> 50
+      1 Startup(victim.dlo) -> -1
+      1 host: D:\a\_temp\mxbfacts\run-bystander-crash\mxbikes.exe
+      1 host: clean exit
+(exit 0)

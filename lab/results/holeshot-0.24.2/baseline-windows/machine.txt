@@ -1,0 +1,6 @@
+Machine: Microsoft Windows Server 2025 Datacenter, video: Microsoft Hyper-V Video (no GPU). Screen: 1280x720 (setting 1280x720 returned 0). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: 97330813853e0e514a11ee16a47d4c6fe90148fae834649839afb30487cc8b0b.
+Game: MX Bikes beta21e (demo), installer SHA-256 a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0.
+Release files (SHA-256):
+aeaadd66c9f2c0fe10ee09cabf5737b65cfda0182623b058d6c8ee5f9ee956cd  Holeshot-HUD-0.24.2-windows-x64.zip
+3fd5b0fdfcaae246c9eea5b2ebbcb1595b7715e977dd12acec021dbcd42ea086  HoleshotHUD-Setup.exe
+1ba7238bd00d49de8993a703f892a0bb2ff9dadbe293b33ddaac0bc39d6e2541  Holeshot-HUD-0.24.2-windows-x64.zip.minisig

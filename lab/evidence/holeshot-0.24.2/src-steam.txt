@@ -1,0 +1,13 @@
+$ cd "$SRC" && grep -nE 'libraryfolders.vdf|loginusers.vdf|ActiveUser|fn local_steam_id64|fn ranked_url_from_steam_id64|fn cbr_url_from_steam_id64' overlay/src/plugin.rs; grep -nE 'libraryfolders|Valve' installer/install-plugin.ps1
+341:        let vdf = root.join("steamapps").join("libraryfolders.vdf");
+377:fn local_steam_id64() -> Option<u64> {
+382:        let path = root.join("config").join("loginusers.vdf");
+409:fn ranked_url_from_steam_id64(steam_id64: u64) -> String {
+418:fn cbr_url_from_steam_id64(steam_id64: u64) -> String {
+441:            w!("ActiveUser"),
+457:/// SteamID64 of the `MostRecent` user in `loginusers.vdf`.
+12:            "HKCU:\Software\Valve\Steam",
+13:            "HKLM:\SOFTWARE\WOW6432Node\Valve\Steam",
+14:            "HKLM:\SOFTWARE\Valve\Steam"
+25:        $vdf = Join-Path $root "steamapps\libraryfolders.vdf"
+(exit 0)

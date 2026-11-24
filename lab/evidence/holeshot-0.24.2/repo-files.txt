@@ -1,0 +1,25 @@
+$ cd "$SRC" && git ls-files | grep -iE 'licen|copying|OFL'; head -3 LICENSE; echo '--- prebuilt program files:'; git ls-files | grep -E '\.(dll|lib|exe|dlo|so|wasm|pyc|o|obj)$' | while read f; do file "$f"; done; echo '--- the wasm and the last commits that changed it and its source:'; git log -1 --format='%h %ad %s' --date=short -- web/pkg/mxbo_web_preview_bg.wasm; git log -1 --format='%h %ad %s' --date=short -- web-preview overlay/hud/src; echo '--- the commit that last built the wasm changed its source with it:'; git show --stat --format='%h %ad' --date=short $(git log -1 --format=%h -- web/pkg/mxbo_web_preview_bg.wasm) -- web-preview web/pkg | grep -E '^[0-9a-f]{7} |web-preview/|_bg.wasm '; echo '--- removed since v0.24.0:'; git diff --stat 3ffdbf366023c19e1741178e39b5704a91728819 5f4905e94f2423cc67c79a4bf7b684c31dd13cf7 -- overlay/hud/assets/__pycache__; echo '--- history:'; git log --oneline 5f4905e94f2423cc67c79a4bf7b684c31dd13cf7 | wc -l; git log --format='%ad' --date=short 5f4905e94f2423cc67c79a4bf7b684c31dd13cf7 | sed -n '1p;$p'; git log --format='%ad' --date=short 5f4905e94f2423cc67c79a4bf7b684c31dd13cf7 | sort -u | wc -l
+LICENSE
+overlay/hud/fonts/OFL.txt
+MIT License
+
+Copyright (c) 2026 Leading Trend Technologies
+--- prebuilt program files:
+web/pkg/mxbo_web_preview_bg.wasm: WebAssembly (wasm) binary module version 0x1 (MVP)
+--- the wasm and the last commits that changed it and its source:
+c3ea51e 2026-10-06 Enhance HUD features and update session management
+5f4905e 2026-11-24 Ship 0.24.2 so the startup update check can be turned off and the release carries its licences.
+--- the commit that last built the wasm changed its source with it:
+c3ea51e 2026-10-06
+ web-preview/src/edit.rs               |   4 +-
+ web-preview/src/lib.rs                |  42 ++++++++++++++++-----
+ web/pkg/mxbo_web_preview_bg.wasm      | Bin 3534680 -> 6032791 bytes
+--- removed since v0.24.0:
+ .../assets/__pycache__/gen_gamepad_xbox.cpython-313.pyc | Bin 29168 -> 0 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+--- history:
+99
+2026-11-24
+2026-08-14
+38
+(exit 0)

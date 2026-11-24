@@ -1,0 +1,4 @@
+mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD  NAME COLLISION
+mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs  NAME COLLISION
+mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS
+mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Holeshot HUD\logs\last-trail.txt  SUCCESS

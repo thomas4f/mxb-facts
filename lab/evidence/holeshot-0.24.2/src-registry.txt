@@ -1,0 +1,37 @@
+$ cd "$SRC" && grep -nE 'AppCompatFlags|DISABLEDXMAXIMIZEDWINDOWEDMODE|Reg[A-Z][A-Za-z]+\(' src/*.cpp src/*.h || echo 'plugin: no registry call'; grep -rnE 'ensure_disable|clear_disable_fullscreen_optimizations' overlay/src --include=*.rs; grep -nE 'AppCompatFlags|const FLAG|RegSetValueExW\(|RegDeleteValueW\(' overlay/src/compat.rs; grep -nE 'RUN_KEY|RUN_GAME|wait-for-game' overlay/src/startup.rs | head -8; echo '--- in the uninstallers:'; grep -nE 'HKCU|AppCompat|DISABLEDX|Invoke-UndoGameFiles|Clear-GameCompatFlag|Remove-TempLogs|undo-game-files' installer/uninstall.ps1 overlay/src/uninstall.rs; grep -nE 'UninstallRun|Uninstall.ps1' installer/holeshot.iss
+plugin: no registry call
+overlay/src/compat.rs:394:pub fn clear_disable_fullscreen_optimizations() {
+overlay/src/uninstall.rs:36:    crate::compat::clear_disable_fullscreen_optimizations();
+34:const FLAG: &str = "DISABLEDXMAXIMIZEDWINDOWEDMODE";
+399:            w!("Software\\Microsoft\\Windows NT\\CurrentVersion\\AppCompatFlags\\Layers"),
+478:            let _ = RegDeleteValueW(key, PCWSTR(wide_name.as_ptr()));
+484:                let _ = RegSetValueExW(
+24:const RUN_KEY: windows::core::PCWSTR = w!("Software\\Microsoft\\Windows\\CurrentVersion\\Run");
+26:const RUN_GAME: windows::core::PCWSTR = w!("Holeshot HUD game");
+46:        remove_value(RUN_GAME);
+53:    set_run_value(RUN_GAME, follow, "--wait-for-game");
+112:/// Detached `--wait-for-game` child. Survives this process exiting.
+121:        .arg("--wait-for-game")
+151:        .arg("--wait-for-game")
+166:/// Real HUD path passed to a temp `--wait-for-game` helper.
+--- in the uninstallers:
+installer/uninstall.ps1:64:            "HKCU:\Software\Valve\Steam",
+installer/uninstall.ps1:126:function Clear-GameCompatFlag {
+installer/uninstall.ps1:127:    $layers = 'Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers'
+installer/uninstall.ps1:133:        $tokens = @($current -split '\s+' | Where-Object { $_ -and ($_ -ine 'DISABLEDXMAXIMIZEDWINDOWEDMODE') })
+installer/uninstall.ps1:144:function Remove-TempLogs {
+installer/uninstall.ps1:151:function Invoke-UndoGameFiles {
+installer/uninstall.ps1:156:            Start-Process -FilePath $exe -ArgumentList '--undo-game-files' -Wait -WindowStyle Hidden | Out-Null
+installer/uninstall.ps1:163:Invoke-UndoGameFiles
+installer/uninstall.ps1:164:Clear-GameCompatFlag
+installer/uninstall.ps1:165:Remove-TempLogs
+installer/uninstall.ps1:166:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD' -Force -ErrorAction SilentlyContinue
+installer/uninstall.ps1:167:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD game' -Force -ErrorAction SilentlyContinue
+overlay/src/uninstall.rs:119:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD' -Force -ErrorAction SilentlyContinue
+overlay/src/uninstall.rs:120:Remove-Item -LiteralPath 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Run' -Name 'Holeshot HUD game' -Force -ErrorAction SilentlyContinue
+overlay/src/uninstall.rs:121:$layers = 'Software\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers'
+overlay/src/uninstall.rs:127:    $tokens = @($current -split '\s+' | Where-Object {{ $_ -and ($_ -ine 'DISABLEDXMAXIMIZEDWINDOWEDMODE') }})
+50:Source: "{#SourceDir}\Uninstall.ps1"; DestDir: "{app}"; Flags: ignoreversion
+65:[UninstallRun]
+66:Filename: "powershell.exe"; Parameters: "-NoProfile -ExecutionPolicy Bypass -File ""{app}\Uninstall.ps1"" -Silent"; Flags: runhidden waituntilterminated; RunOnceId: "RemovePlugin"
+(exit 0)

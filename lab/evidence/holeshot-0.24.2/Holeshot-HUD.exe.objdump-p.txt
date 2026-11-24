@@ -1,0 +1,647 @@
+$ objdump -p zip/Holeshot-HUD.exe | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+zip/Holeshot-HUD.exe:     file format pei-x86-64
+
+Characteristics 0x22
+	executable
+	large address aware
+
+Time/Date		Tue Nov 24 15:59:15 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	52
+SizeOfCode		00000000006d1000
+SizeOfInitializedData	0000000000cdac00
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	00000000006bf9f0
+BaseOfCode		0000000000001000
+ImageBase		0000000140000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		013ae000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00008160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+					TERMINAL_SERVICE_AWARE
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 0000000000000000 00000000 Export Directory [.edata (or where ever we found it)]
+Entry 1 000000000132634c 000002a8 Import Directory [parts of .idata]
+Entry 2 000000000137e000 00026988 Resource Directory [.rsrc]
+Entry 3 0000000001342000 0003bcdc Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 00000000013a5000 00008e88 Base Relocation Directory [.reloc]
+Entry 6 0000000001269c80 00000054 Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 0000000001269d00 00000028 Thread Storage Directory [.tls]
+Entry a 0000000001269b40 00000140 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 00000000006d2000 00000df0 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x14132634c
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 0132634c	01326c48 00000000 00000000 0132793e 006d24d8
+
+	DLL Name: kernel32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d24d8  <none>  0000  GetModuleFileNameW
+	006d24e0  <none>  0000  lstrlenW
+	006d24e8  <none>  0000  GetOverlappedResultEx
+	006d24f0  <none>  0000  GetFileInformationByHandleEx
+	006d24f8  <none>  0000  GetStdHandle
+	006d2500  <none>  0000  ReadFile
+	006d2508  <none>  0000  GetConsoleMode
+	006d2510  <none>  0000  WriteConsoleW
+	006d2518  <none>  0000  WriteFile
+	006d2520  <none>  0000  CreateFileW
+	006d2528  <none>  0000  IsProcessorFeaturePresent
+	006d2530  <none>  0000  GetUserDefaultLocaleName
+	006d2538  <none>  013d  FindNextFileW
+	006d2540  <none>  0000  SleepConditionVariableSRW
+	006d2548  <none>  0000  WakeAllConditionVariable
+	006d2550  <none>  0000  ResetEvent
+	006d2558  <none>  0000  AcquireSRWLockExclusive
+	006d2560  <none>  0210  GetModuleHandleA
+	006d2568  <none>  014e  FlsSetValue
+	006d2570  <none>  031a  IsThreadAFiber
+	006d2578  <none>  0000  LoadLibraryExA
+	006d2580  <none>  0000  CreateEventW
+	006d2588  <none>  0212  GetModuleHandleExW
+	006d2590  <none>  0000  GetProcessHeap
+	006d2598  <none>  0000  HeapFree
+	006d25a0  <none>  0000  HeapAlloc
+	006d25a8  <none>  014b  FlsAlloc
+	006d25b0  <none>  014c  FlsFree
+	006d25b8  <none>  04a2  SetWaitableTimer
+	006d25c0  <none>  0000  FormatMessageW
+	006d25c8  <none>  0000  DeviceIoControl
+	006d25d0  <none>  00b4  CreateWaitableTimerExW
+	006d25d8  <none>  019e  GetConsoleOutputCP
+	006d25e0  <none>  0000  CancelIoEx
+	006d25e8  <none>  0000  ReleaseSRWLockExclusive
+	006d25f0  <none>  0000  GlobalMemoryStatusEx
+	006d25f8  <none>  0000  LoadLibraryW
+	006d2600  <none>  0000  GetProcAddress
+	006d2608  <none>  0000  GetCurrentThreadId
+	006d2610  <none>  0000  TerminateProcess
+	006d2618  <none>  0000  GetLastError
+	006d2620  <none>  0000  CreateMutexW
+	006d2628  <none>  0000  SetLastError
+	006d2630  <none>  0000  QueryFullProcessImageNameW
+	006d2638  <none>  0000  Sleep
+	006d2640  <none>  0000  GetExitCodeProcess
+	006d2648  <none>  02ff  InitializeSListHead
+	006d2650  <none>  0000  WaitForSingleObject
+	006d2658  <none>  0000  GetProcessTimes
+	006d2660  <none>  0000  OpenProcess
+	006d2668  <none>  0000  GetCurrentProcess
+	006d2670  <none>  0000  GetSystemTimes
+	006d2678  <none>  03bc  QueryDosDeviceW
+	006d2680  <none>  00af  CreateToolhelp32Snapshot
+	006d2688  <none>  03a8  Process32FirstW
+	006d2690  <none>  03aa  Process32NextW
+	006d2698  <none>  0202  GetLogicalDrives
+	006d26a0  <none>  0370  Module32FirstW
+	006d26a8  <none>  0372  Module32NextW
+	006d26b0  <none>  033a  K32GetProcessMemoryInfo
+	006d26b8  <none>  0000  GetModuleHandleW
+	006d26c0  <none>  0000  GetUserDefaultUILanguage
+	006d26c8  <none>  0000  LCIDToLocaleName
+	006d26d0  <none>  0000  LoadLibraryExW
+	006d26d8  <none>  03c4  QueryPerformanceCounter
+	006d26e0  <none>  03c5  QueryPerformanceFrequency
+	006d26e8  <none>  01eb  GetFinalPathNameByHandleW
+	006d26f0  <none>  03eb  ReleaseMutex
+	006d26f8  <none>  008e  CreateMutexA
+	006d2700  <none>  02cb  GlobalAlloc
+	006d2708  <none>  04b0  SwitchToThread
+	006d2710  <none>  02d6  GlobalLock
+	006d2718  <none>  02dd  GlobalUnlock
+	006d2720  <none>  0112  ExitProcess
+	006d2728  <none>  0126  FindClose
+	006d2730  <none>  0388  OpenFileMappingW
+	006d2738  <none>  036b  MapViewOfFile
+	006d2740  <none>  04e4  VirtualQuery
+	006d2748  <none>  04ca  UnmapViewOfFile
+	006d2750  <none>  012c  FindFirstFileExW
+	006d2758  <none>  0412  RtlVirtualUnwind
+	006d2760  <none>  01e0  GetFileAttributesW
+	006d2768  <none>  0396  OutputDebugStringA
+	006d2770  <none>  0397  OutputDebugStringW
+	006d2778  <none>  01d5  GetEnvironmentVariableW
+	006d2780  <none>  0150  FlushFileBuffers
+	006d2788  <none>  02a6  GetTickCount
+	006d2790  <none>  007f  CreateFileMappingW
+	006d2798  <none>  0157  FormatMessageA
+	006d27a0  <none>  0282  GetSystemTime
+	006d27a8  <none>  0284  GetSystemTimeAsFileTime
+	006d27b0  <none>  0507  WideCharToMultiByte
+	006d27b8  <none>  04b1  SystemTimeToFileTime
+	006d27c0  <none>  01b7  GetCurrentProcessId
+	006d27c8  <none>  01e6  GetFileSize
+	006d27d0  <none>  0367  LockFileEx
+	006d27d8  <none>  035c  LocalFree
+	006d27e0  <none>  04c8  UnlockFile
+	006d27e8  <none>  02e6  HeapDestroy
+	006d27f0  <none>  02e4  HeapCompact
+	006d27f8  <none>  027d  GetSystemInfo
+	006d2800  <none>  02ea  HeapReAlloc
+	006d2808  <none>  00c8  DeleteFileW
+	006d2810  <none>  00c5  DeleteFileA
+	006d2818  <none>  04ee  WaitForSingleObjectEx
+	006d2820  <none>  0350  LoadLibraryA
+	006d2828  <none>  007a  CreateFileA
+	006d2830  <none>  0153  FlushViewOfFile
+	006d2838  <none>  01dd  GetFileAttributesExW
+	006d2840  <none>  01db  GetFileAttributesA
+	006d2848  <none>  01c4  GetDiskFreeSpaceA
+	006d2850  <none>  0292  GetTempPathA
+	006d2858  <none>  037c  MultiByteToWideChar
+	006d2860  <none>  02ec  HeapSize
+	006d2868  <none>  02ef  HeapValidate
+	006d2870  <none>  0293  GetTempPathW
+	006d2878  <none>  04c9  UnlockFileEx
+	006d2880  <none>  043f  SetEndOfFile
+	006d2888  <none>  01f1  GetFullPathNameA
+	006d2890  <none>  0451  SetFilePointer
+	006d2898  <none>  0366  LockFile
+	006d28a0  <none>  01c7  GetDiskFreeSpaceW
+	006d28a8  <none>  01f4  GetFullPathNameW
+	006d28b0  <none>  02e5  HeapCreate
+	006d28b8  <none>  001f  AreFileApisANSI
+	006d28c0  <none>  03d1  RaiseException
+	006d28c8  <none>  02fa  InitializeCriticalSection
+	006d28d0  <none>  00e5  EnterCriticalSection
+	006d28d8  <none>  034d  LeaveCriticalSection
+	006d28e0  <none>  04c2  TryEnterCriticalSection
+	006d28e8  <none>  00c3  DeleteCriticalSection
+	006d28f0  <none>  01fc  GetLocalTime
+	006d28f8  <none>  0054  CompareStringOrdinal
+	006d2900  <none>  015b  FreeEnvironmentStringsW
+	006d2908  <none>  017f  GetCommandLineW
+	006d2910  <none>  01ae  GetCurrentDirectoryW
+	006d2918  <none>  01ba  GetCurrentThread
+	006d2920  <none>  0375  MoveFileExW
+	006d2928  <none>  044f  SetFileInformationByHandle
+	006d2930  <none>  00dd  DuplicateHandle
+	006d2938  <none>  0062  CopyFileExW
+	006d2940  <none>  048f  SetThreadStackGuarantee
+	006d2948  <none>  0010  AddVectoredExceptionHandler
+	006d2950  <none>  0452  SetFilePointerEx
+	006d2958  <none>  0071  CreateDirectoryW
+	006d2960  <none>  01d3  GetEnvironmentStringsW
+	006d2968  <none>  00a6  CreateThread
+	006d2970  <none>  0000  CloseHandle
+	006d2978  <none>  0099  CreateProcessW
+	006d2980  <none>  0000  FreeLibrary
+	006d2988  <none>  02c4  GetWindowsDirectoryW
+	006d2990  <none>  027a  GetSystemDirectoryW
+	006d2998  <none>  01e2  GetFileInformationByHandle
+	006d29a0  <none>  0455  SetFileTime
+	006d29a8  <none>  0285  GetSystemTimePreciseAsFileTime
+	006d29b0  <none>  045c  SetHandleInformation
+	006d29b8  <none>  040c  RtlLookupFunctionEntry
+	006d29c0  <none>  0406  RtlCaptureContext
+	006d29c8  <none>  03e0  ReadFileEx
+	006d29d0  <none>  04ab  SleepEx
+	006d29d8  <none>  051a  WriteFileEx
+	006d29e0  <none>  049b  SetUnhandledExceptionFilter
+
+ 01326360	01326878 00000000 00000000 0132794c 006d2108
+
+	DLL Name: api-ms-win-core-synch-l1-2-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2108  <none>  0001  WakeByAddressAll
+	006d2110  <none>  0000  WakeByAddressSingle
+	006d2118  <none>  0000  WaitOnAddress
+
+ 01326374	01327218 00000000 00000000 0132796e 006d2aa8
+
+	DLL Name: shell32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2aa8  <none>  0000  SHAppBarMessage
+	006d2ab0  <none>  0000  Shell_NotifyIconW
+	006d2ab8  <none>  0000  ShellExecuteW
+	006d2ac0  <none>  0000  DragFinish
+	006d2ac8  <none>  0000  DragQueryFileW
+
+ 01326388	01327258 00000000 00000000 0132797a 006d2ae8
+
+	DLL Name: user32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2ae8  <none>  0000  GetDC
+	006d2af0  <none>  0000  MessageBoxW
+	006d2af8  <none>  0000  LoadCursorW
+	006d2b00  <none>  0000  SystemParametersInfoW
+	006d2b08  <none>  0000  GetSysColor
+	006d2b10  <none>  0000  EnumChildWindows
+	006d2b18  <none>  0000  SetWindowPos
+	006d2b20  <none>  0000  CreateWindowExW
+	006d2b28  <none>  0000  RegisterClassExW
+	006d2b30  <none>  0000  PostMessageW
+	006d2b38  <none>  0216  OpenClipboard
+	006d2b40  <none>  0000  AttachThreadInput
+	006d2b48  <none>  0040  CloseClipboard
+	006d2b50  <none>  026a  SetClipboardData
+	006d2b58  <none>  00fe  GetClipboardData
+	006d2b60  <none>  020f  NotifyWinEvent
+	006d2b68  <none>  0000  GetCursorPos
+	006d2b70  <none>  0000  ShowWindow
+	006d2b78  <none>  0000  IsWindowVisible
+	006d2b80  <none>  0000  GetDCEx
+	006d2b88  <none>  0000  LoadImageW
+	006d2b90  <none>  0000  IsProcessDPIAware
+	006d2b98  <none>  0000  DestroyWindow
+	006d2ba0  <none>  00ba  EmptyClipboard
+	006d2ba8  <none>  0000  RegisterWindowMessageA
+	006d2bb0  <none>  0000  GetWindow
+	006d2bb8  <none>  0000  SetFocus
+	006d2bc0  <none>  0000  RedrawWindow
+	006d2bc8  <none>  0000  SetWindowTextW
+	006d2bd0  <none>  0000  ReleaseCapture
+	006d2bd8  <none>  0000  EndPaint
+	006d2be0  <none>  0000  LookupIconIdFromDirectoryEx
+	006d2be8  <none>  0000  BeginPaint
+	006d2bf0  <none>  0000  ScreenToClient
+	006d2bf8  <none>  0000  SetCapture
+	006d2c00  <none>  0000  RegisterWindowMessageW
+	006d2c08  <none>  0000  BringWindowToTop
+	006d2c10  <none>  0000  EnumDisplayMonitors
+	006d2c18  <none>  0000  ReleaseDC
+	006d2c20  <none>  0000  DispatchMessageA
+	006d2c28  <none>  0000  GetMessageA
+	006d2c30  <none>  0000  ShowWindowAsync
+	006d2c38  <none>  0000  GetClassNameW
+	006d2c40  <none>  0000  SetForegroundWindow
+	006d2c48  <none>  0000  FindWindowExW
+	006d2c50  <none>  0000  FindWindowW
+	006d2c58  <none>  0000  SetWindowLongPtrW
+	006d2c60  <none>  0000  GetWindowLongPtrW
+	006d2c68  <none>  0000  ClipCursor
+	006d2c70  <none>  0000  GetWindowRect
+	006d2c78  <none>  0000  UpdateLayeredWindow
+	006d2c80  <none>  0000  PostQuitMessage
+	006d2c88  <none>  0000  DefWindowProcW
+	006d2c90  <none>  0000  IsIconic
+	006d2c98  <none>  0000  SetCursor
+	006d2ca0  <none>  0000  GetAsyncKeyState
+	006d2ca8  <none>  0000  IsWindow
+	006d2cb0  <none>  0000  DispatchMessageW
+	006d2cb8  <none>  0000  TranslateMessage
+	006d2cc0  <none>  0000  PeekMessageW
+	006d2cc8  <none>  0000  MonitorFromPoint
+	006d2cd0  <none>  0000  GetWindowThreadProcessId
+	006d2cd8  <none>  0000  GetForegroundWindow
+	006d2ce0  <none>  0000  GetMonitorInfoW
+	006d2ce8  <none>  0000  MonitorFromWindow
+	006d2cf0  <none>  0000  ClientToScreen
+	006d2cf8  <none>  0000  GetClientRect
+	006d2d00  <none>  0000  SendMessageW
+	006d2d08  <none>  0000  GetSystemMetrics
+	006d2d10  <none>  0000  EnumWindows
+	006d2d18  <none>  0000  CreateIconFromResourceEx
+	006d2d20  <none>  0000  FillRect
+
+ 0132639c	01326bc0 00000000 00000000 01327986 006d2450
+
+	DLL Name: hid.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2450  <none>  0000  HidD_GetHidGuid
+	006d2458  <none>  0000  HidD_FreePreparsedData
+	006d2460  <none>  0000  HidD_GetProductString
+	006d2468  <none>  0000  HidD_SetFeature
+	006d2470  <none>  0000  HidD_SetOutputReport
+	006d2478  <none>  0000  HidD_GetIndexedString
+	006d2480  <none>  0000  HidD_GetAttributes
+	006d2488  <none>  0000  HidD_GetManufacturerString
+	006d2490  <none>  0000  HidD_SetNumInputBuffers
+	006d2498  <none>  0000  HidD_GetPreparsedData
+	006d24a0  <none>  0000  HidD_GetSerialNumberString
+	006d24a8  <none>  0000  HidP_GetCaps
+
+ 013263b0	01326af0 00000000 00000000 0132798e 006d2380
+
+	DLL Name: cfgmgr32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2380  <none>  0000  CM_Get_DevNode_PropertyW
+	006d2388  <none>  0000  CM_Get_Device_Interface_List_SizeW
+	006d2390  <none>  0000  CM_Locate_DevNodeW
+	006d2398  <none>  0000  CM_Get_Device_Interface_ListW
+	006d23a0  <none>  0000  CM_Get_Parent
+	006d23a8  <none>  0000  CM_Get_Device_Interface_PropertyW
+
+ 013263c4	01327160 00000000 00000000 013279ac 006d29f0
+
+	DLL Name: ntdll.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d29f0  <none>  0000  RtlGetVersion
+	006d29f8  <none>  017e  RtlNtStatusToDosError
+	006d2a00  <none>  00a0  NtWriteFile
+	006d2a08  <none>  0043  NtOpenFile
+	006d2a10  <none>  012c  NtCreateNamedPipeFile
+	006d2a18  <none>  0079  NtReadFile
+
+ 013263d8	01327248 00000000 00000000 0132809e 006d2ad8
+
+	DLL Name: shlwapi.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2ad8  <none>  0000  SHCreateMemStream
+
+ 013263ec	01327198 00000000 00000000 013280aa 006d2a28
+
+	DLL Name: ole32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2a28  <none>  0000  CoCreateInstance
+	006d2a30  <none>  0000  CoInitializeEx
+	006d2a38  <none>  0000  RevokeDragDrop
+	006d2a40  <none>  0000  RegisterDragDrop
+
+ 01326400	01326b28 00000000 00000000 013280b4 006d23b8
+
+	DLL Name: combase.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d23b8  <none>  0000  CoTaskMemFree
+	006d23c0  <none>  0000  CoTaskMemAlloc
+	006d23c8  <none>  0000  CoCreateFreeThreadedMarshaler
+
+ 01326414	01326b78 00000000 00000000 013280c0 006d2408
+
+	DLL Name: gdi32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2408  <none>  0000  DeleteDC
+	006d2410  <none>  0000  CreateSolidBrush
+	006d2418  <none>  0000  SelectObject
+	006d2420  <none>  0000  CreateDIBSection
+	006d2428  <none>  0000  GetDeviceCaps
+	006d2430  <none>  0000  DeleteObject
+	006d2438  <none>  0000  SetDIBitsToDevice
+	006d2440  <none>  0000  CreateCompatibleDC
+
+ 01326428	01326ac0 00000000 00000000 013280ca 006d2350
+
+	DLL Name: api-ms-win-shcore-scaling-l1-1-1.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2350  <none>  0000  SetProcessDpiAwareness
+
+ 0132643c	01326b48 00000000 00000000 013280f0 006d23d8
+
+	DLL Name: comctl32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d23d8  <none>  0000  SetWindowSubclass
+	006d23e0  <none>  0000  DefSubclassProc
+	006d23e8  <none>  0000  RemoveWindowSubclass
+
+ 01326450	013271c0 00000000 00000000 013280fe 006d2a50
+
+	DLL Name: oleaut32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2a50  <none>  0000  SetErrorInfo
+	006d2a58  <none>  0000  GetErrorInfo
+	006d2a60  <none>  0000  SysFreeString
+	006d2a68  <none>  0000  SysStringLen
+
+ 01326464	01326ae0 00000000 00000000 013281c8 006d2370
+
+	DLL Name: bcryptprimitives.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2370  <none>  0000  ProcessPrng
+
+ 01326478	01326ad0 00000000 00000000 013281f0 006d2360
+
+	DLL Name: bcrypt.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2360  <none>  001f  BCryptGenRandom
+
+ 0132648c	01326770 00000000 00000000 013282e6 006d2000
+
+	DLL Name: ADVAPI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2000  <none>  010c  EventRegister
+	006d2008  <none>  0279  RegEnumValueW
+	006d2010  <none>  0295  RegQueryValueExW
+	006d2018  <none>  027d  RegGetValueW
+	006d2020  <none>  010e  EventUnregister
+	006d2028  <none>  0114  EventWriteTransfer
+	006d2030  <none>  026f  RegDeleteValueW
+	006d2038  <none>  010d  EventSetInformation
+	006d2040  <none>  0288  RegOpenKeyExW
+	006d2048  <none>  031f  SystemFunction036
+	006d2050  <none>  0260  RegCreateKeyExW
+	006d2058  <none>  0257  RegCloseKey
+	006d2060  <none>  02a5  RegSetValueExW
+
+ 013264a0	013271e8 00000000 00000000 01328e28 006d2a78
+
+	DLL Name: pdh.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2a78  <none>  000c  PdhCloseQuery
+	006d2a80  <none>  004c  PdhOpenQueryW
+	006d2a88  <none>  0003  PdhAddEnglishCounterW
+	006d2a90  <none>  000d  PdhCollectQueryData
+	006d2a98  <none>  003a  PdhGetFormattedCounterArrayW
+
+ 013264b4	01326b68 00000000 00000000 01328e30 006d23f8
+
+	DLL Name: dwmapi.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d23f8  <none>  0019  DwmSetWindowAttribute
+
+ 013264c8	01326c28 00000000 00000000 01328e3c 006d24b8
+
+	DLL Name: iphlpapi.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d24b8  <none>  0087  IcmpSendEcho
+	006d24c0  <none>  003d  GetExtendedTcpTable
+	006d24c8  <none>  0085  IcmpCreateFile
+
+ 013264dc	01327550 00000000 00000000 01328e4a 006d2de0
+
+	DLL Name: xinput1_4.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2de0  <none>  0005  XInputGetState
+
+ 013264f0	013274a0 00000000 00000000 01328e58 006d2d30
+
+	DLL Name: ws2_32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2d30  <none>  0095  listen
+	006d2d38  <none>  007e  bind
+	006d2d40  <none>  007d  accept
+	006d2d48  <none>  0081  freeaddrinfo
+	006d2d50  <none>  009b  send
+	006d2d58  <none>  004c  WSASend
+	006d2d60  <none>  0057  WSAStartup
+	006d2d68  <none>  0047  WSARecv
+	006d2d70  <none>  0094  ioctlsocket
+	006d2d78  <none>  008d  getsockopt
+	006d2d80  <none>  009d  setsockopt
+	006d2d88  <none>  0080  connect
+	006d2d90  <none>  002e  WSAGetLastError
+	006d2d98  <none>  007f  closesocket
+	006d2da0  <none>  0082  getaddrinfo
+	006d2da8  <none>  009a  select
+	006d2db0  <none>  0087  getpeername
+	006d2db8  <none>  0056  WSASocketW
+	006d2dc0  <none>  008c  getsockname
+	006d2dc8  <none>  0098  recv
+	006d2dd0  <none>  0025  WSADuplicateSocketW
+
+ 01326504	013267e0 00000000 00000000 01328f98 006d2070
+
+	DLL Name: VCRUNTIME140.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2070  <none>  0022  __std_exception_destroy
+	006d2078  <none>  0001  _CxxThrowException
+	006d2080  <none>  0021  __std_exception_copy
+	006d2088  <none>  003c  memcpy
+	006d2090  <none>  000e  __CxxFrameHandler3
+	006d2098  <none>  003d  memmove
+	006d20a0  <none>  003b  memcmp
+	006d20a8  <none>  003e  memset
+	006d20b0  <none>  0045  wcsrchr
+	006d20b8  <none>  0036  _purecall
+	006d20c0  <none>  0040  strchr
+	006d20c8  <none>  0041  strrchr
+	006d20d0  <none>  0008  __C_specific_handler
+	006d20d8  <none>  003a  memchr
+	006d20e0  <none>  001c  __current_exception_context
+	006d20e8  <none>  001b  __current_exception
+
+ 01326518	01326868 00000000 00000000 01328faa 006d20f8
+
+	DLL Name: VCRUNTIME140_1.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d20f8  <none>  0000  __CxxFrameHandler4
+
+ 0132652c	013268b8 00000000 00000000 013292da 006d2148
+
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2148  <none>  0018  free
+	006d2150  <none>  0008  _callnewh
+	006d2158  <none>  0016  _set_new_mode
+	006d2160  <none>  0019  malloc
+	006d2168  <none>  001a  realloc
+	006d2170  <none>  0011  _msize
+
+ 01326540	01326900 00000000 00000000 013292fa 006d2190
+
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2190  <none>  00be  floor
+	006d2198  <none>  00ca  fmodf
+	006d21a0  <none>  007d  ceilf
+	006d21a8  <none>  0113  sinf
+	006d21b0  <none>  0091  cosf
+	006d21b8  <none>  0056  atan2f
+	006d21c0  <none>  00b6  expf
+	006d21c8  <none>  004a  acos
+	006d21d0  <none>  004b  acosf
+	006d21d8  <none>  00ff  powf
+	006d21e0  <none>  0009  __setusermatherr
+	006d21e8  <none>  0109  round
+	006d21f0  <none>  010a  roundf
+	006d21f8  <none>  00bf  floorf
+	006d2200  <none>  00da  log
+	006d2208  <none>  0120  truncf
+	006d2210  <none>  0090  cos
+	006d2218  <none>  007c  ceil
+
+ 01326554	01326a58 00000000 00000000 0132931a 006d22e8
+
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d22e8  <none>  004a  _wcsicmp
+	006d22f0  <none>  00a3  wcslen
+	006d22f8  <none>  009e  wcscmp
+	006d2300  <none>  0086  strcmp
+	006d2308  <none>  008a  strcspn
+	006d2310  <none>  008b  strlen
+	006d2318  <none>  008e  strncmp
+	006d2320  <none>  0093  strspn
+
+ 01326568	01326898 00000000 00000000 0132933c 006d2128
+
+	DLL Name: api-ms-win-crt-convert-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2128  <none>  006e  wcstol
+	006d2130  <none>  0047  _wtoi
+	006d2138  <none>  0033  _ultow_s
+
+ 0132657c	01326ab0 00000000 00000000 0132935e 006d2340
+
+	DLL Name: api-ms-win-crt-utility-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2340  <none>  0019  qsort
+
+ 01326590	01326aa0 00000000 00000000 01329380 006d2330
+
+	DLL Name: api-ms-win-crt-time-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2330  <none>  0024  _localtime64_s
+
+ 013265a4	01326998 00000000 00000000 013293a0 006d2228
+
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2228  <none>  0067  terminate
+	006d2230  <none>  0020  _endthreadex
+	006d2238  <none>  0014  _beginthreadex
+	006d2240  <none>  001e  _crt_atexit
+	006d2248  <none>  0040  _seh_filter_exe
+	006d2250  <none>  003c  _register_onexit_function
+	006d2258  <none>  0034  _initialize_onexit_table
+	006d2260  <none>  0042  _set_app_type
+	006d2268  <none>  0018  _configure_narrow_argv
+	006d2270  <none>  0033  _initialize_narrow_environment
+	006d2278  <none>  0028  _get_initial_narrow_environment
+	006d2280  <none>  003d  _register_thread_local_exe_atexit_callback
+	006d2288  <none>  0015  _c_exit
+	006d2290  <none>  0016  _cexit
+	006d2298  <none>  0005  __p___argv
+	006d22a0  <none>  0004  __p___argc
+	006d22a8  <none>  0036  _initterm
+	006d22b0  <none>  0023  _exit
+	006d22b8  <none>  0055  exit
+	006d22c0  <none>  0037  _initterm_e
+
+ 013265b8	01326a40 00000000 00000000 013293c2 006d22d0
+
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d22d0  <none>  0054  _set_fmode
+	006d22d8  <none>  0001  __p__commode
+
+ 013265cc	013268f0 00000000 00000000 013293e2 006d2180
+
+	DLL Name: api-ms-win-crt-locale-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	006d2180  <none>  0008  _configthreadlocale
+
+ 013265e0	00000000 00000000 00000000 00000000 00000000
+
+(exit 0)

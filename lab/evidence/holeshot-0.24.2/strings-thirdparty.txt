@@ -1,0 +1,31 @@
+$ echo '== credits in the release README'; grep -niE 'font awesome|licen|credit|thanks|THIRD' zip/README.txt; echo '== THIRD-PARTY.txt: header, crate lines, fonts'; head -3 zip/THIRD-PARTY.txt; grep -cE '^[a-z0-9_-]+ [0-9][^ ]* \(' zip/THIRD-PARTY.txt; grep -E 'Exo 2|Teko|Goldman|Montserrat|Roboto' zip/THIRD-PARTY.txt; echo '== a few of the crates the program uses, in THIRD-PARTY.txt'; grep -E '^(ureq|wry|minisign|rusqlite|libsqlite3-sys|zip|sha2|hidapi|windows) ' zip/THIRD-PARTY.txt; echo '== crates in the lock file (all targets, with the workspace own)'; grep -c '^name = ' "$SRC/overlay/Cargo.lock"; echo '== the plugin: its only outside code is the game API header'; cd "$SRC" && git ls-files src/vendor
+== credits in the release README
+36:Icons use Font Awesome Free (https://fontawesome.com/license/free)
+37:Rust crates built into the program are listed in THIRD-PARTY.txt
+38:The MIT licence is LICENSE. Bundled fonts and their licence are OFL.txt.
+== THIRD-PARTY.txt: header, crate lines, fonts
+﻿Third-party Rust crates built into Holeshot HUD.
+Each line is the crate name, version, and SPDX license identifier.
+Font Awesome Free icons: https://fontawesome.com/license/free
+170
+  Exo 2          Copyright 2017 The Exo 2 Project Authors
+  Teko           Copyright 2023 The Teko Project Authors
+  Goldman        Copyright 2020 The Goldman Project Authors
+  Montserrat     Copyright 2011 The Montserrat Project Authors
+  Roboto is licensed under the Apache License, Version 2.0.
+== a few of the crates the program uses, in THIRD-PARTY.txt
+hidapi 2.6.6 (MIT)
+libsqlite3-sys 0.30.1 (MIT)
+minisign 0.7.9 (MIT)
+rusqlite 0.32.1 (MIT)
+sha2 0.10.9 (MIT OR Apache-2.0)
+ureq 2.12.1 (MIT OR Apache-2.0)
+windows 0.58.0 (MIT OR Apache-2.0)
+windows 0.62.2 (MIT OR Apache-2.0)
+wry 0.57.0 (Apache-2.0 OR MIT)
+zip 0.6.6 (MIT)
+== crates in the lock file (all targets, with the workspace own)
+331
+== the plugin: its only outside code is the game API header
+src/vendor/piboso/mxb_api.h
+(exit 0)

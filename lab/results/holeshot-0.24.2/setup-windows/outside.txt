@@ -1,0 +1,4 @@
+HoleshotHUD-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp  SUCCESS
+HoleshotHUD-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS
+HoleshotHUD-Setup.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS
+HoleshotHUD-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\is-45CZMSX5KD.tmp\HoleshotHUD-Setup.tmp  SUCCESS

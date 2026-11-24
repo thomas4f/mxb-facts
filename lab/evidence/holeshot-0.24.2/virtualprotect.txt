@@ -1,0 +1,10 @@
+$ objdump -h zip/Holeshot-HUD.dlo | grep -E 'fptable'; objdump -d zip/Holeshot-HUD.dlo | grep -E '# 0x18003e2e8|# 0x18005e000'
+  4 .fptable      00000100  000000018005e000  000000018005e000  00058a00  2**2
+   18002a7c3:	48 8d 35 36 38 03 00 	lea    0x33836(%rip),%rsi        # 0x18005e000
+   18002a7dd:	ff 15 05 3b 01 00    	call   *0x13b05(%rip)        # 0x18003e2e8
+   18002a80e:	ff 15 d4 3a 01 00    	call   *0x13ad4(%rip)        # 0x18003e2e8
+   18002a8d4:	48 8b 05 25 37 03 00 	mov    0x33725(%rip),%rax        # 0x18005e000
+   18002ad58:	48 8b 05 a1 32 03 00 	mov    0x332a1(%rip),%rax        # 0x18005e000
+   18002af0f:	48 8d 0d ea 30 03 00 	lea    0x330ea(%rip),%rcx        # 0x18005e000
+   18002af1c:	ff 15 c6 33 01 00    	call   *0x133c6(%rip)        # 0x18003e2e8
+(exit 0)
