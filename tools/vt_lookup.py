@@ -1,8 +1,9 @@
 """Look up release files on VirusTotal by SHA-256. This script never uploads anything.
 
 A hash lookup only reads results that already exist; a file VirusTotal has never seen comes
-back as "not found". Uploading such a file is done by hand by the maintainer, and only for a
-publicly released file of a tool whose licence allows analysis (CLAUDE.md, "VirusTotal").
+back as "not found". Such a file is uploaded by the "Analyse a tool" run (tools/vt_release.py),
+or by hand by the maintainer, and only when it is a publicly released file of a tool whose
+licence allows analysis (CLAUDE.md, "VirusTotal"). An entry keeps the date it was uploaded.
 
 The API key is read from the VT_API_KEY environment variable (a GitHub Actions secret, or
 your shell). It is never written to the repository or to the output.
@@ -76,9 +77,12 @@ def describe(r):
     if 'error' in r:
         return f'lookup failed ({r["error"]})'
     if not r['found']:
-        return 'not found on VirusTotal'
+        if r.get('uploaded'):
+            return f'not on VirusTotal yet (uploaded {r["uploaded"]}, scan pending)'
+        return 'not found on VirusTotal' + (f'; {r["upload_error"]}' if r.get('upload_error') else '')
     names = (': ' + ', '.join(r['flagged_by'])) if r['flagged_by'] else ''
-    return f'{r["flagged"]} of {r["engines"]} engines flagged it, last scanned {r["last_scanned"]}{names}'
+    up = f', uploaded {r["uploaded"]}' if r.get('uploaded') else ''
+    return f'{r["flagged"]} of {r["engines"]} engines flagged it, last scanned {r["last_scanned"]}{up}{names}'
 
 
 def card_hashes(path):
@@ -123,10 +127,13 @@ def write_json(path, cards, results, today, url, prune):
                 entry[h] = prev  # keep the last good result rather than an error
                 continue
             entry[h] = dict(r, looked_up=today, run=url, permalink=GUI + h)
+            if prev and prev.get('uploaded') and not r.get('uploaded'):
+                entry[h]['uploaded'] = prev['uploaded']  # a later lookup keeps the date the file was uploaded
         new[name] = entry
     out = {
-        'about': 'VirusTotal hash lookups (no uploads) for the files listed in each card, '
-                 'written by tools/vt_lookup.py. How a card quotes them (P1) is in rules/questions.md.',
+        'about': 'VirusTotal hash lookups for the files listed in each card, written by tools/vt_lookup.py; '
+                 '"uploaded" is the date the "Analyse a tool" run (or the maintainer) uploaded a file VirusTotal had no '
+                 'record of. How a card quotes them (P1) is in rules/questions.md.',
         'cards': dict(sorted(new.items())),
     }
     os.makedirs(os.path.dirname(path) or '.', exist_ok=True)

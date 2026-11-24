@@ -26,6 +26,7 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 ```json
 {
  "game": "mxbikes",
+ "licence": "allows",
  "files": [{"url": "https://.../tool-1.0.zip", "sha256": "<64 hex>"}],
  "realgame": [{"name": "ride", "ride": 60, "keys": [[15, "F4"], [30, "ctrl+r"]]}],
  "cases": [{"name": "hotkeys", "args": ["--frames", "500", "--key", "120", "0x73", "--crash", "plugins\\tool.dlo", "victim.dlo"]}],
@@ -35,6 +36,8 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 ```
 
 - `game`: `mxbikes` or `gpbikes` (a GP Bikes plugin runs in `gpbikes.exe`).
+- `licence`: what the release's licence says about analysing it: `allows`, `forbids` (rule 6: nothing runs) or `unclear`.
+  The run uploads release files VirusTotal has no record of only on `allows` (CLAUDE.md, "VirusTotal").
 - `files`: the files players download, by URL and SHA-256 (at most 5): a direct https link, a MEGA file link
   (`https://mega.nz/file/<id>#<key>`) as the tool's page gives it, or a file in a MEGA folder
   (`https://mega.nz/folder/<id>#<key>/file/<handle>`, as `tools/fetch_release.py list <folder link>` prints it). Each is saved under its name (a MEGA file under its

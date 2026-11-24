@@ -1,6 +1,6 @@
 name: VirusTotal lookup
-# Looks up the SHA-256 hashes of the cards' files (tools/vt_lookup.py). It never uploads files; the maintainer uploads by
-# hand (CLAUDE.md, "VirusTotal"). Needs the repository secret VT_API_KEY. By hand only, to save runner minutes:
+# Looks up the SHA-256 hashes of the cards' files (tools/vt_lookup.py). It never uploads files; "Analyse a tool" uploads
+# the release files VirusTotal has no record of, or the maintainer by hand (CLAUDE.md, "VirusTotal"). Needs the repository secret VT_API_KEY. By hand only, to save runner minutes:
 # - with "pr": looks up the cards that pull request adds or changes and posts the results as one comment on it (updated on
 #   each run); pull requests from forks are skipped;
 # - otherwise, with "tool": looks up that tool's cards (or all), writes the results to vt/results.json and commits it to main.

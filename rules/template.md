@@ -112,3 +112,10 @@ The header facts shown at the top of the tool's page (name, what it is, category
 - Short sentences. One fact per line.
 - Name settings exactly as the tool's own screens name them.
 
+## Changes to these rules
+
+How we work changes here; a change to scores is recorded in [scores.md](scores.md#changes-to-this-rubric) instead.
+
+| Date | Change |
+|---|---|
+| 24 Nov 2026 | VirusTotal: the "Analyse a tool" run uploads each downloaded release file VirusTotal has no record of, by default, and looks it up again once it is scanned; before, only the maintainer uploaded, by hand. Never a private file or a file of a tool whose licence forbids analysis (rule 6); the run's "Skip upload" input turns it off ([`CLAUDE.md`](https://github.com/thomas4f/mxb-facts/blob/main/CLAUDE.md), "VirusTotal"). |

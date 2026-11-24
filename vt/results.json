@@ -1,5 +1,5 @@
 {
-  "about": "VirusTotal hash lookups (no uploads) for the files listed in each card, written by tools/vt_lookup.py. How a card quotes them (P1) is in rules/questions.md.",
+  "about": "VirusTotal hash lookups for the files listed in each card, written by tools/vt_lookup.py; \"uploaded\" is the date the \"Analyse a tool\" run (or the maintainer) uploaded a file VirusTotal had no record of. How a card quotes them (P1) is in rules/questions.md.",
   "cards": {
     "dirt-gear-1.1.1.yaml": {
       "35101904445a9729b57af0f166ff422c8d94293163c29442c0c696f30902b628": {

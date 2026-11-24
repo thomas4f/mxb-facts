@@ -19,7 +19,9 @@ name: Analyse a tool
 # back only the evidence. The full analysis ("analyse") reads that evidence and
 # untrusted files (releases, READMEs, pages) in a job that can only read the repository, with no git credentials kept in the
 # checkout and a spending limit (tools/agent_run.py). VirusTotal hash lookups of the release files and what they unpack
-# to are made beside the Windows run ("vt-hash", "vt-lookup"), for the analysis to answer P1 from. A last job, which runs
+# to are made beside the Windows run ("vt-hash", "vt-lookup"), for the analysis to answer P1 from; the files players download
+# that VirusTotal has no record of are uploaded there too, unless "skip_upload" is set or the plan's licence read isn't
+# "allows" (rule 6; CLAUDE.md, "VirusTotal"). A last job, which runs
 # nothing from the analysis, applies its changes (never to workflow files), writes vt/results.json from those lookups,
 # opens the draft pull request and starts "Check cards" on it.
 on:
@@ -69,6 +71,10 @@ on:
       release:
         description: "Link to that release or its download page (leave empty to take it from registry/releases.json)"
         default: ""
+      skip_upload:
+        description: "Skip upload: don't upload release files VirusTotal has no record of (the hash lookups still run)"
+        type: boolean
+        default: false
 permissions: {}
 concurrency: { group: "analyse-${{ inputs.tool }}", cancel-in-progress: false }
 jobs:
@@ -79,6 +85,7 @@ jobs:
       contents: read
     outputs:
       runs: ${{ steps.check.outputs.runs }}
+      licence: ${{ steps.check.outputs.licence }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with: { persist-credentials: false }
@@ -102,8 +109,10 @@ jobs:
             and for a tool with a card, the card's release when no release there has a file the card doesn't list. Download
             the files players get into a folder under $RUNNER_TEMP and work out their SHA-256.
 
-            Read its licence (rule 6 in CLAUDE.md). If it forbids reverse engineering, decompiling or AI analysis, or you
-            can't download the files, plan no runs and say why in "note". Otherwise read the readme and, for an open-source
+            Read its licence (rule 6 in CLAUDE.md) and write what it says about analysing the tool in "licence": "forbids"
+            if it forbids reverse engineering, decompiling or AI analysis, "allows" if it allows them (an open-source
+            licence, or terms that don't forbid them), "unclear" if you can't tell or found no licence. If it forbids them,
+            or you can't download the files, plan no runs and say why in "note". Otherwise read the readme and, for an open-source
             tool, the source of its input handling, to find each plugin's hotkeys and any setting that turns features on.
 
             Write $RUNNER_TEMP/plan.json, as lab/plugin-test-host/windows/README.md describes ("The plan"): the game, the
@@ -122,7 +131,7 @@ jobs:
         run: |
           set -o pipefail  # a plan that fails the check stops the run here, not on the Windows machine
           python3 -I tools/check_plan.py "$RUNNER_TEMP/plan.json" | tee -a "$GITHUB_STEP_SUMMARY"
-          python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no"))' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
+          python3 -I -c 'import json,sys; p=json.load(open(sys.argv[1])); print("runs=" + ("yes" if p.get("realgame") or p.get("cases") or p.get("apps") else "no")); print("licence=" + p["licence"])' "$RUNNER_TEMP/plan.json" >> "$GITHUB_OUTPUT"
       - if: ${{ !cancelled() }}  # kept when the check refuses it too, so the refused plan can be read
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: plan, path: "${{ runner.temp }}/plan.json", retention-days: 7 }
@@ -145,7 +154,10 @@ jobs:
         with: { name: release, path: "${{ runner.temp }}/release", retention-days: 7 }
   # VirusTotal hash lookups for the release, before the analysis, so that it can answer P1 (rule 6 allows them for any
   # tool). The first job unpacks the release files with 7-Zip and hashes them, without any key; the second holds
-  # VT_API_KEY and only reads the list of hashes (tools/vt_release.py). Neither runs anything from the release.
+  # VT_API_KEY, reads the list of hashes and, when the licence read is "allows" and "skip_upload" is off, uploads the
+  # downloaded files VirusTotal has no record of, as bytes, and waits up to 15 minutes for their scans (tools/vt_release.py).
+  # It starts with the Windows run, so the scans overlap it; one that isn't finished is recorded as pending and never holds
+  # up the analysis. Neither job runs anything from the release, and this workflow only runs when the maintainer starts it.
   vt-hash:
     needs: fetch
     runs-on: ubuntu-latest
@@ -161,9 +173,9 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: vt-hashes, path: "${{ runner.temp }}/vt/hashes.json", retention-days: 7 }
   vt-lookup:
-    needs: vt-hash
+    needs: [plan, vt-hash]
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     permissions:
       contents: read
     steps:
@@ -171,9 +183,17 @@ jobs:
         with: { persist-credentials: false, sparse-checkout: tools }
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: vt-hashes, path: "${{ runner.temp }}/vt" }
+      - if: needs.plan.outputs.licence == 'allows' && !inputs.skip_upload
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: release, path: "${{ runner.temp }}/release" }
       - env:
           VT_API_KEY: ${{ secrets.VT_API_KEY }}
-        run: python3 -I tools/vt_release.py lookup "$RUNNER_TEMP/vt/hashes.json" "$RUNNER_TEMP/vt/lookups.json"
+          UPLOAD: ${{ needs.plan.outputs.licence == 'allows' && !inputs.skip_upload }}
+          LICENCE: ${{ needs.plan.outputs.licence }}
+          SKIP: ${{ inputs.skip_upload }}
+        run: |
+          if [ "$UPLOAD" = true ]; then up=(--upload "$RUNNER_TEMP/release"); else up=(); echo "No uploads in this run (licence read: $LICENCE, skip upload: $SKIP)."; fi
+          python3 -I tools/vt_release.py lookup "$RUNNER_TEMP/vt/hashes.json" "$RUNNER_TEMP/vt/lookups.json" "${up[@]}"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: vt-lookups, path: "${{ runner.temp }}/vt/lookups.json", retention-days: 7 }
   # The fake game, built from the repository alone, in a job Claude never touches. The build is kept in the Actions cache
@@ -330,6 +350,9 @@ jobs:
             analysis".
             VirusTotal (step 6): no key is available here. The release was looked up before this job: the files the plan
             downloads and every file 7-Zip unpacks from them (at most 40 looked up), by SHA-256, in $RUNNER_TEMP/vt/lookups.json.
+            A downloaded file VirusTotal had no record of was uploaded then, unless the licence read or the run's input
+            ruled it out: its entry has "uploaded" (the date), and "pending" while its scan wasn't finished, which counts
+            as not on VirusTotal. P1 names each uploaded file with that date.
             Once the card lists its files, write their results to vt/results.json with
             python3 -I tools/vt_lookup.py --from "$RUNNER_TEMP/vt/lookups.json" --card cards/<card>.yaml --json vt/results.json
             and answer P1 from what it writes, linking each file's VirusTotal entry. A file on the card that isn't in the

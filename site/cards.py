@@ -77,7 +77,7 @@ def files_table(f,d):
         r=vt.get(h)
         if not r: return 'Not looked up'
         if r.get('error'): return 'Lookup failed'
-        if not r.get('found'): return 'Not on VirusTotal'
+        if not r.get('found'): return 'Not on VirusTotal'+(f' (uploaded {r["uploaded"]}, scan pending)' if r.get('uploaded') else '')
         return f'[{r["flagged"]} of {r["engines"]}]({r["permalink"]})'
     rows=[]
     for x in [x for x in d['files'] if 'inside' not in x]:

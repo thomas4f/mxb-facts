@@ -21,7 +21,7 @@ All three run in CI on every pull request, with the corrections check.
 
 ## VirusTotal
 
-`tools/vt_lookup.py` looks up file hashes only; it never uploads (when uploads are allowed, see `CLAUDE.md`, "VirusTotal"). It needs your own key in the `VT_API_KEY` environment variable (`--card <file>` for one card, `--all` for every card).
+`tools/vt_lookup.py` looks up file hashes only; it never uploads. The "Analyse a tool" run uploads the downloaded release files VirusTotal has no record of, within the limits in `CLAUDE.md`, "VirusTotal". It needs your own key in the `VT_API_KEY` environment variable (`--card <file>` for one card, `--all` for every card).
 
 The "VirusTotal lookup" workflow does this with the repository secret. It runs only when the maintainer starts it by hand:
 
