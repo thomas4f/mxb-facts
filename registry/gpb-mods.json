@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-11-23",
+  "fetched": "2026-11-24",
   "source": "https://gpb-mods.com/wp-json/wp/v2/posts",
   "note": "Each excerpt is quoted from the tool's gpb-mods.com page as published, not verified.",
   "tools": {
@@ -28,6 +28,19 @@
         "Tools"
       ],
       "still_tied": null
+    },
+    "knee-down": {
+      "post": 5300,
+      "link": "https://gpb-mods.com/knee-down-launcher/",
+      "title": "Knee Down",
+      "excerpt": "Installation Guide Follow the steps below to install Knee Down and get started. Prerequisite You must have launched the vanilla (unmodded) version of GP Bikes directly through Steam at least once. If you’ve already played the game without using Knee Down, you’re all set. Installation Download the latest installer from GitHub Releases. Download KneeDown-<version>-Setup.exe. Run…",
+      "published": "2026-10-09",
+      "updated": "2026-10-19",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
     },
     "pitbox": {
       "post": 5412,

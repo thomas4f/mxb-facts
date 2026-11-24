@@ -16,6 +16,19 @@
       ],
       "still_tied": true
     },
+    "coremx": {
+      "post": 198444,
+      "link": "https://mxb-mods.com/coremx-your-mx-bikes-companion-app-2/",
+      "title": "CoreMX — Your MX Bikes Companion App",
+      "excerpt": "Your bike. Your rider. Your friends. Ready to ride. CoreMX is a free Windows app that connects your MX Bikes mods, setup, and online experience. Get Mods Discover tracks, bikes, liveries, gear, and more from CoreMX and supported mod sites. See required models and review where files will go before installing. Unpack ZIP, RAR, and…",
+      "published": "2026-11-20",
+      "updated": "2026-11-23",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "dirt-gear": {
       "post": 197697,
       "link": "https://mxb-mods.com/dirt-gear-2/",
@@ -36,6 +49,19 @@
       "excerpt": "fbx3edf by mxbsecure FBX to MX Bikes .edf, in seconds. fbx3edf turns an FBX into the .edf that MX Bikes loads. The output matches PiBoSo’s fbx2edf 1.32, and it’s a lot faster. It runs on your PC, and it’s Windows-signed. It used to be called Frost Converter. Part of mxbsecure mxbsecure is my home for…",
       "published": "2026-11-13",
       "updated": "2026-11-13",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "frosts-studio": {
+      "post": 197539,
+      "link": "https://mxb-mods.com/frosts-studio/",
+      "title": "Frost’s Studio",
+      "excerpt": "Frost’s Studio by mxbsecure Make MX Bikes content. Frost’s Studio is a free desktop app for making MX Bikes content: paint liveries and gear on a 3D model, build tracks, put a bike together from parts and record your replays. It’s Windows-signed. Part of mxbsecure mxbsecure is my home for MX Bikes: mods, apps, servers…",
+      "published": "2026-11-12",
+      "updated": "2026-11-12",
       "categories": [
         "Other",
         "Tools"
@@ -91,6 +117,19 @@
       "categories": [
         "Other",
         "Plugins"
+      ],
+      "still_tied": true
+    },
+    "libpnt": {
+      "post": 175310,
+      "link": "https://mxb-mods.com/libpnt/",
+      "title": "Libpnt",
+      "excerpt": "Libpnt is a simple C and Python library for the PiBoSo Paint file format (the one used in MxBikes)",
+      "published": "2025-12-25",
+      "updated": "2025-12-25",
+      "categories": [
+        "Other",
+        "Tools"
       ],
       "still_tied": true
     },
@@ -263,6 +302,32 @@
       ],
       "still_tied": true
     },
+    "performance-lab": {
+      "post": 190889,
+      "link": "https://mxb-mods.com/performance-lab-by-lmg-x-jcd/",
+      "title": "Performance Lab by LMG x JCD",
+      "excerpt": "Performance Lab by LMG x JCD Performance Lab is a free companion app for MX Bikes that brings riding analysis, setup tuning, an AI assistant, and rider progression into one place. It’s built for riders who want to understand their bike, improve their setups, and have more to work toward every time they ride. Why…",
+      "published": "2026-09-24",
+      "updated": "2026-09-24",
+      "categories": [
+        "Bikes",
+        "Others"
+      ],
+      "still_tied": true
+    },
+    "pitkit": {
+      "post": 140272,
+      "link": "https://mxb-mods.com/pitkit-mx-bikes-mod-manager/",
+      "title": "PitKit MX Bikes Mod Manager",
+      "excerpt": "If you’re having trouble with the new update, as a temporary workaround you can download an older version here and refuse the update when prompted: https://github.com/bobby-rust/Pitkit/releases/download/v0.4.5/PitKit-0.4.5.Setup.exe Features: Install directly from mxb-mods.com Installs: Bikes Bike paints Bike models Custom sounds Tires Tire models Tracks (allows creating and selecting track folders for organization) Riders Rider gear Rider…",
+      "published": "2025-05-19",
+      "updated": "2025-06-05",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "rider-pov-plus": {
       "post": 194956,
       "link": "https://mxb-mods.com/rider-pov-2/",
@@ -276,12 +341,38 @@
       ],
       "still_tied": true
     },
+    "setup-duper": {
+      "post": 69721,
+      "link": "https://mxb-mods.com/mx-bikes-setup-duper/",
+      "title": "MX Bikes Setup Duper",
+      "excerpt": "No one wanted or asked for it, once again I deliver it. The MX Bikes Setup Duper, short: MXBSD! Well, actually, L21 had the idea and I just executed it. What does it do? MXBSD was made to make batch-copying setups easier. This tool might be beneficial for those that copy their setups across all…",
+      "published": "2023-10-01",
+      "updated": "2023-10-01",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
     "suspension-tuner": {
       "post": 191807,
       "link": "https://mxb-mods.com/suspension-tuner/",
       "title": "Suspension Tuner",
       "excerpt": "I’ve been working on this desktop tool for the last few weeks to make suspension setup way easier. It’s free, no account, no key, no paid features, just open it and use it. You ride a few clean laps, the tool reads MX Bikes’ UDP telemetry, analyzes how your suspension behaves, and writes an updated…",
       "published": "2026-10-09",
+      "updated": "2026-10-21",
+      "categories": [
+        "Other",
+        "Tools"
+      ],
+      "still_tied": true
+    },
+    "trackrelief": {
+      "post": 192258,
+      "link": "https://mxb-mods.com/trackrelief/",
+      "title": "TrackRelief",
+      "excerpt": "TrackRelief turns real-world 1m LiDAR data into ready to use heightmaps and 3D meshes for your games. Search a place, draw a rectangle on the map, and it downloads the terrain and exports a 16-bit heightmap and terrain mesh. It also works with games like Assetto Corsa or BeamNG. Switzerland : 0.5–2m France : LiDAR…",
+      "published": "2026-10-14",
       "updated": "2026-10-21",
       "categories": [
         "Other",
