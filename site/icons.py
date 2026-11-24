@@ -77,6 +77,7 @@ LUCIDE = {
     'users': '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
     'wifi-off': '<path d="M12 20h.01"/><path d="M8.5 16.429a5 5 0 0 1 7 0"/><path d="M5 12.859a10 10 0 0 1 5.17-2.69"/><path d="M19 12.859a10 10 0 0 0-2.007-1.523"/><path d="M2 8.82a15 15 0 0 1 4.177-2.643"/><path d="M22 8.82a15 15 0 0 0-11.288-3.764"/><path d="m2 2 20 20"/>',
     'workflow': '<rect width="8" height="8" x="3" y="3" rx="2"/><path d="M7 11v4a2 2 0 0 0 2 2h4"/><rect width="8" height="8" x="13" y="13" rx="2"/>',
+    'search-check': '<path d="m8 11 2 2 4-4"/><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
 }
 STROKE = 'fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"'
 
@@ -85,6 +86,14 @@ def svg(name, colour='#000'):
     """One icon as a standalone SVG document."""
     return (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {STROKE} stroke="{colour}">'
             f'{LUCIDE[name]}</svg>')
+
+
+def logo(bg, fg, dark_bg, dark_fg):
+    """The site's own icon (search-check: looked into, and checked) as a favicon: the icon on a rounded square in the theme's
+    accent, its dark-theme colours chosen by the browser's colour scheme."""
+    return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">'
+            f'<style>rect{{fill:{bg}}}g{{stroke:{fg}}}@media (prefers-color-scheme:dark){{rect{{fill:{dark_bg}}}g{{stroke:{dark_fg}}}}}</style>'
+            f'<rect width="32" height="32" rx="7"/><g transform="translate(5 5) scale(.9167)" {STROKE}>{LUCIDE["search-check"]}</g></svg>')
 
 
 def mask_url(name):

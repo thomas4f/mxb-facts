@@ -7,11 +7,12 @@ checks that need all of them (registry, links between parts of the page), assemb
 prints what the change does to each card compared with CHANGES_BASE (default HEAD).
 """
 import datetime, glob, json, os, re, shutil, subprocess, sys, yaml
+from urllib.parse import quote
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))  # rules.py, cards.py and page.py sit beside this file
 from rules import (
     AREAK, AREAN, CATS, CONCERN, D, GCOST, RUBRICV, GSC, GT, STATES, OUT, QS, ROOT, SC, TAGICON, charges, concern_span, goodwhen,
     scored, gtext, load_yaml, sround, stale_refs, state_html, tagcls, tagsof, verdict)
-from icons import LICENCE as ICON_LICENCE, mask_url
+from icons import LICENCE as ICON_LICENCE, LUCIDE, STROKE, logo, mask_url
 from cards import CORRFORM, JUDGE, MM, REG, REPO, SITES, SLUG, VT, check_card, esc, glance, strings
 from page import (
     BADGES, COMMIT, GNOTE, MW, SITEURL, TAGCAP, badge_json, btitle, byline, changes, score_html, score_section, inline,
@@ -218,6 +219,12 @@ iconcss=('.mark::before, .mk::before { flex: none } '
          +' '.join(f' .g-{k} .gicon {{ display: block; width: calc(var(--gs) * .42); height: calc(var(--gs) * .42); background: #fff; -webkit-mask: {mask_url(STATES[k][2])} center / contain no-repeat; mask: {mask_url(STATES[k][2])} center / contain no-repeat }}' for k in ('malware','notscored')))
 # The icons' licence goes with them into the built page, as their licence asks.
 shell=shell.replace('<meta charset="utf-8">','<meta charset="utf-8">\n<!--\n'+ICON_LICENCE+'-->',1)
+# The site's icon: in the header drawn in the theme's colours (shell.html, .logo), and as the favicon in the accent and surface
+# colours read from shell.html's light and dark themes, so the two can't drift apart.
+_th=[dict(re.findall(r'--(accent|surface): (#[0-9a-f]{6})',x)) for x in re.findall(r'(?s)\n:root \{(.*?)\n\}|:root\[data-theme="dark"\] \{(.*?)\}',shell) for x in [x[0] or x[1]]]
+assert len(_th)==2 and all(set(t)=={'accent','surface'} for t in _th), 'site/shell.html: the light and dark themes each need --accent and --surface'
+shell=(shell.replace('{{FAVICON}}','data:image/svg+xml,'+quote(logo(_th[0]['accent'],_th[0]['surface'],_th[1]['accent'],_th[1]['surface']),safe=" =:/'.,-"))
+       .replace('{{LOGO}}',f'<svg viewBox="-2 -2 28 28" {STROKE} stroke="currentColor">{LUCIDE["search-check"]}</svg>'))
 # The legend's example tags show their own icons, like the tags they stand for.
 shell=re.sub(r'\{\{TI:([^}]+)\}\}',lambda m:tagcls(m.group(1)),shell)
 out=(shell.replace('{{ICONCSS}}',iconcss).replace('{{FILTERS}}',filters).replace('{{GNOTE}}',f'<small class="gnote">{GNOTE}</small>').replace('{{MARKS}}',marks).replace('{{PICKER}}',picker).replace('{{INDEX}}',('<ul class="tlist">'+''.join(h for _k,h in sorted(rowsh))+'</ul>') if rowsh else '<p class="pending">No tool is analysed yet. The first analyses are under way.</p>').replace('{{TOOLS}}','\n'.join(views))
