@@ -52,7 +52,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .top .nav { grid-column: 1 / -1; grid-row: 2 }
 @media (max-width: 759px) { .top { position: static } }
 @media (min-width: 760px) { .top .in { display: flex; align-items: center; gap: var(--s4); padding-block: var(--s3) } .top .nav { margin-left: auto } }
-.brand { font: italic 800 26px/1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; color: var(--ink); text-decoration: none }
+.brand { font: italic 800 clamp(20px, 7vw, 26px)/1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; color: var(--ink); text-decoration: none; white-space: nowrap }
 .brand em { color: var(--accent) }
 /* The wordmark's slash wherever the site joins two parts (macros.html, sep and of100). */
 .sl { font-style: italic; font-weight: 800; color: var(--accent); margin-inline: .18em }
@@ -128,18 +128,17 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .empty { padding: var(--s6); text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--r) }
 
 /* Tool page */
-/* The header is a grid: on a wide screen the score fills the right column, as tall as the header; on a phone it sits at the
-   end of the name's line. */
-.thead { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "crumb big" "name big" "meta big" "sum big"; column-gap: var(--s5) }
+/* The header is a grid with the score in its right column, its top level with the name's on every screen; it grows with the
+   screen, and on a narrow one the lines under the name take the full width below it. */
+.thead { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "crumb crumb" "name big" "meta big" "sum big"; column-gap: var(--s5) }
 .thead .crumb { grid-area: crumb }
 @media (max-width: 620px) { .thead { grid-template-areas: "crumb crumb" "name big" "meta meta" "sum sum"; column-gap: var(--s4) } }
 .thead h1 { grid-area: name; min-width: 0; font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 600 }
 .thead .meta { grid-area: meta; color: var(--muted); margin-top: var(--s2) }
 .thead .sum { grid-area: sum; margin: var(--s3) 0 0; font-size: 17px; max-width: 65ch }
-.big { grid-area: big; margin: 0; align-self: end; white-space: nowrap }
-.big b { display: block; font: 700 clamp(48px, 13vw, 150px)/.8 var(--f-head); letter-spacing: -.01em } .big small.of { font-size: .32em }
-.big.word { align-self: center }
-@media (max-width: 620px) { .big { align-self: baseline } }
+.big { grid-area: big; margin: 0; align-self: start; white-space: nowrap }
+.big b { display: block; font: 700 clamp(48px, 10vw, 128px)/.8 var(--f-head); letter-spacing: -.01em } .big small.of { font-size: .32em }
+.big.word { padding-top: var(--s2) }
 .notice { background: var(--grey-bg); border: 1px dashed var(--line); border-radius: var(--r-ctl); padding: var(--s3) var(--s4); font-size: 14.5px; margin: 0 }
 .notice.held { border-color: var(--concern); background: var(--concern-bg) }
 .areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--s3) }
