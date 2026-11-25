@@ -44,7 +44,8 @@ def _tile(G,x,y,s):
     # slash in the accent and 100 in grey (or the icon for ? and X), the wordmark at the foot, on the pit board's dark (red for
     # signs of malware alone).
     kind=G['kind']; bg=RED if kind=='malware' else DARK['bg']
-    if kind=='pending': big=icon_group(STATES['nc'][2],x+s*.32,y+s*.18,s*.36,DARK['muted'])
+    if kind=='pending': big=(icon_group(STATES['nc'][2],x+s*.36,y+s*.1,s*.28,DARK['muted'])
+                             +f'<text x="{x+s/2:g}" y="{y+s*.62:g}" text-anchor="middle" font-family="{BFONT}" font-size="{s*.1:g}" fill="{DARK["muted"]}">Not analysed yet</text>')
     elif kind in ('malware','notscored'): big=icon_group(STATES[kind][2],x+s*.32,y+s*.18,s*.36,DARK['ink'])
     else:
         n=gsym(G); cb,cs=s*.4,s*.13; gap=s*.015

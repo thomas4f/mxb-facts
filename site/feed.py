@@ -72,7 +72,7 @@ def check(obj,kind):
     # Markdown with https links only: no link a consumer would resolve against its own site.
     assert not re.search(r'\]\((?!https://)',json.dumps(obj,ensure_ascii=False)), kind+': a link in the feed is not https://'
     # A reference-style link definition ("[ref]: address" on a line of its own) is refused too: its address isn't checked above.
-    assert not re.search(r'(^|\\n)\s{0,3}\[[^\]]+\]:\s*\S',json.dumps(obj,ensure_ascii=False)), kind+': a reference-style link in the feed'
+    assert not re.search(r'(^|\\n)[\s>*+\-\d.]*\[[^\]]+\]:\s*\S',json.dumps(obj,ensure_ascii=False)), kind+': a reference-style link in the feed'
 
 def key_state(k):
     # A key answer's state: its mark, a Concern as the site draws it (Major, Off by default, On request, Signs of malware), or a grey state.

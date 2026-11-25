@@ -8,9 +8,9 @@ const root = new URL('../../_site/', import.meta.url).pathname, port = Number(pr
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.json': 'application/json', '.svg': 'image/svg+xml',
   '.png': 'image/png', '.woff2': 'font/woff2', '.md': 'text/markdown; charset=utf-8', '.yaml': 'text/yaml; charset=utf-8' };
 createServer(async (req, res) => {
-  let p = normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname));
-  if (p.includes('..')) { res.writeHead(400).end(); return; }
-  let f = join(root, p);
+  let f;
+  try { f = join(root, normalize(decodeURIComponent(new URL(req.url, 'http://x').pathname))); } catch { res.writeHead(400).end(); return; }
+  if (!f.startsWith(root)) { res.writeHead(400).end(); return; }
   try { if ((await stat(f)).isDirectory()) f = join(f, 'index.html'); res.writeHead(200, { 'content-type': types[extname(f)] || 'application/octet-stream' }).end(await readFile(f)); }
   catch { res.writeHead(404).end('not found'); }
 }).listen(port, '127.0.0.1');

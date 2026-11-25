@@ -6,10 +6,10 @@ The rules live in rules.py, card checks in cards.py, the feed in feed.py, the pa
 badges.py. This file lists the cards, runs the checks that need all of them (registry, links between cards), writes the site and,
 unless SET_OUT is set, prints what the change does to each card compared with CHANGES_BASE (default HEAD).
 """
-import glob, json, os, re, shutil, subprocess, sys, yaml
+import datetime, glob, json, os, re, shutil, subprocess, sys, yaml
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))  # rules.py, cards.py, feed.py, render.py and badges.py sit beside this file
 from rules import AREAN, CATS, CONCERN, D, RUBRICV, OUT, ROOT, SC, charges, scored, gtext, load_yaml, sround, stale_refs, tagsof, verdict
-from cards import JUDGE, MM, REG, SITES, SLUG, VT, check_card, games, glance, strings
+from cards import check_card, games, glance, JUDGE, MM, pending_versions, REG, SITES, SLUG, strings, VT
 from cards import COMMIT
 from badges import BADGES, PENDING, badge_json, btitle, ptitle
 from feed import SITEURL
@@ -132,6 +132,7 @@ AGENTSLINE='Before tagging a release, run the MXB Facts check in .claude/skills/
 # The files the page offers to download sit next to it: each card as it is in cards/ (rule 9: a card holds no held-back details,
 # only its "Held back" row), and the For authors check with its commit filled in.
 SITE=os.path.dirname(OUT)+'/'
+if os.path.isdir(SITE): shutil.rmtree(SITE)
 os.makedirs(SITE,exist_ok=True)
 # One badge per card (rules/scores.md, "Badge"), at badge/<tool>/<version>.svg and .json.
 for _a,(_name,_ver,_G,_date,_t,_l) in GR.items():
@@ -141,18 +142,16 @@ for _a,(_name,_ver,_G,_date,_t,_l) in GR.items():
 # A release the weekly inventory has seen (registry/releases.json) that has no card yet gets the same badges, saying "Not analysed
 # yet", so an author who moves a badge to the new version before its card is published shows that, not a broken image. Under the
 # version as published (v1.2.0) and without its leading v (1.2.0), the two ways a badge address is written.
+# Only a release dated after the tool's newest card (cards.pending_versions).
 _seen={}
-for _a,(_name,_ver,_G,_date,_t,_l) in GR.items(): _seen.setdefault(_t,{'name':_name,'cards':set()})['cards'].add(_ver)
+for _a,(_name,_ver,_G,_date,_t,_l) in GR.items():
+    _s=_seen.setdefault(_t,{'name':_name,'cards':set(),'newest':''}); _s['cards'].add(_ver)
+    _s['newest']=max(_s['newest'],datetime.datetime.strptime(_date,'%d %b %Y').date().isoformat())
 _rel=json.load(open(ROOT+'registry/releases.json'))['tools']
 for _t,_s in _seen.items():
-    for _src in _rel.get(_t,{}).values():
-        _v=(_src or {}).get('version') if isinstance(_src,dict) else None
-        if not _v or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._+-]{0,40}',_v): continue
-        _bare=_v[1:] if _v[:1] in 'vV' and _v[1:2].isdigit() else _v
-        if _bare in _s['cards'] or _v in _s['cards']: continue
-        for _pv in {_v,_bare}:
-            for _suf,_lab,_draw in BADGES: open(SITE+f'badge/{_t}/{_pv}{_suf}.svg','w').write(_draw(PENDING,ptitle(_s['name'],_pv),'')+'\n')
-            open(SITE+f'badge/{_t}/{_pv}.json','w').write(badge_json(_pv,PENDING)+'\n')
+    for _pv in pending_versions(_s['cards'],_s['newest'],_rel.get(_t,{})):
+        for _suf,_lab,_draw in BADGES: open(SITE+f'badge/{_t}/{_pv}{_suf}.svg','w').write(_draw(PENDING,ptitle(_s['name'],_pv),'')+'\n')
+        open(SITE+f'badge/{_t}/{_pv}.json','w').write(badge_json(_pv,PENDING)+'\n')
 # Every card's score and badges in one file, for a site that lists tools (such as a mods site) to show them by version.
 os.makedirs(SITE+'api',exist_ok=True)
 json.dump({'rubric':RUBRICV,'cards':[{'tool':_t,'name':_n,'version':_v,'page':f'{SITEURL}{_t}/' if _l else f'{SITEURL}#{_a}','score':gtext(_G),

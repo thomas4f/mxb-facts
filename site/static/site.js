@@ -96,17 +96,27 @@
   var nf = $('#nf-data');
   if (nf) {
     var known = JSON.parse(nf.textContent), seg = location.pathname.slice(root.length).split('/').filter(Boolean);
-    if (seg[0] === 'badge') seg = [seg[1], (seg[2] || '').replace(/(-[a-z-]+)?\.(svg|json)$/, '')];
+    // A badge's address: /badge/<tool>/<version><style>.svg or .json, with only the site's own styles stripped.
+    if (seg[0] === 'badge') seg = [seg[1], (seg[2] || '').replace(/(-flat-square|-for-the-badge|-score|-areas)?\.svg$|\.json$/, '')];
     var own = function (o, k) { return Object.prototype.hasOwnProperty.call(o, k) ? o[k] : null; };
-    var tool = seg[0] ? own(known, seg[0]) : null, ver = seg[1] || '';
+    // The site's own folders aren't tools, and a version is named only when it looks like one: a digit first, or v and a digit.
+    var folders = ['api', 'assets', 'authors', 'badge', 'cards', 'compare', 'how', 'preview'];
+    var tool = seg[0] && folders.indexOf(seg[0]) < 0 ? own(known, seg[0]) : null;
+    var ver = /^[vV]?\d[A-Za-z0-9._+-]{0,40}$/.test(seg[1] || '') ? seg[1] : '';
+    var bare = /^[vV]\d/.test(ver) ? ver.slice(1) : ver, has = tool && ver ? own(tool.versions, ver) || own(tool.versions, bare) : null;
     var el = function (tag, text, href) { var e = document.createElement(tag); e.textContent = text; if (href) e.href = href; return e; };
     var title = $('#nf-title'), text = $('#nf-text'), links = $('#nf-links'), first = links.firstElementChild;
     var add = function (t, href) { var li = document.createElement('li'); li.appendChild(el('a', t, href)); links.insertBefore(li, first); };
-    if (tool && ver && !own(tool.versions, ver)) {
+    if (has) {
+      var v = own(tool.versions, ver) ? ver : bare;
+      title.textContent = tool.name + ' ' + v + ' has a card';
+      text.textContent = 'The card for ' + tool.name + ' ' + v + ' is at another address.';
+      add('Open ' + tool.name + ' ' + v, root + has);
+    } else if (tool && ver) {
       title.textContent = tool.name + ' ' + ver + ' has no card yet';
       text.textContent = 'MXB Facts hasn\'t analysed ' + tool.name + ' ' + ver + '. Its newest card is for ' + tool.newest + '. For a newer release, you can request a re-check.';
       add('Open ' + tool.name + ' ' + tool.newest, root + tool.versions[tool.newest]);
-    } else if (seg[0] && !tool && /^[a-z0-9][a-z0-9-]{0,60}$/.test(seg[0])) {
+    } else if (seg[0] && !tool && folders.indexOf(seg[0]) < 0 && /^[a-z0-9][a-z0-9-]{0,60}$/.test(seg[0])) {
       title.textContent = 'No card for \u201c' + seg[0] + '\u201d yet';
       text.textContent = 'MXB Facts has no card for a tool at this address. Search the tools list, or request the tool.';
       add('Search the tools for \u201c' + seg[0] + '\u201d', root + '?q=' + encodeURIComponent(seg[0].replace(/-/g, ' ')));

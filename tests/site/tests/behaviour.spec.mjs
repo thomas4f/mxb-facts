@@ -214,3 +214,17 @@ test('an unknown tool gets a page that offers the search and a request', async (
   await page.getByRole('link', { name: /^Search the tools/ }).click();
   await expect(page.locator('#q')).toHaveValue('some new tool');
 });
+
+test('the 404 page names only what it is sure of', async ({ page }) => {
+  await pages(page);
+  await page.goto('http://pages.test/mxb-facts/pitbox/v3.0.4/');
+  await expect(page.locator('h1')).toHaveText('Pitbox 3.0.4 has a card');
+  await expect(page.getByRole('link', { name: 'Open Pitbox 3.0.4' })).toHaveAttribute('href', '/mxb-facts/pitbox/');
+  await page.goto('http://pages.test/mxb-facts/badge/pitbox/1.0-beta.svg');
+  await expect(page.locator('h1')).toHaveText('Pitbox 1.0-beta has no card yet');
+  for (const u of ['how/nope/', 'api/v1/cards/nope.json', 'dirt-gear/index.htm']) {
+    await page.goto('http://pages.test/mxb-facts/' + u);
+    await expect(page.locator('h1')).not.toContainText('has no card yet');
+    await expect(page.locator('h1')).not.toContainText('No card for');
+  }
+});

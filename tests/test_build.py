@@ -206,6 +206,8 @@ check('a tag in an answer is refused', html_refused({'answers': {'P2': {'text': 
 check('a tag in the tool name is refused', html_refused({'tool': '<b>Tool</b>'}))
 check('a link that isn\'t https is refused', html_refused({'answers': {'P2': {'text': 'See [this](javascript:alert(1))'}}}))
 check('a reference-style link is refused (its address would skip the https check)', html_refused({'answers': {'P2': {'text': 'See [this][x]\n\n[x]: javascript:alert(1)'}}}))
+check('a reference-style link in a list item or a quote is refused too', html_refused({'answers': {'P2': {'text': '- See [this][x]\n  [x]: javascript:alert(1)'}}})
+      and html_refused({'answers': {'P2': {'text': '> [x]: javascript:alert(1)'}}}))
 check('a Markdown image is refused', html_refused({'answers': {'P2': {'text': 'Counter ![x](https://example.com/pixel.png)'}}}))
 check('< inside code, a lone < and an https link pass', not html_refused({'summary': 'Prints `#<n>`, 1 < 2, [VT](https://www.virustotal.com/gui/file/0)'}))
 
@@ -452,6 +454,13 @@ _q = next(q for q, cells in feed.QCELL.items() for v, r in cells.items() if r an
 _v = next(v for v, r in feed.QCELL[_q].items() if r and r.startswith('Good; Note if'))
 check('a Good answer under a "Good; Note if" rule gets no rule note', feed.rule_note(_q, '{x} ' + _v, 'good') is None)
 check('a Note under a "Good; Note if" rule names the rule', (feed.rule_note(_q, '{x} ' + _v, 'note') or '').startswith('Marked by the rule: Good; Note if'))
+
+# "Not analysed yet" badges (rules/scores.md, "Badge"): only for a release dated after the newest card, under both spellings.
+_pv = B['pending_versions']
+check('a newer release with no card gets "Not analysed yet" badges, with and without its v', _pv({'3.0.4'}, '2026-11-24', {'github': {'version': 'v3.0.5', 'date': '2026-11-30'}}) == ['3.0.5', 'v3.0.5'])
+check('a release that has a card, written with a v, gets none', _pv({'3.0.4'}, '2026-11-24', {'github': {'version': 'v3.0.4', 'date': '2026-11-30'}}) == [])
+check('a release dated on or before the newest card gets none (an old or lagging entry)', _pv({'0.24.2'}, '2026-11-24', {'github': {'version': 'v0.23.0', 'date': '2026-10-01'}, 'mxb-mods': {'version': '0.25', 'date': '2026-11-24'}}) == [])
+check('a release with no date, or a version that is not one, gets none', _pv({'1.0'}, '2026-11-24', {'a': {'version': '1.1'}, 'b': {'version': '../x', 'date': '2026-12-01'}, 'c': None}) == [])
 
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)

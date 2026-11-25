@@ -96,6 +96,24 @@ assert re.fullmatch(r'[0-9a-f]{40}',COMMIT), 'site/build.py needs the repository
 CORRFORM=REPO+'issues/new?template=correction.yml'
 REQFORM=REPO+'issues/new?template=analyse-tool.yml'  # a request to analyse a tool, or to re-check a new release
 SITEURL='https://thomas4f.github.io/mxb-facts/'
+VERSION_RE=r'[A-Za-z0-9][A-Za-z0-9._+-]{0,40}'  # a version as it may appear in a badge or page address
+
+def bare_version(v):
+    # A version as cards write it: without the leading v of a tag (v1.2.0 is 1.2.0).
+    return v[1:] if v[:1] in 'vV' and v[1:2].isdigit() else v
+
+def pending_versions(card_versions, newest_card_iso, sources):
+    # The releases the weekly inventory has seen (registry/releases.json, one entry per place the tool publishes) that are newer
+    # than the tool's newest card and have no card yet, under the version as published and without its leading v. A source
+    # without a date, or dated on or before the newest card's analysis, is not "newer": an old or lagging entry gets nothing.
+    out=set()
+    for src in sources.values():
+        if not isinstance(src,dict): continue
+        v,d=src.get('version'),src.get('date') or ''
+        if not v or not re.fullmatch(VERSION_RE,v) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',d) or d<=newest_card_iso: continue
+        if v in card_versions or bare_version(v) in card_versions: continue
+        out|={v,bare_version(v)}
+    return sorted(out)
 # Open corrections per card: question -> issue numbers. While one is open, each answer it names shows a neutral marker; nothing else moves.
 CORR={}
 def correction_link(card,q,ans=''):
@@ -142,7 +160,7 @@ def no_html(f,d,p='card'):
         assert not m, f+': '+p+' holds HTML ("'+t[m.start():m.start()+30]+'"); put it in `code`, or write &lt;'
         bad=[u for u in re.findall(r'\]\(([^)\s]*)',t) if not u.startswith('https://')]
         # A reference-style link ([text][ref] with "[ref]: address" on its own line) would slip past the check above.
-        bad+=re.findall(r'(?m)^\s{0,3}\[[^\]]+\]:\s*\S+',t)
+        bad+=re.findall(r'(?m)^[\s>*+\-\d.]*\[[^\]]+\]:\s*\S+',t)
         assert not bad, f+': '+p+' links somewhere other than an https address: '+', '.join(bad)
 def linked(f,d):
     # The card with every path into lab/ turned into a link (lablinks), for everything that is shown.
