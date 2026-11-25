@@ -121,7 +121,7 @@ The rubric has a version, shown with every score and badge. A change to a tier, 
 
 ## Badge
 
-Each card gets five badges, shown under "For the tool's author" on its page: three shields in the shields.io styles, a score tile and a card with the area scores, each pinned to the card's version and linked to its page (`badge/<tool-slug>/<version>…svg`, with a `.json` for other shields.io styles). A badge's title adds the rubric version, the analysis date and that the score is worked out from the answers' costs. A version without a card has no badge.
+Each card gets five badges, shown under "For the tool's author" on its page, in the site's colours with its MXB/FACTS wordmark: three shields in the shields.io styles, a score tile and a card with the area scores, each pinned to the card's version and linked to its page (`badge/<tool-slug>/<version>…svg`, with a `.json` for other shields.io styles). A badge's title adds the rubric version, the analysis date and that the score is worked out from the answers' costs. A version without a card has no badge.
 
 ## Changes to this rubric
 

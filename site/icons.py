@@ -88,14 +88,6 @@ def svg(name, colour='#000'):
             f'{LUCIDE[name]}</svg>')
 
 
-def logo(bg, fg, dark_bg, dark_fg):
-    """The site's own icon (search-check: looked into, and checked) as a favicon: the icon on a rounded square in the theme's
-    accent, its dark-theme colours chosen by the browser's colour scheme."""
-    return ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">'
-            f'<style>rect{{fill:{bg}}}g{{stroke:{fg}}}@media (prefers-color-scheme:dark){{rect{{fill:{dark_bg}}}g{{stroke:{dark_fg}}}}}</style>'
-            f'<rect width="32" height="32" rx="7"/><g transform="translate(5 5) scale(.9167)" {STROKE}>{LUCIDE["search-check"]}</g></svg>')
-
-
 def mask_url(name):
     """One icon as a CSS url() for a mask, so it takes the colour of the text it sits in."""
     return 'url("data:image/svg+xml,' + quote(svg(name), safe=" =:/'.,-") + '")'

@@ -7,7 +7,9 @@
 {% set lims = (sec.get('Limits of this analysis') or [{'limits': []}])[0].limits %}
 {% block nav %}tool{% endblock %}
 {% block title %}{{ c.name }} {{ c.version }}: {{ r.label }} · MXB Facts{% endblock %}
-{% block description %}{{ c.summary }}. Every answer links its evidence.{% endblock %}
+{% block og_title %}{{ c.name }} {{ c.version }}: {{ r.label }}{% endblock %}
+{% block description %}{{ c.summary }}. {% for a in AREAS %}{{ a.name }} {{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}{{ ' · ' if not loop.last else '. ' }}{% endfor %}Every answer links its evidence.{% endblock %}
+{% block image_alt %}{{ c.name }} {{ c.version }} on MXB Facts: {{ r.label }}, with a score for each area.{% endblock %}
 {% block main %}
 <a class="back" href="{{ root }}">‹ All tools</a>
 <div class="thead">

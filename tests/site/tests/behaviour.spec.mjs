@@ -1,5 +1,6 @@
 // What the script does on top of the pages, which read in full without it.
 import { test, expect } from '@playwright/test';
+import { PAGES } from './pages.mjs';
 
 test('"+N more" shows the rest of a card\'s tags, and "Fewer" folds them again', async ({ page }) => {
   await page.goto('');
@@ -42,4 +43,20 @@ test('an address from the old one-page site goes to its page now', async ({ page
   await expect(page).toHaveURL(/\/holeshot\/0\.24\.0\/$/);
   await page.goto('#compare');
   await expect(page).toHaveURL(/\/compare\/$/);
+});
+
+test('every page has a link preview: a 1200 by 630 image that exists, and the title and text chat apps show', async ({ page, request }) => {
+  for (const [, path] of PAGES) {
+    await page.goto(path);
+    const img = await page.locator('meta[property="og:image"]').getAttribute('content');
+    expect(img).toMatch(/^https:\/\/thomas4f\.github\.io\/mxb-facts\/preview\/[\w.-]+\.png\?v=[0-9a-f]{10}$/);
+    // The image is served from this build: the same path under the test server.
+    const res = await request.get(new URL(img).pathname.replace('/mxb-facts/', '/'));
+    expect(res.ok()).toBeTruthy();
+    const png = await res.body();
+    expect([png.readUInt32BE(16), png.readUInt32BE(20)]).toEqual([1200, 630]);
+    await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+    expect(await page.locator('meta[property="og:title"]').getAttribute('content')).toBeTruthy();
+    expect(await page.locator('meta[property="og:image:alt"]').getAttribute('content')).toBeTruthy();
+  }
 });

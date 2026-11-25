@@ -9,7 +9,9 @@ import json, os, re, shutil
 import markdown
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 from markupsafe import Markup, escape
-from icons import LICENCE as ICON_LICENCE, logo, mask_url
+from icons import LICENCE as ICON_LICENCE, mask_url
+from brand import DARK, favicon
+from preview import card_image, site_image
 
 HERE = os.path.dirname(os.path.abspath(__file__)) + '/'
 # The pages a tool's id can't take, since the site uses them for its own folders.
@@ -98,7 +100,7 @@ def write_pages(SITE):
         tip = f'From {t["question"]}' + (', only after a choice you make' if t['kind'] == 'off_by_default' else '')
         return Markup(f'<a class="tag {cls}{ic}" href="{base}#q-{t["question"]}" title="{escape(tip)}"{" hidden" if hidden else ""}>{escape(t["label"])}</a>')
 
-    env.globals.update(mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
+    env.globals.update(DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
                        area_name={a['id']: a['name'] for a in AREAS}, money={m['label']: m for m in IX['money']})
 
     out = SITE
@@ -120,11 +122,20 @@ def write_pages(SITE):
     addr = {cid: card_path(c) for cid, c in CARDS.items()}
     addr.update({t['id']: t['id'] + '/' for t in IX['tools']})
 
+    # The link-preview images (preview.py): one per card and one for the site, named with their content's hash so a chat app
+    # that cached an older image fetches the new one.
+    os.makedirs(out + 'preview', exist_ok=True)
+    def image(name, data_hash):
+        data, h = data_hash
+        open(out + f'preview/{name}.png', 'wb').write(data)
+        return f'{IX["site"]}preview/{name}.png?v={h}'
+    env.globals['og_image'] = image('site', site_image(IX))
+
     page('index.html', 'home.html', 0, addresses=addr)
     for t in IX['tools']:
         for r in t['releases']:
             c = CARDS[r['card']]
-            complete(c, page(card_path(c) + 'index.html', 'tool.html', card_path(c).count('/'), t=t, c=c))
+            complete(c, page(card_path(c) + 'index.html', 'tool.html', card_path(c).count('/'), t=t, c=c, card_image=image(c['card'], card_image(c, IX))))
     page('compare/index.html', 'compare.html', 1, cards=[CARDS[r['card']] for t in IX['tools'] for r in t['releases']])
     page('how/index.html', 'how.html', 1)
     page('authors/index.html', 'authors.html', 1)
@@ -141,9 +152,5 @@ def write_pages(SITE):
     css += [f'.tag.ti-{v}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for v in sorted(set(TAGICON.values()))]
     css.append('/*\n' + ICON_LICENCE + '*/')
     open(out + 'assets/icons.css', 'w').write('\n'.join(css) + '\n')
-    # The favicon in the accent colours of site.css's light and dark themes, read from it so the two can't drift apart.
-    tok = open(HERE + 'static/site.css').read()
-    dark = dict(re.findall(r'--(accent|accent-ink): (#[0-9a-f]{6})', tok[tok.index(':root {'):tok.index('}', tok.index(':root {'))]))
-    light = dict(re.findall(r'--(accent|accent-ink): (#[0-9a-f]{6})', tok[tok.index(':root[data-theme="light"]'):]))
-    assert set(dark) == set(light) == {'accent', 'accent-ink'}, 'site/static/site.css: each theme needs --accent and --accent-ink'
-    open(out + 'assets/favicon.svg', 'w').write(logo(light['accent'], light['accent-ink'], dark['accent'], dark['accent-ink']) + '\n')
+    # The favicon: the wordmark's slash on the pit board (brand.py).
+    open(out + 'assets/favicon.svg', 'w').write(favicon() + '\n')

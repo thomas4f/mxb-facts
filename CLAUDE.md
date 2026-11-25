@@ -45,7 +45,7 @@ They arrive as GitHub issues (`.github/ISSUE_TEMPLATE/`). A correction must name
 ## Checks before every push
 
 ```
-pip install -r requirements.txt   # pinned: markdown, pyyaml, jsonschema, jinja2, ruff
+pip install -r requirements.txt   # pinned: markdown, pyyaml, jsonschema, jinja2, pillow, ruff
 ruff check                        # mistakes in the Python (ruff.toml says which checks)
 python3 -I site/build.py          # schema, questions, marks, scores, VirusTotal thresholds, registry, every page complete
 python3 -I tools/check_links.py   # every pinned code link exists at its ref, line ranges fit

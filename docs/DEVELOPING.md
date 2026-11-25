@@ -34,7 +34,7 @@ flowchart LR
     T["rules/template.md, questions.md, scores.md<br/>prose + generated tables"]
   end
 
-  B["site/build.py<br/>rules.py, cards.py, feed.py, render.py,<br/>templates/, static/, badges.py, icons.py"]
+  B["site/build.py<br/>rules.py, cards.py, feed.py, render.py,<br/>templates/, static/, badges.py, preview.py,<br/>brand.py, icons.py"]
   O["_site/<br/>cards, How it works, For authors"]
   GP["GitHub Pages"]
   A["authors/mxb-facts-check/<br/>check authors run themselves"]
@@ -71,7 +71,9 @@ flowchart LR
 | `site/feed.py` | The data feed (`api/v1/`): every card with its marks, states, costs and notes worked out, and the site's own text (`site/content.yaml`). Anything another site or app needs comes from here | `docs/FEED.md`, `rules/feed.schema.json` |
 | `site/render.py` + `site/templates/` | Every page, made from the feed alone with Jinja templates (autoescaped; Markdown only inside text fields): tools list, `<tool>/` (newest card), `<tool>/<version>/` (an earlier card), Compare, How it works, For authors. Shared pieces (an answer's row, a fold, a bar) are macros in `macros.html`, so a mark is drawn one way everywhere. It decides no mark or score, and refuses a page that leaves out an answer's mark, a claim's mark, an area, a limit, a file or a history row | |
 | `site/static/` | `site.css`, `site.js` (filters, sorts, folds and remembers; never draws a mark) and the self-hosted fonts (OFL), copied to `_site/assets/` | |
-| `site/badges.py` | The score badges (SVG and shields.io JSON) | |
+| `site/brand.py` + `site/brand.json` | The MXB/FACTS identity for everything drawn outside the pages: the pit board's colours (read from `site.css`), and the wordmark and score figures as shapes (`brand.json`, made by `tools/wordmark.py` from the site's fonts), so a badge looks the same on any page | |
+| `site/badges.py` | The score badges (SVG and shields.io JSON), with the wordmark | |
+| `site/preview.py` | The link-preview images (`_site/preview/<card>.png` and `site.png`, 1200 by 630, Pillow) that Discord and other chat apps show for a page | |
 | `site/icons.py` | The Lucide icons (ISC licence) beside marks, states and results, as CSS masks and as SVG for the badges | |
 | `prompts/analyse-tool.md` | The published prompt; changes to how we work change it in the same PR | |
 | `lab/real-game/` | Runs plugins in the public MX Bikes or GP Bikes demo, offline, clicked through to a track (steps in `games.json`): under Wine + Xvfb in sessions (`run.sh`, the demo downloaded once into `cache/`), and on a throwaway Windows runner under Process Monitor in "Analyse a tool" (`windows/run.ps1`); the demo is pinned by SHA-256 | its README |
@@ -107,7 +109,7 @@ flowchart LR
 4. Write `cards/<slug>-<version>.yaml`, add it to `CARDS` in `site/build.py` (alphabetical) and to `registry/tools.json`; run `python3 -I tools/mxbmods_fetch.py` if the tool has a mods-site page.
 5. Run the checks below until they pass, open a PR, and ask the maintainer to run the VirusTotal workflow with `pr`=N. Fill P1 from its comment, linking each file's VirusTotal entry.
 
-A newer release gets a new card file; the old one stays and is linked under "Earlier reports". The newest card is the tool's page (in the tools list, Compare and `<site>/<tool>/`); each earlier one keeps a page at `#<card file without .yaml>`, with a line pointing to the newest, and its badges.
+A newer release gets a new card file; the old one stays and is linked under "Earlier reports". The newest card is the tool's page (in the tools list, Compare and `<site>/<tool>/`); each earlier one keeps a page at `<site>/<tool>/<version>/`, with a line pointing to the newest, its badges and its own link-preview image.
 
 ## Building and checking
 
@@ -141,6 +143,7 @@ Add it to the card's `corrections` list (status `open`, its `kind` from the form
 | What a card may hold: its header rows, report sections, categories, verdicts | `rules/card.schema.json` |
 | Page layout and styles | `site/templates/`, `site/static/site.css` (then `npm run screenshots:update` in `tests/site/`) |
 | The site's own text (intro, AI note, how a card is made) | `site/content.yaml` |
+| The identity: wordmark, colours, badges, link previews | the colour tokens in `site/static/site.css`; `tools/wordmark.py` (then run it) for the wordmark; `site/badges.py`, `site/preview.py` for their layout |
 | How an analysis runs | `prompts/analyse-tool.md`, `authors/mxb-facts-check/SKILL.md`, `CLAUDE.md` "How to analyse" |
 | What the test host does | `lab/plugin-test-host/src/` (extend it, don't start over) |
 | Which game demo runs, and how the run reaches a track | `lab/real-game/games.json` |
