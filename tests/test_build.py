@@ -392,7 +392,7 @@ _A = {**benign(), 'T1': ('!', 'No'), 'T6': ('!', 'No')}
 check('a covered Concern keeps its Concern mark at no cost', shown('T6', '!', 'No', _A) in ('concern', 'major') and B['scored'](_A)['areas']['Transparency'][0] == 75)
 check('signs of malware is its own result, never an ordinary Major', B['scored']({**benign(), 'P9': ('!', 'Yes')})['kind'] == 'malware' and shown('P9', '!', 'Yes') == 'malware')
 
-# partly_means: the question table's Partly cell gives the meaning, and so does every Partly answer on a card (page.py).
+# partly_means: the question table's Partly cell gives the meaning, and so does every Partly answer on a card (site/feed.py).
 _pm = {q: x['partly_means'] for q, x in B['SC']['questions'].items() if x.get('partly_means')}
 check('partly_means shows in the Partly cell of the question table', _pm and all(B['partly_cell'](B['SC']['questions'][q]).endswith(': ' + m) for q, m in _pm.items()), _pm)
 check('no question text holds its own Partly definition', not any('(Partly' in x['text'] for x in B['SC']['questions'].values()))
@@ -413,23 +413,36 @@ check('K5 must name G12 while it is a Concern', not _key5('Yes; it patches memor
 # v3: changing the game's own files is counted under P4 only, so P7 never repeats it.
 check('P7 is a Concern only for content you did not pick', 'changes the game' not in B['SC']['questions']['P7']['yes_mark'])
 
-# The feed (site/feed.py) and the page take an answer's state and cost from the same functions (page.answer_state, answer_cost),
+# Every page shows an answer's state and cost as the feed gives them (site/feed.py: answer_state, answer_cost),
 # so the branches no card reaches yet can't drift apart: signs of malware, a held-back Note, an open answer, a grouped answer.
-import page  # noqa: E402
-_A = with_(P9=('!', 'Yes'))
-check('a confirmed P9 Yes shows as Signs of malware', page.answer_state('P9', _A, B['charges'](_A), set()) == 'malware', page.answer_state('P9', _A, B['charges'](_A), set()))
-_A = with_(D2=('~', 'Yes'))
-check('a held-back answer marked Note stays a Note', page.answer_state('D2', _A, B['charges'](_A, {'D2'}), {'D2'}) == 'note')
-_A = with_(P2=(None, 'NC'))
-check('an open answer costs its highest cost', page.answer_cost('P2', _A, B['charges'](_A)) == (B['maxcost']('P2'), None, True), page.answer_cost('P2', _A, B['charges'](_A)))
-_A = with_(D2=('!', 'Yes'), D3=('!', 'Yes'))
-check('a grouped answer costs nothing and names where it is counted', page.answer_cost('D2', _A, B['charges'](_A)) == (0, 'D3', False), page.answer_cost('D2', _A, B['charges'](_A)))
 import feed  # noqa: E402
-check('the feed\'s AI note is the site\'s, from site/shell.html', feed.ai_note(open(os.path.join(ROOT, 'site/shell.html')).read()).startswith('Claude, an AI, does the analysis'))
+_A = with_(P9=('!', 'Yes'))
+check('a confirmed P9 Yes shows as Signs of malware', feed.answer_state('P9', _A, B['charges'](_A), set()) == 'malware', feed.answer_state('P9', _A, B['charges'](_A), set()))
+_A = with_(D2=('~', 'Yes'))
+check('a held-back answer marked Note stays a Note', feed.answer_state('D2', _A, B['charges'](_A, {'D2'}), {'D2'}) == 'note')
+_A = with_(P2=(None, 'NC'))
+check('an open answer costs its highest cost', feed.answer_cost('P2', _A, B['charges'](_A)) == (B['maxcost']('P2'), None, True), feed.answer_cost('P2', _A, B['charges'](_A)))
+_A = with_(D2=('!', 'Yes'), D3=('!', 'Yes'))
+check('a grouped answer costs nothing and names where it is counted', feed.answer_cost('D2', _A, B['charges'](_A)) == (0, 'D3', False), feed.answer_cost('D2', _A, B['charges'](_A)))
+check('the feed\'s AI note is rule 8\'s words from site/content.yaml, in plain text', feed.ai_note().startswith('Claude, an AI, does the analysis from a public prompt'))
 _says = feed.sections_out([{'title': 'What it says vs what it does', 'blocks': [{'table': ['Claim', 'Verdict', 'Evidence'], 'rows': [
     {'Claim': 'a', 'Verdict': 'Matches', 'Evidence': '-'}, {'Claim': 'b', 'Verdict': 'Partly, as far as checked', 'Evidence': '-'}, {'Claim': 'c', 'Verdict': "Doesn't match", 'Evidence': '-'}]}]}])
 check('the feed gives each "Says vs does" verdict the state the page draws it as', [r['verdict_state'] for r in _says[0]['blocks'][0]['rows']] == ['good', 'note', 'concern'])
 check('the feed accepts a malware state', 'malware' in feed.SCHEMA['$defs']['state']['enum'])
+
+# Every page shows what its card holds: render.complete refuses a page where an answer or a "Says vs does" claim lost its mark,
+# the bug that once left the claims grey (site/render.py).
+import render  # noqa: E402
+_c = {'card': 't-1', 'answers': [{'id': 'P1'}], 'key_answers': [], 'areas': [], 'files': [], 'history': [],
+      'sections': [{'title': 'What it says vs what it does', 'blocks': [{'table': ['Claim', 'Verdict', 'Evidence'], 'rows': [{}]}]}]}
+_row = lambda i, mark: f'<div class="row" id="{i}">{'<span class="st good">Good</span>' if mark else 'Good'}<div class="t">x</div></div>'
+def _refused(html):
+    try: render.complete(_c, html)
+    except AssertionError: return True
+    return False
+check('a page with every mark passes the completeness check', not _refused(_row('q-P1', 1) + _row('claim-1', 1)))
+check('a claim drawn without its mark fails the completeness check', _refused(_row('q-P1', 1) + _row('claim-1', 0)))
+check('an answer left off the page fails the completeness check', _refused(_row('claim-1', 1)))
 
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)

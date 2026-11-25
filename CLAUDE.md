@@ -45,12 +45,13 @@ They arrive as GitHub issues (`.github/ISSUE_TEMPLATE/`). A correction must name
 ## Checks before every push
 
 ```
-pip install -r requirements.txt   # pinned: markdown, pyyaml, jsonschema
-python3 -I site/build.py          # schema, questions, marks, scores, VirusTotal thresholds, registry
+pip install -r requirements.txt   # pinned: markdown, pyyaml, jsonschema, jinja2, ruff
+ruff check                        # mistakes in the Python (ruff.toml says which checks)
+python3 -I site/build.py          # schema, questions, marks, scores, VirusTotal thresholds, registry, every page complete
 python3 -I tools/check_links.py   # every pinned code link exists at its ref, line ranges fit
 ```
 
-Both run in CI on every pull request and push to `main`, with `python3 -I tests/test_build.py` (the build's own tests: add a case there when you change how scores, marks or tags are set). GitHub Pages deploys `_site/` from `main`.
+They run in CI on every pull request and push to `main`, with `python3 -I tests/test_build.py` (the build's own tests: add a case there when you change how scores, marks or tags are set) and the checks on the built site in `tests/site/` (valid HTML, WCAG 2.2 AA, behaviour, screenshots, Lighthouse, ESLint; its README says how to run them). A change to a page's look updates its screenshots in the same pull request. GitHub Pages deploys `_site/` from `main`.
 
 ## One place for each thing
 

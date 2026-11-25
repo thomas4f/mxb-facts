@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% from "macros.html" import fold %}
+{% block nav %}how{% endblock %}
+{% block title %}How it works · MXB Facts{% endblock %}
+{% block description %}How an MXB Facts card is made, the rules every card follows, and how scores are worked out.{% endblock %}
+{% set tpl = {} %}
+{% for s in SITE.template %}{% set _ = tpl.update({s.title: s.text}) %}{% endfor %}
+{% block main %}
+<h1 class="sec-h">How it works</h1>
+<p class="ainote"><strong>Made by AI.</strong> {{ SITE.ai_note | mdi }}</p>
+<h2 class="h2" id="steps">How a card is made</h2>
+<ol class="steps">{% for s in SITE.how_a_card_is_made %}<li><div>{{ s | mdi }}</div></li>{% endfor %}</ol>
+<h2 class="h2" id="rules">The rules</h2>
+<div class="prose">{{ tpl['Rules'] | md }}</div>
+<h2 class="h2" id="marks">Reading a card</h2>
+<dl class="legend">
+  {% for k in ['good', 'note', 'concern', 'major', 'off', 'req', 'dna', 'nc', 'held', 'na', 'malware', 'notscored'] %}
+  <dt>{{ mark(k) }}</dt><dd>{{ IX.legend[k] if k in IX.legend else STATES[k].meaning }}.</dd>
+  {% endfor %}
+</dl>
+<h2 class="h2">In detail</h2>
+<div class="stack tight">
+{% call fold('marks-and-scores', 'Marks and scores') %}<div class="prose pad">{{ tpl['Marks and scores'] | md }}</div>{% endcall %}
+{% call fold('scores', 'How scores are worked out', '<span class="muted">rubric ' ~ SITE.rubric ~ '</span>') %}<div class="prose pad">{% for s in SITE.scores %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}</div>{% endcall %}
+{% call fold('ai', 'How AI is used') %}<div class="prose pad">{{ tpl['How AI is used'] | md }}</div>{% endcall %}
+{% call fold('prompt', 'The analysis prompt', '<span class="muted">every card starts from it</span>') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}{{ SITE.prompt.text | md }}</div>{% endcall %}
+{% call fold('writers', 'For card writers', '<span class="muted">what a card holds and how it is written</span>') %}<div class="prose pad"><h3>Sections</h3>{{ tpl['Sections'] | md }}<h3>Wording</h3>{{ tpl['Wording'] | md }}</div>{% endcall %}
+{% call fold('changes', 'Changes to these rules') %}<div class="prose pad">{{ tpl['Changes to these rules'] | md }}</div>{% endcall %}
+</div>
+{% endblock %}

@@ -1,0 +1,9 @@
+# Python lint (CI runs `ruff check`). It looks for mistakes, not style: the code keeps its compact one-line style on purpose,
+# so pyflakes (F), syntax and runtime errors (E9, PLE) and bugbear (B) only.
+# B007 (an unused loop variable names what a tuple holds) and B905 (zip() whose lengths are checked first) are left out.
+target-version = "py312"  # the workflows pin Python 3.12
+extend-exclude = ["_site", "tests/site/node_modules"]
+
+[lint]
+select = ["F", "E9", "PLE", "B"]
+ignore = ["B007", "B905"]

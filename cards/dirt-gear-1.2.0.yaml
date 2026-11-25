@@ -26,7 +26,7 @@ header:
     ("Uninstall: retry removing the program folder and log what happened; rebuild v1.2.0", 24 Nov 2026), the commit tag
     `v1.2.0` points to.
   Analysed on: 24 Nov 2026
-  Earlier reports: '[1.1.1](https://thomas4f.github.io/mxb-facts/#dirt-gear-1.1.1) (24 Nov 2026)'
+  Earlier reports: '[1.1.1](https://thomas4f.github.io/mxb-facts/dirt-gear/1.1.1/) (24 Nov 2026)'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     The licence (`LICENSE.txt`, "All rights reserved") lets anyone read the source and build it to check it matches a

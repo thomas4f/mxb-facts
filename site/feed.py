@@ -2,16 +2,47 @@
 raw YAML, so a reader shows exactly what the site shows and works out no mark, cost or score itself. Its contract is
 docs/FEED.md; its shape is rules/feed.schema.json, which every file is checked against here.
 
-Usage: from build.py, write_feed(SITE, CARDS, shell) after the cards are checked.
+Usage: from build.py, write_feed(SITE, CARDS) and write_site(SITE, skill, agents_line) after the cards are checked.
 """
 import datetime, json, jsonschema, os, re, subprocess
-from rules import (AREAK, AREAN, CONCERN, GCOST, GSC, GT, HELD, KEYS, MDTXT, QCELL, QS, RUBRICV, SC, STATES, goodwhen, load_yaml, maxcost, money,
-    scored, sround, state_of, tagsof, ROOT, D)
-from cards import MM, REG, REPO, SITES, check_card, site
-from page import BADGES, COMMIT, SAYS, SITEURL, answer_cost, answer_state, says_word
+from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PMEANS, QCELL, QIDS, QS, RUBRICV,
+    SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
+from cards import COMMIT, CORR, CORRFORM, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, site
+from badges import BADGES
+
+SITEURL='https://thomas4f.github.io/mxb-facts/'
 
 FEED_VERSION='1.0'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
+# "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
+# words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
+# after its own ("Matches, as far as checked").
+SAYS={'Matches':('good','What it does matches what its docs say'),'Partly':('note','Only part of what its docs say matches what it does'),
+      "Doesn't match":('concern','What it does differs from what its docs say; T2 says whether that costs points'),
+      'Not checked':('nc','Not checked; the evidence says why'),'Not allowed':('na','The licence forbids checking this')}
+SAYSQ='T2'  # the answer the claims back: the key answer built from it counts them
+assert SAYSQ in QIDS, 'rules/scoring.yaml: '+SAYSQ+', the answer "What it says vs what it does" backs, is gone; name the new one in SAYSQ (site/feed.py)'
+assert set(SAYS)==set(re.match(r'\^\((.*?)\)',CARD_SCHEMA['$defs']['block']['oneOf'][3]['properties']['rows']['items']['properties']['Verdict']['pattern']).group(1).split('|')), 'card.schema.json: the "Says vs does" verdicts changed; give each one a mark and a meaning in SAYS (site/feed.py)'
+def says_word(v):
+    # The verdict a "Says vs does" row starts with (SAYS); it may add words after its own ("Matches, as far as checked").
+    w=next((w for w in SAYS if v==w or v.startswith(w+',')),None)
+    assert w, 'a "What it says vs what it does" verdict must start with '+', '.join(SAYS)+': '+v
+    return w
+
+def answer_state(i,A,SETS,held):
+    # One answer's state as every view shows it (STATES in rules.py): Good, Note, a Concern as concern_span draws it (Concern,
+    # Major, Off by default, On request, Signs of malware), or a grey state. Every page shows it from the feed.
+    if A[i][0]=='!': return state_of(concern_span([i],A,SETS,i[0])[1])
+    if A[i][0]: return {'+':'good','~':'note'}[A[i][0]]
+    return {'NC':'held' if i in held else 'nc','NA':'na','DNA':'dna'}[A[i][1]]
+def answer_cost(i,A,SETS):
+    # What the answer takes off its area, as its line shows it: (cost, counted with, open). 0 when another answer of the same
+    # behaviour counts it, or a covered or waived cost; an open answer at its highest cost.
+    ch=SETS.get(i)
+    if ch: return (0 if ch[1] else ch[0]),ch[1],ch[2]
+    cov=next((w for w in GCOVER.get(i,()) if A[w][0]=='!' and A[w][1] in ('Yes','No','Partly')),None)
+    return 0,cov,False
+
 AREA_ID={ar:AREAK[ar] for ar in AREAN}
 QAREA={i:AREA_ID[a] for i,a,_t in QS}
 VWORD={'Opt':'Yes, not by default','Req':'Yes, on request','NC':'Not checked','NA':'Not allowed','DNA':"Doesn't apply"}
@@ -24,10 +55,12 @@ def plain(md):
 
 def iso(day): return datetime.datetime.strptime(day,'%d %b %Y').date().isoformat()
 
-def ai_note(shell):
-    # Rule 8's words, from the one place the site keeps them (site/shell.html, the "ai" paragraph): its first two sentences, as plain text.
-    m=re.search(r'<p class="ai">(.*?)</p>',shell,re.S); assert m, 'site/shell.html: no <p class="ai"> for the feed\'s AI note'
-    t=re.sub(r'<[^>]+>','',m.group(1)); return ' '.join(s.strip() for s in re.findall(r'[^.]+\.',t)[:2])
+# The site's own words (site/content.yaml): the lede, rule 8's AI note, the maintainer's notice and How a card is made.
+CONTENT=load_yaml(ROOT+'site/content.yaml')
+
+def ai_note(text=None):
+    # Rule 8's words as plain text, for apps: the first two sentences of the site's AI note.
+    return ' '.join(x.strip() for x in re.findall(r'[^.]+\.',plain(text or CONTENT['ai_note']))[:2])
 
 def check(obj,kind):
     jsonschema.validate(obj,{**SCHEMA,'$ref':'#/$defs/'+kind})
@@ -51,41 +84,130 @@ def result(G,A,held,hb):
             'money':money(A,held),'open_questions':G['open'],'why':G['why'],
             'held_back':{'items':int(m.group(1)) if m else 0,'questions':sorted(held)}}
 
+# The header rows a tool's page shows at its top (facts()); the rest are its "Release and method" table.
+TOP=('In one line','What it is','Category','Author','Game','mxb-mods.com','gpb-mods.com','Homepage','GitHub','Version analysed','Analysed on','Earlier reports')
+CKINDS={'correction':'Correction','missing':'Something missing','context':"Author's context"}
+
+def short(v):
+    # A header row's first clause, without asides in brackets; the whole row stays in "Release and method".
+    d=0
+    for m in re.finditer(r'[()]|(?<!\w\.\w)\. |; ',v):
+        t=m.group()
+        if t=='(': d+=1
+        elif t==')': d=max(d-1,0)
+        elif d==0: v=v[:m.start()]; break
+    return re.sub(r' \((?![^()]*\]\()[^()]*\)','',v).strip()
+
+def facts(h,slug):
+    # The facts at the top of a tool's page, in order, as Markdown. The mods site shows its address, never the page's own title (author text).
+    k,ms=SITES[h['Game']]; out=[]
+    for label,show in (('Game','Game'),('Version analysed','Version'),('Category','Category'),('Author','Author'),(ms,ms),('Homepage','Homepage'),('GitHub','GitHub'),('Analysed on','Analysed on')):
+        v=h.get(label)
+        if label==ms and slug in MM[k]['tools']: v=f'[{re.sub(r"^https?://(www\.)?|/$","",MM[k]["tools"][slug]["link"])}]({MM[k]["tools"][slug]["link"]})'
+        if v: out.append({'label':show,'text':short(v)})
+    return out
+
+def rule_note(i,row):
+    # Where a mark depends on a condition ("Concern; Note if ..."), the rule that set it; where Partly has its own meaning, that.
+    mv=re.match(r'\{.\} (Yes|No)\b',row); rule=QCELL[i].get(mv.group(1)) if mv else None
+    if re.match(r'\{.\} Partly\b',row) and PMEANS.get(i): return f'Partly here means: {PMEANS[i]}.'
+    return f'Marked by the rule: {rule}.' if rule and ' if ' in rule and not rule.endswith('Note if only on request') else None
+
+def cost_note(i,A,SETS):
+    # Why an answer's cost is what it is, in words, where the number alone doesn't say: null, or one line.
+    ch=SETS.get(i)
+    if ch: return f'Counted with {ch[1]}: the same behaviour' if ch[1] else 'Open: it counts at its highest cost until it is answered' if ch[2] else None
+    if A[i][0]=='!' and A[i][1] in ('Yes','No','Partly') and i in GCOST:
+        cov=next((w for w in GCOVER.get(i,()) if A[w][0]=='!' and A[w][1] in ('Yes','No','Partly')),None)
+        return f'Counted with {cov}: the same behaviour' if cov else 'Costs nothing: the release is traced to public source'
+    return None
+
+
+def changes_since(f,card,A1):
+    # What changed since the tool's previous card (registry order is oldest first): each answer whose verdict or mark moved,
+    # each area score that moved, and the overall score. None for a tool's first card.
+    lst=REG[SLUG[f]]['cards']; i=lst.index(f)
+    if i==0: return None
+    old=load_yaml(D+lst[i-1])
+    W={'good':'Good','note':'Note','concern':'Concern',None:''}
+    def va(c,q):
+        a=c['answers'].get(q); return (a['verdict'],a.get('mark')) if a else ('Not asked',None)
+    word=lambda c,q:' '.join(x for x in (W[va(c,q)[1]],va(c,q)[0]) if x)
+    rows=[{'question':q,'from':word(old,q),'to':word(card,q)} for q in QIDS if va(old,q)!=va(card,q)]
+    A0={q:verdict(ans_md(old['answers'][q])) for q in QIDS if q in old['answers']}
+    try: G0=scored(A0)
+    except (KeyError,AssertionError): G0=None
+    G1=scored(A1)
+    areas=[{'area':AREA_ID[ar],'from':G0['areas'][ar][0],'to':G1['areas'][ar][0]} for ar in G1['areas'] if G0 and ar in G0['areas'] and G0['areas'][ar][0]!=G1['areas'][ar][0]]
+    return {'card':lst[i-1][:-len('.yaml')],'version':old['version'],'answers':rows,'areas':areas,'unchanged':len(QIDS)-len(rows)}
+
+def author_prompt(f,name,ver):
+    # The one prompt every author gets for their card: no fixes of ours, the rules pinned to the commit the page was built from.
+    return (f'This is the MXB Facts card for {name} {ver} ({f}): one release of this tool, answered against the same questions as every other tool, '
+            f'with evidence for each answer. Go through every answer whose mark isn\'t "Good", and those without a mark ("Not checked"). For each one, '
+            f'follow its evidence to the code or file it points at in this repository and explain to me what causes that answer. Don\'t change anything yet: '
+            f'we\'ll decide together what to change, if anything, because that depends on what the tool is for. The questions, the rules behind each mark and what each Concern costs '
+            f'are rules/questions.md, rules/template.md and rules/scores.md in {REPO.rstrip("/")} at commit {COMMIT}.')
+
+def legend():
+    # What a Concern and a Major cost, from rules/scoring.yaml: a Concern costs less than the severe tier, a Major the severe tier or more.
+    cs=sorted({c for q,x in GCOST.items() if q!=GSC['malware'] for c in (x.values() if isinstance(x,dict) else [x])})
+    lo=[c for c in cs if c<GT['severe']]; hi=[c for c in cs if c>=GT['severe']]
+    assert lo and hi, 'rules/scoring.yaml: the legend needs costs below and at the severe tier'
+    rng=lambda l:f'{l[0]}–{l[-1]} points' if len(l)>1 else f'{l[0]} points'
+    return {'concern':f'In the default setup; costs {rng(lo)}','major':f'A major concern in the default setup; costs {rng(hi)}'}
+
 def add(d,k,v):
     if v not in d.setdefault(k,[]): d[k].append(v)
 
-def write_feed(SITE,CARDS,shell):
+def write_feed(SITE,CARDS):
     # The commit's date, not the clock, so the same commit always writes the same files.
     when=subprocess.run(['git','-C',ROOT,'log','-1','--format=%cI'],capture_output=True,text=True).stdout.strip() or '1970-01-01T00:00:00+00:00'
     base={'feed_version':FEED_VERSION,'built_at':when,'commit':COMMIT,'rubric':RUBRICV}
-    note=ai_note(shell)
+    note=ai_note()
     out=SITE+'api/v1/'; os.makedirs(out+'cards',exist_ok=True)
     tools={}; match={'github':{},'mods_post':{},'sha256':{}}
     for f,slug in CARDS:
         raw=load_yaml(D+f); C=check_card(f,raw); d=C['d']; h=C['h']; A=C['A']; held=C['held']; SETS=C['SETS']
         G=scored(A,held); crit,opt,pos=tagsof(raw)
         cid=f[:-len('.yaml')]; order=REG[slug]['cards']; latest=order[-1]==f
-        # The newest card's page is the tool's own address (with its link preview); an earlier card's is its anchor.
-        page=f'{SITEURL}{slug}/' if latest else f'{SITEURL}#{cid}'
+        # The newest card's page is the tool's own address; an earlier card's is a page of its own under it, named by its version.
+        page=f'{SITEURL}{slug}/' if latest else f'{SITEURL}{slug}/{C["ver"]}/'
+        assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]*',C['ver']), f+': the version must be usable as a folder name for its page'
         res=result(G,A,held,h.get('Held back'))
         ans=[]
         for i,_a,qt in QS:
-            v=A[i][1]; x=d['answers'][i]; cost,cw,op=answer_cost(i,A,SETS)
-            ans.append({'id':i,'area':QAREA[i],'question':qt,'verdict':VWORD.get(v,v),'state':answer_state(i,A,SETS,held),
-                        'cost':cost,'counted_with':cw,'open':op,'text':x['text'],'text_plain':plain(x['text']),'evidence':x['evidence'],
+            v=A[i][1]; x=d['answers'][i]; cost,cw,op=answer_cost(i,A,SETS); st=answer_state(i,A,SETS,held)
+            ans.append({'id':i,'area':QAREA[i],'question':qt,'verdict':VWORD.get(v,v),'state':st,
+                        'cost':cost,'counted_with':cw,'open':op,'cost_note':cost_note(i,A,SETS),'rule_note':rule_note(i,C['rows'][i]),
+                        'text':x['text'],'text_plain':plain(x['text']),
+                        # A held-back answer's evidence is published with the details (rule 9), as its line on the card says.
+                        'evidence':'Published with the details.' if st=='held' else x['evidence'],
+                        'limits':[n+1 for n in LIMS.get(f,{}).get(i,[])],'under_review':CORR.get(f,{}).get(i,[]),
+                        'comment':correction_link(C['name']+' '+C['ver'],i,C['rows'][i]),
                         **({'second_check':x['second_check']} if 'second_check' in x else {})})
-        key=[{'id':k,'question':q,'short':s,'from':src,'state':key_state(C['key'][k]),'text':C['key'][k][2],'text_plain':plain(C['key'][k][2])} for k,q,s,src in KEYS]
-        tags=([{'label':l,'kind':'concern','question':q} for l,q in crit]+[{'label':l,'kind':'off_by_default','question':q} for l,q in opt]
+        # The key answer the claims back (SAYSQ) counts them, so a reader can go through them one by one.
+        nclaims=sum(len(b['rows']) for x in d['sections'] if x['title']=='What it says vs what it does' for b in x['blocks'] if 'Verdict' in b.get('table',[]))
+        key=[{'id':k,'question':q,'short':s,'from':src,'state':key_state(C['key'][k]),'text':C['key'][k][2],'text_plain':plain(C['key'][k][2]),
+              **({'claims':nclaims} if SAYSQ in src and nclaims else {})} for k,q,s,src in KEYS]
+        # Concern tags go costliest first (ties keep the tag table's order); one at the severe cost or more is a Major, like its answer's mark.
+        cost=lambda q:qcost(q,raw['answers'][q]['verdict']) or maxcost(q)  # noqa: B023 (used at once, for this card)
+        crit=sorted(crit,key=lambda t:-cost(t[1]))
+        tags=([{'label':l,'kind':'concern','question':q,'major':cost(q)>=GT['severe']} for l,q in crit]+[{'label':l,'kind':'off_by_default','question':q} for l,q in opt]
               +[{'label':l,'kind':'positive','question':q} for l,q in pos])
         reg=REG[slug]; mk=site(reg); post=reg[mk]['post']
         mods={'site':SITES[h['Game']][1],'post':post,'url':MM[mk]['tools'].get(slug,{}).get('link')} if post else None
         badges={(suf or '-flat').lstrip('-'):f'{SITEURL}badge/{slug}/{C["ver"]}{suf}.svg' for suf,_x,_y in BADGES}
-        files=[{'name':x['name'],'sha256':x['sha256'],'note':x.get('note',''),'inside':x.get('inside')} for x in raw['files']]
+        vt={r[2].strip('`'):r[3] for r in files_table(f,raw)}
+        files=[{'name':x['name'],'sha256':x['sha256'],'note':x.get('note',''),'inside':x.get('inside'),'virustotal':vt[x['sha256']]} for x in raw['files']]
         hist=[{'date':x['date'],'date_iso':iso(x['date']),'change':x['change']} for x in raw.get('history',[])]
         card={**base,'ai_note':note,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'game':h['Game'],'category':h['Category'],
-              'summary':plain(h['In one line']),'author':plain(h['Author']),'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'method':h['Method'],
+              'summary':plain(h['In one line']),'author':REG[slug]['author'],'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'method':h['Method'],
               'page':page,'yaml':f'{SITEURL}cards/{f}','badges':badges,'result':res,'tags':tags,'files':files,
-              'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[])}
+              'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[]),
+              'facts':facts(h,slug),'header':[{'label':k,'text':h[k]} for k in HEADER if k in h and k not in TOP],'files_note':raw.get('files_note',''),
+              'areas':[{'id':AREA_ID[ar],'name':ar,'summary':d['areas'][ar]} for ar in AREAN],
+              'changes_since':changes_since(f,raw,A),'by_maintainer':bool(raw.get('by_maintainer')),'author_prompt':author_prompt(f,C['name'],C['ver'])}
         check(card,'card')
         json.dump(card,open(out+f'cards/{cid}.json','w'),indent=1,ensure_ascii=False)
         rel={'version':C['ver'],'card':cid,'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'kind':res['kind'],'score':res['score'],
@@ -94,13 +216,18 @@ def write_feed(SITE,CARDS,shell):
                                  'mods_site':mods,'releases':[None]*len(order)})
         # Newest release first, in the registry's order (rule 2: every card stays).
         t['releases'][len(order)-1-order.index(f)]=rel
-        if latest: t.update({'category':h['Category'],'summary':plain(h['In one line']),'page':page,'latest':{**rel,'result':res,'tags':tags,'badges':badges}})
+        # How many answers are still open, by why, and how many comments are under review: the counts the tools list shows beside the tags.
+        counts={k:sum(1 for x in ans if x['state']==k) for k in ('nc','na','held')}|{'under_review':sum(1 for c in raw.get('corrections',[]) if c['status']=='open')}
+        if latest: t.update({'category':h['Category'],'summary':plain(h['In one line']),'page':page,'latest':{**rel,'result':res,'tags':tags,'badges':badges,'counts':counts}})
         if reg['github']: add(match['github'],reg['github'].lower(),slug)
         if post: add(match['mods_post'],f'{mk}:{post}',slug)
         for x in files: add(match['sha256'],x['sha256'],{'tool':slug,'card':cid,'version':C['ver'],'latest':latest,'file':x['name'],'inside':x['inside'],'note':x['note']})
     index={**base,'site':SITEURL,'ai_note':note,'licence':{'data':None,'note':'Not chosen yet; see docs/FEED.md, "Using the data".'},
            'areas':[{'id':AREA_ID[ar],'name':ar,'scored':ar in CONCERN} for ar in AREAN],
-           'states':[{'id':k,'label':l,'meaning':m} for k,(l,_c,_i,m) in STATES.items()],
+           'states':[{'id':k,'label':l,'meaning':m,'icon':i} for k,(l,_c,i,m) in STATES.items()],
+           'money':[{'label':l,'means':x['means'],'grey':l in MLEFT} for l,x in MLAB.items()],
+           'categories':[c for c in CATS if any(t['category']==c for t in tools.values())],
+           'legend':legend(),'correction_kinds':CKINDS,'links':{'comment':CORRFORM,'recheck':REPO+'issues/new?template=analyse-tool.yml','repo':REPO},
            'tags':[{'label':x['tag'],'question':x['from'],'answer':x['answer'],'kind':x['kind'].lower(),'icon':x.get('icon')} for x in SC['tags'] if x['kind']!='None'],
            'tools':sorted(tools.values(),key=lambda t:t['name'].lower())}
     check(index,'index')
@@ -119,16 +246,11 @@ def sections_out(secs):
         for b in sec['blocks']:
             if 'Verdict' in b.get('table',[]):
                 b={**b,'rows':[{**r,'verdict_state':SAYS[says_word(r['Verdict'])][0]} for r in b['rows']]}
+            # An area's tables fold under a name that says what they list ("Connections found").
+            elif 'table' in b and tuple(b['table']) in FOLDNAME: b={**b,'name':FOLDNAME[tuple(b['table'])]}
             bl.append(b)
         out.append({**sec,'blocks':bl})
     return out
-
-def md_from_html(h):
-    # The few tags the site's own prose uses, as Markdown: bold, links (made absolute), and nothing else.
-    h=re.sub(r'<b>(.*?)</b>',r'**\1**',h,flags=re.S)
-    h=re.sub(r'<a href="([^"]+)"[^>]*>(.*?)</a>',lambda m:f'[{m.group(2)}]({m.group(1) if m.group(1).startswith("https://") else SITEURL+m.group(1)})',h,flags=re.S)
-    assert not re.search(r'<[a-z/]',h), 'site/shell.html: a "How a card is made" step uses a tag the feed can\'t carry: '+h[:80]
-    return re.sub(r'\s+',' ',h).strip()
 
 def doc(md,path):
     # One of the repository's Markdown files for the feed: relative links pinned to the build's commit, the generated-table markers gone.
@@ -146,13 +268,17 @@ def sections(md):
     out=[{'title':'','text':parts[0].strip()}] if parts[0].strip() else []
     return out+[{'title':parts[i].strip(),'text':parts[i+1].strip()} for i in range(1,len(parts),2)]
 
-def write_site(SITE,shell,skill,agents_line):
+def write_site(SITE,skill,agents_line):
     # The site's own text and rules, so a design can draw How it works and For authors from data, like the tools.
     base={'feed_version':FEED_VERSION,'commit':COMMIT,'rubric':RUBRICV}
-    steps=re.search(r'<h3>How a card is made</h3>\s*<ol class="flow">(.*?)</ol>',shell,re.S); assert steps, 'site/shell.html: no "How a card is made" list'
     prm=open(ROOT+'prompts/analyse-tool.md').read()
+    assert '\n## The prompt\n' in prm, 'prompts/analyse-tool.md: no "## The prompt" section'
+    # The drop-in check, CLAUDE.md and the For authors page say "steps 1 to 5" (analyse and run, no card) and "skip step 6"
+    # (VirusTotal): renumbering the prompt must update them too.
+    assert re.search(r'^5\. Run it',prm,re.M) and re.search(r'^6\. Look up the hashes on VirusTotal',prm,re.M), 'prompts/analyse-tool.md: step 5 must be running the tool and step 6 the VirusTotal lookup, as SKILL.md, CLAUDE.md and the For authors page say; update them if the steps move'
     data={**base,'site':SITEURL,'repo':REPO,
-          'how_a_card_is_made':[md_from_html(x) for x in re.findall(r'<li>(.*?)</li>',steps.group(1),re.S)],
+          'lede':CONTENT['lede'],'ai_note':CONTENT['ai_note'],'maintainer_notice':CONTENT['maintainer_notice'],
+          'how_a_card_is_made':CONTENT['how_a_card_is_made'],
           'template':sections(doc(MDTXT['template.md'],'rules/template.md')),
           'scores':sections(doc(MDTXT['scores.md'],'rules/scores.md')),
           'prompt':{'intro':sections(doc(prm.split('\n## The prompt\n',1)[0],'prompts/analyse-tool.md')),'text':doc('## The prompt\n'+prm.split('\n## The prompt\n',1)[1],'prompts/analyse-tool.md')},

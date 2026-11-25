@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% from "macros.html" import fold %}
+{% block nav %}authors{% endblock %}
+{% block title %}For authors · MXB Facts{% endblock %}
+{% block description %}What earns a Good answer on MXB Facts, and the check authors can run before a release.{% endblock %}
+{% block main %}
+<h1 class="sec-h">For authors</h1>
+<div class="prose"><p>MXB Facts answers the same questions about every tool, with evidence for each answer, from <a href="{{ root }}how/#prompt">a published prompt</a>. The questions and the rules are public, so you can see what your tool would get, and change it if you want to, before anyone checks it. Authors aren't told before a card is published, except about a security problem (rule 9); anyone, you included, can correct a card afterwards (<a href="{{ root }}how/#rules">how a card is made</a>).</p></div>
+
+<h2 class="h2" id="good">What earns a Good answer</h2>
+<p class="muted measure">The answer each question needs for a Good mark. A Note or a Concern can be the honest answer for what a tool is for: a mark says what a player should know, and what to change, if anything, is up to you. The cost is what a Concern takes off its area, at most (<a href="{{ root }}how/#scores">how scores are worked out</a>).</p>
+<div class="stack tight">
+{% for a in AREAS %}
+{% set qs = SITE.questions | selectattr('area', 'equalto', a.id) | list %}
+{% call fold('good-' ~ a.id, a.name ~ ' · ' ~ qs | length ~ ' questions') %}
+<div class="tw"><table class="t"><thead><tr><th scope="col">Question</th><th scope="col">Good when</th><th scope="col">Cost at most</th></tr></thead><tbody>
+{% for q in qs %}<tr><td><code>{{ q.id }}</code> {{ q.question }}</td><td>{{ q.good_when }}</td><td class="num">{{ '−' ~ q.max_cost if q.max_cost else '–' }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% endcall %}
+{% endfor %}
+</div>
+
+<h2 class="h2" id="check">Check your tool before you release</h2>
+{% set ck = SITE.authors_check %}
+<ol class="steps">
+  <li><div><b>Add the check to your repository:</b> save it as <code>{{ ck.path }}</code> (<a href="{{ root }}authors/mxb-facts-check/SKILL.md" download="SKILL.md">download it</a>). Claude Code picks it up as a skill; for other agents, add this line to <code>AGENTS.md</code> or <code>CLAUDE.md</code>:<div class="copy"><pre><code id="agents-line">{{ ck.agents_line }}</code></pre><button class="btn" type="button" data-copy="agents-line">Copy</button></div></div></li>
+  <li><div><b>Ask your agent to run it</b> before a release. It follows our prompt, steps 1 to 5, with the rules pinned to one commit ({{ SITE.commit[:12] }}), and lists every answer that wouldn't be Good, with its evidence. It changes nothing on its own.</div></li>
+</ol>
+{% call fold('skill', 'The check', '<span class="muted">mxb-facts-check/SKILL.md</span>') %}<div class="pad"><div class="copy"><pre><code id="skill-text">{{ ck.text }}</code></pre><button class="btn" type="button" data-copy="skill-text">Copy</button></div></div>{% endcall %}
+<p class="measure">Prefer the full run? Clone the repository, open Claude Code in it, paste <a href="{{ root }}how/#prompt">the analysis prompt</a> and stop after step 5, as the check does.</p>
+
+<h2 class="h2" id="card">Once your tool has a card</h2>
+<p class="measure">Everything below is at the foot of your tool's page, under "For the tool's author".</p>
+<ol class="steps">
+  <li><div><b>Go through it with your agent:</b> download the card and paste one prompt. Your agent follows each answer's evidence into your code; we don't suggest fixes.</div></li>
+  <li><div><b>Release, then <a href="{{ SITE.links.request }}">request a re-check</a>.</b> The new release gets a new card; the old one stays.</div></li>
+  <li><div><b>Something wrong, missing, or context to add?</b> Use "Comment" beside any answer, Good ones included, or <a href="{{ SITE.links.comment }}">comment on an answer</a> with its evidence; it is answered in public.</div></li>
+  <li><div><b>Add the badge to your page:</b> your score in five styles, each pinned to the card's version.</div></li>
+</ol>
+{% endblock %}

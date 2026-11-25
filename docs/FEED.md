@@ -15,7 +15,8 @@ GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a brows
 | `index.json` | Every tool: id, name, author, game, category, one-line summary, page, mods-site post, every release with its score (newest first), and the newest release's full result, tags and badges. Also the areas, states and tags the other files refer to, and the AI note. | ~55 KB |
 | `cards/<card>.json` | One card in full: result, tags, files with SHA-256, the ten key answers, every answer with its state and cost, the report sections, history and corrections. `<card>` is the card's file name without `.yaml`, as in `holeshot-0.24.2`. | 50–90 KB each |
 | `match.json` | Lookup keys to tools: GitHub repository (lower case), mods-site post (`mxb-mods:<id>` or `gpb-mods:<id>`), and the SHA-256 of every file a card lists. | ~70 KB |
-| `schema/feed.schema.json` | JSON Schema for the three files above (`$defs`: `index`, `card`, `match`). | |
+| `site.json` | Everything the site's own pages need beyond the cards: the questions with what earns a Good answer, the rules, the prompt, the authors' check, the site's text and links. The site's pages are made from this file and the three above alone, so anything a page shows, the feed has. | |
+| `schema/feed.schema.json` | JSON Schema for `index.json`, `cards/<card>.json` and `match.json` (`$defs`: `index`, `card`, `match`). | |
 
 ## What you can rely on
 
@@ -25,6 +26,8 @@ GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a brows
 - **What is held back stays held back** ([rule 9](../rules/template.md)): `result.held_back` gives the number of items and the questions they touch, as the card's "Held back" row does, and nothing else. The details aren't in the feed because they aren't in the card.
 - **Every release stays** ([rule 2](../rules/template.md)): `releases` lists every card of a tool with its own score, newest first; `latest` is the newest.
 - **Every mark comes with its state.** Answers and key answers carry `state`; each row of a "What it says vs what it does" table carries `verdict_state` beside its `Verdict` words. Draw the state; never map the words yourself.
+- **Pages.** `page` is the card's address: `…/mxb-facts/<tool>/` for a tool's newest card, `…/mxb-facts/<tool>/<version>/` for an earlier one. Both stay.
+- **What the site shows beside an answer is in the feed too:** `cost_note` (why it costs what it does), `rule_note` (the rule that set its mark), `limits` (the numbers of the Limits lines it touches), `under_review` (open corrections) and `comment` (the link to comment on it).
 - **Text in two forms.** `text` and `evidence` are the card's Markdown (https links and code, never HTML). `text_plain` is the same answer without Markdown, for lists and apps.
 - **Dates in two forms.** `analysed` is the text the site shows ("24 Nov 2026"); `analysed_iso` (and `date_iso` in `history`) is `YYYY-MM-DD`.
 - **Versioning.** Within v1, fields are only added, never removed or renamed, and a field's meaning doesn't change. A change that breaks that is published as `api/v2/` beside v1, and v1 keeps being published for at least 6 months after v2 appears. `feed_version` is `1.<n>`; `n` goes up when fields are added.

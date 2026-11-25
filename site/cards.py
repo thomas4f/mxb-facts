@@ -1,6 +1,7 @@
 """The cards: checking one card file (cards/*.yaml) against the rules and working out what the rules set on it (its answers
-as lines, their costs, its key answers, its corrections). No page is made here: page.py does that from the result. Also the
-data beside the cards: the registry (registry/*.json) and the VirusTotal lookups (vt/results.json).
+as lines, their costs, its key answers, its corrections). No page is made here: feed.py makes the data feed from the result,
+and render.py the pages from the feed. Also the data beside the cards: the registry (registry/*.json) and the VirusTotal
+lookups (vt/results.json).
 """
 import datetime, json, jsonschema, os, re, subprocess, urllib.parse
 from rules import (
@@ -152,7 +153,7 @@ def strings(d):
 def check_card(f,raw):
     # One card, checked against the schema and the rules, with what the rules work out from it: its answers as lines
     # ("rows"), their verdicts ("A") and costs ("SETS"), the held-back questions and the key answers. Nothing here is HTML:
-    # page.py makes the page from this.
+    # feed.py makes the feed from this.
     jsonschema.validate(raw,SCHEMA); no_html(f,raw)
     check_files(raw)
     assert not set(raw['header'])-set(HEADER), f+': unknown header rows '+', '.join(set(raw['header'])-set(HEADER))

@@ -29,8 +29,8 @@ header:
     (`lab/evidence/dirt-gear-1.2.1/since-1.2.0.txt`).
   Analysed on: 25 Nov 2026
   Earlier reports: >-
-    [1.2.0](https://thomas4f.github.io/mxb-facts/#dirt-gear-1.2.0) (24 Nov 2026),
-    [1.1.1](https://thomas4f.github.io/mxb-facts/#dirt-gear-1.1.1) (24 Nov 2026)
+    [1.2.0](https://thomas4f.github.io/mxb-facts/dirt-gear/1.2.0/) (24 Nov 2026),
+    [1.1.1](https://thomas4f.github.io/mxb-facts/dirt-gear/1.1.1/) (24 Nov 2026)
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     The licence (`LICENSE.txt`, "All rights reserved") lets anyone read the source and build it to check it matches a

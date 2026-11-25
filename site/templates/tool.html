@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% from "macros.html" import row, bar, fold, answer_notes %}
+{% set r = c.result %}
+{% set scored = r.kind == 'score' %}
+{% set sec = {} %}
+{% for s in c.sections %}{% set _ = sec.update({s.title: s.blocks}) %}{% endfor %}
+{% set lims = (sec.get('Limits of this analysis') or [{'limits': []}])[0].limits %}
+{% block nav %}tool{% endblock %}
+{% block title %}{{ c.name }} {{ c.version }}: {{ r.label }} · MXB Facts{% endblock %}
+{% block description %}{{ c.summary }}. Every answer links its evidence.{% endblock %}
+{% block main %}
+<a class="back" href="{{ root }}">‹ All tools</a>
+<div class="thead">
+  <div>
+    <h1>{{ c.name }} <small>{{ c.version }}</small></h1>
+    <div class="meta">{{ c.category }} · {{ c.game }} · by {{ c.author }} · analysed {{ c.analysed }}</div>
+    <p class="sum">{{ c.summary }}</p>
+  </div>
+  <div class="big{% if not scored %} word{% endif %}">
+    {% if scored %}<b class="num">{{ r.score }}</b><span>out of 100 · rubric {{ c.rubric }}</span>{% else %}{{ mark(r.kind) }}<span>no number given</span>{% endif %}
+  </div>
+</div>
+{% if not c.latest %}<p class="notice">An earlier release. The newest card is <a href="{{ root }}{{ t.id }}/">{{ t.name }} {{ t.latest.version }}</a>.</p>{% endif %}
+{% if c.by_maintainer %}<p class="notice maint">{{ SITE.maintainer_notice | mdi }}</p>{% endif %}
+{% for w in r.why %}<p class="notice">{{ w }}.</p>{% endfor %}
+{% if r.held_back['items'] %}<p class="notice held"><b>Held back (rule 9):</b> {{ r.held_back['items'] }} item{{ 's' if r.held_back['items'] > 1 }} touching {{ r.held_back.questions | join(', ') }}, reported privately to the author first. Those answers count at their highest cost until published.</p>{% endif %}
+{% if scored %}<p class="muted small">{% if r.open_questions %}{{ r.open_questions | length }} answer{{ 's' if r.open_questions | length > 1 }} still open count{{ '' if r.open_questions | length > 1 else 's' }} at full cost: {% for q in r.open_questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %}.{% else %}No answer still open costs points here.{% endif %}</p>{% endif %}
+
+<div class="areas">
+{% for a in AREAS %}
+  <a class="area" href="#a-{{ a.id }}"><span class="l"><span>{{ a.name }}</span><b class="num">{{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}</b></span><span class="vh">, show its answers</span>{% if a.scored %}{{ bar(r.areas[a.id]) }}{% endif %}</a>
+{% endfor %}
+</div>
+{% if c.tags %}
+<div class="tags">
+  {% for x in (c.tags | selectattr('kind', 'equalto', 'concern') | list) + (c.tags | selectattr('kind', 'equalto', 'positive') | list) + (c.tags | selectattr('kind', 'equalto', 'off_by_default') | list) %}{{ tag(x) }}{% endfor %}
+</div>
+{% endif %}
+
+<dl class="facts box">
+{% for f in c.facts %}<dt>{{ f.label }}</dt><dd>{{ f.text | mdi }}</dd>{% endfor %}
+{% if t.releases | length > 1 %}<dt>Releases</dt><dd>{{ t.releases | length }} analysed · <a href="#history">See them all</a></dd>{% endif %}
+</dl>
+
+<h2 class="h2" id="key">Ten key answers</h2>
+<div class="keys">
+{% for k in c.key_answers %}
+  <div class="key"><div class="hd"><span class="q">{{ k.question }}</span>{{ mark(k.state) }}</div>
+    <p>{{ k.text | mdi }}</p>
+    <p class="from">{% if k.claims is defined %}<a href="#says">{{ k.claims }} claim{{ 's' if k.claims > 1 }}, one by one</a> · {% endif %}From {% for q in k['from'] %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %}</p></div>
+{% endfor %}
+</div>
+
+<h2 class="h2" id="answers">Every answer, by area</h2>
+<div class="stack tight">
+{% for a in AREAS %}
+{% set list = c.answers | selectattr('area', 'equalto', a.id) | list %}
+{% set blocks = sec.get(a.name, []) %}
+{% set summary = (c.areas | selectattr('id', 'equalto', a.id) | first).summary %}
+{% set side %}<b class="num">{{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}</b>{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}{% endset %}
+{% call fold('a-' ~ a.id, a.name ~ ' · ' ~ list | length ~ ' questions', side) %}
+  <p class="lead">{{ summary | mdi }}{% if not a.scored %} <span class="muted">({{ r.money }}: {{ money[r.money].means }}.)</span>{% endif %}</p>
+  {% for x in list %}
+  {% set notes %}{{ answer_mark(x, scored) }}{{ answer_notes(x, scored) }}{% endset %}
+  {% set cmt %}<a class="cmt" href="{{ x.comment }}" target="_blank" rel="noopener">Comment<span class="vh"> on {{ x.id }}</span></a>{% endset %}
+  {{ row(x.id, 'q-' ~ x.id, x.question, notes, x.text | md, x.evidence | md if x.evidence.strip() != '-' else '', x.second_check | md if x.second_check is defined else None, cmt) }}
+  {% endfor %}
+  {% for b in blocks if b.table is defined %}
+  <details class="sub"><summary>{{ b.name }} ({{ b.rows | length }})</summary>
+    <div class="tw"><table class="t"><thead><tr>{% if b.rows | selectattr('mark', 'defined') | list %}<th scope="col">Mark</th>{% endif %}{% for h in b.table %}<th scope="col">{{ h }}</th>{% endfor %}</tr></thead><tbody>
+    {% for rw in b.rows %}<tr>{% if b.rows | selectattr('mark', 'defined') | list %}<td>{% if rw.mark is defined %}{{ mark(rw.mark) }}{% endif %}</td>{% endif %}{% for h in b.table %}<td>{{ rw[h] | mdi }}</td>{% endfor %}</tr>{% endfor %}
+    </tbody></table></div></details>
+  {% endfor %}
+  {% set also = blocks | rejectattr('table', 'defined') | list %}
+  {% if also %}
+  <div class="also"><h3 class="h4">Also found</h3>
+    {% for b in also %}<p>{% if b.mark is defined %}{{ mark(b.mark) }} {% endif %}{{ (b.text[12:] if b.text.startswith('Also found: ') else b.text) | mdi }}</p>{% endfor %}
+  </div>
+  {% endif %}
+{% endcall %}
+{% endfor %}
+</div>
+
+{% set says = sec.get('What it says vs what it does', []) %}
+{% if says %}
+<h2 class="h2" id="says">What it says vs what it does</h2>
+<div class="box">
+{% set n = namespace(i=0) %}
+{% for b in says %}
+  {% if b.table is defined and 'Verdict' in b.table %}
+    {% for rw in b.rows %}{% set n.i = n.i + 1 %}
+    {% set w = rw.Verdict.split(',')[0] %}
+    {% set rest = rw.Verdict[w | length:].lstrip(', ') %}
+    {% set notes %}{{ mark(rw.verdict_state, w) }}{% if rest %}<span class="sm">{{ rest }}</span>{% endif %}{% endset %}
+    {{ row('C' ~ n.i, 'claim-' ~ n.i, rw.Claim | mdi, notes, '', rw.Evidence | md if rw.Evidence.strip() != '-' else '') }}
+    {% endfor %}
+  {% else %}
+    <p class="pad">{{ b.text | mdi }}</p>
+  {% endif %}
+{% endfor %}
+</div>
+{% endif %}
+
+{% if lims %}
+<h2 class="h2" id="limits">Limits of this analysis</h2>
+<div class="box"><ol class="lims">
+{% for l in lims %}<li id="lim-{{ loop.index }}">{{ l.text | mdi }}{% if l.questions %} <span class="muted">({% for q in l.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %})</span>{% endif %}</li>{% endfor %}
+</ol></div>
+{% endif %}
+
+<h2 class="h2" id="release">The release analysed</h2>
+<div class="box">
+  <dl class="facts">{% for h in c.header %}<dt>{{ h.label }}</dt><dd>{{ h.text | mdi }}</dd>{% endfor %}</dl>
+  <div class="tw"><table class="t files"><thead><tr><th scope="col">File</th><th scope="col">SHA-256</th><th scope="col">VirusTotal</th><th scope="col">Note</th></tr></thead><tbody>
+  {% for f in c.files %}<tr><td><code>{{ f.name }}</code>{% if f.inside %}<span class="sm">inside <code>{{ f.inside }}</code></span>{% endif %}</td><td><code class="hash">{{ f.sha256 }}</code></td><td>{{ f.virustotal | mdi }}</td><td>{{ f.note | mdi }}</td></tr>{% endfor %}
+  </tbody></table></div>
+  {% if c.files_note %}<div class="pad">{{ c.files_note | md }}</div>{% endif %}
+</div>
+
+<h2 class="h2" id="history">History</h2>
+{% if t.releases | length > 1 %}
+<div class="rel">
+{% for v in t.releases %}
+  <div class="relr"><a href="{{ root }}{{ t.id }}/{% if v.card != t.latest.card %}{{ v.version }}/{% endif %}"{% if v.card == c.card %} aria-current="page"{% endif %}><span>{{ v.version }} <span class="muted">· analysed {{ v.analysed }}</span></span><b class="num">{{ v.score if v.kind == 'score' else STATES[v.kind].label }}</b></a>
+  {% if v.card != c.card %}<a class="sm" href="{{ root }}compare/?c={{ c.card }},{{ v.card }}">Compare with this</a>{% endif %}</div>
+{% endfor %}
+</div>
+{% endif %}
+{% if c.changes_since %}
+{% set ch = c.changes_since %}
+<h3 class="h3">Changes since {{ ch.version }}</h3>
+<ul class="chg">
+  {% set old = t.releases | selectattr('card', 'equalto', ch.card) | first %}
+  <li>Score: {{ old.score if old.kind == 'score' else STATES[old.kind].label }} → {{ r.score if scored else r.label }}</li>
+  {% for x in ch.answers %}<li><a href="#q-{{ x.question }}">{{ x.question }}</a>: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
+  {% for x in ch.areas %}<li>{{ area_name[x.area] }}: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
+  <li class="muted">{{ ch.unchanged }} answers unchanged</li>
+</ul>
+{% endif %}
+<h3 class="h3">Card history</h3>
+<div class="box"><div class="tw"><table class="t"><thead><tr><th scope="col">Date</th><th scope="col">Change to this card</th></tr></thead><tbody>
+{% for h in c.history %}<tr><td class="nowrap">{{ h.date }}</td><td>{{ h.change | mdi }}</td></tr>{% endfor %}
+</tbody></table></div></div>
+
+<h2 class="h2" id="corrections">Comments and corrections</h2>
+<div class="box pad">
+{% if c.corrections %}
+<ul class="lims plain">
+{% for x in c.corrections %}<li>{% if x.status == 'open' %}{{ mark('nc', 'Under review') }} {% endif %}{{ IX.correction_kinds[x.kind | default('correction')] }} <a href="{{ SITE.repo }}issues/{{ x.issue }}">#{{ x.issue }}</a>, about {% for q in x.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %}: {% if x.status == 'open' %}sent {{ x.opened }}. Nothing on the card changes until it is decided.{% else %}{{ x.status }} on {{ x.closed }}. {{ x.reason }}{% endif %}</li>{% endfor %}
+</ul>
+{% else %}<p>No comment has been sent about this card.</p>{% endif %}
+<p>Something wrong, missing, or context to add? Use "Comment" beside any answer, Good ones included, or <a href="{{ SITE.links.comment }}">comment on an answer</a> with its evidence; it shows here, and on the answer it names, until it is decided.</p>
+</div>
+
+<h2 class="h2" id="author">For the tool's author</h2>
+<div class="box pad stack tight">
+  <p>Give this card to the AI agent you build with (Claude Code, Codex, Cursor or any other). Every answer links its evidence, so the agent can find the cause in your code. We don't suggest fixes: what to change, if anything, depends on what your tool is for.</p>
+  <ol class="steps">
+    <li><div><b>Download the card:</b> <a href="{{ root }}cards/{{ c.card }}.yaml" download>{{ c.card }}.yaml</a>, and put it in your tool's repository.</div></li>
+    <li><div><b>Paste this prompt</b> into your agent there:<div class="copy"><pre><code id="prompt">{{ c.author_prompt }}</code></pre><button class="btn" type="button" data-copy="prompt">Copy</button></div></div></li>
+    <li><div><b>After your next release, <a href="{{ IX.links.recheck }}">request a re-check</a>.</b> The new release gets a new card; this one stays.</div></li>
+  </ol>
+  <details class="sub"><summary>Add the badge to your page</summary>
+    <div class="badges">
+    {% for name, url in c.badges.items() %}
+      <div class="bopt"><img src="{{ url | replace(IX.site, root) }}" alt="MXB Facts score, {{ name }} style" loading="lazy"><pre><code>[![MXB Facts score]({{ url }})]({{ c.page }})</code></pre></div>
+    {% endfor %}
+    </div>
+  </details>
+</div>
+<p class="links"><a class="btn" href="{{ root }}api/v1/cards/{{ c.card }}.json">Card data (JSON)</a><a class="btn" href="{{ root }}cards/{{ c.card }}.yaml">Card file (YAML)</a><a class="btn" href="{{ root }}compare/?c={{ c.card }}">Compare</a></p>
+{% endblock %}

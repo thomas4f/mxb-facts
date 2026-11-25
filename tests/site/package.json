@@ -1,0 +1,21 @@
+{
+  "name": "mxb-facts-site-tests",
+  "private": true,
+  "description": "Checks on the built site (_site/): accessibility (axe, WCAG 2.2 AA), behaviour and screenshots (Playwright), HTML validity (the W3C Nu validator), Lighthouse budgets, and ESLint on the site's script. Run from this folder after python3 -I site/build.py.",
+  "scripts": {
+    "test": "playwright test",
+    "screenshots:update": "playwright test tests/visual.spec.mjs --update-snapshots",
+    "validate": "java -jar node_modules/vnu-jar/build/dist/vnu.jar --errors-only --skip-non-html --filterpattern '.*CSS: .*' ../../_site",
+    "lighthouse": "lhci autorun",
+    "lint": "eslint --max-warnings 0 --stdin --stdin-filename site/static/site.js < ../../site/static/site.js"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@eslint/js": "10.0.1",
+    "@lhci/cli": "0.14.0",
+    "@playwright/test": "1.63.0",
+    "eslint": "10.14.0",
+    "globals": "16.5.0",
+    "vnu-jar": "24.10.17"
+  }
+}

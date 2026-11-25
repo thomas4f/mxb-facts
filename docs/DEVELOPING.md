@@ -34,7 +34,7 @@ flowchart LR
     T["rules/template.md, questions.md, scores.md<br/>prose + generated tables"]
   end
 
-  B["site/build.py<br/>rules.py, cards.py, page.py, icons.py, shell.html"]
+  B["site/build.py<br/>rules.py, cards.py, feed.py, render.py,<br/>templates/, static/, badges.py, icons.py"]
   O["_site/<br/>cards, How it works, For authors"]
   GP["GitHub Pages"]
   A["authors/mxb-facts-check/<br/>check authors run themselves"]
@@ -68,7 +68,10 @@ flowchart LR
 | `site/build.py` | Lists the cards (`CARDS`), runs the checks that need all of them, assembles and writes `_site/` | |
 | `site/rules.py` | Loads and checks `rules/scoring.yaml` and the schema, writes the generated tables, and works out verdicts, marks, costs, scores, tags and the Money label; `STATES` says how each mark, state and result is shown (label, icon, meaning) | |
 | `site/cards.py` | Checks one card (schema, every question answered, marks, evidence links, held-back rows) and works out what the rules set on it (its answers as lines, their costs, its key answers); loads the registry and `vt/results.json`. It makes no HTML | |
-| `site/page.py` | All HTML, made from the checked card data (Markdown is only the text inside a field): tools list, tool pages, badges, How it works, For authors, and each tool's share address `<tool>/` (a small page with a link preview that opens the tool's page); it decides no mark or score | |
+| `site/feed.py` | The data feed (`api/v1/`): every card with its marks, states, costs and notes worked out, and the site's own text (`site/content.yaml`). Anything another site or app needs comes from here | `docs/FEED.md`, `rules/feed.schema.json` |
+| `site/render.py` + `site/templates/` | Every page, made from the feed alone with Jinja templates (autoescaped; Markdown only inside text fields): tools list, `<tool>/` (newest card), `<tool>/<version>/` (an earlier card), Compare, How it works, For authors. Shared pieces (an answer's row, a fold, a bar) are macros in `macros.html`, so a mark is drawn one way everywhere. It decides no mark or score, and refuses a page that leaves out an answer's mark, a claim's mark, an area, a limit, a file or a history row | |
+| `site/static/` | `site.css`, `site.js` (filters, sorts, folds and remembers; never draws a mark) and the self-hosted fonts (OFL), copied to `_site/assets/` | |
+| `site/badges.py` | The score badges (SVG and shields.io JSON) | |
 | `site/icons.py` | The Lucide icons (ISC licence) beside marks, states and results, as CSS masks and as SVG for the badges | |
 | `prompts/analyse-tool.md` | The published prompt; changes to how we work change it in the same PR | |
 | `lab/real-game/` | Runs plugins in the public MX Bikes or GP Bikes demo, offline, clicked through to a track (steps in `games.json`): under Wine + Xvfb in sessions (`run.sh`, the demo downloaded once into `cache/`), and on a throwaway Windows runner under Process Monitor in "Analyse a tool" (`windows/run.ps1`); the demo is pinned by SHA-256 | its README |
@@ -83,12 +86,13 @@ flowchart LR
 | `tools/agent_run.py`, `check_plan.py` | Run one prompt with the Agent SDK (spending limit); check the plan for a Windows run before anything runs | |
 | `.github/held-items.pem` | The maintainer's public key: a held item's report, and how a tool gets at protected content, leave the analysis job only encrypted to it (rule 9), each as its own draft advisory | `analyse.yml` header |
 | `tests/test_build.py` | The build's own tests for scores, marks and tags | |
+| `tests/site/` | Checks on the built `_site/`: W3C Nu validator, axe (WCAG 2.2 AA, both themes), behaviour and screenshots on a phone and a desktop (Playwright), Lighthouse budgets, ESLint | its README |
 
 ### Workflows on GitHub
 
 | Workflow | When | Does |
 |---|---|---|
-| Check cards (`check.yml`) | Every PR and push to `main` (a newer push cancels the older run), when a draft PR is marked ready, and started by "Analyse a tool" on its PR | tests, build, link check, corrections check |
+| Check cards (`check.yml`) | Every PR and push to `main` (a newer push cancels the older run), when a draft PR is marked ready, and started by "Analyse a tool" on its PR | ruff, tests, build, link check, corrections check; then the site checks in `tests/site/` |
 | Publish (`pages.yml`) | Push to `main` that changes a file the site is made from (not `lab/`, `tests/`, `docs/`, the other workflows or `registry/releases.json`), and after Update inventory or a VirusTotal lookup on `main` (their commits use the workflow's token, which starts no other workflow); also by hand | build, deploy `_site/` |
 | VirusTotal lookup (`virustotal.yml`) | By hand only | lookups for a PR, one tool's cards (dropdown) or all cards; "Analyse a tool" makes its own |
 | Analyse a tool (`analyse.yml`) | By hand only | On one tool from `registry/tools.json` (dropdown): a new card if it has none, else a re-check of its newest card, or only the questions it names (same release). With the version and release inputs empty, it first looks up the tool's latest GitHub release (`tools/releases_fetch.py --latest`), so a release out since the last Update inventory run needs no typing; a tool with no GitHub release takes the newest one in `registry/releases.json`. Every later job, the card and the PR use that one release. Claude (Agent SDK, `tools/agent_run.py`, `ANTHROPIC_API_KEY`) first plans the run from the licence and readme ($2 limit; nothing runs when the licence forbids analysis); a throwaway Windows runner with no keys runs the plugins in the real game (`lab/real-game/windows/`, the demo kept in the Actions cache) and the rest in the test host (`lab/plugin-test-host/windows/`); Claude then runs `prompts/analyse-tool.md` with that evidence ($10 limit) in a job that can only read the repository, and never runs the tool itself; a job downloads the release once (`tools/fetch_release.py`: plain https links, MEGA file links and files in MEGA folders) for the Windows runner and the lookups; VirusTotal hash lookups of the release files and what 7-Zip unpacks from them run beside the Windows run (`tools/vt_release.py`; the key only in the job that reads the hashes), which also uploads the downloaded files VirusTotal has no record of when the plan's licence read is `allows` and the `skip_upload` input is off, waiting up to 15 minutes for their scans (one not finished is recorded as pending), and the analysis answers P1 from them; a last job applies its changes, writes `vt/results.json` from the same lookups, opens a draft PR and starts Check cards on it. When an item must be held back (rule 9), there is no PR: its report is encrypted to `.github/held-items.pem` and filed as a private draft security advisory (`HELD_ITEMS_KEY`, `ADVISORY_TOKEN`) |
@@ -135,7 +139,8 @@ Add it to the card's `corrections` list (status `open`, its `kind` from the form
 | How rules are explained to readers | prose in `rules/template.md`, `rules/questions.md`, `rules/scores.md` (not the tables) |
 | The ten rules | `CLAUDE.md` and `rules/template.md` together; the build refuses the page when they differ |
 | What a card may hold: its header rows, report sections, categories, verdicts | `rules/card.schema.json` |
-| Page layout and styles | `site/shell.html`, `site/page.py` |
+| Page layout and styles | `site/templates/`, `site/static/site.css` (then `npm run screenshots:update` in `tests/site/`) |
+| The site's own text (intro, AI note, how a card is made) | `site/content.yaml` |
 | How an analysis runs | `prompts/analyse-tool.md`, `authors/mxb-facts-check/SKILL.md`, `CLAUDE.md` "How to analyse" |
 | What the test host does | `lab/plugin-test-host/src/` (extend it, don't start over) |
 | Which game demo runs, and how the run reaches a track | `lab/real-game/games.json` |
