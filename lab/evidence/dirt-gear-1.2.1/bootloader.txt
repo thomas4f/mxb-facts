@@ -1,0 +1,26 @@
+$ cd "$W" && curl -sSLO https://files.pythonhosted.org/packages/24/83/c5422204772a27aef643280fdc887b7ef55679989096b21dceb1b9625fc4/pyinstaller-6.22.3-py3-none-win_amd64.whl && echo '500bd58c7bf7e584a8435adccbd763a0b918d5c12b08d74ff50fd79b2915458b  pyinstaller-6.22.3-py3-none-win_amd64.whl' | sha256sum -c && unzip -q -o pyinstaller-6.22.3-py3-none-win_amd64.whl PyInstaller/bootloader/Windows-64bit-intel/runw.exe && cd "$R" && python3 -I "$OUT/../pesect.py" "$W/PyInstaller/bootloader/Windows-64bit-intel/runw.exe" Dirt-Gear-Setup-1.2.1.exe 'payload/Dirt Gear.exe'
+pyinstaller-6.22.3-py3-none-win_amd64.whl: OK
+/tmp/tmp.ugqf9W8603/PyInstaller/bootloader/Windows-64bit-intel/runw.exe
+  .text        204800 67bdc7f5eeccf01180cd5b3621be7d0265efa6a44742496a7a6c6f9076ef4b1f
+  .rdata        84480 93dcce008db472c9c8cd4bf8a465c560d76bd0216e7fb5874a1866ae808a35ab
+  .data          3584 f999ee89612700ed57df416c1025d22e69bf061e54903f34ecf2398e8d8b0627
+  .pdata        10240 f33be2799dafcdfb77a394fd72134a9a838822f9fa500e5381029f152423c278
+  .fptable        512 076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560
+  .reloc         2048 f10e5c9b3cca6292a947f527a24f91802bd207c348624b01187ef083a85a07ed
+Dirt-Gear-Setup-1.2.1.exe
+  .text        204800 67bdc7f5eeccf01180cd5b3621be7d0265efa6a44742496a7a6c6f9076ef4b1f
+  .rdata        84480 b95fadd98c7eb140024f47b5d9639181ee469e1c8d80fa5311caab3c882c0000
+  .data          3584 f999ee89612700ed57df416c1025d22e69bf061e54903f34ecf2398e8d8b0627
+  .pdata        10240 f33be2799dafcdfb77a394fd72134a9a838822f9fa500e5381029f152423c278
+  .fptable        512 076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560
+  .rsrc         37376 01024629ee1dc69cacb44eba625ff3f573f2ca23b18891434c6443047c14e0dd
+  .reloc         2048 f10e5c9b3cca6292a947f527a24f91802bd207c348624b01187ef083a85a07ed
+payload/Dirt Gear.exe
+  .text        204800 67bdc7f5eeccf01180cd5b3621be7d0265efa6a44742496a7a6c6f9076ef4b1f
+  .rdata        84480 987e0c1d75a71119170059148b277771be6e10a41d1d8802e99d4d17b7e66b58
+  .data          3584 f999ee89612700ed57df416c1025d22e69bf061e54903f34ecf2398e8d8b0627
+  .pdata        10240 f33be2799dafcdfb77a394fd72134a9a838822f9fa500e5381029f152423c278
+  .fptable        512 076a27c79e5ace2a3d47f9dd2e83e4ff6ea8872b3c2218f66c92b89b55f36560
+  .rsrc         37376 01024629ee1dc69cacb44eba625ff3f573f2ca23b18891434c6443047c14e0dd
+  .reloc         2048 f10e5c9b3cca6292a947f527a24f91802bd207c348624b01187ef083a85a07ed
+(exit 0)

@@ -1,0 +1,34 @@
+$ cd "$SRC" && grep -nE 'UNINSTALL_KEY|def |unlink|rmtree|Remove-Item|dirt-gear-uninstall\.log|_message\(|0x100|is_program_folder|remove_data' source/uninstall.py; grep -nE 'uninstall' source/app.py build/installer.py
+19:UNINSTALL_KEY = r'Software\Microsoft\Windows\CurrentVersion\Uninstall\DirtGear'
+24:def _message(text: str, flags: int) -> int:
+34:def _ps_quote(path: Path) -> str:
+38:def _folder(name: str) -> Path | None:
+48:def shortcut_paths() -> list[Path]:
+59:def remove_entry() -> None:
+64:        winreg.DeleteKey(winreg.HKEY_CURRENT_USER, UNINSTALL_KEY)
+69:def is_program_folder(folder: Path) -> bool:
+75:def delete_after_exit(folder: Path) -> Path:
+79:    it did to %TEMP%\\dirt-gear-uninstall.log."""
+80:    log = Path(os.environ.get('TEMP', str(folder.parent)))/'dirt-gear-uninstall.log'
+85:              'try { Remove-Item -LiteralPath $p -Recurse -Force -ErrorAction Stop } '
+95:def run(data_folder: Path, quiet: bool = False, remove_data: bool = False) -> int:
+97:    if not getattr(sys, 'frozen', False) or not is_program_folder(folder):
+98:        _message('This copy of Dirt Gear wasn’t installed by the Dirt Gear installer, so there is nothing to uninstall.', 0x30)
+101:        if _message('Remove Dirt Gear from this PC?\n\nPaints you packed into MX Bikes are not removed.', 0x04 | 0x20) != YES:
+103:        remove_data = _message(f'Also delete your saved projects, logos, layouts and settings?\n\n{data_folder}\n\n'
+104:                               'Choose No to keep them for if you install Dirt Gear again.', 0x04 | 0x20 | 0x100) == YES
+107:            link.unlink(missing_ok=True)
+111:    if remove_data and data_folder.name == 'Dirt Gear' and data_folder.is_dir():
+112:        shutil.rmtree(data_folder, ignore_errors=True)
+115:        _message('Dirt Gear has been removed.' + ('' if remove_data else f'\n\nYour saved work is still in:\n{data_folder}'), 0x40)
+source/app.py:1672:    parser.add_argument('--uninstall', action='store_true', help='remove Dirt Gear from this PC')
+source/app.py:1673:    parser.add_argument('--quiet', action='store_true', help='with --uninstall: no questions')
+source/app.py:1674:    parser.add_argument('--remove-data', action='store_true', help='with --uninstall --quiet: also delete saved work')
+source/app.py:1676:    if args.uninstall:
+source/app.py:1677:        import uninstall
+source/app.py:1678:        raise SystemExit(uninstall.run(local_app_data()/APP_DATA_NAME, quiet=args.quiet, remove_data=args.remove_data))
+build/installer.py:104:def register_uninstall(target: Path) -> None:
+build/installer.py:107:    key Dirt Gear writes; uninstalling deletes it."""
+build/installer.py:116:        'UninstallString': f'"{exe}" --uninstall', 'QuietUninstallString': f'"{exe}" --uninstall --quiet',
+build/installer.py:178:                register_uninstall(target)
+(exit 0)

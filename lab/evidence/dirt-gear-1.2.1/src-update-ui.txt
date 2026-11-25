@@ -1,0 +1,23 @@
+$ cd "$SRC" && grep -noE 'setTimeout\(\(\)=>checkUpdates\(false\),4000\)|versionBtn.\)\.onclick=async\(\)=>\{|api\(.update/settings.,undefined,.GET.\)|checkNow.\)\.onclick=[^;]*;|checkOnStart.\)\.onchange=[^}]*}|Opening About never contacts GitHub[^.]*' source/static/app.js; grep -noE 'checkOnStart|Download and install|Skip this version' source/static/index.html; grep -nE "check_on_start|skip_version|def get_update_settings|never contacts GitHub" source/app.py
+222:setTimeout(()=>checkUpdates(false),4000)
+398:Opening About never contacts GitHub; only "Check for updates" (or the check at start, if on) does
+399:versionBtn').onclick=async()=>{
+402:api('update/settings',undefined,'GET')
+406:checkNow').onclick=()=>checkUpdates(true);
+407:checkOnStart').onchange=async()=>{try{await api('update/settings',{check_on_start:$('checkOnStart').checked}
+36:Skip this version
+36:Download and install
+155:checkOnStart
+158:Download and install
+687:    if not manual and not settings.get('check_on_start', True):
+689:                       available=False, check_on_start=False)
+691:    result['check_on_start'] = settings.get('check_on_start', True)
+693:                             settings.get('skip_version') == result.get('latest'))
+714:def get_update_settings():
+715:    """The About box reads this when it opens; it never contacts GitHub."""
+717:    return jsonify(check_on_start=settings.get('check_on_start', True), current=updater.app_version(),
+725:    if 'check_on_start' in data:
+726:        changes['check_on_start'] = bool(data['check_on_start'])
+727:    if 'skip_version' in data:
+728:        changes['skip_version'] = str(data['skip_version'] or '')[:20]
+(exit 0)

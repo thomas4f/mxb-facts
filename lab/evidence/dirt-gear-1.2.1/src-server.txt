@@ -1,0 +1,39 @@
+$ cd "$SRC" && grep -nE 'TOKEN|request\.host|origin|compare_digest|make_server|abort\(403\)|cookie|candidates' source/app.py
+38:TOKEN = secrets.token_urlsafe(32)
+81:def _cookie_name():
+82:    # cookies aren't kept apart by port, so name it after this server's port
+83:    return 'dirt_token_' + re.sub(r'\D', '', request.host.rpartition(':')[2] or '0')
+90:    window's first page load), or the cookie that page load sets."""
+91:    if request.host.split(':')[0] not in ('127.0.0.1', 'localhost'):
+92:        abort(403)
+94:        origin = request.headers.get('Origin')
+95:        if origin and origin != f'http://{request.host}':
+96:            abort(403)
+97:    candidates = (request.headers.get('X-Dirt-Token') or request.headers.get('X-Moto-Token') or '',
+98:                  request.args.get('token', ''), request.cookies.get(_cookie_name(), ''))
+99:    if not any(c and secrets.compare_digest(c, TOKEN) for c in candidates):
+100:        abort(403)
+105:    if request.args.get('token') and secrets.compare_digest(request.args['token'], TOKEN) \
+106:            and request.cookies.get(_cookie_name()) != TOKEN:
+107:        response.set_cookie(_cookie_name(), TOKEN, httponly=True, samesite='Strict', path='/')
+168:    Strength blends from the original colours (0) to the overlay (1). Gradients
+222:            original = layer.numpy
+223:            def cached_numpy(channel=None, real_mask=True, _key=key, _read=original):
+254:        spec_candidates = [r for r in self.rows if r['group'] and spec_name.search(r['name']) and not normal_name.search(r['name']) and not shade_name.search(r['name'])] or [r for r in self.rows if not r['group'] and spec_name.search(r['name'])]
+255:        if spec_candidates:
+256:            self.state['spec'] = sorted(spec_candidates, key=lambda r:r['depth'])[0]['id']
+260:        shade_candidates = [r for r in self.rows if shade_name.search(r['name']) and not normal_name.search(r['name']) and not spec_name.search(r['name']) and not inside_map(r)]
+261:        if not shade_candidates:
+264:            shade_candidates = [r for r in self.rows if r['group'] and shade_name.search(r['name']) and not inside_map(r)]
+265:        if not shade_candidates:
+267:            shade_candidates = [r for r in self.rows if extra_name.search(r['name']) and not inside_map(r)]
+268:        if shade_candidates:
+269:            self.state['shading'] = sorted(shade_candidates, key=lambda r:(r['depth'],not r['group']))[0]['id']
+298:                'normal_candidates': self.state['normal_layers'],
+1400:            'The original Moto Gear folder was not changed.\n', encoding='utf-8')
+1665:    global PORT, TOKEN, DOC, NATIVE_WINDOW
+1684:    from werkzeug.serving import make_server
+1685:    server = make_server('127.0.0.1', args.port, app, threaded=True)
+1687:    url = f'http://127.0.0.1:{PORT}/?token={TOKEN}'
+1689:        Path(args.session_file).write_text(json.dumps({'url':url,'token':TOKEN,'port':PORT}))
+(exit 0)

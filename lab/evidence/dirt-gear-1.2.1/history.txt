@@ -1,0 +1,37 @@
+$ cd "$SRC" && git log --format='%h %ad %s' --date=short 3755d76a1fb6441a84acf932da7d96dfb92f29ce | cat; git log --format=%ad --date=short 3755d76a1fb6441a84acf932da7d96dfb92f29ce | sort -u | wc -l; git rev-list --count 3755d76a1fb6441a84acf932da7d96dfb92f29ce
+3755d76 2026-11-25 Require the token on every local request, page and static files included (cookie set by the first page load); v1.2.1
+0433b04 2026-11-24 Uninstall: retry removing the program folder and log what happened; rebuild v1.2.0
+7d42598 2026-11-24 CI: save failed logs from a workflow_run job once the build has finished; rebuild v1.2.0
+7fd7a82 2026-11-24 CI: read the finished job's log for the failure report; rebuild v1.2.0
+63faf09 2026-11-24 Release Dirt Gear v1.2.0
+302dd12 2026-11-24 Docs: README (network, files, registry, uninstall, setup options, licence), website without Premium, v1.2.0 notes
+37f0875 2026-11-24 CI: pin packages and actions, test portable projects and uninstall, save failed logs to ci-logs
+9db33e1 2026-11-24 All rights reserved licence; bundle LICENSE.txt and generated THIRD-PARTY-NOTICES.txt
+09169de 2026-11-24 Uninstaller and Installed apps entry (HKCU only)
+77a2ddf 2026-11-24 Portable projects no longer contain the PSD; About box no longer checks GitHub on open; licence links and fair-use note; --uninstall flag
+2f5d6fc 2026-11-24 Premium (switched off): serialise licence file access so Windows can't hit a sharing violation
+d847c74 2026-11-24 Add FONTS.md and the OFL for Racing Sans One
+dbb616a 2026-11-24 Remove bundled fonts whose licences don't allow redistribution; add font credits
+736663d 2026-11-13 Switch Premium and the daily limit off for now (kept for later)
+02721a2 2026-11-13 Dirt Graphic Studios website (GitHub Pages from /docs): product, pricing, terms, refunds, privacy
+87e27cf 2026-11-13 Dirt Gear v1.2.0: 5 free gear sets a day, friend codes, Premium coming soon
+a4bb23a 2026-11-13 Premium groundwork: 5 gear sets a day for free users, Lemon Squeezy licences, friend codes
+e407acd 2026-11-13 v1.1.1: move to the Dirt Graphic Studios organisation
+ea16efa 2026-10-31 Dirt Gear v1.1.0: colour overlay for logos, refreshed shortcut icons
+957ef56 2026-10-31 Colour overlay (solid + gradient) for added logos; undo keeps selection
+ff3d029 2026-10-30 Discord announcements: version-pinned logo URL so Discord doesn't show a cached old logo
+10a8fc6 2026-10-30 Dirt Gear v1.0.7: new chevron logo and Saira wordmark
+99d0e74 2026-10-30 Discord release announcements with full notes
+e0d12ad 2026-10-30 Release v1.0.6: summary release notes since Moto Gear v1.3
+32fd179 2026-10-30 Fix letter spacing size rounding (failed on Windows' basic text layout)
+d2526c1 2026-10-30 Dirt Gear v1.0.5: letter spacing for names and numbers
+52fe361 2026-10-30 Dirt Gear v1.0.4: layer effects in fast preview, ignore stale requests, pixel-less layers
+9cc4b93 2026-10-30 Release v1.0.3: first signed release through the in-app updater
+c13fbaf 2026-10-30 Dirt Gear v1.0.2: built-in signed updates (same flow as Optic / Moto Lines)
+9d4843a 2026-10-29 Dirt Gear v1.0.1: fast preview renderer, non-blocking layer toggles, shading detection
+a1fb191 2026-10-29 Release workflow: publish from VERSION.txt instead of pushed tags
+7fcb64c 2026-10-29 Add Windows build & release workflow
+bae47d5 2026-10-29 Dirt Gear v1.0 — redesigned successor to Moto Gear v1.3
+6
+33
+(exit 0)

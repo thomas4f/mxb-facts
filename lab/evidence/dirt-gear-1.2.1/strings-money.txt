@@ -1,0 +1,97 @@
+$ cd "$SRC" && grep -noiE '.{0,50}(gumroad|donat|paypal|ko-?fi|patreon|premium|price|lemon|buy|licen[cs]e key|unlock|subscri|discord\.gg|checkout).{0,50}' source/*.py source/*.json source/static/*.html README.md | cut -c1-200
+source/app.py:33:import premium
+source/app.py:117:    if isinstance(exc, premium.LimitReached):
+source/app.py:118:       return jsonify(error=str(exc), limit=True, premium=premium_module().status()), 402
+source/app.py:732:# -- premium -------------------------------------------------
+source/app.py:733:def premium_module():
+source/app.py:734:    premium.setup(local_app_data()/APP_DATA_NAME)
+source/app.py:735:    return premium
+source/app.py:738:@app.get('/api/premium/status')
+source/app.py:739:def premium_status():
+source/app.py:740:    return jsonify(premium_module().status())
+source/app.py:743:@app.post('/api/premium/activate')
+source/app.py:744:def premium_activate():
+source/app.py:745:    return jsonify(premium_module().activate(str((request.get_json() or {}).
+source/app.py:748:@app.post('/api/premium/remove')
+source/app.py:749:def premium_remove():
+source/app.py:750:    return jsonify(premium_module().remove())
+source/app.py:753:@app.post('/api/premium/buy')
+source/app.py:754:def premium_buy():
+source/app.py:755:    url = premium_module().config()['checkout_url']
+source/app.py:757:        raise ValueError('Dirt Gear Premium isn’t on sale yet.')
+source/app.py:1053:        kernel32.GlobalUnlock.argtypes = [ctypes.c_void_p]
+source/app.py:1069:                                kernel32.GlobalUnlock(handle)
+source/app.py:1515:        premium_module().check(doc.state['name'])
+source/app.py:1529:        premium_module().record(doc.state['name'])
+source/app.py:1540:        premium_module().check(doc.state['name'])
+source/app.py:1548:rn download(packed, name+'.pnt', on_saved=lambda: premium_module().record(doc.state['name']))
+source/app.py:1555:                            on_saved=lambda: premium_module().record(doc.state['name']))
+source/premium.py:1:"""Dirt Gear Premium: a daily limit for free users, lifted by a licenc
+source/premium.py:8:Premium comes from either:
+source/premium.py:9:  * a Lemon Squeezy licence key, sold as a $5 USD/month subscription. It is
+source/premium.py:10:    activated once per PC with the Lemon Squeezy License API and re-checked
+source/premium.py:11:    once a day. When the subscription ends, Lemon Squeezy marks the key
+source/premium.py:12:    expired and the next check removes Premium. Without internet, Premium
+source/premium.py:19:Everything is controlled by premium_config.json. When "enabled" is false
+source/premium.py:38:environ.get('DIRT_GEAR_LICENSE_API', 'https://api.lemonsqueezy.com').rstrip('/')
+source/premium.py:44:LT_CONFIG = {'enabled': False, 'daily_limit': 5, 'price': '$5 USD / month',
+source/premium.py:45:            'store_id': None, 'product_ids': [], 'checkout_url': ''}
+source/premium.py:61:    path = Path(os.environ.get('DIRT_GEAR_PREMIUM_CONFIG') or _root()/'premium_config.json')
+source/premium.py:69:    url = str(merged.get('checkout_url') or '')
+source/premium.py:70:    merged['checkout_url'] = url if url.startswith('https://') else ''
+source/premium.py:81:        raise RuntimeError('premium.setup() was not called')
+source/premium.py:140:# -- Lemon Squeezy -----------------------------------------
+source/premium.py:150:    except urllib.error.HTTPError as exc:  # Lemon Squeezy answers errors with JSON too
+source/premium.py:161:    """A key from another Lemon Squeezy store or product must not unlock Premium.
+source/premium.py:174:        return 'This licence key isn’t for Dirt Gear Premium.'
+source/premium.py:177:     return 'This licence has expired. Renew your subscription to keep Premium.'
+source/premium.py:179:        return 'This licence key has been disabled.'
+source/premium.py:190:        raise ValueError('Paste your licence key or friend code.')
+source/premium.py:195:            _save('premium.json', {'kind': 'friend', 'code_hash': friend_has
+source/premium.py:199:        raise ValueError('Premium subscriptions are coming soon. Friend codes already work.
+source/premium.py:201:     raise ValueError('That doesn’t look like a licence key.')
+source/premium.py:218:            error = 'That licence key isn’t valid. Check it matches the one in your e
+source/premium.py:220:            error = 'This licence key is already active on the maximum number of PCs. R
+source/premium.py:221:        raise ValueError(error or 'That licence key couldn’t be activated.')
+source/premium.py:224:        _save('premium.json', {'kind': 'license', 'key': text, 'instance
+source/premium.py:232:        saved = _load('premium.json')
+source/premium.py:237:ll remove it here; the seat can be freed from the Lemon Squeezy page
+source/premium.py:238:        _save('premium.json', None)
+source/premium.py:243:    """Ask Lemon Squeezy whether the saved licence is still active
+source/premium.py:245:        saved = _load('premium.json')
+source/premium.py:253:        current = _load('premium.json')
+source/premium.py:263:        _save('premium.json', current)
+source/premium.py:292:def premium_state() -> tuple[bool, dict, str]:
+source/premium.py:293:    """(is premium, saved licence, message about a lapsed licence)."
+source/premium.py:295:        saved = _load('premium.json')
+source/premium.py:305:cence for a week. Connect to the internet to keep Premium.'
+source/premium.py:325:    is_premium, saved, lapsed = premium_state()
+source/premium.py:329:    return {'enabled': bool(cfg['enabled']), 'premium': is_premium,
+source/premium.py:330:            'kind': saved.get('kind') if is_premium else None,
+source/premium.py:331:            'email': saved.get('email', '') if is_premium else '',
+source/premium.py:333:            'remaining': None if (is_premium or not cfg['enabled']) else max(0, limit-used),
+source/premium.py:334:            'price': cfg['price'], 'can_buy': bool(cfg['checkout_url'])}
+source/premium.py:340:    if not cfg['enabled'] or premium_state()[0]:
+source/premium.py:347:                       'Get Dirt Gear Premium for unlimited gear sets, or come back tomorrow.')
+source/premium.py:352:    if not cfg['enabled'] or premium_state()[0]:
+source/premium_config.json:4: "price": "$5 USD / month",
+source/premium_config.json:7: "checkout_url": ""
+source/static/index.html:26:="About &amp; updates">v1.2.1</button><button id="premiumBtn" class="plan-chip" hidden title="Dirt Gear Pre
+source/static/index.html:163:<dialog id="premiumDialog"><div class="dialog-heading"><div><div clas
+source/static/index.html:163:s="eyebrow">Dirt Gear Premium</div><h2 id="premiumTitle">Unlimited gear sets.</h2></div><button id="
+source/static/index.html:163:closePremium" class="close" aria-label="Close">×</button></di
+source/static/index.html:164: <p id="premiumSummary"></p>
+source/static/index.html:165: <div id="premiumMeter" class="plan-meter" aria-hidden="true"><span
+source/static/index.html:166: <p id="premiumLapsed" class="plan-warning" hidden></p>
+source/static/index.html:167: <div id="premiumFree">
+source/static/index.html:168:  <button id="premiumBuy" class="primary plan-buy" type="button">Get Premium</button>
+source/static/index.html:169:  <div class="layout-save"><input id="premiumKey" maxlength="120" autocomplete="off" spellcheck
+source/static/index.html:169:="false" aria-label="Licence key or friend code" placeholder="Licence key or frien
+source/static/index.html:169:d code"><button id="premiumActivate" type="button">Activate</button></div>
+source/static/index.html:170:  <p id="premiumHint" class="hint">Your licence key arrives by email after you buy. You can manage or
+source/static/index.html:170: cancel the subscription from the link in that email. Got a friend co
+source/static/index.html:172: <div id="premiumActive" hidden><div class="dialog-footer"><button 
+source/static/index.html:172:id="premiumRemove" type="button">Remove from this PC</button>
+README.md:31:- `source/premium.py` holds code for a possible future Premium vers
+README.md:31:ion. It's switched off (`source/premium_config.json`), so it never limits anything or con
+(exit 0)

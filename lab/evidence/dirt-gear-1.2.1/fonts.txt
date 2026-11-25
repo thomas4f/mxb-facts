@@ -1,0 +1,56 @@
+$ cd payload/_internal/fonts && ls | wc -l && for f in *; do printf '%s: %s\n' "$f" "$(file -b "$f" | grep -oE '(Copyright|\(c\)|©)[^,]{0,90}' | head -1)"; done; cd "$SRC" && grep -nE '^## |permission|Removed' source/fonts/FONTS.md
+49
+BYD-Font-US-Army.otf: 
+BYD-Name-Font-BYD-New.otf: 
+BYD-Name-Font-Fasthouse-Logo-Font-1.otf: 
+BYD-Name-Font-Race-New.otf: 
+BYD-Name-Font-Stock-New.otf: 
+BYD-Name-Font-Tag.otf: 
+BYD-Number-Font-Limited.otf: 
+BYD-Number-Font-Race.otf: 
+BYD-Number-Font-Shift.otf: 
+BYD-Number-Font-Stock-1.otf: 
+BYD-Number-Font-Stock-Special-1.otf: 
+BYD-Number-Font-UNYK.otf: 
+FONTS.md: 
+MxFont - Forward.otf: 
+MxFont - Graffiti.otf: 
+MxFont - Hybrid.otf: 
+MxFont - Phantom.otf: 
+MxFont - Racer.otf: 
+MxFont - Renen.otf: 
+MxFont - Speed.otf: 
+MxFont - Sport.otf: 
+MxFont - Tech.otf: 
+MxFont - Troy Lee Designs.otf: 
+MxFont - Ultra.otf: 
+MxFont-101.otf: 
+MxFont-102.otf: 
+MxFont-103.otf: 
+MxFont-104.otf: 
+MxFont-105.otf: 
+MxFont-106.otf: 
+MxFont-107.otf: 
+MxFont-108.otf: 
+MxFont-109.otf: 
+MxFont-110.otf: 
+MxFont-111.otf: 
+MxFont-112.otf: 
+MxFont-113.otf: 
+MxFont-114.otf: 
+MxFont-115.otf: 
+MxFont-116.otf: 
+MxFont-117.otf: 
+MxFont-118.otf: 
+MxFont-119.otf: 
+MxFont-120.otf: 
+MxFont-121.otf: 
+byd_number_font.otf: 
+mx font 1 - Racing Sans One - OFL.txt: 
+mx font 1.ttf: Copyright (c) 2012
+mx fonts.otf: 
+5:## Free licence
+11:## MX Bikes community fonts
+13:These BYD and MxFont sets are shared in the MX Bikes paint community for rider names and numbers, and are included with the permission Dirt Graphic Studios holds for them. Their font files carry no licence of their own. If you made one of these fonts and want it credited differently or removed, open an issue on the Dirt Gear GitHub page and we'll act on it promptly.
+62:## Removed in v1.2.0
+(exit 0)
