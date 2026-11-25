@@ -104,3 +104,14 @@ test('a tool page\'s path opens the tools list filtered to its game and category
   await page.locator('#cat').selectOption('');
   await expect(page).toHaveURL(/\?game=GP\+Bikes$/);
 });
+
+test('a section\'s link goes there and copies its address, as on GitHub', async ({ page, context }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('pitbox/');
+  await page.locator('#limits + .anc').click();
+  await expect(page).toHaveURL(/#limits$/);
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/\/pitbox\/#limits$/);
+  await page.goto('pitbox/#q-D3');
+  await page.locator('#q-D3 a.id').click();
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/\/pitbox\/#q-D3$/);
+});

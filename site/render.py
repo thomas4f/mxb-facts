@@ -52,7 +52,7 @@ def complete(c, html):
     # answer has its mark, and the page shows each area, limit, file and history row. A section a template forgets fails here,
     # not in front of a reader.
     # Each row's marks line (the row macro: id, question, then <div class="v">), read row by row so one row can't borrow another's mark.
-    rows = re.findall(r'<div class="row" id="([^"]+)">\s*<span class="id">[^<]*</span>\s*<div class="rb">\s*<div class="q">.*?</div>\s*<div class="v">(.*?)</div>', html, re.S)
+    rows = re.findall(r'<div class="row" id="([^"]+)">\s*<(?:span|a) class="id"[^>]*>[^<]*</(?:span|a)>\s*<div class="rb">\s*<div class="q">.*?</div>\s*<div class="v">(.*?)</div>', html, re.S)
     marked = {i for i, v in rows if 'class="st ' in v}
     claims = sum(len(b['rows']) for s in c['sections'] if s['title'] == 'What it says vs what it does' for b in s['blocks'] if 'Verdict' in b.get('table', []))
     want = {'q-' + x['id'] for x in c['answers']} | {f'claim-{n}' for n in range(1, claims + 1)}
@@ -105,7 +105,7 @@ def write_pages(SITE):
     out = SITE
     def page(path, tpl, depth, **kw):
         os.makedirs(os.path.dirname(out + path), exist_ok=True)
-        html = env.get_template(tpl).render(root='../' * depth, path=path, **kw)
+        html = anchors(env.get_template(tpl).render(root='../' * depth, path=path, **kw))
         # Every in-page link lands on an id that exists, once (the contents, tags, limits, "From" links).
         ids = re.findall(r'\bid="([^"]+)"', html)
         assert len(ids) == len(set(ids)), path + ': two elements share an id: ' + ', '.join(sorted({i for i in ids if ids.count(i) > 1}))
@@ -116,6 +116,14 @@ def write_pages(SITE):
         assert not dead, path + ': links to anchors that don\'t exist: ' + ', '.join(dead)
         open(out + path, 'w').write(html.rstrip() + '\n')
         return html
+
+    def anchors(html):
+        # Every section heading with an id gets a link to itself beside it, as on GitHub (site.js copies its address when
+        # clicked); folds get theirs from the fold macro, answers from their ID.
+        def one(m):
+            text = re.sub(r'<[^>]+>', '', m.group(3)).strip()
+            return f'{m.group(1)}{m.group(3)}<a class="anc" href="#{m.group(2)}" title="Copy a link to this section"><span class="vh">Link to {escape(text)}</span></a></h2>'
+        return re.sub(r'(<h2 class="(?:h2|sec-h)" id="([^"]+)">)(.*?)</h2>', one, html, flags=re.S)
 
     def card_path(c):
         return f'{c["tool"]}/' if c['latest'] else f'{c["tool"]}/{c["version"]}/'
@@ -151,7 +159,7 @@ def write_pages(SITE):
     icon = {k: s['icon'] for k, s in STATES.items()}
     css = ['/* Made by site/render.py from the feed: one icon per state (Lucide, ISC licence, see the end of this file). */']
     css += [f'.st.{k}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for k, v in icon.items()]
-    css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done {{ --i: {mask_url("check")} }}']
+    css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}']
     css.append('/*\n' + ICON_LICENCE + '*/')
     open(out + 'assets/icons.css', 'w').write('\n'.join(css) + '\n')
     # The favicon: the wordmark's slash on the pit board (brand.py).

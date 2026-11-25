@@ -120,6 +120,15 @@
       return;
     }
     if (t.closest('[data-cmp-clear]')) { picked = []; store.set('compare', picked); showPicked(); return; }
+    // A link to a section or an answer: it goes there as any link does, and its full address is copied to share.
+    var anc = t.closest('a.anc, .row a.id');
+    if (anc && navigator.clipboard) {
+      var url = location.origin + location.pathname + location.search + anc.getAttribute('href'), was = anc.title;
+      navigator.clipboard.writeText(url).then(function () {
+        anc.classList.add('done'); anc.title = 'Link copied';
+        setTimeout(function () { anc.classList.remove('done'); anc.title = was; }, 1500);
+      }, function () { /* the address bar still shows the link */ });
+    }
     var cp = t.closest('[data-copy]');
     if (cp) {
       var src = document.getElementById(cp.dataset.copy), text = src.textContent;

@@ -152,7 +152,14 @@ details.fold[open] > summary::after { content: "–" }
 details.fold > .body { border-top: 1px solid var(--line) }
 .row { padding: var(--s3) var(--s4); display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--s1) var(--s3); border-bottom: 1px solid var(--line) }
 .row:last-child { border-bottom: 0 }
-.row .id { font: 500 12.5px/1.9 var(--f-mono); color: var(--muted) }
+.row .id { font: 500 12.5px/1.9 var(--f-mono); color: var(--muted) } .row a.id { text-decoration: none } .row a.id:hover, .row a.id:focus-visible { color: var(--accent); text-decoration: underline }
+/* A link to a section beside its heading, as on GitHub: faint until the heading is hovered or the link focused; always there
+   on a touch screen. Clicking it copies the address (site.js), and a tick shows it did. */
+.anc { display: inline-grid; place-items: center; width: 28px; height: 28px; margin-left: var(--s1); vertical-align: middle; color: var(--muted); border-radius: var(--r-ctl); opacity: 0; transition: opacity .15s }
+.anc::before { content: ''; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat }
+:is(h2, .fw):hover .anc, .anc:focus-visible, .anc.done { opacity: 1 } .anc:hover { color: var(--accent) } .anc.done { color: var(--good) }
+@media (hover: none) { .anc { opacity: .6 } }
+.fw { position: relative } .fw > details.fold > summary { padding-right: var(--s7) } .anc.fa { position: absolute; top: var(--s3); right: var(--s1); margin: 0 }
 .row .q { font-weight: 600 } .row .v { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap; margin: var(--s1) 0 }
 .row .t { margin: 0; font-size: 15px }
 .row .sm { font-size: 13px; color: var(--muted) }
