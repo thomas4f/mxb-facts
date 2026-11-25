@@ -1,0 +1,6 @@
+$ objdump -d 'mxb_ragdoll.dlo' | awk -v a=180078c50 -v b=180078c62 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   180078c50:	b8 08 00 00 00       	mov    $0x8,%eax
+   180078c55:	87 05 59 30 0f 00    	xchg   %eax,0xf3059(%rip)        # 18016bcb4 <_ZN5input12_GLOBAL__N_18g_injectE>
+   180078c5b:	f0 ff 05 ee 2f 0f 00 	lock incl 0xf2fee(%rip)        # 18016bc50 <_ZN5input9g_replaysE>
+   180078c62:	c3                   	ret
+(exit 0)

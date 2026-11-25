@@ -1,0 +1,6 @@
+$ for f in mxb_ragdoll.dlo MXB-Ragdoll-Setup.exe; do { strings -n 6 $f; strings -el -n 6 $f; } | grep -iE 'copyright|licen[cs]e|zlib|stb_|lodepng|nlohmann|imgui|miniz|lz4|zstd|mxbmrp|clang version|llvm-mingw/llvm-mingw$'; done | sort | uniq -c
+    113 /home/runner/work/llvm-mingw/llvm-mingw
+      1 LegalCopyright
+      2 PKEY_Copyright
+    163 clang version 23.1.1 (https://github.com/llvm/llvm-project.git 6dfe1677ab8dffbc6ec13d53a1e0215d75147689)
+(exit 0)

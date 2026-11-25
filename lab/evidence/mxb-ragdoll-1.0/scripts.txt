@@ -1,0 +1,25 @@
+$ cd 'MXB-Ragdoll-v1.0/Manual Install' && cat INSTALL.bat UNINSTALL.bat && grep -nE 'Copy-Item|Remove-Item|New-Item|ExtractToFile|HKCU|libraryfolders|Get-Process|foreach \(\$name' tools/install.ps1 tools/uninstall.ps1
+@echo off
+title MX Bikes Ragdoll - install
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\install.ps1"
+echo.
+pause
+@echo off
+title MX Bikes Ragdoll - uninstall
+powershell -NoProfile -ExecutionPolicy Bypass -File "%~dp0tools\uninstall.ps1"
+echo.
+pause
+tools/install.ps1:12:        $steam = (Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath -replace '/', '\'
+tools/install.ps1:14:        $vdf = Join-Path $steam 'steamapps\libraryfolders.vdf'
+tools/install.ps1:30:if (Get-Process mxbikes -ErrorAction SilentlyContinue) {
+tools/install.ps1:37:    New-Item -ItemType Directory -Force -Path (Join-Path $plugins 'mxb_ragdoll_sfx') | Out-Null
+tools/install.ps1:38:    Copy-Item -LiteralPath (Join-Path $here 'plugins\mxb_ragdoll.dlo') -Destination $plugins -Force
+tools/install.ps1:40:        Copy-Item -LiteralPath (Join-Path $here 'plugins\mxb_ragdoll.ini') -Destination $plugins
+tools/install.ps1:42:    Copy-Item -Path (Join-Path $here 'plugins\mxb_ragdoll_sfx\*.wav') -Destination (Join-Path $plugins 'mxb_ragdoll_sfx') -Force
+tools/install.ps1:60:            if ($entry) { [IO.Compression.ZipFileExtensions]::ExtractToFile($entry, $dst, $true) }
+tools/uninstall.ps1:9:        $steam = (Get-ItemProperty 'HKCU:\Software\Valve\Steam' -ErrorAction Stop).SteamPath -replace '/', '\'
+tools/uninstall.ps1:11:        $vdf = Join-Path $steam 'steamapps\libraryfolders.vdf'
+tools/uninstall.ps1:24:if (Get-Process mxbikes -ErrorAction SilentlyContinue) { Write-Host 'Close MX Bikes first, then run this again.'; exit 1 }
+tools/uninstall.ps1:28:foreach ($name in @('mxb_ragdoll.dlo', 'mxb_ragdoll.ini', 'mxb_ragdoll.log', 'mxb_ragdoll_crash.log', 'mxb_ragdoll.fnt',
+tools/uninstall.ps1:32:    if (Test-Path -LiteralPath $p) { Remove-Item -LiteralPath $p -Recurse -Force; $gone++ }
+(exit 0)

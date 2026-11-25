@@ -1,0 +1,52 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_crash.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_mud.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_red.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_vignette.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0120.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0175.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0180.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0240.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0380.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0420.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0470.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0698.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-hotkeys\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll.dlo  SUCCESS
+   93  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   88  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\hotkeys\host.log  FAST IO DISALLOWED
+  178  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\hotkeys\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_mud.tga  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_mud.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_red.tga  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_red.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_vignette.tga  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll_vignette.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll.dlo  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll.log  FAST IO DISALLOWED
+   24  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\mxb_ragdoll.log  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0120.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0120.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0175.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0175.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0180.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0180.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0240.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0240.bmp  SUCCESS
+   84  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0380.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0380.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0420.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0420.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0470.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0470.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0698.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0698.bmp  SUCCESS

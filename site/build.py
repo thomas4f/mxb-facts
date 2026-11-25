@@ -32,6 +32,7 @@ CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('mxb-discord-rpc-2024-10-06.yaml', 'mxb-discord-rpc'),
     ('mxb-dualsense-1.1.0.yaml', 'mxb-dualsense'),
     ('mxb-fps-booster-v1.yaml', 'mxb-fps-booster'),
+    ('mxb-ragdoll-1.0.yaml', 'mxb-ragdoll'),
     ('mxbfix-0.1.8.yaml', 'mxbfix'),
     ('pitbox-3.0.4.yaml', 'pitbox'),
     ('projectgpb2-v2.yaml', 'projectgpb2'),

@@ -1,0 +1,36 @@
+$ for f in mxb_ragdoll.dlo MXB-Ragdoll-Setup.exe MXB-Ragdoll-v1.0/README.txt 'MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll.ini'; do echo "== $f"; { strings -n 6 "$f"; strings -el -n 6 "$f"; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat|[Cc]offee|It.s free' | grep -v 'clang version'; done
+== mxb_ragdoll.dlo
+3286:buymeacoffee
+3294:https://ko-fi.com/mxbikesmods
+3295:https://buymeacoffee.com/boreddev
+3701:Like the mod? Buy the creator a coffee on Ko-fi (opens your browser).
+3702:Buy Me a Coffee
+3703:Support the creator on Buy Me a Coffee (opens your browser).
+4924:https://ko-fi.com/mxbikesmods
+4925:https://buymeacoffee.com/boreddev
+== MXB-Ragdoll-Setup.exe
+2576:      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/pm</dpiAware>
+2577:      <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2</dpiAwareness>
+5873:buymeacoffee
+5881:https://ko-fi.com/mxbikesmods
+5882:https://buymeacoffee.com/boreddev
+6288:Like the mod? Buy the creator a coffee on Ko-fi (opens your browser).
+6289:Buy Me a Coffee
+6290:Support the creator on Buy Me a Coffee (opens your browser).
+7511:https://ko-fi.com/mxbikesmods
+7512:https://buymeacoffee.com/boreddev
+15679:kofi = https://ko-fi.com/mxbikesmods
+15680:buymeacoffee = https://buymeacoffee.com/boreddev
+28683:_ZN5setup12_GLOBAL__N_16kKofiCE
+29707:https://ko-fi.com/mxbikesmods
+29708:https://buymeacoffee.com/boreddev
+29769:  mxbikesmods. If you enjoy it, a coffee keeps them coming!
+29770:Buy Me a Coffee
+29792:Enjoying it? A coffee keeps the mods coming. Thank you!
+== MXB-Ragdoll-v1.0/README.txt
+70:  It's free. If you share it, please link to the original post instead of reuploading.
+71:  Like it?  https://ko-fi.com/mxbikesmods   or   https://buymeacoffee.com/boreddev
+== MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll.ini
+62:kofi = https://ko-fi.com/mxbikesmods
+63:buymeacoffee = https://buymeacoffee.com/boreddev
+(exit 0)

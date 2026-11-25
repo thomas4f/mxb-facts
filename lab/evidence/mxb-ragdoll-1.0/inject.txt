@@ -1,0 +1,9 @@
+$ objdump -d mxb_ragdoll.dlo | awk '/^[0-9a-f]+ <.*>:$/{fn=$2} /g_injectE>|call.*<_ZN5input6ReplayEv>/{print fn}' | c++filt | sort | uniq -c
+      2 <input::(anonymous namespace)::H_XInputGetState(unsigned long, input::(anonymous namespace)::XPadState*)>:
+      2 <input::(anonymous namespace)::KeyState(unsigned long, void*)>:
+      1 <input::Replay()>:
+      1 <ragdoll::(anonymous namespace)::AbortRecover(char const*)>:
+      1 <ragdoll::(anonymous namespace)::Respawn(char const*)>:
+      2 <ragdoll::TickWalk(float)>:
+      2 <ragdoll::WalkTelemetry(ragdoll::BikeState const&, float)>:
+(exit 0)

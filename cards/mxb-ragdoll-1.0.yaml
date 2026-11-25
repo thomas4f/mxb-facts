@@ -1,0 +1,578 @@
+tool: MXB Ragdoll
+version: '1.0'
+summary: >-
+  An MX Bikes plugin that replaces your rider's crash with a physics ragdoll and lets you get up and walk back to the bike, by
+  patching the game's code and writing into its physics. It makes no internet connection; by default it takes over the game's
+  respawn key after a crash, offline, and keeps its patches in place on servers, where the ragdoll itself is off unless you turn it on.
+header:
+  What it is: >-
+    A closed-source plugin (`mxb_ragdoll.dlo`, with its settings `mxb_ragdoll.ini` and 13 crash sounds in `mxb_ragdoll_sfx`) for the
+    game's `plugins` folder, in a zip with a setup program (`MXB-Ragdoll-Setup.exe`, which carries the same files) and PowerShell install
+    scripts. In the game it throws your rider off the bike as a physics ragdoll when you crash, lets you get up, walk and climb back on,
+    and has a menu on F8.
+  In one line: Plugin that turns crashes into a physics ragdoll by patching the game's code
+  Category: Gameplay and visuals
+  Author: BoredDev / mxbikesmods (the name in its README)
+  Game: MX Bikes
+  mxb-mods.com: '[MX Bikes Ragdoll v1.0](https://mxb-mods.com/mx-bikes-ragdoll-v1-0-2/), published 29 Oct 2026'
+  Homepage: None found
+  GitHub: None found
+  Version analysed: >-
+    MX Bikes Ragdoll v1.0: `MXB-Ragdoll-v1.0.zip`, the download on its mxb-mods.com page, through
+    [MediaFire](https://www.mediafire.com/file/k34umlk5ta5n39g/MXB-Ragdoll-v1.0.zip/file); the newest release in the inventory
+    (`registry/releases.json`, from that page, dated 29 Oct 2026). There are no tags or commits: the source isn't public.
+  Analysed on: 25 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Closed source, and the release carries no licence or clause against analysis, so the release files were examined without running
+    them here: imports, exports and code-signing entries (`objdump -p`), text (`strings`, `strings -el`), the plugin's own function
+    names (it ships with them) and chosen call sites (`objdump -d`), and the setup's payload listed file by file against the zip
+    (`lab/evidence/mxbp.py`); every command is in `lab/evidence/mxb-ragdoll-1.0/run.sh`. The release was not rebuilt (no public source).
+    A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU) and no keys ran the
+    plugin in the MX Bikes demo (beta21e), offline behind a firewall block, under Process Monitor: the bare demo as baseline, a 120 s
+    ride pressing B, X, W, Shift+W, A and D, and a 90 s ride opening the F8 menu; then the plugin test host (a crash case, a
+    helmet-camera case and a hotkey case, with the bystander plugin's checks) and the setup started alone for 60 s with no clicks. The
+    real game online, the Steam build it is made for, and the install scripts were not run. VirusTotal: hash lookups made before the
+    analysis (25 Nov 2026), nothing uploaded (no licence was found, so the run uploads nothing).
+files:
+  - name: MXB-Ragdoll-v1.0.zip
+    sha256: 0ab67df8e9584a3b41894260389c75165fbb4960c9d5932f8d106de0846c0119
+    note: The only download.
+  - name: MXB-Ragdoll-Setup.exe
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: a430b32597556e15c1a293a7cc469c7de30f80d46b3a18d39550f98273f96165
+    note: The setup, in `Auto Install\`; it carries the 15 files of `Manual Install\plugins`, byte for byte.
+  - name: mxb_ragdoll.dlo
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: 82592eff97a2836635930f8d513c875b7d1dbaf17fd4196e3df686a4057fd3c9
+    note: The plugin, in `Manual Install\plugins\`.
+  - name: mxb_ragdoll.ini
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: b588267ffafaa49486ccbc04cb211de0f456026fb3075e0410474f9a5f6fff19
+    note: The default settings.
+  - name: INSTALL.bat
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: a21ee4461f53dbe1148f73a17426e8053735d6aecfb8cffc1b2f2307fe3dbb21
+    note: Runs `tools\install.ps1`.
+  - name: UNINSTALL.bat
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: 0a52c54221f66bdf24f5f58cd9f9d5ccb56a7ce7fe4e96b15ee0efd76d8967af
+    note: Runs `tools\uninstall.ps1`.
+  - name: install.ps1
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: c5a29ecfa2964884cf2a52af7f897daf43dad69b858d9eee3a0ba3aa19ab9daf
+  - name: uninstall.ps1
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: ce85c498b478ed0e5adbf0a71d2dd39745be832cea9d8ff92906f55b0603c683
+  - name: README.txt
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: ba5534981441e892b3f763681a6b6f40563819f80a71d0fa7c7f7bece561cb0b
+  - name: HOW TO INSTALL.txt
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: c37807ad0df5f48636383736b70e41e82c8a786f222c199ef43a8fe7c9509ee7
+  - name: breath_in.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: c6ca1a1e9f8a141847caaeebbe8dfe69d251623ad8c51a22f3afba69d1ae96a6
+    note: The 13 crash sounds, in `plugins\mxb_ragdoll_sfx\`.
+  - name: breath_out.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: 0c78bdb03a5c8dbcb980e141b5b45b01deae53c0ab1c509756b638a18472f85e
+  - name: crunch1.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: bc536e72c726cb6b1ac6497a28df36650ed18a3d9f1f45c051bce308053509b8
+  - name: crunch2.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: e24f5074fed5fc7db888dcde83cbb6e9d22425bd481fdfc02805f3647219383f
+  - name: crunch3.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: 4af063fe35d6c60e61cf3e52306dc066447399c3a6cd53c25eff2993726b6e97
+  - name: gasp.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: d0547147b2c0c02c48605a87020a9d9af3317728291965d0cbb09202ddda9baa
+  - name: heartbeat.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: a78743bad3149ae8c34ffae088984b09484d47eb18bb3266a3183f489da97cab
+  - name: helmet.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: f566ebe3292b610bc1f64e6bddacffeaf50ad37903af11d05b1b3f6d16b172b4
+  - name: slide.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: ff920ec44b6d017477ed616aa05a0b9f13b2e0b0dc853bb28c8845d851cde91a
+  - name: thud_heavy.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: afc8ddd3c4864bec4d2ca0a2a8102fa39098124c81c7135ae458e82a8bc11e1a
+  - name: thud_light.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: d546e89abe76fee17349eebff7e126abaa7ce8e146ab6119106e3bff093d4534
+  - name: thud_medium.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: 56f0165bf499098ecc5d52f89952090961393a7489f5633c045ff21303c99a67
+  - name: wind.wav
+    inside: MXB-Ragdoll-v1.0.zip
+    sha256: 2938f80c19af2f34bfbc4685fc1cde5f4fc1a96423f3a217740783084e6c233b
+files_note: >-
+  Neither program file is code-signed (`lab/evidence/mxb-ragdoll-1.0/signature.txt`). The zip's hash is the one the Windows machine ran
+  (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/machine.txt`), and every hash is in `lab/evidence/mxb-ragdoll-1.0/files.txt`.
+key:
+  K1: 'No malware found. 1 of 65 engines flagged the setup, fewer than 1 in 10; nothing in the release files was hidden or disguised.'
+  K2: 'No updater. Neither program has network code, so nothing is updated.'
+  K3: 'No. It writes only files named `mxb_ragdoll…` in `plugins`, and the setup its own log in your Temp folder.'
+  K4: 'No. It makes no internet connection.'
+  K5: 'Yes, patches the game; it redirects the game''s OpenGL, input and bone-update calls to its own code and writes your rider''s physics in a crash, and its patches stay in place on servers.'
+  K6: 'No. It decrypts, saves and shares nothing of other people''s; it reads rider models and the track in the game''s memory.'
+  K7: 'No. Only the install scripts are readable; the plugin and the setup have no public source.'
+  K8: 'No; the setup says "Nothing outside MX Bikes\plugins is touched", but writes its log to your Temp folder.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'No. No network code, and no connection was tried in any run.'
+areas:
+  Your PC and files: No updater; writes only its own files in the game's `plugins` folder, plus the setup's log in your Temp folder, which no uninstall removes; not code-signed.
+  Your data: Makes no internet connection; reads the game's respawn binding from your profile and finds the game through Steam's files.
+  Your game: Patches the game's OpenGL, DirectInput, XInput and bone-update calls at start-up, writes your rider's physics in a crash, holds back the respawn key after a crash and adds a crash logger for the whole game.
+  Creators' content: Reads rider models and the track in the game's memory and moves riders' bones; its installers copy three fonts out of the game's own files.
+  Transparency: Closed source with no licence; its setup's claim that nothing outside `plugins` is touched doesn't match its Temp log.
+  Money: Free; the README, the F8 menu and the setup ask for donations on Ko-fi and Buy Me a Coffee.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: the setup checks that each file it wrote reads back the same, and reports "Something (an antivirus?) changed them"
+          when one doesn't; it asks for administrator rights only after a write is refused, with a "Run as administrator" button
+          (`lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`).
+        mark: good
+      - text: >-
+          Also found: the setup reads Windows' Smart App Control state (`SYSTEM\CurrentControlSet\Control\CI\Policy`) to warn that it "may
+          block the mod" (`lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`).
+        mark: note
+  - title: Your data
+    blocks:
+      - text: >-
+          Also found: the plugin's log records the game's save folder path, with your Windows user name in it, and the README asks you to
+          send the log when something goes wrong (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`). It stays on your PC
+          unless you send it.
+        mark: note
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: when the game's OpenAL sound library is loaded, it applies a low-pass filter to the game's sound in a crash ("its sound
+          will not be muffled" when it isn't) and plays its own crash sounds through XAudio2 (`lab/evidence/mxb-ragdoll-1.0/strings-hooks.txt`,
+          `lab/evidence/mxb-ragdoll-1.0/symbols.txt`).
+        mark: note
+      - text: >-
+          Also found: it checks the game's code bytes before each patch and switches that part off with a log line when they differ
+          ("trainer guard off (series name code differs at +0x2085b; not MX Bikes beta21?)", "game-camera scene hook UNAVAILABLE",
+          `lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks:
+      - text: >-
+          Also found: the README says the tool was "Built with Claude (Anthropic's AI), which did the reverse engineering and a lot of the
+          code" (`MXB-Ragdoll-v1.0/README.txt`, SHA-256 ba5534981441e892b3f763681a6b6f40563819f80a71d0fa7c7f7bece561cb0b).
+        mark: note
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"Off on servers by default. You can turn it on (F8 > RAGDOLL > Online use, press it twice)" (README.txt)'
+            Verdict: Partly
+            Evidence: 'The ragdoll is gated by the online setting (`online = 0` in the shipped settings, log text "online - mod inactive", `lab/evidence/mxb-ragdoll-1.0/strings-online.txt`), but its patches are made at start-up with no online condition and stay in place (`lab/evidence/mxb-ragdoll-1.0/startup-installs.txt`; G3).'
+          - Claim: '"Nothing outside MX Bikes\plugins is touched." (the setup''s main screen)'
+            Verdict: Doesn't match
+            Evidence: 'The setup created and wrote `C:\Users\…\AppData\Local\Temp\MXB-Ragdoll-Setup.log` as soon as it started (`lab/results/mxb-ragdoll-1.0/setup-windows/outside.txt`); the text is in `lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`.'
+          - Claim: '"No GTA IV or MX Bikes files are included in this zip." (README.txt)'
+            Verdict: Matches
+            Evidence: 'The zip holds its plugin, settings, 13 WAV sounds, the setup, scripts and text (`lab/evidence/mxb-ragdoll-1.0/file.txt`); the menu fonts are copied from your own game by the installers (`lab/evidence/mxb-ragdoll-1.0/scripts.txt`).'
+          - Claim: '"The setup isn''t code-signed" (README.txt)'
+            Verdict: Matches
+            Evidence: 'Empty Security Directory (`lab/evidence/mxb-ragdoll-1.0/signature.txt`).'
+          - Claim: '"Updating later? Run the new setup. Your settings are kept." (README.txt)'
+            Verdict: Matches
+            Evidence: '`install.ps1` copies `mxb_ragdoll.ini` only when there is none (`lab/evidence/mxb-ragdoll-1.0/scripts.txt`); setup text "Kept your settings" (`lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`). The setup''s install wasn''t run.'
+          - Claim: '"On another version, parts of it switch themselves off, and plugins\mxb_ragdoll.log says which." (README.txt)'
+            Verdict: Matches
+            Evidence: 'In the demo the log names the scene hook, the bone override and the trainer guard as off (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`).'
+          - Claim: '"Fixes an MX Bikes crash when loading a track that has a ghost (trainer) file" (README.txt)'
+            Verdict: Not checked
+            Evidence: 'The trainer guard was off in the demo (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`), and no such track was loaded.'
+          - Claim: '"removes everything the mod put in MX Bikes'' plugins folder (and nothing else)" (uninstall.ps1)'
+            Verdict: Matches
+            Evidence: 'It deletes a fixed list of `mxb_ragdoll…` names in `plugins` (`lab/evidence/mxb-ragdoll-1.0/scripts.txt`). Not run.'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX Bikes
+              demo, offline. Frame times say nothing about real performance.
+            questions: []
+          - text: >-
+              The ragdoll never started. The README says it is made for MX Bikes beta21 on Steam; in the demo (beta21e) its search of the
+              game's memory failed every few seconds ("ODE world with a rider body not found"), and its scene hook, bone override and
+              trainer guard switched themselves off; the test host has no game physics to find. So the crash, bail, walking and getting back
+              on, the writes into the game's physics and bones, and the reads of rider models and the track were read from the plugin's
+              text and function names, not seen.
+            questions: [G2, G4, C5]
+          - text: >-
+              The runs had no game profile, so the plugin logged "respawn binding not found" and didn't install its DirectInput and XInput
+              hooks; holding back and pressing the respawn key rests on its code (`input::Replay`, the hooked reads) and its own description.
+            questions: [G5]
+          - text: >-
+              The real game on an online server can't be reached here (the demo has no online play), and "Online use" wasn't turned on. That
+              its patches stay in place on a server rests on the code: they are made at start-up, and only the ragdoll reads the online
+              setting. What they change there wasn't seen.
+            questions: [G3]
+          - text: >-
+              The setup was started alone for 60 s and nothing was clicked, and the install scripts weren't run: its install, Remove, "Run as
+              administrator" and the font copy were read from its text and the scripts, not seen.
+            questions: [P4, P7, P8, C1, C5]
+          - text: >-
+              The key reads were traced to their call sites and to the checks in front of them (the menu thread's and the telemetry tick's),
+              not through every path of the functions after them.
+            questions: [G7]
+answers:
+  P1:
+    verdict: Partly
+    mark: note
+    text: >-
+      1 of 65 engines flagged `MXB-Ragdoll-Setup.exe` (Trapmine; last scanned 23 Nov 2026), fewer than 1 in 10. No engine flagged the zip
+      (0 of 66), `mxb_ragdoll.dlo` (0 of 71), the scripts or the text files. Not on VirusTotal: `mxb_ragdoll.ini` and the 13 sound files,
+      inside the zip. Hash lookups on 25 Nov 2026; nothing uploaded.
+    evidence: '[MXB-Ragdoll-v1.0.zip](https://www.virustotal.com/gui/file/0ab67df8e9584a3b41894260389c75165fbb4960c9d5932f8d106de0846c0119), [MXB-Ragdoll-Setup.exe](https://www.virustotal.com/gui/file/a430b32597556e15c1a293a7cc469c7de30f80d46b3a18d39550f98273f96165), [mxb_ragdoll.dlo](https://www.virustotal.com/gui/file/82592eff97a2836635930f8d513c875b7d1dbaf17fd4196e3df686a4057fd3c9), [INSTALL.bat](https://www.virustotal.com/gui/file/a21ee4461f53dbe1148f73a17426e8053735d6aecfb8cffc1b2f2307fe3dbb21), [UNINSTALL.bat](https://www.virustotal.com/gui/file/0a52c54221f66bdf24f5f58cd9f9d5ccb56a7ce7fe4e96b15ee0efd76d8967af), [install.ps1](https://www.virustotal.com/gui/file/c5a29ecfa2964884cf2a52af7f897daf43dad69b858d9eee3a0ba3aa19ab9daf), [uninstall.ps1](https://www.virustotal.com/gui/file/ce85c498b478ed0e5adbf0a71d2dd39745be832cea9d8ff92906f55b0603c683), [README.txt](https://www.virustotal.com/gui/file/ba5534981441e892b3f763681a6b6f40563819f80a71d0fa7c7f7bece561cb0b), [HOW TO INSTALL.txt](https://www.virustotal.com/gui/file/c37807ad0df5f48636383736b70e41e82c8a786f222c199ef43a8fe7c9509ee7)'
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      There is no updater: neither program imports a network function, and their only web addresses are two donation pages.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`, `lab/evidence/mxb-ragdoll-1.0/strings-urls.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/strings-urls.txt`.'
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      In the runs it wrote only its own files in `plugins`: its log, an empty crash log and three screen-effect images. The install
+      script copies only its own files and keeps an existing `mxb_ragdoll.ini`; the uninstall script and the setup's Remove delete only
+      their fixed lists of `mxb_ragdoll…` names in `plugins`.
+    evidence: >-
+      `lab/results/mxb-ragdoll-1.0/bail-walk-windows/files.diff` against `lab/results/mxb-ragdoll-1.0/baseline-windows/files.diff`;
+      `lab/results/mxb-ragdoll-1.0/bail-walk-windows/outside.txt`; `lab/evidence/mxb-ragdoll-1.0/scripts.txt`;
+      `lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`.
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: Neither the plugin nor the setup carries a code signature, and they can't be traced to public source.
+    evidence: Empty Security Directory in both (`lab/evidence/mxb-ragdoll-1.0/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The rides wrote no registry value the bare demo didn't. The setup and the install scripts only read: Steam's path, Steam's uninstall
+      entry for MX Bikes and the Smart App Control state. Neither program imports a registry write function.
+    evidence: >-
+      `lab/results/mxb-ragdoll-1.0/bail-walk-windows/registry.txt` against `lab/results/mxb-ragdoll-1.0/baseline-windows/registry.txt`;
+      `lab/results/mxb-ragdoll-1.0/setup-windows/registry.txt`; `lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`,
+      `lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`.
+  P7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Everything it writes in the game folder is in `plugins`, under its own names: the plugin, its settings and sounds, its log and crash
+      log, three images it makes (`mxb_ragdoll_vignette.tga`, `mxb_ragdoll_red.tga`, `mxb_ragdoll_mud.tga`) and, from the installers, three
+      fonts copied as `mxb_ragdoll.fnt`, `mxb_ragdoll_title.fnt` and `mxb_ragdoll_lcd.fnt`.
+    evidence: >-
+      `lab/results/mxb-ragdoll-1.0/bail-walk-windows/files.diff`, `lab/results/mxb-ragdoll-1.0/menu-windows/files.diff`;
+      `lab/evidence/mxb-ragdoll-1.0/scripts.txt`, `lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`.
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The setup writes its log, `MXB-Ragdoll-Setup.log`, to your Temp folder as soon as it starts, and neither uninstaller removes it;
+      the setup's Remove can also keep `mxb_ragdoll.ini` ("Keep my settings"). Both are its own files; nothing in Windows is changed.
+    evidence: >-
+      `lab/results/mxb-ragdoll-1.0/setup-windows/outside.txt`; `lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`,
+      `lab/evidence/mxb-ragdoll-1.0/scripts.txt`.
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The plugin ships with its function names, and its imports and text match what it shows and logs (its hooks, the
+      ragdoll, the menu, the crash log); the setup's payload is the zip's `Manual Install\plugins` files byte for byte, stored unpacked;
+      neither program has network code.
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.iat.txt`, `lab/evidence/mxb-ragdoll-1.0/MXB-Ragdoll-Setup.exe.iat.txt`,
+      `lab/evidence/mxb-ragdoll-1.0/symbols.txt`, `lab/evidence/mxb-ragdoll-1.0/payload.txt`, `lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`.
+  D1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Neither program imports a network function, and no connection was tried in any run. Their only web addresses are the Ko-fi and Buy
+      Me a Coffee pages, which the F8 menu and the setup open in your browser when you pick them.
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`, `lab/evidence/mxb-ragdoll-1.0/strings-urls.txt`;
+      `lab/results/mxb-ragdoll-1.0/bail-walk-windows/network.txt`, `lab/results/mxb-ragdoll-1.0/menu-windows/network.txt`,
+      `lab/results/mxb-ragdoll-1.0/setup-windows/network.txt`.
+  D2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent; there is no network code.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`; `lab/results/mxb-ragdoll-1.0/bail-walk-windows/network.txt`.'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent, so no identifier is.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent. Other riders it sees crash get a ragdoll on your screen only.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`; menu text "Only on your screen" (`lab/evidence/mxb-ragdoll-1.0/strings-online.txt`).'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: Neither program imports Winsock or any other network library, so neither can listen for connections.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`, `lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.objdump-p.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The plugin reads the game's `global.ini` and your profile's `controls.txt` in `Documents\PiBoSo\MX Bikes` to find the respawn
+      binding. The setup and the install scripts read Steam's registry keys, `libraryfolders.vdf` and app manifests to find the game, and
+      the setup reads the process list to see whether the game runs. None of it is other people's data.
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/strings-profile.txt`; log "save folder C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\"
+      (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`); `lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`,
+      `lab/evidence/mxb-ragdoll-1.0/scripts.txt`, `lab/evidence/mxb-ragdoll-1.0/imports-present.txt` (CreateToolhelp32Snapshot).
+  D7:
+    verdict: 'No'
+    mark: good
+    text: Nothing about its users is sent, so nothing is published.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: It makes no connection, so there is nothing to switch off.
+    evidence: '`lab/results/mxb-ragdoll-1.0/bail-walk-windows/network.txt`, `lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; it makes no connection.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing with other programs on your PC; neither program imports a shared-memory or network function.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt` (no CreateFileMapping, no Winsock).'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It runs as a plugin the game loads. The setup only checks whether the game runs and imports nothing that writes into another
+      process.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`, `lab/evidence/mxb-ragdoll-1.0/MXB-Ragdoll-Setup.exe.iat.txt`.'
+  G2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      At start-up it redirects OpenGL entries in the game's import table to its own code (for its crash camera), patches DirectInput's
+      keyboard reads and the reads of the game's `xinput64.dli` (for the respawn key), and, on the build it is made for, a call in the
+      game's bone update and one in its trainer-file loading. In a crash it writes your rider's physics bodies, poses and animation
+      channels in the game's memory and kicks the rider off the bike.
+    evidence: >-
+      Log "camera: OpenGL import-table hooks installed" (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`); text
+      (`lab/evidence/mxb-ragdoll-1.0/strings-hooks.txt`); functions `camera::RedirectCall`, `input::Install`, `ragdoll::OverrideBones`,
+      `trainerfix::Start`, `game::WriteBodyPosVel`, `game::WriteBodyPose`, `game::WriteAnimChannel`, `ragdoll::KickRider`
+      (`lab/evidence/mxb-ragdoll-1.0/symbols.txt`); VirtualProtect and FlushInstructionCache imports
+      (`lab/evidence/mxb-ragdoll-1.0/imports-present.txt`).
+  G3:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      Its patches (OpenGL, DirectInput and XInput, bone update, trainer guard) are made at start-up with no online condition and stay in
+      place on a server; only the ragdoll reads the online setting, and it is off there by default ("online - mod inactive"). With
+      "Online use" turned on, the ragdoll and its physics writes run online too. What the patches change on a server wasn't seen (see
+      Limits).
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/startup-installs.txt` (what Startup installs, and which functions read `g_offline`);
+      `lab/evidence/mxb-ragdoll-1.0/strings-online.txt`; shipped `mxb_ragdoll.ini` `online = 0`.
+  G4:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It searches the game's memory for the physics world, your rider's bodies and skeleton, the crash animations and the track's
+      collision shapes, reading with ReadProcessMemory on its own process. In the demo the search failed every few seconds.
+    evidence: >-
+      Log "discovery FAILED … ODE world with a rider body not found" (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`);
+      functions `game::Discover`, `game::SafeRead`, `game::ReadBikeObstacles` (`lab/evidence/mxb-ragdoll-1.0/symbols.txt`);
+      `lab/evidence/mxb-ragdoll-1.0/imports-present.txt`.
+  G5:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      By default, offline (`get_back_on = 1`), its DirectInput and XInput hooks hold back the game's respawn key or button while you are
+      down after a crash, and hand the game a respawn press themselves when you tap it twice (`input::Replay` sets the press the hooked
+      reads return to the game). It also takes keys for its F8 menu. It imports nothing that presses keys system-wide.
+    evidence: >-
+      Text "respawn on key %s held back while crashed (DirectInput hooked)" (`lab/evidence/mxb-ragdoll-1.0/strings-hooks.txt`);
+      `lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.180078c50-180078c62.txt` (Replay sets `g_inject`), and the hooked reads that use it
+      (`lab/evidence/mxb-ragdoll-1.0/inject.txt`); `lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`; the menu drew 108 quads after F8
+      (`lab/results/mxb-ragdoll-1.0/hotkeys-windows/host.log`).
+  G6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The bystander plugin's tables stayed untouched in the test host. `xinput64.dli`, whose reads it hooks, ships with the game (it is in
+      the bare demo's `plugins`).
+    evidence: >-
+      `lab/results/mxb-ragdoll-1.0/crash-windows/host.log` (bystander plugin import and pointer tables);
+      `lab/results/mxb-ragdoll-1.0/baseline-windows/loaded.txt`.
+  G7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads keys with GetAsyncKeyState, but its menu thread does so only while the window in front belongs to the game, and the bail
+      and walking keys read on each telemetry tick are dropped unless the game is in front.
+    evidence: >-
+      Every use (`lab/evidence/mxb-ragdoll-1.0/keys-callsites.txt`); the focus check
+      (`lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.18000eca0-18000ecd5.txt`), the menu thread
+      (`lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.1800109ba-180010a25.txt`) and the telemetry tick
+      (`lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.18002bca0-18002bcf3.txt`).
+  G8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It adds a vectored exception handler for the whole game process. It writes access violations and similar faults (at most 8), with
+      registers and a call stack, to `mxb_ragdoll_crash.log`, then returns 0, so the crash goes on as it would without it.
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.18007b9aa-18007b9b8.txt` (AddVectoredExceptionHandler),
+      `lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.18007b9f0-18007ba54.txt` (the faults it logs),
+      `lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.18007c0f7-18007c10c.txt` (its only return, 0).
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; no program writes the registry.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`; `lab/results/mxb-ragdoll-1.0/bail-walk-windows/registry.txt`.'
+  G10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugin starts no program; its only ShellExecuteA calls open the donation pages from its menu. The setup is run on its own, before
+      the game, and can start the game through Steam when you click "Launch MX Bikes".
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/imports-absent.txt` (no CreateProcess), `lab/evidence/mxb-ragdoll-1.0/imports-present.txt`;
+      `lab/results/mxb-ragdoll-1.0/bail-walk-windows/procmon.txt`; `lab/evidence/mxb-ragdoll-1.0/strings-urls.txt` (`steam://rungameid/`).
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`mxb_ragdoll.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: 'Exports Startup, EventInit, RunTelemetry, Draw and the other plugin functions (`lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.objdump-p.txt`).'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No integrity, licence or anti-cheat check was found being got around. It checks the game's code itself and switches a part off when
+      it differs; its trainer guard stops a crash of the game while loading a ghost file, not a check.
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/strings-hooks.txt`; log "trainer guard off (series name code differs …)"
+      (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`).
+  C1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It decrypts nothing. The installers open only the game's own `misc.pkz` and `ui.pkz` as plain zips, and the setup gives up on an
+      encrypted one ("is encrypted").
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/scripts.txt`, `lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It saves no model or texture; the images it writes are its own screen effects, and the files it copies from the game are three
+      fonts.
+    evidence: '`lab/results/mxb-ragdoll-1.0/bail-walk-windows/files.diff`; `lab/evidence/mxb-ragdoll-1.0/scripts.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: Nothing is shared; it has no network code.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`.'
+  C4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The README credits "Plugin layout based on thomas4f/mxbmrp3 (MIT)", and the crash sounds as made with fal.ai using ElevenLabs sound
+      effects. The programs show only the llvm-mingw toolchain's runtime built in (clang 23.1.1), and no names of other libraries.
+    evidence: >-
+      `MXB-Ragdoll-v1.0/README.txt` (SHA-256 ba5534981441e892b3f763681a6b6f40563819f80a71d0fa7c7f7bece561cb0b), "CREDITS";
+      `lab/evidence/mxb-ragdoll-1.0/strings-thirdparty.txt`.
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads every rider model's skeleton and animations, third-party riders included, and the track's shape and collision boxes in the
+      game's memory, outside the plugin interface, and moves riders' bones. The installers copy three fonts out of the game's `misc.pkz`
+      and `ui.pkz`.
+    evidence: >-
+      `lab/evidence/mxb-ragdoll-1.0/symbols.txt` (`game::Discover`, `game::ReadBikeObstacles`, `game::TerrainHeight`,
+      `ragdoll::OverrideBones`); `lab/evidence/mxb-ragdoll-1.0/strings-hooks.txt`; `lab/evidence/mxb-ragdoll-1.0/scripts.txt`.
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Prebuilt program files: `mxb_ragdoll.dlo` (64-bit plugin) and `MXB-Ragdoll-Setup.exe` (64-bit Windows program); no source is public
+      for either. The four scripts (`INSTALL.bat`, `UNINSTALL.bat`, `install.ps1`, `uninstall.ps1`) are readable as they ship.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/file.txt`.'
+  T2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      The setup's main screen says "Nothing outside MX Bikes\plugins is touched", but the setup writes its log to your Temp folder as soon
+      as it starts (P8). The README's "Off on servers by default" holds for the ragdoll, not for its patches (G3); see "What it says vs
+      what it does".
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/strings-setup.txt`; `lab/results/mxb-ragdoll-1.0/setup-windows/outside.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: There is no public repository or build workflow; the zip is a MediaFire download.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/file.txt`; its [mxb-mods.com page](https://mxb-mods.com/mx-bikes-ragdoll-v1-0-2/) links only the download.'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/file.txt`.'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: No development history is public.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/file.txt`; no repository is named in the README or on its mxb-mods.com page.'
+  T6:
+    verdict: Not checked
+    text: No source or build files are public, so its dependencies can't be read.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/file.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The zip has no licence file and its README names none; it only asks you to link the original post instead of reuploading.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/file.txt`; `MXB-Ragdoll-v1.0/README.txt` (SHA-256 ba5534981441e892b3f763681a6b6f40563819f80a71d0fa7c7f7bece561cb0b).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: It costs nothing ("It's free.", README); nothing in the programs asks for payment.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold; the only links are two donation pages.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/strings-money.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The README, the settings file, the F8 menu and the setup link to Ko-fi and Buy Me a Coffee ("Buy the creator a coffee"), opened in
+      your browser when you pick them.
+    evidence: '`lab/evidence/mxb-ragdoll-1.0/strings-money.txt`.'
+history:
+  - date: 25 Nov 2026
+    change: First card, for 1.0.

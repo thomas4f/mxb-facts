@@ -1,0 +1,11 @@
+$ objdump -d mxb_ragdoll.dlo | awk '/^[0-9a-f]+ <.*>:$/{fn=$2} /call.*<_ZN6camera7InstallE|call.*<_ZN5input7InstallE|call.*<_ZN10trainerfix5StartE|call.*<_ZN8crashlog7InstallE/{print fn, $1, $NF}' | c++filt; echo '-- reads of g_offline, by function:'; objdump -d mxb_ragdoll.dlo | awk '/^[0-9a-f]+ <.*>:$/{fn=$2} /<_ZN7ragdoll9g_offlineE>/{print fn}' | c++filt | sort | uniq -c
+<Startup>: 18000153e: <crashlog::Install(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&)>
+<ragdoll::Startup(char const*)>: 18000f025: <camera::Install(unsigned long long, void (*)(char const*, ...))>
+<ragdoll::Startup(char const*)>: 18000f29d: <trainerfix::Start(unsigned long long, void (*)(char const*, ...))>
+<ragdoll::Startup(char const*)>: 18000f375: <input::Install(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&, void (*)(char const*, ...))>
+-- reads of g_offline, by function:
+      2 <ragdoll::EventInit(char const*)>:
+      2 <ragdoll::OnTelemetry(ragdoll::BikeState const&)>:
+      1 <ragdoll::SetEnabled(bool)>:
+      1 <ragdoll::UpdateStatus()>:
+(exit 0)

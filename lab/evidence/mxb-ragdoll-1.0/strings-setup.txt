@@ -1,0 +1,74 @@
+$ { strings -n 6 MXB-Ragdoll-Setup.exe; strings -el -n 6 MXB-Ragdoll-Setup.exe; } | grep -nE 'pkz|\.fnt|Valve|Steam App|libraryfolders|appmanifest|CI\\Policy|VerifiedAndReputable|Smart App|MXB-Ragdoll-Setup.log|\.setup-tmp|Nothing outside|Nothing else|Keep my settings|removed|Remove|administrator|--install-now|is encrypted|Launch MX Bikes|tga|\.log'
+1537:misc.pkz
+1538:misc/misc.fnt
+1539:mxb_ragdoll.fnt
+1540:ui.pkz
+1541:ui/main.fnt
+1542:mxb_ragdoll_title.fnt
+1543:misc/hud/LCD.fnt
+1544:mxb_ragdoll_lcd.fnt
+2437:RemoveDirectoryW
+2665:doll.logK
+3093:ette.tgaK
+3255:rash.logH
+5889:mxb_ragdoll.log
+6187:mxb_ragdoll.fnt
+6188:mxb_ragdoll_title.fnt
+6189:mxb_ragdoll_lcd.fnt
+6339:mxb_ragdoll_vignette.tga
+6340:mxb_ragdoll_red.tga
+6341:mxb_ragdoll_mud.tga
+6342:mxb_ragdoll_vignette.tga
+6343:mxb_ragdoll_red.tga
+6344:mxb_ragdoll_mud.tga
+6428:mxb_ragdoll_crash.log
+19539:FOLDERID_ChangeRemovePrograms
+20085:SelectionItem_ElementRemovedFromSelectionEvent_Event_GUID
+24736:FOLDERID_ChangeRemovePrograms
+27528:_ZN5setupL6RemoveERKNSt3__112basic_stringIwNS0_11char_traitsIwEENS0_9allocatorIwEEEERiRNS_6ReportES8_
+27659:__imp_RemoveDirectoryW
+28925:SelectionItem_ElementRemovedFromSelectionEvent_Event_GUID
+29561:MXB-Ragdoll-Setup.log
+29570:Software\Valve\Steam
+29572:SOFTWARE\WOW6432Node\Valve\Steam
+29574:SOFTWARE\Valve\Steam
+29581:\steamapps\libraryfolders.vdf
+29582:\config\libraryfolders.vdf
+29586:\steamapps\appmanifest_
+29591:SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 655500
+29592:SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 655500
+29608:SYSTEM\CurrentControlSet\Control\CI\Policy
+29609:VerifiedAndReputablePolicyState
+29619:Remove the plugin
+29620:Remove the sounds and fonts
+29637:3 fonts from misc.pkz and ui.pkz
+29646:mxb_ragdoll.dlo removed
+29648:mxb_ragdoll.fnt
+29649:mxb_ragdoll_title.fnt
+29650:mxb_ragdoll_lcd.fnt
+29651:mxb_ragdoll_vignette.tga
+29652:mxb_ragdoll_red.tga
+29653:mxb_ragdoll_mud.tga
+29654: files removed
+29655:mxb_ragdoll.log
+29656:mxb_ragdoll_crash.log
+29658:Removed
+29663: is encrypted
+29678:.setup-tmp
+29685: (administrator)
+29698:12_removed
+29720:--install-now 
+29722:run as administrator: %lu
+29760:Smart App Control may block the mod
+29767:About 6 MB. Nothing outside MX Bikes\plugins is touched.
+29779:Removed
+29788:Launch MX Bikes
+29806:Your MX Bikes folder needs administrator rights to change. Press "Run as administrator".
+29810:Run as administrator
+29811:Remove MX Bikes Ragdoll?
+29812:This takes the plugin and its sounds and fonts back out of the game's plugins folder. Nothing else is touched.
+29813:Keep my settings (mxb_ragdoll.ini)
+29814:Remove it
+29826:Windows wouldn't let the setup write mxb_ragdoll.dlo. Try again with "Run as administrator".
+29830:2 of 3: ui/main.fnt isn't in ui.pkz. The menu may miss some text.
+(exit 0)

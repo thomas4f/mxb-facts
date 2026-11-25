@@ -1,0 +1,35 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_crash.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_mud.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_red.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_vignette.tga  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0150.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0330.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0598.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-crash-helmet\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-helmet\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-helmet\opengl32.dll  SUCCESS
+   89  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   84  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash-helmet\host.log  FAST IO DISALLOWED
+  170  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash-helmet\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_mud.tga  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_mud.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_red.tga  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_red.tga  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_vignette.tga  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll_vignette.tga  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll.log  FAST IO DISALLOWED
+   23  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\mxb_ragdoll.log  SUCCESS
+   50  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0150.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0150.bmp  SUCCESS
+   73  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0330.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0330.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0598.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0598.bmp  SUCCESS

@@ -1,0 +1,19 @@
+$ for f in mxb_ragdoll.dlo MXB-Ragdoll-Setup.exe; do echo "== $f"; { strings -n 6 $f; strings -el -n 6 $f; } | grep -nE 'https?://|www\.|steam://' | grep -v 'clang version'; done
+== mxb_ragdoll.dlo
+3294:https://ko-fi.com/mxbikesmods
+3295:https://buymeacoffee.com/boreddev
+4924:https://ko-fi.com/mxbikesmods
+4925:https://buymeacoffee.com/boreddev
+== MXB-Ragdoll-Setup.exe
+2576:      <dpiAware xmlns="http://schemas.microsoft.com/SMI/2005/WindowsSettings">true/pm</dpiAware>
+2577:      <dpiAwareness xmlns="http://schemas.microsoft.com/SMI/2016/WindowsSettings">PerMonitorV2</dpiAwareness>
+5881:https://ko-fi.com/mxbikesmods
+5882:https://buymeacoffee.com/boreddev
+7511:https://ko-fi.com/mxbikesmods
+7512:https://buymeacoffee.com/boreddev
+15679:kofi = https://ko-fi.com/mxbikesmods
+15680:buymeacoffee = https://buymeacoffee.com/boreddev
+29707:https://ko-fi.com/mxbikesmods
+29708:https://buymeacoffee.com/boreddev
+29709:steam://rungameid/
+(exit 0)

@@ -1,0 +1,25 @@
+$ { strings -n 6 mxb_ragdoll.dlo; strings -el -n 6 mxb_ragdoll.dlo; } | grep -niE 'online|server|offline'
+3223:ONLINE USE IS OFF  -  F8 MENU
+3267:online
+3321:offline
+3322:online - mod ON at the user's own risk
+3323:online - mod inactive
+3324:RAGDOLL ON ONLINE  -  AT YOUR OWN RISK
+3411:offline: a ghost whose crash flag comes and goes while it rides gets a ragdoll
+3412:offline: a ghost that really crashes (only crash animations, after riding) gets a ragdoll
+3413:offline: that ghost's ragdoll keeps its riding speed (15 m/s)
+3414:offline: a ghost listing only crash animations from the start gets a ragdoll
+3415:offline: a ghost that really crashes at 9 fps gets a ragdoll
+3503:WALKING IS OFFLINE ONLY
+3657:Online: every rider you see crash gets their own ragdoll too. Only on your screen. Your ghost is never touched.
+3658:Online use
+3659:Also run on servers. Not tested online: a server or admin may kick or ban a modded client. Your own risk.
+3685:Get off the bike when it's slow, or get up after a crash, and walk: W A S D, SHIFT jogs. Offline.
+3689:After a crash, respawn: tap = get up (walk, tap at the bike to get on), hold = all the way back on, twice = respawn now. Offline.
+3706:ONLINE USE ON  -  AT YOUR OWN RISK
+3707:SERVERS MAY KICK YOU  -  PRESS AGAIN
+3724:ONLINE: PAUSED
+3725:LIVE ONLINE
+3726:ONLINE: RISK
+11821:.refptr._ZN7ragdoll9g_offlineE
+(exit 0)

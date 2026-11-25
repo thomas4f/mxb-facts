@@ -1,0 +1,12 @@
+$ objdump -d mxb_ragdoll.dlo | awk '/^[0-9a-f]+ <.*>:$/{fn=$2} /<__imp_GetAsyncKeyState>|<__imp_GetForegroundWindow>|call   18000eca0|call   18005f910/{print fn, $0}' | c++filt
+<ragdoll::GameFocused()>:    18000ecad:	ff 15 0d 14 13 00    	call   *0x13140d(%rip)        # 1801400c0 <__imp_GetForegroundWindow>
+<void* std::__1::__thread_proxy[abi:nqe230101]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, ragdoll::Startup(char const*)::$_0> >(void*)>:    1800109cc:	48 8b 1d ed f6 12 00 	mov    0x12f6ed(%rip),%rbx        # 1801400c0 <__imp_GetForegroundWindow>
+<void* std::__1::__thread_proxy[abi:nqe230101]<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, ragdoll::Startup(char const*)::$_0> >(void*)>:    180010a20:	e8 eb ee 04 00       	call   18005f910 <ui::HandleInput()>
+<ragdoll::WalkTelemetry(ragdoll::BikeState const&, float)>:    18002bcae:	ff 15 fc 43 11 00    	call   *0x1143fc(%rip)        # 1801400b0 <__imp_GetAsyncKeyState>
+<ragdoll::WalkTelemetry(ragdoll::BikeState const&, float)>:    18002bcdd:	e8 be 2f fe ff       	call   18000eca0 <ragdoll::GameFocused()>
+<ragdoll::WalkTelemetry(ragdoll::BikeState const&, float)>:    18002bef6:	48 8b 3d b3 41 11 00 	mov    0x1141b3(%rip),%rdi        # 1801400b0 <__imp_GetAsyncKeyState>
+<ui::HandleInput()>:    18005f93e:	48 8b 35 6b 07 0e 00 	mov    0xe076b(%rip),%rsi        # 1801400b0 <__imp_GetAsyncKeyState>
+<ui::BuildHud(SPluginQuad_t*, int, int&, SPluginString_t*, int, int&)>:    180061c43:	ff 15 77 e4 0d 00    	call   *0xde477(%rip)        # 1801400c0 <__imp_GetForegroundWindow>
+<tanhf>:    180121210:	ff 25 9a ee 01 00    	jmp    *0x1ee9a(%rip)        # 1801400b0 <__imp_GetAsyncKeyState>
+<tanhf>:    180121230:	ff 25 8a ee 01 00    	jmp    *0x1ee8a(%rip)        # 1801400c0 <__imp_GetForegroundWindow>
+(exit 0)

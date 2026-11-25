@@ -1,0 +1,21 @@
+$ rsrc.py MXB-Ragdoll-Setup.exe; mxbp.py MXB-Ragdoll-Setup.exe > $W/p.txt; cat $W/p.txt; grep -E '^[0-9a-f]{64}' $W/p.txt | awk '{print $1"  "$2}' | sort > $W/a; (cd 'MXB-Ragdoll-v1.0/Manual Install/plugins' && find . -type f | sed 's|^\./||' | LC_ALL=C sort | xargs -d '\n' sha256sum) | sort > $W/b; diff $W/a $W/b && echo 'the payload holds the same 15 files as Manual Install\plugins, byte for byte'
+bash: line 1: /home/runner/work/mxb-facts/mxb-facts/lab/evidence/rsrc.py: Permission denied
+RT_RCDATA resource, 3526319 bytes, starts with b'MXBP'
+82592eff97a2836635930f8d513c875b7d1dbaf17fd4196e3df686a4057fd3c9  mxb_ragdoll.dlo  (2183680 bytes, CRC-32 matches)
+b588267ffafaa49486ccbc04cb211de0f456026fb3075e0410474f9a5f6fff19  mxb_ragdoll.ini  (3054 bytes, CRC-32 matches)
+c6ca1a1e9f8a141847caaeebbe8dfe69d251623ad8c51a22f3afba69d1ae96a6  mxb_ragdoll_sfx/breath_in.wav  (70602 bytes, CRC-32 matches)
+0c78bdb03a5c8dbcb980e141b5b45b01deae53c0ab1c509756b638a18472f85e  mxb_ragdoll_sfx/breath_out.wav  (95300 bytes, CRC-32 matches)
+bc536e72c726cb6b1ac6497a28df36650ed18a3d9f1f45c051bce308053509b8  mxb_ragdoll_sfx/crunch1.wav  (88244 bytes, CRC-32 matches)
+e24f5074fed5fc7db888dcde83cbb6e9d22425bd481fdfc02805f3647219383f  mxb_ragdoll_sfx/crunch2.wav  (79704 bytes, CRC-32 matches)
+4af063fe35d6c60e61cf3e52306dc066447399c3a6cd53c25eff2993726b6e97  mxb_ragdoll_sfx/crunch3.wav  (105884 bytes, CRC-32 matches)
+d0547147b2c0c02c48605a87020a9d9af3317728291965d0cbb09202ddda9baa  mxb_ragdoll_sfx/gasp.wav  (83344 bytes, CRC-32 matches)
+a78743bad3149ae8c34ffae088984b09484d47eb18bb3266a3183f489da97cab  mxb_ragdoll_sfx/heartbeat.wav  (69606 bytes, CRC-32 matches)
+f566ebe3292b610bc1f64e6bddacffeaf50ad37903af11d05b1b3f6d16b172b4  mxb_ragdoll_sfx/helmet.wav  (51088 bytes, CRC-32 matches)
+ff920ec44b6d017477ed616aa05a0b9f13b2e0b0dc853bb28c8845d851cde91a  mxb_ragdoll_sfx/slide.wav  (264644 bytes, CRC-32 matches)
+afc8ddd3c4864bec4d2ca0a2a8102fa39098124c81c7135ae458e82a8bc11e1a  mxb_ragdoll_sfx/thud_heavy.wav  (75322 bytes, CRC-32 matches)
+d546e89abe76fee17349eebff7e126abaa7ce8e146ab6119106e3bff093d4534  mxb_ragdoll_sfx/thud_light.wav  (41240 bytes, CRC-32 matches)
+56f0165bf499098ecc5d52f89952090961393a7489f5633c045ff21303c99a67  mxb_ragdoll_sfx/thud_medium.wav  (49416 bytes, CRC-32 matches)
+2938f80c19af2f34bfbc4685fc1cde5f4fc1a96423f3a217740783084e6c233b  mxb_ragdoll_sfx/wind.wav  (264644 bytes, CRC-32 matches)
+15 files, 3526319 of 3526319 bytes read
+the payload holds the same 15 files as Manual Install\plugins, byte for byte
+(exit 0)

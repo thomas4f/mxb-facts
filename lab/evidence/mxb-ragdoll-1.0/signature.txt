@@ -1,0 +1,6 @@
+$ objdump -p mxb_ragdoll.dlo MXB-Ragdoll-Setup.exe | grep -E 'file format|Security Directory'
+mxb_ragdoll.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+MXB-Ragdoll-Setup.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

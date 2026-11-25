@@ -1,0 +1,21 @@
+$ { strings -n 6 mxb_ragdoll.dlo; strings -el -n 6 mxb_ragdoll.dlo; } | grep -nE 'PiBoSo|profile|global.ini|controls.txt|respawn (is|binding)|save folder'
+475:profilesJ
+602:profilesI
+3314:input: %s (save folder %s)
+3712:\PiBoSo\MX Bikes\
+3713:profile
+3714:lastprofile
+3715:global.ini
+3716:profiles\
+3717:\profile.ini
+3810:respawn is key %s (DIK %d)
+3811:respawn is pad button %d = %s on %s
+3812:respawn binding not found or not supported (%s)
+3813:no profile
+3814:\PiBoSo\MX Bikes\
+3815:profile
+3816:lastprofile
+3817:global.ini
+3818:profiles\
+3819:\controls.txt
+(exit 0)
