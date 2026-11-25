@@ -55,6 +55,10 @@ for _c,_a in CARDS:
 assert len(SLUG)==sum(len(e['cards']) for e in REG.values()), 'registry/tools.json: a card is listed under two tools'
 assert set(SLUG)=={f for f,_ in CARDS}, 'registry/tools.json: cards must match CARDS ('+', '.join(sorted(set(SLUG)^{f for f,_ in CARDS}))+')'
 assert all(SLUG[f]==t for f,t in CARDS), 'CARDS: each card names its tool in registry/tools.json'
+# The maintainer's own tools (README, "Conflict of interest"): each of their cards shows the notice, and no other card does, so it
+# can't be left off.
+MAINTAINER_TOOLS={'mxbmrp3'}
+for f,t in CARDS: assert bool(load_yaml(D+f).get('by_maintainer'))==(t in MAINTAINER_TOOLS), 'cards/'+f+': by_maintainer: true goes on the cards of '+', '.join(sorted(MAINTAINER_TOOLS))+' and nowhere else'
 for s,e in REG.items():
     assert all(c.startswith(s+'-') for c in e['cards']), 'registry/tools.json: '+s+' lists a card of another tool'
     if e['github']: assert all('github.com/'+e['github']+')' in yaml.safe_load(open(D+c))['header']['GitHub'] for c in e['cards']), 'registry/tools.json: '+s+' GitHub differs from its card'

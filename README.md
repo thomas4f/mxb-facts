@@ -10,6 +10,7 @@ This project is run by Thomas (GitHub [thomas4f](https://github.com/thomas4f)), 
 
 - Every tool, MXBMRP3 included, answers the same list of questions ([`rules/questions.md`](rules/questions.md)) and is scored by the same fixed costs ([`rules/scores.md`](rules/scores.md)). The build refuses a card that skips a question or an answer whose mark doesn't match the mark table.
 - Every line carries its evidence, so you don't have to trust us.
+- Donations ([Ko-fi](https://ko-fi.com/thomas4f)) change nothing: not a card, a score or a place in the queue, whoever gives, a tool's author included.
 - The analysis is done by an AI assistant (Claude) working under [`CLAUDE.md`](CLAUDE.md), which tells it to treat MXBMRP3 like any other tool and to refuse requests that would break that. Every analysis starts from one published prompt, [`prompts/analyse-tool.md`](prompts/analyse-tool.md), so anyone can rerun it.
 - This repository is separate from MXBMRP3's, and shares no code with it.
 
