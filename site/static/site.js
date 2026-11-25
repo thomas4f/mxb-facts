@@ -16,7 +16,7 @@
     var t = store.get('theme-choice', 'system'), b = $('[data-theme-toggle]');
     if (t === 'system') { delete document.documentElement.dataset.theme; try { localStorage.removeItem('theme'); } catch { /* ignore */ } }
     else { document.documentElement.dataset.theme = t; try { localStorage.setItem('theme', t); } catch { /* ignore */ } }
-    if (b) { b.textContent = 'Theme: ' + t[0].toUpperCase() + t.slice(1); b.setAttribute('aria-label', 'Colour theme: ' + t + '. Change it'); }
+    if (b) { b.dataset.t = t; b.title = 'Theme: ' + t[0].toUpperCase() + t.slice(1); b.setAttribute('aria-label', 'Colour theme: ' + t + '. Change it'); }
   }
   showTheme();
 

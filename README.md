@@ -1,6 +1,6 @@
 # MXB Facts
 
-Fact-only cards about MX Bikes and GP Bikes tools, for players: what each plugin, app or mod does to your PC, your data, your game and creators' content, and how open it is. Each card covers one release and links every line to the exact code, the release file, or a test anyone can repeat.
+Know what you install. Fact-only cards about MX Bikes and GP Bikes tools, for players: what each plugin, app or mod does to your PC, your data, your game and creators' content, and how open it is. Each card covers one release and links every line to the exact code, the release file, or a test anyone can repeat.
 
 **Read the cards:** https://thomas4f.github.io/mxb-facts/
 
