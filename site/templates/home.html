@@ -3,7 +3,7 @@
 {% block nav %}tools{% endblock %}
 {% block main %}
 <section class="hero">
-  <h1>Know what you <span>install</span>.</h1>
+  {% set h = SITE.heading.split(SITE.heading_accent, 1) %}<h1>{{ h[0] }}<span>{{ SITE.heading_accent }}</span>{{ h[1] }}</h1>
   <p>{{ SITE.lede }}</p>
   <p class="ainote"><strong>Made by AI.</strong> {{ SITE.ai_short | mdi }}</p>
 </section>

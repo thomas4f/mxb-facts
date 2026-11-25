@@ -62,6 +62,7 @@ def iso(day): return datetime.datetime.strptime(day,'%d %b %Y').date().isoformat
 
 # The site's own words (site/content.yaml): the lede, rule 8's AI note, the maintainer's notice and How a card is made.
 CONTENT=load_yaml(ROOT+'site/content.yaml')
+assert CONTENT['heading_accent'] in CONTENT['heading'], 'site/content.yaml: heading_accent must be a word of heading'
 
 def ai_note(text=None):
     # Rule 8's words as plain text, for apps: the first two sentences of the site's AI note.
@@ -294,7 +295,7 @@ def write_site(SITE,skill,agents_line):
     # (VirusTotal): renumbering the prompt must update them too.
     assert re.search(r'^5\. Run it',prm,re.M) and re.search(r'^6\. Look up the hashes on VirusTotal',prm,re.M), 'prompts/analyse-tool.md: step 5 must be running the tool and step 6 the VirusTotal lookup, as SKILL.md, CLAUDE.md and the For authors page say; update them if the steps move'
     data={**base,'site':SITEURL,'repo':REPO,
-          'lede':CONTENT['lede'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],
+          'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],
           'how_a_card_is_made':CONTENT['how_a_card_is_made'],
           'template':sections(doc(MDTXT['template.md'],'rules/template.md')),
           'scores':sections(doc(MDTXT['scores.md'],'rules/scores.md')),

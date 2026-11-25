@@ -149,10 +149,9 @@ def site_image(IX, SITE):
     im, d = canvas(); muted = DARK['muted']
     wordmark(d, M, 78, 64)
     f = font(HEAD, 132)  # the home page's heading, its last word in the accent
-    d.text((M, 280), 'Know what you ', font=f, fill=DARK['ink'], anchor='ls')
-    x = M + d.textlength('Know what you ', font=f)
-    d.text((x, 280), 'install', font=f, fill=DARK['accent'], anchor='ls')
-    d.text((x + d.textlength('install', font=f), 280), '.', font=f, fill=DARK['ink'], anchor='ls')
+    a, b = SITE['heading'].split(SITE['heading_accent'], 1); x = M
+    for t, col in ((a, DARK['ink']), (SITE['heading_accent'], DARK['accent']), (b, DARK['ink'])):
+        d.text((x, 280), t, font=f, fill=col, anchor='ls'); x += d.textlength(t, font=f)
     f = font(BODY, 32); lines = wrap(d, plain(SITE['lede']), f, W - 2 * M)
     assert len(lines) <= 3, 'preview.py: the home intro needs more than three lines on the site image'
     for i, t in enumerate(lines): d.text((M, 370 + 44 * i), t, font=f, fill=DARK['ink'], anchor='ls')
