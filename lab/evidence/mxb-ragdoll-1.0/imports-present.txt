@@ -1,0 +1,22 @@
+$ iat.py mxb_ragdoll.dlo | grep -E 'VirtualProtect|FlushInstructionCache|ReadProcessMemory|AddVectoredExceptionHandler|GetAsyncKeyState|GetForegroundWindow|ShellExecuteA|LoadLibraryA|SHGetFolderPathA'; iat.py MXB-Ragdoll-Setup.exe | grep -E 'RegGetValueW|ShellExecute|DeleteFileW|MoveFileExW|RemoveDirectoryW|CreateToolhelp32Snapshot|OpenProcess|SetUnhandledExceptionFilter|GetTempPathW'
+0x180140098  SHELL32.dll!SHGetFolderPathA
+0x1801400a0  SHELL32.dll!ShellExecuteA
+0x1801400b0  USER32.dll!GetAsyncKeyState
+0x1801400c0  USER32.dll!GetForegroundWindow
+0x1801400f8  KERNEL32.dll!AddVectoredExceptionHandler
+0x180140148  KERNEL32.dll!FlushInstructionCache
+0x180140228  KERNEL32.dll!LoadLibraryA
+0x180140258  KERNEL32.dll!ReadProcessMemory
+0x1801402c8  KERNEL32.dll!VirtualProtect
+0x1400963b0  SHELL32.dll!ShellExecuteExW
+0x1400963b8  SHELL32.dll!ShellExecuteW
+0x1400963d0  ADVAPI32.dll!OpenProcessToken
+0x1400963d8  ADVAPI32.dll!RegGetValueW
+0x1400967a8  KERNEL32.dll!CreateToolhelp32Snapshot
+0x1400967b8  KERNEL32.dll!DeleteFileW
+0x140096898  KERNEL32.dll!GetTempPathW
+0x1400968e0  KERNEL32.dll!MoveFileExW
+0x1400968f0  KERNEL32.dll!OpenProcess
+0x140096938  KERNEL32.dll!RemoveDirectoryW
+0x140096978  KERNEL32.dll!SetUnhandledExceptionFilter
+(exit 0)

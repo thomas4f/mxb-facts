@@ -1,0 +1,6 @@
+$ objdump -d 'mxb_ragdoll.dlo' | awk -v a=18007b9aa -v b=18007b9b8 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18007b9aa:	e8 61 fd ff ff       	call   18007b710 <_ZN8crashlog14RefreshModulesEv>
+   18007b9af:	48 8d 15 3a 00 00 00 	lea    0x3a(%rip),%rdx        # 18007b9f0 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS>
+   18007b9b6:	31 c9                	xor    %ecx,%ecx
+   18007b9b8:	ff 15 3a 47 0c 00    	call   *0xc473a(%rip)        # 1801400f8 <__imp_AddVectoredExceptionHandler>
+(exit 0)

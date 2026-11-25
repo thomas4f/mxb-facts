@@ -1,0 +1,13 @@
+$ objdump -d 'mxb_ragdoll.dlo' | awk -v a=18007c0f7 -v b=18007c10c '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18007c0f7:	31 c0                	xor    %eax,%eax
+   18007c0f9:	48 81 c4 68 08 00 00 	add    $0x868,%rsp
+   18007c100:	5b                   	pop    %rbx
+   18007c101:	5d                   	pop    %rbp
+   18007c102:	5f                   	pop    %rdi
+   18007c103:	5e                   	pop    %rsi
+   18007c104:	41 5c                	pop    %r12
+   18007c106:	41 5d                	pop    %r13
+   18007c108:	41 5e                	pop    %r14
+   18007c10a:	41 5f                	pop    %r15
+   18007c10c:	c3                   	ret
+(exit 0)

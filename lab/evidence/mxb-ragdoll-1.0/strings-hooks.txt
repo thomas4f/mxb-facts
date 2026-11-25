@@ -1,0 +1,30 @@
+$ { strings -n 6 mxb_ragdoll.dlo; strings -el -n 6 mxb_ragdoll.dlo; } | grep -nE 'import-table|scene hook|call site|bone override|bone_hook|trainer guard|trainer_guard|DirectInput hooked|xinput64.dli hooked|held back|OpenAL|muffled|EFX|VirtualProtect|stub|kicking off|detached|ODE world|discovery'
+3219:+%s: rider v=(%.1f %.1f %.1f), kicking off the bike
+3304:bone_hook
+3306:per-model bone override off (bone_hook = 0)
+3307:per-model bone override %s%s%s
+3311:trainer_guard
+3312:trainer guard off (trainer_guard = 0)
+3313:trainer guard %s
+3338:discovery %s in %lu ms:
+3345:bail: detached after %d kick(s)
+3557:ODE world with a rider body not found
+3578: Ccamera: import-table hooks FAILED, crash camera disabled
+3579:camera: OpenGL import-table hooks installed; game-camera scene hook installed (culling follows the rider)
+3580:camera: OpenGL import-table hooks installed; game-camera scene hook UNAVAILABLE (%s), using GL fallback
+3582:call site unreadable
+3583:call site is not a call (different game build?)
+3585:no memory near the game module for the stub
+3586:stub out of rel32 range
+3587:VirtualProtect failed on the call site
+3791:OpenAL32.dll
+3792:audio: the game's OpenAL is not loaded; its sound will not be muffled
+3803:audio: game OpenAL %s%s
+3805: (EFX low-pass available)
+3823:input: respawn on key %s held back while crashed (DirectInput hooked)
+3828:input: respawn on pad XInput %d %s held back while crashed (xinput64.dli hooked)
+3878:trainer guard: %s (MX Bikes could crash loading this track)
+4113:  VirtualProtect failed with code 0x%x
+4878:VirtualProtect
+9426:__imp_VirtualProtect
+(exit 0)

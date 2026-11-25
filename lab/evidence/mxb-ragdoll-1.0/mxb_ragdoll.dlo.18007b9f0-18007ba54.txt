@@ -1,0 +1,32 @@
+$ objdump -d 'mxb_ragdoll.dlo' | awk -v a=18007b9f0 -v b=18007ba54 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18007b9f0:	41 57                	push   %r15
+   18007b9f2:	41 56                	push   %r14
+   18007b9f4:	41 55                	push   %r13
+   18007b9f6:	41 54                	push   %r12
+   18007b9f8:	56                   	push   %rsi
+   18007b9f9:	57                   	push   %rdi
+   18007b9fa:	55                   	push   %rbp
+   18007b9fb:	53                   	push   %rbx
+   18007b9fc:	48 81 ec 68 08 00 00 	sub    $0x868,%rsp
+   18007ba03:	48 89 cf             	mov    %rcx,%rdi
+   18007ba06:	48 8b 01             	mov    (%rcx),%rax
+   18007ba09:	8b 28                	mov    (%rax),%ebp
+   18007ba0b:	81 fd fc 00 00 c0    	cmp    $0xc00000fc,%ebp
+   18007ba11:	7e 1d                	jle    18007ba30 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x40>
+   18007ba13:	81 fd fd 00 00 c0    	cmp    $0xc00000fd,%ebp
+   18007ba19:	74 29                	je     18007ba44 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x54>
+   18007ba1b:	81 fd 09 04 00 c0    	cmp    $0xc0000409,%ebp
+   18007ba21:	74 21                	je     18007ba44 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x54>
+   18007ba23:	81 fd 74 03 00 c0    	cmp    $0xc0000374,%ebp
+   18007ba29:	74 19                	je     18007ba44 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x54>
+   18007ba2b:	e9 c7 06 00 00       	jmp    18007c0f7 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x707>
+   18007ba30:	81 fd 05 00 00 c0    	cmp    $0xc0000005,%ebp
+   18007ba36:	74 0c                	je     18007ba44 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x54>
+   18007ba38:	81 fd 1d 00 00 c0    	cmp    $0xc000001d,%ebp
+   18007ba3e:	0f 85 b3 06 00 00    	jne    18007c0f7 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x707>
+   18007ba44:	b8 01 00 00 00       	mov    $0x1,%eax
+   18007ba49:	f0 0f c1 05 73 1e 0f 	lock xadd %eax,0xf1e73(%rip)        # 18016d8c4 <_ZN8crashlog12_GLOBAL__N_19g_reportsE>
+   18007ba50:	00 
+   18007ba51:	83 f8 07             	cmp    $0x7,%eax
+   18007ba54:	0f 8f 9d 06 00 00    	jg     18007c0f7 <_ZN8crashlog12_GLOBAL__N_17HandlerEP19_EXCEPTION_POINTERS+0x707>
+(exit 0)

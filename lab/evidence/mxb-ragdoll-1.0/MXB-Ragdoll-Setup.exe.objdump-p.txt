@@ -1,0 +1,380 @@
+$ objdump -p 'MXB-Ragdoll-Setup.exe' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+MXB-Ragdoll-Setup.exe:     file format pei-x86-64
+
+Characteristics 0x22
+	executable
+	large address aware
+
+Time/Date		Fri Oct 30 00:03:37 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	14
+MinorLinkerVersion	0
+SizeOfCode		0000000000070200
+SizeOfInitializedData	000000000040aa00
+SizeOfUninitializedData	0000000000000000
+AddressOfEntryPoint	0000000000001000
+BaseOfCode		0000000000001000
+ImageBase		0000000140000000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	6
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	6
+MinorSubsystemVersion	0
+Win32Version		00000000
+SizeOfImage		00484000
+SizeOfHeaders		00000400
+CheckSum		00000000
+Subsystem		00000002	(Windows GUI)
+DllCharacteristics	00008160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+					TERMINAL_SERVICE_AWARE
+SizeOfStackReserve	0000000000100000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 0000000000000000 00000000 Export Directory [.edata (or where ever we found it)]
+Entry 1 0000000000095a48 00000190 Import Directory [parts of .idata]
+Entry 2 00000000000a7000 00367600 Resource Directory [.rsrc]
+Entry 3 00000000000a3000 00002ef8 Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 000000000040f000 000012d0 Base Relocation Directory [.reloc]
+Entry 6 00000000000a0000 0000001c Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 00000000000959e8 00000028 Thread Storage Directory [.tls]
+Entry a 0000000000095870 00000138 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 0000000000096330 00000758 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .rdata at 0x140095a48
+
+The Import Tables (interpreted .rdata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 00095a48	00095bd8 00000000 00000000 00097876 00096330
+
+	DLL Name: d2d1.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096330  <none>  0000  D2D1CreateFactory
+	00096338  <none>  0000  D2D1MakeRotateMatrix
+
+ 00095a5c	00095bf0 00000000 00000000 0009787f 00096348
+
+	DLL Name: DWrite.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096348  <none>  0000  DWriteCreateFactory
+
+ 00095a70	00095c00 00000000 00000000 0009788a 00096358
+
+	DLL Name: dwmapi.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096358  <none>  0000  DwmExtendFrameIntoClientArea
+	00096360  <none>  0000  DwmSetWindowAttribute
+
+ 00095a84	00095c18 00000000 00000000 00097895 00096370
+
+	DLL Name: SHCORE.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096370  <none>  0000  CommandLineToArgvW
+	00096378  <none>  0000  GetDpiForMonitor
+
+ 00095a98	00095c30 00000000 00000000 000978a0 00096388
+
+	DLL Name: ole32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096388  <none>  0000  CoCreateInstance
+	00096390  <none>  0000  CoInitializeEx
+	00096398  <none>  0000  CoTaskMemFree
+
+ 00095aac	00095c50 00000000 00000000 000978aa 000963a8
+
+	DLL Name: SHELL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000963a8  <none>  0000  SHCreateItemFromParsingName
+	000963b0  <none>  0000  ShellExecuteExW
+	000963b8  <none>  0000  ShellExecuteW
+
+ 00095ac0	00095c70 00000000 00000000 000978b6 000963c8
+
+	DLL Name: ADVAPI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000963c8  <none>  0000  GetTokenInformation
+	000963d0  <none>  0000  OpenProcessToken
+	000963d8  <none>  0000  RegGetValueW
+
+ 00095ad4	00095c90 00000000 00000000 000978c3 000963e8
+
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000963e8  <none>  0000  __acrt_iob_func
+	000963f0  <none>  0000  __p__commode
+	000963f8  <none>  0000  __p__fmode
+	00096400  <none>  0000  __stdio_common_vfprintf
+	00096408  <none>  0000  __stdio_common_vfwprintf
+	00096410  <none>  0000  __stdio_common_vswprintf
+	00096418  <none>  0000  _fileno
+	00096420  <none>  0000  _setmode
+	00096428  <none>  0000  _wfopen
+	00096430  <none>  0000  fclose
+	00096438  <none>  0000  fflush
+	00096440  <none>  0000  fputc
+	00096448  <none>  0000  fputwc
+	00096450  <none>  0000  fwrite
+	00096458  <none>  0000  setvbuf
+
+ 00095ae8	00095d10 00000000 00000000 000978e3 00096468
+
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096468  <none>  0000  _wcsicmp
+	00096470  <none>  0000  isalnum
+	00096478  <none>  0000  islower
+	00096480  <none>  0000  iswdigit
+	00096488  <none>  0000  memset
+	00096490  <none>  0000  strcmp
+	00096498  <none>  0000  strlen
+	000964a0  <none>  0000  strnlen
+	000964a8  <none>  0000  tolower
+	000964b0  <none>  0000  towlower
+	000964b8  <none>  0000  wcslen
+	000964c0  <none>  0000  wcsncmp
+	000964c8  <none>  0000  wcsnlen
+
+ 00095afc	00095d80 00000000 00000000 00097904 000964d8
+
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000964d8  <none>  0000  _assert
+	000964e0  <none>  0000  __p___argc
+	000964e8  <none>  0000  __p___wargv
+	000964f0  <none>  0000  __p__wcmdln
+	000964f8  <none>  0000  __sys_nerr
+	00096500  <none>  0000  _beginthreadex
+	00096508  <none>  0000  _cexit
+	00096510  <none>  0000  _configure_wide_argv
+	00096518  <none>  0000  _crt_atexit
+	00096520  <none>  0000  _errno
+	00096528  <none>  0000  _exit
+	00096530  <none>  0000  _initialize_wide_environment
+	00096538  <none>  0000  _initterm
+	00096540  <none>  0000  _initterm_e
+	00096548  <none>  0000  _seh_filter_exe
+	00096550  <none>  0000  _set_app_type
+	00096558  <none>  0000  _set_invalid_parameter_handler
+	00096560  <none>  0000  abort
+	00096568  <none>  0000  exit
+	00096570  <none>  0000  strerror
+	00096578  <none>  0000  strerror_s
+
+ 00095b10	00095e30 00000000 00000000 00097926 00096588
+
+	DLL Name: api-ms-win-crt-locale-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096588  <none>  0000  ___lc_codepage_func
+	00096590  <none>  0000  ___mb_cur_max_func
+	00096598  <none>  0000  _configthreadlocale
+	000965a0  <none>  0000  localeconv
+
+ 00095b24	00095e58 00000000 00000000 00097947 000965b0
+
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000965b0  <none>  0000  __setusermatherr
+	000965b8  <none>  0000  _hypot
+	000965c0  <none>  0000  ceilf
+	000965c8  <none>  0000  cosf
+	000965d0  <none>  0000  expf
+	000965d8  <none>  0000  fmod
+	000965e0  <none>  0000  powf
+	000965e8  <none>  0000  roundf
+	000965f0  <none>  0000  sinf
+
+ 00095b38	00095ea8 00000000 00000000 00097966 00096600
+
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096600  <none>  0000  _aligned_free
+	00096608  <none>  0000  _aligned_malloc
+	00096610  <none>  0000  _set_new_mode
+	00096618  <none>  0000  calloc
+	00096620  <none>  0000  free
+	00096628  <none>  0000  malloc
+	00096630  <none>  0000  realloc
+
+ 00095b4c	00095ee8 00000000 00000000 00097985 00096640
+
+	DLL Name: api-ms-win-crt-private-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096640  <none>  0000  memchr
+	00096648  <none>  0000  memcmp
+	00096650  <none>  0000  memcpy
+	00096658  <none>  0000  memmove
+
+ 00095b60	00095f10 00000000 00000000 000979a7 00096668
+
+	DLL Name: USER32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096668  <none>  0000  BeginPaint
+	00096670  <none>  0000  CreateWindowExW
+	00096678  <none>  0000  DefWindowProcW
+	00096680  <none>  0000  DestroyWindow
+	00096688  <none>  0000  DispatchMessageW
+	00096690  <none>  0000  EndPaint
+	00096698  <none>  0000  GetClientRect
+	000966a0  <none>  0000  GetCursorPos
+	000966a8  <none>  0000  GetDpiForWindow
+	000966b0  <none>  0000  GetKeyState
+	000966b8  <none>  0000  GetMonitorInfoW
+	000966c0  <none>  0000  GetSystemMetrics
+	000966c8  <none>  0000  IsIconic
+	000966d0  <none>  0000  KillTimer
+	000966d8  <none>  0000  LoadCursorW
+	000966e0  <none>  0000  LoadIconW
+	000966e8  <none>  0000  LoadImageW
+	000966f0  <none>  0000  MessageBoxW
+	000966f8  <none>  0000  MonitorFromPoint
+	00096700  <none>  0000  MsgWaitForMultipleObjects
+	00096708  <none>  0000  PeekMessageW
+	00096710  <none>  0000  PostMessageW
+	00096718  <none>  0000  PostQuitMessage
+	00096720  <none>  0000  RegisterClassExW
+	00096728  <none>  0000  ReleaseCapture
+	00096730  <none>  0000  ScreenToClient
+	00096738  <none>  0000  SetCapture
+	00096740  <none>  0000  SetCursor
+	00096748  <none>  0000  SetForegroundWindow
+	00096750  <none>  0000  SetTimer
+	00096758  <none>  0000  SetWindowPos
+	00096760  <none>  0000  ShowWindow
+	00096768  <none>  0000  TrackMouseEvent
+	00096770  <none>  0000  TranslateMessage
+	00096778  <none>  0000  WaitMessage
+
+ 00095b74	00096030 00000000 00000000 000979b2 00096788
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096788  <none>  0000  AcquireSRWLockExclusive
+	00096790  <none>  0000  CloseHandle
+	00096798  <none>  0000  CreateDirectoryW
+	000967a0  <none>  0000  CreateFileW
+	000967a8  <none>  0000  CreateToolhelp32Snapshot
+	000967b0  <none>  0000  DeleteCriticalSection
+	000967b8  <none>  0000  DeleteFileW
+	000967c0  <none>  0000  EnterCriticalSection
+	000967c8  <none>  0000  FindClose
+	000967d0  <none>  0000  FindFirstFileW
+	000967d8  <none>  0000  FindNextFileW
+	000967e0  <none>  0000  FindResourceW
+	000967e8  <none>  0000  FlsAlloc
+	000967f0  <none>  0000  FlsGetValue
+	000967f8  <none>  0000  FlsSetValue
+	00096800  <none>  0000  FormatMessageA
+	00096808  <none>  0000  FormatMessageW
+	00096810  <none>  0000  GetActiveProcessorCount
+	00096818  <none>  0000  GetCommandLineW
+	00096820  <none>  0000  GetCurrentProcess
+	00096828  <none>  0000  GetCurrentThreadId
+	00096830  <none>  0000  GetDriveTypeW
+	00096838  <none>  0000  GetFileAttributesW
+	00096840  <none>  0000  GetFileSizeEx
+	00096848  <none>  0000  GetFinalPathNameByHandleW
+	00096850  <none>  0000  GetFullPathNameW
+	00096858  <none>  0000  GetLastError
+	00096860  <none>  0000  GetLocalTime
+	00096868  <none>  0000  GetLogicalDrives
+	00096870  <none>  0000  GetModuleFileNameW
+	00096878  <none>  0000  GetModuleHandleW
+	00096880  <none>  0000  GetProcAddress
+	00096888  <none>  0000  GetStartupInfoW
+	00096890  <none>  0000  GetSystemTimeAsFileTime
+	00096898  <none>  0000  GetTempPathW
+	000968a0  <none>  0000  GetThreadId
+	000968a8  <none>  0000  GetTickCount64
+	000968b0  <none>  0000  InitOnceExecuteOnce
+	000968b8  <none>  0000  InitializeCriticalSection
+	000968c0  <none>  0000  LeaveCriticalSection
+	000968c8  <none>  0000  LoadResource
+	000968d0  <none>  0000  LocalFree
+	000968d8  <none>  0000  LockResource
+	000968e0  <none>  0000  MoveFileExW
+	000968e8  <none>  0000  MultiByteToWideChar
+	000968f0  <none>  0000  OpenProcess
+	000968f8  <none>  0000  Process32FirstW
+	00096900  <none>  0000  Process32NextW
+	00096908  <none>  0000  QueryFullProcessImageNameW
+	00096910  <none>  0000  QueryPerformanceCounter
+	00096918  <none>  0000  QueryPerformanceFrequency
+	00096920  <none>  0000  RaiseException
+	00096928  <none>  0000  ReadFile
+	00096930  <none>  0000  ReleaseSRWLockExclusive
+	00096938  <none>  0000  RemoveDirectoryW
+	00096940  <none>  0000  RtlCaptureContext
+	00096948  <none>  0000  RtlLookupFunctionEntry
+	00096950  <none>  0000  RtlRestoreContext
+	00096958  <none>  0000  RtlUnwindEx
+	00096960  <none>  0000  RtlVirtualUnwind
+	00096968  <none>  0000  SetFileAttributesW
+	00096970  <none>  0000  SetFilePointerEx
+	00096978  <none>  0000  SetUnhandledExceptionFilter
+	00096980  <none>  0000  SizeofResource
+	00096988  <none>  0000  Sleep
+	00096990  <none>  0000  SleepConditionVariableSRW
+	00096998  <none>  0000  SwitchToThread
+	000969a0  <none>  0000  TryAcquireSRWLockExclusive
+	000969a8  <none>  0000  TryEnterCriticalSection
+	000969b0  <none>  0000  VirtualProtect
+	000969b8  <none>  0000  VirtualQuery
+	000969c0  <none>  0000  WaitForSingleObjectEx
+	000969c8  <none>  0000  WakeAllConditionVariable
+	000969d0  <none>  0000  WakeConditionVariable
+	000969d8  <none>  0000  WideCharToMultiByte
+	000969e0  <none>  0000  WriteFile
+
+ 00095b88	00096298 00000000 00000000 000979bf 000969f0
+
+	DLL Name: api-ms-win-crt-convert-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	000969f0  <none>  0000  mbrtowc
+	000969f8  <none>  0000  strtof
+	00096a00  <none>  0000  strtol
+	00096a08  <none>  0000  strtoll
+	00096a10  <none>  0000  strtoul
+	00096a18  <none>  0000  strtoull
+	00096a20  <none>  0000  wcrtomb
+	00096a28  <none>  0000  wcstod
+	00096a30  <none>  0000  wcstol
+	00096a38  <none>  0000  wcstoll
+	00096a40  <none>  0000  wcstoul
+	00096a48  <none>  0000  wcstoull
+
+ 00095b9c	00096300 00000000 00000000 000979e1 00096a58
+
+	DLL Name: api-ms-win-crt-environment-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096a58  <none>  0000  __p__wenviron
+	00096a60  <none>  0000  getenv
+
+ 00095bb0	00096318 00000000 00000000 00097a07 00096a70
+
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	00096a70  <none>  0000  _lock_file
+	00096a78  <none>  0000  _unlock_file
+
+ 00095bc4	00000000 00000000 00000000 00000000 00000000
+
+(exit 0)

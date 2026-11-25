@@ -1,0 +1,30 @@
+$ objdump -d 'mxb_ragdoll.dlo' | awk -v a=1800109ba -v b=180010a25 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   1800109ba:	0f b6 05 d7 06 15 00 	movzbl 0x1506d7(%rip),%eax        # 180161098 <_ZN7ragdoll10g_inputRunE>
+   1800109c1:	3c 01                	cmp    $0x1,%al
+   1800109c3:	75 62                	jne    180010a27 <_ZNSt3__114__thread_proxyB9nqe230101INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN7ragdoll7StartupEPKcE3$_0EEEEEPvSC_+0x97>
+   1800109c5:	48 8b 3d c4 f8 12 00 	mov    0x12f8c4(%rip),%rdi        # 180140290 <__imp_Sleep>
+   1800109cc:	48 8b 1d ed f6 12 00 	mov    0x12f6ed(%rip),%rbx        # 1801400c0 <__imp_GetForegroundWindow>
+   1800109d3:	48 8d 74 24 2c       	lea    0x2c(%rsp),%rsi
+   1800109d8:	4c 8b 35 f1 f6 12 00 	mov    0x12f6f1(%rip),%r14        # 1801400d0 <__imp_GetWindowThreadProcessId>
+   1800109df:	4c 8b 3d 8a f7 12 00 	mov    0x12f78a(%rip),%r15        # 180140170 <__imp_GetCurrentProcessId>
+   1800109e6:	eb 13                	jmp    1800109fb <_ZNSt3__114__thread_proxyB9nqe230101INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN7ragdoll7StartupEPKcE3$_0EEEEEPvSC_+0x6b>
+   1800109e8:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   1800109ef:	00 
+   1800109f0:	0f b6 05 a1 06 15 00 	movzbl 0x1506a1(%rip),%eax        # 180161098 <_ZN7ragdoll10g_inputRunE>
+   1800109f7:	84 c0                	test   %al,%al
+   1800109f9:	74 2c                	je     180010a27 <_ZNSt3__114__thread_proxyB9nqe230101INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN7ragdoll7StartupEPKcE3$_0EEEEEPvSC_+0x97>
+   1800109fb:	b9 0a 00 00 00       	mov    $0xa,%ecx
+   180010a00:	ff d7                	call   *%rdi
+   180010a02:	c7 44 24 2c 00 00 00 	movl   $0x0,0x2c(%rsp)
+   180010a09:	00 
+   180010a0a:	ff d3                	call   *%rbx
+   180010a0c:	48 89 c1             	mov    %rax,%rcx
+   180010a0f:	48 89 f2             	mov    %rsi,%rdx
+   180010a12:	41 ff d6             	call   *%r14
+   180010a15:	8b 6c 24 2c          	mov    0x2c(%rsp),%ebp
+   180010a19:	41 ff d7             	call   *%r15
+   180010a1c:	39 c5                	cmp    %eax,%ebp
+   180010a1e:	75 d0                	jne    1800109f0 <_ZNSt3__114__thread_proxyB9nqe230101INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN7ragdoll7StartupEPKcE3$_0EEEEEPvSC_+0x60>
+   180010a20:	e8 eb ee 04 00       	call   18005f910 <_ZN2ui11HandleInputEv>
+   180010a25:	eb c9                	jmp    1800109f0 <_ZNSt3__114__thread_proxyB9nqe230101INS_5tupleIJNS_10unique_ptrINS_15__thread_structENS_14default_deleteIS3_EEEEZN7ragdoll7StartupEPKcE3$_0EEEEEPvSC_+0x60>
+(exit 0)

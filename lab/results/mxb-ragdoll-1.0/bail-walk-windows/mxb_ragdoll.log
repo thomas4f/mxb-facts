@@ -1,0 +1,37 @@
+[08:55:00.823] camera: OpenGL import-table hooks installed; game-camera scene hook UNAVAILABLE (call site is not a call (different game build?)), using GL fallback
+[08:55:00.823] per-model bone override UNAVAILABLE (call site is not a call (different game build?)), using animation keys
+[08:55:00.823] trainer guard off (series name code differs at +0x2085b; not MX Bikes beta21?)
+[08:55:00.823] input: respawn binding not found or not supported (no profile) (save folder C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\)
+[08:55:00.823] MX Bikes ragdoll v1.0 loaded (GTA IV, enabled, 0 of 3 fonts)
+[08:55:00.824] audio: thud_light from mxb_ragdoll_sfx (0.47 s)
+[08:55:00.824] audio: thud_medium from mxb_ragdoll_sfx (0.56 s)
+[08:55:00.825] audio: thud_heavy from mxb_ragdoll_sfx (0.85 s)
+[08:55:00.826] audio: helmet from mxb_ragdoll_sfx (0.58 s)
+[08:55:00.826] audio: crunch1 from mxb_ragdoll_sfx (1.00 s)
+[08:55:00.827] audio: crunch2 from mxb_ragdoll_sfx (0.90 s)
+[08:55:00.827] audio: crunch3 from mxb_ragdoll_sfx (1.20 s)
+[08:55:00.828] audio: heartbeat from mxb_ragdoll_sfx (0.79 s)
+[08:55:00.831] audio: breath_in from mxb_ragdoll_sfx (0.80 s)
+[08:55:00.831] audio: breath_out from mxb_ragdoll_sfx (1.08 s)
+[08:55:00.832] audio: gasp from mxb_ragdoll_sfx (0.94 s)
+[08:55:00.833] audio: wind from mxb_ragdoll_sfx (3.00 s)
+[08:55:00.834] audio: slide from mxb_ragdoll_sfx (3.00 s)
+[08:55:00.887] audio: no audio device
+[08:55:21.770] camera: main view near 0.000 m, far 0 m
+[08:55:48.364] event: club (offline)
+[08:56:34.188] discovery FAILED in 468 ms:
+module base 00007FF6CA690000
+ODE world with a rider body not found
+
+[08:56:38.879] discovery FAILED in 578 ms:
+module base 00007FF6CA690000
+ODE world with a rider body not found
+
+[08:56:43.615] discovery FAILED in 468 ms:
+module base 00007FF6CA690000
+ODE world with a rider body not found
+
+[08:56:48.341] discovery FAILED in 485 ms:
+module base 00007FF6CA690000
+ODE world with a rider body not found
+

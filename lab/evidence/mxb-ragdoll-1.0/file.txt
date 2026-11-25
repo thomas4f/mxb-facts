@@ -1,0 +1,57 @@
+$ unzip -l MXB-Ragdoll-v1.0.zip; cd MXB-Ragdoll-v1.0 && find . -type f | LC_ALL=C sort | xargs -d '\n' file
+Archive:  MXB-Ragdoll-v1.0.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2026-10-30 00:03   MXB-Ragdoll-v1.0/
+        0  2026-10-30 00:03   MXB-Ragdoll-v1.0/Auto Install/
+        0  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/
+     4496  2026-10-30 00:03   MXB-Ragdoll-v1.0/README.txt
+     1442  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/HOW TO INSTALL.txt
+      137  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/INSTALL.bat
+        0  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/
+        0  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/tools/
+      141  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/UNINSTALL.bat
+     3574  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/tools/install.ps1
+     1970  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/tools/uninstall.ps1
+  2183680  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll.dlo
+     3054  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll.ini
+        0  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/
+    70602  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/breath_in.wav
+    95300  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/breath_out.wav
+    88244  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/crunch1.wav
+    79704  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/crunch2.wav
+   105884  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/crunch3.wav
+    83344  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/gasp.wav
+    69606  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/heartbeat.wav
+    51088  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/helmet.wav
+   264644  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/slide.wav
+    75322  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/thud_heavy.wav
+    41240  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/thud_light.wav
+    49416  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/thud_medium.wav
+   264644  2026-10-30 00:03   MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll_sfx/wind.wav
+  5101568  2026-10-30 00:03   MXB-Ragdoll-v1.0/Auto Install/MXB-Ragdoll-Setup.exe
+---------                     -------
+  8639100                     28 files
+./Auto Install/MXB-Ragdoll-Setup.exe:                     PE32+ executable for MS Windows 6.00 (GUI), x86-64, 15 sections
+./Manual Install/HOW TO INSTALL.txt:                      ASCII text, with CRLF line terminators
+./Manual Install/INSTALL.bat:                             DOS batch file, ASCII text, with CRLF line terminators
+./Manual Install/UNINSTALL.bat:                           DOS batch file, ASCII text, with CRLF line terminators
+./Manual Install/plugins/mxb_ragdoll.dlo:                 PE32+ executable for MS Windows 6.00 (DLL), x86-64, 14 sections
+./Manual Install/plugins/mxb_ragdoll.ini:                 Generic INItialization configuration [keys]
+./Manual Install/plugins/mxb_ragdoll_sfx/breath_in.wav:   RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/breath_out.wav:  RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/crunch1.wav:     RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/crunch2.wav:     RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/crunch3.wav:     RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/gasp.wav:        RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/heartbeat.wav:   RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/helmet.wav:      RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/slide.wav:       RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/thud_heavy.wav:  RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/thud_light.wav:  RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/thud_medium.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/plugins/mxb_ragdoll_sfx/wind.wav:        RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, mono 44100 Hz
+./Manual Install/tools/install.ps1:                       ASCII text
+./Manual Install/tools/uninstall.ps1:                     ASCII text
+./README.txt:                                             ASCII text, with CRLF line terminators
+(exit 0)

@@ -400,7 +400,7 @@
     "author": "BoredDev / mxbikesmods",
     "github": null,
     "homepage": null,
-    "cards": [],
+    "cards": ["mxb-ragdoll-1.0.yaml"],
     "mxb-mods": {
       "post": 194769,
       "tied_by": "MXB-Ragdoll-v1.0.zip"

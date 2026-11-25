@@ -1,0 +1,5 @@
+    1  MXB-Ragdoll-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\MXB-Ragdoll-Setup.log  SUCCESS
+    1  MXB-Ragdoll-Setup.exe  Process Exit    SUCCESS
+    1  MXB-Ragdoll-Setup.exe  Process Start    SUCCESS
+    1  MXB-Ragdoll-Setup.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-3414932011-3134797172-3625386099-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-setup\release\MXB-Ragdoll-v1.0.zip\MXB-Ragdoll-v1.0\Auto Install\MXB-Ragdoll-Setup.exe  SUCCESS
+    1  MXB-Ragdoll-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\MXB-Ragdoll-Setup.log  SUCCESS

@@ -1,0 +1,17 @@
+$ objdump -d 'mxb_ragdoll.dlo' | awk -v a=18000eca0 -v b=18000ecd5 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18000eca0:	56                   	push   %rsi
+   18000eca1:	48 83 ec 30          	sub    $0x30,%rsp
+   18000eca5:	c7 44 24 2c 00 00 00 	movl   $0x0,0x2c(%rsp)
+   18000ecac:	00 
+   18000ecad:	ff 15 0d 14 13 00    	call   *0x13140d(%rip)        # 1801400c0 <__imp_GetForegroundWindow>
+   18000ecb3:	48 8d 54 24 2c       	lea    0x2c(%rsp),%rdx
+   18000ecb8:	48 89 c1             	mov    %rax,%rcx
+   18000ecbb:	ff 15 0f 14 13 00    	call   *0x13140f(%rip)        # 1801400d0 <__imp_GetWindowThreadProcessId>
+   18000ecc1:	8b 74 24 2c          	mov    0x2c(%rsp),%esi
+   18000ecc5:	ff 15 a5 14 13 00    	call   *0x1314a5(%rip)        # 180140170 <__imp_GetCurrentProcessId>
+   18000eccb:	39 c6                	cmp    %eax,%esi
+   18000eccd:	0f 94 c0             	sete   %al
+   18000ecd0:	48 83 c4 30          	add    $0x30,%rsp
+   18000ecd4:	5e                   	pop    %rsi
+   18000ecd5:	c3                   	ret
+(exit 0)

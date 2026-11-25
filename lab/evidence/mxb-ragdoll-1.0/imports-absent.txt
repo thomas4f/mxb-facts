@@ -1,0 +1,2 @@
+$ { iat.py mxb_ragdoll.dlo; iat.py MXB-Ragdoll-Setup.exe; objdump -p mxb_ragdoll.dlo MXB-Ragdoll-Setup.exe | grep 'DLL Name'; } | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|SendInput|keybd_event|mouse_event|SetWindowsHookEx|WriteProcessMemory|CreateRemoteThread|CreateProcess|WinExec|RegSetValue|RegCreateKey|RegDeleteKey|CreateFileMapping|SetUnhandledExceptionFilter.*dlo'
+(exit 1)

@@ -1,0 +1,26 @@
+$ objdump -d 'mxb_ragdoll.dlo' | awk -v a=18002bca0 -v b=18002bcf3 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   18002bca0:	48 8b 05 59 65 0f 00 	mov    0xf6559(%rip),%rax        # 180122200 <.refptr._ZN7ragdoll5g_cfgE>
+   18002bca7:	8b 48 5c             	mov    0x5c(%rax),%ecx
+   18002bcaa:	85 c9                	test   %ecx,%ecx
+   18002bcac:	7e 21                	jle    18002bccf <_ZN7ragdoll13WalkTelemetryERKNS_9BikeStateEf+0x9f>
+   18002bcae:	ff 15 fc 43 11 00    	call   *0x1143fc(%rip)        # 1801400b0 <__imp_GetAsyncKeyState>
+   18002bcb4:	0f bf e8             	movswl %ax,%ebp
+   18002bcb7:	0f b7 c5             	movzwl %bp,%eax
+   18002bcba:	c1 e8 0f             	shr    $0xf,%eax
+   18002bcbd:	0f b6 0d d9 e5 13 00 	movzbl 0x13e5d9(%rip),%ecx        # 18016a29d <_ZZN7ragdoll12_GLOBAL__N_19ReadInputEvE4prev>
+   18002bcc4:	80 f1 01             	xor    $0x1,%cl
+   18002bcc7:	c1 ed 0f             	shr    $0xf,%ebp
+   18002bcca:	40 20 cd             	and    %cl,%bpl
+   18002bccd:	eb 04                	jmp    18002bcd3 <_ZN7ragdoll13WalkTelemetryERKNS_9BikeStateEf+0xa3>
+   18002bccf:	31 c0                	xor    %eax,%eax
+   18002bcd1:	31 ed                	xor    %ebp,%ebp
+   18002bcd3:	88 05 c4 e5 13 00    	mov    %al,0x13e5c4(%rip)        # 18016a29d <_ZZN7ragdoll12_GLOBAL__N_19ReadInputEvE4prev>
+   18002bcd9:	45 0f 57 c0          	xorps  %xmm8,%xmm8
+   18002bcdd:	e8 be 2f fe ff       	call   18000eca0 <_ZN7ragdoll11GameFocusedEv>
+   18002bce2:	84 c0                	test   %al,%al
+   18002bce4:	74 0d                	je     18002bcf3 <_ZN7ragdoll13WalkTelemetryERKNS_9BikeStateEf+0xc3>
+   18002bce6:	e8 75 37 03 00       	call   18005f460 <_ZN2ui8MenuOpenEv>
+   18002bceb:	84 c0                	test   %al,%al
+   18002bced:	0f 84 03 02 00 00    	je     18002bef6 <_ZN7ragdoll13WalkTelemetryERKNS_9BikeStateEf+0x2c6>
+   18002bcf3:	31 ed                	xor    %ebp,%ebp
+(exit 0)

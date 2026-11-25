@@ -1,0 +1,25 @@
+$ sha256sum MXB-Ragdoll-v1.0.zip; cd MXB-Ragdoll-v1.0 && find . -type f | LC_ALL=C sort | xargs -d '\n' sha256sum
+0ab67df8e9584a3b41894260389c75165fbb4960c9d5932f8d106de0846c0119  MXB-Ragdoll-v1.0.zip
+a430b32597556e15c1a293a7cc469c7de30f80d46b3a18d39550f98273f96165  ./Auto Install/MXB-Ragdoll-Setup.exe
+c37807ad0df5f48636383736b70e41e82c8a786f222c199ef43a8fe7c9509ee7  ./Manual Install/HOW TO INSTALL.txt
+a21ee4461f53dbe1148f73a17426e8053735d6aecfb8cffc1b2f2307fe3dbb21  ./Manual Install/INSTALL.bat
+0a52c54221f66bdf24f5f58cd9f9d5ccb56a7ce7fe4e96b15ee0efd76d8967af  ./Manual Install/UNINSTALL.bat
+82592eff97a2836635930f8d513c875b7d1dbaf17fd4196e3df686a4057fd3c9  ./Manual Install/plugins/mxb_ragdoll.dlo
+b588267ffafaa49486ccbc04cb211de0f456026fb3075e0410474f9a5f6fff19  ./Manual Install/plugins/mxb_ragdoll.ini
+c6ca1a1e9f8a141847caaeebbe8dfe69d251623ad8c51a22f3afba69d1ae96a6  ./Manual Install/plugins/mxb_ragdoll_sfx/breath_in.wav
+0c78bdb03a5c8dbcb980e141b5b45b01deae53c0ab1c509756b638a18472f85e  ./Manual Install/plugins/mxb_ragdoll_sfx/breath_out.wav
+bc536e72c726cb6b1ac6497a28df36650ed18a3d9f1f45c051bce308053509b8  ./Manual Install/plugins/mxb_ragdoll_sfx/crunch1.wav
+e24f5074fed5fc7db888dcde83cbb6e9d22425bd481fdfc02805f3647219383f  ./Manual Install/plugins/mxb_ragdoll_sfx/crunch2.wav
+4af063fe35d6c60e61cf3e52306dc066447399c3a6cd53c25eff2993726b6e97  ./Manual Install/plugins/mxb_ragdoll_sfx/crunch3.wav
+d0547147b2c0c02c48605a87020a9d9af3317728291965d0cbb09202ddda9baa  ./Manual Install/plugins/mxb_ragdoll_sfx/gasp.wav
+a78743bad3149ae8c34ffae088984b09484d47eb18bb3266a3183f489da97cab  ./Manual Install/plugins/mxb_ragdoll_sfx/heartbeat.wav
+f566ebe3292b610bc1f64e6bddacffeaf50ad37903af11d05b1b3f6d16b172b4  ./Manual Install/plugins/mxb_ragdoll_sfx/helmet.wav
+ff920ec44b6d017477ed616aa05a0b9f13b2e0b0dc853bb28c8845d851cde91a  ./Manual Install/plugins/mxb_ragdoll_sfx/slide.wav
+afc8ddd3c4864bec4d2ca0a2a8102fa39098124c81c7135ae458e82a8bc11e1a  ./Manual Install/plugins/mxb_ragdoll_sfx/thud_heavy.wav
+d546e89abe76fee17349eebff7e126abaa7ce8e146ab6119106e3bff093d4534  ./Manual Install/plugins/mxb_ragdoll_sfx/thud_light.wav
+56f0165bf499098ecc5d52f89952090961393a7489f5633c045ff21303c99a67  ./Manual Install/plugins/mxb_ragdoll_sfx/thud_medium.wav
+2938f80c19af2f34bfbc4685fc1cde5f4fc1a96423f3a217740783084e6c233b  ./Manual Install/plugins/mxb_ragdoll_sfx/wind.wav
+c5a29ecfa2964884cf2a52af7f897daf43dad69b858d9eee3a0ba3aa19ab9daf  ./Manual Install/tools/install.ps1
+ce85c498b478ed0e5adbf0a71d2dd39745be832cea9d8ff92906f55b0603c683  ./Manual Install/tools/uninstall.ps1
+ba5534981441e892b3f763681a6b6f40563819f80a71d0fa7c7f7bece561cb0b  ./README.txt
+(exit 0)
