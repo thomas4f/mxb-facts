@@ -55,14 +55,13 @@ jobs:
       # The runner's own Node and Java; the versions of every checker are pinned in tests/site/package-lock.json.
       - run: npm ci
         working-directory: tests/site
-      - run: npx playwright install --with-deps chromium
-        working-directory: tests/site
       - run: npm run lint
         working-directory: tests/site
       - run: npm run validate
         working-directory: tests/site
-      - run: npx playwright test
-        working-directory: tests/site
+      # Playwright runs in its own image, at the version package.json pins, so a screenshot is drawn with the same browser, fonts
+      # and font settings here as where it was taken (npm run screenshots:update uses the same image).
+      - run: docker run --rm --ipc=host -v "$PWD:/w" -w /w/tests/site mcr.microsoft.com/playwright:v1.63.0-noble npx playwright test
       - run: npm run lighthouse
         working-directory: tests/site
       # On a failure, the screenshots that differ and the Lighthouse reports, to look at.

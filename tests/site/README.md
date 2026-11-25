@@ -18,10 +18,12 @@ Run them from this folder:
 npm ci
 npx playwright install chromium    # not needed in cloud sessions, which have it
 npm run lint && npm run validate && npx playwright test && npm run lighthouse
+# the screenshots compare only in the pinned image, as in CI:
+docker run --rm --ipc=host -v "$PWD/../..:/w" -w /w/tests/site mcr.microsoft.com/playwright:v1.63.0-noble npx playwright test
 ```
 
 `npm test` runs the three Playwright files. The pages it opens are listed once, in `tests/pages.mjs`.
 
 ## When a page is meant to look different
 
-Run `npm run screenshots:update`, look at every changed image in the diff, and commit them in the same pull request as the change. A screenshot that changed without a reason is the bug this check is for.
+Run `npm run screenshots:update`. It takes the screenshots in the Playwright image at the version `package.json` pins (`mcr.microsoft.com/playwright:v1.63.0-noble`, so Docker is needed), the same image CI compares them in: a screenshot taken with another machine's fonts and font settings differs by a few percent of its pixels and fails. Look at every changed image in the diff, and commit them in the same pull request as the change. A screenshot that changed without a reason is the bug this check is for.

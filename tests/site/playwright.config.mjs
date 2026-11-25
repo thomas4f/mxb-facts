@@ -8,7 +8,7 @@ export default defineConfig({
   reporter: [['list']],
   use: { baseURL: 'http://127.0.0.1:8790/', trace: 'off' },
   expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.01, animations: 'disabled' } },
-  webServer: { command: 'python3 -m http.server 8790 --bind 127.0.0.1 --directory ../../_site', url: 'http://127.0.0.1:8790/', reuseExistingServer: false },
+  webServer: { command: 'node serve.mjs 8790', url: 'http://127.0.0.1:8790/', reuseExistingServer: false },
   projects: [
     { name: 'phone', use: { ...devices['iPhone 13'], browserName: 'chromium' } },
     { name: 'desktop', use: { viewport: { width: 1280, height: 900 }, browserName: 'chromium' } },
