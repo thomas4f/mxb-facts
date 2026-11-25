@@ -60,3 +60,27 @@ test('every page has a link preview: a 1200 by 630 image that exists, and the ti
     expect(await page.locator('meta[property="og:image:alt"]').getAttribute('content')).toBeTruthy();
   }
 });
+
+test('"Jump to a question" opens that answer, and the claims open under T2 from their link', async ({ page }) => {
+  await page.goto('pitbox/');
+  await page.locator('#jump').selectOption('q-D3');
+  await expect(page.locator('#q-D3')).toBeInViewport();
+  await page.goto('pitbox/#says');
+  await expect(page.locator('#says')).toHaveAttribute('open', '');
+  expect(await page.locator('#a-transparency').getAttribute('open')).not.toBeNull();
+});
+
+test('every answer shows its mark\'s word, not only a colour or an icon', async ({ page }) => {
+  await page.goto('pitbox/');
+  const words = (await page.locator('[id^="q-"] .v .st').allTextContents()).map((w) => w.trim());
+  expect(words.length).toBeGreaterThan(40);
+  for (const w of words) expect(w).toMatch(/^(Good|Note|Concern|Major|Signs of malware|Off by default|On request|Not checked|Held back|Not allowed|Doesn't apply)\b/);
+});
+
+test('the theme button is on screen on a phone', async ({ page }) => {
+  await page.goto('');
+  const b = await page.locator('[data-theme-toggle]').boundingBox();
+  const w = page.viewportSize().width;
+  expect(b.x).toBeGreaterThanOrEqual(0);
+  expect(b.x + b.width).toBeLessThanOrEqual(w);
+});

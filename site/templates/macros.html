@@ -9,11 +9,12 @@
     <div class="q">{{ head }}</div>
     <div class="v">{{ marks }}</div>
     {% if text %}<div class="t">{{ text }}</div>{% endif %}
+    {# The evidence folds under the answer, with the way to comment on it: what a reader checks first is where they say it's wrong. #}
     {% if evidence %}
-    <details class="ev"><summary>Evidence <span class="vh">for {{ id }}</span></summary><div>{{ evidence }}{% if second %}<p><b>Second check:</b> {{ second }}</p>{% endif %}</div></details>
+    <details class="ev"><summary>Evidence <span class="vh">for {{ id }}</span></summary><div>{{ evidence }}{% if second %}<p><b>Second check:</b> {{ second }}</p>{% endif %}{% if comment %}<p class="cmtp">{{ comment }}</p>{% endif %}</div></details>
+    {% elif comment %}<p class="cmtp">{{ comment }}</p>
     {% endif %}
   </div>
-  {% if comment %}{{ comment }}{% endif %}
 </div>
 {%- endmacro %}
 
@@ -21,14 +22,16 @@
 {% macro bar(n) -%}<div class="bar" aria-hidden="true"><i style="width:{{ n if n is number else 0 }}%"></i></div>{%- endmacro %}
 
 {# A section that folds: its title, a count or score beside it, its body. Open by default where nothing should be hidden. #}
-{% macro fold(id, title, side='', open=False) -%}
-<details class="fold"{% if id %} id="{{ id }}"{% endif %}{% if open %} open{% endif %}><summary><span class="ft">{{ title }}</span>{% if side %}<span class="sumr">{{ side }}</span>{% endif %}</summary>
+{# side: markup made in the template (a score and its marks); note: plain text, shown muted. Text is never pasted into markup. #}
+{% macro fold(id, title, side='', open=False, h=None, note='') -%}
+<details class="fold"{% if id %} id="{{ id }}"{% endif %}{% if open %} open{% endif %}><summary>{% if h %}<{{ h }} class="ft">{{ title }}</{{ h }}>{% else %}<span class="ft">{{ title }}</span>{% endif %}{% if side or note %}<span class="sumr">{% if note %}<span class="muted">{{ note }}</span>{% endif %}{{ side }}</span>{% endif %}</summary>
 <div class="body">{{ caller() }}</div></details>
 {%- endmacro %}
 
 {# The notes beside an answer's mark: why it costs what it costs, the rule that set it, the limits that touch it, comments under review. #}
 {% macro answer_notes(x, scored) -%}
 {% if scored and x.open %}<span class="sm">Open: counts at its highest cost until settled</span>{% endif %}
+{% if scored and x.cost_note and not x.open %}<span class="sm">{{ x.cost_note }}</span>{% endif %}
 {% if x.rule_note %}<span class="sm">{{ x.rule_note }}</span>{% endif %}
 {% for n in x.limits %}<a class="sm" href="#lim-{{ n }}">Limit {{ n }}</a>{% endfor %}
 {% for n in x.under_review %}<a class="sm corr" href="#corrections">Under review #{{ n }}</a>{% endfor %}

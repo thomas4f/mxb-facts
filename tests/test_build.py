@@ -435,7 +435,8 @@ check('the feed accepts a malware state', 'malware' in feed.SCHEMA['$defs']['sta
 import render  # noqa: E402
 _c = {'card': 't-1', 'answers': [{'id': 'P1'}], 'key_answers': [], 'areas': [], 'files': [], 'history': [],
       'sections': [{'title': 'What it says vs what it does', 'blocks': [{'table': ['Claim', 'Verdict', 'Evidence'], 'rows': [{}]}]}]}
-_row = lambda i, mark: f'<div class="row" id="{i}">{'<span class="st good">Good</span>' if mark else 'Good'}<div class="t">x</div></div>'
+_row = lambda i, mark: (f'<div class="row" id="{i}"><span class="id">{i}</span><div class="rb"><div class="q">Q</div>'
+                       f'<div class="v">{'<span class="st good">Good</span>' if mark else 'Good'}</div></div></div>')
 def _refused(html):
     try: render.complete(_c, html)
     except AssertionError: return True
@@ -443,6 +444,13 @@ def _refused(html):
 check('a page with every mark passes the completeness check', not _refused(_row('q-P1', 1) + _row('claim-1', 1)))
 check('a claim drawn without its mark fails the completeness check', _refused(_row('q-P1', 1) + _row('claim-1', 0)))
 check('an answer left off the page fails the completeness check', _refused(_row('claim-1', 1)))
+check('a row without a mark can\'t borrow the next row\'s', _refused(_row('claim-1', 0) + _row('q-P1', 1)))
+
+# "Marked by the rule" shows only where the rule's condition set the mark, not on every answer whose rule has one.
+_q = next(q for q, cells in feed.QCELL.items() for v, r in cells.items() if r and r.startswith('Good; Note if'))
+_v = next(v for v, r in feed.QCELL[_q].items() if r and r.startswith('Good; Note if'))
+check('a Good answer under a "Good; Note if" rule gets no rule note', feed.rule_note(_q, '{x} ' + _v, 'good') is None)
+check('a Note under a "Good; Note if" rule names the rule', (feed.rule_note(_q, '{x} ' + _v, 'note') or '').startswith('Marked by the rule: Good; Note if'))
 
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)

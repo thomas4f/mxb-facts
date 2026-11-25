@@ -51,8 +51,9 @@ def complete(c, html):
     # Nothing on a card goes missing on its page: every answer and every "Says vs does" claim is a row with its mark, every key
     # answer has its mark, and the page shows each area, limit, file and history row. A section a template forgets fails here,
     # not in front of a reader.
-    rows = re.findall(r'<div class="row" id="([^"]+)">(.*?)<div class="t">|<div class="row" id="([^"]+)">(.*?)</details>', html, re.S)
-    marked = {a or b for a, x, b, y in rows if 'class="st ' in (x or y)}
+    # Each row's marks line (the row macro: id, question, then <div class="v">), read row by row so one row can't borrow another's mark.
+    rows = re.findall(r'<div class="row" id="([^"]+)">\s*<span class="id">[^<]*</span>\s*<div class="rb">\s*<div class="q">.*?</div>\s*<div class="v">(.*?)</div>', html, re.S)
+    marked = {i for i, v in rows if 'class="st ' in v}
     claims = sum(len(b['rows']) for s in c['sections'] if s['title'] == 'What it says vs what it does' for b in s['blocks'] if 'Verdict' in b.get('table', []))
     want = {'q-' + x['id'] for x in c['answers']} | {f'claim-{n}' for n in range(1, claims + 1)}
     assert want <= marked, c['card'] + ': rows without their mark on the page: ' + ', '.join(sorted(want - marked))
@@ -71,7 +72,6 @@ def write_pages(SITE):
     CARDS = {f[:-5]: json.load(open(feed + 'cards/' + f)) for f in sorted(os.listdir(feed + 'cards'))}
     STATES = {s['id']: s for s in IX['states']}
     AREAS = IX['areas']
-    TAGICON = {t['label']: t['icon'] for t in IX['tags'] if t.get('icon')}
     assert not FOLDERS & {t['id'] for t in IX['tools']}, 'a tool id is also a folder name of the site: ' + ', '.join(FOLDERS & {t['id'] for t in IX['tools']})
 
     env = Environment(loader=FileSystemLoader(HERE + 'templates'), autoescape=select_autoescape(['html']), undefined=StrictUndefined,
@@ -85,20 +85,19 @@ def write_pages(SITE):
         return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{escape(words or s["label"])}{c}</span>')
 
     def answer_mark(x, scored):
-        # An answer's mark: its verdict in its state's colour, and what it costs where the tool has a score ("−25", or "±0" with why).
-        words = x['verdict'] if x['state'] in VERDICT_STATES else STATES[x['state']]['label']
+        # An answer's mark: its state's word in its colour, with what it costs where the tool has a score ("Concern −25", or
+        # "±0" when another answer counts it), then the verdict itself ("Yes"). The word is text, never only a colour or icon.
         cost = None
         if scored and x['cost']: cost = f'−{x["cost"]}'
         elif scored and x['cost_note']: cost = '±0'
-        tip = f'{STATES[x["state"]]["label"]}' + (f'. {x["cost_note"]}' if x['cost_note'] else '')
-        return mark(x['state'], words, cost, tip)
+        pill = mark(x['state'], None, cost, x['cost_note'] or None)
+        return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill
 
     def tag(t, hidden=False, base=''):
-        # A tag links to the answer it comes from: on its own page (#q-ID), or on the tool's page from the tools list (base).
+        # A tag is text and colour only (40 kinds: too many shapes to learn; the marks keep their icons). It links to the answer it comes from: on its own page (#q-ID), or on the tool's page from the tools list (base).
         cls = 'concern major' if t['kind'] == 'concern' and t.get('major') else t['kind']
-        ic = f' ti ti-{TAGICON[t["label"]]}' if t['label'] in TAGICON else ''
         tip = f'From {t["question"]}' + (', only after a choice you make' if t['kind'] == 'off_by_default' else '')
-        return Markup(f'<a class="tag {cls}{ic}" href="{base}#q-{t["question"]}" title="{escape(tip)}"{" hidden" if hidden else ""}>{escape(t["label"])}</a>')
+        return Markup(f'<a class="tag {cls}" href="{base}#q-{t["question"]}" title="{escape(tip)}"{" hidden" if hidden else ""}>{escape(t["label"])}</a>')
 
     env.globals.update(DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
                        area_name={a['id']: a['name'] for a in AREAS}, money={m['label']: m for m in IX['money']})
@@ -110,6 +109,9 @@ def write_pages(SITE):
         # Every in-page link lands on an id that exists, once (the contents, tags, limits, "From" links).
         ids = re.findall(r'\bid="([^"]+)"', html)
         assert len(ids) == len(set(ids)), path + ': two elements share an id: ' + ', '.join(sorted({i for i in ids if ids.count(i) > 1}))
+        # No markup reaches a page as text: a tag escaped by the templates' autoescape means a string was pasted into HTML.
+        esc_tags = sorted(set(re.findall(r'&lt;/?(?:span|a|b|i|em|strong|code|div|p|br)\b', html)))
+        assert not esc_tags, path + ': markup shown as text (' + ', '.join(esc_tags) + '); pass markup from a template block, text through note='
         dead = sorted(set(re.findall(r'href="#([^"]+)"', html)) - set(ids))
         assert not dead, path + ': links to anchors that don\'t exist: ' + ', '.join(dead)
         open(out + path, 'w').write(html.rstrip() + '\n')
@@ -147,9 +149,8 @@ def write_pages(SITE):
         if os.path.isdir(src): shutil.copytree(src, out + 'assets/' + f, dirs_exist_ok=True)
         else: shutil.copyfile(src, out + 'assets/' + f)
     icon = {k: s['icon'] for k, s in STATES.items()}
-    css = ['/* Made by site/render.py from the feed: one icon per state and per tag (Lucide, ISC licence, see the end of this file). */']
+    css = ['/* Made by site/render.py from the feed: one icon per state (Lucide, ISC licence, see the end of this file). */']
     css += [f'.st.{k}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for k, v in icon.items()]
-    css += [f'.tag.ti-{v}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for v in sorted(set(TAGICON.values()))]
     css.append('/*\n' + ICON_LICENCE + '*/')
     open(out + 'assets/icons.css', 'w').write('\n'.join(css) + '\n')
     # The favicon: the wordmark's slash on the pit board (brand.py).

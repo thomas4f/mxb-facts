@@ -88,7 +88,7 @@ flowchart LR
 | `tools/agent_run.py`, `check_plan.py` | Run one prompt with the Agent SDK (spending limit); check the plan for a Windows run before anything runs | |
 | `.github/held-items.pem` | The maintainer's public key: a held item's report, and how a tool gets at protected content, leave the analysis job only encrypted to it (rule 9), each as its own draft advisory | `analyse.yml` header |
 | `tests/test_build.py` | The build's own tests for scores, marks and tags | |
-| `tests/site/` | Checks on the built `_site/`: W3C Nu validator, axe (WCAG 2.2 AA, both themes), behaviour and screenshots on a phone and a desktop (Playwright), Lighthouse budgets, ESLint | its README |
+| `tests/site/` | Checks on the built `_site/`: W3C Nu validator, axe (WCAG 2.2 AA, both themes), behaviour and screenshots on a phone and a desktop (Playwright), Lighthouse budgets, ESLint, stylelint | its README |
 
 ### Workflows on GitHub
 

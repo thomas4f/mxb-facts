@@ -7,7 +7,7 @@ lede: >-
 ai_note: >-
   Claude, an AI, does the analysis from [a public prompt](https://thomas4f.github.io/mxb-facts/how/#prompt), and no person
   checks each answer, so one can be wrong. A score sums up the findings and what could be checked: a high score doesn't prove
-  a tool is safe, and a low one doesn't prove it's harmful. Authors can [run the same check](https://thomas4f.github.io/mxb-facts/authors/)
+  a tool does no harm, and a low one doesn't prove it does. Authors can [run the same check](https://thomas4f.github.io/mxb-facts/authors/)
   on their own tool before a release, and correct anything a card gets wrong.
 maintainer_notice: >-
   **Made by the maintainer of MXB Facts.** thomas4f, who runs this project, makes this tool. It is analysed from the same

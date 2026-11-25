@@ -73,6 +73,8 @@
     var hint = $('[data-cmp-hint]'); if (hint) hint.hidden = on.length >= 2;
     var lab = $('[data-cmp-n-label]'); if (lab) lab.textContent = on.length ? '· ' + on.length + ' picked' : '';
     t.hidden = on.length < 2;
+    // With tools already picked (a shared ?c= link, or picks from the tools list), the picker starts folded so the table shows first.
+    var pk = $('#picker'); if (pk && !pk.dataset.seen) { pk.dataset.seen = '1'; if (on.length >= 2) pk.open = false; }
   }
 
   // A link to an answer, a limit or an area opens the fold it sits in.
@@ -124,6 +126,9 @@
       if ($('#cmp')) history.replaceState(null, '', '?c=' + picked.join(','));
     }
   });
+  // "Jump to a question" on a tool page: shown only with the script, which is what makes it go.
+  var jump = $('#jump');
+  if (jump) { jump.closest('label').hidden = false; jump.addEventListener('change', function () { if (jump.value) location.hash = jump.value; }); }
   window.addEventListener('hashchange', openTarget);
   showPicked(); showTools(); openTarget();
 })();

@@ -21,10 +21,10 @@
 <h2 class="h2">In detail</h2>
 <div class="stack tight">
 {% call fold('marks-and-scores', 'Marks and scores') %}<div class="prose pad">{{ tpl['Marks and scores'] | md }}</div>{% endcall %}
-{% call fold('scores', 'How scores are worked out', '<span class="muted">rubric ' ~ SITE.rubric ~ '</span>') %}<div class="prose pad">{% for s in SITE.scores %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}</div>{% endcall %}
+{% call fold('scores', 'How scores are worked out', note='rubric ' ~ SITE.rubric ~ '') %}<div class="prose pad">{% for s in SITE.scores %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}</div>{% endcall %}
 {% call fold('ai', 'How AI is used') %}<div class="prose pad">{{ tpl['How AI is used'] | md }}</div>{% endcall %}
-{% call fold('prompt', 'The analysis prompt', '<span class="muted">every card starts from it</span>') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}{{ SITE.prompt.text | md }}</div>{% endcall %}
-{% call fold('writers', 'For card writers', '<span class="muted">what a card holds and how it is written</span>') %}<div class="prose pad"><h3>Sections</h3>{{ tpl['Sections'] | md }}<h3>Wording</h3>{{ tpl['Wording'] | md }}</div>{% endcall %}
+{% call fold('prompt', 'The analysis prompt', note='every card starts from it') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}{{ SITE.prompt.text | md }}</div>{% endcall %}
+{% call fold('writers', 'For card writers', note='what a card holds and how it is written') %}<div class="prose pad"><h3>Sections</h3>{{ tpl['Sections'] | md }}<h3>Wording</h3>{{ tpl['Wording'] | md }}</div>{% endcall %}
 {% call fold('changes', 'Changes to these rules') %}<div class="prose pad">{{ tpl['Changes to these rules'] | md }}</div>{% endcall %}
 </div>
 {% endblock %}

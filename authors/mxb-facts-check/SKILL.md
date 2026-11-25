@@ -9,6 +9,10 @@ MXB Facts answers the same questions about every MX Bikes and GP Bikes tool, wit
 
 1. Get the rules at a fixed version, in a folder outside this repository:
    `git clone https://github.com/thomas4f/mxb-facts <folder>` and `git -C <folder> checkout {{COMMIT}}`.
+   This copy of the check was made at that commit, so its result is what a card made then would say. The rules can change
+   since: if the `commit` in https://thomas4f.github.io/mxb-facts/api/v1/index.json differs, tell the author that a newer
+   version of the rules exists (they can download this check again from https://thomas4f.github.io/mxb-facts/authors/), and
+   ask which to use before going on.
    Read its `CLAUDE.md`, `rules/template.md`, `rules/questions.md` and `prompts/analyse-tool.md` in full.
 2. Follow steps 1 to 5 of the prompt in `prompts/analyse-tool.md` ("The prompt") for this repository as it will be released: the release files are the ones its build makes, or the files the author is about to upload. The real-game run is `lab/real-game/` and the plugin test host is `lab/plugin-test-host/` in that folder. Keep the evidence in that folder; don't commit or push anything there.
 3. Skip steps 6 to 10: no card file, no build, no pull request. Look up hashes on VirusTotal only if the author gives you their own key, and upload nothing; otherwise P1 is "Not checked".

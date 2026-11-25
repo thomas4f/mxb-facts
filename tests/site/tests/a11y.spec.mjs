@@ -25,6 +25,7 @@ for (const [name, url] of PAGES) {
         return r.height > 0 && hit < 44 && !(e.type === 'checkbox' && e.closest('label')); })
       .map(e => `${e.tagName.toLowerCase()}.${e.className} ${Math.round(e.getBoundingClientRect().height)}px`));
     expect(small).toEqual([]);
-    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    // Against the device's width: a phone browser widens innerWidth to fit content that overflows, so innerWidth can't catch it.
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(page.viewportSize().width);
   });
 }

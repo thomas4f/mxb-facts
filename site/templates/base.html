@@ -42,8 +42,8 @@
     <a href="{{ root }}compare/"{% if here == 'compare' %} aria-current="page"{% endif %}>Compare<span class="n" data-cmp-count hidden></span></a>
     <a href="{{ root }}how/"{% if here == 'how' %} aria-current="page"{% endif %}>How it works</a>
     <a href="{{ root }}authors/"{% if here == 'authors' %} aria-current="page"{% endif %}>For authors</a>
-    <button type="button" class="theme" data-theme-toggle aria-label="Colour theme: system. Change it">Theme: System</button>
   </nav>
+  <button type="button" class="theme" data-theme-toggle aria-label="Colour theme: system. Change it">Theme: System</button>
 </div></header>
 <main class="wrap" id="main" tabindex="-1">
 {% block main %}{% endblock %}

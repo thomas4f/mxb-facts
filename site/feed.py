@@ -107,11 +107,16 @@ def facts(h,slug):
         if v: out.append({'label':show,'text':short(v)})
     return out
 
-def rule_note(i,row):
-    # Where a mark depends on a condition ("Concern; Note if ..."), the rule that set it; where Partly has its own meaning, that.
+def rule_note(i,row,state):
+    # Where a mark depends on a condition ("Concern; Note if ..."), the rule, but only when its condition set the mark: the
+    # answer's mark isn't the first one the rule names (a Major is a Concern at the severe cost). Where Partly has its own
+    # meaning, that. The full rule is on the How it works page either way.
     mv=re.match(r'\{.\} (Yes|No)\b',row); rule=QCELL[i].get(mv.group(1)) if mv else None
     if re.match(r'\{.\} Partly\b',row) and PMEANS.get(i): return f'Partly here means: {PMEANS[i]}.'
-    return f'Marked by the rule: {rule}.' if rule and ' if ' in rule and not rule.endswith('Note if only on request') else None
+    if not (rule and ' if ' in rule and not rule.endswith('Note if only on request')): return None
+    first=rule.split(';')[0].strip().lower()
+    if state not in ('good','note','concern','major') or state==first or (state,first)==('major','concern'): return None
+    return f'Marked by the rule: {rule}.'
 
 def cost_note(i,A,SETS):
     # Why an answer's cost is what it is, in words, where the number alone doesn't say: null, or one line.
@@ -179,7 +184,7 @@ def write_feed(SITE,CARDS):
         for i,_a,qt in QS:
             v=A[i][1]; x=d['answers'][i]; cost,cw,op=answer_cost(i,A,SETS); st=answer_state(i,A,SETS,held)
             ans.append({'id':i,'area':QAREA[i],'question':qt,'verdict':VWORD.get(v,v),'state':st,
-                        'cost':cost,'counted_with':cw,'open':op,'cost_note':cost_note(i,A,SETS),'rule_note':rule_note(i,C['rows'][i]),
+                        'cost':cost,'counted_with':cw,'open':op,'cost_note':cost_note(i,A,SETS),'rule_note':rule_note(i,C['rows'][i],st),
                         'text':x['text'],'text_plain':plain(x['text']),
                         # A held-back answer's evidence is published with the details (rule 9), as its line on the card says.
                         'evidence':'Published with the details.' if st=='held' else x['evidence'],
@@ -227,7 +232,7 @@ def write_feed(SITE,CARDS):
            'states':[{'id':k,'label':l,'meaning':m,'icon':i} for k,(l,_c,i,m) in STATES.items()],
            'money':[{'label':l,'means':x['means'],'grey':l in MLEFT} for l,x in MLAB.items()],
            'categories':[c for c in CATS if any(t['category']==c for t in tools.values())],
-           'legend':legend(),'correction_kinds':CKINDS,'links':{'comment':CORRFORM,'recheck':REPO+'issues/new?template=analyse-tool.yml','repo':REPO},
+           'says_question':SAYSQ,'legend':legend(),'correction_kinds':CKINDS,'links':{'comment':CORRFORM,'recheck':REPO+'issues/new?template=analyse-tool.yml','repo':REPO},
            'tags':[{'label':x['tag'],'question':x['from'],'answer':x['answer'],'kind':x['kind'].lower(),'icon':x.get('icon')} for x in SC['tags'] if x['kind']!='None'],
            'tools':sorted(tools.values(),key=lambda t:t['name'].lower())}
     check(index,'index')
