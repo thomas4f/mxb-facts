@@ -39,6 +39,7 @@
   // filtered list can be shared. A value the list doesn't offer is ignored.
   if (grid) {
     var P = new URLSearchParams(location.search);
+    if (P.get('q') && $('#q')) { S.q = P.get('q'); $('#q').value = S.q; }
     ['game', 'cat'].forEach(function (k) {
       var v = P.get(k), el = $('#' + k);
       if (v && el && Array.prototype.some.call(el.options, function (o) { return o.value === v; })) { S[k] = v; el.value = v; }
@@ -89,6 +90,27 @@
     t.hidden = on.length < 2;
     // With tools already picked (a shared ?c= link, or picks from the tools list), the picker starts folded so the table shows first.
     var pk = $('#picker'); if (pk && !pk.dataset.seen) { pk.dataset.seen = '1'; if (on.length >= 2) pk.open = false; }
+  }
+
+  // The 404 page: name the tool or release the address asks for (/<tool>/<version>/, or a badge's /badge/<tool>/<version>.svg).
+  var nf = $('#nf-data');
+  if (nf) {
+    var known = JSON.parse(nf.textContent), seg = location.pathname.slice(root.length).split('/').filter(Boolean);
+    if (seg[0] === 'badge') seg = [seg[1], (seg[2] || '').replace(/(-[a-z-]+)?\.(svg|json)$/, '')];
+    var own = function (o, k) { return Object.prototype.hasOwnProperty.call(o, k) ? o[k] : null; };
+    var tool = seg[0] ? own(known, seg[0]) : null, ver = seg[1] || '';
+    var el = function (tag, text, href) { var e = document.createElement(tag); e.textContent = text; if (href) e.href = href; return e; };
+    var title = $('#nf-title'), text = $('#nf-text'), links = $('#nf-links'), first = links.firstElementChild;
+    var add = function (t, href) { var li = document.createElement('li'); li.appendChild(el('a', t, href)); links.insertBefore(li, first); };
+    if (tool && ver && !own(tool.versions, ver)) {
+      title.textContent = tool.name + ' ' + ver + ' has no card yet';
+      text.textContent = 'MXB Facts hasn\'t analysed ' + tool.name + ' ' + ver + '. Its newest card is for ' + tool.newest + '. For a newer release, you can request a re-check.';
+      add('Open ' + tool.name + ' ' + tool.newest, root + tool.versions[tool.newest]);
+    } else if (seg[0] && !tool && /^[a-z0-9][a-z0-9-]{0,60}$/.test(seg[0])) {
+      title.textContent = 'No card for \u201c' + seg[0] + '\u201d yet';
+      text.textContent = 'MXB Facts has no card for a tool at this address. Search the tools list, or request the tool.';
+      add('Search the tools for \u201c' + seg[0] + '\u201d', root + '?q=' + encodeURIComponent(seg[0].replace(/-/g, ' ')));
+    }
   }
 
   // One status line for the page (in base.html): what a copy did is read out to screen readers too.

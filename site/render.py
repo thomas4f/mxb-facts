@@ -107,7 +107,8 @@ def write_pages(SITE):
     out = SITE
     def page(path, tpl, depth, **kw):
         os.makedirs(os.path.dirname(out + path), exist_ok=True)
-        html = anchors(env.get_template(tpl).render(root='../' * depth, path=path, **kw))
+        root = kw.pop('root', '../' * depth)
+        html = anchors(env.get_template(tpl).render(root=root, path=path, **kw))
         # Every in-page link lands on an id that exists, once (the contents, tags, limits, "From" links).
         ids = re.findall(r'\bid="([^"]+)"', html)
         assert len(ids) == len(set(ids)), path + ': two elements share an id: ' + ', '.join(sorted({i for i in ids if ids.count(i) > 1}))
@@ -151,6 +152,11 @@ def write_pages(SITE):
     page('compare/index.html', 'compare.html', 1, cards=[CARDS[r['card']] for t in IX['tools'] for r in t['releases']])
     page('how/index.html', 'how.html', 1)
     page('authors/index.html', 'authors.html', 1)
+    # The page GitHub Pages serves for an address the site doesn't have, at any depth, so its links start at the site's root.
+    # It names the tool or release the address asks for when it can (site.js), from every tool's releases listed here.
+    known = {t['id']: {'name': t['name'], 'newest': t['releases'][0]['version'], 'versions': {CARDS[r['card']]['version']: card_path(CARDS[r['card']]) for r in t['releases']}}
+             for t in IX['tools']}
+    page('404.html', '404.html', 0, root='/' + IX['site'].split('://', 1)[1].split('/', 1)[1], known=known)
 
     # The static files, and the CSS made from the feed's states and tags: each state's and tag's icon as a mask, so it takes the mark's colour.
     os.makedirs(out + 'assets', exist_ok=True)

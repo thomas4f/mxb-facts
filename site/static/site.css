@@ -295,6 +295,7 @@ code.hash { font-size: 12px }
 .badges { display: grid; gap: var(--s3); padding: var(--s2) 0 var(--s4) } .bopt img { max-width: 100%; height: auto }
 .lims.plain { list-style: none; padding-left: 0 }
 .measure { max-width: 78ch; margin: 0 }
+.nflinks { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s2) }
 .ft { display: inline-flex; gap: var(--s2); align-items: baseline }
 .cmpl { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; color: var(--muted); font-size: 14px }
 .chip.older { display: none } .chip.older.show { display: inline-flex }

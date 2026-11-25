@@ -183,3 +183,34 @@ for (const [w, rows] of [[360, 1], [359, 2]]) {
     expect(tops.size).toBe(rows);
   });
 }
+
+// The 404 page as GitHub Pages serves it: under /mxb-facts/, for any address the site doesn't have, with a 404 status.
+async function pages(page) {
+  const fs = await import('node:fs'), path = await import('node:path');
+  const site = path.resolve(import.meta.dirname, '../../../_site');
+  await page.route('http://pages.test/mxb-facts/**', (r) => {
+    let p = decodeURIComponent(new URL(r.request().url()).pathname.slice('/mxb-facts/'.length));
+    if (p === '' || p.endsWith('/')) p += 'index.html';
+    const f = path.join(site, p);
+    if (fs.existsSync(f) && fs.statSync(f).isFile()) return r.fulfill({ path: f });
+    return r.fulfill({ status: 404, path: path.join(site, '404.html'), contentType: 'text/html' });
+  });
+}
+
+test('a release with no card gets a page that names it and links the newest card', async ({ page }) => {
+  await pages(page);
+  const res = await page.goto('http://pages.test/mxb-facts/dirt-gear/9.9/');
+  expect(res.status()).toBe(404);
+  await expect(page.locator('h1')).toHaveText('Dirt Gear 9.9 has no card yet');
+  await page.getByRole('link', { name: 'Open Dirt Gear 1.2.1' }).click();
+  await expect(page).toHaveURL('http://pages.test/mxb-facts/dirt-gear/');
+});
+
+test('an unknown tool gets a page that offers the search and a request', async ({ page }) => {
+  await pages(page);
+  await page.goto('http://pages.test/mxb-facts/some-new-tool/');
+  await expect(page.locator('h1')).toHaveText('No card for “some-new-tool” yet');
+  await expect(page.getByRole('link', { name: 'Request a tool or a re-check' })).toBeVisible();
+  await page.getByRole('link', { name: /^Search the tools/ }).click();
+  await expect(page.locator('#q')).toHaveValue('some new tool');
+});

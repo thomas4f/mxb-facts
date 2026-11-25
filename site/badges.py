@@ -12,20 +12,23 @@ from brand import DARK, RED, figures, figures_width, wordmark, wordmark_width
 # wordmark on the pit board's dark, the score on its accent, both drawn as shapes so they look the same on any page. The
 # message text is sized from DejaVu Sans widths, the shields.io fallback for Verdana, and pinned with textLength so every
 # viewer draws it the same width.
-GCOL={'score':DARK['accent'],'notscored':'#3d4a5c','malware':RED}  # red is for signs of malware alone
-GINK={'score':DARK['accent-ink'],'notscored':'#fff','malware':'#fff'}  # the message's text on that colour
+GCOL={'score':DARK['accent'],'notscored':'#3d4a5c','malware':RED,'pending':'#3d4a5c'}  # red is for signs of malware alone
+GINK={'score':DARK['accent-ink'],'notscored':'#fff','malware':'#fff','pending':'#fff'}  # the message's text on that colour
 BW=json.load(open(ROOT+'site/badge-widths.json'))
 def _tw(t,k):
     # As shields.io does: the text's width, rounded down, then up to an odd number of pixels.
     w=math.floor(sum(BW[k][ord(c)-32] if 32<=ord(c)<127 else BW[k][ord('m')-32] for c in t)); return w if w%2 else w+1
 BFONT='Verdana,Geneva,DejaVu Sans,sans-serif'
 BLABEL='MXB Facts'  # the wordmark's words, for titles and the shields.io label
+PENDING={'kind':'pending'}  # a release the inventory has seen, with no card yet: the badge says so and scores nothing
+def _gtext(G): return 'Not analysed yet' if G['kind']=='pending' else gtext(G)
+def ptitle(name,ver): return f'{BLABEL}, {name} {ver}: not analysed yet. The badge shows the score once its card is published.'
 def btitle(name,ver,G,date): return f'{BLABEL}, {name} {ver}: {gtext(G)} (rubric {RUBRICV}, analysed {date}). Worked out from the answers\' costs.'
 def _n(x): return f'{x:g}'
 def shield(style,G,title,uid):
     # style: flat, flat-square or for-the-badge, sized the way shields.io sizes them; the label side is the wordmark.
     big=style=='for-the-badge'; h=28 if big else 20; kind=G['kind']
-    msg=gtext(G).upper() if big else gtext(G)
+    msg=_gtext(G).upper() if big else _gtext(G)
     cap=9 if big else 8; pad=12 if big else 6
     lw=round(wordmark_width(cap)+2*pad); mt=_tw(msg,'10b' if big else '11')+(1.25*len(msg) if big else 0); mw=mt+2*(12 if big else 5); w=lw+mw
     label=wordmark(pad,(h+cap)/2,cap)
@@ -41,7 +44,8 @@ def _tile(G,x,y,s):
     # slash in the accent and 100 in grey (or the icon for ? and X), the wordmark at the foot, on the pit board's dark (red for
     # signs of malware alone).
     kind=G['kind']; bg=RED if kind=='malware' else DARK['bg']
-    if kind in ('malware','notscored'): big=icon_group(STATES[kind][2],x+s*.32,y+s*.18,s*.36,DARK['ink'])
+    if kind=='pending': big=icon_group(STATES['nc'][2],x+s*.32,y+s*.18,s*.36,DARK['muted'])
+    elif kind in ('malware','notscored'): big=icon_group(STATES[kind][2],x+s*.32,y+s*.18,s*.36,DARK['ink'])
     else:
         n=gsym(G); cb,cs=s*.4,s*.13; gap=s*.015
         wn,ws,wh=figures_width(n,cb),figures_width('/',cs),figures_width('100',cs)
@@ -56,9 +60,9 @@ def badge_tile(G,title):
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" role="img" aria-label="{esc(title)}"><title>{esc(title)}</title>{_tile(G,0,0,96)}</svg>'
 def badge_areas(G,title):
     # The tile beside one bar per area, as on the tool's page; no area numbers when there is no score.
-    nn=G['kind'] in ('notscored','malware'); rows=''
+    nn=G['kind'] in ('notscored','malware','pending'); rows=''
     for i,ar in enumerate(x for x in AREAN if x in CONCERN):
-        sc=G['areas'][ar][0]; y=13+i*20
+        sc=0 if nn else G['areas'][ar][0]; y=13+i*20
         v='–' if nn else str(sc); fw=0 if nn else sc*.76
         rows+=(f'<text x="124" y="{y+4}" font-size="11" fill="{DARK["muted"]}">{esc(ar)}</text>{figures(v,270,y+5,9,DARK["ink"],"end")}'
                f'<rect x="278" y="{y-3}" width="76" height="6" rx="3" fill="{DARK["sunk"]}"/><rect x="278" y="{y-3}" width="{fw:.1f}" height="6" rx="3" fill="{DARK["accent"]}"/>')
@@ -73,4 +77,4 @@ BADGES=[  # (file suffix, name shown to authors, how it is drawn)
 ]
 def badge_json(ver,G):
     # The shields.io "endpoint" format, so shields.io can draw it in any of its styles, in the same colours.
-    return json.dumps({'schemaVersion':1,'label':BLABEL,'message':gtext(G),'color':GCOL[G['kind']].lstrip('#'),'labelColor':DARK['bg'].lstrip('#')})
+    return json.dumps({'schemaVersion':1,'label':BLABEL,'message':_gtext(G),'color':GCOL[G['kind']].lstrip('#'),'labelColor':DARK['bg'].lstrip('#')})

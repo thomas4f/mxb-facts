@@ -11,7 +11,7 @@ sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))  # rules.py, cards
 from rules import AREAN, CATS, CONCERN, D, RUBRICV, OUT, ROOT, SC, charges, scored, gtext, load_yaml, sround, stale_refs, tagsof, verdict
 from cards import JUDGE, MM, REG, SITES, SLUG, VT, check_card, games, glance, strings
 from cards import COMMIT
-from badges import BADGES, badge_json, btitle
+from badges import BADGES, PENDING, badge_json, btitle, ptitle
 from feed import SITEURL
 CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('dirt-gear-1.1.1.yaml', 'dirt-gear'),
@@ -138,6 +138,21 @@ for _a,(_name,_ver,_G,_date,_t,_l) in GR.items():
     os.makedirs(SITE+'badge/'+_t,exist_ok=True)
     for _suf,_lab,_draw in BADGES: open(SITE+f'badge/{_t}/{_ver}{_suf}.svg','w').write(_draw(_G,btitle(_name,_ver,_G,_date),'')+'\n')
     open(SITE+f'badge/{_t}/{_ver}.json','w').write(badge_json(_ver,_G)+'\n')
+# A release the weekly inventory has seen (registry/releases.json) that has no card yet gets the same badges, saying "Not analysed
+# yet", so an author who moves a badge to the new version before its card is published shows that, not a broken image. Under the
+# version as published (v1.2.0) and without its leading v (1.2.0), the two ways a badge address is written.
+_seen={}
+for _a,(_name,_ver,_G,_date,_t,_l) in GR.items(): _seen.setdefault(_t,{'name':_name,'cards':set()})['cards'].add(_ver)
+_rel=json.load(open(ROOT+'registry/releases.json'))['tools']
+for _t,_s in _seen.items():
+    for _src in _rel.get(_t,{}).values():
+        _v=(_src or {}).get('version') if isinstance(_src,dict) else None
+        if not _v or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._+-]{0,40}',_v): continue
+        _bare=_v[1:] if _v[:1] in 'vV' and _v[1:2].isdigit() else _v
+        if _bare in _s['cards'] or _v in _s['cards']: continue
+        for _pv in {_v,_bare}:
+            for _suf,_lab,_draw in BADGES: open(SITE+f'badge/{_t}/{_pv}{_suf}.svg','w').write(_draw(PENDING,ptitle(_s['name'],_pv),'')+'\n')
+            open(SITE+f'badge/{_t}/{_pv}.json','w').write(badge_json(_pv,PENDING)+'\n')
 # Every card's score and badges in one file, for a site that lists tools (such as a mods site) to show them by version.
 os.makedirs(SITE+'api',exist_ok=True)
 json.dump({'rubric':RUBRICV,'cards':[{'tool':_t,'name':_n,'version':_v,'page':f'{SITEURL}{_t}/' if _l else f'{SITEURL}#{_a}','score':gtext(_G),
