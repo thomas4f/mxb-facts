@@ -485,6 +485,64 @@
           }
         }
       }
+    },
+    "site": {
+      "type": "object",
+      "required": [
+        "feed_version",
+        "commit",
+        "rubric",
+        "how_a_card_is_made",
+        "template",
+        "scores",
+        "prompt",
+        "questions",
+        "key_questions",
+        "authors_check",
+        "links"
+      ],
+      "properties": {
+        "how_a_card_is_made": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "template": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "text"
+            ]
+          }
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "text"
+            ]
+          }
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "area",
+              "question",
+              "good_when",
+              "max_cost"
+            ]
+          }
+        }
+      }
     }
   }
 }

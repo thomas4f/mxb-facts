@@ -5,8 +5,9 @@ docs/FEED.md; its shape is rules/feed.schema.json, which every file is checked a
 Usage: from build.py, write_feed(SITE, CARDS, shell) after the cards are checked.
 """
 import datetime, json, jsonschema, os, re, subprocess
-from rules import AREAK, AREAN, CONCERN, HELD, KEYS, QS, RUBRICV, SC, STATES, load_yaml, money, scored, sround, state_of, tagsof, ROOT, D
-from cards import MM, REG, SITES, check_card, site
+from rules import (AREAK, AREAN, CONCERN, GCOST, GSC, GT, HELD, KEYS, MDTXT, QCELL, QS, RUBRICV, SC, STATES, goodwhen, load_yaml, maxcost, money,
+    scored, sround, state_of, tagsof, ROOT, D)
+from cards import MM, REG, REPO, SITES, check_card, site
 from page import BADGES, COMMIT, SITEURL, answer_cost, answer_state
 
 FEED_VERSION='1.0'
@@ -108,3 +109,43 @@ def write_feed(SITE,CARDS,shell):
     json.dump(m,open(out+'match.json','w'),indent=1,ensure_ascii=False)
     os.makedirs(out+'schema',exist_ok=True); json.dump(SCHEMA,open(out+'schema/feed.schema.json','w'),indent=1)
     return index
+
+def md_from_html(h):
+    # The few tags the site's own prose uses, as Markdown: bold, links (made absolute), and nothing else.
+    h=re.sub(r'<b>(.*?)</b>',r'**\1**',h,flags=re.S)
+    h=re.sub(r'<a href="([^"]+)"[^>]*>(.*?)</a>',lambda m:f'[{m.group(2)}]({m.group(1) if m.group(1).startswith("https://") else SITEURL+m.group(1)})',h,flags=re.S)
+    assert not re.search(r'<[a-z/]',h), 'site/shell.html: a "How a card is made" step uses a tag the feed can\'t carry: '+h[:80]
+    return re.sub(r'\s+',' ',h).strip()
+
+def doc(md,path):
+    # One of the repository's Markdown files for the feed: relative links pinned to the build's commit, the generated-table markers gone.
+    d=os.path.dirname(path)
+    def link(m):
+        u=m.group(2)
+        if u.startswith(('https://','#')): return m.group(0)
+        f,_,a=u.partition('#'); full=os.path.normpath(os.path.join(d,f))
+        return f'{m.group(1)}({REPO}blob/{COMMIT}/{full}{"#"+a if a else ""})'
+    return re.sub(r'(\[[^\]]+\])\(([^)\s]+)\)',link,re.sub(r'<!--.*?-->\n?','',md,flags=re.S))
+
+def sections(md):
+    # A Markdown file as [{title, text}] by its "## " headings; the text before the first one is "".
+    parts=re.split(r'^## (.+)$',re.sub(r'^# .*\n','',md),flags=re.M)
+    out=[{'title':'','text':parts[0].strip()}] if parts[0].strip() else []
+    return out+[{'title':parts[i].strip(),'text':parts[i+1].strip()} for i in range(1,len(parts),2)]
+
+def write_site(SITE,shell,skill,agents_line):
+    # The site's own text and rules, so a design can draw How it works and For authors from data, like the tools.
+    base={'feed_version':FEED_VERSION,'commit':COMMIT,'rubric':RUBRICV}
+    steps=re.search(r'<h3>How a card is made</h3>\s*<ol class="flow">(.*?)</ol>',shell,re.S); assert steps, 'site/shell.html: no "How a card is made" list'
+    prm=open(ROOT+'prompts/analyse-tool.md').read()
+    data={**base,'site':SITEURL,'repo':REPO,
+          'how_a_card_is_made':[md_from_html(x) for x in re.findall(r'<li>(.*?)</li>',steps.group(1),re.S)],
+          'template':sections(doc(MDTXT['template.md'],'rules/template.md')),
+          'scores':sections(doc(MDTXT['scores.md'],'rules/scores.md')),
+          'prompt':{'intro':sections(doc(prm.split('\n## The prompt\n',1)[0],'prompts/analyse-tool.md')),'text':doc('## The prompt\n'+prm.split('\n## The prompt\n',1)[1],'prompts/analyse-tool.md')},
+          'questions':[{'id':i,'area':QAREA[i],'question':qt,'good_when':goodwhen(i),'marks':QCELL[i],'max_cost':maxcost(i) if i in GCOST else 0} for i,_a,qt in QS],
+          'key_questions':[{'id':k,'question':q,'short':s,'from':src} for k,q,s,src in KEYS],
+          'authors_check':{'path':'.claude/skills/mxb-facts-check/SKILL.md','download':SITEURL+'authors/mxb-facts-check/SKILL.md','text':skill,'agents_line':agents_line},
+          'links':{'request':REPO+'issues/new?template=analyse-tool.yml','question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f'}}
+    check(data,'site')
+    json.dump(data,open(SITE+'api/v1/site.json','w'),indent=1,ensure_ascii=False)
