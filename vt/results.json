@@ -46,6 +46,42 @@
         "permalink": "https://www.virustotal.com/gui/file/754f1956d12005f417d55213bfa474c284c0188eafd6ca46828c7f9cdfc20ab2"
       }
     },
+    "dirt-gear-1.2.1.yaml": {
+      "b7dc21f3060d42bd8477826c5e7fc56585b6ca04673b4dc7280e76ea2e0f2186": {
+        "found": true,
+        "flagged": 1,
+        "engines": 67,
+        "flagged_by": [
+          "Bkav"
+        ],
+        "last_scanned": "2026-11-25",
+        "looked_up": "2026-11-25",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45569089867",
+        "permalink": "https://www.virustotal.com/gui/file/b7dc21f3060d42bd8477826c5e7fc56585b6ca04673b4dc7280e76ea2e0f2186"
+      },
+      "f49b0f922535fb3da984c8d698c73e590ed12fcaf9fa380496d0f1c49254e10b": {
+        "found": true,
+        "flagged": 0,
+        "engines": 39,
+        "flagged_by": [],
+        "last_scanned": "2026-11-25",
+        "uploaded": "2026-11-25",
+        "looked_up": "2026-11-25",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45569089867",
+        "permalink": "https://www.virustotal.com/gui/file/f49b0f922535fb3da984c8d698c73e590ed12fcaf9fa380496d0f1c49254e10b"
+      },
+      "c7325d3c720ac433390ffbce2e8c6352ce33385feabec4a50a1100635a465ac8": {
+        "found": true,
+        "flagged": 0,
+        "engines": 59,
+        "flagged_by": [],
+        "last_scanned": "2026-11-25",
+        "uploaded": "2026-11-25",
+        "looked_up": "2026-11-25",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45569089867",
+        "permalink": "https://www.virustotal.com/gui/file/c7325d3c720ac433390ffbce2e8c6352ce33385feabec4a50a1100635a465ac8"
+      }
+    },
     "fixxers-rumble-1.0.yaml": {
       "bf14c6e274f649c131c1d25ddb17edad92c40b276acb4136f72a504ad563a260": {
         "found": false,

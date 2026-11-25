@@ -1,0 +1,11 @@
+$ cd "$SRC" && git log --format='%H %ad %s' --date=short 0433b042c553d0cdac6558b747807248964e41e8..3755d76a1fb6441a84acf932da7d96dfb92f29ce | cat; git diff --stat 0433b042c553d0cdac6558b747807248964e41e8 3755d76a1fb6441a84acf932da7d96dfb92f29ce | cat
+3755d76a1fb6441a84acf932da7d96dfb92f29ce 2026-11-25 Require the token on every local request, page and static files included (cookie set by the first page load); v1.2.1
+ .github/workflows/release.yml |  3 +++
+ CHANGELOG.md                  |  4 ++++
+ README.md                     |  8 ++++----
+ VERSION.txt                   |  2 +-
+ source/app.py                 | 21 +++++++++++++++++----
+ source/static/index.html      |  2 +-
+ tests/test_token.py           | 33 +++++++++++++++++++++++++++++++++
+ 7 files changed, 63 insertions(+), 10 deletions(-)
+(exit 0)

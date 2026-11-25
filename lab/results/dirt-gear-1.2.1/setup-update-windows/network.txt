@@ -1,0 +1,1 @@
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
