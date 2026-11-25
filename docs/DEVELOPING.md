@@ -73,7 +73,7 @@ flowchart LR
 | `site/static/` | `site.css`, `site.js` (filters, sorts, folds and remembers; never draws a mark) and the self-hosted fonts (OFL), copied to `_site/assets/` | |
 | `site/brand.py` + `site/brand.json` | The MXB/FACTS identity for everything drawn outside the pages: the pit board's colours (read from `site.css`), and the wordmark and score figures as shapes (`brand.json`, made by `tools/wordmark.py` from the site's fonts), so a badge looks the same on any page | |
 | `site/badges.py` | The score badges (SVG and shields.io JSON), with the wordmark | |
-| `site/preview.py` | The link-preview images (`_site/preview/<card>.png` and `site.png`, 1200 by 630, Pillow) that Discord and other chat apps show for a page | |
+| `site/preview.py` | The link-preview images (`_site/preview/<card>.png` and `site.png`, 1200 by 630, Pillow) that Discord and other chat apps show for a page, and the phones' home-screen icon (`assets/touch-icon.png`) | |
 | `site/icons.py` | The Lucide icons (ISC licence) beside marks, states and results, as CSS masks and as SVG for the badges | |
 | `prompts/analyse-tool.md` | The published prompt; changes to how we work change it in the same PR | |
 | `lab/real-game/` | Runs plugins in the public MX Bikes or GP Bikes demo, offline, clicked through to a track (steps in `games.json`): under Wine + Xvfb in sessions (`run.sh`, the demo downloaded once into `cache/`), and on a throwaway Windows runner under Process Monitor in "Analyse a tool" (`windows/run.ps1`); the demo is pinned by SHA-256 | its README |

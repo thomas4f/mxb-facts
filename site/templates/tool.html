@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import row, bar, fold, answer_notes %}
+{% from "macros.html" import answer_notes, bar, fold, of100, row, sep %}
 {% set r = c.result %}
 {% set scored = r.kind == 'score' %}
 {% set sec = {} %}
@@ -11,15 +11,16 @@
 {% block description %}{{ c.summary }}. {% for a in AREAS %}{{ a.name }} {{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}{{ ' · ' if not loop.last else '. ' }}{% endfor %}Every answer links its evidence.{% endblock %}
 {% block image_alt %}{{ c.name }} {{ c.version }} on MXB Facts: {{ r.label }}, with a score for each area.{% endblock %}
 {% block main %}
-<a class="back" href="{{ root }}">‹ All tools</a>
 <div class="thead">
   <div>
+    {# Where the tool sits, as on its card in the tools list: the list, its games, its category. #}
+    <nav class="crumb cat" aria-label="Breadcrumb"><a href="{{ root }}">Tools</a>{{ sep() }}{{ c.games | join(' + ') }}{{ sep() }}{{ c.category }}</nav>
     <h1>{{ c.name }} <small>{{ c.version }}</small></h1>
-    <div class="meta">{{ c.category }} · {{ c.games | join(' + ') }} · by {{ c.author }} · analysed {{ c.analysed }}</div>
+    <div class="meta">by {{ c.author }} · analysed {{ c.analysed }}</div>
     <p class="sum">{{ c.summary }}</p>
   </div>
   <div class="big{% if not scored %} word{% endif %}">
-    {% if scored %}<b class="num">{{ r.score }}</b><span>out of 100 · rubric {{ c.rubric }}</span>{% else %}{{ mark(r.kind) }}<span>no number given</span>{% endif %}
+    {% if scored %}<b class="num">{{ r.score }}{{ of100() }}</b><span>rubric {{ c.rubric }}</span>{% else %}{{ mark(r.kind) }}<span>no number given</span>{% endif %}
   </div>
 </div>
 {% if not c.latest %}<p class="notice">An earlier release. The newest card is <a href="{{ root }}{{ t.id }}/">{{ t.name }} {{ t.latest.version }}</a>.</p>{% endif %}
@@ -30,7 +31,7 @@
 
 <div class="areas">
 {% for a in AREAS %}
-  <a class="area" href="#a-{{ a.id }}"><span class="l"><span>{{ a.name }}</span><b class="num">{{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}</b></span><span class="vh">, show its answers</span>{% if a.scored %}{{ bar(r.areas[a.id]) }}{% endif %}</a>
+  <a class="area" href="#a-{{ a.id }}"><span class="l"><span>{{ a.name }}</span><b class="num">{% if not a.scored %}{{ r.money }}{% elif r.areas[a.id] is not none %}{{ r.areas[a.id] }}{{ of100() }}{% else %}–{% endif %}</b></span><span class="vh">, show its answers</span>{% if a.scored %}{{ bar(r.areas[a.id]) }}{% endif %}</a>
 {% endfor %}
 </div>
 {% if c.tags %}
@@ -80,7 +81,7 @@
 {% set blocks = sec.get(a.name, []) %}
 {% set summary = (c.areas | selectattr('id', 'equalto', a.id) | first).summary %}
 {# The area's marks, then its score in a column of its own, so the score sits in the same place on every row. #}
-{% set side %}{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}<b class="num sc">{% if a.scored %}{{ r.areas[a.id] if r.areas[a.id] is not none else '–' }}<span class="vh">{{ ' out of 100' if r.areas[a.id] is not none else ': no score' }}</span>{% else %}{{ r.money }}{% endif %}</b>{% endset %}
+{% set side %}{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}<b class="num sc">{% if a.scored %}{% if r.areas[a.id] is not none %}{{ r.areas[a.id] }}{{ of100() }}{% else %}–<span class="vh">: no score</span>{% endif %}{% else %}{{ r.money }}{% endif %}</b>{% endset %}
 {% call fold('a-' ~ a.id, a.name ~ ' · ' ~ list | length ~ ' questions', side) %}
   <p class="lead">{{ summary | mdi }}{% if not a.scored %} <span class="muted">({{ r.money }}: {{ money[r.money].means }}.)</span>{% endif %}</p>
   {% for x in list %}
@@ -128,7 +129,7 @@
 {% if t.releases | length > 1 %}
 <div class="rel">
 {% for v in t.releases %}
-  <div class="relr{% if v.card == c.card %} cur{% endif %}"><a class="relv" href="{{ root }}{{ t.id }}/{% if v.card != t.latest.card %}{{ v.version }}/{% endif %}"{% if v.card == c.card %} aria-current="page"{% endif %}><span>{{ v.version }} <span class="muted">· analysed {{ v.analysed }}</span></span><b class="num">{{ v.score if v.kind == 'score' else STATES[v.kind].label }}</b></a>
+  <div class="relr{% if v.card == c.card %} cur{% endif %}"><a class="relv" href="{{ root }}{{ t.id }}/{% if v.card != t.latest.card %}{{ v.version }}/{% endif %}"{% if v.card == c.card %} aria-current="page"{% endif %}><span>{{ v.version }} <span class="muted">· analysed {{ v.analysed }}</span></span><b class="num">{% if v.kind == 'score' %}{{ v.score }}{{ of100() }}{% else %}{{ STATES[v.kind].label }}{% endif %}</b></a>
   {% if v.card != c.card %}<a class="cmpl2" href="{{ root }}compare/?c={{ c.card }},{{ v.card }}">Compare<span class="vh"> {{ c.version }} with {{ v.version }}</span></a>{% else %}<span class="cmpl2 muted">This page</span>{% endif %}</div>
 {% endfor %}
 </div>

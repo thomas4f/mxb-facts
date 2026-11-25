@@ -53,7 +53,6 @@
     cards.sort(by[S.sort]).forEach(function (c) { grid.appendChild(c); });
     $('#count').textContent = n + ' of ' + cards.length + ' tools';
     $('#none').hidden = n > 0;
-    $$('[data-pick-cat]').forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.pickCat === S.cat)); });
   }
 
   // Compare: show the picked columns, and with "Show only differences" only the rows where they differ.
@@ -105,7 +104,6 @@
       m.firstChild.textContent = open ? 'Fewer' : m.dataset.label;
       return;
     }
-    var cat = t.closest('[data-pick-cat]'); if (cat) { S.cat = cat.dataset.pickCat; showTools(); return; }
     if (t.closest('[data-cmp-clear]')) { picked = []; store.set('compare', picked); showPicked(); return; }
     var cp = t.closest('[data-copy]');
     if (cp) {
@@ -119,6 +117,7 @@
     var t = e.target;
     if (t.id === 'sort') { S.sort = t.value; showTools(); }
     else if (t.id === 'game') { S.game = t.value; showTools(); }
+    else if (t.id === 'cat') { S.cat = t.value; showTools(); }
     else if (t.id === 'diff') showCompare();
     else if (t.dataset.cmp) {
       picked = t.checked ? picked.concat([t.dataset.cmp]).filter(function (x, i, a) { return a.indexOf(x) === i; }) : picked.filter(function (x) { return x !== t.dataset.cmp; });

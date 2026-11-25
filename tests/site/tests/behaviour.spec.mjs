@@ -19,8 +19,7 @@ test('search and category narrow the tools list and say how many are shown', asy
   await page.fill('#q', 'holeshot');
   await expect(page.locator('#count')).toHaveText(/^1 of \d+ tools$/);
   await page.fill('#q', '');
-  await page.locator('[data-pick-cat="HUD"]').click();
-  await expect(page.locator('[data-pick-cat="HUD"]')).toHaveAttribute('aria-pressed', 'true');
+  await page.locator('#cat').selectOption('HUD');
   for (const c of await page.locator('.card:visible').all()) await expect(c).toHaveAttribute('data-cat', 'HUD');
 });
 

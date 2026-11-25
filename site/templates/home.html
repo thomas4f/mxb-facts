@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import bar %}
+{% from "macros.html" import bar, of100, sep %}
 {% block nav %}tools{% endblock %}
 {% block main %}
 <section class="hero">
@@ -13,10 +13,7 @@
   <input type="search" id="q" placeholder="Search tools, authors, findings" aria-label="Search the tools">
   <select id="sort" aria-label="Sort"><option value="name">Name A–Z</option><option value="score">Score, high to low</option><option value="score-lo">Score, low to high</option><option value="date">Newest analysis</option></select>
   <select id="game" aria-label="Game"><option value="">Both games</option><option>MX Bikes</option><option>GP Bikes</option></select>
-</div>
-<div class="chips" role="group" aria-label="Category">
-  <button type="button" class="chip" data-pick-cat="" aria-pressed="true">All <span>{{ IX.tools | length }}</span></button>
-  {% for c in IX.categories %}<button type="button" class="chip" data-pick-cat="{{ c }}" aria-pressed="false">{{ c }} <span>{{ IX.tools | selectattr('category', 'equalto', c) | list | length }}</span></button>{% endfor %}
+  <select id="cat" aria-label="Category"><option value="">All categories ({{ IX.tools | length }})</option>{% for c in IX.categories %}<option value="{{ c }}">{{ c }} ({{ IX.tools | selectattr('category', 'equalto', c) | list | length }})</option>{% endfor %}</select>
 </div>
 <p class="count" id="count" role="status">{{ IX.tools | length }} tools</p>
 <div class="grid" id="tools-grid">
@@ -26,8 +23,8 @@
 {% set shown = 4 %}
 <article class="card" data-name="{{ t.name | lower }}" data-score="{{ r.score if r.kind == 'score' else '' }}" data-date="{{ t.latest.analysed_iso }}" data-cat="{{ t.category }}" data-game="{{ t.games | join('|') }}"
   data-search="{{ ([t.name, t.author, t.summary, t.category] + t.games + tg | map(attribute='label') | list) | join(' ') | lower }}">
-  <div class="row1"><span class="cat">{{ t.games | join(' + ') }} · {{ t.category }}</span>
-    {% if r.kind == 'score' %}<span class="score num">{{ r.score }}<small>/100</small></span>{% else %}<span class="score word">{{ mark(r.kind) }}</span>{% endif %}</div>
+  <div class="row1"><span class="cat">{{ t.games | join(' + ') }}{{ sep() }}{{ t.category }}</span>
+    {% if r.kind == 'score' %}<span class="score num">{{ r.score }}{{ of100() }}</span>{% else %}<span class="score word">{{ mark(r.kind) }}</span>{% endif %}</div>
   {% if r.kind == 'score' %}{{ bar(r.score) }}{% endif %}
   <h3><a href="{{ root }}{{ t.id }}/">{{ t.name }}</a></h3>
   <div class="meta">{{ t.latest.version }} · by {{ t.author }}</div>

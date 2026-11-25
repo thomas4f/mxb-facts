@@ -54,10 +54,18 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (min-width: 760px) { .top .in { display: flex; align-items: center; gap: var(--s4); padding-block: var(--s3) } .top .nav { margin-left: auto } }
 .brand { font: italic 800 26px/1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; color: var(--ink); text-decoration: none }
 .brand em { color: var(--accent) }
-.nav { display: flex; gap: var(--s0); overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--s2)) }
+/* The wordmark's slash wherever the site joins two parts (macros.html, sep and of100). */
+.sl { font-style: italic; font-weight: 800; color: var(--accent); margin-inline: .18em }
+/* In a label the slash sits between spaced capitals, so it gets the letter-spacing's room on its right as well. */
+.cat .sl { margin-inline: .2em .3em }
+small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); letter-spacing: 0 } small.of .sl { margin-inline: .05em .1em }
+/* The links wrap rather than scroll, so none is ever cut off. */
+.nav { display: flex; flex-wrap: wrap; gap: var(--s0); margin-inline: calc(-1 * var(--s2)) }
 .nav a { color: var(--ink); text-decoration: none; padding: 0 var(--s3); min-height: 44px; display: inline-flex; align-items: center; border-radius: var(--r-ctl); font-weight: 500; border: 1px solid transparent; white-space: nowrap }
 @media (min-width: 760px) { .nav { margin: 0 } .nav a { padding: 0 var(--s3); min-height: 40px } }
 .nav a[aria-current="page"] { border-color: var(--accent); color: var(--accent) }
+/* On a phone the four links sit two by two, so none is cut off with large text and the header keeps its height while the fonts load. */
+@media (max-width: 519px) { .nav { display: grid; grid-template-columns: 1fr 1fr; margin-inline: 0 } .nav a { justify-content: center } }
 .nav a .n { display: inline-grid; place-items: center; min-width: 18px; height: 18px; margin-left: var(--s1); border-radius: 9px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; padding: 0 var(--s1) }
 
 .wrap { max-width: 1180px; margin: 0 auto; padding: var(--s5) max(16px, env(safe-area-inset-right, 0px)) var(--s7) max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: var(--s5) }
@@ -94,19 +102,18 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 
 .controls { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center }
 .controls input[type=search] { flex: 1 1 240px; min-width: 0; padding: var(--s3) var(--s3); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface) }
-.controls select { padding: var(--s2) var(--s3); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface) }
+.controls select { flex: 1 1 140px; padding: var(--s2) var(--s3); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface) }
 .chips { display: flex; flex-wrap: wrap; gap: var(--s2) }
 .chip { border: 1px solid var(--line); background: var(--surface); padding: var(--s1) var(--s3); border-radius: 999px; cursor: pointer; font-size: 14px }
-/* On a phone the categories scroll sideways in one row instead of stacking four rows above the tools. */
-@media (max-width: 640px) { .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--s4)); padding-inline: var(--s4) } .chip { flex: none; white-space: nowrap } }
 .chip span { color: var(--muted); margin-left: var(--s0) } .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--surface)) }
 .count { color: var(--muted); font-size: 14px }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: var(--s4) }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); min-width: 0 }
 .card:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)) }
 .card .row1 { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s3) }
-.card .cat { font: 700 12.5px/1.2 var(--f-head); letter-spacing: .1em; text-transform: uppercase; color: var(--accent) }
-.card .score { font: 700 34px/1 var(--f-head); text-align: right } .card .score small { font-size: 13px; color: var(--muted); font-weight: 600 }
+.cat { font: 700 12.5px/1.2 var(--f-head); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.crumb { margin-bottom: var(--s2) } .crumb a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px } .crumb a:hover { color: var(--accent) }
+.card .score { font: 700 34px/1 var(--f-head); text-align: right }
 .card .score.word { font-size: 16px; color: var(--grey) }
 .card h3 { font: 600 21px/1.2 var(--f-display) } .card h3 a { color: var(--ink); text-decoration: none }
 .card .meta { color: var(--muted); font-size: 13.5px }
@@ -119,7 +126,6 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .empty { padding: var(--s6); text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--r) }
 
 /* Tool page */
-.back { font-size: 15px; text-decoration: none; min-height: 44px; display: inline-flex; align-items: center; justify-self: start }
 .thead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s5); align-items: start }
 .thead h1 { font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 600 }
 .thead .meta { color: var(--muted); margin-top: var(--s2) }

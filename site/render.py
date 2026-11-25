@@ -11,7 +11,7 @@ from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoes
 from markupsafe import Markup, escape
 from icons import LICENCE as ICON_LICENCE, mask_url
 from brand import DARK, favicon
-from preview import card_image, site_image
+from preview import card_image, site_image, touch_icon
 
 HERE = os.path.dirname(os.path.abspath(__file__)) + '/'
 # The pages a tool's id can't take, since the site uses them for its own folders.
@@ -155,3 +155,4 @@ def write_pages(SITE):
     open(out + 'assets/icons.css', 'w').write('\n'.join(css) + '\n')
     # The favicon: the wordmark's slash on the pit board (brand.py).
     open(out + 'assets/favicon.svg', 'w').write(favicon() + '\n')
+    open(out + 'assets/touch-icon.png', 'wb').write(touch_icon())

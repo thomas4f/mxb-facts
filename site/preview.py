@@ -2,9 +2,9 @@
 (brand.py), so a link pasted into Discord or another chat app shows the tool's score and areas under the MXB/FACTS wordmark.
 Drawn from the feed alone, like the pages; they decide nothing. Pillow reads the site's own woff2 fonts.
 """
-import hashlib, io
+import hashlib, io, re
 from PIL import Image, ImageDraw, ImageFont
-from brand import DARK, HERE, RED
+from brand import DARK, HERE, RED, WM
 
 W, H, M = 1200, 630, 64  # size and margin
 FONTS = HERE + 'static/fonts/'
@@ -89,6 +89,35 @@ def card_image(c, IX):
     t, f = fit(d, 'Every answer links its evidence. Made by AI from a public prompt; no person checks each answer.', BODY, 22, W - 2 * M, 18)
     d.text((M, 600), t, font=f, fill=muted, anchor='ls')
     return png(im)
+
+
+def _outline(d, steps=6):
+    # A brand.json path (M, L, H, V, Q and Z only, as tools/wordmark.py writes them) as one polygon's points.
+    pts = []; x = y = 0.0
+    tok = re.findall(r'[MLHVQZ]|-?[0-9.]+', d); i = 0; cmd = None
+    while i < len(tok):
+        if tok[i].isalpha(): cmd = tok[i]; i += 1
+        if cmd == 'Z': continue
+        n = {'M': 2, 'L': 2, 'H': 1, 'V': 1, 'Q': 4}[cmd]; a = [float(v) for v in tok[i:i + n]]; i += n
+        if cmd in 'ML': x, y = a
+        elif cmd == 'H': x = a[0]
+        elif cmd == 'V': y = a[0]
+        else:
+            cx, cy, ex, ey = a
+            for k in range(1, steps + 1):
+                t = k / steps; pts.append(((1 - t) ** 2 * x + 2 * (1 - t) * t * cx + t * t * ex, (1 - t) ** 2 * y + 2 * (1 - t) * t * cy + t * t * ey))
+            x, y = ex, ey; continue
+        pts.append((x, y))
+    return pts
+
+
+def touch_icon(size=180):
+    # The favicon as a PNG for phones' home screens (apple-touch-icon): the slash on the pit board, square, as the phone rounds it.
+    im = Image.new('RGB', (size, size), DARK['bg']); d = ImageDraw.Draw(im)
+    path = re.search(r' d="([^"]+)"', WM['parts'][1]['g']).group(1)
+    s = .074 * size / 64 * .82; ox = size / 2 - 254 * s; oy = size / 2 + 350 * s
+    d.polygon([(ox + px * s, oy + py * s) for px, py in _outline(path)], fill=DARK['accent'])
+    return png(im)[0]
 
 
 def site_image(IX):

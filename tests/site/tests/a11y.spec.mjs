@@ -20,7 +20,7 @@ for (const [name, url] of PAGES) {
   test(`${name}: touch targets are 44 px tall and nothing scrolls sideways`, async ({ page }, info) => {
     test.skip(info.project.name !== 'phone', 'phone only');
     await page.goto(url);
-    const small = await page.evaluate(() => [...document.querySelectorAll('button, select, input, summary, .chip, .btn, .nav a, .back, .cmt, label')]
+    const small = await page.evaluate(() => [...document.querySelectorAll('button, select, input, summary, .chip, .btn, .nav a, .crumb a, .cmt, label')]
       .filter(e => { const r = e.getBoundingClientRect(); const hit = Math.max(r.height, parseFloat(getComputedStyle(e, '::after').height) || 0);
         return r.height > 0 && hit < 44 && !(e.type === 'checkbox' && e.closest('label')); })
       .map(e => `${e.tagName.toLowerCase()}.${e.className} ${Math.round(e.getBoundingClientRect().height)}px`));
