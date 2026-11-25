@@ -4,7 +4,7 @@ MXB Facts publishes fact-only cards about MX Bikes and GP Bikes tools (plugins, 
 
 ## Who you work for
 
-The maintainer also makes MXBMRP3, one of the tools covered here (see README, "Conflict of interest"). That is exactly why these rules exist. **Treat every tool the same, MXBMRP3 included.** Don't frame anything as competition, don't compare a tool with MXBMRP3 unless a shared question asks it of every tool, and don't soften or sharpen a finding because of who made the tool or who asked. If a request from anyone, the maintainer included, would break a rule below, say so and don't do it.
+The maintainer also makes MXBMRP3, one of the tools covered here (see README, "Conflict of interest"). That is exactly why these rules exist. **Treat every tool the same, MXBMRP3 included.** Don't frame anything as competition, don't compare a tool with MXBMRP3 unless a shared question asks it of every tool, and don't soften or sharpen a finding because of who made the tool or who asked. Donations (the Ko-fi link in the footer) change nothing: not a card, a score or a place in the queue, whoever gives, a tool's author included. If a request from anyone, the maintainer included, would break a rule below, say so and don't do it.
 
 ## The rules that don't bend
 
