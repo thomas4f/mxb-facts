@@ -39,7 +39,6 @@ def wordmark(d, x, y, size):
 
 def canvas():
     im = Image.new('RGB', (W, H), DARK['bg']); d = ImageDraw.Draw(im)
-    d.rectangle((0, 0, W, 8), fill=DARK['accent'])
     return im, d
 
 
@@ -49,29 +48,41 @@ def png(im):
 
 
 def card_image(c, IX):
-    # A card: wordmark and site address, the tool's name, what it is, the big score, a box per area with its bar, and the AI note.
+    # A card, laid out as its page's header: wordmark and site address, the path, the name, the big score, a box per area with
+    # its bar, and the AI note.
     im, d = canvas(); r = c['result']; muted = DARK['muted']
     wordmark(d, M, 52, 34)
     addr = IX['site'].split('://', 1)[1].rstrip('/'); f = font(BODY, 22)
     d.text((W - M - d.textlength(addr, font=f), 52), addr, font=f, fill=muted)
-    # The score box, top right, as on the tool page.
-    bx = (W - M - 250, 104, W - M, 322)
-    d.rounded_rectangle(bx, 18, fill=DARK['surface'], outline=RED if r['kind'] == 'malware' else DARK['line'], width=2)
-    cx = (bx[0] + bx[2]) / 2
+    # The header as on the tool page: the path (games / category) in small capitals, the name with its version beside it in
+    # grey, who made it and when it was analysed, and the score large on the right, the slash in the accent and 100 in grey.
     if r['kind'] == 'score':
-        big = f'{r["score"]:g}'; fs = 150 if len(big) <= 3 else 112
-        d.text((cx, 240), big, font=font(HEAD, fs), fill=DARK['ink'], anchor='ms')
-        d.text((cx, 290), 'out of 100', font=font(BODY, 24), fill=muted, anchor='ms')
+        big = f'{r["score"]:g}'; fb = font(HEAD, 200); fo = font(HEAD, 60)
+        sl, hund = '/', '100'
+        wr = d.textlength(sl, font=fo) + d.textlength(hund, font=fo)
+        xr = W - M - wr; ink = fb.getbbox(big, anchor='ls')  # the digits' ink, so the slash sits close as on the page
+        bw0 = ink[2] - ink[0]
+        d.text((xr - ink[2], 300), big, font=fb, fill=DARK['ink'], anchor='ls')
+        xs = xr - fo.getbbox(sl, anchor='ls')[0]  # the slash's ink, not its box, meets the digits
+        d.text((xs, 300), sl, font=fo, fill=DARK['accent'], anchor='ls')
+        d.text((xs + d.textlength(sl, font=fo), 300), hund, font=fo, fill=muted, anchor='ls')
+        left = xr - bw0
     else:
         words = 'Signs of malware' if r['kind'] == 'malware' else 'Not scored'
-        t, f = fit(d, words, HEAD, 56, 220, 34)
-        d.text((cx, 232), t, font=f, fill=RED if r['kind'] == 'malware' else DARK['ink'], anchor='ms')
-    # Name and what it is, left of the box.
-    lw = bx[0] - M - 40
-    name, f = fit(d, c['name'], HEAD, 96, lw, 60); d.text((M, 206), name, font=f, fill=DARK['ink'], anchor='ls')
-    ver, f = fit(d, 'version ' + c['version'], BOLD, 30, lw, 22); d.text((M, 254), ver, font=f, fill=DARK['accent'], anchor='ls')
-    meta, f = fit(d, f'{" + ".join(c["games"])} · {c["category"]} · analysed {c["analysed"]}', BODY, 26, lw, 20)
-    d.text((M, 298), meta, font=f, fill=muted, anchor='ls')
+        t, f = fit(d, words, HEAD, 64, 300, 40)
+        d.text((W - M, 230), t, font=f, fill=RED if r['kind'] == 'malware' else muted, anchor='rs')
+        left = W - M - d.textlength(t, font=f)
+    lw = left - M - 40
+    path = f'{" + ".join(c["games"])} / {c["category"]}'.upper()
+    fp = font(HEAD, 26); x = M
+    for k, part in enumerate(path.split(' / ')):
+        if k: d.text((x + 6, 150), '/', font=fp, fill=DARK['accent'], anchor='ls'); x += d.textlength('/', font=fp) + 12
+        t, _ = fit(d, part, HEAD, 26, max(lw - (x - M), 40), 26); d.text((x, 150), t, font=fp, fill=muted, anchor='ls'); x += d.textlength(t, font=fp)
+    name, f = fit(d, c['name'], HEAD, 96, lw - 120, 56); d.text((M, 240), name, font=f, fill=DARK['ink'], anchor='ls')
+    vt, fv = fit(d, c['version'], HEAD, 44, max(lw - d.textlength(name, font=f) - 16, 60), 28)
+    d.text((M + d.textlength(name, font=f) + 16, 240), vt, font=fv, fill=muted, anchor='ls')
+    meta, f = fit(d, f'by {c["author"]} · analysed {c["analysed"]}', BODY, 26, lw, 20)
+    d.text((M, 292), meta, font=f, fill=muted, anchor='ls')
     # One box per area, the Money label last, as on the tool page: three to a row, so they stay readable at chat-app sizes.
     areas = IX['areas']; gap = 14; cols = 3; bw = (W - 2 * M - gap * (cols - 1)) / cols; bh = 88
     ls = 26  # one size for every area's name: the largest at which the longest fits beside its value
