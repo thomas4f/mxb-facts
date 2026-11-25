@@ -161,7 +161,7 @@ details.fold > summary .sumr { display: flex; gap: var(--s2); align-items: cente
 details.fold > summary::after { grid-column: 3; grid-row: 1; content: "+"; color: var(--muted); font-weight: 400; font-size: 20px; line-height: 1 }
 details.fold[open] > summary::after { content: "–" }
 details.fold > summary .mk { display: flex; gap: var(--s2); flex-wrap: wrap; justify-content: flex-end } details.fold > summary .mk:empty { display: none }
-@media (max-width: 640px) { details.fold > summary .sumr { display: contents } details.fold > summary .sumr > :not(.mk) { grid-row: 1; grid-column: 2 } details.fold > summary .mk { grid-row: 2; grid-column: 1 / -1; justify-content: flex-start } }
+@media (max-width: 640px) { details.fold > summary .sumr { display: contents } details.fold > summary .sumr > :not(.mk, .muted) { grid-row: 1; grid-column: 2 } details.fold > summary .mk, details.fold > summary .sumr > .muted { grid-row: 2; grid-column: 1 / -1; justify-content: flex-start; font-weight: 400 } }
 details.fold > .body { border-top: 1px solid var(--line) }
 .row { padding: var(--s3) var(--s4); display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--s1) var(--s3); border-bottom: 1px solid var(--line) }
 .row:last-child { border-bottom: 0 }

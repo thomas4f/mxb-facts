@@ -228,3 +228,9 @@ test('the 404 page names only what it is sure of', async ({ page }) => {
     await expect(page.locator('h1')).not.toContainText('No card for');
   }
 });
+
+test('on a phone a fold\'s note goes under its title, so the title keeps its width', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 700 });
+  await page.goto('how/');
+  for (const w of await page.locator('details.fold > summary .ft').evaluateAll((ts) => ts.map((t) => t.getBoundingClientRect().width))) expect(w).toBeGreaterThan(200);
+});
