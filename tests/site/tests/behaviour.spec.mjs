@@ -118,3 +118,15 @@ test('a section\'s link copies its address and leaves a fold as it was; followin
   await page.locator('#q-D3 a.id').click();
   expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/\/pitbox\/#q-D3$/);
 });
+
+test('each release in History opens to its changes since the release before it', async ({ page }) => {
+  await page.goto('dirt-gear/1.2.0/');
+  await expect(page.locator('details[id="v-1.2.0"]')).toHaveAttribute('open', '');
+  await expect(page.locator('details[id="v-1.2.0"]')).toContainText('Changes since 1.1.1');
+  const newer = page.locator('details[id="v-1.2.1"]');
+  await expect(newer).not.toHaveAttribute('open', '');
+  await newer.locator('summary').click();
+  await expect(newer).toContainText('Changes since 1.2.0');
+  await expect(newer.getByRole('link', { name: 'Open 1.2.1' })).toHaveAttribute('href', '../../dirt-gear/');
+  await expect(page.locator('details[id="v-1.1.1"]')).toContainText('The first release of this tool analysed');
+});

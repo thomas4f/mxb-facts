@@ -130,23 +130,33 @@
 
 <h2 class="h2" id="history">History</h2>
 {% if t.releases | length > 1 %}
-<div class="rel">
+{# One fold per release, newest first: each opens to what changed since the release before it, as answers on the page read;
+   this page's release is open. Compare puts any two side by side. #}
+<div class="stack tight">
 {% for v in t.releases %}
-  <div class="relr{% if v.card == c.card %} cur{% endif %}"><a class="relv" href="{{ root }}{{ t.id }}/{% if v.card != t.latest.card %}{{ v.version }}/{% endif %}"{% if v.card == c.card %} aria-current="page"{% endif %}><span>{{ v.version }} <span class="muted">· analysed {{ v.analysed }}</span></span><b class="num">{% if v.kind == 'score' %}{{ v.score }}{{ of100() }}{% else %}{{ STATES[v.kind].label }}{% endif %}</b></a>
-  {% if v.card != c.card %}<a class="cmpl2" href="{{ root }}compare/?c={{ c.card }},{{ v.card }}">Compare<span class="vh"> {{ c.version }} with {{ v.version }}</span></a>{% else %}<span class="cmpl2 muted">This page</span>{% endif %}</div>
+{% set vc = cards[v.card] %}
+{% set vp = root ~ t.id ~ '/' ~ ('' if v.card == t.latest.card else v.version ~ '/') %}
+{% set side %}<b class="num sc">{% if v.kind == 'score' %}{{ v.score }}{{ of100() }}{% else %}{{ STATES[v.kind].label }}{% endif %}</b>{% endset %}
+{% call fold('v-' ~ v.version, v.version ~ (' (this page)' if v.card == c.card else '') ~ ' · analysed ' ~ v.analysed, side, open=(v.card == c.card), h='h3') %}
+<div class="pad stack tight">
+{% set ch = vc.changes_since %}
+{% if ch %}
+  {% set old = t.releases | selectattr('card', 'equalto', ch.card) | first %}
+  <p class="lead">Changes since {{ ch.version }}</p>
+  <ul class="chg">
+    <li>Score: {{ old.score if old.kind == 'score' else STATES[old.kind].label }} → {{ v.score if v.kind == 'score' else STATES[v.kind].label }}</li>
+    {% for x in ch.answers %}<li><a href="{{ vp }}#q-{{ x.question }}">{{ x.question }}</a> {{ answer_mark(x['from'], v.kind == 'score') }} <span aria-hidden="true">→</span><span class="vh">changed to</span> {{ answer_mark(x.to, v.kind == 'score') }}</li>{% endfor %}
+    {% for x in ch.areas %}<li>{{ area_name[x.area] }}: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
+    <li class="muted">{{ ch.unchanged }} answers unchanged</li>
+  </ul>
+{% else %}
+  <p class="lead">The first release of this tool analysed.</p>
+{% endif %}
+  {% if v.card != c.card %}<p class="rlinks"><a href="{{ vp }}">Open {{ v.version }}</a> <a href="{{ root }}compare/?c={{ c.card }},{{ v.card }}">Compare {{ c.version }} with {{ v.version }}</a></p>{% endif %}
+</div>
+{% endcall %}
 {% endfor %}
 </div>
-{% endif %}
-{% if c.changes_since %}
-{% set ch = c.changes_since %}
-<h3 class="h3">Changes since {{ ch.version }}</h3>
-<ul class="chg">
-  {% set old = t.releases | selectattr('card', 'equalto', ch.card) | first %}
-  <li>Score: {{ old.score if old.kind == 'score' else STATES[old.kind].label }} → {{ r.score if scored else r.label }}</li>
-  {% for x in ch.answers %}<li><a href="#q-{{ x.question }}">{{ x.question }}</a> {{ answer_mark(x['from'], scored) }} <span aria-hidden="true">→</span><span class="vh">changed to</span> {{ answer_mark(x.to, scored) }}</li>{% endfor %}
-  {% for x in ch.areas %}<li>{{ area_name[x.area] }}: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
-  <li class="muted">{{ ch.unchanged }} answers unchanged</li>
-</ul>
 {% endif %}
 {% call fold('card-history', 'Card history', note='' ~ c.history | length ~ ' change' ~ ('s' if c.history | length != 1 else '') ~ '', h='h3') %}
 <div><div class="tw"><table class="t"><thead><tr><th scope="col">Date</th><th scope="col">Change to this card</th></tr></thead><tbody>

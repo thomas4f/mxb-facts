@@ -145,7 +145,7 @@ def write_pages(SITE):
     for t in IX['tools']:
         for r in t['releases']:
             c = CARDS[r['card']]
-            complete(c, page(card_path(c) + 'index.html', 'tool.html', card_path(c).count('/'), t=t, c=c, card_image=image(c['card'], card_image(c, IX))))
+            complete(c, page(card_path(c) + 'index.html', 'tool.html', card_path(c).count('/'), t=t, c=c, cards=CARDS, card_image=image(c['card'], card_image(c, IX))))
     page('compare/index.html', 'compare.html', 1, cards=[CARDS[r['card']] for t in IX['tools'] for r in t['releases']])
     page('how/index.html', 'how.html', 1)
     page('authors/index.html', 'authors.html', 1)

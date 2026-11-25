@@ -191,11 +191,7 @@ details.sub:last-child { border-bottom: 0 }
 .box { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s1) var(--s1) }
 .lims { margin: 0; padding: var(--s3) var(--s4) var(--s3) var(--s7); display: grid; gap: var(--s2); font-size: 14.5px }
 /* One release per row: the release (its page) and, beside it, Compare with the page you are on. */
-.rel { display: grid; gap: var(--s2) }
-.relr { display: flex; align-items: stretch; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-ctl) }
-.relr.cur { border-color: var(--accent) }
-.relr .relv { flex: 1; display: flex; justify-content: space-between; align-items: center; gap: var(--s3); min-height: 44px; padding: 0 var(--s4); text-decoration: none; color: var(--ink) }
-.relr .cmpl2 { display: flex; align-items: center; min-width: 7.5em; justify-content: center; padding: 0 var(--s4); border-left: 1px solid var(--line); font-size: 14px }
+.rlinks { display: flex; flex-wrap: wrap; gap: var(--s2) var(--s4); margin: 0 } .rlinks a { display: inline-flex; align-items: center; min-height: 44px }
 .links { display: flex; gap: var(--s2); flex-wrap: wrap }
 .facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s2) var(--s4); margin: 0; padding: var(--s4) var(--s4); font-size: 14.5px }
 .facts dt { color: var(--muted) } .facts dd { margin: 0; overflow-wrap: anywhere }
