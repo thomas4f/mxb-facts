@@ -51,8 +51,13 @@
 {% block main %}{% endblock %}
 </main>
 <footer><div class="in">
-  <p>MXB Facts (rubric {{ IX.rubric }}, built from commit <a href="{{ SITE.repo }}commit/{{ IX.commit }}">{{ IX.commit[:12] }}</a>) is maintained by <a href="{{ SITE.links.maintainer }}">thomas4f</a>, who also makes MXBMRP3 (<a href="{{ SITE.links.conflict }}">conflict of interest</a>). Cards and data: <a href="{{ IX.licence.url }}" rel="license">CC BY 4.0</a>; code: MIT.</p>
-  <p><a href="{{ SITE.links.comment }}">Comment on a card</a> · <a href="{{ SITE.links.request }}">Request a tool</a> · <a href="{{ SITE.links.question }}">Suggest a question</a> · <a href="{{ SITE.links.source }}">Source on GitHub</a> · <a href="{{ root }}api/v1/index.json">Data feed</a></p>
+  {# Who runs it, then the links in two small groups, then one quiet line for the licence and the build. #}
+  <div class="fgrid">
+    <p class="fabout"><a class="brand" href="{{ root }}">MXB<em>/</em>Facts</a><span>Maintained by <a href="{{ SITE.links.maintainer }}">thomas4f</a>, who also makes MXBMRP3 (<a href="{{ SITE.links.conflict }}">conflict of interest</a>).</span></p>
+    <nav class="flinks" aria-label="Take part"><h2 class="fh">Take part</h2><a href="{{ SITE.links.comment }}">Comment on a card</a><a href="{{ SITE.links.request }}">Request a tool</a><a href="{{ SITE.links.question }}">Suggest a question</a></nav>
+    <nav class="flinks" aria-label="Project"><h2 class="fh">Project</h2><a href="{{ SITE.links.source }}">Source on GitHub</a><a href="{{ root }}api/v1/index.json">Data feed</a></nav>
+  </div>
+  <p class="fmeta">Cards and data <a href="{{ IX.licence.url }}" rel="license">CC BY 4.0</a> · Code MIT · Rubric {{ IX.rubric }} · Built from <a href="{{ SITE.repo }}commit/{{ IX.commit }}">{{ IX.commit[:7] }}</a></p>
 </div></footer>
 <script src="{{ root }}assets/site.js" defer></script>
 {% block scripts %}{% endblock %}
