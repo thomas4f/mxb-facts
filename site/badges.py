@@ -5,7 +5,7 @@ import json, math
 from rules import AREAN, CONCERN, ROOT, RUBRICV, STATES, gsym, gtext
 from icons import group as icon_group
 from cards import esc
-from brand import DARK, RED, figures, wordmark, wordmark_width
+from brand import DARK, RED, figures, figures_width, wordmark, wordmark_width
 
 # Badges (rules/scores.md, "Badge"): three shields in the shields.io styles (flat, flat-square, for-the-badge: same sizes,
 # padding and font), a score tile, and a card with the area scores. They carry the site's identity (brand.py): the MXB/FACTS
@@ -37,15 +37,21 @@ def shield(style,G,title,uid):
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{_n(w)}" height="{h}" role="img" aria-label="{esc(title)}"><title>{esc(title)}</title>{body}{label}'
             f'<g fill="{GINK[kind]}" text-anchor="middle" font-family="{BFONT}" text-rendering="geometricPrecision" font-size="{100 if big else 110}">{text}</g></svg>')
 def _tile(G,x,y,s):
-    # The score square, as the tool page's big score: the score in the site's figures (or the icon for ? and X), "/100" under
-    # it, the wordmark at the foot, on the pit board's dark (red for signs of malware alone).
+    # The score square, as the tool page's big score: the score in the site's figures with a small "/100" on its baseline, the
+    # slash in the accent and 100 in grey (or the icon for ? and X), the wordmark at the foot, on the pit board's dark (red for
+    # signs of malware alone).
     kind=G['kind']; bg=RED if kind=='malware' else DARK['bg']
-    big=(icon_group(STATES[kind][2],x+s*.32,y+s*.14,s*.36,DARK['ink']) if kind in ('malware','notscored') else
-         figures(gsym(G),x+s/2,y+s*.5,s*.36,DARK['ink'],'middle'))
-    sub=figures('/100',x+s/2,y+s*.68,s*.1,DARK['muted'],'middle') if kind=='score' else ''
+    if kind in ('malware','notscored'): big=icon_group(STATES[kind][2],x+s*.32,y+s*.18,s*.36,DARK['ink'])
+    else:
+        n=gsym(G); cb,cs=s*.4,s*.13; gap=s*.015
+        wn,ws,wh=figures_width(n,cb),figures_width('/',cs),figures_width('100',cs)
+        k=min(1,s*.82/(wn+gap+ws+wh))  # a score of 100 is a digit wider: the whole score shrinks to keep its margins
+        cb,cs,gap,wn,ws,wh=cb*k,cs*k,gap*k,wn*k,ws*k,wh*k
+        x0=x+(s-(wn+gap+ws+wh))/2; yb=y+s*.62
+        big=(figures(n,x0,yb,cb,DARK['ink'])+figures('/',x0+wn+gap,yb,cs,DARK['accent'])
+             +figures('100',x0+wn+gap+ws,yb,cs,DARK['muted']))
     return (f'<rect x="{x+.5}" y="{y+.5}" width="{s-1}" height="{s-1}" rx="{s*.11:.1f}" fill="{bg}" stroke="{DARK["line"]}"/>'
-            f'<rect x="{x+s*.3:.1f}" y="{y+s*.76:.1f}" width="{s*.4:.1f}" height="{max(1.5,s*.02):.1f}" fill="{DARK["accent"]}"/>'
-            f'{big}{sub}{wordmark(x+(s-wordmark_width(s*.075))/2,y+s*.92,s*.075)}')
+            f'{big}{wordmark(x+(s-wordmark_width(s*.075))/2,y+s*.88,s*.075)}')
 def badge_tile(G,title):
     return f'<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" role="img" aria-label="{esc(title)}"><title>{esc(title)}</title>{_tile(G,0,0,96)}</svg>'
 def badge_areas(G,title):
