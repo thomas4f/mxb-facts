@@ -94,6 +94,8 @@ try: COMMIT=subprocess.run(['git','-C',ROOT,'rev-parse','HEAD'],capture_output=T
 except (OSError,subprocess.CalledProcessError): COMMIT=''
 assert re.fullmatch(r'[0-9a-f]{40}',COMMIT), 'site/build.py needs the repository\'s git history, for the commit that test-host evidence and the For authors check point at'
 CORRFORM=REPO+'issues/new?template=correction.yml'
+REQFORM=REPO+'issues/new?template=analyse-tool.yml'  # a request to analyse a tool, or to re-check a new release
+SITEURL='https://thomas4f.github.io/mxb-facts/'
 # Open corrections per card: question -> issue numbers. While one is open, each answer it names shows a neutral marker; nothing else moves.
 CORR={}
 def correction_link(card,q,ans=''):
@@ -139,6 +141,8 @@ def no_html(f,d,p='card'):
         assert '![' not in t, f+': '+p+' holds a Markdown image ("'+t[t.index('!['):t.index('![')+30]+'"); cards link, they don\'t embed'
         assert not m, f+': '+p+' holds HTML ("'+t[m.start():m.start()+30]+'"); put it in `code`, or write &lt;'
         bad=[u for u in re.findall(r'\]\(([^)\s]*)',t) if not u.startswith('https://')]
+        # A reference-style link ([text][ref] with "[ref]: address" on its own line) would slip past the check above.
+        bad+=re.findall(r'(?m)^\s{0,3}\[[^\]]+\]:\s*\S+',t)
         assert not bad, f+': '+p+' links somewhere other than an https address: '+', '.join(bad)
 def linked(f,d):
     # The card with every path into lab/ turned into a link (lablinks), for everything that is shown.

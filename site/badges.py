@@ -14,7 +14,6 @@ from brand import DARK, RED, figures, wordmark, wordmark_width
 # viewer draws it the same width.
 GCOL={'score':DARK['accent'],'notscored':'#3d4a5c','malware':RED}  # red is for signs of malware alone
 GINK={'score':DARK['accent-ink'],'notscored':'#fff','malware':'#fff'}  # the message's text on that colour
-SITEURL='https://thomas4f.github.io/mxb-facts/'
 BW=json.load(open(ROOT+'site/badge-widths.json'))
 def _tw(t,k):
     # As shields.io does: the text's width, rounded down, then up to an odd number of pixels.

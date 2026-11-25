@@ -18,7 +18,7 @@ maintainer_notice: >-
   evidence, so you can check it yourself ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
 how_a_card_is_made:
   - >-
-    **A tool is requested** through the request form, or Thomas picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.
+    **A tool is requested** through the request form, or the maintainer picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.
   - >-
     **Its files are pinned:** the newest release, unless another is named. Every file players download is hashed (SHA-256), and the release's commit is fixed when the source is public.
   - >-

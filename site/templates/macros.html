@@ -30,8 +30,8 @@
 {# side: markup made in the template (a score and its marks); note: plain text, shown muted. Text is never pasted into markup. #}
 {% macro fold(id, title, side='', open=False, h=None, note='') -%}
 {# A fold with an id has its link (the GitHub-style one) beside its summary, not in it: a link can't sit inside a summary. #}
-{% if id %}<div class="fw">{% endif %}<details class="fold"{% if id %} id="{{ id }}"{% endif %}{% if open %} open{% endif %}><summary>{% if h %}<{{ h }} class="ft">{{ title }}</{{ h }}>{% else %}<span class="ft">{{ title }}</span>{% endif %}{% if side or note %}<span class="sumr">{% if note %}<span class="muted">{{ note }}</span>{% endif %}{{ side }}</span>{% endif %}</summary>
-<div class="body">{{ caller() }}</div></details>{% if id %}<a class="anc fa" href="#{{ id }}" title="Copy a link to this section"><span class="vh">Link to {{ title }}</span></a></div>{% endif %}
+{% if id %}<div class="fw"><a class="anc fa" href="#{{ id }}" title="Copy a link to this section"><span class="vh">Link to {{ title }}</span></a>{% endif %}<details class="fold"{% if id %} id="{{ id }}"{% endif %}{% if open %} open{% endif %}><summary>{% if h %}<{{ h }} class="ft">{{ title }}</{{ h }}>{% else %}<span class="ft">{{ title }}</span>{% endif %}{% if side or note %}<span class="sumr">{% if note %}<span class="muted">{{ note }}</span>{% endif %}{{ side }}</span>{% endif %}</summary>
+<div class="body">{{ caller() }}</div></details>{% if id %}</div>{% endif %}
 {%- endmacro %}
 
 {# The notes beside an answer's mark: why it costs what it costs, the rule that set it, the limits that touch it, comments under review. #}

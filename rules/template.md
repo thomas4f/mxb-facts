@@ -118,6 +118,7 @@ How we work changes here; a change to scores is recorded in [scores.md](scores.m
 
 | Date | Change |
 |---|---|
+| 25 Nov 2026 | The site is made from a data feed (`api/v1/`, [docs/FEED.md](../docs/FEED.md)) that anyone can read: every tool, card and answer, with its evidence. The cards, rules, site text and feed are under CC BY 4.0 (credit MXB Facts with a link); the code stays MIT. |
 | 25 Nov 2026 | A card can name both games: the Game row lists each game the release shows it is made for (never only the author's word), with each game's mods-site row, and each named game's plugin runs in that game's demo or gets a Limits line. The registry has a mods-site entry for each game its cards name. |
 | 24 Nov 2026 | Rule 9: dropped the line that kept the whole site unpublished while a security problem in the maintainer's own tool was held back. That tool's card is held back like any other: it shows a "Held back" row in place of the details. |
 | 24 Nov 2026 | Rule 9: an analysis that finds a security problem to hold back no longer stops there. It finishes the card, with its "Held back" row, and reports every problem it finds; the "Analyse a tool" run then opens no pull request and sends the report and the finished card to the maintainer privately, sealed, until the author has been told. |

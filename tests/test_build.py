@@ -205,6 +205,7 @@ check('a tag in the summary is refused', html_refused({'summary': 'A plugin <img
 check('a tag in an answer is refused', html_refused({'answers': {'P2': {'text': 'Sends <script>x</script>', 'evidence': 'e'}}}))
 check('a tag in the tool name is refused', html_refused({'tool': '<b>Tool</b>'}))
 check('a link that isn\'t https is refused', html_refused({'answers': {'P2': {'text': 'See [this](javascript:alert(1))'}}}))
+check('a reference-style link is refused (its address would skip the https check)', html_refused({'answers': {'P2': {'text': 'See [this][x]\n\n[x]: javascript:alert(1)'}}}))
 check('a Markdown image is refused', html_refused({'answers': {'P2': {'text': 'Counter ![x](https://example.com/pixel.png)'}}}))
 check('< inside code, a lone < and an https link pass', not html_refused({'summary': 'Prints `#<n>`, 1 < 2, [VT](https://www.virustotal.com/gui/file/0)'}))
 

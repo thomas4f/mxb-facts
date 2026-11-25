@@ -223,7 +223,17 @@
         "areas",
         "states",
         "tags",
-        "tools"
+        "tools",
+        "built_at",
+        "categories",
+        "commit",
+        "correction_kinds",
+        "feed_version",
+        "legend",
+        "links",
+        "money",
+        "rubric",
+        "says_question"
       ],
       "properties": {
         "tools": {
@@ -348,7 +358,22 @@
         "licence",
         "analysed_iso",
         "method",
-        "sections"
+        "sections",
+        "areas",
+        "author",
+        "author_prompt",
+        "badges",
+        "built_at",
+        "by_maintainer",
+        "changes_since",
+        "commit",
+        "corrections",
+        "facts",
+        "feed_version",
+        "files_note",
+        "header",
+        "rubric",
+        "yaml"
       ],
       "properties": {
         "games": {
@@ -483,7 +508,12 @@
       "required": [
         "github",
         "mods_post",
-        "sha256"
+        "sha256",
+        "built_at",
+        "commit",
+        "feed_version",
+        "licence",
+        "rubric"
       ],
       "properties": {
         "github": {
@@ -540,7 +570,15 @@
         "questions",
         "key_questions",
         "authors_check",
-        "links"
+        "links",
+        "ai_note",
+        "ai_short",
+        "built_at",
+        "lede",
+        "licence",
+        "maintainer_notice",
+        "repo",
+        "site"
       ],
       "properties": {
         "how_a_card_is_made": {

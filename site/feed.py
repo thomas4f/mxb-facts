@@ -7,10 +7,9 @@ Usage: from build.py, write_feed(SITE, CARDS) and write_site(SITE, skill, agents
 import datetime, json, jsonschema, os, re, subprocess
 from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PMEANS, QCELL, QIDS, QS, RUBRICV,
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
-from cards import COMMIT, CORR, CORRFORM, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games
+from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games
 from badges import BADGES
 
-SITEURL='https://thomas4f.github.io/mxb-facts/'
 
 FEED_VERSION='1.0'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
@@ -72,6 +71,8 @@ def check(obj,kind):
     jsonschema.validate(obj,{**SCHEMA,'$ref':'#/$defs/'+kind})
     # Markdown with https links only: no link a consumer would resolve against its own site.
     assert not re.search(r'\]\((?!https://)',json.dumps(obj,ensure_ascii=False)), kind+': a link in the feed is not https://'
+    # A reference-style link definition ("[ref]: address" on a line of its own) is refused too: its address isn't checked above.
+    assert not re.search(r'(^|\\n)\s{0,3}\[[^\]]+\]:\s*\S',json.dumps(obj,ensure_ascii=False)), kind+': a reference-style link in the feed'
 
 def key_state(k):
     # A key answer's state: its mark, a Concern as the site draws it (Major, Off by default, On request, Signs of malware), or a grey state.
@@ -176,7 +177,7 @@ def add(d,k,v):
 def write_feed(SITE,CARDS):
     # The commit's date, not the clock, so the same commit always writes the same files.
     when=subprocess.run(['git','-C',ROOT,'log','-1','--format=%cI'],capture_output=True,text=True).stdout.strip() or '1970-01-01T00:00:00+00:00'
-    base={'feed_version':FEED_VERSION,'built_at':when,'commit':COMMIT,'rubric':RUBRICV}
+    base={'feed_version':FEED_VERSION,'built_at':when,'commit':COMMIT,'rubric':RUBRICV,'licence':LICENCE}
     note=ai_note()
     out=SITE+'api/v1/'; os.makedirs(out+'cards',exist_ok=True)
     tools={}; found={'github':{},'mods_post':{},'sha256':{}}
@@ -215,7 +216,7 @@ def write_feed(SITE,CARDS):
         vt={r[2].strip('`'):r[3] for r in files_table(f,raw)}
         files=[{'name':x['name'],'sha256':x['sha256'],'note':x.get('note',''),'inside':x.get('inside'),'virustotal':vt[x['sha256']]} for x in raw['files']]
         hist=[{'date':x['date'],'date_iso':iso(x['date']),'change':x['change']} for x in raw.get('history',[])]
-        card={**base,'ai_note':note,'licence':LICENCE,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'games':games(h),'category':h['Category'],
+        card={**base,'ai_note':note,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'games':games(h),'category':h['Category'],
               'summary':plain(h['In one line']),'author':REG[slug]['author'],'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'method':h['Method'],
               'page':page,'yaml':f'{SITEURL}cards/{f}','badges':badges,'result':res,'tags':tags,'files':files,
               'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[]),
@@ -237,12 +238,12 @@ def write_feed(SITE,CARDS):
         for k,_ in SITES.values():
             if k in reg and reg[k]['post']: add(found['mods_post'],f'{k}:{reg[k]["post"]}',slug)
         for x in files: add(found['sha256'],x['sha256'],{'tool':slug,'card':cid,'version':C['ver'],'latest':latest,'file':x['name'],'inside':x['inside'],'note':x['note']})
-    index={**base,'site':SITEURL,'ai_note':note,'licence':LICENCE,
+    index={**base,'site':SITEURL,'ai_note':note,
            'areas':[{'id':AREA_ID[ar],'name':ar,'scored':ar in CONCERN} for ar in AREAN],
            'states':[{'id':k,'label':l,'meaning':m,'icon':i} for k,(l,_c,i,m) in STATES.items()],
            'money':[{'label':l,'means':x['means'],'grey':l in MLEFT} for l,x in MLAB.items()],
            'categories':[c for c in CATS if any(t['category']==c for t in tools.values())],
-           'says_question':SAYSQ,'legend':legend(),'correction_kinds':CKINDS,'links':{'comment':CORRFORM,'recheck':REPO+'issues/new?template=analyse-tool.yml','repo':REPO},
+           'says_question':SAYSQ,'legend':legend(),'correction_kinds':CKINDS,'links':{'comment':CORRFORM,'recheck':REQFORM,'repo':REPO},
            'tags':[{'label':x['tag'],'question':x['from'],'answer':x['answer'],'kind':x['kind'].lower(),'icon':x.get('icon')} for x in SC['tags'] if x['kind']!='None'],
            'tools':sorted(tools.values(),key=lambda t:t['name'].lower())}
     check(index,'index')
@@ -285,7 +286,8 @@ def sections(md):
 
 def write_site(SITE,skill,agents_line):
     # The site's own text and rules, so a design can draw How it works and For authors from data, like the tools.
-    base={'feed_version':FEED_VERSION,'commit':COMMIT,'rubric':RUBRICV}
+    when=subprocess.run(['git','-C',ROOT,'log','-1','--format=%cI'],capture_output=True,text=True).stdout.strip() or '1970-01-01T00:00:00+00:00'
+    base={'feed_version':FEED_VERSION,'built_at':when,'commit':COMMIT,'rubric':RUBRICV,'licence':LICENCE}
     prm=open(ROOT+'prompts/analyse-tool.md').read()
     assert '\n## The prompt\n' in prm, 'prompts/analyse-tool.md: no "## The prompt" section'
     # The drop-in check, CLAUDE.md and the For authors page say "steps 1 to 5" (analyse and run, no card) and "skip step 6"
@@ -300,6 +302,6 @@ def write_site(SITE,skill,agents_line):
           'questions':[{'id':i,'area':QAREA[i],'question':qt,'good_when':goodwhen(i),'marks':QCELL[i],'max_cost':maxcost(i) if i in GCOST else 0} for i,_a,qt in QS],
           'key_questions':[{'id':k,'question':q,'short':s,'from':src} for k,q,s,src in KEYS],
           'authors_check':{'path':'.claude/skills/mxb-facts-check/SKILL.md','download':SITEURL+'authors/mxb-facts-check/SKILL.md','text':skill,'agents_line':agents_line},
-          'links':{'request':REPO+'issues/new?template=analyse-tool.yml','question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f'}}
+          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f'}}
     check(data,'site')
     json.dump(data,open(SITE+'api/v1/site.json','w'),indent=1,ensure_ascii=False)

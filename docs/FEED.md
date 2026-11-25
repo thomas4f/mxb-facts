@@ -6,22 +6,22 @@ Static JSON files that any site or app can read: the same data the MXB Facts pag
 https://thomas4f.github.io/mxb-facts/api/v1/
 ```
 
-GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a browser page, an app or a WordPress site can fetch it directly. Files are cached for 10 minutes. Each file names the commit it was built from (`commit`) and that commit's date (`built_at`), so the same commit always gives the same files.
+GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a browser page, an app or a WordPress site can fetch it directly. Files are cached for 10 minutes. Every file starts with the same fields: `feed_version`, the commit it was built from (`commit`) and that commit's date (`built_at`), the rubric (`rubric`) and the licence (`licence`), so the same commit always gives the same files.
 
 ## Files
 
 | File | What it holds | Size (Nov 2026) |
 |---|---|---|
-| `index.json` | The licence (`licence`, also in every card), and every tool: id, name, author, games (one or both), category, one-line summary, page, its mods-site posts (one per game that has one), every release with its score (newest first), and the newest release's full result, tags and badges. Also the areas, states and tags the other files refer to, and the AI note. | ~55 KB |
-| `cards/<card>.json` | One card in full: result, tags, files with SHA-256, the ten key answers, every answer with its state and cost, the report sections, history and corrections. `<card>` is the card's file name without `.yaml`, as in `holeshot-0.24.2`. | 50–90 KB each |
+| `index.json` | Every tool: id, name, author, games (one or both), category, one-line summary, page, its mods-site posts (one per game that has one), every release with its score (newest first), and the newest release's full result, tags and badges. Also the areas, states and tags the other files refer to, and the AI note. | ~55 KB |
+| `cards/<card>.json` | One card in full: result, tags, files with SHA-256, the ten key answers, every answer with its state and cost, the report sections, history and corrections. `<card>` is the card's file name without `.yaml`, as in `holeshot-0.24.2`. | 80–125 KB each |
 | `match.json` | Lookup keys to tools: GitHub repository (lower case), mods-site post (`mxb-mods:<id>` or `gpb-mods:<id>`), and the SHA-256 of every file a card lists. | ~70 KB |
 | `site.json` | Everything the site's own pages need beyond the cards: the questions with what earns a Good answer, the rules, the prompt, the authors' check, the site's text and links. The site's pages are made from this file and the three above alone, so anything a page shows, the feed has. | |
-| `schema/feed.schema.json` | JSON Schema for `index.json`, `cards/<card>.json` and `match.json` (`$defs`: `index`, `card`, `match`). | |
+| `schema/feed.schema.json` | JSON Schema for every file above (`$defs`: `index`, `card`, `match`, `site`). Every field the site uses is required, so the promise below is checked on each build. | |
 
 ## What you can rely on
 
 - **The feed decides nothing for you.** Scores, area scores, states, costs and tags are worked out by the build from [`rules/scoring.yaml`](../rules/scoring.yaml), with the same functions the site uses. Show them as given; never recompute them. An answer's `cost` is what it takes off its area, as its line on the site shows it: `0` when another answer of the same behaviour counts it (`counted_with` names it), and the highest cost while it is `open` (not checked, not allowed or held back).
-- **Stable ids beside labels.** Tool `id`s are the registry's slugs and never change; if one ever must, the old id stays as an alias. Areas: `pc`, `data`, `game`, `creators`, `transparency` (scored) and `money` (a label, not a score). States: `good`, `note`, `concern`, `major`, `malware`, `off`, `req`, `nc`, `held`, `na`, `dna`; their labels and meanings are in `index.json` → `states`. Question ids (`P1`, `D2`, …) and key-answer ids (`K1`–`K10`) keep their meaning within a rubric version (`rubric`).
+- **Stable ids beside labels.** Tool `id`s are the registry's slugs and never change; if one ever must, the old id stays as an alias. Areas: `pc`, `data`, `game`, `creators`, `transparency` (scored) and `money` (a label, not a score). States: `good`, `note`, `concern`, `major`, `malware`, `off`, `req`, `nc`, `held`, `na`, `dna`, and `notscored` for a result that has no score; their labels and meanings are in `index.json` → `states`. Question ids (`P1`, `D2`, …) and key-answer ids (`K1`–`K10`) keep their meaning within a rubric version (`rubric`).
 - **A result always has a kind.** `result.kind` is `score` (a number in `score`, 0–100), `notscored` (`score` is `null`; `why` says why) or `malware` (`score` is `null`). `label` is the text the site shows.
 - **What is held back stays held back** ([rule 9](../rules/template.md)): `result.held_back` gives the number of items and the questions they touch, as the card's "Held back" row does, and nothing else. The details aren't in the feed because they aren't in the card.
 - **Every release stays** ([rule 2](../rules/template.md)): `releases` lists every card of a tool with its own score, newest first; `latest` is the newest.

@@ -84,7 +84,7 @@
 {% set summary = (c.areas | selectattr('id', 'equalto', a.id) | first).summary %}
 {# The area's marks, then its score in a column of its own, so the score sits in the same place on every row. #}
 {% set side %}<span class="mk">{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}</span><b class="num sc">{% if a.scored %}{{ r.areas[a.id] if r.areas[a.id] is not none else '–' }}<span class="vh">{{ ' out of 100' if r.areas[a.id] is not none else ': no score' }}</span>{% else %}{{ r.money }}{% endif %}</b>{% endset %}
-{% call fold('a-' ~ a.id, a.name ~ ' · ' ~ list | length ~ ' questions', side) %}
+{% call fold('a-' ~ a.id, a.name ~ ' · ' ~ list | length ~ ' questions', side, h='h3') %}
   <p class="lead">{{ summary | mdi }}{% if not a.scored %} <span class="muted">({{ r.money }}: {{ money[r.money].means }}.)</span>{% endif %}</p>
   {% for x in list %}
   {% set notes %}{{ answer_mark(x, scored) }}{{ answer_notes(x, scored) }}{% endset %}
@@ -100,7 +100,7 @@
   {% endfor %}
   {% set also = blocks | rejectattr('table', 'defined') | list %}
   {% if also %}
-  <div class="also"><h3 class="h4">Also found</h3>
+  <div class="also"><h4>Also found</h4>
     {% for b in also %}<p>{% if b.mark is defined %}{{ mark(b.mark) }} {% endif %}{{ (b.text[12:] if b.text.startswith('Also found: ') else b.text) | mdi }}</p>{% endfor %}
   </div>
   {% endif %}
@@ -113,7 +113,7 @@
 <div class="stack tight">
 {% if lims %}
 {# Open from the start, unlike the release fold below: it says what the answers above can't show. #}
-{% call fold('limits', 'Limits of this analysis', note='' ~ lims | length ~ ' limit' ~ ('s' if lims | length != 1 else ''), open=True, h='h3') %}
+{% call fold('limits', 'Limits of this analysis', note='' ~ lims | length ~ ' limit' ~ ('s' if lims | length != 1 else ''), h='h3') %}
 <ol class="lims">
 {% for l in lims %}<li id="lim-{{ loop.index }}">{{ l.text | mdi }}{% if l.questions %} <span class="muted">({% for q in l.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %})</span>{% endif %}</li>{% endfor %}
 </ol>
@@ -141,7 +141,7 @@
 {% set vc = cards[v.card] %}
 {% set vp = root ~ t.id ~ '/' ~ ('' if v.card == t.latest.card else v.version ~ '/') %}
 {% set side %}<b class="num sc">{% if v.kind == 'score' %}{{ v.score }}{{ of100() }}{% else %}{{ STATES[v.kind].label }}{% endif %}</b>{% endset %}
-{% call fold('v-' ~ v.version, v.version ~ (' (this page)' if v.card == c.card else '') ~ ' · analysed ' ~ v.analysed, side, open=(v.card == c.card), h='h3') %}
+{% call fold('v-' ~ v.version, v.version ~ (' (this page)' if v.card == c.card else '') ~ ' · analysed ' ~ v.analysed, side, h='h3') %}
 <div class="pad stack tight">
 {% set ch = vc.changes_since %}
 {% if ch %}

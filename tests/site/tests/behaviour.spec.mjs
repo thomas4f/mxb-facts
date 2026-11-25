@@ -89,7 +89,10 @@ test('a copy button copies its block and shows a tick, with its words for screen
   await b.click();
   await expect(b).toHaveClass(/done/);
   await expect(b).toHaveAccessibleName('Copied');
+  await expect(page.locator('#say')).toHaveText('Copied');
   expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('MXB Facts card for Pitbox');
+  await expect(b).toHaveAccessibleName('Copy');
+  await expect(b).not.toHaveClass(/done/);
 });
 
 test('a tool page\'s path opens the tools list filtered to its game and category', async ({ page }) => {
@@ -108,10 +111,10 @@ test('a tool page\'s path opens the tools list filtered to its game and category
 test('a section\'s link copies its address and leaves a fold as it was; following it opens the fold', async ({ page, context }) => {
   await context.grantPermissions(['clipboard-read', 'clipboard-write']);
   await page.goto('pitbox/');
-  await page.locator('#limits + .anc').click();
+  await page.locator('.anc[href="#limits"]').click();
   await expect(page).toHaveURL(/#limits$/);
   expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/\/pitbox\/#limits$/);
-  await page.locator('#a-data + .anc').click();
+  await page.locator('.anc[href="#a-data"]').click();
   expect(await page.locator('#a-data').getAttribute('open')).toBeNull();
   expect(await page.evaluate(() => navigator.clipboard.readText())).toMatch(/\/pitbox\/#a-data$/);
   await page.goto('pitbox/#q-D3');
@@ -121,8 +124,9 @@ test('a section\'s link copies its address and leaves a fold as it was; followin
 
 test('each release in History opens to its changes since the release before it', async ({ page }) => {
   await page.goto('dirt-gear/1.2.0/');
-  await expect(page.locator('details[id="v-1.2.0"]')).toHaveAttribute('open', '');
-  await expect(page.locator('details[id="v-1.2.0"]')).toContainText('Changes since 1.1.1');
+  const own = page.locator('details[id="v-1.2.0"]');
+  await own.locator('summary').click();
+  await expect(own).toContainText('Changes since 1.1.1');
   const newer = page.locator('details[id="v-1.2.1"]');
   await expect(newer).not.toHaveAttribute('open', '');
   await newer.locator('summary').click();
@@ -142,3 +146,40 @@ test('a tool page shows its name in the sticky header once its title scrolls awa
   await page.evaluate(() => scrollTo(0, 0));
   await expect(here).toBeHidden();
 });
+
+test('every fold on a tool page starts folded, and a link to a limit opens its fold', async ({ page }) => {
+  await page.goto('dirt-gear/');
+  expect(await page.locator('main details[open]').count()).toBe(0);
+  await page.goto('pitbox/#lim-1');
+  await expect(page.locator('#limits')).toHaveAttribute('open', '');
+});
+
+test('a link\'s icon comes before its fold, so Tab reaches it before what the fold holds', async ({ page }) => {
+  await page.goto('pitbox/');
+  const anc = page.locator('.fw > :first-child').first();
+  await expect(anc).toHaveClass(/anc/);
+});
+
+test('the home page says how scores read beside the count, and points to the marks on How it works', async ({ page }) => {
+  await page.goto('');
+  await expect(page.locator('.cntr')).toContainText('Scores are out of 100; higher is better.');
+  await expect(page.locator('.legend')).toHaveCount(0);
+  await page.getByRole('link', { name: 'Reading a card' }).click();
+  await expect(page).toHaveURL(/how\/#marks$/);
+});
+
+test('the footer has its two groups of links and the licence line', async ({ page }) => {
+  await page.goto('');
+  const f = page.locator('footer');
+  for (const n of ['Comment on a card', 'Request a tool', 'Suggest a question', 'Source on GitHub', 'Data feed']) await expect(f.getByRole('link', { name: n })).toBeVisible();
+  await expect(f).toContainText('Cards and data CC BY 4.0');
+});
+
+for (const [w, rows] of [[360, 1], [359, 2]]) {
+  test(`the four nav links sit in ${rows} row${rows > 1 ? 's' : ''} on a ${w}px screen`, async ({ page }) => {
+    await page.setViewportSize({ width: w, height: 700 });
+    await page.goto('');
+    const tops = new Set(await page.locator('.nav a').evaluateAll((as) => as.map((a) => Math.round(a.getBoundingClientRect().top))));
+    expect(tops.size).toBe(rows);
+  });
+}

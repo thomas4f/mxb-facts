@@ -32,6 +32,8 @@ _MD = markdown.Markdown(extensions=['tables', 'fenced_code', _NoHTML()])
 
 def _post(h):
     # Links to other sites open in a new tab; a table scrolls on its own on a phone and names what its headers head.
+    # Card text links only to https addresses and #fragments (cards.no_html); anything else (javascript:, data:) loses its href.
+    h = re.sub(r'<a href="(?!https://|#)[^"]*"', '<a', h)
     h = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', h)
     h = re.sub(r'<th(?=[ >])(?![^>]*scope)', '<th scope="col"', h)
     return h.replace('<table>', '<div class="tw"><table class="t">').replace('</table>', '</table></div>')

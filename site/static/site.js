@@ -26,7 +26,7 @@
   if (q) { picked = q.split(',').filter(Boolean); store.set('compare', picked); }
   function showPicked() {
     $$('[data-cmp]').forEach(function (b) { b.checked = picked.indexOf(b.dataset.cmp) >= 0; });
-    $$('[data-cmp-count]').forEach(function (n) { n.textContent = picked.length; n.hidden = !picked.length; });
+    $$('[data-cmp-count]').forEach(function (n) { n.innerHTML = '<span class="vh">, picked: </span>' + picked.length; n.hidden = !picked.length; });
     var bar = $('#cmpbar'); if (bar) { bar.hidden = !picked.length; $('[data-cmp-n]', bar).textContent = picked.length; }
     var go = $('[data-cmp-go]'); if (go) go.href = root + 'compare/?c=' + picked.join(',');
     showCompare();
@@ -91,15 +91,19 @@
     var pk = $('#picker'); if (pk && !pk.dataset.seen) { pk.dataset.seen = '1'; if (on.length >= 2) pk.open = false; }
   }
 
+  // One status line for the page (in base.html): what a copy did is read out to screen readers too.
+  function announce(w) { var s = $('#say'); if (s) { s.textContent = ''; setTimeout(function () { s.textContent = w; }, 50); } }
+
   // A link to an answer, a limit or an area opens the fold it sits in.
   function openTarget() {
-    var id = decodeURIComponent(location.hash.slice(1)); if (!id) return;
+    var id; try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; } if (!id) return;
     var el = document.getElementById(id);
     // An address from the old one-page site (#<tool>, #<card>, #compare ...) goes to its page now.
     if (!el) {
       var a = $('#addresses'), map = a ? JSON.parse(a.textContent) : {};
       var old = { compare: 'compare/', authors: 'authors/', rules: 'how/#rules', prompt: 'how/#prompt', scores: 'how/#scores' };
-      var to = map[id] || old[id];
+      var own = function (o) { return Object.prototype.hasOwnProperty.call(o, id) ? o[id] : null; };
+      var to = own(map) || own(old);
       if (to) location.replace(root + to);
       return;
     }
@@ -128,7 +132,7 @@
       history.replaceState(null, '', anc.getAttribute('href'));
       var url = location.href, was = anc.title;
       if (navigator.clipboard) navigator.clipboard.writeText(url).then(function () {
-        anc.classList.add('done'); anc.title = 'Link copied';
+        anc.classList.add('done'); anc.title = 'Link copied'; announce('Link copied');
         setTimeout(function () { anc.classList.remove('done'); anc.title = was; }, 1500);
       }, function () { /* the address bar still shows the link */ });
       return;
@@ -137,7 +141,10 @@
     if (cp) {
       var src = document.getElementById(cp.dataset.copy), text = src.textContent;
       // The button is an icon; its words (for screen readers and the tooltip) say what happened, and a tick shows it copied.
-      var say = function (w) { cp.firstChild.textContent = w; cp.title = w; cp.classList.toggle('done', w === 'Copied'); };
+      var say = function (w) {
+        cp.firstChild.textContent = w; cp.title = w; cp.classList.toggle('done', w === 'Copied'); announce(w);
+        clearTimeout(cp.reset); cp.reset = setTimeout(function () { cp.firstChild.textContent = 'Copy'; cp.title = 'Copy'; cp.classList.remove('done'); }, 1500);
+      };
       var sel = function () { var r = document.createRange(); r.selectNodeContents(src); var s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Selected: press Ctrl+C'); };
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { say('Copied'); }, sel); else sel();
     }
