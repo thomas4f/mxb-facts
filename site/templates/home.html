@@ -47,11 +47,7 @@
 <p class="empty" id="none" hidden>No tool matches. Clear the search or pick another category.</p>
 <div class="cmpbar" id="cmpbar" hidden><span><b data-cmp-n></b> picked to compare</span><span class="links"><button class="btn" type="button" data-cmp-clear>Clear</button><a class="btn primary" href="{{ root }}compare/" data-cmp-go>Compare</a></span></div>
 
-<h2 class="sec-h">Reading a card</h2>
-<dl class="legend">
-  {% for k in ['good', 'note', 'concern', 'major', 'off', 'req', 'dna', 'nc', 'held', 'na', 'malware', 'notscored'] %}
-  <dt>{{ mark(k) }}</dt><dd>{{ IX.legend[k] if k in IX.legend else STATES[k].meaning }}.</dd>
-  {% endfor %}
-</dl>
+{# What each mark means lives once, on How it works; the list points there. #}
+<p class="count">New to the marks? <a href="{{ root }}how/#marks">Reading a card</a> explains each one.</p>
 <script type="application/json" id="addresses">{{ addresses | tojson }}</script>
 {% endblock %}

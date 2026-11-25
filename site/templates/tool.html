@@ -132,10 +132,11 @@
 </div>
 
 <h2 class="h2" id="history">History</h2>
+{# The releases and this card's own history: one group, spaced like the areas. #}
+<div class="stack tight">
 {% if t.releases | length > 1 %}
 {# One fold per release, newest first: each opens to what changed since the release before it, as answers on the page read;
    this page's release is open. Compare puts any two side by side. #}
-<div class="stack tight">
 {% for v in t.releases %}
 {% set vc = cards[v.card] %}
 {% set vp = root ~ t.id ~ '/' ~ ('' if v.card == t.latest.card else v.version ~ '/') %}
@@ -159,13 +160,13 @@
 </div>
 {% endcall %}
 {% endfor %}
-</div>
 {% endif %}
 {% call fold('card-history', 'Card history', note='' ~ c.history | length ~ ' change' ~ ('s' if c.history | length != 1 else '') ~ '', h='h3') %}
 <div><div class="tw"><table class="t"><thead><tr><th scope="col">Date</th><th scope="col">Change to this card</th></tr></thead><tbody>
 {% for h in c.history %}<tr><td class="nowrap">{{ h.date }}</td><td>{{ h.change | mdi }}</td></tr>{% endfor %}
 </tbody></table></div></div>
 {% endcall %}
+</div>
 
 <h2 class="h2" id="corrections">Comments and corrections</h2>
 <div class="box pad">
