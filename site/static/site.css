@@ -143,12 +143,16 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .key .q { font-weight: 600; font-size: 15px } .key p { margin: 0; font-size: 14.5px; color: var(--muted) }
 .key .hd { display: flex; justify-content: space-between; gap: var(--s3); align-items: flex-start }
 details.fold { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r) }
-details.fold > summary { cursor: pointer; padding: var(--s3) var(--s4); display: flex; justify-content: space-between; gap: var(--s3); align-items: center; font-weight: 600; list-style: none; flex-wrap: wrap }
+/* A fold's summary: its title, then its marks and score, then + or –, on one row. On a phone the title, the score (or count)
+   and + keep the first row and the marks take a row of their own under them, only when there are any. */
+details.fold > summary { cursor: pointer; padding: var(--s3) var(--s4); display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: var(--s2) var(--s3); align-items: center; font-weight: 600; list-style: none }
 details.fold > summary::-webkit-details-marker { display: none }
 details.fold > summary .sumr .sc { min-width: 3.4em; text-align: right; order: 9 }
 details.fold > summary .sumr { display: flex; gap: var(--s2); align-items: center; margin-left: auto; flex-wrap: wrap; justify-content: flex-end }
-details.fold > summary::after { content: "+"; color: var(--muted); font-weight: 400; font-size: 20px; line-height: 1 }
+details.fold > summary::after { grid-column: 3; grid-row: 1; content: "+"; color: var(--muted); font-weight: 400; font-size: 20px; line-height: 1 }
 details.fold[open] > summary::after { content: "–" }
+details.fold > summary .mk { display: flex; gap: var(--s2); flex-wrap: wrap; justify-content: flex-end } details.fold > summary .mk:empty { display: none }
+@media (max-width: 640px) { details.fold > summary .sumr { display: contents } details.fold > summary .sumr > :not(.mk) { grid-row: 1; grid-column: 2 } details.fold > summary .mk { grid-row: 2; grid-column: 1 / -1; justify-content: flex-start } }
 details.fold > .body { border-top: 1px solid var(--line) }
 .row { padding: var(--s3) var(--s4); display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--s1) var(--s3); border-bottom: 1px solid var(--line) }
 .row:last-child { border-bottom: 0 }
@@ -159,7 +163,7 @@ details.fold > .body { border-top: 1px solid var(--line) }
 .anc::before { content: ''; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat }
 :is(h2, .fw):hover .anc, .anc:focus-visible, .anc.done { opacity: 1 } .anc:hover { color: var(--accent) } .anc.done { color: var(--good) }
 @media (hover: none) { .anc { opacity: .6 } }
-.fw { position: relative } .fw > details.fold > summary { padding-right: var(--s7) } .anc.fa { position: absolute; top: var(--s3); right: var(--s1); margin: 0 }
+.fw { position: relative; min-width: 0 } .fw > details.fold > summary { padding-right: var(--s7) } .anc.fa { position: absolute; top: var(--s3); right: var(--s1); margin: 0 }
 .row .q { font-weight: 600 } .row .v { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap; margin: var(--s1) 0 }
 .row .t { margin: 0; font-size: 15px }
 .row .sm { font-size: 13px; color: var(--muted) }
@@ -201,6 +205,8 @@ details.sub:last-child { border-bottom: 0 }
 input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--accent); margin: 0 }
 .skip { position: absolute; left: 8px; top: -60px; z-index: 50; background: var(--accent); color: var(--accent-ink); padding: var(--s3) var(--s4); border-radius: var(--r-ctl); font-weight: 700 }
 .skip:focus { top: 8px }
+/* A long token (a SHA-256, a path) breaks rather than widening the page on a phone. */
+main { overflow-wrap: anywhere }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
 
 /* Compare */

@@ -84,7 +84,7 @@
 {% set blocks = sec.get(a.name, []) %}
 {% set summary = (c.areas | selectattr('id', 'equalto', a.id) | first).summary %}
 {# The area's marks, then its score in a column of its own, so the score sits in the same place on every row. #}
-{% set side %}{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}<b class="num sc">{% if a.scored %}{{ r.areas[a.id] if r.areas[a.id] is not none else '–' }}<span class="vh">{{ ' out of 100' if r.areas[a.id] is not none else ': no score' }}</span>{% else %}{{ r.money }}{% endif %}</b>{% endset %}
+{% set side %}<span class="mk">{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}</span><b class="num sc">{% if a.scored %}{{ r.areas[a.id] if r.areas[a.id] is not none else '–' }}<span class="vh">{{ ' out of 100' if r.areas[a.id] is not none else ': no score' }}</span>{% else %}{{ r.money }}{% endif %}</b>{% endset %}
 {% call fold('a-' ~ a.id, a.name ~ ' · ' ~ list | length ~ ' questions', side) %}
   <p class="lead">{{ summary | mdi }}{% if not a.scored %} <span class="muted">({{ r.money }}: {{ money[r.money].means }}.)</span>{% endif %}</p>
   {% for x in list %}

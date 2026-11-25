@@ -27,5 +27,24 @@ for (const [name, url] of PAGES) {
     expect(small).toEqual([]);
     // Against the device's width: a phone browser widens innerWidth to fit content that overflows, so innerWidth can't catch it.
     expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(page.viewportSize().width);
+    // And with every fold open, on a small phone with its text at 125%, as people set it.
+    await page.setViewportSize({ width: 360, height: 800 });
+    await page.evaluate(() => { document.documentElement.style.fontSize = '125%'; document.body.style.zoom = '1.25'; document.querySelectorAll('details').forEach(d => { d.open = true; }); });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth)).toBeLessThanOrEqual(360);
   });
 }
+
+// Every tool page, not only the sample: one long token (a SHA-256, a path) in any answer is enough to widen a phone's page.
+test('no tool page scrolls sideways on a small phone with every fold open', async ({ page, request }, info) => {
+  test.skip(info.project.name !== 'phone', 'phone only');
+  const ix = await (await request.get('api/v1/index.json')).json();
+  await page.setViewportSize({ width: 360, height: 800 });
+  const wide = [];
+  for (const t of ix.tools) for (const r of t.releases) {
+    await page.goto(new URL(r.page).pathname.replace(/^\/mxb-facts\//, ''));
+    await page.evaluate(() => document.querySelectorAll('details').forEach(d => { d.open = true; }));
+    const w = await page.evaluate(() => document.documentElement.scrollWidth);
+    if (w > 360) wide.push(`${r.card}: ${w}px`);
+  }
+  expect(wide).toEqual([]);
+});
