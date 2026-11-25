@@ -23,6 +23,12 @@ SAYS={'Matches':('good','What it does matches what its docs say'),'Partly':('not
 SAYSQ='T2'  # the answer the claims back: the key answer built from it counts them
 assert SAYSQ in QIDS, 'rules/scoring.yaml: '+SAYSQ+', the answer "What it says vs what it does" backs, is gone; name the new one in SAYSQ (site/feed.py)'
 assert set(SAYS)==set(re.match(r'\^\((.*?)\)',CARD_SCHEMA['$defs']['block']['oneOf'][3]['properties']['rows']['items']['properties']['Verdict']['pattern']).group(1).split('|')), 'card.schema.json: the "Says vs does" verdicts changed; give each one a mark and a meaning in SAYS (site/feed.py)'
+# The feed's licence (docs/FEED.md, "Using the data"): the card data under CC BY 4.0, credited as MXB Facts with a link; the code
+# that builds it is MIT. What a card quotes from a tool stays with that tool's owners.
+LICENCE={'data':'CC-BY-4.0','name':'Creative Commons Attribution 4.0 International','url':'https://creativecommons.org/licenses/by/4.0/',
+         'attribution':'MXB Facts (https://thomas4f.github.io/mxb-facts/)','code':'MIT',
+         'note':"What a card quotes from a tool (its README, strings, files) stays with that tool's owners."}
+
 def says_word(v):
     # The verdict a "Says vs does" row starts with (SAYS); it may add words after its own ("Matches, as far as checked").
     w=next((w for w in SAYS if v==w or v.startswith(w+',')),None)
@@ -209,7 +215,7 @@ def write_feed(SITE,CARDS):
         vt={r[2].strip('`'):r[3] for r in files_table(f,raw)}
         files=[{'name':x['name'],'sha256':x['sha256'],'note':x.get('note',''),'inside':x.get('inside'),'virustotal':vt[x['sha256']]} for x in raw['files']]
         hist=[{'date':x['date'],'date_iso':iso(x['date']),'change':x['change']} for x in raw.get('history',[])]
-        card={**base,'ai_note':note,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'games':games(h),'category':h['Category'],
+        card={**base,'ai_note':note,'licence':LICENCE,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'games':games(h),'category':h['Category'],
               'summary':plain(h['In one line']),'author':REG[slug]['author'],'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'method':h['Method'],
               'page':page,'yaml':f'{SITEURL}cards/{f}','badges':badges,'result':res,'tags':tags,'files':files,
               'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[]),
@@ -231,7 +237,7 @@ def write_feed(SITE,CARDS):
         for k,_ in SITES.values():
             if k in reg and reg[k]['post']: add(found['mods_post'],f'{k}:{reg[k]["post"]}',slug)
         for x in files: add(found['sha256'],x['sha256'],{'tool':slug,'card':cid,'version':C['ver'],'latest':latest,'file':x['name'],'inside':x['inside'],'note':x['note']})
-    index={**base,'site':SITEURL,'ai_note':note,'licence':{'data':None,'note':'Not chosen yet; see docs/FEED.md, "Using the data".'},
+    index={**base,'site':SITEURL,'ai_note':note,'licence':LICENCE,
            'areas':[{'id':AREA_ID[ar],'name':ar,'scored':ar in CONCERN} for ar in AREAN],
            'states':[{'id':k,'label':l,'meaning':m,'icon':i} for k,(l,_c,i,m) in STATES.items()],
            'money':[{'label':l,'means':x['means'],'grey':l in MLEFT} for l,x in MLAB.items()],

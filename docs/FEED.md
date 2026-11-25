@@ -12,7 +12,7 @@ GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a brows
 
 | File | What it holds | Size (Nov 2026) |
 |---|---|---|
-| `index.json` | Every tool: id, name, author, games (one or both), category, one-line summary, page, its mods-site posts (one per game that has one), every release with its score (newest first), and the newest release's full result, tags and badges. Also the areas, states and tags the other files refer to, and the AI note. | ~55 KB |
+| `index.json` | The licence (`licence`, also in every card), and every tool: id, name, author, games (one or both), category, one-line summary, page, its mods-site posts (one per game that has one), every release with its score (newest first), and the newest release's full result, tags and badges. Also the areas, states and tags the other files refer to, and the AI note. | ~55 KB |
 | `cards/<card>.json` | One card in full: result, tags, files with SHA-256, the ten key answers, every answer with its state and cost, the report sections, history and corrections. `<card>` is the card's file name without `.yaml`, as in `holeshot-0.24.2`. | 50–90 KB each |
 | `match.json` | Lookup keys to tools: GitHub repository (lower case), mods-site post (`mxb-mods:<id>` or `gpb-mods:<id>`), and the SHA-256 of every file a card lists. | ~70 KB |
 | `site.json` | Everything the site's own pages need beyond the cards: the questions with what earns a Good answer, the rules, the prompt, the authors' check, the site's text and links. The site's pages are made from this file and the three above alone, so anything a page shows, the feed has. | |
@@ -42,9 +42,9 @@ Then read the tool from `index.json` → `tools` by its `id`.
 
 ## Using the data
 
-_Licence not chosen yet (proposed: CC BY 4.0 for the card data, with the attribution below; the code that builds it stays MIT). What a card quotes from a tool stays with that tool's owners (README, "Licence")._
+The feed, the cards and the site's text are under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/): use them for anything, commercial use included, as long as you credit **MXB Facts** with a link to the site or the card. The code that builds them is [MIT](../LICENSE). What a card quotes from a tool (its README, strings, files) stays with that tool's owners ([README](../README.md), "Licence"). Every file of the feed says the same in `licence`.
 
-Wherever you show a score or a state from the feed, also show:
+Beyond what the licence requires, wherever you show a score or a state from the feed, please also show:
 
 1. the release the card covers (`latest.version`) and when it was analysed (`latest.analysed`),
 2. a link to the card (`latest.page`), and

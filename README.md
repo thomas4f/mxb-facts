@@ -58,4 +58,4 @@ python3 -I tools/check_links.py  # checks every pinned code link
 
 ## Licence
 
-[MIT](LICENSE) covers this project's own code and text. What it quotes or records from the tools it covers (their strings and disassembly under `lab/evidence/`, their logs and files under `lab/results/`, page excerpts under `registry/`) stays with its owners.
+[MIT](LICENSE) covers this project's own code. Its cards (`cards/`), rules (`rules/`), site text and the data feed (`api/v1/`, [docs/FEED.md](docs/FEED.md)) are under [CC BY 4.0](LICENSE-DATA): reuse them, commercially too, crediting MXB Facts with a link. What it quotes or records from the tools it covers (their strings and disassembly under `lab/evidence/`, their logs and files under `lab/results/`, page excerpts under `registry/`) stays with its owners.

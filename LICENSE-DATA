@@ -1,0 +1,11 @@
+The cards (cards/), the rules (rules/), the site's text and the data feed (api/v1/) of MXB Facts
+are licensed under the Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+
+  https://creativecommons.org/licenses/by/4.0/
+  Full text: https://creativecommons.org/licenses/by/4.0/legalcode
+
+Credit them as "MXB Facts", with a link to https://thomas4f.github.io/mxb-facts/ or to the card used.
+
+The code that builds them is under the MIT licence (LICENSE). What a card or the evidence quotes or records
+from a tool it covers (its README, strings, disassembly, logs, files, page excerpts) stays with that tool's
+owners and is not covered by either licence.

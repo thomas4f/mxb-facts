@@ -315,6 +315,9 @@
         "ai_note": {
           "type": "string",
           "minLength": 40
+        },
+        "licence": {
+          "$ref": "#/$defs/licence"
         }
       }
     },
@@ -342,6 +345,7 @@
         "answers",
         "history",
         "ai_note",
+        "licence",
         "analysed_iso",
         "method",
         "sections"
@@ -464,6 +468,9 @@
               }
             }
           }
+        },
+        "licence": {
+          "$ref": "#/$defs/licence"
         }
       }
     },
@@ -589,6 +596,37 @@
         ]
       },
       "description": "The games the release shows it is made for, MX Bikes first"
+    },
+    "licence": {
+      "type": "object",
+      "required": [
+        "data",
+        "name",
+        "url",
+        "attribution",
+        "code"
+      ],
+      "properties": {
+        "data": {
+          "const": "CC-BY-4.0"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "code": {
+          "const": "MIT"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
     }
   }
 }
