@@ -23,10 +23,10 @@
 <h2 class="h2" id="check">Check your tool before you release</h2>
 {% set ck = SITE.authors_check %}
 <ol class="steps">
-  <li><div><b>Add the check to your repository:</b> save it as <code>{{ ck.path }}</code> (<a href="{{ root }}authors/mxb-facts-check/SKILL.md" download="SKILL.md">download it</a>). Claude Code picks it up as a skill; for other agents, add this line to <code>AGENTS.md</code> or <code>CLAUDE.md</code>:<div class="copy"><pre><code id="agents-line">{{ ck.agents_line }}</code></pre><button class="btn" type="button" data-copy="agents-line">Copy</button></div></div></li>
+  <li><div><b>Add the check to your repository:</b> save it as <code>{{ ck.path }}</code> (<a href="{{ root }}authors/mxb-facts-check/SKILL.md" download="SKILL.md">download it</a>). Claude Code picks it up as a skill; for other agents, add this line to <code>AGENTS.md</code> or <code>CLAUDE.md</code>:<div class="copy"><pre><code id="agents-line">{{ ck.agents_line }}</code></pre><button class="cpb" type="button" data-copy="agents-line" title="Copy"><span class="vh">Copy</span></button></div></div></li>
   <li><div><b>Ask your agent to run it</b> before a release. It follows our prompt, steps 1 to 5, and lists every answer that wouldn't be Good, with its evidence. It changes nothing on its own. Your copy uses the rules as they were when you downloaded it ({{ SITE.commit[:12] }}), so a result can be repeated; when the rules have changed since, it tells you and asks which to use.</div></li>
 </ol>
-{% call fold('skill', 'The check', note='mxb-facts-check/SKILL.md') %}<div class="pad"><div class="copy"><pre><code id="skill-text">{{ ck.text }}</code></pre><button class="btn" type="button" data-copy="skill-text">Copy</button></div></div>{% endcall %}
+{% call fold('skill', 'The check', note='mxb-facts-check/SKILL.md') %}<div class="pad"><div class="copy"><pre><code id="skill-text">{{ ck.text }}</code></pre><button class="cpb" type="button" data-copy="skill-text" title="Copy"><span class="vh">Copy</span></button></div></div>{% endcall %}
 <p class="measure">Prefer the full run? Clone the repository, open Claude Code in it, paste <a href="{{ root }}how/#prompt">the analysis prompt</a> and stop after step 5, as the check does.</p>
 
 <h2 class="h2" id="card">Once your tool has a card</h2>

@@ -13,8 +13,11 @@
 {% block main %}
 <div class="thead">
   <div>
-    {# Where the tool sits, as on its card in the tools list: the list, its games, its category. #}
-    <nav class="crumb cat" aria-label="Breadcrumb"><a href="{{ root }}">Tools</a>{{ sep() }}{{ c.games | join(' + ') }}{{ sep() }}{{ c.category }}</nav>
+    {# The overall score reads N/100 wherever it shows (of100); an area's score is a plain number beside its bar. #}
+    {# Where the tool sits, as on its card in the tools list: the list, its game, its category; each opens the list filtered to
+       it (site.js reads ?game= and ?cat=). A tool for both games links each game. #}
+    {% set g1 = '?game=' ~ (c.games[0] | urlencode) ~ '&' if c.games | length == 1 else '?' %}
+    <nav class="crumb cat" aria-label="Breadcrumb"><a href="{{ root }}">Tools</a>{{ sep() }}{% for g in c.games %}<a href="{{ root }}?game={{ g | urlencode }}">{{ g }}</a>{{ ' + ' if not loop.last }}{% endfor %}{{ sep() }}<a href="{{ root }}{{ g1 }}cat={{ c.category | urlencode }}">{{ c.category }}</a></nav>
     <h1>{{ c.name }} <small>{{ c.version }}</small></h1>
     <div class="meta">by {{ c.author }} · analysed {{ c.analysed }}</div>
     <p class="sum">{{ c.summary }}</p>
@@ -31,7 +34,7 @@
 
 <div class="areas">
 {% for a in AREAS %}
-  <a class="area" href="#a-{{ a.id }}"><span class="l"><span>{{ a.name }}</span><b class="num">{% if not a.scored %}{{ r.money }}{% elif r.areas[a.id] is not none %}{{ r.areas[a.id] }}{{ of100() }}{% else %}–{% endif %}</b></span><span class="vh">, show its answers</span>{% if a.scored %}{{ bar(r.areas[a.id]) }}{% endif %}</a>
+  <a class="area" href="#a-{{ a.id }}"><span class="l"><span>{{ a.name }}</span><b class="num">{{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}</b></span><span class="vh">, show its answers</span>{% if a.scored %}{{ bar(r.areas[a.id]) }}{% endif %}</a>
 {% endfor %}
 </div>
 {% if c.tags %}
@@ -81,7 +84,7 @@
 {% set blocks = sec.get(a.name, []) %}
 {% set summary = (c.areas | selectattr('id', 'equalto', a.id) | first).summary %}
 {# The area's marks, then its score in a column of its own, so the score sits in the same place on every row. #}
-{% set side %}{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}<b class="num sc">{% if a.scored %}{% if r.areas[a.id] is not none %}{{ r.areas[a.id] }}{{ of100() }}{% else %}–<span class="vh">: no score</span>{% endif %}{% else %}{{ r.money }}{% endif %}</b>{% endset %}
+{% set side %}{% for k in ['malware', 'major', 'concern', 'held', 'nc', 'na'] %}{% set n = list | selectattr('state', 'equalto', k) | list | length %}{% if n %}{{ mark(k, n ~ ' ' ~ STATES[k].label) }}{% endif %}{% endfor %}<b class="num sc">{% if a.scored %}{{ r.areas[a.id] if r.areas[a.id] is not none else '–' }}<span class="vh">{{ ' out of 100' if r.areas[a.id] is not none else ': no score' }}</span>{% else %}{{ r.money }}{% endif %}</b>{% endset %}
 {% call fold('a-' ~ a.id, a.name ~ ' · ' ~ list | length ~ ' questions', side) %}
   <p class="lead">{{ summary | mdi }}{% if not a.scored %} <span class="muted">({{ r.money }}: {{ money[r.money].means }}.)</span>{% endif %}</p>
   {% for x in list %}
@@ -166,7 +169,7 @@
   <p>Give this card to the AI agent you build with (Claude Code, Codex, Cursor or any other). Every answer links its evidence, so the agent can find the cause in your code. We don't suggest fixes: what to change, if anything, depends on what your tool is for.</p>
   <ol class="steps">
     <li><div><b>Download the card:</b> <a href="{{ root }}cards/{{ c.card }}.yaml" download>{{ c.card }}.yaml</a>, and put it in your tool's repository.</div></li>
-    <li><div><b>Paste this prompt</b> into your agent there:<div class="copy"><pre><code id="prompt">{{ c.author_prompt }}</code></pre><button class="btn" type="button" data-copy="prompt">Copy</button></div></div></li>
+    <li><div><b>Paste this prompt</b> into your agent there:<div class="copy"><pre><code id="prompt">{{ c.author_prompt }}</code></pre><button class="cpb" type="button" data-copy="prompt" title="Copy"><span class="vh">Copy</span></button></div></div></li>
     <li><div><b>After your next release, <a href="{{ IX.links.recheck }}">request a re-check</a>.</b> The new release gets a new card; this one stays.</div></li>
     <li><div><b>Add the badge to your page</b> if you like: it shows this card's score and links here. Pick a style and copy its Markdown.
       <div class="badges">

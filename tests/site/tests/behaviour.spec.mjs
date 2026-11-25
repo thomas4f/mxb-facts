@@ -80,3 +80,27 @@ test('the theme button is on screen on a phone', async ({ page }) => {
   expect(b.x).toBeGreaterThanOrEqual(0);
   expect(b.x + b.width).toBeLessThanOrEqual(w);
 });
+
+test('a copy button copies its block and shows a tick, with its words for screen readers', async ({ page, context }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('pitbox/#author');
+  const b = page.locator('[data-copy="prompt"]');
+  await expect(b).toHaveAccessibleName('Copy');
+  await b.click();
+  await expect(b).toHaveClass(/done/);
+  await expect(b).toHaveAccessibleName('Copied');
+  expect(await page.evaluate(() => navigator.clipboard.readText())).toContain('MXB Facts card for Pitbox');
+});
+
+test('a tool page\'s path opens the tools list filtered to its game and category', async ({ page }) => {
+  await page.goto('pitbox/');
+  await page.locator('.crumb a', { hasText: 'Mod managers' }).click();
+  await expect(page.locator('#game')).toHaveValue('GP Bikes');
+  await expect(page.locator('#cat')).toHaveValue('Mod managers');
+  for (const c of await page.locator('.card:visible').all()) {
+    await expect(c).toHaveAttribute('data-cat', 'Mod managers');
+    await expect(c).toHaveAttribute('data-game', /GP Bikes/);
+  }
+  await page.locator('#cat').selectOption('');
+  await expect(page).toHaveURL(/\?game=GP\+Bikes$/);
+});

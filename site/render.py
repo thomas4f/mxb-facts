@@ -151,6 +151,7 @@ def write_pages(SITE):
     icon = {k: s['icon'] for k, s in STATES.items()}
     css = ['/* Made by site/render.py from the feed: one icon per state (Lucide, ISC licence, see the end of this file). */']
     css += [f'.st.{k}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for k, v in icon.items()]
+    css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done {{ --i: {mask_url("check")} }}']
     css.append('/*\n' + ICON_LICENCE + '*/')
     open(out + 'assets/icons.css', 'w').write('\n'.join(css) + '\n')
     # The favicon: the wordmark's slash on the pit board (brand.py).

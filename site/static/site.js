@@ -35,6 +35,21 @@
   // The tools list: search, category, game and sort, all on the cards' own data; nothing is drawn here.
   var grid = $('#tools-grid');
   var S = { q: '', cat: '', game: '', sort: 'name' };
+  // The game and category filters live in the address too (?game=…&cat=…), so a tool page's path can link to them and a
+  // filtered list can be shared. A value the list doesn't offer is ignored.
+  if (grid) {
+    var P = new URLSearchParams(location.search);
+    ['game', 'cat'].forEach(function (k) {
+      var v = P.get(k), el = $('#' + k);
+      if (v && el && Array.prototype.some.call(el.options, function (o) { return o.value === v; })) { S[k] = v; el.value = v; }
+    });
+  }
+  function keepFilters() {
+    var P = new URLSearchParams();
+    if (S.game) P.set('game', S.game);
+    if (S.cat) P.set('cat', S.cat);
+    var q = P.toString(); history.replaceState(null, '', location.pathname + (q ? '?' + q : '') + location.hash);
+  }
   function showTools() {
     if (!grid) return;
     var cards = $$('.card', grid), words = S.q.trim().toLowerCase().split(/\s+/).filter(Boolean), n = 0;
@@ -108,16 +123,18 @@
     var cp = t.closest('[data-copy]');
     if (cp) {
       var src = document.getElementById(cp.dataset.copy), text = src.textContent;
-      var sel = function () { var r = document.createRange(); r.selectNodeContents(src); var s = getSelection(); s.removeAllRanges(); s.addRange(r); cp.textContent = 'Selected'; };
-      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { cp.textContent = 'Copied'; }, sel); else sel();
+      // The button is an icon; its words (for screen readers and the tooltip) say what happened, and a tick shows it copied.
+      var say = function (w) { cp.firstChild.textContent = w; cp.title = w; cp.classList.toggle('done', w === 'Copied'); };
+      var sel = function () { var r = document.createRange(); r.selectNodeContents(src); var s = getSelection(); s.removeAllRanges(); s.addRange(r); say('Selected: press Ctrl+C'); };
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { say('Copied'); }, sel); else sel();
     }
   });
   document.addEventListener('input', function (e) { if (e.target.id === 'q') { S.q = e.target.value; showTools(); } });
   document.addEventListener('change', function (e) {
     var t = e.target;
     if (t.id === 'sort') { S.sort = t.value; showTools(); }
-    else if (t.id === 'game') { S.game = t.value; showTools(); }
-    else if (t.id === 'cat') { S.cat = t.value; showTools(); }
+    else if (t.id === 'game') { S.game = t.value; keepFilters(); showTools(); }
+    else if (t.id === 'cat') { S.cat = t.value; keepFilters(); showTools(); }
     else if (t.id === 'diff') showCompare();
     else if (t.dataset.cmp) {
       picked = t.checked ? picked.concat([t.dataset.cmp]).filter(function (x, i, a) { return a.indexOf(x) === i; }) : picked.filter(function (x) { return x !== t.dataset.cmp; });
