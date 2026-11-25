@@ -143,7 +143,7 @@
 <ul class="chg">
   {% set old = t.releases | selectattr('card', 'equalto', ch.card) | first %}
   <li>Score: {{ old.score if old.kind == 'score' else STATES[old.kind].label }} → {{ r.score if scored else r.label }}</li>
-  {% for x in ch.answers %}<li><a href="#q-{{ x.question }}">{{ x.question }}</a>: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
+  {% for x in ch.answers %}<li><a href="#q-{{ x.question }}">{{ x.question }}</a> {{ answer_mark(x['from'], scored) }} <span aria-hidden="true">→</span><span class="vh">changed to</span> {{ answer_mark(x.to, scored) }}</li>{% endfor %}
   {% for x in ch.areas %}<li>{{ area_name[x.area] }}: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
   <li class="muted">{{ ch.unchanged }} answers unchanged</li>
 </ul>

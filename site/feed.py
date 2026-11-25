@@ -134,11 +134,13 @@ def changes_since(f,card,A1):
     lst=REG[SLUG[f]]['cards']; i=lst.index(f)
     if i==0: return None
     old=load_yaml(D+lst[i-1])
-    W={'good':'Good','note':'Note','concern':'Concern',None:''}
-    def va(c,q):
-        a=c['answers'].get(q); return (a['verdict'],a.get('mark')) if a else ('Not asked',None)
-    word=lambda c,q:' '.join(x for x in (W[va(c,q)[1]],va(c,q)[0]) if x)
-    rows=[{'question':q,'from':word(old,q),'to':word(card,q)} for q in QIDS if va(old,q)!=va(card,q)]
+    # Each side as the answer's own mark draws it (state, verdict, cost), so a change reads like the answers on the page.
+    def marks(g,c):
+        C=check_card(g,c); A,S=C['A'],C['SETS']
+        return {q:{'state':answer_state(q,A,S,C['held']),'verdict':VWORD.get(A[q][1],A[q][1]),'cost':answer_cost(q,A,S)[0],'cost_note':cost_note(q,A,S)} for q in QIDS if q in A}
+    M0,M1=marks(lst[i-1],old),marks(f,card)
+    asked={'state':'dna','verdict':'Not asked','cost':0,'cost_note':''}
+    rows=[{'question':q,'from':M0.get(q,asked),'to':M1[q]} for q in QIDS if M0.get(q,asked)!=M1[q]]
     A0={q:verdict(ans_md(old['answers'][q])) for q in QIDS if q in old['answers']}
     try: G0=scored(A0)
     except (KeyError,AssertionError): G0=None
