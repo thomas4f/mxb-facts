@@ -285,6 +285,9 @@ json.dump({'rubric':RUBRICV,'cards':[{'tool':_t,'name':_n,'version':_v,'page':f'
            'areas':None if _G['kind'] in ('notscored','malware') else {ar:_G['areas'][ar][0] for ar in AREAN if ar in CONCERN},
            'analysed':_d,'badges':{(_suf or '-flat').lstrip('-'):f'{SITEURL}badge/{_t}/{_v}{_suf}.svg' for _suf,_x,_y in BADGES}}
           for _a,(_n,_v,_G,_d,_t,_l) in GR.items()]},open(SITE+'api/cards.json','w'),indent=1,ensure_ascii=False)
+# The versioned data feed, api/v1/ (site/feed.py, docs/FEED.md), checked against rules/feed.schema.json.
+from feed import write_feed
+write_feed(SITE,CARDS,shell)
 os.makedirs(SITE+'cards',exist_ok=True)
 # Each tool's own address, for sharing: <site>/<tool>/ (page.share_page). A tool's anchor can't take a name the site uses for a folder.
 assert not set(SHARE)&{'api','badge','cards','authors'}, 'a tool anchor is also a folder name of the site'

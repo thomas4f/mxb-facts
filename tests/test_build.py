@@ -413,5 +413,20 @@ check('K5 must name G12 while it is a Concern', not _key5('Yes; it patches memor
 # v3: changing the game's own files is counted under P4 only, so P7 never repeats it.
 check('P7 is a Concern only for content you did not pick', 'changes the game' not in B['SC']['questions']['P7']['yes_mark'])
 
+# The feed (site/feed.py) and the page take an answer's state and cost from the same functions (page.answer_state, answer_cost),
+# so the branches no card reaches yet can't drift apart: signs of malware, a held-back Note, an open answer, a grouped answer.
+import page  # noqa: E402
+_A = with_(P9=('!', 'Yes'))
+check('a confirmed P9 Yes shows as Signs of malware', page.answer_state('P9', _A, B['charges'](_A), set()) == 'malware', page.answer_state('P9', _A, B['charges'](_A), set()))
+_A = with_(D2=('~', 'Yes'))
+check('a held-back answer marked Note stays a Note', page.answer_state('D2', _A, B['charges'](_A, {'D2'}), {'D2'}) == 'note')
+_A = with_(P2=(None, 'NC'))
+check('an open answer costs its highest cost', page.answer_cost('P2', _A, B['charges'](_A)) == (B['maxcost']('P2'), None, True), page.answer_cost('P2', _A, B['charges'](_A)))
+_A = with_(D2=('!', 'Yes'), D3=('!', 'Yes'))
+check('a grouped answer costs nothing and names where it is counted', page.answer_cost('D2', _A, B['charges'](_A)) == (0, 'D3', False), page.answer_cost('D2', _A, B['charges'](_A)))
+import feed  # noqa: E402
+check('the feed\'s AI note is the site\'s, from site/shell.html', feed.ai_note(open(os.path.join(ROOT, 'site/shell.html')).read()).startswith('Claude, an AI, does the analysis'))
+check('the feed accepts a malware state', 'malware' in feed.SCHEMA['$defs']['state']['enum'])
+
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)

@@ -1,0 +1,490 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thomas4f.github.io/mxb-facts/api/v1/schema/feed.schema.json",
+  "title": "MXB Facts data feed, v1",
+  "description": "The files under api/v1/. Within v1 fields are only ever added; a field removed or renamed means api/v2/. Contract: docs/FEED.md.",
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": [
+        "feed_version",
+        "built_at",
+        "commit",
+        "rubric"
+      ],
+      "properties": {
+        "feed_version": {
+          "type": "string",
+          "pattern": "^1\\.\\d+$"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$|^unknown$"
+        },
+        "rubric": {
+          "type": "string"
+        },
+        "built_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "areaScores": {
+      "type": "object",
+      "required": [
+        "pc",
+        "data",
+        "game",
+        "creators",
+        "transparency"
+      ],
+      "additionalProperties": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "kind",
+        "score",
+        "label",
+        "areas",
+        "money",
+        "open_questions",
+        "why",
+        "held_back"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "score",
+            "notscored",
+            "malware"
+          ]
+        },
+        "score": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "label": {
+          "type": "string"
+        },
+        "areas": {
+          "$ref": "#/$defs/areaScores"
+        },
+        "money": {
+          "type": "string"
+        },
+        "open_questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/qid"
+          }
+        },
+        "why": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "held_back": {
+          "type": "object",
+          "required": [
+            "items",
+            "questions"
+          ],
+          "properties": {
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "questions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/qid"
+              }
+            }
+          }
+        }
+      }
+    },
+    "qid": {
+      "type": "string",
+      "pattern": "^[PDGCTMK]\\d{1,2}$"
+    },
+    "state": {
+      "enum": [
+        "good",
+        "note",
+        "concern",
+        "major",
+        "off",
+        "req",
+        "nc",
+        "held",
+        "na",
+        "dna",
+        "malware"
+      ]
+    },
+    "tag": {
+      "type": "object",
+      "required": [
+        "label",
+        "kind",
+        "question"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "concern",
+            "off_by_default",
+            "positive"
+          ]
+        },
+        "question": {
+          "$ref": "#/$defs/qid"
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "required": [
+        "version",
+        "card",
+        "analysed",
+        "kind",
+        "score",
+        "page",
+        "json",
+        "analysed_iso"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "card": {
+          "type": "string"
+        },
+        "analysed": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "score",
+            "notscored",
+            "malware"
+          ]
+        },
+        "score": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "page": {
+          "type": "string",
+          "format": "uri"
+        },
+        "json": {
+          "type": "string",
+          "format": "uri"
+        },
+        "analysed_iso": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
+    "index": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        }
+      ],
+      "required": [
+        "site",
+        "ai_note",
+        "licence",
+        "areas",
+        "states",
+        "tags",
+        "tools"
+      ],
+      "properties": {
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "author",
+              "game",
+              "category",
+              "summary",
+              "page",
+              "mods_site",
+              "releases",
+              "latest"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              },
+              "game": {
+                "enum": [
+                  "MX Bikes",
+                  "GP Bikes"
+                ]
+              },
+              "github": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "mods_site": {
+                "oneOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "site",
+                      "post",
+                      "url"
+                    ],
+                    "properties": {
+                      "post": {
+                        "type": "integer"
+                      },
+                      "url": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "releases": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/release"
+                }
+              },
+              "latest": {
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/release"
+                  }
+                ],
+                "required": [
+                  "result",
+                  "tags",
+                  "badges"
+                ],
+                "properties": {
+                  "result": {
+                    "$ref": "#/$defs/result"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/tag"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ai_note": {
+          "type": "string",
+          "minLength": 40
+        }
+      }
+    },
+    "card": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        }
+      ],
+      "required": [
+        "card",
+        "tool",
+        "name",
+        "version",
+        "latest",
+        "game",
+        "category",
+        "summary",
+        "analysed",
+        "page",
+        "result",
+        "tags",
+        "files",
+        "key_answers",
+        "answers",
+        "history",
+        "ai_note",
+        "analysed_iso",
+        "method"
+      ],
+      "properties": {
+        "result": {
+          "$ref": "#/$defs/result"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/tag"
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "sha256"
+            ],
+            "properties": {
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        "key_answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "question",
+              "short",
+              "state",
+              "text",
+              "text_plain"
+            ],
+            "properties": {
+              "state": {
+                "$ref": "#/$defs/state"
+              }
+            }
+          }
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "area",
+              "question",
+              "verdict",
+              "state",
+              "cost",
+              "open",
+              "text",
+              "text_plain",
+              "evidence",
+              "counted_with"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/qid"
+              },
+              "state": {
+                "$ref": "#/$defs/state"
+              },
+              "cost": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "ai_note": {
+          "type": "string",
+          "minLength": 40
+        }
+      }
+    },
+    "match": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        }
+      ],
+      "required": [
+        "github",
+        "mods_post",
+        "sha256"
+      ],
+      "properties": {
+        "github": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "mods_post": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "sha256": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "tool",
+                "card",
+                "version",
+                "latest",
+                "file"
+              ]
+            }
+          }
+        }
+      }
+    }
+  }
+}

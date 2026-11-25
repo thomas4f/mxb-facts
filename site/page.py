@@ -87,6 +87,19 @@ def blocks(C,bl,a,area=None):
             out.append(markdown.markdown('\n'.join(f'- {{lim:{n}}} **{n+1}.** '+x['text']+(' Affects '+', '.join('{q:'+q+'}' for q in x['questions'])+'.' if x['questions'] else '') for n,x in enumerate(b['limits']))))
         else: out.append(f'<p>{mark(b)}{" " if b.get("mark")=="concern" and area else ""}{cell(b["text"])}</p>')
     return post('\n'.join(out),a)
+def answer_state(i,A,SETS,held):
+    # One answer's state as every view shows it (STATES in rules.py): Good, Note, a Concern as concern_span draws it (Concern,
+    # Major, Off by default, On request, Signs of malware), or a grey state. The page and the feed (site/feed.py) both use it.
+    if A[i][0]=='!': return state_of(concern_span([i],A,SETS,i[0])[1])
+    if A[i][0]: return {'+':'good','~':'note'}[A[i][0]]
+    return {'NC':'held' if i in held else 'nc','NA':'na','DNA':'dna'}[A[i][1]]
+def answer_cost(i,A,SETS):
+    # What the answer takes off its area, as its line shows it: (cost, counted with, open). 0 when another answer of the same
+    # behaviour counts it, or a covered or waived cost; an open answer at its highest cost.
+    ch=SETS.get(i)
+    if ch: return (0 if ch[1] else ch[0]),ch[1],ch[2]
+    cov=next((w for w in GCOVER.get(i,()) if A[w][0]=='!' and A[w][1] in ('Yes','No','Partly')),None)
+    return 0,cov,False
 def answer_table(C,a,k):
     # One area's answers: the question, its mark with what it costs, the answer, its evidence, and the comment icon.
     f=C['f']; A=C['A']; SETS=C['SETS']; rows=[]
@@ -110,9 +123,10 @@ def answer_table(C,a,k):
         # A Concern reads "Concern", or "Major" when it is severe, with its cost inside the mark ("Concern −25"); one only after
         # a choice you make shows "Off by default" or "On request". An answer with no mark shows its state: Not checked (Held
         # back when a rule-9 item touches it), Not allowed, Doesn't apply (rules.py, STATES). The card keeps the mark "concern".
-        if A[i][0]=='!': mk=concern_span([i],A,SETS,k,cost)[1]; st=state_of(mk); ans=ans[4:]
-        elif A[i][0]: st={'+':'good','~':'note'}[A[i][0]]; mk=state_html(st)+' '+cost.lstrip(); ans=ans[4:]
-        else: st={'NC':'held' if i in C['held'] else 'nc','NA':'na','DNA':'dna'}[A[i][1]]; mk=state_html(st,inner=STATES[st][0]+cost)
+        st=answer_state(i,A,SETS,C['held'])
+        if A[i][0]=='!': mk=concern_span([i],A,SETS,k,cost)[1]; ans=ans[4:]
+        elif A[i][0]: mk=state_html(st)+' '+cost.lstrip(); ans=ans[4:]
+        else: mk=state_html(st,inner=STATES[st][0]+cost)
         # An answer with no mark doesn't repeat its state: the mark column already shows it, so the answer gives only the
         # reason. A held-back answer's evidence is published with the details.
         if st=='held' and ans.startswith('Not checked. Held back'): ev='Published with the details.'
