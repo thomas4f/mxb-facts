@@ -68,6 +68,8 @@ small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); l
 @media (max-width: 519px) { .nav { display: grid; grid-template-columns: 1fr 1fr; margin-inline: 0 } .nav a { justify-content: center } }
 .nav a .n { display: inline-grid; place-items: center; min-width: 18px; height: 18px; margin-left: var(--s1); border-radius: 9px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; padding: 0 var(--s1) }
 
+/* Spacing: a section's heading sits close to what it heads (--s3); sections, and folds standing alone, are --s5 apart. */
+.wrap > .h2 + * { margin-top: calc(var(--s3) - var(--s5)) }
 .wrap { max-width: 1180px; margin: 0 auto; padding: var(--s5) max(16px, env(safe-area-inset-right, 0px)) var(--s7) max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: var(--s5) }
 .stack { display: grid; gap: var(--s5) }
 .hero { background: var(--hero); border: 1px solid var(--line); border-radius: 16px; padding: var(--s6) var(--s5); display: grid; gap: var(--s4) }
@@ -126,15 +128,13 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .empty { padding: var(--s6); text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--r) }
 
 /* Tool page */
-/* The score sits right under the tool's name, as a strip as wide as its contents, on every screen. */
-.thead { display: flex; flex-direction: column; align-items: flex-start } .thead > div:first-child { display: contents }
-.thead .crumb { order: 1 }
-.thead h1 { order: 2; font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 600 }
-.thead .meta { order: 4; color: var(--muted); margin-top: var(--s2) }
-.thead .sum { order: 5; margin: var(--s3) 0 0; font-size: 17px; max-width: 65ch }
-.big { order: 3; display: flex; align-items: baseline; gap: var(--s3); margin-top: var(--s3); padding: var(--s2) var(--s4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r) }
-.big b { font: 700 44px/1 var(--f-head) } .big span { color: var(--muted); font-size: 13px }
-.big.word b { font-size: 22px; color: var(--grey) }
+/* The name and the score share one line, as on a pit board: the name on the left, the score on the right at its baseline. */
+.tline { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s4) }
+.thead h1 { min-width: 0; font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 600 }
+.thead .meta { color: var(--muted); margin-top: var(--s2) }
+.thead .sum { margin: var(--s3) 0 0; font-size: 17px; max-width: 65ch }
+.big { margin: 0; flex: none; white-space: nowrap } .big b { font: 700 clamp(44px, 7vw, 64px)/1 var(--f-head) }
+.big.word { align-self: center }
 .notice { background: var(--grey-bg); border: 1px dashed var(--line); border-radius: var(--r-ctl); padding: var(--s3) var(--s4); font-size: 14.5px; margin: 0 }
 .notice.held { border-color: var(--concern); background: var(--concern-bg) }
 .areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--s3) }
@@ -300,7 +300,9 @@ table.cmp tr.same { display: none }
 [id] { scroll-margin-top: 84px }
 /* A heading that is also a fold's summary keeps the fold's look. */
 details.fold > summary h2.ft, details.fold > summary h3.ft { margin: 0; font: 700 20px/1.2 var(--f-head); letter-spacing: .01em }
-details.fold > summary h3.ft { font-size: 17px }
+/* A fold in a group (an area, a limit, the release, the card history) has the same title as its siblings; a fold that is a
+   section of its own (For the tool's author) has a section's title. */
+details.fold > summary h3.ft { font: inherit; letter-spacing: inherit }
 /* Inside a box, the box's padding is the only space at its edges. */
 .box > :first-child, .pad > :first-child, .prose > :first-child { margin-top: 0 }
 .box > :last-child, .pad > :last-child, .prose > :last-child { margin-bottom: 0 }

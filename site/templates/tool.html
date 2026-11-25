@@ -12,19 +12,17 @@
 {% block image_alt %}{{ c.name }} {{ c.version }} on MXB Facts: {{ r.label }}, with a score for each area.{% endblock %}
 {% block main %}
 <div class="thead">
-  <div>
-    {# The overall score reads N/100 wherever it shows (of100); an area's score is a plain number beside its bar. #}
-    {# Where the tool sits, as on its card in the tools list: the list, its game, its category; each opens the list filtered to
-       it (site.js reads ?game= and ?cat=). A tool for both games links each game. #}
-    {% set g1 = '?game=' ~ (c.games[0] | urlencode) ~ '&' if c.games | length == 1 else '?' %}
-    <nav class="crumb cat" aria-label="Breadcrumb"><a href="{{ root }}">Tools</a>{{ sep() }}{% for g in c.games %}<a href="{{ root }}?game={{ g | urlencode }}">{{ g }}</a>{{ ' + ' if not loop.last }}{% endfor %}{{ sep() }}<a href="{{ root }}{{ g1 }}cat={{ c.category | urlencode }}">{{ c.category }}</a></nav>
+  {# Where the tool sits, as on its card in the tools list: the list, its game, its category; each opens the list filtered to
+     it (site.js reads ?game= and ?cat=). A tool for both games links each game. #}
+  {% set g1 = '?game=' ~ (c.games[0] | urlencode) ~ '&' if c.games | length == 1 else '?' %}
+  <nav class="crumb cat" aria-label="Breadcrumb"><a href="{{ root }}">Tools</a>{{ sep() }}{% for g in c.games %}<a href="{{ root }}?game={{ g | urlencode }}">{{ g }}</a>{{ ' + ' if not loop.last }}{% endfor %}{{ sep() }}<a href="{{ root }}{{ g1 }}cat={{ c.category | urlencode }}">{{ c.category }}</a></nav>
+  {# The name and its score share one line, as on a pit board: the score reads N/100 (of100), or the word for no score. #}
+  <div class="tline">
     <h1>{{ c.name }} <small>{{ c.version }}</small></h1>
-    <div class="meta">by {{ c.author }} · analysed {{ c.analysed }}</div>
-    <p class="sum">{{ c.summary }}</p>
+    <p class="big{% if not scored %} word{% endif %}">{% if scored %}<b class="num">{{ r.score }}{{ of100() }}</b>{% else %}{{ mark(r.kind) }}{% endif %}</p>
   </div>
-  <div class="big{% if not scored %} word{% endif %}">
-    {% if scored %}<b class="num">{{ r.score }}{{ of100() }}</b><span>rubric {{ c.rubric }}</span>{% else %}{{ mark(r.kind) }}<span>no number given</span>{% endif %}
-  </div>
+  <div class="meta">by {{ c.author }} · analysed {{ c.analysed }}</div>
+  <p class="sum">{{ c.summary }}</p>
 </div>
 {% if not c.latest %}<p class="notice">An earlier release. The newest card is <a href="{{ root }}{{ t.id }}/">{{ t.name }} {{ t.latest.version }}</a>.</p>{% endif %}
 {% if c.by_maintainer %}<p class="notice maint">{{ SITE.maintainer_notice | mdi }}</p>{% endif %}
@@ -109,16 +107,19 @@
 {% endfor %}
 </div>
 
+{# What the analysis covered and couldn't: one group, spaced like the areas above, so its folds read as one list. #}
+<h2 class="h2" id="about">About this analysis</h2>
+<div class="stack tight">
 {% if lims %}
-{# Open from the start, unlike the reference folds below: it says what the answers above can't show. #}
-{% call fold('limits', 'Limits of this analysis', note='' ~ lims | length ~ ' limit' ~ ('s' if lims | length != 1 else ''), open=True, h='h2') %}
+{# Open from the start, unlike the release fold below: it says what the answers above can't show. #}
+{% call fold('limits', 'Limits of this analysis', note='' ~ lims | length ~ ' limit' ~ ('s' if lims | length != 1 else ''), open=True, h='h3') %}
 <ol class="lims">
 {% for l in lims %}<li id="lim-{{ loop.index }}">{{ l.text | mdi }}{% if l.questions %} <span class="muted">({% for q in l.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %})</span>{% endif %}</li>{% endfor %}
 </ol>
 {% endcall %}
 {% endif %}
 
-{% call fold('release', 'The release analysed', note='' ~ c.files | length ~ ' file' ~ ('s' if c.files | length != 1 else '') ~ '', h='h2') %}
+{% call fold('release', 'The release analysed', note='' ~ c.files | length ~ ' file' ~ ('s' if c.files | length != 1 else '') ~ '', h='h3') %}
 <div>
   <dl class="facts">{% for h in c.header %}<dt>{{ h.label }}</dt><dd>{{ h.text | mdi }}</dd>{% endfor %}</dl>
   <div class="tw"><table class="t files"><thead><tr><th scope="col">File</th><th scope="col">SHA-256</th><th scope="col">VirusTotal</th><th scope="col">Note</th></tr></thead><tbody>
@@ -127,6 +128,7 @@
   {% if c.files_note %}<div class="pad">{{ c.files_note | md }}</div>{% endif %}
 </div>
 {% endcall %}
+</div>
 
 <h2 class="h2" id="history">History</h2>
 {% if t.releases | length > 1 %}
