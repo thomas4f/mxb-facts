@@ -1,0 +1,37 @@
+# The site's own words, in Markdown, in one place: the build puts them in the feed (api/v1/site.json and index.json) and the
+# pages draw them from there. Links are absolute https addresses, as the feed requires. Rule 8's AI note is ai_note.
+lede: >-
+  What community plugins, apps and mods install, change and send, and how much of them you can check: the same questions for
+  every tool, and evidence for every answer. Not a review of features or quality.
+ai_note: >-
+  Claude, an AI, does the analysis from [a public prompt](https://thomas4f.github.io/mxb-facts/how/#prompt), and no person
+  checks each answer, so one can be wrong. A score sums up the findings and what could be checked: a high score doesn't prove
+  a tool does no harm, and a low one doesn't prove it does. Authors can [run the same check](https://thomas4f.github.io/mxb-facts/authors/)
+  on their own tool before a release, and correct anything a card gets wrong.
+# The AI note in one line, where the full one would push the content down (the tools list); it links to the full note.
+ai_short: >-
+  Claude, an AI, analyses each tool from a public prompt, and no person checks each answer, so one can be wrong.
+  [How it works](https://thomas4f.github.io/mxb-facts/how/)
+maintainer_notice: >-
+  **Made by the maintainer of MXB Facts.** thomas4f, who runs this project, makes this tool. It is analysed from the same
+  prompt, answers the same questions and is scored by the same fixed costs as every other tool, and every line links its
+  evidence, so you can check it yourself ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
+how_a_card_is_made:
+  - >-
+    **A tool is requested** through the request form, or the maintainer picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.
+  - >-
+    **Its files are pinned:** the newest release, unless another is named. Every file players download is hashed (SHA-256), and the release's commit is fixed when the source is public.
+  - >-
+    **The licence is read first.** If it forbids analysis, only public facts are covered, the rest says "Not allowed", nothing is run or uploaded, and the tool isn't scored.
+  - >-
+    **The AI analyses it** from the published prompt: source or binaries, an offline run on a throwaway Windows machine (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup. A downloaded file VirusTotal has never seen is uploaded for a scan.
+  - >-
+    **Every question is answered** with its evidence: a pinned code link, a file hash or a test anyone can repeat. What can't be proven or run goes under "Limits of this analysis", linked to the answers it affects.
+  - >-
+    **The build checks the card** against the rules: it checks each answer's mark against the mark table, and sets every key-question mark, tag and score itself; nobody picks one of those by hand.
+  - >-
+    **A security problem that isn't public is held back.** The finished card stays private until the author has been told; it is then published with a "Held back" row in place of the details (rule 9).
+  - >-
+    **Comments come in as issues:** a correction, something missing, or the author's context. While one is open, the answers it names show its count, and nothing else changes. When one holds, the line is fixed and the card's history says what changed and why.
+  - >-
+    **A new release gets a new card.** The tool's page shows the newest; earlier cards stay under History, and Compare can put two releases side by side.

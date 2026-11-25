@@ -74,9 +74,9 @@ Header block:
 | In one line | What the tool is and does, at most 90 characters, written from the analysis: never the author's own claims and no words that judge. Shown under the tool's name |
 | Category | One of: HUD; Setup and coaching; Gameplay and visuals; Fixes and performance; Mod managers; Content creation; Controllers; Social. It says what kind of tool it is, so readers can find similar ones; it says nothing about the tool's quality |
 | Author | The name the author publishes as their public identity (GitHub name, the name on its licence or page) |
-| Game | One of: MX Bikes; GP Bikes. The PiBoSo game the tool is for |
-| mxb-mods.com | For an MX Bikes tool: its mxb-mods.com page, "None found", or "Not checked" with the reason |
-| gpb-mods.com | For a GP Bikes tool, in place of mxb-mods.com: its gpb-mods.com page, "None found", or "Not checked" with the reason |
+| Game | One or both of: MX Bikes; GP Bikes, in that order. The PiBoSo games the release shows it is made for: a plugin or setting for that game in its files, or code that reads that game's folders, never only the author's word. Each game named is run in its demo, or a Limits line says it wasn't |
+| mxb-mods.com | For a tool whose Game row names MX Bikes: its mxb-mods.com page, "None found", or "Not checked" with the reason |
+| gpb-mods.com | For a tool whose Game row names GP Bikes: its gpb-mods.com page, "None found", or "Not checked" with the reason |
 | Homepage | Its own website, or "None found" |
 | GitHub | Its GitHub repository or releases, or "None found" |
 | Received as | Only for a file sent to us: what was received and where it came from |
@@ -86,7 +86,7 @@ Header block:
 | Analysed on | Date |
 | Held back | Only while an item is held back under rule 9: "&lt;n> item(s) (rule 9): &lt;question IDs>". Those answers can't be Good. The dates (when the author was told, and the end, 30 days later at most) are kept privately by the maintainer, not in the repository |
 | Licence clause | Only when the licence forbids the analysis (rule 6): the clause, quoted, with a link to it or the SHA-256 of the file it is in. A card has this row if, and only if, an answer is "Not allowed"; that card gets "Not scored" in place of a score. A clause added in a later release applies from that release on; a card for an earlier release stays (rule 2) |
-| Earlier reports | Only when the tool has earlier cards: a link to each, newest first, as [&lt;version>](https://thomas4f.github.io/mxb-facts/#&lt;card file without .yaml>), so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address |
+| Earlier reports | Only when the tool has earlier cards: a link to each, newest first, as `[&lt;version>](https://thomas4f.github.io/mxb-facts/&lt;tool>/&lt;version>/)`, so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address |
 | Method | That the analysis was done by an AI assistant, and the model and effort it ran with; read the source at the commit; compared release files to source where possible; what was and wasn't run |
 <!-- /card.schema.json -->
 
@@ -100,7 +100,7 @@ The header facts shown at the top of the tool's page (name, what it is, category
 6. **Creators' content** - How it treats other people's protected or paid content. Credits for code it reuses.
 7. **Transparency** - Is the source public, and is all of it public? Its licence. Can the release be traced to the source? Do its docs match the code? How is it built and developed?
 8. **Money** - Price, paid tiers, donations, shops. Sections 3 to 8 each start with the area's answers to the questions in `questions.md` (also shown side by side under "Compare tools"), then their tables, folded (for example "Connections found"), then **Also found**: lines that add what no answer says. A line that only repeats an answer is left out.
-9. **What it says vs what it does** - Quotes from its own docs, each with a verdict: Matches, Partly, Doesn't match, Not checked or Not allowed (`rules/card.schema.json`), drawn like the mark it reads like; a verdict costs nothing itself, T2 is the answer that counts. It shows in "All answers and evidence", after Money.
+9. **What it says vs what it does** - Quotes from its own docs, each with a verdict: Matches, Partly, Doesn't match, Not checked or Not allowed (`rules/card.schema.json`), drawn like the mark it reads like; a verdict costs nothing itself, T2 is the answer that counts. It shows in the Transparency area, under T2.
 10. **Limits of this analysis** - Everything we could not prove or run, and why. Each limit names every answer whose verdict or mark could change if the limit were lifted (it was run, the file was tied to its build, the service could be seen), and those answers link to it. A limit on the method as a whole (for example Wine isn't Windows) names none. A held-back question is never named (rule 9), and the one line saying how a tool gets at protected content is withheld names none.
 11. **Corrections** - Every comment sent through the "Comment on an answer" form (the `corrections` list): its issue, what it is (a correction, something missing, or the author's context), the questions it names, and its status, open, fixed, declined or noted, with the date and why. Every answer in "All answers and evidence", Good ones included, has a comment icon that opens the form with the card and the question filled in; while a comment is open, that icon shows the count and links here, each key question built from the answer shows "Under review #N", and the tool's findings show "N under review". It is neutral: no answer, mark, tag or score moves until it is decided.
 12. **Card history** - A table with a Date and a Change column: one change per row, oldest first. A score change caused by an answer says the old score, the new one and that answer; a rubric change is recorded in [scores.md](scores.md#changes-to-this-rubric) instead. The history records changes to what the card says about the tool (an answer, its evidence, a score, a correction), not changes to the site, the layout or the card format.
@@ -118,6 +118,9 @@ How we work changes here; a change to scores is recorded in [scores.md](scores.m
 
 | Date | Change |
 |---|---|
+| 25 Nov 2026 | Badges: a newer release the inventory has seen, with no card yet, gets badges saying "Not analysed yet" (it scores nothing); an address the site doesn't have shows a 404 page that names the tool or release asked for. |
+| 25 Nov 2026 | The site is made from a data feed (`api/v1/`, [docs/FEED.md](../docs/FEED.md)) that anyone can read: every tool, card and answer, with its evidence. The cards, rules, site text and feed are under CC BY 4.0 (credit MXB Facts with a link); the code stays MIT. |
+| 25 Nov 2026 | A card can name both games: the Game row lists each game the release shows it is made for (never only the author's word), with each game's mods-site row, and each named game's plugin runs in that game's demo or gets a Limits line. The registry has a mods-site entry for each game its cards name. |
 | 24 Nov 2026 | Rule 9: dropped the line that kept the whole site unpublished while a security problem in the maintainer's own tool was held back. That tool's card is held back like any other: it shows a "Held back" row in place of the details. |
 | 24 Nov 2026 | Rule 9: an analysis that finds a security problem to hold back no longer stops there. It finishes the card, with its "Held back" row, and reports every problem it finds; the "Analyse a tool" run then opens no pull request and sends the report and the finished card to the maintainer privately, sealed, until the author has been told. |
 | 24 Nov 2026 | A tool with a newer card: the newest card is the tool's page, in the tools list and Compare; each earlier card keeps its own page, at the address its successors link under "Earlier reports", and its badges (rule 2). |

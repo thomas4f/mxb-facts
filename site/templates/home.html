@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% from "macros.html" import bar, of100, sep %}
+{% block nav %}tools{% endblock %}
+{% block main %}
+<section class="hero">
+  <h1>What MX Bikes and GP Bikes tools <span>do</span></h1>
+  <p>{{ SITE.lede }}</p>
+  <p class="ainote"><strong>Made by AI.</strong> {{ SITE.ai_short | mdi }}</p>
+</section>
+
+<h2 class="sec-h" id="tools">Tools</h2>
+<div class="controls">
+  <input type="search" id="q" placeholder="Search tools, authors, findings" aria-label="Search the tools">
+  <select id="sort" aria-label="Sort"><option value="name">Name A–Z</option><option value="score">Score, high to low</option><option value="score-lo">Score, low to high</option><option value="date">Newest analysis</option></select>
+  <select id="game" aria-label="Game"><option value="">Both games</option><option>MX Bikes</option><option>GP Bikes</option></select>
+  <select id="cat" aria-label="Category"><option value="">All categories ({{ IX.tools | length }})</option>{% for c in IX.categories %}<option value="{{ c }}">{{ c }} ({{ IX.tools | selectattr('category', 'equalto', c) | list | length }})</option>{% endfor %}</select>
+</div>
+{# How many tools the filters show, and how to read their scores, on one line above the list. #}
+<div class="cntr"><p class="count" id="count" role="status">{{ IX.tools | length }} tools</p><p class="count">Scores are out of 100; higher is better.</p></div>
+<div class="grid" id="tools-grid">
+{% for t in IX.tools %}
+{% set r = t.latest.result %}
+{% set tg = t.latest.tags %}
+{% set shown = 4 %}
+<article class="card" data-name="{{ t.name | lower }}" data-score="{{ r.score if r.kind == 'score' else '' }}" data-date="{{ t.latest.analysed_iso }}" data-cat="{{ t.category }}" data-game="{{ t.games | join('|') }}"
+  data-search="{{ ([t.name, t.author, t.summary, t.category] + t.games + tg | map(attribute='label') | list) | join(' ') | lower }}">
+  <div class="row1"><span class="cat">{{ t.games | join(' + ') }}{{ sep() }}{{ t.category }}</span>
+    {% if r.kind == 'score' %}<span class="score num">{{ r.score }}{{ of100() }}</span>{% else %}<span class="score word">{{ mark(r.kind) }}</span>{% endif %}</div>
+  {% if r.kind == 'score' %}{{ bar(r.score) }}{% endif %}
+  <h3><a href="{{ root }}{{ t.id }}/">{{ t.name }}</a></h3>
+  <div class="meta">{{ t.latest.version }} · by {{ t.author }}</div>
+  <p class="sum">{{ t.summary }}</p>
+  <div class="tags">
+    {% if t.latest.counts.under_review %}<a class="tag review" href="{{ root }}{{ t.id }}/#corrections">{{ t.latest.counts.under_review }} under review</a>{% endif %}
+    {% if r.held_back['items'] %}{{ mark('held', r.held_back['items'] ~ ' held back') }}{% endif %}
+    {% if t.latest.counts.nc %}{{ mark('nc', t.latest.counts.nc ~ ' not checked') }}{% endif %}
+    {% if t.latest.counts.na %}{{ mark('na', 'Licence forbids analysis') }}{% endif %}
+    {% if not (tg | selectattr('kind', 'equalto', 'concern') | list) and not r.held_back['items'] and not t.latest.counts.nc and not t.latest.counts.na %}{{ mark('good', 'No critical findings') }}{% endif %}
+    {% set ordered = (tg | selectattr('kind', 'equalto', 'concern') | list) + (tg | selectattr('kind', 'equalto', 'positive') | list) + (tg | selectattr('kind', 'equalto', 'off_by_default') | list) %}
+    {% for x in ordered %}{{ tag(x, loop.index > shown, root ~ t.id ~ '/') }}{% endfor %}
+    {% if ordered | length > shown %}<button type="button" class="tag more" data-more aria-expanded="false" data-label="+{{ ordered | length - shown }} more">+{{ ordered | length - shown }} more<span class="vh"> tags for {{ t.name }}</span></button>{% endif %}
+  </div>
+  <div class="foot"><label class="cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare</label><a class="btn" href="{{ root }}{{ t.id }}/">View findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
+</article>
+{% endfor %}
+</div>
+<p class="empty" id="none" hidden>No tool matches. Clear the search or pick another category.</p>
+<div class="cmpbar" id="cmpbar" hidden><span><b data-cmp-n></b> picked to compare</span><span class="links"><button class="btn" type="button" data-cmp-clear>Clear</button><a class="btn primary" href="{{ root }}compare/" data-cmp-go>Compare</a></span></div>
+
+{# What each mark means lives once, on How it works; the list points there. #}
+<p class="count">New to the marks? <a href="{{ root }}how/#marks">Reading a card</a> explains each one.</p>
+<script type="application/json" id="addresses">{{ addresses | tojson }}</script>
+{% endblock %}

@@ -35,7 +35,7 @@
   },
   "header": {
    "type": "object",
-   "description": "The header rows of rules/template.md, by label, except Files checked (see files). An MX Bikes tool has the \"mxb-mods.com\" row, a GP Bikes tool the \"gpb-mods.com\" row",
+   "description": "The header rows of rules/template.md, by label, except Files checked (see files). Each game the Game row names brings its mods site's row: \"mxb-mods.com\" for MX Bikes, \"gpb-mods.com\" for GP Bikes",
    "required": [
     "In one line",
     "Category",
@@ -77,21 +77,19 @@
      "description": "The name the author publishes as their public identity (GitHub name, the name on its licence or page)"
     },
     "Game": {
-     "enum": [
-      "MX Bikes",
-      "GP Bikes"
-     ],
-     "description": "The PiBoSo game the tool is for"
+     "type": "string",
+     "pattern": "^(MX Bikes|GP Bikes|MX Bikes; GP Bikes)$",
+     "description": "One or both of: MX Bikes; GP Bikes, in that order. The PiBoSo games the release shows it is made for: a plugin or setting for that game in its files, or code that reads that game's folders, never only the author's word. Each game named is run in its demo, or a Limits line says it wasn't"
     },
     "mxb-mods.com": {
      "type": "string",
      "minLength": 1,
-     "description": "For an MX Bikes tool: its mxb-mods.com page, \"None found\", or \"Not checked\" with the reason"
+     "description": "For a tool whose Game row names MX Bikes: its mxb-mods.com page, \"None found\", or \"Not checked\" with the reason"
     },
     "gpb-mods.com": {
      "type": "string",
      "minLength": 1,
-     "description": "For a GP Bikes tool, in place of mxb-mods.com: its gpb-mods.com page, \"None found\", or \"Not checked\" with the reason"
+     "description": "For a tool whose Game row names GP Bikes: its gpb-mods.com page, \"None found\", or \"Not checked\" with the reason"
     },
     "Homepage": {
      "type": "string",
@@ -136,7 +134,7 @@
     "Earlier reports": {
      "type": "string",
      "minLength": 1,
-     "description": "Only when the tool has earlier cards: a link to each, newest first, as [<version>](https://thomas4f.github.io/mxb-facts/#<card file without .yaml>), so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address"
+     "description": "Only when the tool has earlier cards: a link to each, newest first, as `[<version>](https://thomas4f.github.io/mxb-facts/<tool>/<version>/)`, so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address"
     },
     "Method": {
      "type": "string",
@@ -145,35 +143,47 @@
     }
    },
    "additionalProperties": false,
-   "oneOf": [
+   "allOf": [
     {
-     "properties": {
-      "Game": {
-       "const": "MX Bikes"
+     "if": {
+      "properties": {
+       "Game": {
+        "pattern": "MX Bikes"
+       }
       }
      },
-     "required": [
-      "mxb-mods.com"
-     ],
-     "not": {
-      "required": [
-       "gpb-mods.com"
-      ]
-     }
-    },
-    {
-     "properties": {
-      "Game": {
-       "const": "GP Bikes"
-      }
-     },
-     "required": [
-      "gpb-mods.com"
-     ],
-     "not": {
+     "then": {
       "required": [
        "mxb-mods.com"
       ]
+     },
+     "else": {
+      "not": {
+       "required": [
+        "mxb-mods.com"
+       ]
+      }
+     }
+    },
+    {
+     "if": {
+      "properties": {
+       "Game": {
+        "pattern": "GP Bikes"
+       }
+      }
+     },
+     "then": {
+      "required": [
+       "gpb-mods.com"
+      ]
+     },
+     "else": {
+      "not": {
+       "required": [
+        "gpb-mods.com"
+       ]
+      }
      }
     }
    ]

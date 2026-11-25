@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% block title %}MXB Facts{% endblock %}</title>
+<meta name="description" content="{% block description %}What MX Bikes and GP Bikes plugins, apps and mods install, change and send, with evidence for every answer.{% endblock %}">
+<link rel="canonical" href="{{ IX.site }}{{ path | replace('index.html', '') }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MXB Facts">
+<meta property="og:title" content="{% block og_title %}{{ self.title() }}{% endblock %}">
+<meta property="og:description" content="{{ self.description() }}">
+<meta property="og:url" content="{{ IX.site }}{{ path | replace('index.html', '') }}">
+{# The link preview: the page's own image (a card's score and areas, or the site's) at 1200 by 630, and the pit board's accent,
+   which Discord draws as the embed's edge. #}
+{% set img = card_image if card_image is defined else og_image %}
+<meta property="og:image" content="{{ img }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{% block image_alt %}MXB Facts: what MX Bikes and GP Bikes tools do, with evidence for every answer.{% endblock %}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="{{ img }}">
+<meta name="theme-color" content="{{ DARK.bg }}">
+<link rel="icon" href="{{ root }}assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ root }}assets/touch-icon.png">
+{# The fonts every page shows above the fold, fetched with the stylesheet so text doesn't move when they arrive. #}
+<link rel="preload" href="{{ root }}assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/barlow-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/barlow-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/barlow-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ root }}assets/site.css">
+<link rel="stylesheet" href="{{ root }}assets/icons.css">
+<script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch {}</script>
+{% block head %}{% endblock %}
+</head>
+<body data-root="{{ root }}">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top"><div class="in">
+  <a class="brand" href="{{ root }}">MXB<em>/</em>Facts</a>
+  {% block here %}{% endblock %}
+  <nav class="nav" aria-label="Site">
+    {% set here = self.nav() | trim %}
+    <a href="{{ root }}"{% if here == 'tools' %} aria-current="page"{% endif %}>Tools</a>
+    <a href="{{ root }}compare/"{% if here == 'compare' %} aria-current="page"{% endif %}>Compare<span class="n" data-cmp-count hidden></span></a>
+    <a href="{{ root }}how/"{% if here == 'how' %} aria-current="page"{% endif %}>How it works</a>
+    <a href="{{ root }}authors/"{% if here == 'authors' %} aria-current="page"{% endif %}>For authors</a>
+  </nav>
+  <button type="button" class="theme" data-theme-toggle aria-label="Colour theme: system. Change it">Theme: System</button>
+</div></header>
+<main class="wrap" id="main" tabindex="-1">
+{% block main %}{% endblock %}
+</main>
+<p class="vh" role="status" id="say"></p>
+<footer><div class="in">
+  {# Who runs it, then the links in two small groups, then one quiet line for the licence and the build. #}
+  <div class="fgrid">
+    <p class="fabout"><a class="brand" href="{{ root }}">MXB<em>/</em>Facts</a><span>Maintained by <a href="{{ SITE.links.maintainer }}">thomas4f</a>, who also makes MXBMRP3 (<a href="{{ SITE.links.conflict }}">conflict of interest</a>).</span></p>
+    <nav class="flinks" aria-label="Take part"><h2 class="fh">Take part</h2><a href="{{ SITE.links.comment }}">Comment on a card</a><a href="{{ SITE.links.request }}">Request a tool</a><a href="{{ SITE.links.question }}">Suggest a question</a></nav>
+    <nav class="flinks" aria-label="Project"><h2 class="fh">Project</h2><a href="{{ SITE.links.source }}">Source on GitHub</a><a href="{{ root }}api/v1/index.json">Data feed</a></nav>
+  </div>
+  <p class="fmeta">Cards and data <a href="{{ IX.licence.url }}" rel="license">CC BY 4.0</a> · Code <a href="{{ SITE.repo }}blob/main/LICENSE">MIT</a> · Rubric {{ IX.rubric }} · Built from <a href="{{ SITE.repo }}commit/{{ IX.commit }}">{{ IX.commit[:7] }}</a></p>
+</div></footer>
+<script src="{{ root }}assets/site.js" defer></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

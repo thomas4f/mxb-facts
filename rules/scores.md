@@ -121,7 +121,7 @@ The rubric has a version, shown with every score and badge. A change to a tier, 
 
 ## Badge
 
-Each card gets five badges, shown under "For the tool's author" on its page: three shields in the shields.io styles, a score tile and a card with the area scores, each pinned to the card's version and linked to its page (`badge/<tool-slug>/<version>…svg`, with a `.json` for other shields.io styles). A badge's title adds the rubric version, the analysis date and that the score is worked out from the answers' costs. A version without a card has no badge.
+Each card gets five badges, shown under "For the tool's author" on its page, in the site's colours with its MXB/FACTS wordmark: three shields in the shields.io styles, a score tile and a card with the area scores, each pinned to the card's version and linked to its page (`badge/<tool-slug>/<version>…svg`, with a `.json` for other shields.io styles). A badge's title adds the rubric version, the analysis date and that the score is worked out from the answers' costs. A release the weekly inventory has seen (`registry/releases.json`), dated after the tool's newest card and with no card yet, gets the same five badges saying "Not analysed yet", under its version as published and without a leading v, so a README that moves to the new version before its card shows that; it scores nothing. Any other version without a card has no badge. An address the site doesn't have shows its 404 page, which names the tool or release asked for when it can.
 
 ## Changes to this rubric
 

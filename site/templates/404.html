@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block nav %}{% endblock %}
+{% block title %}Page not found · MXB Facts{% endblock %}
+{% block description %}There is no page at this address on MXB Facts.{% endblock %}
+{% block head %}<meta name="robots" content="noindex">{% endblock %}
+{% block main %}
+{# A page that isn't there: site.js names the tool or release the address asks for, from the list below; without script the
+   words below stand. #}
+<h1 class="sec-h" id="nf-title">Page not found</h1>
+<p class="measure" id="nf-text">There's no page at this address. The tool or release may not have a card yet, or the address may have changed.</p>
+<ul class="nflinks" id="nf-links">
+  <li><a href="{{ root }}">Browse every tool</a></li>
+  <li><a href="{{ SITE.links.request }}">Request a tool or a re-check</a></li>
+  <li><a href="{{ root }}how/">How it works</a></li>
+</ul>
+<script type="application/json" id="nf-data">{{ known | tojson }}</script>
+{% endblock %}

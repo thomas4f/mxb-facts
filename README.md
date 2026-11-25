@@ -36,7 +36,7 @@ How the pieces connect and how the main jobs run: [`docs/DEVELOPING.md`](docs/DE
 | `rules/questions.md` | The questions every card answers |
 | `prompts/analyse-tool.md` | The prompt every analysis starts from, with the model and effort we use |
 | `authors/` | The check authors drop into their own repository (`mxb-facts-check/SKILL.md`), shown on the "For authors" page |
-| `site/` | `build.py` (checks the cards and builds the site) with `rules.py` (the rules and scores), `cards.py` (card checks) and `page.py` (the HTML), and `shell.html` |
+| `site/` | `build.py` (checks the cards and builds the site) with `rules.py` (the rules and scores), `cards.py` (card checks), `feed.py` (the data feed, `api/v1/`), `render.py` and `templates/` (every page, made from the feed only), `static/` (styles, script, fonts) and `content.yaml` (the site's own text) |
 | `tools/` | Link checker, corrections check, issue labels, VirusTotal hash lookup, mods-site and release fetchers, the runner and release downloader for the "Analyse a tool" workflow, unpackers for PyInstaller and Tauri apps |
 | `registry/` | Every tool covered or queued, its mods-site page snapshot and its newest releases ([`registry/README.md`](registry/README.md)) |
 | `vt/results.json` | Latest VirusTotal hash lookups for every card (written by the "VirusTotal lookup" workflow) |
@@ -44,7 +44,7 @@ How the pieces connect and how the main jobs run: [`docs/DEVELOPING.md`](docs/DE
 | `lab/evidence/` | The output of every command a card's lines name (`objdump`, `strings`, searches), one folder per card with the `run.sh` that repeats it |
 | `lab/results/` | What each run recorded (logs, files written, connections tried, screenshots), one folder per card and run |
 | `lab/plugin-test-host/` | A fake `mxbikes.exe` that loads plugins and logs what they do: under Wine, or on a throwaway Windows machine in the "Analyse a tool" workflow |
-| `tests/` | Tests for how the build sets scores, marks and tags |
+| `tests/` | Tests for how the build sets scores, marks and tags (`test_build.py`), and checks on the built site (`site/`: valid HTML, accessibility, behaviour, screenshots, Lighthouse) |
 | `docs/` | Developer overview, queue of tools to analyse |
 
 ## Build
@@ -52,10 +52,10 @@ How the pieces connect and how the main jobs run: [`docs/DEVELOPING.md`](docs/DE
 ```
 pip install -r requirements.txt
 python3 -I tests/test_build.py   # the build's own tests
-python3 -I site/build.py         # writes _site/index.html
+python3 -I site/build.py         # writes _site/ (the data feed and every page)
 python3 -I tools/check_links.py  # checks every pinned code link
 ```
 
 ## Licence
 
-[MIT](LICENSE) covers this project's own code and text. What it quotes or records from the tools it covers (their strings and disassembly under `lab/evidence/`, their logs and files under `lab/results/`, page excerpts under `registry/`) stays with its owners.
+[MIT](LICENSE) covers this project's own code. Its cards (`cards/`), rules (`rules/`), site text and the data feed (`api/v1/`, [docs/FEED.md](docs/FEED.md)) are under [CC BY 4.0](LICENSE-DATA): reuse them, commercially too, crediting MXB Facts with a link. What it quotes or records from the tools it covers (their strings and disassembly under `lab/evidence/`, their logs and files under `lab/results/`, page excerpts under `registry/`) stays with its owners.

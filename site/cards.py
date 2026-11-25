@@ -1,6 +1,7 @@
 """The cards: checking one card file (cards/*.yaml) against the rules and working out what the rules set on it (its answers
-as lines, their costs, its key answers, its corrections). No page is made here: page.py does that from the result. Also the
-data beside the cards: the registry (registry/*.json) and the VirusTotal lookups (vt/results.json).
+as lines, their costs, its key answers, its corrections). No page is made here: feed.py makes the data feed from the result,
+and render.py the pages from the feed. Also the data beside the cards: the registry (registry/*.json) and the VirusTotal
+lookups (vt/results.json).
 """
 import datetime, json, jsonschema, os, re, subprocess, urllib.parse
 from rules import (
@@ -93,6 +94,26 @@ try: COMMIT=subprocess.run(['git','-C',ROOT,'rev-parse','HEAD'],capture_output=T
 except (OSError,subprocess.CalledProcessError): COMMIT=''
 assert re.fullmatch(r'[0-9a-f]{40}',COMMIT), 'site/build.py needs the repository\'s git history, for the commit that test-host evidence and the For authors check point at'
 CORRFORM=REPO+'issues/new?template=correction.yml'
+REQFORM=REPO+'issues/new?template=analyse-tool.yml'  # a request to analyse a tool, or to re-check a new release
+SITEURL='https://thomas4f.github.io/mxb-facts/'
+VERSION_RE=r'[A-Za-z0-9][A-Za-z0-9._+-]{0,40}'  # a version as it may appear in a badge or page address
+
+def bare_version(v):
+    # A version as cards write it: without the leading v of a tag (v1.2.0 is 1.2.0).
+    return v[1:] if v[:1] in 'vV' and v[1:2].isdigit() else v
+
+def pending_versions(card_versions, newest_card_iso, sources):
+    # The releases the weekly inventory has seen (registry/releases.json, one entry per place the tool publishes) that are newer
+    # than the tool's newest card and have no card yet, under the version as published and without its leading v. A source
+    # without a date, or dated on or before the newest card's analysis, is not "newer": an old or lagging entry gets nothing.
+    out=set()
+    for src in sources.values():
+        if not isinstance(src,dict): continue
+        v,d=src.get('version'),src.get('date') or ''
+        if not v or not re.fullmatch(VERSION_RE,v) or not re.fullmatch(r'\d{4}-\d{2}-\d{2}',d) or d<=newest_card_iso: continue
+        if v in card_versions or bare_version(v) in card_versions: continue
+        out|={v,bare_version(v)}
+    return sorted(out)
 # Open corrections per card: question -> issue numbers. While one is open, each answer it names shows a neutral marker; nothing else moves.
 CORR={}
 def correction_link(card,q,ans=''):
@@ -138,6 +159,8 @@ def no_html(f,d,p='card'):
         assert '![' not in t, f+': '+p+' holds a Markdown image ("'+t[t.index('!['):t.index('![')+30]+'"); cards link, they don\'t embed'
         assert not m, f+': '+p+' holds HTML ("'+t[m.start():m.start()+30]+'"); put it in `code`, or write &lt;'
         bad=[u for u in re.findall(r'\]\(([^)\s]*)',t) if not u.startswith('https://')]
+        # A reference-style link ([text][ref] with "[ref]: address" on its own line) would slip past the check above.
+        bad+=re.findall(r'(?m)^[\s>*+\-\d.]*\[[^\]]+\]:\s*\S+',t)
         assert not bad, f+': '+p+' links somewhere other than an https address: '+', '.join(bad)
 def linked(f,d):
     # The card with every path into lab/ turned into a link (lablinks), for everything that is shown.
@@ -152,7 +175,7 @@ def strings(d):
 def check_card(f,raw):
     # One card, checked against the schema and the rules, with what the rules work out from it: its answers as lines
     # ("rows"), their verdicts ("A") and costs ("SETS"), the held-back questions and the key answers. Nothing here is HTML:
-    # page.py makes the page from this.
+    # feed.py makes the feed from this.
     jsonschema.validate(raw,SCHEMA); no_html(f,raw)
     check_files(raw)
     assert not set(raw['header'])-set(HEADER), f+': unknown header rows '+', '.join(set(raw['header'])-set(HEADER))
@@ -224,6 +247,6 @@ JUDGE=r'\b(safe|unsafe|spyware|malicious|shady|sketchy|trustworthy|untrustworthy
 # Each game's mods site: the registry key, its snapshot and the card's header row.
 SITES={'MX Bikes':('mxb-mods','mxb-mods.com'),'GP Bikes':('gpb-mods','gpb-mods.com')}
 MM={k:json.load(open(ROOT+'registry/'+k+'.json')) for k,_ in SITES.values()}
-def site(e): return next(k for k,_ in SITES.values() if k in e)
+def games(h): return h['Game'].split('; ')  # the games a card's Game row names, MX Bikes first
 SLUG={c:s for s,e in REG.items() for c in e['cards']}
 def esc(s): return s.replace('&','&amp;').replace('"','&quot;').replace('<','&lt;')

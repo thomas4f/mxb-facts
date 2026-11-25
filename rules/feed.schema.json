@@ -1,0 +1,670 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://thomas4f.github.io/mxb-facts/api/v1/schema/feed.schema.json",
+  "title": "MXB Facts data feed, v1",
+  "description": "The files under api/v1/. Within v1 fields are only ever added; a field removed or renamed means api/v2/. Contract: docs/FEED.md.",
+  "$defs": {
+    "base": {
+      "type": "object",
+      "required": [
+        "feed_version",
+        "built_at",
+        "commit",
+        "rubric"
+      ],
+      "properties": {
+        "feed_version": {
+          "type": "string",
+          "pattern": "^1\\.\\d+$"
+        },
+        "commit": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$|^unknown$"
+        },
+        "rubric": {
+          "type": "string"
+        },
+        "built_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "areaScores": {
+      "type": "object",
+      "required": [
+        "pc",
+        "data",
+        "game",
+        "creators",
+        "transparency"
+      ],
+      "additionalProperties": {
+        "type": [
+          "integer",
+          "null"
+        ],
+        "minimum": 0,
+        "maximum": 100
+      }
+    },
+    "result": {
+      "type": "object",
+      "required": [
+        "kind",
+        "score",
+        "label",
+        "areas",
+        "money",
+        "open_questions",
+        "why",
+        "held_back"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "score",
+            "notscored",
+            "malware"
+          ]
+        },
+        "score": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0,
+          "maximum": 100
+        },
+        "label": {
+          "type": "string"
+        },
+        "areas": {
+          "$ref": "#/$defs/areaScores"
+        },
+        "money": {
+          "type": "string"
+        },
+        "open_questions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/qid"
+          }
+        },
+        "why": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "held_back": {
+          "type": "object",
+          "required": [
+            "items",
+            "questions"
+          ],
+          "properties": {
+            "items": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "questions": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/qid"
+              }
+            }
+          }
+        }
+      }
+    },
+    "qid": {
+      "type": "string",
+      "pattern": "^[PDGCTMK]\\d{1,2}$"
+    },
+    "state": {
+      "enum": [
+        "good",
+        "note",
+        "concern",
+        "major",
+        "off",
+        "req",
+        "nc",
+        "held",
+        "na",
+        "dna",
+        "malware"
+      ]
+    },
+    "tag": {
+      "type": "object",
+      "required": [
+        "label",
+        "kind",
+        "question"
+      ],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "concern",
+            "off_by_default",
+            "positive"
+          ]
+        },
+        "question": {
+          "$ref": "#/$defs/qid"
+        }
+      }
+    },
+    "release": {
+      "type": "object",
+      "required": [
+        "version",
+        "card",
+        "analysed",
+        "kind",
+        "score",
+        "page",
+        "json",
+        "analysed_iso"
+      ],
+      "properties": {
+        "version": {
+          "type": "string"
+        },
+        "card": {
+          "type": "string"
+        },
+        "analysed": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "score",
+            "notscored",
+            "malware"
+          ]
+        },
+        "score": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "page": {
+          "type": "string",
+          "format": "uri"
+        },
+        "json": {
+          "type": "string",
+          "format": "uri"
+        },
+        "analysed_iso": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
+    "index": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        }
+      ],
+      "required": [
+        "site",
+        "ai_note",
+        "licence",
+        "areas",
+        "states",
+        "tags",
+        "tools",
+        "built_at",
+        "categories",
+        "commit",
+        "correction_kinds",
+        "feed_version",
+        "legend",
+        "links",
+        "money",
+        "rubric",
+        "says_question"
+      ],
+      "properties": {
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "name",
+              "author",
+              "games",
+              "category",
+              "summary",
+              "page",
+              "mods_sites",
+              "releases",
+              "latest"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z0-9-]+$"
+              },
+              "github": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "releases": {
+                "type": "array",
+                "minItems": 1,
+                "items": {
+                  "$ref": "#/$defs/release"
+                }
+              },
+              "latest": {
+                "allOf": [
+                  {
+                    "$ref": "#/$defs/release"
+                  }
+                ],
+                "required": [
+                  "result",
+                  "tags",
+                  "badges"
+                ],
+                "properties": {
+                  "result": {
+                    "$ref": "#/$defs/result"
+                  },
+                  "tags": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/$defs/tag"
+                    }
+                  }
+                }
+              },
+              "games": {
+                "$ref": "#/$defs/games"
+              },
+              "mods_sites": {
+                "type": "array",
+                "description": "The tool's page on each of its games' mods sites that has one",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "site",
+                    "post",
+                    "url"
+                  ],
+                  "properties": {
+                    "post": {
+                      "type": "integer"
+                    },
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ai_note": {
+          "type": "string",
+          "minLength": 40
+        },
+        "licence": {
+          "$ref": "#/$defs/licence"
+        }
+      }
+    },
+    "card": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        }
+      ],
+      "required": [
+        "card",
+        "tool",
+        "name",
+        "version",
+        "latest",
+        "games",
+        "category",
+        "summary",
+        "analysed",
+        "page",
+        "result",
+        "tags",
+        "files",
+        "key_answers",
+        "answers",
+        "history",
+        "ai_note",
+        "licence",
+        "analysed_iso",
+        "method",
+        "sections",
+        "areas",
+        "author",
+        "author_prompt",
+        "badges",
+        "built_at",
+        "by_maintainer",
+        "changes_since",
+        "commit",
+        "corrections",
+        "facts",
+        "feed_version",
+        "files_note",
+        "header",
+        "rubric",
+        "yaml"
+      ],
+      "properties": {
+        "games": {
+          "$ref": "#/$defs/games"
+        },
+        "result": {
+          "$ref": "#/$defs/result"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/tag"
+          }
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "sha256"
+            ],
+            "properties": {
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            }
+          }
+        },
+        "key_answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "question",
+              "short",
+              "state",
+              "text",
+              "text_plain"
+            ],
+            "properties": {
+              "state": {
+                "$ref": "#/$defs/state"
+              }
+            }
+          }
+        },
+        "answers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "area",
+              "question",
+              "verdict",
+              "state",
+              "cost",
+              "open",
+              "text",
+              "text_plain",
+              "evidence",
+              "counted_with"
+            ],
+            "properties": {
+              "id": {
+                "$ref": "#/$defs/qid"
+              },
+              "state": {
+                "$ref": "#/$defs/state"
+              },
+              "cost": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          }
+        },
+        "ai_note": {
+          "type": "string",
+          "minLength": 40
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "blocks"
+            ],
+            "properties": {
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "rows": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "dependentRequired": {
+                          "Verdict": [
+                            "verdict_state"
+                          ]
+                        },
+                        "properties": {
+                          "verdict_state": {
+                            "$ref": "#/$defs/state"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "licence": {
+          "$ref": "#/$defs/licence"
+        }
+      }
+    },
+    "match": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/base"
+        }
+      ],
+      "required": [
+        "github",
+        "mods_post",
+        "sha256",
+        "built_at",
+        "commit",
+        "feed_version",
+        "licence",
+        "rubric"
+      ],
+      "properties": {
+        "github": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "mods_post": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "sha256": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "tool",
+                "card",
+                "version",
+                "latest",
+                "file"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "site": {
+      "type": "object",
+      "required": [
+        "feed_version",
+        "commit",
+        "rubric",
+        "how_a_card_is_made",
+        "template",
+        "scores",
+        "prompt",
+        "questions",
+        "key_questions",
+        "authors_check",
+        "links",
+        "ai_note",
+        "ai_short",
+        "built_at",
+        "lede",
+        "licence",
+        "maintainer_notice",
+        "repo",
+        "site"
+      ],
+      "properties": {
+        "how_a_card_is_made": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "template": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "text"
+            ]
+          }
+        },
+        "scores": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "text"
+            ]
+          }
+        },
+        "questions": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "id",
+              "area",
+              "question",
+              "good_when",
+              "max_cost"
+            ]
+          }
+        }
+      }
+    },
+    "games": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "MX Bikes",
+          "GP Bikes"
+        ]
+      },
+      "description": "The games the release shows it is made for, MX Bikes first"
+    },
+    "licence": {
+      "type": "object",
+      "required": [
+        "data",
+        "name",
+        "url",
+        "attribution",
+        "code"
+      ],
+      "properties": {
+        "data": {
+          "const": "CC-BY-4.0"
+        },
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "attribution": {
+          "type": "string"
+        },
+        "code": {
+          "const": "MIT"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -231,7 +231,7 @@ def heldq(hb):
 STATES={
     'good':('Good','good','circle-check','A finding in your favour; costs nothing'),
     'note':('Note','note','info','Worth knowing; costs nothing'),
-    'concern':('Concern','bad','circle-alert','In the default setup; costs points'),
+    'concern':('Concern','bad','octagon-alert','In the default setup; costs points'),
     'major':('Major','bad hi','triangle-alert','A major concern: in the default setup, at the severe cost or more'),
     'off':('Off by default','off','toggle-left','Only after a setting or choice you make; costs nothing (rule 5)'),
     'req':('On request','off req','mouse-pointer-click','Only when you start it, each time; costs nothing (rule 5)'),
