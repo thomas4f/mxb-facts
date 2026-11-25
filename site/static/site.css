@@ -63,16 +63,14 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .wrap { max-width: 1180px; margin: 0 auto; padding: var(--s5) max(16px, env(safe-area-inset-right, 0px)) var(--s7) max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: var(--s5) }
 .stack { display: grid; gap: var(--s5) }
 .hero { background: var(--hero); border: 1px solid var(--line); border-radius: 16px; padding: var(--s6) var(--s5); display: grid; gap: var(--s4) }
-.eyebrow { font: 700 12.5px/1 var(--f-head); letter-spacing: .14em; text-transform: uppercase; color: var(--accent) }
-.hero h1 { font: 600 clamp(34px, 6vw, 56px)/1.02 var(--f-display); letter-spacing: -.02em }
+.hero h1 { font: 600 clamp(30px, 6vw, 56px)/1.02 var(--f-display); letter-spacing: -.02em }
 .hero h1 span { color: var(--accent) }
 .hero p { margin: 0; color: var(--muted); max-width: 60ch; font-size: 16.5px }
-@media (max-width: 640px) { .hero { padding: var(--s5) var(--s4); gap: var(--s3) } .stats { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s2) } .stat { padding: var(--s3) } .stat b { font-size: 24px } .stat span { font-size: 12px; line-height: 1.2; display: block } }
-.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: var(--s3) }
-.stat { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4) var(--s4) }
-.stat b { display: block; font: 700 30px/1.1 var(--f-head) } .stat span { color: var(--muted); font-size: 13.5px }
+/* On a phone the intro is plain text, not a panel, so the tools list starts on the first screen. */
+@media (max-width: 640px) { .hero { background: none; border: 0; border-radius: 0; padding: 0; gap: var(--s2) } .hero p { font-size: 15px } }
 .ainote { border-left: 3px solid var(--accent); background: var(--surface); padding: var(--s3) var(--s4); border-radius: 0 var(--r-ctl) var(--r-ctl) 0; color: var(--muted); font-size: 14.5px; max-width: 80ch; margin: 0 }
 .ainote strong { color: var(--ink) }
+.hero .ainote { background: none; padding: 0 0 0 var(--s3); font-size: 14px }
 .sec-h { font: 700 28px/1.1 var(--f-head); letter-spacing: .01em }
 .h2 { font: 700 24px/1.15 var(--f-head); letter-spacing: .01em }
 .h3 { font: 700 19px/1.2 var(--f-head); letter-spacing: .01em }
@@ -99,6 +97,8 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .controls select { padding: var(--s2) var(--s3); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface) }
 .chips { display: flex; flex-wrap: wrap; gap: var(--s2) }
 .chip { border: 1px solid var(--line); background: var(--surface); padding: var(--s1) var(--s3); border-radius: 999px; cursor: pointer; font-size: 14px }
+/* On a phone the categories scroll sideways in one row instead of stacking four rows above the tools. */
+@media (max-width: 640px) { .chips { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--s4)); padding-inline: var(--s4) } .chip { flex: none; white-space: nowrap } }
 .chip span { color: var(--muted); margin-left: var(--s0) } .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--surface)) }
 .count { color: var(--muted); font-size: 14px }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: var(--s4) }
