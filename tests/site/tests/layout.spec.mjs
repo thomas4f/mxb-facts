@@ -14,3 +14,24 @@ for (const [name, path] of [...PAGES, ['tool-releases', 'dirt-gear/']]) {
     expect(await page.evaluate(check)).toEqual([]);
   });
 }
+
+// A word is never split across lines just to make room: a narrow table column once showed "Dat e" and "No v" (the page's
+// break-anywhere rule, meant for hashes, reached table cells). Every one-word table heading and date sits on one line.
+for (const [name, path] of PAGES) {
+  test(`${name}: table headings and dates keep their words whole`, async ({ page }) => {
+    await page.goto(path);
+    await page.evaluate(() => document.querySelectorAll('details').forEach((d) => { d.open = true; }));
+    const split = await page.evaluate(() => [...document.querySelectorAll('th, td')]
+      .filter((c) => c.getClientRects().length && /^(\w+|\d{1,2} \w{3} \d{4})$/.test(c.textContent.trim()))
+      .flatMap((c) => {
+        const words = c.textContent.trim().split(' ');
+        return words.filter((w) => {
+          const r = document.createRange(); const t = [...c.childNodes].find((n) => n.nodeType === 3 && n.textContent.includes(w));
+          if (!t) return false;
+          const i = t.textContent.indexOf(w); r.setStart(t, i); r.setEnd(t, i + w.length);
+          return new Set([...r.getClientRects()].map((x) => Math.round(x.top))).size > 1;
+        }).map((w) => `${c.textContent.trim()} (${w})`);
+      }));
+    expect(split).toEqual([]);
+  });
+}

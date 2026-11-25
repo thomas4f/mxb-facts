@@ -10,6 +10,8 @@ for (const scheme of ['dark', 'light']) {
       await page.emulateMedia({ colorScheme: scheme });
       await page.goto(url);
       await page.evaluate(() => document.querySelectorAll('details').forEach(d => { d.open = true; }));
+      // Two frames, so site.js has seen the opened folds' sizes (a table too wide to fit becomes a focusable region).
+      await page.evaluate(() => new Promise(r => requestAnimationFrame(() => requestAnimationFrame(r))));
       const r = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
       expect(r.violations.map(v => `${v.id}: ${v.nodes.slice(0, 3).map(n => n.target.join(' ')).join(' | ')}`)).toEqual([]);
     });

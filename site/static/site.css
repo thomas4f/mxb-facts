@@ -65,8 +65,8 @@ small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); l
 @media (min-width: 760px) { .nav { margin: 0 } .nav a { padding: 0 var(--s3); min-height: 40px } }
 .nav a[aria-current="page"] { border-color: var(--accent); color: var(--accent) }
 /* On a phone the four links sit two by two, so none is cut off with large text and the header keeps its height while the fonts load. */
-/* On a phone the four links share one row, spread across it, down to a 360px screen; a narrower one has two rows of two. */
-@media (max-width: 519px) { .nav { margin-inline: calc(-1 * var(--s1)); justify-content: space-between } .nav a { padding: 0 var(--s1) } }
+/* On a phone the four links share one row and its spare width, down to a 360px screen; a narrower one has two rows of two. */
+@media (max-width: 519px) { .nav { margin-inline: calc(-1 * var(--s1)) } .nav a { flex: 1 1 auto; justify-content: center; padding: 0 var(--s1) } }
 @media (max-width: 359px) { .nav { display: grid; grid-template-columns: 1fr 1fr; margin-inline: 0 } .nav a { justify-content: center } }
 .nav a .n { display: inline-grid; place-items: center; min-width: 18px; height: 18px; margin-left: var(--s1); border-radius: 9px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; padding: 0 var(--s1) }
 
@@ -185,7 +185,6 @@ details.fold > .body { border-top: 1px solid var(--line) }
 table.t { border-collapse: collapse; width: 100%; font-size: 14px }
 table.t th, table.t td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 table.t th { color: var(--muted); font-weight: 600; font-size: 13px }
-table.t td { overflow-wrap: anywhere }
 /* The table's box draws the last line; a row's own line there would double it. */
 table.t tbody tr:last-child > *, table.cmp tbody tr:last-child > * { border-bottom: 0 }
 details.sub:last-child { border-bottom: 0 }
@@ -210,8 +209,10 @@ details.sub:last-child { border-bottom: 0 }
 input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--accent); margin: 0 }
 .skip { position: absolute; left: 8px; top: -60px; z-index: 50; background: var(--accent); color: var(--accent-ink); padding: var(--s3) var(--s4); border-radius: var(--r-ctl); font-weight: 700 }
 .skip:focus { top: 8px }
-/* A long token (a SHA-256, a path) breaks rather than widening the page on a phone. */
-main { overflow-wrap: anywhere }
+/* A long token (a SHA-256, a path) breaks rather than widening the page on a phone. A table cell breaks a word only when the
+   word alone can't fit its column, so words stay whole ("Date", not "Dat e"; "P4", not "P 4"); a table too wide for the
+   screen scrolls sideways in its .tw instead (site.js makes that one focusable, so the keyboard can scroll it too). */
+main { overflow-wrap: anywhere } main :is(th, td) { overflow-wrap: break-word; hyphens: auto }
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
 
 /* Compare */

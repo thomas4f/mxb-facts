@@ -155,6 +155,16 @@
       if ($('#cmp')) history.replaceState(null, '', '?c=' + picked.join(','));
     }
   });
+  // A table too wide for the screen scrolls sideways; that one becomes a named stop for the keyboard so it can be scrolled
+  // without a mouse (WCAG 2.1.1). Checked whenever a table or its frame changes size: a fold opening, fonts arriving, a resize.
+  function scrollable(w) {
+    if (w.scrollWidth > w.clientWidth + 1) { w.tabIndex = 0; w.setAttribute('role', 'region'); w.setAttribute('aria-label', 'Table, scrolls sideways'); }
+    else { w.removeAttribute('tabindex'); w.removeAttribute('role'); w.removeAttribute('aria-label'); }
+  }
+  if (window.ResizeObserver) {
+    var ro = new ResizeObserver(function (es) { es.forEach(function (e) { scrollable(e.target.closest('.tw')); }); });
+    $$('.tw').forEach(function (w) { ro.observe(w); if (w.firstElementChild) ro.observe(w.firstElementChild); });
+  }
   window.addEventListener('hashchange', openTarget);
   showPicked(); showTools(); openTarget();
 })();
