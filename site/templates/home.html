@@ -8,14 +8,15 @@
   <p class="ainote"><strong>Made by AI.</strong> {{ SITE.ai_short | mdi }}</p>
 </section>
 
-<div class="sech"><h2 class="sec-h" id="tools">Tools</h2><span class="muted">Scores are out of 100; higher is better.</span></div>
+<h2 class="sec-h" id="tools">Tools</h2>
 <div class="controls">
   <input type="search" id="q" placeholder="Search tools, authors, findings" aria-label="Search the tools">
   <select id="sort" aria-label="Sort"><option value="name">Name A–Z</option><option value="score">Score, high to low</option><option value="score-lo">Score, low to high</option><option value="date">Newest analysis</option></select>
   <select id="game" aria-label="Game"><option value="">Both games</option><option>MX Bikes</option><option>GP Bikes</option></select>
   <select id="cat" aria-label="Category"><option value="">All categories ({{ IX.tools | length }})</option>{% for c in IX.categories %}<option value="{{ c }}">{{ c }} ({{ IX.tools | selectattr('category', 'equalto', c) | list | length }})</option>{% endfor %}</select>
 </div>
-<p class="count" id="count" role="status">{{ IX.tools | length }} tools</p>
+{# How many tools the filters show, and how to read their scores, on one line above the list. #}
+<div class="cntr"><p class="count" id="count" role="status">{{ IX.tools | length }} tools</p><p class="count">Scores are out of 100; higher is better.</p></div>
 <div class="grid" id="tools-grid">
 {% for t in IX.tools %}
 {% set r = t.latest.result %}

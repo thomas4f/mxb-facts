@@ -111,6 +111,7 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .chip { border: 1px solid var(--line); background: var(--surface); padding: var(--s1) var(--s3); border-radius: 999px; cursor: pointer; font-size: 14px }
 .chip span { color: var(--muted); margin-left: var(--s0) } .chip[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--surface)) }
 .count { color: var(--muted); font-size: 14px }
+.cntr { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--s1) var(--s4) } .cntr .count { margin: 0 }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: var(--s4) }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); min-width: 0 }
 .card:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)) }
@@ -289,7 +290,6 @@ code.hash { font-size: 12px }
 .badges { display: grid; gap: var(--s3); padding: var(--s2) 0 var(--s4) } .bopt img { max-width: 100%; height: auto }
 .lims.plain { list-style: none; padding-left: 0 }
 .measure { max-width: 78ch; margin: 0 }
-.sech { display: flex; align-items: baseline; gap: var(--s3); flex-wrap: wrap }
 .ft { display: inline-flex; gap: var(--s2); align-items: baseline }
 .cmpl { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; color: var(--muted); font-size: 14px }
 .chip.older { display: none } .chip.older.show { display: inline-flex }
