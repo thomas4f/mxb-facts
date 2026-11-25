@@ -8,7 +8,7 @@ import datetime, json, jsonschema, os, re, subprocess
 from rules import (AREAK, AREAN, CONCERN, GCOST, GSC, GT, HELD, KEYS, MDTXT, QCELL, QS, RUBRICV, SC, STATES, goodwhen, load_yaml, maxcost, money,
     scored, sround, state_of, tagsof, ROOT, D)
 from cards import MM, REG, REPO, SITES, check_card, site
-from page import BADGES, COMMIT, SITEURL, answer_cost, answer_state
+from page import BADGES, COMMIT, SAYS, SITEURL, answer_cost, answer_state, says_word
 
 FEED_VERSION='1.0'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
@@ -85,7 +85,7 @@ def write_feed(SITE,CARDS,shell):
         card={**base,'ai_note':note,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'game':h['Game'],'category':h['Category'],
               'summary':plain(h['In one line']),'author':plain(h['Author']),'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'method':h['Method'],
               'page':page,'yaml':f'{SITEURL}cards/{f}','badges':badges,'result':res,'tags':tags,'files':files,
-              'key_answers':key,'answers':ans,'sections':d['sections'],'history':hist,'corrections':raw.get('corrections',[])}
+              'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[])}
         check(card,'card')
         json.dump(card,open(out+f'cards/{cid}.json','w'),indent=1,ensure_ascii=False)
         rel={'version':C['ver'],'card':cid,'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'kind':res['kind'],'score':res['score'],
@@ -109,6 +109,19 @@ def write_feed(SITE,CARDS,shell):
     json.dump(m,open(out+'match.json','w'),indent=1,ensure_ascii=False)
     os.makedirs(out+'schema',exist_ok=True); json.dump(SCHEMA,open(out+'schema/feed.schema.json','w'),indent=1)
     return index
+
+def sections_out(secs):
+    # The report sections as the card has them, plus the state each "Says vs does" verdict is drawn as on the site (page.SAYS),
+    # so a reader of the feed never has to map the words itself.
+    out=[]
+    for sec in secs:
+        bl=[]
+        for b in sec['blocks']:
+            if 'Verdict' in b.get('table',[]):
+                b={**b,'rows':[{**r,'verdict_state':SAYS[says_word(r['Verdict'])][0]} for r in b['rows']]}
+            bl.append(b)
+        out.append({**sec,'blocks':bl})
+    return out
 
 def md_from_html(h):
     # The few tags the site's own prose uses, as Markdown: bold, links (made absolute), and nothing else.

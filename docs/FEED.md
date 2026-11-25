@@ -24,6 +24,7 @@ GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a brows
 - **A result always has a kind.** `result.kind` is `score` (a number in `score`, 0–100), `notscored` (`score` is `null`; `why` says why) or `malware` (`score` is `null`). `label` is the text the site shows.
 - **What is held back stays held back** ([rule 9](../rules/template.md)): `result.held_back` gives the number of items and the questions they touch, as the card's "Held back" row does, and nothing else. The details aren't in the feed because they aren't in the card.
 - **Every release stays** ([rule 2](../rules/template.md)): `releases` lists every card of a tool with its own score, newest first; `latest` is the newest.
+- **Every mark comes with its state.** Answers and key answers carry `state`; each row of a "What it says vs what it does" table carries `verdict_state` beside its `Verdict` words. Draw the state; never map the words yourself.
 - **Text in two forms.** `text` and `evidence` are the card's Markdown (https links and code, never HTML). `text_plain` is the same answer without Markdown, for lists and apps.
 - **Dates in two forms.** `analysed` is the text the site shows ("24 Nov 2026"); `analysed_iso` (and `date_iso` in `history`) is `YYYY-MM-DD`.
 - **Versioning.** Within v1, fields are only added, never removed or renamed, and a field's meaning doesn't change. A change that breaks that is published as `api/v2/` beside v1, and v1 keeps being published for at least 6 months after v2 appears. `feed_version` is `1.<n>`; `n` goes up when fields are added.

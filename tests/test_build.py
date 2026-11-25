@@ -426,6 +426,9 @@ _A = with_(D2=('!', 'Yes'), D3=('!', 'Yes'))
 check('a grouped answer costs nothing and names where it is counted', page.answer_cost('D2', _A, B['charges'](_A)) == (0, 'D3', False), page.answer_cost('D2', _A, B['charges'](_A)))
 import feed  # noqa: E402
 check('the feed\'s AI note is the site\'s, from site/shell.html', feed.ai_note(open(os.path.join(ROOT, 'site/shell.html')).read()).startswith('Claude, an AI, does the analysis'))
+_says = feed.sections_out([{'title': 'What it says vs what it does', 'blocks': [{'table': ['Claim', 'Verdict', 'Evidence'], 'rows': [
+    {'Claim': 'a', 'Verdict': 'Matches', 'Evidence': '-'}, {'Claim': 'b', 'Verdict': 'Partly, as far as checked', 'Evidence': '-'}, {'Claim': 'c', 'Verdict': "Doesn't match", 'Evidence': '-'}]}]}])
+check('the feed gives each "Says vs does" verdict the state the page draws it as', [r['verdict_state'] for r in _says[0]['blocks'][0]['rows']] == ['good', 'note', 'concern'])
 check('the feed accepts a malware state', 'malware' in feed.SCHEMA['$defs']['state']['enum'])
 
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')

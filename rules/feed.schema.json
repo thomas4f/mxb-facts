@@ -349,7 +349,8 @@
         "history",
         "ai_note",
         "analysed_iso",
-        "method"
+        "method",
+        "sections"
       ],
       "properties": {
         "result": {
@@ -430,6 +431,42 @@
         "ai_note": {
           "type": "string",
           "minLength": 40
+        },
+        "sections": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "title",
+              "blocks"
+            ],
+            "properties": {
+              "blocks": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "rows": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "dependentRequired": {
+                          "Verdict": [
+                            "verdict_state"
+                          ]
+                        },
+                        "properties": {
+                          "verdict_state": {
+                            "$ref": "#/$defs/state"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
