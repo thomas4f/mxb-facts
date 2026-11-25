@@ -126,9 +126,6 @@
       if ($('#cmp')) history.replaceState(null, '', '?c=' + picked.join(','));
     }
   });
-  // "Jump to a question" on a tool page: shown only with the script, which is what makes it go.
-  var jump = $('#jump');
-  if (jump) { jump.closest('label').hidden = false; jump.addEventListener('change', function () { if (jump.value) location.hash = jump.value; }); }
   window.addEventListener('hashchange', openTarget);
   showPicked(); showTools(); openTarget();
 })();

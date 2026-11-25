@@ -44,12 +44,6 @@
 {% if t.releases | length > 1 %}<dt>Releases</dt><dd>{{ t.releases | length }} analysed · <a href="#history">See them all</a></dd>{% endif %}
 </dl>
 
-{# On this page: the sections below, and a list that jumps to any one question (the script shows it; the links work without). #}
-<nav class="toc" aria-label="On this page">
-  <a href="#key">Key answers</a><a href="#answers">Every answer</a>{% if lims %}<a href="#limits">Limits</a>{% endif %}<a href="#release">Release files</a><a href="#history">History</a><a href="#corrections">Comments</a><a href="#author">For the author</a>
-  <label class="jump" hidden>Jump to a question <select id="jump"><option value="">Pick one</option>{% for x in c.answers %}<option value="q-{{ x.id }}">{{ x.id }} · {{ x.question }}</option>{% endfor %}</select></label>
-</nav>
-
 <h2 class="h2" id="key">Ten key answers</h2>
 <div class="keys">
 {% for k in c.key_answers %}
@@ -112,10 +106,12 @@
 </div>
 
 {% if lims %}
-<h2 class="h2" id="limits">Limits of this analysis</h2>
-<div class="box"><ol class="lims">
+{# Open from the start, unlike the reference folds below: it says what the answers above can't show. #}
+{% call fold('limits', 'Limits of this analysis', note='' ~ lims | length ~ ' limit' ~ ('s' if lims | length != 1 else ''), open=True, h='h2') %}
+<ol class="lims">
 {% for l in lims %}<li id="lim-{{ loop.index }}">{{ l.text | mdi }}{% if l.questions %} <span class="muted">({% for q in l.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %})</span>{% endif %}</li>{% endfor %}
-</ol></div>
+</ol>
+{% endcall %}
 {% endif %}
 
 {% call fold('release', 'The release analysed', note='' ~ c.files | length ~ ' file' ~ ('s' if c.files | length != 1 else '') ~ '', h='h2') %}

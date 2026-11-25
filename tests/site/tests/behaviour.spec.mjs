@@ -61,10 +61,7 @@ test('every page has a link preview: a 1200 by 630 image that exists, and the ti
   }
 });
 
-test('"Jump to a question" opens that answer, and the claims open under T2 from their link', async ({ page }) => {
-  await page.goto('pitbox/');
-  await page.locator('#jump').selectOption('q-D3');
-  await expect(page.locator('#q-D3')).toBeInViewport();
+test('the claims open under T2 from their link', async ({ page }) => {
   await page.goto('pitbox/#says');
   await expect(page.locator('#says')).toHaveAttribute('open', '');
   expect(await page.locator('#a-transparency').getAttribute('open')).not.toBeNull();

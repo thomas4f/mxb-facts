@@ -26,12 +26,12 @@
 {% set tg = t.latest.tags %}
 {% set shown = 4 %}
 <article class="card" data-name="{{ t.name | lower }}" data-score="{{ r.score if r.kind == 'score' else '' }}" data-date="{{ t.latest.analysed_iso }}" data-cat="{{ t.category }}" data-game="{{ t.game }}"
-  data-search="{{ ([t.name, t.author, t.summary, t.category] + tg | map(attribute='label') | list) | join(' ') | lower }}">
-  <div class="row1"><span class="cat">{{ t.category }}</span>
+  data-search="{{ ([t.name, t.author, t.summary, t.category, t.game] + tg | map(attribute='label') | list) | join(' ') | lower }}">
+  <div class="row1"><span class="cat">{{ t.game }} · {{ t.category }}</span>
     {% if r.kind == 'score' %}<span class="score num">{{ r.score }}<small>/100</small></span>{% else %}<span class="score word">{{ mark(r.kind) }}</span>{% endif %}</div>
   {% if r.kind == 'score' %}{{ bar(r.score) }}{% endif %}
   <h3><a href="{{ root }}{{ t.id }}/">{{ t.name }}</a></h3>
-  <div class="meta">{{ t.latest.version }} · {{ t.game }} · by {{ t.author }}</div>
+  <div class="meta">{{ t.latest.version }} · by {{ t.author }}</div>
   <p class="sum">{{ t.summary }}</p>
   <div class="tags">
     {% if t.latest.counts.under_review %}<a class="tag review" href="{{ root }}{{ t.id }}/#corrections">{{ t.latest.counts.under_review }} under review</a>{% endif %}
