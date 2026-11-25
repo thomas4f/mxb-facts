@@ -70,7 +70,7 @@ def card_image(c, IX):
     lw = bx[0] - M - 40
     name, f = fit(d, c['name'], HEAD, 96, lw, 60); d.text((M, 206), name, font=f, fill=DARK['ink'], anchor='ls')
     ver, f = fit(d, 'version ' + c['version'], BOLD, 30, lw, 22); d.text((M, 254), ver, font=f, fill=DARK['accent'], anchor='ls')
-    meta, f = fit(d, f'{c["game"]} · {c["category"]} · analysed {c["analysed"]}', BODY, 26, lw, 20)
+    meta, f = fit(d, f'{" + ".join(c["games"])} · {c["category"]} · analysed {c["analysed"]}', BODY, 26, lw, 20)
     d.text((M, 298), meta, font=f, fill=muted, anchor='ls')
     # One box per area, the Money label last, as on the tool page: three to a row, so they stay readable at chat-app sizes.
     areas = IX['areas']; gap = 14; cols = 3; bw = (W - 2 * M - gap * (cols - 1)) / cols; bh = 88

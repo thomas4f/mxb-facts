@@ -74,9 +74,9 @@ Header block:
 | In one line | What the tool is and does, at most 90 characters, written from the analysis: never the author's own claims and no words that judge. Shown under the tool's name |
 | Category | One of: HUD; Setup and coaching; Gameplay and visuals; Fixes and performance; Mod managers; Content creation; Controllers; Social. It says what kind of tool it is, so readers can find similar ones; it says nothing about the tool's quality |
 | Author | The name the author publishes as their public identity (GitHub name, the name on its licence or page) |
-| Game | One of: MX Bikes; GP Bikes. The PiBoSo game the tool is for |
-| mxb-mods.com | For an MX Bikes tool: its mxb-mods.com page, "None found", or "Not checked" with the reason |
-| gpb-mods.com | For a GP Bikes tool, in place of mxb-mods.com: its gpb-mods.com page, "None found", or "Not checked" with the reason |
+| Game | One or both of: MX Bikes; GP Bikes, in that order. The PiBoSo games the release shows it is made for: a plugin or setting for that game in its files, or code that reads that game's folders, never only the author's word. Each game named is run in its demo, or a Limits line says it wasn't |
+| mxb-mods.com | For a tool whose Game row names MX Bikes: its mxb-mods.com page, "None found", or "Not checked" with the reason |
+| gpb-mods.com | For a tool whose Game row names GP Bikes: its gpb-mods.com page, "None found", or "Not checked" with the reason |
 | Homepage | Its own website, or "None found" |
 | GitHub | Its GitHub repository or releases, or "None found" |
 | Received as | Only for a file sent to us: what was received and where it came from |
@@ -118,6 +118,7 @@ How we work changes here; a change to scores is recorded in [scores.md](scores.m
 
 | Date | Change |
 |---|---|
+| 25 Nov 2026 | A card can name both games: the Game row lists each game the release shows it is made for (never only the author's word), with each game's mods-site row, and each named game's plugin runs in that game's demo or gets a Limits line. The registry has a mods-site entry for each game its cards name. |
 | 24 Nov 2026 | Rule 9: dropped the line that kept the whole site unpublished while a security problem in the maintainer's own tool was held back. That tool's card is held back like any other: it shows a "Held back" row in place of the details. |
 | 24 Nov 2026 | Rule 9: an analysis that finds a security problem to hold back no longer stops there. It finishes the card, with its "Held back" row, and reports every problem it finds; the "Analyse a tool" run then opens no pull request and sends the report and the finished card to the maintainer privately, sealed, until the author has been told. |
 | 24 Nov 2026 | A tool with a newer card: the newest card is the tool's page, in the tools list and Compare; each earlier card keeps its own page, at the address its successors link under "Earlier reports", and its badges (rule 2). |

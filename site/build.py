@@ -9,7 +9,7 @@ unless SET_OUT is set, prints what the change does to each card compared with CH
 import glob, json, os, re, shutil, subprocess, sys, yaml
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))  # rules.py, cards.py, feed.py, render.py and badges.py sit beside this file
 from rules import AREAN, CATS, CONCERN, D, RUBRICV, OUT, ROOT, SC, charges, scored, gtext, load_yaml, sround, stale_refs, tagsof, verdict
-from cards import JUDGE, MM, REG, SITES, SLUG, VT, check_card, glance, strings
+from cards import JUDGE, MM, REG, SITES, SLUG, VT, check_card, games, glance, strings
 from cards import COMMIT
 from badges import BADGES, badge_json, btitle
 from feed import SITEURL
@@ -58,15 +58,17 @@ assert all(SLUG[f]==t for f,t in CARDS), 'CARDS: each card names its tool in reg
 for s,e in REG.items():
     assert all(c.startswith(s+'-') for c in e['cards']), 'registry/tools.json: '+s+' lists a card of another tool'
     if e['github']: assert all('github.com/'+e['github']+')' in yaml.safe_load(open(D+c))['header']['GitHub'] for c in e['cards']), 'registry/tools.json: '+s+' GitHub differs from its card'
-    # An MX Bikes tool has an "mxb-mods" entry, a GP Bikes tool a "gpb-mods" entry, never both.
-    ks=[k for k,_ in SITES.values() if k in e]; assert len(ks)==1, 'registry/tools.json: '+s+' needs one of '+', '.join(k for k,_ in SITES.values())
-    k=ks[0]; m=e[k]; pid=m['post']
-    assert all(yaml.safe_load(open(D+c))['header']['Game']==next(g for g,v in SITES.items() if v[0]==k) for c in e['cards']), 'registry/tools.json: '+s+' has "'+k+'", but its card is for another game'
-    assert pid or m.get('note'), 'registry/tools.json: '+s+' needs a '+k+' post or a note why not'
-    if pid:
-        assert bool(m.get('tied_by'))!=bool(m.get('confirmed')), 'registry/tools.json: '+s+' must say what ties post '+str(pid)+' to the tool ("tied_by"), or who confirmed it ("confirmed")'
-        assert s in MM[k]['tools'] and MM[k]['tools'][s]['post']==pid, 'registry/'+k+'.json: '+s+' not fetched, run tools/mxbmods_fetch.py'
-        assert MM[k]['tools'][s]['still_tied'] or m.get('confirmed'), 'registry/'+k+'.json: post '+str(pid)+' no longer holds "'+m['tied_by']+'"; check it and update registry/tools.json'
+    # Each game a tool's cards name brings its mods site's entry ("mxb-mods" for MX Bikes, "gpb-mods" for GP Bikes), and no other.
+    ks=[k for k,_ in SITES.values() if k in e]
+    want={SITES[g][0] for c in e['cards'] for g in games(yaml.safe_load(open(D+c))['header'])}
+    assert set(ks)==want if e['cards'] else ks, 'registry/tools.json: '+s+' needs '+(', '.join(sorted(want)) or 'one of '+', '.join(k for k,_ in SITES.values()))+(', for the games its cards name,' if want else '')+' and has '+(', '.join(ks) or 'none')
+    for k in ks:
+        m=e[k]; pid=m['post']
+        assert pid or m.get('note'), 'registry/tools.json: '+s+' needs a '+k+' post or a note why not'
+        if pid:
+            assert bool(m.get('tied_by'))!=bool(m.get('confirmed')), 'registry/tools.json: '+s+' must say what ties post '+str(pid)+' to the tool ("tied_by"), or who confirmed it ("confirmed")'
+            assert s in MM[k]['tools'] and MM[k]['tools'][s]['post']==pid, 'registry/'+k+'.json: '+s+' not fetched, run tools/mxbmods_fetch.py'
+            assert MM[k]['tools'][s]['still_tied'] or m.get('confirmed'), 'registry/'+k+'.json: post '+str(pid)+' no longer holds "'+m['tied_by']+'"; check it and update registry/tools.json'
 for k,_ in SITES.values():
     assert set(MM[k]['tools'])<={s for s,e in REG.items() if k in e and e[k]['post']}, 'registry/'+k+'.json: tools not in the registry, run tools/mxbmods_fetch.py'
 GR={}
@@ -80,7 +82,7 @@ for f,slug in CARDS:
     a=slug if latest else f[:-len('.yaml')]
     CARD=load_yaml(D+f); C=check_card(f,CARD)
     name,ver,h,rows,V,HELDQ=C['name'],C['ver'],C['h'],C['rows'],C['A'],C['held']
-    for label in ('In one line','Category','Author','Game',SITES[h['Game']][1],'Homepage','GitHub','Version analysed'): assert h.get(label), f+': no "'+label+'" row'
+    for label in ('In one line','Category','Author','Game',*(SITES[g][1] for g in games(h)),'Homepage','GitHub','Version analysed'): assert h.get(label), f+': no "'+label+'" row'
     one=h['In one line']; assert len(one)<=90, f+': "In one line" is longer than 90 characters'
     _miss=[o for o in older if '('+SITEURL+slug+'/'+load_yaml(D+o)['version']+'/)' not in h.get('Earlier reports','')]
     assert not _miss, f+': "Earlier reports" must link each earlier card of the tool, newest first, as [<version>]('+SITEURL+'<tool>/<version>/): '+', '.join(_miss)

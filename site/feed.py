@@ -7,7 +7,7 @@ Usage: from build.py, write_feed(SITE, CARDS) and write_site(SITE, skill, agents
 import datetime, json, jsonschema, os, re, subprocess
 from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PMEANS, QCELL, QIDS, QS, RUBRICV,
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
-from cards import COMMIT, CORR, CORRFORM, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, site
+from cards import COMMIT, CORR, CORRFORM, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games
 from badges import BADGES
 
 SITEURL='https://thomas4f.github.io/mxb-facts/'
@@ -99,12 +99,12 @@ def short(v):
     return re.sub(r' \((?![^()]*\]\()[^()]*\)','',v).strip()
 
 def facts(h,slug):
-    # The facts at the top of a tool's page, in order, as Markdown. The mods site shows its address, never the page's own title (author text).
-    k,ms=SITES[h['Game']]; out=[]
-    for label,show in (('Game','Game'),('Version analysed','Version'),('Category','Category'),('Author','Author'),(ms,ms),('Homepage','Homepage'),('GitHub','GitHub'),('Analysed on','Analysed on')):
-        v=h.get(label)
-        if label==ms and slug in MM[k]['tools']: v=f'[{re.sub(r"^https?://(www\.)?|/$","",MM[k]["tools"][slug]["link"])}]({MM[k]["tools"][slug]["link"]})'
-        if v: out.append({'label':show,'text':short(v)})
+    # The facts at the top of a tool's page, in order, as Markdown. A mods site shows its address, never the page's own title (author text).
+    gs=games(h); out=[{'label':'Games' if len(gs)>1 else 'Game','text':', '.join(gs)}]
+    for label in ('Version analysed','Category','Author',*(SITES[g][1] for g in gs),'Homepage','GitHub','Analysed on'):
+        v=h.get(label); k=next((k for k,ms in SITES.values() if ms==label),None)
+        if k and slug in MM[k]['tools']: v=f'[{re.sub(r"^https?://(www\.)?|/$","",MM[k]["tools"][slug]["link"])}]({MM[k]["tools"][slug]["link"]})'
+        if v: out.append({'label':{'Version analysed':'Version'}.get(label,label),'text':short(v)})
     return out
 
 def rule_note(i,row,state):
@@ -171,7 +171,7 @@ def write_feed(SITE,CARDS):
     base={'feed_version':FEED_VERSION,'built_at':when,'commit':COMMIT,'rubric':RUBRICV}
     note=ai_note()
     out=SITE+'api/v1/'; os.makedirs(out+'cards',exist_ok=True)
-    tools={}; match={'github':{},'mods_post':{},'sha256':{}}
+    tools={}; found={'github':{},'mods_post':{},'sha256':{}}
     for f,slug in CARDS:
         raw=load_yaml(D+f); C=check_card(f,raw); d=C['d']; h=C['h']; A=C['A']; held=C['held']; SETS=C['SETS']
         G=scored(A,held); crit,opt,pos=tagsof(raw)
@@ -200,13 +200,14 @@ def write_feed(SITE,CARDS):
         crit=sorted(crit,key=lambda t:-cost(t[1]))
         tags=([{'label':l,'kind':'concern','question':q,'major':cost(q)>=GT['severe']} for l,q in crit]+[{'label':l,'kind':'off_by_default','question':q} for l,q in opt]
               +[{'label':l,'kind':'positive','question':q} for l,q in pos])
-        reg=REG[slug]; mk=site(reg); post=reg[mk]['post']
-        mods={'site':SITES[h['Game']][1],'post':post,'url':MM[mk]['tools'].get(slug,{}).get('link')} if post else None
+        # The tool's page on each of its games' mods sites, where one is tied to it.
+        reg=REG[slug]
+        mods=[{'site':ms,'post':reg[k]['post'],'url':MM[k]['tools'].get(slug,{}).get('link')} for k,ms in SITES.values() if k in reg and reg[k]['post']]
         badges={(suf or '-flat').lstrip('-'):f'{SITEURL}badge/{slug}/{C["ver"]}{suf}.svg' for suf,_x,_y in BADGES}
         vt={r[2].strip('`'):r[3] for r in files_table(f,raw)}
         files=[{'name':x['name'],'sha256':x['sha256'],'note':x.get('note',''),'inside':x.get('inside'),'virustotal':vt[x['sha256']]} for x in raw['files']]
         hist=[{'date':x['date'],'date_iso':iso(x['date']),'change':x['change']} for x in raw.get('history',[])]
-        card={**base,'ai_note':note,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'game':h['Game'],'category':h['Category'],
+        card={**base,'ai_note':note,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'games':games(h),'category':h['Category'],
               'summary':plain(h['In one line']),'author':REG[slug]['author'],'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'method':h['Method'],
               'page':page,'yaml':f'{SITEURL}cards/{f}','badges':badges,'result':res,'tags':tags,'files':files,
               'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[]),
@@ -217,16 +218,17 @@ def write_feed(SITE,CARDS):
         json.dump(card,open(out+f'cards/{cid}.json','w'),indent=1,ensure_ascii=False)
         rel={'version':C['ver'],'card':cid,'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'kind':res['kind'],'score':res['score'],
              'page':page,'json':f'{SITEURL}api/v1/cards/{cid}.json'}
-        t=tools.setdefault(slug,{'id':slug,'name':C['name'],'author':reg['author'],'game':h['Game'],'github':reg['github'],'homepage':reg['homepage'],
-                                 'mods_site':mods,'releases':[None]*len(order)})
+        t=tools.setdefault(slug,{'id':slug,'name':C['name'],'author':reg['author'],'games':games(h),'github':reg['github'],'homepage':reg['homepage'],
+                                 'mods_sites':mods,'releases':[None]*len(order)})
         # Newest release first, in the registry's order (rule 2: every card stays).
         t['releases'][len(order)-1-order.index(f)]=rel
         # How many answers are still open, by why, and how many comments are under review: the counts the tools list shows beside the tags.
         counts={k:sum(1 for x in ans if x['state']==k) for k in ('nc','na','held')}|{'under_review':sum(1 for c in raw.get('corrections',[]) if c['status']=='open')}
-        if latest: t.update({'category':h['Category'],'summary':plain(h['In one line']),'page':page,'latest':{**rel,'result':res,'tags':tags,'badges':badges,'counts':counts}})
-        if reg['github']: add(match['github'],reg['github'].lower(),slug)
-        if post: add(match['mods_post'],f'{mk}:{post}',slug)
-        for x in files: add(match['sha256'],x['sha256'],{'tool':slug,'card':cid,'version':C['ver'],'latest':latest,'file':x['name'],'inside':x['inside'],'note':x['note']})
+        if latest: t.update({'games':games(h),'category':h['Category'],'summary':plain(h['In one line']),'page':page,'latest':{**rel,'result':res,'tags':tags,'badges':badges,'counts':counts}})
+        if reg['github']: add(found['github'],reg['github'].lower(),slug)
+        for k,_ in SITES.values():
+            if k in reg and reg[k]['post']: add(found['mods_post'],f'{k}:{reg[k]["post"]}',slug)
+        for x in files: add(found['sha256'],x['sha256'],{'tool':slug,'card':cid,'version':C['ver'],'latest':latest,'file':x['name'],'inside':x['inside'],'note':x['note']})
     index={**base,'site':SITEURL,'ai_note':note,'licence':{'data':None,'note':'Not chosen yet; see docs/FEED.md, "Using the data".'},
            'areas':[{'id':AREA_ID[ar],'name':ar,'scored':ar in CONCERN} for ar in AREAN],
            'states':[{'id':k,'label':l,'meaning':m,'icon':i} for k,(l,_c,i,m) in STATES.items()],
@@ -237,7 +239,7 @@ def write_feed(SITE,CARDS):
            'tools':sorted(tools.values(),key=lambda t:t['name'].lower())}
     check(index,'index')
     json.dump(index,open(out+'index.json','w'),indent=1,ensure_ascii=False)
-    m={**base,**match}; check(m,'match')
+    m={**base,**found}; check(m,'match')
     json.dump(m,open(out+'match.json','w'),indent=1,ensure_ascii=False)
     os.makedirs(out+'schema',exist_ok=True); json.dump(SCHEMA,open(out+'schema/feed.schema.json','w'),indent=1)
     return index

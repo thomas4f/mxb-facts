@@ -15,7 +15,7 @@
 <div class="thead">
   <div>
     <h1>{{ c.name }} <small>{{ c.version }}</small></h1>
-    <div class="meta">{{ c.category }} · {{ c.game }} · by {{ c.author }} · analysed {{ c.analysed }}</div>
+    <div class="meta">{{ c.category }} · {{ c.games | join(' + ') }} · by {{ c.author }} · analysed {{ c.analysed }}</div>
     <p class="sum">{{ c.summary }}</p>
   </div>
   <div class="big{% if not scored %} word{% endif %}">

@@ -225,6 +225,6 @@ JUDGE=r'\b(safe|unsafe|spyware|malicious|shady|sketchy|trustworthy|untrustworthy
 # Each game's mods site: the registry key, its snapshot and the card's header row.
 SITES={'MX Bikes':('mxb-mods','mxb-mods.com'),'GP Bikes':('gpb-mods','gpb-mods.com')}
 MM={k:json.load(open(ROOT+'registry/'+k+'.json')) for k,_ in SITES.values()}
-def site(e): return next(k for k,_ in SITES.values() if k in e)
+def games(h): return h['Game'].split('; ')  # the games a card's Game row names, MX Bikes first
 SLUG={c:s for s,e in REG.items() for c in e['cards']}
 def esc(s): return s.replace('&','&amp;').replace('"','&quot;').replace('<','&lt;')

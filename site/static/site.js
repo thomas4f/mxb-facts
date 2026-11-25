@@ -39,7 +39,7 @@
     if (!grid) return;
     var cards = $$('.card', grid), words = S.q.trim().toLowerCase().split(/\s+/).filter(Boolean), n = 0;
     cards.forEach(function (c) {
-      var ok = (!S.cat || c.dataset.cat === S.cat) && (!S.game || c.dataset.game === S.game) &&
+      var ok = (!S.cat || c.dataset.cat === S.cat) && (!S.game || c.dataset.game.split('|').indexOf(S.game) >= 0) &&
         words.every(function (w) { return c.dataset.search.indexOf(w) >= 0; });
       c.hidden = !ok; if (ok) n++;
     });

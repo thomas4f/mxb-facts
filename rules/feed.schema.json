@@ -234,11 +234,11 @@
               "id",
               "name",
               "author",
-              "game",
+              "games",
               "category",
               "summary",
               "page",
-              "mods_site",
+              "mods_sites",
               "releases",
               "latest"
             ],
@@ -247,42 +247,10 @@
                 "type": "string",
                 "pattern": "^[a-z0-9-]+$"
               },
-              "game": {
-                "enum": [
-                  "MX Bikes",
-                  "GP Bikes"
-                ]
-              },
               "github": {
                 "type": [
                   "string",
                   "null"
-                ]
-              },
-              "mods_site": {
-                "oneOf": [
-                  {
-                    "type": "null"
-                  },
-                  {
-                    "type": "object",
-                    "required": [
-                      "site",
-                      "post",
-                      "url"
-                    ],
-                    "properties": {
-                      "post": {
-                        "type": "integer"
-                      },
-                      "url": {
-                        "type": [
-                          "string",
-                          "null"
-                        ]
-                      }
-                    }
-                  }
                 ]
               },
               "releases": {
@@ -314,6 +282,32 @@
                     }
                   }
                 }
+              },
+              "games": {
+                "$ref": "#/$defs/games"
+              },
+              "mods_sites": {
+                "type": "array",
+                "description": "The tool's page on each of its games' mods sites that has one",
+                "items": {
+                  "type": "object",
+                  "required": [
+                    "site",
+                    "post",
+                    "url"
+                  ],
+                  "properties": {
+                    "post": {
+                      "type": "integer"
+                    },
+                    "url": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    }
+                  }
+                }
               }
             }
           }
@@ -336,7 +330,7 @@
         "name",
         "version",
         "latest",
-        "game",
+        "games",
         "category",
         "summary",
         "analysed",
@@ -353,6 +347,9 @@
         "sections"
       ],
       "properties": {
+        "games": {
+          "$ref": "#/$defs/games"
+        },
         "result": {
           "$ref": "#/$defs/result"
         },
@@ -580,6 +577,18 @@
           }
         }
       }
+    },
+    "games": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "MX Bikes",
+          "GP Bikes"
+        ]
+      },
+      "description": "The games the release shows it is made for, MX Bikes first"
     }
   }
 }
