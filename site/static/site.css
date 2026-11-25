@@ -126,13 +126,15 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .empty { padding: var(--s6); text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--r) }
 
 /* Tool page */
-.thead { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s5); align-items: start }
-.thead h1 { font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 600 }
-.thead .meta { color: var(--muted); margin-top: var(--s2) }
-.thead .sum { margin: var(--s3) 0 0; font-size: 17px; max-width: 65ch }
-.big { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4) var(--s5); text-align: center; min-width: 150px }
-.big b { display: block; font: 700 54px/1 var(--f-head) } .big span { color: var(--muted); font-size: 13px }
-.big.word b { font-size: 22px; color: var(--grey); padding: var(--s2) 0 }
+/* The score sits right under the tool's name, as a strip as wide as its contents, on every screen. */
+.thead { display: flex; flex-direction: column; align-items: flex-start } .thead > div:first-child { display: contents }
+.thead .crumb { order: 1 }
+.thead h1 { order: 2; font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 600 }
+.thead .meta { order: 4; color: var(--muted); margin-top: var(--s2) }
+.thead .sum { order: 5; margin: var(--s3) 0 0; font-size: 17px; max-width: 65ch }
+.big { order: 3; display: flex; align-items: baseline; gap: var(--s3); margin-top: var(--s3); padding: var(--s2) var(--s4); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r) }
+.big b { font: 700 44px/1 var(--f-head) } .big span { color: var(--muted); font-size: 13px }
+.big.word b { font-size: 22px; color: var(--grey) }
 .notice { background: var(--grey-bg); border: 1px dashed var(--line); border-radius: var(--r-ctl); padding: var(--s3) var(--s4); font-size: 14.5px; margin: 0 }
 .notice.held { border-color: var(--concern); background: var(--concern-bg) }
 .areas { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: var(--s3) }
@@ -193,7 +195,7 @@ details.sub:last-child { border-bottom: 0 }
 .links { display: flex; gap: var(--s2); flex-wrap: wrap }
 .facts { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s2) var(--s4); margin: 0; padding: var(--s4) var(--s4); font-size: 14.5px }
 .facts dt { color: var(--muted) } .facts dd { margin: 0; overflow-wrap: anywhere }
-@media (max-width: 620px) { .thead { grid-template-columns: 1fr } .big { justify-self: start } .facts { grid-template-columns: 1fr } .facts dd { margin-bottom: var(--s2) } }
+@media (max-width: 620px) { .facts { grid-template-columns: 1fr } .facts dd { margin-bottom: var(--s2) } }
 
 /* Touch: every control at least 44px tall, and nothing that needs a hover. */
 .chip, .btn, .controls input, .controls select, label.count, .row details summary, details.fold > summary { min-height: 44px }
