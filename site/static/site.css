@@ -65,7 +65,9 @@ small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); l
 @media (min-width: 760px) { .nav { margin: 0 } .nav a { padding: 0 var(--s3); min-height: 40px } }
 .nav a[aria-current="page"] { border-color: var(--accent); color: var(--accent) }
 /* On a phone the four links sit two by two, so none is cut off with large text and the header keeps its height while the fonts load. */
-@media (max-width: 519px) { .nav { display: grid; grid-template-columns: 1fr 1fr; margin-inline: 0 } .nav a { justify-content: center } }
+/* On a phone the four links share one row, spread across it, down to a 360px screen; a narrower one has two rows of two. */
+@media (max-width: 519px) { .nav { margin-inline: calc(-1 * var(--s1)); justify-content: space-between } .nav a { padding: 0 var(--s1) } }
+@media (max-width: 359px) { .nav { display: grid; grid-template-columns: 1fr 1fr; margin-inline: 0 } .nav a { justify-content: center } }
 .nav a .n { display: inline-grid; place-items: center; min-width: 18px; height: 18px; margin-left: var(--s1); border-radius: 9px; background: var(--accent); color: var(--accent-ink); font-size: 12px; font-weight: 700; padding: 0 var(--s1) }
 
 /* Spacing: a section's heading sits close to what it heads (--s3); sections, and folds standing alone, are --s5 apart. */
