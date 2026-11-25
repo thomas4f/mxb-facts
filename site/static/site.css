@@ -50,6 +50,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .top .in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--s1) var(--s3); padding: var(--s3) max(16px, env(safe-area-inset-right, 0px)) var(--s1) max(16px, env(safe-area-inset-left, 0px)) }
 /* On a phone the header scrolls away (the brand and the theme on one row, the links under them); from 760 px it stays, on one row. */
 .top .nav { grid-column: 1 / -1; grid-row: 2 }
+.here { display: none }
+@media (min-width: 900px) { .top .nav { flex-wrap: nowrap; flex: none } .here:not([hidden]) { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); font-weight: 600; text-decoration: none; padding-left: var(--s4); border-left: 1px solid var(--line) } .here:hover { color: var(--accent) } }
 @media (max-width: 759px) { .top { position: static } }
 @media (min-width: 760px) { .top .in { display: flex; align-items: center; gap: var(--s4); padding-block: var(--s3) } .top .nav { margin-left: auto } }
 .brand { font: italic 800 clamp(20px, 7vw, 26px)/1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; color: var(--ink); text-decoration: none; white-space: nowrap }

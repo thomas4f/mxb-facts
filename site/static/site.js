@@ -165,6 +165,11 @@
     var ro = new ResizeObserver(function (es) { es.forEach(function (e) { scrollable(e.target.closest('.tw')); }); });
     $$('.tw').forEach(function (w) { ro.observe(w); if (w.firstElementChild) ro.observe(w.firstElementChild); });
   }
+  // A tool page: its name and score show in the sticky header while its own title is out of sight.
+  var here = $('[data-here]'), h1 = $('.thead h1');
+  if (here && h1 && window.IntersectionObserver) {
+    new IntersectionObserver(function (es) { here.hidden = es[0].isIntersecting || es[0].boundingClientRect.top > 0; }).observe(h1);
+  }
   window.addEventListener('hashchange', openTarget);
   showPicked(); showTools(); openTarget();
 })();

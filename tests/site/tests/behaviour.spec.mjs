@@ -130,3 +130,15 @@ test('each release in History opens to its changes since the release before it',
   await expect(newer.getByRole('link', { name: 'Open 1.2.1' })).toHaveAttribute('href', '../../dirt-gear/');
   await expect(page.locator('details[id="v-1.1.1"]')).toContainText('The first release of this tool analysed');
 });
+
+test('a tool page shows its name in the sticky header once its title scrolls away (wide screens)', async ({ page }, info) => {
+  test.skip(info.project.name === 'phone', 'the header only sticks on wide screens');
+  await page.goto('dirt-gear/');
+  const here = page.locator('[data-here]');
+  await expect(here).toBeHidden();
+  await page.locator('#history').scrollIntoViewIfNeeded();
+  await expect(here).toBeVisible();
+  await expect(here).toContainText('Dirt Gear 1.2.1');
+  await page.evaluate(() => scrollTo(0, 0));
+  await expect(here).toBeHidden();
+});

@@ -37,6 +37,7 @@
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="in">
   <a class="brand" href="{{ root }}">MXB<em>/</em>Facts</a>
+  {% block here %}{% endblock %}
   <nav class="nav" aria-label="Site">
     {% set here = self.nav() | trim %}
     <a href="{{ root }}"{% if here == 'tools' %} aria-current="page"{% endif %}>Tools</a>
