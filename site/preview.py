@@ -135,10 +135,11 @@ def site_image(IX):
     # The site: the wordmark large, what it answers, and how many tools have a card.
     im, d = canvas(); muted = DARK['muted']
     wordmark(d, M, 78, 64)
-    f = font(HEAD, 96)  # the home page's heading, its last word in the accent
-    d.text((M, 270), 'What MX Bikes and GP Bikes', font=f, fill=DARK['ink'], anchor='ls')
-    d.text((M, 368), 'tools ', font=f, fill=DARK['ink'], anchor='ls')
-    d.text((M + d.textlength('tools ', font=f), 368), 'do', font=f, fill=DARK['accent'], anchor='ls')
+    f = font(HEAD, 132)  # the home page's heading, its last word in the accent
+    d.text((M, 330), 'Know what you ', font=f, fill=DARK['ink'], anchor='ls')
+    x = M + d.textlength('Know what you ', font=f)
+    d.text((x, 330), 'install', font=f, fill=DARK['accent'], anchor='ls')
+    d.text((x + d.textlength('install', font=f), 330), '.', font=f, fill=DARK['ink'], anchor='ls')
     n = len(IX['tools']); f = font(BODY, 30)
     d.text((M, 450), f'{n} plugins, apps and mods · the same questions for every tool', font=f, fill=DARK['ink'], anchor='ls')
     d.text((M, 494), 'Every answer links its evidence: code, files, or a test anyone can repeat.', font=f, fill=muted, anchor='ls')
