@@ -1,5 +1,9 @@
 # The site's own words, in Markdown, in one place: the build puts them in the feed (api/v1/site.json and index.json) and the
 # pages draw them from there. Links are absolute https addresses, as the feed requires. Rule 8's AI note is ai_note.
+# The home page's heading, also on the site's link preview and in every page's description; heading_accent is its word drawn
+# in the accent colour.
+heading: Know what you install.
+heading_accent: install
 lede: >-
   Plugins, apps and mods for MX Bikes and GP Bikes run on your PC and can do what you can. See what each one installs,
   changes and sends, with evidence for every answer.

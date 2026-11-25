@@ -574,6 +574,8 @@
         "ai_note",
         "ai_short",
         "built_at",
+        "heading",
+        "heading_accent",
         "lede",
         "licence",
         "maintainer_notice",

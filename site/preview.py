@@ -47,7 +47,20 @@ def png(im):
     return data, hashlib.sha256(data).hexdigest()[:10]
 
 
-def card_image(c, IX):
+def plain(md):
+    # A text field from site.json as an image shows it: links dropped with their words, the rest kept.
+    return re.sub(r'\s*\[[^\]]*\]\([^)]*\)', '', md).strip()
+
+def wrap(d, text, f, width):
+    # Words into lines no wider than width.
+    lines = ['']
+    for w in text.split():
+        t = (lines[-1] + ' ' + w).strip()
+        if lines[-1] and d.textlength(t, font=f) > width: lines.append(w)
+        else: lines[-1] = t
+    return lines
+
+def card_image(c, IX, SITE):
     # A card, laid out as its page's header: wordmark and site address, the path, the name, the big score, a box per area with
     # its bar, and the AI note.
     im, d = canvas(); r = c['result']; muted = DARK['muted']
@@ -97,7 +110,7 @@ def card_image(c, IX):
         if a['scored']:
             d.rounded_rectangle((x0 + 20, y0 + 66, x0 + bw - 20, y0 + 74), 4, fill=DARK['sunk'])
             if v: d.rounded_rectangle((x0 + 20, y0 + 66, x0 + 20 + (bw - 40) * v / 100, y0 + 74), 4, fill=DARK['accent'])
-    t, f = fit(d, 'Every answer links its evidence. Made by AI from a public prompt; no person checks each answer.', BODY, 22, W - 2 * M, 18)
+    t, f = fit(d, 'Made by AI. ' + plain(SITE['ai_short']), BODY, 22, W - 2 * M, 18)  # the home page's AI note
     d.text((M, 600), t, font=f, fill=muted, anchor='ls')
     return png(im)
 
@@ -131,18 +144,17 @@ def touch_icon(size=180):
     return png(im)[0]
 
 
-def site_image(IX):
-    # The site: the wordmark large, what it answers, and how many tools have a card.
+def site_image(IX, SITE):
+    # The site, as the home page opens: the wordmark, its heading, its intro and how many tools have a card.
     im, d = canvas(); muted = DARK['muted']
     wordmark(d, M, 78, 64)
     f = font(HEAD, 132)  # the home page's heading, its last word in the accent
-    d.text((M, 330), 'Know what you ', font=f, fill=DARK['ink'], anchor='ls')
-    x = M + d.textlength('Know what you ', font=f)
-    d.text((x, 330), 'install', font=f, fill=DARK['accent'], anchor='ls')
-    d.text((x + d.textlength('install', font=f), 330), '.', font=f, fill=DARK['ink'], anchor='ls')
-    n = len(IX['tools']); f = font(BODY, 30)
-    d.text((M, 450), f'{n} plugins, apps and mods · the same questions for every tool', font=f, fill=DARK['ink'], anchor='ls')
-    d.text((M, 494), 'Every answer links its evidence: code, files, or a test anyone can repeat.', font=f, fill=muted, anchor='ls')
+    a, b = SITE['heading'].split(SITE['heading_accent'], 1); x = M
+    for t, col in ((a, DARK['ink']), (SITE['heading_accent'], DARK['accent']), (b, DARK['ink'])):
+        d.text((x, 280), t, font=f, fill=col, anchor='ls'); x += d.textlength(t, font=f)
+    f = font(BODY, 32); lines = wrap(d, plain(SITE['lede']), f, W - 2 * M)
+    assert len(lines) <= 3, 'preview.py: the home intro needs more than three lines on the site image'
+    for i, t in enumerate(lines): d.text((M, 370 + 44 * i), t, font=f, fill=DARK['ink'], anchor='ls')
     addr = IX['site'].split('://', 1)[1].rstrip('/'); f = font(BODY, 24)
-    d.text((M, 572), addr, font=f, fill=muted, anchor='ls')
+    d.text((M, 572), f"{len(IX['tools'])} tools · {addr}", font=f, fill=muted, anchor='ls')  # the home page's count
     return png(im)
