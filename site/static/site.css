@@ -58,7 +58,7 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 .sl { font-style: italic; font-weight: 800; color: var(--accent); margin-inline: .18em }
 /* In a label the slash sits between spaced capitals, so it gets the letter-spacing's room on its right as well. */
 .cat .sl { margin-inline: .2em .3em }
-small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); letter-spacing: 0 } small.of .sl { margin-inline: -.12em .06em }
+small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); letter-spacing: 0 } small.of .sl { margin-inline: -.08em .16em }
 /* The links wrap rather than scroll, so none is ever cut off. */
 .nav { display: flex; flex-wrap: wrap; gap: var(--s0); margin-inline: calc(-1 * var(--s2)) }
 .nav a { color: var(--ink); text-decoration: none; padding: 0 var(--s3); min-height: 44px; display: inline-flex; align-items: center; border-radius: var(--r-ctl); font-weight: 500; border: 1px solid transparent; white-space: nowrap }
