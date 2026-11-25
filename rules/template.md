@@ -86,7 +86,7 @@ Header block:
 | Analysed on | Date |
 | Held back | Only while an item is held back under rule 9: "&lt;n> item(s) (rule 9): &lt;question IDs>". Those answers can't be Good. The dates (when the author was told, and the end, 30 days later at most) are kept privately by the maintainer, not in the repository |
 | Licence clause | Only when the licence forbids the analysis (rule 6): the clause, quoted, with a link to it or the SHA-256 of the file it is in. A card has this row if, and only if, an answer is "Not allowed"; that card gets "Not scored" in place of a score. A clause added in a later release applies from that release on; a card for an earlier release stays (rule 2) |
-| Earlier reports | Only when the tool has earlier cards: a link to each, newest first, as [&lt;version>](https://thomas4f.github.io/mxb-facts/#&lt;card file without .yaml>), so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address |
+| Earlier reports | Only when the tool has earlier cards: a link to each, newest first, as `[&lt;version>](https://thomas4f.github.io/mxb-facts/#&lt;card>)`, where `&lt;card>` is the card file name without `.yaml`, so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address |
 | Method | That the analysis was done by an AI assistant, and the model and effort it ran with; read the source at the commit; compared release files to source where possible; what was and wasn't run |
 <!-- /card.schema.json -->
 
