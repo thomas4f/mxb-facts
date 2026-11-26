@@ -106,6 +106,9 @@ def write_pages(SITE):
         tip = TAGMEANS[t['label']] + (' Here, only after a choice you make.' if t['kind'] == 'off_by_default' else '')
         return Markup(f'<a class="tag {cls}" href="{base}#q-{t["question"]}" title="{escape(tip)}"{" hidden" if hidden else ""}>{escape(t["label"])}</a>')
 
+    # The visit counter (GoatCounter, no cookies) is added only to the site GitHub Pages publishes (COUNT_VISITS=1 in
+    # pages.yml), so previews, tests and local builds count nothing.
+    env.globals['count_visits'] = os.environ.get('COUNT_VISITS') == '1'
     env.globals.update(DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
                        area_name={a['id']: a['name'] for a in AREAS}, money={m['label']: m for m in IX['money']})
 
