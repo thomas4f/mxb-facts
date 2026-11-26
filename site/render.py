@@ -36,6 +36,8 @@ def _post(h):
     h = re.sub(r'<a href="(?!https://|#)[^"]*"', '<a', h)
     h = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', h)
     h = re.sub(r'<th(?=[ >])(?![^>]*scope)', '<th scope="col"', h)
+    # A dated table (its first header is "Date") keeps each date on one line, as the Card history does.
+    h = re.sub(r'<table>\s*<thead>\s*<tr>\s*<th scope="col">Date</th>.*?</table>', lambda m: re.sub(r'<tr>\s*<td>', '<tr>\n<td class="nowrap">', m.group(0)), h, flags=re.S)
     return h.replace('<table>', '<div class="tw"><table class="t">').replace('</table>', '</table></div>')
 
 
