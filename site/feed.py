@@ -11,6 +11,8 @@ from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, 
 from badges import BADGES
 
 
+# The maintainer's Discord profile: a comment sent there is copied into an issue, so it is answered in public like the rest.
+DISCORD='https://discord.com/users/151767592514617344'
 FEED_VERSION='1.1'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
@@ -237,7 +239,7 @@ def write_feed(SITE,CARDS):
         # Newest release first, in the registry's order (rule 2: every card stays).
         t['releases'][len(order)-1-order.index(f)]=rel
         # How many answers are still open, by why, and how many comments are under review: the counts the tools list shows beside the tags.
-        counts={k:sum(1 for x in ans if x['state']==k) for k in ('nc','na','held')}|{'under_review':sum(1 for c in raw.get('corrections',[]) if c['status']=='open')}
+        counts={k:sum(1 for x in ans if x['state']==k) for k in ('nc','na','held')}|{'under_review':sum(1 for c in raw.get('corrections',[]) if c['status']=='open' and c.get('kind')!='context')}
         if latest: t.update({'games':games(h),'category':h['Category'],'summary':plain(h['In one line']),'page':page,'latest':{**rel,'result':res,'tags':tags,'badges':badges,'counts':counts}})
         if reg['github']: add(found['github'],reg['github'].lower(),slug)
         for k,_ in SITES.values():
@@ -295,6 +297,12 @@ def sections(md):
     out=[{'title':'','text':parts[0].strip()}] if parts[0].strip() else []
     return out+[{'title':parts[i].strip(),'text':parts[i+1].strip()} for i in range(1,len(parts),2)]
 
+def closed_cap():
+    # The highest score a closed-source tool can reach (the tools list says it): every area 100 but Transparency, which loses
+    # T1's cost (T3, T4, T6 and T7 are counted with it or covered by it), weighted as the score is.
+    t=100-maxcost('T1'); avg=(100*(len(CONCERN)-1)+t)/len(CONCERN); lw=GSC['lowest_weight']
+    return sround((1-lw)*avg+lw*t)
+
 def write_site(SITE,skill,agents_line):
     # The site's own text and rules, so a design can draw How it works and For authors from data, like the tools.
     when=subprocess.run(['git','-C',ROOT,'log','-1','--format=%cI'],capture_output=True,text=True).stdout.strip() or '1970-01-01T00:00:00+00:00'
@@ -306,13 +314,13 @@ def write_site(SITE,skill,agents_line):
     assert re.search(r'^5\. Run it',prm,re.M) and re.search(r'^6\. Look up the hashes on VirusTotal',prm,re.M), 'prompts/analyse-tool.md: step 5 must be running the tool and step 6 the VirusTotal lookup, as SKILL.md, CLAUDE.md and the For authors page say; update them if the steps move'
     data={**base,'site':SITEURL,'repo':REPO,
           'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],'under_review':CONTENT['under_review'],
-          'how_a_card_is_made':CONTENT['how_a_card_is_made'],
+          'how_a_card_is_made':CONTENT['how_a_card_is_made'],'closed_cap':closed_cap(),
           'template':sections(doc(MDTXT['template.md'],'rules/template.md')),
           'scores':sections(doc(MDTXT['scores.md'],'rules/scores.md')),
           'prompt':{'intro':sections(doc(prm.split('\n## The prompt\n',1)[0],'prompts/analyse-tool.md')),'text':doc('## The prompt\n'+prm.split('\n## The prompt\n',1)[1],'prompts/analyse-tool.md')},
           'questions':[{'id':i,'area':QAREA[i],'question':qt,'good_when':goodwhen(i),'marks':QCELL[i],'max_cost':maxcost(i) if i in GCOST else 0} for i,_a,qt in QS],
           'key_questions':[{'id':k,'question':q,'short':s,'from':src} for k,q,s,src in KEYS],
           'authors_check':{'path':'.claude/skills/mxb-facts-check/SKILL.md','download':SITEURL+'authors/mxb-facts-check/SKILL.md','text':skill,'agents_line':agents_line},
-          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f'}}
+          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f','discord':DISCORD}}
     check(data,'site')
     json.dump(data,open(SITE+'api/v1/site.json','w'),indent=1,ensure_ascii=False)

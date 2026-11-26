@@ -101,8 +101,8 @@ key:
   K5: 'No. Its plugins use the plugin interface and change nothing in the game''s code or memory.'
   K6: 'No. It decrypts, copies and shares no one''s protected content; it reads mods'' readable files and headers.'
   K7: 'No. The app''s Python code ships in the release, but the two plugins have no public source and the repository holds only a README.'
-  K8: 'No. Its README says it updates itself when you open it; it installs an update only when you click.'
-  K9: 'Partly. Updates are signed and checked against a key in the app, but the release isn''t code-signed and can''t be traced to source.'
+  K8: 'No; it is more careful than its README, which says it updates itself when you open it: it installs an update only when you click.'
+  K9: 'No. The release isn''t code-signed and can''t be traced to source; updates after you install it are signed and checked (P3).'
   K10: 'Yes. Its ranking server, gpb-mods.com, stats.gp-bikes.com and GitHub; nothing can be switched off.'
 areas:
   Your PC and files: >-
@@ -330,8 +330,8 @@ answers:
     verdict: 'Yes'
     mark: concern
     text: >-
-      To use the app you must sign in and share. It then uploads your best lap per track and bike (time, date, weather, and
-      your setup only where you chose to share it), the full telemetry of each best lap, your alias, country and profile
+      To use the app you must sign in and share. It then uploads your best lap per track and bike (time, date, and your setup
+      only where you chose to share it), the full telemetry of each best lap, your alias, country and profile
       picture, and, every 3 minutes while you have friends in it, that you're online and which room you're in ("Mostrar a mis
       amigos en qué sala estoy" is on by default). Separately, at start and every hour after its one-time notice is closed
       ("Entendido"), it uploads the setting ranges seen in your saved setups of encrypted bikes, with the bike file's SHA-256
@@ -391,7 +391,7 @@ answers:
     text: >-
       You need a Steam account and a Discord account linked to it, and must stay in Pitbox's Discord server; signing in creates
       your rider profile on its server.
-    evidence: '`lab/evidence/pitbox-3.0.4/access.txt` (lines 1 to 10).'
+    evidence: '`lab/evidence/pitbox-3.0.4/access.txt` (lines 1 to 10); `lab/evidence/pitbox-3.0.4/sends.txt` (line 14, `POST /v1/piloto`, and lines 61 to 63, the same profile on any PC).'
   D10:
     verdict: 'No'
     mark: good
@@ -527,9 +527,9 @@ answers:
     evidence: '`file` on each (`lab/evidence/pitbox-3.0.4/file.txt`), `lab/evidence/pitbox-3.0.4/thirdparty.txt`; [the repository at the tag](https://github.com/cristianboni22/pitbox/tree/dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3).'
   T2:
     verdict: 'Yes'
-    mark: concern
+    mark: note
     text: >-
-      Its README says "Pitbox updates itself when you open it"; the code asks first and installs only on your click (P2). See
+      Only in your favour: its README says "Pitbox updates itself when you open it"; the code asks first and installs only on your click (P2). See
       "What it says vs what it does".
     evidence: '`lab/evidence/pitbox-3.0.4/readme-claims.txt`, `lab/evidence/pitbox-3.0.4/updater.txt`.'
   T3:
@@ -578,3 +578,9 @@ answers:
 history:
   - date: 24 Nov 2026
     change: First card, for 3.0.4.
+  - date: 26 Nov 2026
+    change: >-
+      K9 reads "No": it takes the best of P5, T3 and T4, which are all No; it read "Partly", counting signed updates, which P3 answers. D2 no longer lists weather among what a lap upload carries, which the evidence doesn't show. D9's evidence now points to the lines that show the rider profile. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      T2 is a Note (rubric v4): its README says it updates itself when you open it, while it asks first, so the docs describe riskier behaviour than the code has. K8 says so. Score 38 → 40.

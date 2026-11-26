@@ -3,7 +3,7 @@
 # The folder holds the two files of the GitHub release 1.4.1 (https://github.com/Lilian1134/Suspension-Tuner/releases/tag/1.4.1):
 # SuspensionTuner.zip and SuspensionTuner_Setup.exe. This script unzips the zip into zip/, without running anything.
 # The launcher (zip/SuspensionTuner/SuspensionTuner.exe) is a .NET program: ilspycmd (ILSpy's command line,
-# `dotnet tool install --tool-path <dir> ilspycmd`, 11.2.0 here) decompiles it; set ILSPYCMD to it if it isn't on PATH.
+# `dotnet tool install --tool-path <dir> ilspycmd --version 9.1.0.7988`, on .NET 8 with DOTNET_ROLL_FORWARD=Major) decompiles it; set ILSPYCMD to it if it isn't on PATH.
 # The app (zip/SuspensionTuner/app/SuspensionTuner.exe) is a Nuitka program: its Python modules are compiled to machine
 # code, so nuitka.py lists the constants each module keeps (names it uses, its texts), which is what the searches read.
 . "$(dirname "$0")/../ev.sh"

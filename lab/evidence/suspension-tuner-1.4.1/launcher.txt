@@ -1,5 +1,59 @@
 $ objdump -p zip/SuspensionTuner/SuspensionTuner.exe | grep -E 'DLL Name|CorExeMain'; "$ILSPYCMD" zip/SuspensionTuner/SuspensionTuner.exe
 	DLL Name: mscoree.dll
-	00002000  <none>  0000  _CorExeMain
-bash: line 1: ilspycmd: command not found
-(exit 127)
+	2920	    0  _CorExeMain
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Windows.Forms;
+
+[assembly: CompilationRelaxations(8)]
+[assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
+[assembly: AssemblyVersion("0.0.0.0")]
+internal static class Launcher
+{
+	private const string AppExe = "SuspensionTuner.exe";
+
+	[STAThread]
+	private static int Main(string[] args)
+	{
+		//IL_00e5: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0036: Unknown result type (might be due to invalid IL or missing references)
+		string text = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "app");
+		string text2 = Path.Combine(text, "SuspensionTuner.exe");
+		if (!File.Exists(text2))
+		{
+			MessageBox.Show("Cannot start the application.\n\nPlease extract the whole ZIP first (right-click > Extract All), then run SuspensionTuner.exe from the extracted folder. The \"app\" folder must stay next to this exe.", "Suspension Tuner", (MessageBoxButtons)0, (MessageBoxIcon)16);
+			return 1;
+		}
+		StringBuilder stringBuilder = new StringBuilder();
+		foreach (string text3 in args)
+		{
+			if (stringBuilder.Length > 0)
+			{
+				stringBuilder.Append(' ');
+			}
+			stringBuilder.Append('"').Append(text3.Replace("\"", "\\\"")).Append('"');
+		}
+		try
+		{
+			ProcessStartInfo processStartInfo = new ProcessStartInfo(text2);
+			processStartInfo.WorkingDirectory = text;
+			processStartInfo.Arguments = stringBuilder.ToString();
+			processStartInfo.UseShellExecute = false;
+			ProcessStartInfo startInfo = processStartInfo;
+			Process.Start(startInfo);
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show("Cannot start the application:\n" + ex.Message, "Suspension Tuner", (MessageBoxButtons)0, (MessageBoxIcon)16);
+			return 1;
+		}
+		return 0;
+	}
+}
+You are not using the latest version of the tool, please update.
+Latest version is '11.2.0.10050' (yours is '9.1.0.7988')
+(exit 0)

@@ -96,6 +96,9 @@ for f,slug in CARDS:
     assert 'mxb-facts/actions/runs/' not in text, f+': link each file\'s VirusTotal entry, not our lookup run (readers can\'t open it)'
     cat=h['Category']; assert cat in CATS, f+': category must be one of '+'; '.join(CATS)
     hb=h.get('Held back')
+    # Rule 9: a card with a held item stays private until the hold ends, since its "Held back" row names the questions a held
+    # item touches. The Pages build (PUBLISH=1) refuses it; a local or pull-request build still checks it.
+    assert not (hb and os.environ.get('PUBLISH')=='1'), f+': it has a "Held back" row, so it isn\'t published until the hold ends (rule 9)'
     # Rule 6: "Not allowed" answers, and so "Not scored", need the licence clause that forbids the analysis, quoted on the card.
     assert any(v=='NA' for _m,v in V.values())==bool(h.get('Licence clause')), f+': a card with "Not allowed" answers needs the "Licence clause" row, and only such a card has it'
     G=scored(V,HELDQ)

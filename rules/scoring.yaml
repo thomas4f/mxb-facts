@@ -25,7 +25,7 @@ virustotal:
 # names: words the key answer must hold whenever that source question is a Concern by default, so one behaviour isn't hidden
 # behind another that shares the key question's mark.
 keys:
-  K1: {question: "Do antivirus engines flag it, or did the analysis find signs of malware?", short: "Flagged or malware?", from: [P1, P9], mark: strongest}
+  K1: {question: "Did the analysis find signs of malware, and do antivirus engines flag it?", short: "Malware? Antivirus flags?", from: [P1, P9], mark: strongest}
   K2: {question: "Does it update itself without asking, or without checking the file?", short: "Updates unchecked?", from: [P2, P3], mark: strongest}
   K3: {question: "Can it delete or change files that aren't its own?", short: "Touches other files?", from: [P4, P6, P7], mark: strongest}
   K4: {question: "Does it send data about you?", short: "Sends your data?", from: [D2, D3], mark: strongest}
@@ -63,7 +63,7 @@ questions:
     yes_mark: Concern
     note_on_request: true   # "Yes, on request" is a Note, every other Yes a Concern; the build checks it
     no_mark: Good
-    partly_means: it only moves or renames such files and keeps them, so they can be put back
+    partly_means: it only moves, renames or backs up such files and keeps the original, beside it or in a folder it names, so they can be put back
   P5:
     text: Are the release files code-signed?
     yes_mark: Good
@@ -154,7 +154,7 @@ questions:
     text: Does it change other plugins or tools, their files or their memory?
     yes_mark: Concern; Note if installing or updating that tool is its stated job
     no_mark: Good
-    partly_means: it only moves or renames their files and keeps them, so they can be put back
+    partly_means: it only moves, renames or backs up their files and keeps the original, beside it or in a folder it names, so they can be put back
   G7:
     text: Does it read the keyboard through Windows, also while the game isn't focused?
     yes_mark: Note
@@ -208,7 +208,7 @@ questions:
     partly: never
   T2:
     text: Do its docs say something its code doesn't do, on a point these questions ask about?
-    yes_mark: Concern
+    yes_mark: Concern; Note if each such line describes riskier behaviour than the code has
     no_mark: Good
     partly: never
   T3:
@@ -265,11 +265,11 @@ money:
 # tag is about and its colour how much it costs.
 tags:
   - {from: P9, answer: "Yes", tag: Signs of malware, kind: Critical, icon: bug}
-  - {from: P1, answer: "Yes", tag: Flagged by antivirus, kind: Critical, icon: shield-x}
+  - {from: P1, answer: "Yes", tag: Some antivirus engines flag it, kind: Critical, icon: shield-x}
   - {from: P2, answer: "Yes", tag: Updates without asking, kind: Critical, icon: refresh-cw}
   - {from: P3, answer: "No", tag: Unchecked updates, kind: Critical, icon: refresh-cw-off}
   - {from: P3, answer: "Partly", tag: Updates partly checked, kind: Critical, icon: refresh-ccw-dot}
-  - {from: P4, answer: "Yes", tag: Deletes others' files, kind: Critical, icon: trash-2}
+  - {from: P4, answer: "Yes", tag: Deletes or overwrites others' files, kind: Critical, icon: trash-2}
   - {from: P5, answer: "No", tag: Not signed or traceable, kind: Critical, icon: badge-x}
   - {from: P6, answer: "Yes", tag: Changes Windows settings, kind: Critical, icon: monitor-cog}
   - {from: P7, answer: "Yes", tag: Changes game files, kind: Critical, icon: folder-pen}
@@ -279,7 +279,7 @@ tags:
   - {from: D4, answer: "Yes", tag: Sends other players' data, kind: Critical, icon: users}
   - {from: D5, answer: "Yes", tag: Open local web server, kind: Critical, icon: server}
   - {from: D6, answer: "Yes", tag: Reads other people's data, kind: Critical, icon: file-search}
-  - {from: D7, answer: "Yes", tag: Publishes user data, kind: Critical, icon: megaphone}
+  - {from: D7, answer: "Yes", tag: Publishes riders' data, kind: Critical, icon: megaphone}
   - {from: D8, answer: "No", tag: No off switch, kind: Critical, icon: power-off}
   - {from: D9, answer: "Yes", tag: Needs an online account, kind: Critical, icon: circle-user}
   - {from: D10, answer: "Yes", tag: Shares identifiers locally, kind: Critical, icon: share-2}
@@ -288,7 +288,7 @@ tags:
   - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical, icon: globe}
   - {from: G3, answer: "Partly", tag: Changes what you see online, kind: Critical, icon: scan-eye}
   - {from: G12, answer: "Yes", tag: Gets around a game check, kind: Critical, icon: shield-off}
-  - {from: G5, answer: "Yes", tag: Presses keys for you, kind: Critical, icon: keyboard}
+  - {from: G5, answer: "Yes", tag: Takes over game input, kind: Critical, icon: keyboard}
   - {from: G6, answer: "Yes", tag: Changes other plugins, kind: Critical, icon: puzzle}
   - {from: G9, answer: "Yes", tag: Starts with Windows, kind: Critical, icon: rocket}
   - {from: C1, answer: "Yes", tag: Decrypts protected content, kind: Critical, icon: key-round}
@@ -311,7 +311,7 @@ tags:
 # in a group counts. A change to any number here is a new version: it rescores every card at once, and rules/scores.md,
 # "Changes to this rubric", gets a row.
 scores:
-  version: v3
+  version: v4
   # The tiers, set first; every cost below is one of them.
   tiers: {small: 5, low: 10, medium: 15, large: 25, severe: 40, malware: 100}
   # What a Concern by default costs, by question (by verdict where it differs). Every question that can be a Concern has one.

@@ -67,7 +67,7 @@ files_note: >-
   None of the three program files is code-signed (`lab/evidence/mxb-damage-1.3.0/signature.txt`). The hashes match the ones GitHub lists
   for the release and the ones the Windows machine ran (`lab/results/mxb-damage-1.3.0/ride-defaults-windows/machine.txt`).
 key:
-  K1: 'No malware found. 3 of 70 engines flagged the installer, fewer than 1 in 10; nothing in the release files was hidden or disguised.'
+  K1: 'No malware found. 3 of 70 engines flagged the installer, fewer than 1 in 10.'
   K2: 'Yes, checked first; by default it installs updates when you close the game, after checking a signed manifest and every file''s SHA-256.'
   K3: 'No. It writes only into its own folder in `plugins`.'
   K4: 'No. Only download requests to GitHub were found.'
@@ -546,3 +546,6 @@ history:
   - date: 23 Nov 2026
     change: >-
       G3 is now Partly (it changes only what you see online), after the question gained that answer in rubric v2; score 69 to 78.
+  - date: 26 Nov 2026
+    change: >-
+      K1 ends at "No malware found" and the VirusTotal count; it also said nothing in the release files was hidden or disguised, which is more than a key answer should claim (rule 7). No score change.

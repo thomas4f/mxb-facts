@@ -287,6 +287,11 @@ check('an open correction has no reason yet', refused(corr([{'issue': 1, 'questi
 check('a decided correction needs its date and reason', refused(corr([{'issue': 1, 'questions': ['D2'], 'opened': '20 Nov 2026', 'status': 'declined'}])))
 check('a fixed correction needs a history row linking its issue', refused(corr([{'issue': 1, 'questions': ['D2'], 'opened': '20 Nov 2026', 'status': 'fixed', 'closed': '21 Nov 2026', 'reason': 'D2 fixed.'}])))
 check('a correction names known questions', refused(corr([{'issue': 1, 'questions': ['Z9'], 'opened': '20 Nov 2026', 'status': 'open'}])))
+check('a correction names at least one question', refused(corr([{'issue': 1, 'questions': [], 'opened': '20 Nov 2026', 'status': 'open'}])))
+B['corrections_md']('t.yaml', corr([{'issue': 78, 'kind': 'context', 'questions': [], 'opened': '25 Nov 2026', 'status': 'open'}]))
+check("the author's context naming no question is allowed, and marks nothing", B['CORR']['t.yaml'] == {})
+B['corrections_md']('t.yaml', corr([{'issue': 78, 'kind': 'context', 'questions': ['P4'], 'opened': '25 Nov 2026', 'status': 'open'}]))
+check("the author's context marks no answer under review, even one it names", B['CORR']['t.yaml'] == {})
 
 # The comment icon fills in the comment form's card and line fields.
 _l = B['correction_link']('HoleShot 0.24.0', 'D3')

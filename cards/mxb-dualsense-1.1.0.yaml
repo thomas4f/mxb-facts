@@ -223,10 +223,10 @@ answers:
     text: There is no updater.
     evidence: '`lab/evidence/mxb-dualsense-1.1.0/urls.txt`, `lab/evidence/mxb-dualsense-1.1.0/imports.txt`.'
   P4:
-    verdict: Yes, on request
+    verdict: Partly
     mark: note
     text: >-
-      Set up proxy_udp.ini, on the Setup page, rewrites the game's `proxy_udp.ini` only after a box shows the new file and you
+      It only backs up and rewrites one such file, keeping the original, and only when you ask. Set up proxy_udp.ini, on the Setup page, rewrites the game's `proxy_udp.ini` only after a box shows the new file and you
       click Write file; it copies the old file to `proxy_udp.ini.backup-<date>` first, and changes only the lines it needs.
       Uninstall in-game HUD deletes only its own two files. Nothing else is deleted.
     evidence: '`lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/buttons.txt`, `lab/evidence/mxb-dualsense-1.1.0/install.txt`, `lab/evidence/mxb-dualsense-1.1.0/file-writes.txt`.'
@@ -366,11 +366,11 @@ answers:
     text: It only checks whether its hotkeys are held (G7); it doesn't block the game's input or press keys.
     evidence: '`lab/evidence/mxb-dualsense-1.1.0/hotkeys.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`.'
   G6:
-    verdict: Yes, on request
-    mark: concern
+    verdict: 'No'
+    mark: good
     text: >-
-      Set up proxy_udp.ini changes the settings file of the game's own proxy_udp plugin (P4), so the plugin sends its data to
-      this tool instead of any program it went to before; the box says so first when another address was set.
+      It changes no other plugin or tool. The proxy_udp plugin whose `proxy_udp.ini` Set up proxy_udp.ini rewrites (P4) ships
+      with the game, so that is a change to the game's own files, counted under P4.
     evidence: '`lab/evidence/mxb-dualsense-1.1.0/proxy-ini.txt`, `lab/evidence/mxb-dualsense-1.1.0/buttons.txt`.'
   G7:
     verdict: 'Yes'
@@ -499,3 +499,6 @@ answers:
 history:
   - date: 24 Nov 2026
     change: First card, for 1.1.0.
+  - date: 26 Nov 2026
+    change: >-
+      G6 is No: the proxy_udp plugin ships with the game, so rewriting its settings file is a change to the game's own files, counted under P4, as on MXB Ragdoll's card; before, G6 was "Yes, on request". No score change.

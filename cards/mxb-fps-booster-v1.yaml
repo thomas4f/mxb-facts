@@ -168,10 +168,10 @@ answers:
     text: There is no updater.
     evidence: '`lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`.'
   P4:
-    verdict: Yes, on request
+    verdict: Partly
     mark: note
     text: >-
-      Install From File replaces files of the same name in the game's `plugins` folder, only after you pick the files and answer
+      It only backs up and replaces such files, keeping the originals, and only when you ask. Install From File replaces files of the same name in the game's `plugins` folder, only after you pick the files and answer
       Yes to "existing file(s) will be backed up before replacement", and copies each one to `Documents\MXB FPS Booster
       Backups` first. It deletes no file but the temporary folder it unpacks a zip into; its script has no delete or rename call.
     evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`, `lab/evidence/mxb-fps-booster-v1/main-files.txt`.'
@@ -296,10 +296,10 @@ answers:
     text: It takes input only in its own window, for its buttons; it presses no keys.
     evidence: '`lab/evidence/mxb-fps-booster-v1/ui-text.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`.'
   G6:
-    verdict: Yes, on request
+    verdict: Partly
     mark: note
     text: >-
-      Install From File, its Plugin Manager, can replace other plugins' files of the same name in `plugins` (after asking, with
+      It only backs up and replaces such files, keeping the originals, and only when you ask. Install From File, its Plugin Manager, can replace other plugins' files of the same name in `plugins` (after asking, with
       a backup); installing plugins is that button's stated job. It doesn't touch other programs' memory.
     evidence: '`lab/evidence/mxb-fps-booster-v1/plugin-install.txt`, `lab/evidence/mxb-fps-booster-v1/ui-text.txt`.'
   G7:

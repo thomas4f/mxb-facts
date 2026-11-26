@@ -133,13 +133,18 @@ def corrections_md(f,d):
     assert len({c['issue'] for c in cs})==len(cs), f+': a correction is listed twice'
     out=[]
     for c in cs:
-        n=c['issue']; qs=', '.join('{q:'+q+'}' for q in c['questions'])
+        n=c['issue']; qs=', '.join('{q:'+q+'}' for q in c['questions']) or 'the card as a whole'
         assert all(q in QIDS for q in c['questions']), f+': correction #'+str(n)+' names an unknown question'
+        # Only the questions the comment itself names are listed. A correction or something missing names at least one; the
+        # author's context may name none, and marks no answer: it adds to the card, it doesn't dispute it.
+        ctx=c.get('kind')=='context'
+        assert ctx or c['questions'], f+': correction #'+str(n)+' is a '+c.get('kind','correction')+', so it names the questions it is about'
         link=f'{CKIND[c.get("kind","correction")]} [#{n}]({REPO}issues/{n})'
         if c['status']=='open':
             assert 'closed' not in c and 'reason' not in c, f+': correction #'+str(n)+' is open, so it has no "closed" date or "reason" yet'
-            for q in c['questions']: CORR[f].setdefault(q,[]).append(n)
-            out.append(f'- <span class="mark corr">Under review</span> {link}, sent {c["opened"]}, about {qs}. Nothing on the card changes until it is decided.')
+            if not ctx:
+                for q in c['questions']: CORR[f].setdefault(q,[]).append(n)
+            out.append('- '+('' if ctx else '<span class="mark corr">Under review</span> ')+f'{link}, sent {c["opened"]}, about {qs}. '+('It adds context and marks no answer.' if ctx else 'Nothing on the card changes until it is decided.'))
         else:
             assert c.get('closed') and c.get('reason'), f+': correction #'+str(n)+' is '+c['status']+', so it needs the "closed" date and a "reason"'
             assert day(c['closed'])>=day(c['opened']), f+': correction #'+str(n)+' is closed before it was sent'

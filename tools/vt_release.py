@@ -14,7 +14,7 @@ vt/results.json (tools/vt_lookup.py --from). The two are separate steps, so the 
 With --upload, each file players download (the release files themselves, not what they unpack to) that VirusTotal has no
 record of is uploaded from <release folder>, after its SHA-256 is checked against release.json again, then looked up again
 once VirusTotal has scanned it. The workflow passes --upload only when the plan's licence read says analysis is allowed
-(rule 6) and the run's "Skip upload" input is off. Uploads never hold the run up: a scan that hasn't finished after
+(rule 6) and the run's "upload" input is on, which the maintainer sets only when the tool's author agreed. Uploads never hold the run up: a scan that hasn't finished after
 SCAN_WAIT seconds is recorded as not on VirusTotal, with the upload date and "pending", and a failed upload is recorded
 the same way with its error. Files over MAX_UPLOAD bytes aren't uploaded; over 32 MB they go to an upload URL.
 

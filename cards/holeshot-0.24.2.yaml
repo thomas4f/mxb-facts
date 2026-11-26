@@ -320,10 +320,10 @@ answers:
       [release.yml lines 56-89](https://github.com/LeadingTrendTechnologies/HoleshotHUD/blob/5f4905e94f2423cc67c79a4bf7b684c31dd13cf7/.github/workflows/release.yml#L56-L89);
       `lab/evidence/holeshot-0.24.2/minisign.txt`, `lab/evidence/holeshot-0.24.2/src-update.txt`.
   P4:
-    verdict: Yes, not by default
-    mark: concern
+    verdict: Partly
+    mark: note
     text: >-
-      With "MX Bikes menus" on (off by default), it rewrites the game's `ui\english.str` (two menu labels) and writes its menu
+      It only backs up and rewrites such files, keeping the originals, and only with an option that is off by default. With "MX Bikes menus" on (off by default), it rewrites the game's `ui\english.str` (two menu labels) and writes its menu
       files over the game's in `ui`, after copying the stock files (and the game's `ui.pkz` contents) to `ui.holeshot-bak` in the
       game folder; turning it off, or uninstalling, deletes its files, copies the backup back and then deletes the backup. By
       default it deletes only its own files: its earlier plugin name `plugins\mxbo.dlo`, and its settings and logs when you
