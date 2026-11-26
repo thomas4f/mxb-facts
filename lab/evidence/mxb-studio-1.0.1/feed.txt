@@ -1,0 +1,4 @@
+$ curl -sS -o $W/feed.json https://mxbstudio.com/updates/releases.win.json && sha256sum $W/feed.json | cut -c1-64 && python3 -I -c 'import json,sys;[print(a["PackageId"],a["Version"],a["Type"],a["FileName"],"SHA256:",a["SHA256"],a["Size"]) for a in json.load(open(sys.argv[1]))["Assets"]]' $W/feed.json
+fe551c29d4497bc72008883ac4ec3b25fbbf88efb7088dc4bca77a3e9a1511c2
+MXBStudio 1.0.1 Full MXBStudio-1.0.1-full.nupkg SHA256: 6C479BE1908276BA3D7BC69B3611AB8DC502049320FA69A7B44D65133D577BFE 1963749292
+(exit 0)

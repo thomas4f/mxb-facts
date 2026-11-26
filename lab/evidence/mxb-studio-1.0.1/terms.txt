@@ -1,0 +1,6 @@
+$ curl -sSL https://mxbstudio.com/terms.html | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r\"(?s)<(script|style).*?</\\1>\",\"\",t);t=re.sub(r\"<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>\",\"\\n\",t);t=re.sub(r\"<[^>]+>\",\"\",t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | grep -nE 'Effective date|^Free requires no account|^Pro is|7-day trial'
+5:Effective date: November 8, 2026
+9:Free requires no account. Signup alone grants neither Pro nor a trial. Keep account information accurate and credentials private; report misuse. Do not interfere with security, falsify entitlements, misuse accounts or distribute content without rights.
+12:Pro is $6 USD/month or $60 USD/year, before applicable tax. Monthly is the default; annual is selected and paid upfront. The final amount and renewal interval appear before purchase. Stripe Managed Payments uses Link as merchant of record; we remain seller of record.
+13:Both monthly and annual subscriptions offer a 7-day trial that requires a payment method. One trial per account; cancellation, resubscription or plan changes do not reset it. An abandoned/incomplete checkout alone does not consume it. Trial plan changes retain the original end date.
+(exit 0)

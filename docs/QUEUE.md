@@ -25,34 +25,33 @@ In the order the maintainer chose (24 Nov 2026): by its weight, the downloads it
 | 2 | MXB App | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/mxb-app-one-click-mod-manager/) | GitHub ([Frostn1/mxb-app](https://github.com/Frostn1/mxb-app)) | 5,145 | 2026-11-12 | `mxb-app` |  |
 | 3 | Resolute MXB Track Builder Helper | MX Bikes | Resolute Kraken | [mxb-mods.com](https://mxb-mods.com/resolute-mxb-track-builder-helper/) | MediaFire | 4,602 | 2025-07-07 | `resolute-track-builder-helper` | Zip on file (MSI installer, zip SHA-256 `1344d35ad68fabddbf128cf3e881252d13d1d50d03b0da18732caaeda19f5e55`) |
 | 4 | PaintHub | MX Bikes | OhTea | [mxb-mods.com](https://mxb-mods.com/painthub/) | MediaFire | 1,688 | 2026-02-07 | `painthub` | Zip on file |
-| 5 | MXB Studio | MX Bikes | TannyGlover | [mxb-mods.com](https://mxb-mods.com/mxb-studio-create-your-entire-mx-bikes-track-in-one-app/) | MediaFire | 1,506 | 2026-11-21 | `mxb-studio` | Homepage [mxbstudio.com](https://mxbstudio.com) |
-| 6 | PitKit MX Bikes Mod Manager | MX Bikes | bobby-rust | [mxb-mods.com](https://mxb-mods.com/pitkit-mx-bikes-mod-manager/) | GitHub ([bobby-rust/Pitkit](https://github.com/bobby-rust/Pitkit)) | 1,765 | 2025-06-05 | `pitkit` |  |
-| 7 | MX Bike Mod Manager | MX Bikes | Noxo | [mxb-mods.com](https://mxb-mods.com/mx-bike-mod-manager/) | Google Drive | 863 | 2026-03-11 | `mx-bike-mod-manager` |  |
-| 8 | MX Bikes Mods Cleaner | MX Bikes | nikomouk | [mxb-mods.com](https://mxb-mods.com/mx-bikes-mods-cleaner/) | MediaFire | 794 | 2025-12-26 | `mods-cleaner` |  |
-| 9 | MaXHUD (GP Bikes) | GP Bikes | HornetMaX | [gpb-mods.com](https://gpb-mods.com/maxhud/) | Mega | 6,044 | 2023-08-21 | `maxhud-gpb` | The GP Bikes build of MaXHUD, uploaded by Zonta_84 |
-| 10 | MXPulse Alpha | MX Bikes | daf0707pro-lgtm | [mxb-mods.com](https://mxb-mods.com/mxpulse/) | GitHub ([daf0707pro-lgtm/MXPulse](https://github.com/daf0707pro-lgtm/MXPulse)) | 607 | 2026-08-01 | `mxpulse` |  |
-| 11 | Drag n Drop Creator | MX Bikes | bh5o | [mxb-mods.com](https://mxb-mods.com/drag-n-drop-creator/) | MediaFire | 581 | 2026-03-05 | `drag-n-drop-creator` |  |
-| 12 | MxTuner | MX Bikes | dfmc_dadogamer91 | [mxb-mods.com](https://mxb-mods.com/danj/) | MediaFire | 478 | 2026-01-19 | `mxtuner` |  |
-| 13 | Studio BW Skin Packer | MX Bikes | Phantomz | [mxb-mods.com](https://mxb-mods.com/studio-bw-skin-packer/) | MediaFire | 735 | 2025-05-14 | `studio-bw-skin-packer` |  |
-| 14 | TrackRelief | MX Bikes | Lilian1134 | [mxb-mods.com](https://mxb-mods.com/trackrelief/) | GitHub ([Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief)) | 337 | 2026-10-21 | `trackrelief` |  |
-| 15 | MX Ctrl | MX Bikes | itswillyferret | [mxb-mods.com](https://mxb-mods.com/mx-ctrl/) | MediaFire | 336 | 2026-06-04 | `mx-ctrl` |  |
-| 16 | MXB Dropper | MX Bikes | KST Design | [mxb-mods.com](https://mxb-mods.com/mxb-dropper-v1/) | MediaFire | 221 | 2026-03-07 | `mxb-dropper` |  |
-| 17 | MXB_Haptics_PS5 | MX Bikes | Sixze | [mxb-mods.com](https://mxb-mods.com/mxb_haptics_ps5/) | Google Drive | 209 | 2026-06-15 | `mxb-haptics-ps5` |  |
-| 18 | Tyre changer Tool (MX Bike Tool) | MX Bikes | Buck3ts41 | [mxb-mods.com](https://mxb-mods.com/tyre-changer-tool/) | MediaFire | 817 | 2024-11-21 | `tyre-changer` |  |
-| 19 | Performance Lab by LMG x JCD | MX Bikes | JahRacing | [mxb-mods.com](https://mxb-mods.com/performance-lab-by-lmg-x-jcd/) | GitHub ([JahRacing/Performance-Lab-by-LMG-x-JCD](https://github.com/JahRacing/Performance-Lab-by-LMG-x-JCD)) | 202 | 2026-09-24 | `performance-lab` | Filed under Bikes, Others on the site |
-| 20 | MX Shortcuts | MX Bikes | itswillyferret | [mxb-mods.com](https://mxb-mods.com/140394-2/) | gofile.io | 347 | 2025-09-20 | `mx-shortcuts` |  |
-| 21 | Resolute MXB Server Manager | MX Bikes | Resolute Kraken | [mxb-mods.com](https://mxb-mods.com/resolute-mxb-server-manager/) | MX Bikes forum | 1,348 | 2022-12-30 | `resolute-server-manager` |  |
-| 22 | Knee Down | GP Bikes | gsv-r | [gpb-mods.com](https://gpb-mods.com/knee-down-launcher/) | GitHub ([gsv-r/knee-down](https://github.com/gsv-r/knee-down)) | 137 | 2026-10-19 | `knee-down` |  |
-| 23 | Frost's Studio | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/frosts-studio/) | GitHub ([Frostn1/frost-studio](https://github.com/Frostn1/frost-studio)) | 128 | 2026-11-12 | `frosts-studio` |  |
-| 24 | Simhub Dash 2.0 | GP Bikes | Gonzo46 | [gpb-mods.com](https://gpb-mods.com/simhub-dash-2-0-public/) | Mega | 472 | 2024-08-17 | `simhub-dash-gpb` |  |
-| 25 | MX/GP Bikes Server Manager by DazTeamRacing | MX Bikes | DazTeamRacing | [mxb-mods.com](https://mxb-mods.com/mx-gp-bikes-server-manager-by-dazteamracing/) | Mega | 115 | 2026-09-04 | `dazteamracing-server-manager` | Also posted on gpb-mods.com |
-| 26 | MXBTT | MX Bikes | DankMaps | [mxb-mods.com](https://mxb-mods.com/mxbtt-com-the-weekly-time-trial-prize-money-racing-platform/) | GitHub ([DankMaps/MXBTT.com-Releases](https://github.com/DankMaps/MXBTT.com-Releases)) | 85 | 2026-08-27 | `mxbtt` | Also its plugin installer from [mxbtt.com](https://mxbtt.com): `MXBTT_Plugin_Setup.exe` on file (SHA-256 `13d0b6e92f4cd165303cdda60cf5bfce8f0e69db81ca21e8db74b00e0eab8047`) |
-| 27 | MaxTM | GP Bikes | HornetMaX | [gpb-mods.com](https://gpb-mods.com/maxtm-v2-5/) | Mega | 481 | 2023-08-22 | `maxtm` | Telemetry tool, uploaded by Zonta_84 |
-| 28 | Libpnt | MX Bikes | BatZupper | [mxb-mods.com](https://mxb-mods.com/libpnt/) | GitHub ([BatZupper/libpnt](https://github.com/BatZupper/libpnt)) | 56 | 2025-12-25 | `libpnt` | A code library for the paint file format |
-| 29 | MXB Coach | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/mxb-coach/) | GitHub ([Frostn1/mxb-coach](https://github.com/Frostn1/mxb-coach)) | 42 | 2026-11-12 | `mxb-coach` |  |
-| 30 | Frost Converter | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/fbx3edf/) | GitHub ([Frostn1/frost-converter](https://github.com/Frostn1/frost-converter)) | 32 | 2026-11-13 | `frost-converter` |  |
-| 31 | MX Bikes Server Configurator | MX Bikes | insane | [mxb-mods.com](https://mxb-mods.com/mx-bikes-server-configurator/) | mxb-mods.com | 940 | 2020-11-07 | `mxb-server-configurator` |  |
-| 32 | FrostMod | MX Bikes | Frost (Frostn1) | None | GitHub ([Frostn1/frostmod](https://github.com/Frostn1/frostmod)) | None | None | `frostmod` | Not on the mods sites |
+| 5 | PitKit MX Bikes Mod Manager | MX Bikes | bobby-rust | [mxb-mods.com](https://mxb-mods.com/pitkit-mx-bikes-mod-manager/) | GitHub ([bobby-rust/Pitkit](https://github.com/bobby-rust/Pitkit)) | 1,765 | 2025-06-05 | `pitkit` |  |
+| 6 | MX Bike Mod Manager | MX Bikes | Noxo | [mxb-mods.com](https://mxb-mods.com/mx-bike-mod-manager/) | Google Drive | 863 | 2026-03-11 | `mx-bike-mod-manager` |  |
+| 7 | MX Bikes Mods Cleaner | MX Bikes | nikomouk | [mxb-mods.com](https://mxb-mods.com/mx-bikes-mods-cleaner/) | MediaFire | 794 | 2025-12-26 | `mods-cleaner` |  |
+| 8 | MaXHUD (GP Bikes) | GP Bikes | HornetMaX | [gpb-mods.com](https://gpb-mods.com/maxhud/) | Mega | 6,044 | 2023-08-21 | `maxhud-gpb` | The GP Bikes build of MaXHUD, uploaded by Zonta_84 |
+| 9 | MXPulse Alpha | MX Bikes | daf0707pro-lgtm | [mxb-mods.com](https://mxb-mods.com/mxpulse/) | GitHub ([daf0707pro-lgtm/MXPulse](https://github.com/daf0707pro-lgtm/MXPulse)) | 607 | 2026-08-01 | `mxpulse` |  |
+| 10 | Drag n Drop Creator | MX Bikes | bh5o | [mxb-mods.com](https://mxb-mods.com/drag-n-drop-creator/) | MediaFire | 581 | 2026-03-05 | `drag-n-drop-creator` |  |
+| 11 | MxTuner | MX Bikes | dfmc_dadogamer91 | [mxb-mods.com](https://mxb-mods.com/danj/) | MediaFire | 478 | 2026-01-19 | `mxtuner` |  |
+| 12 | Studio BW Skin Packer | MX Bikes | Phantomz | [mxb-mods.com](https://mxb-mods.com/studio-bw-skin-packer/) | MediaFire | 735 | 2025-05-14 | `studio-bw-skin-packer` |  |
+| 13 | TrackRelief | MX Bikes | Lilian1134 | [mxb-mods.com](https://mxb-mods.com/trackrelief/) | GitHub ([Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief)) | 337 | 2026-10-21 | `trackrelief` |  |
+| 14 | MX Ctrl | MX Bikes | itswillyferret | [mxb-mods.com](https://mxb-mods.com/mx-ctrl/) | MediaFire | 336 | 2026-06-04 | `mx-ctrl` |  |
+| 15 | MXB Dropper | MX Bikes | KST Design | [mxb-mods.com](https://mxb-mods.com/mxb-dropper-v1/) | MediaFire | 221 | 2026-03-07 | `mxb-dropper` |  |
+| 16 | MXB_Haptics_PS5 | MX Bikes | Sixze | [mxb-mods.com](https://mxb-mods.com/mxb_haptics_ps5/) | Google Drive | 209 | 2026-06-15 | `mxb-haptics-ps5` |  |
+| 17 | Tyre changer Tool (MX Bike Tool) | MX Bikes | Buck3ts41 | [mxb-mods.com](https://mxb-mods.com/tyre-changer-tool/) | MediaFire | 817 | 2024-11-21 | `tyre-changer` |  |
+| 18 | Performance Lab by LMG x JCD | MX Bikes | JahRacing | [mxb-mods.com](https://mxb-mods.com/performance-lab-by-lmg-x-jcd/) | GitHub ([JahRacing/Performance-Lab-by-LMG-x-JCD](https://github.com/JahRacing/Performance-Lab-by-LMG-x-JCD)) | 202 | 2026-09-24 | `performance-lab` | Filed under Bikes, Others on the site |
+| 19 | MX Shortcuts | MX Bikes | itswillyferret | [mxb-mods.com](https://mxb-mods.com/140394-2/) | gofile.io | 347 | 2025-09-20 | `mx-shortcuts` |  |
+| 20 | Resolute MXB Server Manager | MX Bikes | Resolute Kraken | [mxb-mods.com](https://mxb-mods.com/resolute-mxb-server-manager/) | MX Bikes forum | 1,348 | 2022-12-30 | `resolute-server-manager` |  |
+| 21 | Knee Down | GP Bikes | gsv-r | [gpb-mods.com](https://gpb-mods.com/knee-down-launcher/) | GitHub ([gsv-r/knee-down](https://github.com/gsv-r/knee-down)) | 137 | 2026-10-19 | `knee-down` |  |
+| 22 | Frost's Studio | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/frosts-studio/) | GitHub ([Frostn1/frost-studio](https://github.com/Frostn1/frost-studio)) | 128 | 2026-11-12 | `frosts-studio` |  |
+| 23 | Simhub Dash 2.0 | GP Bikes | Gonzo46 | [gpb-mods.com](https://gpb-mods.com/simhub-dash-2-0-public/) | Mega | 472 | 2024-08-17 | `simhub-dash-gpb` |  |
+| 24 | MX/GP Bikes Server Manager by DazTeamRacing | MX Bikes | DazTeamRacing | [mxb-mods.com](https://mxb-mods.com/mx-gp-bikes-server-manager-by-dazteamracing/) | Mega | 115 | 2026-09-04 | `dazteamracing-server-manager` | Also posted on gpb-mods.com |
+| 25 | MXBTT | MX Bikes | DankMaps | [mxb-mods.com](https://mxb-mods.com/mxbtt-com-the-weekly-time-trial-prize-money-racing-platform/) | GitHub ([DankMaps/MXBTT.com-Releases](https://github.com/DankMaps/MXBTT.com-Releases)) | 85 | 2026-08-27 | `mxbtt` | Also its plugin installer from [mxbtt.com](https://mxbtt.com): `MXBTT_Plugin_Setup.exe` on file (SHA-256 `13d0b6e92f4cd165303cdda60cf5bfce8f0e69db81ca21e8db74b00e0eab8047`) |
+| 26 | MaxTM | GP Bikes | HornetMaX | [gpb-mods.com](https://gpb-mods.com/maxtm-v2-5/) | Mega | 481 | 2023-08-22 | `maxtm` | Telemetry tool, uploaded by Zonta_84 |
+| 27 | Libpnt | MX Bikes | BatZupper | [mxb-mods.com](https://mxb-mods.com/libpnt/) | GitHub ([BatZupper/libpnt](https://github.com/BatZupper/libpnt)) | 56 | 2025-12-25 | `libpnt` | A code library for the paint file format |
+| 28 | MXB Coach | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/mxb-coach/) | GitHub ([Frostn1/mxb-coach](https://github.com/Frostn1/mxb-coach)) | 42 | 2026-11-12 | `mxb-coach` |  |
+| 29 | Frost Converter | MX Bikes | Frost (Frostn1) | [mxb-mods.com](https://mxb-mods.com/fbx3edf/) | GitHub ([Frostn1/frost-converter](https://github.com/Frostn1/frost-converter)) | 32 | 2026-11-13 | `frost-converter` |  |
+| 30 | MX Bikes Server Configurator | MX Bikes | insane | [mxb-mods.com](https://mxb-mods.com/mx-bikes-server-configurator/) | mxb-mods.com | 940 | 2020-11-07 | `mxb-server-configurator` |  |
+| 31 | FrostMod | MX Bikes | Frost (Frostn1) | None | GitHub ([Frostn1/frostmod](https://github.com/Frostn1/frostmod)) | None | None | `frostmod` | Not on the mods sites |
 
 ## On hold
 

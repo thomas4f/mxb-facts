@@ -1,0 +1,168 @@
+$ objdump -p MXBStudio-win-Setup.exe | grep -E 'file format|Security Directory'; curl -sSL -o $W/root.crt 'http://www.microsoft.com/pkiops/certs/Microsoft%20Identity%20Verification%20Root%20Certificate%20Authority%202020.crt' && openssl x509 -inform DER -in $W/root.crt -out $W/root.pem && openssl x509 -in $W/root.pem -noout -subject -fingerprint -sha256; osslsigncode verify -CAfile $W/root.pem -TSA-CAfile $W/root.pem -in MXBStudio-win-Setup.exe 2>&1 | sed -E 's/^(\s*Subject: ).*(CN=[^,]*).*/\1\2/' | grep -vE '^\s*$'
+MXBStudio-win-Setup.exe:     file format pei-i386
+Entry 4 7551f7b0 00003d08 Security Directory
+subject=C=US, O=Microsoft Corporation, CN=Microsoft Identity Verification Root Certificate Authority 2020
+sha256 Fingerprint=53:67:F2:0C:7A:DE:0E:2B:CA:79:09:15:05:6D:08:6B:72:0C:33:C1:FA:2A:26:61:AC:F7:87:E3:29:2E:12:70
+PE checksum   : 75529015
+Signature Index: 0  (Primary Signature)
+Message digest algorithm  : SHA256
+Current message digest    : 49D4943C76F7D8DA00370C9186EC020FA5BD0620AE678E2E2BC461079F7709BE 
+Calculated message digest : 49D4943C76F7D8DA00370C9186EC020FA5BD0620AE678E2E2BC461079F7709BE 
+Signer's certificate:
+	------------------
+	Signer #0:
+		Subject: CN=Tanner Smith
+		Issuer : CN=Microsoft ID Verified CS EOC CA 04,O=Microsoft Corporation,C=US
+		Serial : 33000AF69A7528181C1ECDDEB10000000AF69A
+		Certificate expiration date:
+			notBefore : Nov 22 20:12:02 2026 GMT
+			notAfter : Nov 25 20:12:02 2026 GMT
+Message digest algorithm: SHA256
+Authenticated attributes:
+	Message digest: 71946E35897B7727D0CD2C1703496B6D238F0D5BCFB3369FC3E29691C7E3567C 
+Countersignatures:
+	Timestamp time: Nov 24 00:28:47 2026 GMT
+	Signing time: Nov 24 00:28:47 2026 GMT
+	Hash Algorithm: sha256
+	Issuer: CN=Microsoft Public RSA Timestamping CA 2020,O=Microsoft Corporation,C=US
+	Serial: 330000005DC639784F407D33FD00000000005D
+CAfile: /tmp/tmp.K0DxwY0qfU/root.pem
+TSA's certificates file: /tmp/tmp.K0DxwY0qfU/root.pem
+Timestamp verified using:
+	------------------
+	Signer #2:
+		Subject: CN=Microsoft Identity Verification Root Certificate Authority 2020
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 5498D2D1D45B1995481379C811C08799
+		Certificate expiration date:
+			notBefore : Apr 16 18:36:16 2020 GMT
+			notAfter : Apr 16 18:44:40 2045 GMT
+	------------------
+	Signer #1:
+		Subject: CN=Microsoft Public RSA Timestamping CA 2020
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 3300000005E5CF0FFF662EC987000000000005
+		Certificate expiration date:
+			notBefore : Nov 19 20:32:31 2020 GMT
+			notAfter : Nov 19 20:42:31 2035 GMT
+	------------------
+	Signer #0:
+		Subject: CN=Microsoft Public RSA Time Stamping Authority
+		Issuer : CN=Microsoft Public RSA Timestamping CA 2020,O=Microsoft Corporation,C=US
+		Serial : 330000005DC639784F407D33FD00000000005D
+		Certificate expiration date:
+			notBefore : Sep 17 18:57:21 2026 GMT
+			notAfter : Sep 14 18:57:21 2027 GMT
+TSA's CRL distribution point: http://www.microsoft.com/pkiops/crl/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crl
+Connecting to http://www.microsoft.com/pkiops/crl/Microsoft%20Public%20RSA%20Timestamping%20CA%202020.crl
+Certificate Revocation List verified using:
+	------------------
+	Signer #2:
+		Subject: CN=Microsoft Identity Verification Root Certificate Authority 2020
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 5498D2D1D45B1995481379C811C08799
+		Certificate expiration date:
+			notBefore : Apr 16 18:36:16 2020 GMT
+			notAfter : Apr 16 18:44:40 2045 GMT
+	------------------
+	Signer #1:
+		Subject: CN=Microsoft Public RSA Timestamping CA 2020
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 3300000005E5CF0FFF662EC987000000000005
+		Certificate expiration date:
+			notBefore : Nov 19 20:32:31 2020 GMT
+			notAfter : Nov 19 20:42:31 2035 GMT
+	------------------
+	Signer #0:
+		Subject: CN=Microsoft Public RSA Time Stamping Authority
+		Issuer : CN=Microsoft Public RSA Timestamping CA 2020,O=Microsoft Corporation,C=US
+		Serial : 330000005DC639784F407D33FD00000000005D
+		Certificate expiration date:
+			notBefore : Sep 17 18:57:21 2026 GMT
+			notAfter : Sep 14 18:57:21 2027 GMT
+Timestamp Server Signature CRL verification: ok
+Timestamp serial number: 6AFC8D89855B
+Timestamp Server Signature verification: ok
+Signature verification time: Nov 24 00:28:47 2026 GMT
+Signing certificate chain verified using:
+	------------------
+	Signer #3:
+		Subject: CN=Microsoft Identity Verification Root Certificate Authority 2020
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 5498D2D1D45B1995481379C811C08799
+		Certificate expiration date:
+			notBefore : Apr 16 18:36:16 2020 GMT
+			notAfter : Apr 16 18:44:40 2045 GMT
+	------------------
+	Signer #2:
+		Subject: CN=Microsoft ID Verified Code Signing PCA 2021
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 330000000787A334A37BA58E1C000000000007
+		Certificate expiration date:
+			notBefore : Apr  1 20:05:20 2021 GMT
+			notAfter : Apr  1 20:15:20 2036 GMT
+	------------------
+	Signer #1:
+		Subject: CN=Microsoft ID Verified CS EOC CA 04
+		Issuer : CN=Microsoft ID Verified Code Signing PCA 2021,O=Microsoft Corporation,C=US
+		Serial : 33000000172745090B8B87AFC6000000000017
+		Certificate expiration date:
+			notBefore : Mar 26 18:11:31 2026 GMT
+			notAfter : Mar 26 18:11:31 2031 GMT
+	------------------
+	Signer #0:
+		Subject: CN=Tanner Smith
+		Issuer : CN=Microsoft ID Verified CS EOC CA 04,O=Microsoft Corporation,C=US
+		Serial : 33000AF69A7528181C1ECDDEB10000000AF69A
+		Certificate expiration date:
+			notBefore : Nov 22 20:12:02 2026 GMT
+			notAfter : Nov 25 20:12:02 2026 GMT
+CRL distribution point: http://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2004.crl
+Connecting to http://www.microsoft.com/pkiops/crl/Microsoft%20ID%20Verified%20CS%20EOC%20CA%2004.crl
+Certificate Revocation List verified using:
+	------------------
+	Signer #3:
+		Subject: CN=Microsoft Identity Verification Root Certificate Authority 2020
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 5498D2D1D45B1995481379C811C08799
+		Certificate expiration date:
+			notBefore : Apr 16 18:36:16 2020 GMT
+			notAfter : Apr 16 18:44:40 2045 GMT
+	------------------
+	Signer #2:
+		Subject: CN=Microsoft ID Verified Code Signing PCA 2021
+		Issuer : CN=Microsoft Identity Verification Root Certificate Authority 2020,O=Microsoft Corporation,C=US
+		Serial : 330000000787A334A37BA58E1C000000000007
+		Certificate expiration date:
+			notBefore : Apr  1 20:05:20 2021 GMT
+			notAfter : Apr  1 20:15:20 2036 GMT
+	------------------
+	Signer #1:
+		Subject: CN=Microsoft ID Verified CS EOC CA 04
+		Issuer : CN=Microsoft ID Verified Code Signing PCA 2021,O=Microsoft Corporation,C=US
+		Serial : 33000000172745090B8B87AFC6000000000017
+		Certificate expiration date:
+			notBefore : Mar 26 18:11:31 2026 GMT
+			notAfter : Mar 26 18:11:31 2031 GMT
+	------------------
+	Signer #0:
+		Subject: CN=Tanner Smith
+		Issuer : CN=Microsoft ID Verified CS EOC CA 04,O=Microsoft Corporation,C=US
+		Serial : 33000AF69A7528181C1ECDDEB10000000AF69A
+		Certificate expiration date:
+			notBefore : Nov 22 20:12:02 2026 GMT
+			notAfter : Nov 25 20:12:02 2026 GMT
+	Warning: Ignoring 'certificate has expired' error for CRL validation
+	------------------
+	Signer #0:
+		Subject: CN=Tanner Smith
+		Issuer : CN=Microsoft ID Verified CS EOC CA 04,O=Microsoft Corporation,C=US
+		Serial : 33000AF69A7528181C1ECDDEB10000000AF69A
+		Certificate expiration date:
+			notBefore : Nov 22 20:12:02 2026 GMT
+			notAfter : Nov 25 20:12:02 2026 GMT
+Signature CRL verification: ok
+Signature verification: ok
+Number of verified signatures: 1
+Succeeded
+(exit 0)

@@ -1,0 +1,5 @@
+$ sha256sum MXBStudio-win-Setup.exe MXBStudio-1.0.1-full.nupkg MXBStudio-1.0.1-delta.nupkg
+74ff05e11f19e443a73e7aee8e76e442171fa6cc40495286515150bf747bae7c  MXBStudio-win-Setup.exe
+6c479be1908276ba3d7bc69b3611ab8dc502049320fa69a7b44d65133d577bfe  MXBStudio-1.0.1-full.nupkg
+a690225e1d9feb2d10d243c9c148e23f4a6a36c3952542dfd50f9705971049b9  MXBStudio-1.0.1-delta.nupkg
+(exit 0)

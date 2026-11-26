@@ -1,0 +1,4 @@
+$ for f in MXBStudio-1.0.1-full.nupkg MXBStudio-1.0.1-delta.nupkg; do printf '%s: ' $f; unzip -Z1 $f | grep -cE '(^|/)\.signature\.p7s$'; done
+MXBStudio-1.0.1-full.nupkg: 0
+MXBStudio-1.0.1-delta.nupkg: 0
+(exit 1)
