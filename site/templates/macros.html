@@ -78,3 +78,8 @@
   </div>
 </div>
 {%- endmacro %}
+
+{# A newer release the weekly inventory has seen that has no card yet (render.py, newer_of): a chip where a tool is listed,
+   a notice on its page. Neutral, not a mark: it says nothing about the release analysed, and the score stays that release's. #}
+{% macro newer_chip(n) %}<span class="tag nw" title="On {{ n.where }}, dated {{ n.date }}. {{ SITE.newer_release }}.">{{ n.version ~ ' out' if n.version else 'Newer download' }}, not analysed</span>{% endmacro %}
+{% macro newer_notice(n, c) %}<p class="notice nw">{% if n.version %}A newer release, <b>{{ n.version }}</b>, is out{% else %}A <a href="{{ n.url }}">newer download</a> is out{% endif %} (on {{ n.where }}, dated {{ n.date }}) and isn't analysed yet. This card and its score are for {{ c.version }}.</p>{% endmacro %}

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import answer_notes, bar, embeds, fold, of100, row, sep %}
+{% from "macros.html" import answer_notes, bar, embeds, fold, newer_notice, of100, row, sep %}
 {% set r = c.result %}
 {% set scored = r.kind == 'score' %}
 {% set sec = {} %}
@@ -26,6 +26,7 @@
   <div class="meta">by {{ c.author }} · analysed {{ c.analysed }}</div>
   <p class="sum">{{ c.summary }}</p>
 </div>
+{% if c.latest and newer_of(t.id) %}{{ newer_notice(newer_of(t.id), c) }}{% endif %}
 {% if not c.latest %}<p class="notice">An earlier release. The newest card is <a href="{{ root }}{{ t.id }}/">{{ t.name }} {{ t.latest.version }}</a>.</p>{% endif %}
 {% if c.by_maintainer %}<p class="notice maint">{{ SITE.maintainer_notice | mdi }}</p>{% endif %}
 {% for w in r.why %}<p class="notice">{{ w }}.</p>{% endfor %}

@@ -257,7 +257,8 @@
               "releases",
               "latest",
               "card_image",
-              "not_analysed"
+              "not_analysed",
+              "newer"
             ],
             "properties": {
               "id": {
@@ -334,6 +335,41 @@
                 "type": "array",
                 "items": {
                   "type": "string"
+                }
+              },
+              "newer": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "version",
+                    "where",
+                    "url",
+                    "date",
+                    "date_iso"
+                  ],
+                  "properties": {
+                    "version": {
+                      "type": [
+                        "string",
+                        "null"
+                      ]
+                    },
+                    "where": {
+                      "type": "string"
+                    },
+                    "url": {
+                      "type": "string"
+                    },
+                    "date": {
+                      "type": "string"
+                    },
+                    "date_iso": {
+                      "type": "string",
+                      "format": "date"
+                    }
+                  }
                 }
               }
             }

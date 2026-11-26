@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import bar, of100 %}
+{% from "macros.html" import bar, newer_chip, of100 %}
 {% block nav %}compare{% endblock %}
 {% block title %}Compare tools · MXB Facts{% endblock %}
 {% block description %}Put MX Bikes and GP Bikes tools side by side, answer by answer.{% endblock %}
@@ -33,7 +33,7 @@
 <thead><tr><th scope="col"><span class="vh">Question</span></th>{% for c in cards %}<th scope="col" data-c="{{ c.card }}"><a href="{{ root }}{{ card_path(c) }}">{{ c.name }}</a> <span class="muted">{{ c.version }}</span></th>{% endfor %}</tr></thead>
 <tbody>
 <tr class="grp"><th scope="colgroup" colspan="{{ cards | length + 1 }}">Scores</th></tr>
-<tr><th scope="row">Score</th>{% for c in cards %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ c.result.label }}">{% if c.result.kind == 'score' %}<div class="mini"><b class="num">{{ c.result.score }}{{ of100() }}</b>{{ bar(c.result.score) }}</div>{% else %}{{ mark(c.result.kind) }}{% endif %}</td>{% endfor %}</tr>
+<tr><th scope="row">Score</th>{% for c in cards %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ c.result.label }}">{% if c.result.kind == 'score' %}<div class="mini"><b class="num">{{ c.result.score }}{{ of100() }}</b>{{ bar(c.result.score) }}</div>{% else %}{{ mark(c.result.kind) }}{% endif %}{% if c.latest and newer_of(c.tool) %}<div class="nwc">{{ newer_chip(newer_of(c.tool)) }}</div>{% endif %}</td>{% endfor %}</tr>
 {% for a in AREAS %}
 <tr><th scope="row">{{ a.name }}</th>{% for c in cards %}{% set v = c.result.areas[a.id] if a.scored else c.result.money %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ v }}">{% if a.scored %}<div class="mini"><b class="num">{{ v if v is not none else '–' }}</b>{% if v is not none %}{{ bar(v) }}{% endif %}</div>{% else %}<b>{{ v }}</b>{% endif %}</td>{% endfor %}</tr>
 {% endfor %}
