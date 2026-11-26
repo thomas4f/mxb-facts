@@ -172,7 +172,7 @@
 <div class="box pad">
 {% if c.corrections %}
 <ul class="lims plain">
-{% for x in c.corrections %}<li>{% if x.status == 'open' %}{{ mark('nc', 'Under review') }} {% endif %}{{ IX.correction_kinds[x.kind | default('correction')] }} <a href="{{ SITE.repo }}issues/{{ x.issue }}">#{{ x.issue }}</a>, about {% for q in x.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %}: {% if x.status == 'open' %}sent {{ x.opened }}. Nothing on the card changes until it is decided.{% else %}{{ x.status }} on {{ x.closed }}. {{ x.reason }}{% endif %}</li>{% endfor %}
+{% for x in c.corrections %}<li>{% if x.status == 'open' %}<span class="st rv" title="{{ SITE.under_review }}">Under review</span> {% endif %}{{ IX.correction_kinds[x.kind | default('correction')] }} <a href="{{ SITE.repo }}issues/{{ x.issue }}">#{{ x.issue }}</a>, about {% for q in x.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %}: {% if x.status == 'open' %}sent {{ x.opened }}. Nothing on the card changes until it is decided.{% else %}{{ x.status }} on {{ x.closed }}. {{ x.reason }}{% endif %}</li>{% endfor %}
 </ul>
 {% else %}<p>No comment has been sent about this card.</p>{% endif %}
 <p>Something wrong, missing, or context to add? Use "Comment on …" under any answer's evidence, Good ones included, or <a href="{{ SITE.links.comment }}">comment on an answer</a> with its evidence; it shows here, and on the answer it names, until it is decided.</p>

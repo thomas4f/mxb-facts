@@ -40,5 +40,5 @@
 {% if scored and x.cost_note and not x.open %}<span class="sm">{{ x.cost_note }}</span>{% endif %}
 {% if x.rule_note %}<span class="sm">{{ x.rule_note }}</span>{% endif %}
 {% for n in x.limits %}<a class="sm" href="#lim-{{ n }}">Limit {{ n }}</a>{% endfor %}
-{% for n in x.under_review %}<a class="sm corr" href="#corrections">Under review #{{ n }}</a>{% endfor %}
+{% for n in x.under_review %}<a class="sm rv" href="#corrections">Under review #{{ n }}</a>{% endfor %}
 {%- endmacro %}

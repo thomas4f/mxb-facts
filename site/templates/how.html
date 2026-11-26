@@ -17,6 +17,7 @@
   {% for k in ['good', 'note', 'concern', 'major', 'off', 'req', 'dna', 'nc', 'held', 'na', 'malware', 'notscored'] %}
   <dt>{{ mark(k) }}</dt><dd>{{ IX.legend[k] if k in IX.legend else STATES[k].meaning }}.</dd>
   {% endfor %}
+  <dt><span class="st rv">Under review</span></dt><dd>{{ SITE.under_review }}.</dd>
 </dl></div>
 <h2 class="h2">In detail</h2>
 <div class="stack tight">
