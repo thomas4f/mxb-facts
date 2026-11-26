@@ -28,18 +28,20 @@
 {# The fonts every page shows above the fold, fetched with the stylesheet so text doesn't move when they arrive. #}
 <link rel="preload" href="{{ root }}assets/fonts/barlow-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ root }}assets/fonts/barlow-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ root }}assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ root }}assets/fonts/saira-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ root }}assets/fonts/barlow-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ root }}assets/fonts/barlow-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{{ root }}{{ asset('site.css') }}">
 <link rel="stylesheet" href="{{ root }}{{ asset('icons.css') }}">
 <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch {}</script>
+{# With motion allowed, what site.js animates starts hidden or empty (.motion), so it doesn't show finished first; if the script
+   never runs, the page drops .motion after three seconds and shows everything as drawn. #}
+<script>if (!matchMedia('(prefers-reduced-motion: reduce)').matches) { document.documentElement.classList.add('motion'); setTimeout(function () { document.documentElement.classList.remove('motion') }, 3000) }</script>
 {% block head %}{% endblock %}
 </head>
 <body data-root="{{ root }}">
 <a class="skip" href="#main">Skip to content</a>
 <header class="top"><div class="in">
-  <a class="brand" href="{{ root }}">MXB<em>/</em>Facts</a>
+  <a class="brand" href="{{ root }}">{{ WORDMARK }}</a>
   {% block here %}{% endblock %}
   <nav class="nav" aria-label="Site">
     {% set here = self.nav() | trim %}
@@ -57,7 +59,7 @@
 <footer><div class="in">
   {# Who runs it, then the links in two small groups, then one quiet line for the licence and the build. #}
   <div class="fgrid">
-    <p class="fabout"><a class="brand" href="{{ root }}">MXB<em>/</em>Facts</a><span>Made by <a href="{{ SITE.links.maintainer }}">thomas4f</a>, who also makes MXBMRP3.</span></p>
+    <p class="fabout"><a class="brand" href="{{ root }}">{{ WORDMARK }}</a><span>Made by <a href="{{ SITE.links.maintainer }}">thomas4f</a>, who also makes MXBMRP3.</span></p>
     <nav class="flinks" aria-label="Take part"><h2 class="fh">Take part</h2><a href="{{ SITE.links.comment }}">Comment on a card</a><a href="{{ SITE.links.request }}">Request a tool</a><a href="{{ SITE.links.question }}">Suggest a question</a>{% if SITE.links.support %}<a href="{{ SITE.links.support }}">Support on Ko-fi</a>{% endif %}</nav>
     <nav class="flinks" aria-label="Project"><h2 class="fh">Project</h2><a href="{{ SITE.links.source }}">Source on GitHub</a><a href="{{ root }}api/v1/index.json">Data feed</a><a href="{{ root }}cards.atom">New cards (Atom)</a></nav>
   </div>

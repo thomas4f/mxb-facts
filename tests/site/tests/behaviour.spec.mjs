@@ -54,6 +54,24 @@ test('Compare shows only the picked tools, and only the differences when asked',
   expect(await page.locator('#cmp tbody tr:visible').count()).toBeLessThan(all);
 });
 
+test("Compare keeps the hint's line while picking, clears every pick, and keeps the tools' names in view", async ({ page }) => {
+  await page.goto('compare/?c=holeshot-0.24.2,pitbox-3.0.4');
+  const hint = page.locator('[data-cmp-hint]');
+  await expect(hint).toBeVisible();
+  const head = page.locator('#cmp thead th[data-c="holeshot-0.24.2"]');
+  if (await head.isVisible()) {  // the phone layout has no head row: each cell names its tool
+    await page.locator('#cmp tbody tr').nth(30).scrollIntoViewIfNeeded();
+    const box = await head.boundingBox();
+    expect(box.y).toBeGreaterThanOrEqual(0); expect(box.y).toBeLessThan(200);
+  }
+  await page.getByRole('button', { name: 'Clear' }).click();
+  await expect(page.locator('#picker input[data-cmp]:checked')).toHaveCount(0);
+  await expect(page.locator('#cmp')).toBeHidden();
+  await expect(hint).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Clear' })).toBeDisabled();
+  await expect(page).toHaveURL(/\/compare\/$/);
+});
+
 test("Compare's picker groups tools by category and opens a tool's earlier releases on request", async ({ page }) => {
   await page.goto('compare/');
   await expect(page.locator('#picker .pgrp .cat').first()).toBeVisible();

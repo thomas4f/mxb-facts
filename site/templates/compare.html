@@ -7,7 +7,8 @@
    (?c=<card>,<card> or the Compare boxes on the tools list), so a mark never gets drawn a second way. #}
 {% block main %}
 <h1 class="sec-h">Compare</h1>
-<p class="muted" data-cmp-hint>Tick two or more tools below, or from the tools list.</p>
+{# With two or more picked, site.js shows the hint's data-some words instead; it never hides it, so nothing below it moves. #}
+<p class="muted" data-cmp-hint data-some="Add or remove tools below, or from the tools list.">Tick two or more tools below, or from the tools list.</p>
 <noscript><p class="notice">Compare needs JavaScript to show only the tools you pick; without it, every tool is shown.</p></noscript>
 <details class="fold" id="picker" open><summary><span class="ft">Pick tools <span class="muted" data-cmp-n-label></span></span></summary><div class="body pad">
 {# Grouped by category, in the tools list's order, under the same category label its cards carry. A tool shows its newest
@@ -26,10 +27,10 @@
 </div></div>
 {% endfor %}
 </div></div></details>
-<label class="cmpl"><input type="checkbox" id="diff"> Show only differences</label>
+<div class="cmptools"><label class="cmpl"><input type="checkbox" id="diff"> Show only differences</label><button class="btn" type="button" data-cmp-clear disabled>Clear</button></div>
 <p class="count">A mark shows what each tool was given; point at it for the answer, or open it for the full line on the tool's page.</p>
 <div class="ctw"><table class="cmp all" id="cmp">
-<thead><tr><th scope="col"><span class="vh">Question</span></th>{% for c in cards %}<th scope="col" data-c="{{ c.card }}"><a href="{{ root }}{{ c.tool }}/{% if not c.latest %}{{ c.version }}/{% endif %}">{{ c.name }}</a> <span class="muted">{{ c.version }}</span></th>{% endfor %}</tr></thead>
+<thead><tr><th scope="col"><span class="vh">Question</span></th>{% for c in cards %}<th scope="col" data-c="{{ c.card }}"><a href="{{ root }}{{ card_path(c) }}">{{ c.name }}</a> <span class="muted">{{ c.version }}</span></th>{% endfor %}</tr></thead>
 <tbody>
 <tr class="grp"><th scope="colgroup" colspan="{{ cards | length + 1 }}">Scores</th></tr>
 <tr><th scope="row">Score</th>{% for c in cards %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ c.result.label }}">{% if c.result.kind == 'score' %}<div class="mini"><b class="num">{{ c.result.score }}{{ of100() }}</b>{{ bar(c.result.score) }}</div>{% else %}{{ mark(c.result.kind) }}{% endif %}</td>{% endfor %}</tr>
@@ -40,7 +41,7 @@
 <tr class="grp"><th scope="colgroup" colspan="{{ cards | length + 1 }}">{{ a.name }}</th></tr>
 {% for x0 in cards[0].answers if x0.area == a.id %}
 <tr><th scope="row"><code>{{ x0.id }}</code> {{ x0.question }}</th>
-{% for c in cards %}{% set x = c.answers | selectattr('id', 'equalto', x0.id) | first %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ x.state }} {{ x.cost }}"><a class="plain" href="{{ root }}{{ c.tool }}/{% if not c.latest %}{{ c.version }}/{% endif %}#q-{{ x.id }}">{{ answer_mark(x, c.result.kind == 'score', says=True, word=False) }}</a></td>{% endfor %}</tr>
+{% for c in cards %}{% set x = c.answers | selectattr('id', 'equalto', x0.id) | first %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ x.state }} {{ x.cost }}"><a class="plain" href="{{ root }}{{ card_path(c) }}#q-{{ x.id }}">{{ answer_mark(x, c.result.kind == 'score', says=True, word=False) }}</a></td>{% endfor %}</tr>
 {% endfor %}
 {% endfor %}
 </tbody></table></div>

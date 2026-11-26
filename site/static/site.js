@@ -95,7 +95,10 @@
       $$('.chip[hidden]', g).forEach(function (x) { x.dataset.extra = '1'; x.hidden = false; });
       m.setAttribute('aria-expanded', 'true'); m.firstChild.textContent = 'Fewer';
     });
-    var hint = $('[data-cmp-hint]'); if (hint) hint.hidden = on.length >= 2;
+    // The hint keeps its line whatever is picked (only its words change), so the picker and the table never jump.
+    var hint = $('[data-cmp-hint]');
+    if (hint) { hint.dataset.none = hint.dataset.none || hint.textContent; hint.textContent = on.length >= 2 ? hint.dataset.some : hint.dataset.none; }
+    $$('.cmptools [data-cmp-clear]').forEach(function (b) { b.disabled = !on.length; });
     var lab = $('[data-cmp-n-label]'); if (lab) lab.textContent = on.length ? '· ' + on.length + ' picked' : '';
     t.hidden = on.length < 2;
     // With tools already picked (a shared ?c= link, or picks from the tools list), the picker starts folded so the table shows first.
@@ -165,7 +168,11 @@
       m.firstChild.textContent = open ? 'Fewer' : m.dataset.label;
       return;
     }
-    if (t.closest('[data-cmp-clear]')) { picked = []; store.set('compare', picked); showPicked(); return; }
+    if (t.closest('[data-cmp-clear]')) {
+      picked = []; store.set('compare', picked); showPicked();
+      if ($('#cmp')) { history.replaceState(null, '', location.pathname); $('#picker').open = true; }  // back to picking
+      return;
+    }
     // A link to a section or an answer: it puts its address in the address bar and copies it, and leaves the page as it is
     // (a fold stays open or closed; it opens when someone follows the link).
     var anc = t.closest('a.anc, .row a.id');
@@ -211,6 +218,13 @@
     else { w.removeAttribute('tabindex'); w.removeAttribute('role'); w.removeAttribute('aria-label'); }
   }
   if (window.ResizeObserver) {
+    // The site's header sticks from 760 px wide; what sticks below it (the Compare table's head) needs its height.
+    var top = $('.top'), rt = document.documentElement;
+    if (top) new ResizeObserver(function () { rt.style.setProperty('--top-h', getComputedStyle(top).position === 'sticky' ? top.offsetHeight + 'px' : '0px'); }).observe(top);
+    // The Compare table sticks its head only while it fits its frame; wider, the frame scrolls sideways (.wide).
+    var ctw = $('.ctw');
+    if (ctw) { var cro = new ResizeObserver(function () { ctw.classList.toggle('wide', ctw.firstElementChild.offsetWidth > ctw.clientWidth + 1); }); cro.observe(ctw); cro.observe(ctw.firstElementChild); }
+
     var ro = new ResizeObserver(function (es) { es.forEach(function (e) { scrollable(e.target.closest('.tw')); }); });
     $$('.tw').forEach(function (w) { ro.observe(w); if (w.firstElementChild) ro.observe(w.firstElementChild); });
   }
@@ -219,6 +233,26 @@
   if (here && h1 && window.IntersectionObserver) {
     new IntersectionObserver(function (es) { here.hidden = es[0].isIntersecting || es[0].boundingClientRect.top > 0; }).observe(h1);
   }
+  // Motion, unless the reader asks for less: the score bars fill in once as each comes into view, and the home page's big
+  // wordmark plays its badge check once (the box pops in, then the check is cut). Without the script both are simply drawn,
+  // and so are they when the script arrives after the head script's three seconds have shown them (.motion already gone).
+  if (document.documentElement.classList.contains('motion')) {
+    if (window.IntersectionObserver) {
+      var bo = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var i = e.target.firstElementChild; bo.unobserve(e.target);
+          setTimeout(function () { i.style.width = i.dataset.w; }, 80);
+        });
+      }, { threshold: .6 });
+      $$('.bar').forEach(function (b) {
+        var i = b.firstElementChild; if (!i) return;
+        i.dataset.w = i.style.width; i.style.width = '0%'; b.classList.add('fill'); bo.observe(b);
+      });
+    }
+    $$('.hlogo animate, .hlogo animateTransform').forEach(function (a) { try { a.beginElement(); } catch { /* no SMIL: it stays drawn */ } });
+  }
+  document.documentElement.classList.remove('motion');  // started: what the head script hid until now can show
   window.addEventListener('hashchange', openTarget);
   showPicked(); showTools(); openTarget();
 })();

@@ -24,10 +24,13 @@
       {
         "/^(padding|margin|gap|row-gap|column-gap)/": [
           "/(^|[^\\w.(-])[1-9]\\d*(\\.\\d+)?px/"
+        ],
+        "/^font$/": [
+          "/var\\(--f-head\\)/"
         ]
       },
       {
-        "message": "Use a spacing token (var(--s0) to var(--s7)) for padding, margin and gap"
+        "message": "Use a spacing token (var(--s0) to var(--s7)) for padding, margin and gap, and a type token (var(--t-title) and the others in :root) for a font in the head face"
       }
     ]
   }

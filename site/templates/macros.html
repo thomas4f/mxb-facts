@@ -19,12 +19,13 @@
 {%- endmacro %}
 
 {# A score as a number and a bar, the same for the overall score and each area. #}
-{# The wordmark's slash, in the accent, where the site joins two parts: a label's parts (sep) and a score out of 100 (of100).
+{# The accent slash, in the wordmark's face, where the site joins two parts: a label's parts (sep) and a score out of 100 (of100).
    Screen readers hear ", " and "out of 100" in its place. #}
 {% macro sep() -%}<i class="sl" aria-hidden="true">/</i><span class="vh">, </span>{%- endmacro %}
 {% macro of100() -%}<small class="of" aria-hidden="true"><i class="sl">/</i>100</small><span class="vh"> out of 100</span>{%- endmacro %}
 
-{% macro bar(n) -%}<div class="bar" aria-hidden="true"><i style="width:{{ n if n is number else 0 }}%"></i></div>{%- endmacro %}
+{# cap: the most this tool can score (closed source), shown as a tick on the bar. #}
+{% macro bar(n, cap=none) -%}<div class="bar{% if cap %} cap{% endif %}" aria-hidden="true"{% if cap %} style="--cap:{{ cap }}%"{% endif %}><i style="width:{{ n if n is number else 0 }}%"></i></div>{%- endmacro %}
 
 {# A section that folds: its title, a count or score beside it, its body. Open by default where nothing should be hidden. #}
 {# side: markup made in the template (a score and its marks); note: plain text, shown muted. Text is never pasted into markup. #}
@@ -43,9 +44,9 @@
 {% for n in x.under_review %}<a class="sm rv" href="#corrections">Under review #{{ n }}</a>{% endfor %}
 {%- endmacro %}
 
-{# Text to copy, with its copy button (site.js copies the code by its id); label says what it is for. #}
+{# Text to copy under a label that says what it is for (copy_block in render.py draws the block and its button). #}
 {% macro snippet(id, label, text) -%}
-<div class="snip"><span class="sm">{{ label }}</span><div class="copy"><pre><code id="{{ id }}">{{ text }}</code></pre><button class="cpb" type="button" data-copy="{{ id }}" title="Copy"><span class="vh">Copy {{ label }}</span></button></div></div>
+<div class="snip"><span class="sm">{{ label }}</span>{{ copy_block(id, text, label) }}</div>
 {%- endmacro %}
 
 {# How to show a tool's card elsewhere, the same on every card's page: the card image (always the tool's newest card), the

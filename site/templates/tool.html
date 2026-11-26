@@ -9,7 +9,7 @@
 {# The tool's name and score in the sticky header once its own title has scrolled away (site.js; wide screens only, where the
    header sticks), as Wikipedia and GitHub do; it goes back to the top. #}
 {% block here %}<a class="here" href="#main" data-here hidden>{{ c.name }} {{ c.version }}<span class="muted"> · {{ r.label }}</span></a>{% endblock %}
-{% block title %}{{ c.name }} {{ c.version }}: {{ r.label }} · MXB Facts{% endblock %}
+{% block title %}{{ c.name }}{% if not c.latest %} {{ c.version }}{% endif %} · MXB Facts{% endblock %}
 {% block og_title %}{{ c.name }} {{ c.version }}: {{ r.label }}{% endblock %}
 {% block description %}{{ c.summary }}. {% for a in AREAS %}{{ a.name }} {{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}{{ ' · ' if not loop.last else '. ' }}{% endfor %}Every answer links its evidence.{% endblock %}
 {% block image_alt %}{{ c.name }} {{ c.version }} on MXB Facts: {{ r.label }}, with a score for each area.{% endblock %}
@@ -185,7 +185,7 @@
   <p>Give this card to the AI agent you build with (Claude Code, Codex, Cursor or any other). Every answer links its evidence, so the agent can find the cause in your code. We don't suggest fixes: what to change, if anything, depends on what your tool is for.</p>
   <ol class="steps">
     <li><div><b>Download the card:</b> <a href="{{ root }}cards/{{ c.card }}.yaml" download>{{ c.card }}.yaml</a>, and put it in your tool's repository.</div></li>
-    <li><div><b>Paste this prompt</b> into your agent there:<div class="copy"><pre><code id="prompt">{{ c.author_prompt }}</code></pre><button class="cpb" type="button" data-copy="prompt" title="Copy"><span class="vh">Copy</span></button></div></div></li>
+    <li><div><b>Paste this prompt</b> into your agent there:{{ copy_block('prompt', c.author_prompt) }}</div></li>
     <li><div><b>After your next release, <a href="{{ IX.links.recheck }}">request a re-check</a>.</b> The new release gets a new card; this one stays.</div></li>
     <li><div><b>Show the card on your pages</b> if you like. Pick what fits where you post:
       {{ embeds(t, c, root, IX.site) }}</div></li>

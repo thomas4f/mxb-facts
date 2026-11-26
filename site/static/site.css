@@ -5,30 +5,35 @@
 @font-face { font-family: "Barlow"; font-weight: 500; font-display: swap; src: url(fonts/barlow-latin-500-normal.woff2) format("woff2") }
 @font-face { font-family: "Barlow"; font-weight: 600; font-display: swap; src: url(fonts/barlow-latin-600-normal.woff2) format("woff2") }
 @font-face { font-family: "Barlow"; font-weight: 700; font-display: swap; src: url(fonts/barlow-latin-700-normal.woff2) format("woff2") }
-@font-face { font-family: "Barlow"; font-weight: 800; font-style: italic; font-display: swap; src: url(fonts/barlow-latin-800-italic.woff2) format("woff2") }
-@font-face { font-family: "Barlow Condensed"; font-weight: 600; font-display: swap; src: url(fonts/barlow-condensed-latin-600-normal.woff2) format("woff2") }
-@font-face { font-family: "Barlow Condensed"; font-weight: 700; font-display: swap; src: url(fonts/barlow-condensed-latin-700-normal.woff2) format("woff2") }
+@font-face { font-family: "Saira"; font-weight: 700; font-display: swap; src: url(fonts/saira-latin-700-normal.woff2) format("woff2") }
+@font-face { font-family: "Saira"; font-weight: 800; font-style: italic; font-display: swap; src: url(fonts/saira-latin-800-italic.woff2) format("woff2") }
 @font-face { font-family: "JetBrains Mono"; font-weight: 400; font-display: swap; src: url(fonts/jetbrains-mono-latin-400-normal.woff2) format("woff2") }
 @font-face { font-family: "JetBrains Mono"; font-weight: 500; font-display: swap; src: url(fonts/jetbrains-mono-latin-500-normal.woff2) format("woff2") }
 :root {
   /* Spacing: every padding, margin and gap is one of these (stylelint holds it), so boxes line up. */
   --s0: 2px; --s1: 4px; --s2: 8px; --s3: 12px; --s4: 16px; --s5: 24px; --s6: 32px; --s7: 40px;
-  --bg: #121315; --surface: #1b1d20; --sunk: #232629; --line: #2e3236; --ink: #eceae6; --muted: #9b9a96; --accent: #f08a3c; --accent-ink: #1a1009;
-  --hero: linear-gradient(135deg, #1e1f22 0%, #26201b 100%);
+  --bg: #121315; --surface: #1b1d20; --sunk: #232629; --line: #2e3236; --ink: #eceae6; --muted: #9b9a96; --accent: #3fbf74; --accent-ink: #08130c;
+  --hero: radial-gradient(95% 175% at 100% 0%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 68%), #18191c;
   --good: #5cc27a; --note: #9aa3ad; --concern: #e0a43a; --major: #ef7a3c; --danger: #ff7a70; --grey: #9a9fa5;
   --good-bg: rgba(92,194,122,.13); --note-bg: rgba(154,163,173,.12); --concern-bg: rgba(224,164,58,.14); --major-bg: rgba(239,122,60,.16); --danger-bg: rgba(240,90,79,.16); --grey-bg: rgba(124,129,135,.12);
   --info: #6cb6ff; --info-bg: rgba(84,160,255,.14);
-  --f-display: "Barlow", system-ui, sans-serif; --f-head: "Barlow Condensed", "Barlow", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --f-display: "Barlow", system-ui, sans-serif; --f-head: "Saira", "Barlow", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  /* Type: every font set in the head face is one of these (stylelint holds it), so the same kind of title looks the same on
+     every page. Title: a page's name; section: a page's sections; heading: a group's or a card's name; sub: a fold's, an area's
+     or a step's title; label: small capitals over a group; the score figures at three sizes. */
+  --t-title: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); --t-section: 700 28px/1.1 var(--f-head); --t-heading: 700 24px/1.15 var(--f-head);
+  --t-sub: 700 20px/1.2 var(--f-head); --t-label: 700 12.5px/1.2 var(--f-head);
+  --t-score: 700 clamp(48px, 10vw, 128px)/.8 var(--f-head); --t-score-card: 700 34px/1 var(--f-head); --t-score-row: 700 18px var(--f-head);
   --r: 12px; --r-ctl: 8px; color-scheme: dark;
 }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
-  --bg: #f4f1ed; --surface: #ffffff; --sunk: #efebe5; --line: #e0d9cf; --ink: #1c1a17; --muted: #6b655d; --accent: #a8500c; --accent-ink: #ffffff;
-  --hero: linear-gradient(135deg, #fffaf4 0%, #f7e8da 100%);
+  --bg: #f4f1ed; --surface: #ffffff; --sunk: #efebe5; --line: #e0d9cf; --ink: #1c1a17; --muted: #6b655d; --accent: #187434; --accent-ink: #ffffff;
+  --hero: radial-gradient(95% 175% at 100% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 68%), #fffaf5;
   --good: #1f7a3a; --note: #5f6770; --concern: #8f6200; --major: #b04a0f; --danger: #c4271c; --grey: #5f646a;
   --good-bg: #e3f3e6; --note-bg: #eceef0; --concern-bg: #fbf0d6; --major-bg: #fbe6d8; --danger-bg: #fbe2df; --grey-bg: #efefef; --info: #0550ae; --info-bg: #ddf4ff; color-scheme: light } }
 :root[data-theme="light"] {
-  --bg: #f4f1ed; --surface: #ffffff; --sunk: #efebe5; --line: #e0d9cf; --ink: #1c1a17; --muted: #6b655d; --accent: #a8500c; --accent-ink: #ffffff;
-  --hero: linear-gradient(135deg, #fffaf4 0%, #f7e8da 100%);
+  --bg: #f4f1ed; --surface: #ffffff; --sunk: #efebe5; --line: #e0d9cf; --ink: #1c1a17; --muted: #6b655d; --accent: #187434; --accent-ink: #ffffff;
+  --hero: radial-gradient(95% 175% at 100% 0%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 68%), #fffaf5;
   --good: #1f7a3a; --note: #5f6770; --concern: #8f6200; --major: #b04a0f; --danger: #c4271c; --grey: #5f646a;
   --good-bg: #e3f3e6; --note-bg: #eceef0; --concern-bg: #fbf0d6; --major-bg: #fbe6d8; --danger-bg: #fbe2df; --grey-bg: #efefef; --info: #0550ae; --info-bg: #ddf4ff; color-scheme: light }
 
@@ -55,13 +60,16 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 @media (min-width: 900px) { .top .nav { flex-wrap: nowrap; flex: none } .here:not([hidden]) { display: block; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); font-weight: 600; text-decoration: none; padding-left: var(--s4); border-left: 1px solid var(--line) } .here:hover { color: var(--accent) } }
 @media (max-width: 759px) { .top { position: static } }
 @media (min-width: 760px) { .top .in { display: flex; align-items: center; gap: var(--s4); padding-block: var(--s3) } .top .nav { margin-left: auto } }
-.brand { font: italic 800 clamp(20px, 7vw, 26px)/1 var(--f-display); letter-spacing: -.01em; text-transform: uppercase; color: var(--ink); text-decoration: none; white-space: nowrap }
-.brand em { color: var(--accent) }
-/* The wordmark's slash wherever the site joins two parts (macros.html, sep and of100). */
-.sl { font-style: italic; font-weight: 800; color: var(--accent); margin-inline: .18em }
+/* The wordmark is drawn (brand.py), its capitals .72em tall, so the font size sets its size as it did when it was text. */
+.brand { font-size: clamp(20px, 7vw, 26px); line-height: 1; display: inline-flex; color: var(--ink); text-decoration: none } .brand svg { display: block; width: auto; overflow: visible }
+/* The accent slash wherever the site joins two parts (macros.html, sep and of100), in the wordmark's face so it leans with the
+   badge check, with a .02em stroke so it is as heavy as the figures beside it. Saira's slash runs from below the baseline to above
+   the capitals; at .82em, stroked and raised .075em it spans exactly the capitals around it (cap 688, slash -55 to 743, in the
+   font's 1000 units). tools/wordmark.py draws the badges' slash the same way. */
+.sl { font-family: "Saira", var(--f-head); font-style: italic; font-weight: 800; font-size: .82em; vertical-align: .075em; -webkit-text-stroke: .04em currentColor; color: var(--accent); margin-inline: .2em }
 /* In a label the slash sits between spaced capitals, so it gets the letter-spacing's room on its right as well. */
-.cat .sl { margin-inline: .2em .3em }
-small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); letter-spacing: 0 } small.of .sl { margin-inline: -.08em .16em }
+.cat .sl { margin-inline: .24em .34em }
+small.of { font-size: max(12px, .42em); font-weight: 700; color: var(--muted); letter-spacing: 0 } small.of .sl { margin-inline: 0 .14em }
 /* The links wrap rather than scroll, so none is ever cut off. */
 .nav { display: flex; flex-wrap: wrap; gap: var(--s0); margin-inline: calc(-1 * var(--s2)) }
 .nav a { color: var(--ink); text-decoration: none; padding: 0 var(--s3); min-height: 44px; display: inline-flex; align-items: center; border-radius: var(--r-ctl); font-weight: 500; border: 1px solid transparent; white-space: nowrap }
@@ -78,16 +86,20 @@ small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); l
 .stack { display: grid; gap: var(--s5) }
 .hero { background: var(--hero); border: 1px solid var(--line); border-radius: 16px; padding: var(--s5); display: grid; gap: var(--s3) }
 /* Every title on the site, and on the link previews (preview.py), is the head face at 700; the hero's only differs in size. */
-.hero h1 { font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em }
+.hero h1 { font: var(--t-title) }
 .hero h1 span { color: var(--accent) }
 .hero p { margin: 0; color: var(--muted); max-width: 60ch; font-size: 16.5px }
+/* The big wordmark beside the heading, on desktop only, centred on the hero's height. */
+.hlogo { display: none }
+@media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) 38%; column-gap: var(--s6) } .hero > h1 { grid-column: 1 / -1; grid-row: 1 } .hero > :not(h1):not(.hlogo) { grid-column: 1 }
+  .hlogo { display: flex; align-items: center; justify-content: center; grid-column: 2; grid-row: 1 / span 3; padding-right: var(--s3) } .hlogo svg { display: block; width: 100%; height: auto; max-height: 96px } }
 /* On a phone the intro is plain text, not a panel, so the tools list starts on the first screen. */
 @media (max-width: 640px) { .hero { background: none; border: 0; border-radius: 0; padding: 0; gap: var(--s2) } .hero p { font-size: 15px } }
 .ainote { border-left: 3px solid var(--accent); background: var(--surface); padding: var(--s3) var(--s4); border-radius: 0 var(--r-ctl) var(--r-ctl) 0; color: var(--muted); font-size: 14.5px; margin: 0 }
 .ainote strong { color: var(--ink) }
 .hero .ainote { background: none; padding: 0 0 0 var(--s3); font-size: 14px }
-.sec-h { font: 700 28px/1.1 var(--f-head); letter-spacing: .01em }
-.h2 { font: 700 24px/1.15 var(--f-head); letter-spacing: .01em }
+.sec-h { font: var(--t-section) }
+.h2 { font: var(--t-heading) }
 
 /* Marks: one shape per state, colour from the state, the verdict or the label as its words. */
 .st { display: inline-flex; align-items: center; gap: var(--s1); padding: var(--s0) var(--s2); border-radius: 999px; font-size: 13px; font-weight: 600; line-height: 1.5; white-space: nowrap; border: 1px solid transparent; text-decoration: none }
@@ -104,7 +116,12 @@ small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); l
 button.tag.more { cursor: pointer; font: inherit; font-size: 13px; color: var(--ink); position: relative }
 button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top: 50%; height: 44px; transform: translateY(-50%) }
 .tags { display: flex; flex-wrap: wrap; gap: var(--s2) }
-.bar { height: 6px; border-radius: 99px; background: var(--sunk); overflow: hidden } .bar i { display: block; height: 100%; background: var(--accent); border-radius: 99px }
+/* A card with no score keeps an empty bar, dimmed, so every card's name and text line up across the row. */
+.bar { height: 6px; border-radius: 99px; background: var(--sunk); overflow: hidden } .bar.off { opacity: .5 }
+/* A closed-source tool's bar is dimmed past the most it can score (--cap), with a tick there; site.js fills the bars in once as they come into view. */
+.bar.cap { position: relative; overflow: visible; background: linear-gradient(90deg, var(--sunk) var(--cap), color-mix(in srgb, var(--sunk) 50%, transparent) var(--cap)) } .bar.cap::after { content: ""; position: absolute; left: calc(var(--cap) - 1px); top: -4px; bottom: -4px; width: 2px; border-radius: 1px; background: var(--muted) }
+.bar.fill i { transition: width .7s cubic-bezier(.2, .7, .2, 1) }
+.motion .bar:not(.fill) i { width: 0 !important } .motion .hlogo .mk { visibility: hidden } .bar i { display: block; height: 100%; background: var(--accent); border-radius: 99px }
 
 .controls { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center }
 .controls input[type=search] { flex: 1 1 240px; min-width: 0; padding: var(--s3) var(--s3); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface) }
@@ -117,12 +134,13 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: var(--s4) }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); min-width: 0 }
 .card:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)) }
-.card .row1 { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s3) }
-.cat { font: 700 12.5px/1.2 var(--f-head); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.card .row1 { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s3); min-height: 34px }
+/* Small capitals over a group: a card's game and category, a footer column, a Compare picker group, "Also found". */
+.cat, .fh, .also h4 { font: var(--t-label); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
 .crumb { margin-bottom: var(--s2) } .crumb a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px } .crumb a:hover { color: var(--accent) }
-.card .score { font: 700 34px/1 var(--f-head); text-align: right }
+.card .score { font: var(--t-score-card); text-align: right }
 .card .score.word { font-size: 16px; color: var(--grey) }
-.card h3 { font: 700 24px/1.15 var(--f-head); letter-spacing: .01em } .card h3 a { color: var(--ink); text-decoration: none }
+.card h3 { font: var(--t-heading) } .card h3 a { color: var(--ink); text-decoration: none }
 .card .meta { color: var(--muted); font-size: 13.5px }
 .card .sum { margin: 0; font-size: 15px }
 .card .foot { margin-top: auto; padding-top: var(--s3); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: var(--s2) }
@@ -141,11 +159,11 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .thead { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "crumb crumb" "name big" "meta big" "sum big"; column-gap: var(--s5) }
 .thead .crumb { grid-area: crumb }
 @media (max-width: 620px) { .thead { grid-template-areas: "crumb crumb" "name big" "meta meta" "sum sum"; column-gap: var(--s4) } }
-.thead h1 { grid-area: name; min-width: 0; font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 600 }
+.thead h1 { grid-area: name; min-width: 0; font: var(--t-title) } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 700 }
 .thead .meta { grid-area: meta; color: var(--muted); margin-top: var(--s2) }
 .thead .sum { grid-area: sum; margin: var(--s3) 0 0; font-size: 17px; max-width: 65ch }
 .big { grid-area: big; margin: 0; align-self: start; white-space: nowrap }
-.big b { display: block; font: 700 clamp(48px, 10vw, 128px)/.8 var(--f-head); letter-spacing: -.01em } .big small.of { font-size: .32em }
+.big b { display: block; font: var(--t-score); letter-spacing: -.01em } .big small.of { font-size: .32em }
 .big.word { padding-top: var(--s2) } .big.word .st { font-size: 15px; padding: var(--s1) var(--s3) }
 .notice { background: var(--grey-bg); border: 1px dashed var(--line); border-radius: var(--r-ctl); padding: var(--s3) var(--s4); font-size: 14.5px; margin: 0 }
 .notice.held { border-color: var(--concern); background: var(--concern-bg) }
@@ -228,14 +246,17 @@ main { overflow-wrap: anywhere } main :is(th, td) { overflow-wrap: break-word; h
 .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap }
 
 /* Compare */
-.ctw { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface) }
+/* The tools' names stay at the top while the rows scroll under them: the frame clips rather than scrolls, so the page is what
+   scrolls and the head can stick below the site's header (--top-h, which site.js keeps to the header's height while it sticks).
+   A table too wide for its frame scrolls sideways instead (.wide, set by site.js), and its head then scrolls with it. */
+.ctw { overflow-x: clip; border: 1px solid var(--line); border-radius: var(--r); background: var(--surface) } .ctw.wide { overflow-x: auto }
 table.cmp { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14px }
 table.cmp th, table.cmp td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle }
-table.cmp thead th { background: var(--surface); font-size: 15px }
+table.cmp thead th { background: var(--surface); font-size: 15px; position: sticky; top: var(--top-h, 0px); z-index: 1; box-shadow: inset 0 -1px var(--line) }
 table.cmp th[scope=row] { font-weight: 500; color: var(--muted); max-width: 340px }
 /* An area's heading has the site's one sub-heading look (a fold's title, a reading page's h3): 700 20px head font. */
-table.cmp tr.grp th { background: var(--sunk); color: var(--ink); font: 700 20px/1.2 var(--f-head); letter-spacing: .01em }
-table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .mini b { font: 700 18px var(--f-head) }
+table.cmp tr.grp th { background: var(--sunk); color: var(--ink); font: var(--t-sub) }
+table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .mini b { font: var(--t-score-row) }
 
 @media (max-width: 640px) {
   .ctw { overflow: visible; border: 0; background: none }
@@ -254,10 +275,10 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
 .prose table { border-collapse: collapse; font-size: 14px; display: block; overflow-x: auto }
 .prose th, .prose td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 .prose th { color: var(--muted); font-weight: 600 }
-.prose h2, .prose h3 { font: 700 20px/1.2 var(--f-head); margin-top: var(--s2) }
+.prose h2, .prose h3 { font: var(--t-sub); margin-top: var(--s2) }
 .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s3) }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 78ch); gap: var(--s3); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s4) }
-.steps li::before { content: counter(s); font: 700 22px/1.1 var(--f-head); color: var(--accent) }
+.steps li::before { content: counter(s); font: var(--t-sub); color: var(--accent) }
 .fold .prose { padding: var(--s4) var(--s4) }
 .legend { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s2) var(--s4); align-items: baseline; font-size: 14.5px; margin: 0 }
 .legend dd { margin: 0; color: var(--muted) }
@@ -275,7 +296,7 @@ footer p { margin: 0 }
 .fgrid { display: grid; gap: var(--s4) var(--s6); grid-template-columns: 1fr 1fr }
 .fabout { grid-column: 1 / -1; display: grid; align-content: start; gap: var(--s2); max-width: 40ch } .fabout .brand { font-size: 20px; justify-self: start }
 @media (min-width: 760px) { .fgrid { grid-template-columns: 2fr 1fr 1fr } .fabout { grid-column: auto } }
-.flinks { display: grid; align-content: start; gap: 0 } .fh { margin: 0 0 var(--s1); font: 700 12.5px/1.2 var(--f-head); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
+.flinks { display: grid; align-content: start; gap: 0 } .fh { margin: 0 0 var(--s1) }
 .flinks a { color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; min-height: 36px; justify-self: start } .flinks a:hover { color: var(--accent); text-decoration: underline }
 /* Footer lines that break between their parts, not inside one: each part is its own line on a phone, side by side when there is room. */
 .fl { display: inline-block } .fmeta .fl { margin-right: var(--s3) }
@@ -310,7 +331,6 @@ a.sm { color: var(--accent) }
 .box.pad, .pad { padding: var(--s3) var(--s4) }
 .box .facts + .tw { border-top: 1px solid var(--line) }
 details.sub { margin: 0; padding: 0 var(--s4); border-bottom: 1px solid var(--line) } details.sub > summary { cursor: pointer; min-height: 44px; display: flex; align-items: center; font-weight: 600; font-size: 14.5px }
-.also h4 { font: 700 13px/1 var(--f-head); letter-spacing: .1em; text-transform: uppercase; color: var(--muted) }
 .stack.tight { gap: var(--s3) }
 .chg { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s1) }
 .notice.maint { border-style: solid; border-color: var(--accent); background: var(--surface) }
@@ -327,6 +347,7 @@ code.hash { font-size: 12px }
 .measure { max-width: 78ch; margin: 0 }
 .nflinks { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s2) }
 .ft { display: inline-flex; gap: var(--s2); align-items: baseline }
+.cmptools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s3) }
 .cmpl { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; color: var(--muted); font-size: 14px }
 /* The Compare picker: a category's label over its tools; a tool's chips flow with the others (its wrapper draws no box). */
 /* The tools list: a category's label spans the grid above its cards, as in the Compare picker. */
@@ -340,12 +361,13 @@ a.plain { text-decoration: none }
 table.cmp [data-c] { display: none } table.cmp.all [data-c], table.cmp [data-c].on { display: table-cell }
 table.cmp tr.same { display: none }
 @media (max-width: 640px) { table.cmp [data-c].on, table.cmp.all [data-c] { display: grid } table.cmp thead [data-c] { display: none } }
-[id] { scroll-margin-top: 84px }
+/* A link to a section lands below the sticky header (--top-h, kept by site.js), not under it. */
+[id] { scroll-margin-top: calc(var(--top-h, 0px) + var(--s4)) }
 /* A heading that is also a fold's summary keeps the fold's look. */
-details.fold > summary h2.ft, details.fold > summary h3.ft { margin: 0; font: 700 20px/1.2 var(--f-head); letter-spacing: .01em }
+details.fold > summary h2.ft, details.fold > summary h3.ft { margin: 0; font: var(--t-sub) }
 /* A fold in a group (an area, a limit, the release, the card history) has the same title as its siblings; a fold that is a
    section of its own (For the tool's author) has a section's title. */
-details.fold > summary h3.ft { font: inherit; letter-spacing: inherit }
+details.fold > summary h3.ft { font: inherit }
 /* Inside a box, the box's padding is the only space at its edges. */
 .box > :first-child, .pad > :first-child, .prose > :first-child { margin-top: 0 }
 .box > :last-child, .pad > :last-child, .prose > :last-child { margin-bottom: 0 }
