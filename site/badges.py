@@ -1,4 +1,4 @@
-"""The badges each card gets (rules/scores.md, "Badge"): three shields drawn the way shields.io draws them, a score tile and a
+"""The badges each card gets (rules/scores.md, "Badge"): four shields drawn the way shields.io draws them, a score tile and a
 card with the area scores, as SVG, and the shields.io endpoint JSON. Drawn from a card's score result; they decide nothing.
 """
 import json, math
@@ -7,11 +7,17 @@ from icons import group as icon_group
 from cards import esc
 from brand import DARK, RED, figures, figures_width, wordmark, wordmark_width
 
-# Badges (rules/scores.md, "Badge"): three shields in the shields.io styles (flat, flat-square, for-the-badge: same sizes,
-# padding and font), a score tile, and a card with the area scores. They carry the site's identity (brand.py): the MXB/FACTS
-# wordmark on the pit board's dark, the score on its accent, both drawn as shapes so they look the same on any page. The
-# message text is sized from DejaVu Sans widths, the shields.io fallback for Verdana, and pinned with textLength so every
-# viewer draws it the same width.
+# Badges (rules/scores.md, "Badge"): four shields in the shields.io styles (flat, plastic, flat-square, for-the-badge: same
+# sizes, padding, font, label grey and, on flat and plastic, the same sheen and text shadow), so they sit with a README's other
+# shields on a light or a dark page; a score tile and a card with the area scores, in the pit board's look like the card image.
+# The shields' label is the MXB/FACTS wordmark in white, drawn as shapes so it looks the same on any page; the score is on the
+# site's accent. The message text is sized from DejaVu Sans widths, the shields.io fallback for Verdana, and pinned with
+# textLength so every viewer draws it the same width.
+LABEL='#555'  # the shields.io label grey: readable on GitHub's light and dark themes alike
+# The sheen shields.io lays over flat and plastic badges, as it draws them.
+SHEEN={'flat':'<stop offset="0" stop-color="#bbb" stop-opacity=".1"/><stop offset="1" stop-opacity=".1"/>',
+       'plastic':('<stop offset="0" stop-color="#fff" stop-opacity=".7"/><stop offset=".1" stop-color="#aaa" stop-opacity=".1"/>'
+                  '<stop offset=".9" stop-color="#000" stop-opacity=".3"/><stop offset="1" stop-color="#000" stop-opacity=".5"/>')}
 GCOL={'score':DARK['accent'],'notscored':'#3d4a5c','malware':RED,'pending':'#3d4a5c'}  # red is for signs of malware alone
 GINK={'score':DARK['accent-ink'],'notscored':'#fff','malware':'#fff','pending':'#fff'}  # the message's text on that colour
 BW=json.load(open(ROOT+'site/badge-widths.json'))
@@ -26,17 +32,22 @@ def ptitle(name,ver): return f'{BLABEL}, {name} {ver}: not analysed yet. The bad
 def btitle(name,ver,G,date): return f'{BLABEL}, {name} {ver}: {gtext(G)} (rubric {RUBRICV}, analysed {date}). Worked out from the answers\' costs.'
 def _n(x): return f'{x:g}'
 def shield(style,G,title,uid):
-    # style: flat, flat-square or for-the-badge, sized the way shields.io sizes them; the label side is the wordmark.
-    big=style=='for-the-badge'; h=28 if big else 20; kind=G['kind']
+    # style: flat, plastic, flat-square or for-the-badge, sized the way shields.io sizes them; the label side is the wordmark.
+    # Flat and plastic carry shields.io's sheen and a 1 px text shadow (the wordmark's too); the square styles have neither.
+    big=style=='for-the-badge'; plastic=style=='plastic'; shade=style in SHEEN; kind=G['kind']
+    h=28 if big else 18 if plastic else 20; ty=175 if big else 130 if plastic else 140
     msg=_gtext(G).upper() if big else _gtext(G)
     cap=9 if big else 8; pad=12 if big else 6
     lw=round(wordmark_width(cap)+2*pad); mt=_tw(msg,'10b' if big else '11')+(1.25*len(msg) if big else 0); mw=mt+2*(12 if big else 5); w=lw+mw
-    label=wordmark(pad,(h+cap)/2,cap)
-    text=(f'<text transform="scale(.1)" x="{_n((lw+mw/2)*10)}" y="{175 if big else 140}" textLength="{_n(mt*10)}"'
-          f'{" font-weight=" + chr(34) + "bold" + chr(34) if big else ""}>{esc(msg)}</text>')
-    rects=f'<rect width="{_n(lw)}" height="{h}" fill="{DARK["bg"]}"/><rect x="{_n(lw)}" width="{_n(mw)}" height="{h}" fill="{GCOL[kind]}"/>'
-    body=(f'<clipPath id="r{uid}"><rect width="{_n(w)}" height="{h}" rx="3"/></clipPath><g clip-path="url(#r{uid})">{rects}</g>'
-          if style=='flat' else f'<g shape-rendering="crispEdges">{rects}</g>')
+    label=((f'<g fill-opacity=".3">{wordmark(pad,(h+cap)/2+1,cap,ink="#010101",accent="#010101")}</g>' if shade else '')
+           +wordmark(pad,(h+cap)/2,cap,ink='#fff'))
+    at=f'transform="scale(.1)" x="{_n((lw+mw/2)*10)}" textLength="{_n(mt*10)}"'+(' font-weight="bold"' if big else '')
+    text=((f'<text aria-hidden="true" {at} y="{ty+10}" fill="#010101" fill-opacity=".3">{esc(msg)}</text>' if shade else '')
+          +f'<text {at} y="{ty}">{esc(msg)}</text>')
+    rects=f'<rect width="{_n(lw)}" height="{h}" fill="{LABEL}"/><rect x="{_n(lw)}" width="{_n(mw)}" height="{h}" fill="{GCOL[kind]}"/>'
+    body=(f'<linearGradient id="s{uid}" x2="0" y2="100%">{SHEEN[style]}</linearGradient><clipPath id="r{uid}"><rect width="{_n(w)}" height="{h}" rx="{4 if plastic else 3}"/></clipPath>'
+          f'<g clip-path="url(#r{uid})">{rects}<rect width="{_n(w)}" height="{h}" fill="url(#s{uid})"/></g>'
+          if shade else f'<g shape-rendering="crispEdges">{rects}</g>')
     return (f'<svg xmlns="http://www.w3.org/2000/svg" width="{_n(w)}" height="{h}" role="img" aria-label="{esc(title)}"><title>{esc(title)}</title>{body}{label}'
             f'<g fill="{GINK[kind]}" text-anchor="middle" font-family="{BFONT}" text-rendering="geometricPrecision" font-size="{100 if big else 110}">{text}</g></svg>')
 def _tile(G,x,y,s):
@@ -71,6 +82,7 @@ def badge_areas(G,title):
             f'<rect x=".5" y=".5" width="365" height="107" rx="10" fill="{DARK["surface"]}" stroke="{DARK["line"]}"/>{_tile(G,6,6,96)}<g font-family="{BFONT}">{rows}</g></svg>')
 BADGES=[  # (file suffix, name shown to authors, how it is drawn)
     ('','Shield',lambda G,t,u:shield('flat',G,t,u)),
+    ('-plastic','Shield, plastic',lambda G,t,u:shield('plastic',G,t,u)),
     ('-flat-square','Shield, square corners',lambda G,t,u:shield('flat-square',G,t,u)),
     ('-for-the-badge','Large shield',lambda G,t,u:shield('for-the-badge',G,t,u)),
     ('-score','Score',lambda G,t,u:badge_tile(G,t)),
@@ -78,5 +90,6 @@ BADGES=[  # (file suffix, name shown to authors, how it is drawn)
 ]
 def badge_json(ver,G):
     # The shields.io "endpoint" format, so shields.io can draw it in any of its styles, in the same colours.
-    # The label names the release, so a score shown away from its card still says which release it is for.
-    return json.dumps({'schemaVersion':1,'label':f'{BLABEL} {ver}','message':_gtext(G),'color':GCOL[G['kind']].lstrip('#'),'labelColor':DARK['bg'].lstrip('#')})
+    # The same words as the drawn shields: the label is the site's name alone (a version beside it reads as the site's own), and,
+    # like them, the file is pinned to its release by its address.
+    return json.dumps({'schemaVersion':1,'label':BLABEL,'message':_gtext(G),'color':GCOL[G['kind']].lstrip('#'),'labelColor':LABEL.lstrip('#')})

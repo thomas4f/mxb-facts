@@ -11,7 +11,7 @@ from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, 
 from badges import BADGES
 
 
-FEED_VERSION='1.5'
+FEED_VERSION='1.6'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words

@@ -73,7 +73,7 @@ Most places need no code at all: every card is also an image, and every tool has
 | Card page, newest | `…/mxb-facts/<tool>/` (an earlier release: `<tool>/<version>/`) | `page` |
 | Card image, newest | `…/mxb-facts/badge/<tool>/card.png` | tool's `card_image` |
 | Card image, one release | `…/mxb-facts/badge/<tool>/<version>-card.png` | a release's `card_image` |
-| Badges, one release | `…/mxb-facts/badge/<tool>/<version>.svg`, with `-flat-square`, `-for-the-badge`, `-score` or `-areas` before `.svg`; `.json` for the shields.io endpoint | `latest.badges` |
+| Badges, one release | `…/mxb-facts/badge/<tool>/<version>.svg`, with `-plastic`, `-flat-square`, `-for-the-badge`, `-score` or `-areas` before `.svg`; `.json` for the shields.io endpoint | `latest.badges` |
 
 - **The card image** is 1200 by 630, the same picture a chat app shows for the card's page. It names the tool, the release, the date of the analysis, the score and the area scores, and carries the AI note, so it meets the asks above on its own; link it to the card's page.
 - **`card.png` always shows the tool's newest card**, so a post or a plugins list never needs updating. When the weekly inventory has seen a newer release with no card yet (`not_analysed`), the image names it, so it never reads as that release's result. Use it where you show the tool rather than one release: a mods-site post, a forum thread, a tool list.
