@@ -6,6 +6,7 @@ something the feed doesn't say.
 Usage: from build.py, write_pages(SITE) after the feed is written.
 """
 import json, os, re, shutil
+from xml.sax.saxutils import escape as xesc
 import markdown
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 from markupsafe import Markup, escape
@@ -173,6 +174,7 @@ def write_pages(SITE):
     known = {t['id']: {'name': t['name'], 'newest': t['releases'][0]['version'], 'versions': {CARDS[r['card']]['version']: card_path(CARDS[r['card']]) for r in t['releases']}}
              for t in IX['tools']}
     page('404.html', '404.html', 0, root='/' + IX['site'].split('://', 1)[1].split('/', 1)[1], known=known)
+    write_sitemap_and_atom(out, IX, CARDS, card_path)
 
     # The static files, and the CSS made from the feed's states and tags: each state's and tag's icon as a mask, so it takes the mark's colour.
     os.makedirs(out + 'assets', exist_ok=True)
@@ -195,3 +197,35 @@ def write_pages(SITE):
     open(out + 'assets/favicon.svg', 'w').write(favicon() + '\n')
     open(out + 'assets/touch-icon.png', 'wb').write(touch_icon())
     open(out + 'assets/favicon.png', 'wb').write(touch_icon(96))  # for search results, which don't show an SVG icon
+
+
+def plain(text):
+    # Markdown to plain text for the Atom feed: links keep their words, code its text.
+    return re.sub(r'`([^`]*)`', r'\1', re.sub(r'\[([^\]]*)\]\([^)]*\)', r'\1', text))
+
+
+def write_sitemap_and_atom(out, IX, CARDS, card_path):
+    # sitemap.xml lists every page for search engines, each card page with the date of its last Card history row. cards.atom
+    # lists every card, newest change first, so people and bots (Discord, news readers) can follow new and updated cards.
+    # Both are made from the feed only, and their dates from the cards, so a build with no card change writes the same files.
+    site = IX['site']
+    def last(c): return max(h['date_iso'] for h in c['history'])
+    cards = sorted(CARDS.values(), key=lambda c: (last(c), c['card']), reverse=True)
+    urls = [(site, None)] + [(site + card_path(c), last(c)) for c in sorted(CARDS.values(), key=lambda c: c['card'])]
+    urls += [(site + p, None) for p in ('compare/', 'how/', 'authors/')]
+    sm = ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
+    sm += [f'  <url><loc>{xesc(u)}</loc>' + (f'<lastmod>{d}</lastmod>' if d else '') + '</url>' for u, d in urls]
+    open(out + 'sitemap.xml', 'w').write('\n'.join(sm + ['</urlset>']) + '\n')
+    at = ['<?xml version="1.0" encoding="utf-8"?>', '<feed xmlns="http://www.w3.org/2005/Atom">',
+          '  <title>MXB Facts: new and updated cards</title>', f'  <link href="{xesc(site)}"/>',
+          f'  <link rel="self" href="{xesc(site)}cards.atom"/>', f'  <id>{xesc(site)}cards.atom</id>',
+          f'  <updated>{last(cards[0])}T00:00:00Z</updated>', '  <author><name>MXB Facts</name></author>']
+    for c in cards:
+        h = sorted(c['history'], key=lambda x: x['date_iso'])
+        what = 'New card' if len(h) == 1 else 'Updated card'
+        text = f'{c["summary"]}. {c["result"]["label"]}. {what}, {h[-1]["date"]}: {plain(h[-1]["change"])}'
+        at += ['  <entry>', f'    <title>{xesc(c["name"])} {xesc(c["version"])}: {xesc(c["result"]["label"])}</title>',
+               f'    <link href="{xesc(site + card_path(c))}"/>', f'    <id>{xesc(site)}api/v1/cards/{xesc(c["card"])}.json</id>',
+               f'    <published>{h[0]["date_iso"]}T00:00:00Z</published>', f'    <updated>{last(c)}T00:00:00Z</updated>',
+               f'    <summary type="text">{xesc(text)}</summary>', '  </entry>']
+    open(out + 'cards.atom', 'w').write('\n'.join(at + ['</feed>']) + '\n')
