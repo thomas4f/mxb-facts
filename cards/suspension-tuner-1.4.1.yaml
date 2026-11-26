@@ -495,6 +495,21 @@ answers:
       Its window has a "Support Suspension Tuner (optional)" panel with a "Support on Gumroad" button ("Entirely optional.
       It changes nothing in the app.") that opens [its Gumroad page](https://lilian12.gumroad.com/l/SuspensionTuner).
     evidence: '`lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`.'
+corrections:
+- issue: 78
+  kind: context
+  questions:
+  - P1
+  - P4
+  - P5
+  - P8
+  - G6
+  - T1
+  - T3
+  - T4
+  - T7
+  opened: 25 Nov 2026
+  status: open
 history:
   - date: 24 Nov 2026
     change: First card, for 1.4.1.
