@@ -11,7 +11,7 @@ from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, 
 from badges import BADGES
 
 
-FEED_VERSION='1.4'
+FEED_VERSION='1.5'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
@@ -212,7 +212,7 @@ def write_feed(SITE,CARDS):
         # Concern tags go costliest first (ties keep the tag table's order); one at the severe cost or more is a Major, like its answer's mark.
         cost=lambda q:qcost(q,raw['answers'][q]['verdict']) or maxcost(q)  # noqa: B023 (used at once, for this card)
         crit=sorted(crit,key=lambda t:-cost(t[1]))
-        tags=([{'label':l,'kind':'concern','question':q,'major':cost(q)>=GT['severe']} for l,q in crit]+[{'label':l,'kind':'off_by_default','question':q} for l,q in opt]
+        tags=([{'label':l,'kind':'concern','question':q,'major':cost(q)>=GT['severe'],**({'malware':True} if q==GSC['malware'] else {})} for l,q in crit]+[{'label':l,'kind':'off_by_default','question':q} for l,q in opt]
               +[{'label':l,'kind':'positive','question':q} for l,q in pos])
         # The tool's page on each of its games' mods sites, where one is tied to it.
         reg=REG[slug]
@@ -259,7 +259,10 @@ def write_feed(SITE,CARDS):
            'money':[{'label':l,'means':x['means'],'grey':l in MLEFT} for l,x in MLAB.items()],
            'categories':[c for c in CATS if any(t['category']==c for t in tools.values())],
            'says_question':SAYSQ,'legend':legend(),'correction_kinds':CKINDS,'links':{'comment':CORRFORM,'recheck':REQFORM,'repo':REPO},
-           'tags':[{'label':x['tag'],'question':x['from'],'answer':x['answer'],'kind':x['kind'].lower(),'icon':x.get('icon'),'means':x.get('means')} for x in SC['tags'] if x['kind']!='None'],
+           'tags':[{'label':x['tag'],'question':x['from'],'answer':x['answer'],'kind':x['kind'].lower(),'icon':x.get('icon'),'means':x.get('means'),
+                   # A Concern tag is drawn as its answer's mark: a Major when it costs the severe tier or more, Signs of malware for P9.
+                   **({'major':qcost(x['from'],x['answer'])>=GT['severe'],**({'malware':True} if x['from']==GSC['malware'] else {})} if x['kind']=='Critical' else {})}
+                  for x in SC['tags'] if x['kind']!='None'],
            'tools':sorted(tools.values(),key=lambda t:t['name'].lower())}
     check(index,'index')
     json.dump(index,open(out+'index.json','w'),indent=1,ensure_ascii=False)
@@ -315,7 +318,7 @@ def write_site(SITE,skill,agents_line):
     # (VirusTotal): renumbering the prompt must update them too.
     assert re.search(r'^5\. Run it',prm,re.M) and re.search(r'^6\. Look up the hashes on VirusTotal',prm,re.M), 'prompts/analyse-tool.md: step 5 must be running the tool and step 6 the VirusTotal lookup, as SKILL.md, CLAUDE.md and the For authors page say; update them if the steps move'
     data={**base,'site':SITEURL,'repo':REPO,
-          'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'description':CONTENT['description'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],'under_review':CONTENT['under_review'],'tags_legend':CONTENT['tags'],
+          'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'description':CONTENT['description'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],'under_review':CONTENT['under_review'],'marks_legend':CONTENT['marks'],'tags_legend':CONTENT['tags'],
           'how_a_card_is_made':CONTENT['how_a_card_is_made'],'closed_cap':closed_cap(),
           'template':sections(doc(MDTXT['template.md'],'rules/template.md')),
           'scores':sections(doc(MDTXT['scores.md'],'rules/scores.md')),

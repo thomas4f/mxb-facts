@@ -111,7 +111,7 @@ def write_pages(SITE):
     TAGMEANS = {x['label']: x['means'] for x in IX['tags']}
     def tag(t, hidden=False, base=''):
         # A tag is text and colour only (40 kinds: too many shapes to learn; the marks keep their icons). It links to the answer it comes from: on its own page (#q-ID), or on the tool's page from the tools list (base).
-        cls = 'concern major' if t['kind'] == 'concern' and t.get('major') else t['kind']
+        cls = ('concern malware' if t.get('malware') else 'concern major' if t.get('major') else 'concern') if t['kind'] == 'concern' else t['kind']
         # Its hover says what the tag means for a player (rules/scoring.yaml, the same text Reading a card lists), so the two can't drift.
         tip = TAGMEANS[t['label']] + (' Here, only after a choice you make.' if t['kind'] == 'off_by_default' else '')
         return Markup(f'<a class="tag {cls}" href="{base}#q-{t["question"]}" title="{escape(tip)}"{" hidden" if hidden else ""}>{escape(t["label"])}</a>')

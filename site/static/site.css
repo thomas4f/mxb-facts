@@ -285,6 +285,8 @@ footer p { margin: 0 }
 /* Marks and tags carry their icon (icons.css), drawn in the mark's own colour. */
 .st::before, .rv::before, .cx::before { content: ""; width: 12px; height: 12px; flex: none; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat }
 .tag.concern.major { color: var(--major); border-color: color-mix(in srgb, var(--major) 45%, transparent); background: var(--major-bg); font-weight: 600 }
+/* The malware question's tag takes the Signs of malware mark's colour, as its answer does. */
+.tag.concern.malware { color: var(--danger); border-color: color-mix(in srgb, var(--danger) 45%, transparent); background: var(--danger-bg); font-weight: 600 }
 /* A comment under review: blue with a speech bubble, so it stands out without reading like a finding (it costs nothing). */
 .rv { color: var(--info); background: var(--info-bg); border-color: color-mix(in srgb, var(--info) 40%, transparent) }
 .tag.rv { font-weight: 600 }

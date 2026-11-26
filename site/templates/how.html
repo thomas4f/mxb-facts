@@ -13,7 +13,8 @@
 <h2 class="h2" id="rules">The rules</h2>
 <div class="box pad"><div class="prose">{{ tpl['Rules'] | md }}</div></div>
 <h2 class="h2" id="marks">Reading a card</h2>
-<div class="box pad"><dl class="legend">
+<div class="box pad"><div class="prose"><h3>Marks</h3><p>{{ SITE.marks_legend }}.</p></div>
+<dl class="legend">
   {% for k in ['good', 'note', 'concern', 'major', 'off', 'req', 'dna', 'nc', 'held', 'na', 'malware', 'notscored'] %}
   <dt>{{ mark(k) }}</dt><dd>{{ IX.legend[k] if k in IX.legend else STATES[k].meaning }}.</dd>
   {% endfor %}
@@ -23,7 +24,7 @@
 {# Three columns, as the site's other tables: the tag, what it means for a player, and the answer it comes from. On a phone each row stacks. #}
 <div class="tw"><table class="t t-stack tags-t"><thead><tr><th scope="col">Tag</th><th scope="col">What it means for you</th><th scope="col" class="nowrap">From the answer</th></tr></thead><tbody>
   {% for x in (IX.tags | selectattr('kind', 'equalto', 'critical') | list) + (IX.tags | selectattr('kind', 'equalto', 'positive') | list) %}
-  <tr><td><span class="tag {{ 'concern' if x.kind == 'critical' else 'positive' }}">{{ x.label }}</span></td><td>{{ x.means }}</td><td class="muted nowrap">{{ x.question }} {{ x.answer }}</td></tr>
+  <tr><td><span class="tag {{ ('concern malware' if x.get('malware') else 'concern major' if x.major else 'concern') if x.kind == 'critical' else 'positive' }}">{{ x.label }}</span></td><td>{{ x.means }}</td><td class="muted nowrap">{{ x.question }} {{ x.answer }}</td></tr>
   {% endfor %}
 </tbody></table></div></div>
 <h2 class="h2">In detail</h2>
