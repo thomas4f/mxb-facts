@@ -136,6 +136,11 @@
      "minLength": 1,
      "description": "Only when the tool has earlier cards: a link to each, newest first, as `[<version>](https://thomas4f.github.io/mxb-facts/<tool>/<version>/)`, so a reader can see what changed between releases. The newest card is the tool's page; each earlier one keeps its page and badges at that address"
     },
+    "Tested in": {
+     "type": "string",
+     "pattern": "^[^;]+, installer SHA-256 `[0-9a-f]{64}`(; [^;]+, installer SHA-256 `[0-9a-f]{64}`)*$",
+     "description": "Only when the analysis ran the tool's plugins in the real game: each game demo the runs used, as lab/real-game/games.json names it, with its installer's SHA-256, joined by \"; \" (\"MX Bikes beta21f (demo), installer SHA-256 `<hash>`\"). A run takes the newest demo unless the tool's registry entry pins an older one or the run asked for one (lab/real-game/README.md, \"Which demo\"). The build reads it against the host.log of each real-game run in lab/results/<card>/ and refuses a card where they differ"
+    },
     "Method": {
      "type": "string",
      "minLength": 1,

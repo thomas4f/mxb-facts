@@ -1,6 +1,6 @@
 #!/bin/bash
-# usage: run.sh <game> <case> <card-slug> [--ride <seconds>] [--key <second> <key>]... <plugin file or folder>...
-# Runs the real game (the public demo of mxbikes or gpbikes, games.json) with the plugins under test in its plugins folder:
+# usage: run.sh <game> <case> <card-slug> [--game-version <version>] [--ride <seconds>] [--key <second> <key>]... <plugin file or folder>...
+# Runs the real game (the public demo of mxbikes or gpbikes, games.json: the --game-version named, else the newest) with the plugins under test in its plugins folder:
 # offline (unshare -n), on a virtual screen (Xvfb), traced by strace and WINEDEBUG=+loaddll. It clicks through the menus to
 # Testing on the demo's first track (each step waits for the screen to settle), rides for --ride seconds (default 30) holding the throttle, presses each --key (an
 # xdotool key name, such as F8 or ctrl+r) that many seconds after reaching the track, and quits. The evidence goes to
@@ -9,23 +9,26 @@
 set -euo pipefail
 H="$(cd "$(dirname "$0")" && pwd)"; ROOT="$(cd "$H/../.." && pwd)"; PT="$ROOT/lab/plugin-test-host"
 game=$1 case=$2 slug=$3; shift 3
-ride=30; keys=(); plugins=()
+ride=30; keys=(); plugins=(); gver=
 while [ $# -gt 0 ]; do
   case $1 in
+    --game-version) gver=$2; shift 2;;
     --ride) ride=$2; shift 2;;
     --key) keys+=("$2 $3"); shift 3;;
     *) plugins+=("$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"); shift;;
   esac
 done
-cfg() { python3 -I -c "import json,sys; print(json.load(open('$H/games.json'))['$game']$1)"; }
-url=$(cfg "['url']"); sha=$(cfg "['sha256']"); exe=$(cfg "['exe']")
+# The demo: its name, version, URL, SHA-256, exe and menu steps (games.py).
+demo=$(python3 -I "$H/games.py" pick "$game" $gver)
+cfg() { printf '%s' "$demo" | python3 -I -c "import json,sys; print(json.load(sys.stdin)$1)"; }
+url=$(cfg "['url']"); sha=$(cfg "['sha256']"); exe=$(cfg "['exe']"); ver=$(cfg "['version']")
 
 # 1. The Wine prefix and tools come from the test host's setup.
 [ -d "$PT/build/wpfx" ] || bash "$PT/setup.sh"
 command -v xdotool >/dev/null && command -v import >/dev/null || DEBIAN_FRONTEND=noninteractive apt-get install -y -q --no-install-recommends xdotool imagemagick >/dev/null
 
 # 2. The demo, downloaded and unpacked once, checked by SHA-256 (the installer is a self-extracting zip).
-C="$H/cache/$game"; mkdir -p "$C"; inst="$C/$(basename "$url")"
+C="$H/cache/$game/$ver"; mkdir -p "$C"; inst="$C/$(basename "$url")"
 if [ ! -f "$C/game/.ok" ]; then
   [ -f "$inst" ] && echo "$sha  $inst" | sha256sum -c --status || curl -fsSL --retry 3 -o "$inst" "$url"
   echo "$sha  $inst" | sha256sum -c --status || { echo "real game: $inst doesn't match its SHA-256 in games.json" >&2; exit 1; }
@@ -69,14 +72,15 @@ patch() { import -window root -crop 24x10+\$((\$1 - 12))+\$((\$2 - 5)) +repage -
 # Wait (at most \$1 seconds) until the patch at \$2,\$3 is within 40 of the colour \$4 \$5 \$6: a button that shows only on the right screen.
 until_colour() { local end=\$((SECONDS + \$1)) c; while [ \$SECONDS -lt \$end ]; do c=(\$(patch \$2 \$3)); [ \${#c[@]} = 3 ] && [ \$(( (c[0]-\$4)*(c[0]-\$4) + (c[1]-\$5)*(c[1]-\$5) + (c[2]-\$6)*(c[2]-\$6) )) -lt 1600 ] && return 0; sleep 3; done; echo "\$(date +%s) timed out waiting for the colour at \$2,\$3" >> "$R/steps.log"; }
 EOF
-python3 -I - "$H/games.json" "$game" "$R" >> "$R/drive.sh" <<'PY'
+printf '%s' "$demo" > "$R/demo.json"
+python3 -I - "$R/demo.json" "$R" >> "$R/drive.sh" <<'PY'
 import json, sys
 # Each step first waits for its button's colour (when it names one, "until": x, y, r, g, b), clicks (when it has a place to
 # click), then waits at most "wait" seconds for the next screen to settle.
-for s in json.load(open(sys.argv[1]))[sys.argv[2]]['steps']:
+for s in json.load(open(sys.argv[1]))['steps']:
     if 'until' in s: print(f"until_colour {s['wait']} {' '.join(map(str, s['until']))}")
     if 'click' in s: print(f"press {s['click'][0]} {s['click'][1]} {s['wait']}")
-    else: print(f"settle {s['wait']} none || echo \"$(date +%s) timed out\" >> {sys.argv[3]}/steps.log")
+    else: print(f"settle {s['wait']} none || echo \"$(date +%s) timed out\" >> {sys.argv[2]}/steps.log")
     print(f"shot {s['name']}")
 PY
 {

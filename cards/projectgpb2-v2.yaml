@@ -22,6 +22,7 @@ header:
     [gpb-mods.com page](https://gpb-mods.com/projectgpb2-2/), given as the release to analyse (no card yet, no entry in
     `registry/releases.json`). There are no tags or commits: the source isn't public.
   Analysed on: 24 Nov 2026
+  Tested in: 'GP Bikes beta22b (demo), installer SHA-256 `82941f66e66e96bdce56b0652e89b973da817915c0f2af5536698ea2467d2ea3`'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     Closed source, and neither the release nor its gpb-mods.com page carries a licence or a clause against analysis (the README

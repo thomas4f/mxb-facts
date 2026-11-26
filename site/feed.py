@@ -7,11 +7,11 @@ Usage: from build.py, write_feed(SITE, CARDS) and write_site(SITE, skill, agents
 import datetime, json, jsonschema, os, re, subprocess
 from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PMEANS, QCELL, QIDS, QS, RUBRICV,
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
-from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games, newer_releases, pending_versions
+from cards import COMMIT, CORR, DEMO_GAME, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games, newer_releases, pending_versions
 from badges import BADGES
 
 
-FEED_VERSION='1.7'
+FEED_VERSION='1.8'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
@@ -229,6 +229,7 @@ def write_feed(SITE,CARDS):
               'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[]),
               'facts':facts(h,slug),'header':[{'label':k,'text':h[k]} for k in HEADER if k in h and k not in TOP],'files_note':raw.get('files_note',''),
               'areas':[{'id':AREA_ID[ar],'name':ar,'summary':d['areas'][ar]} for ar in AREAN],
+              'tested_in':[{'game':DEMO_GAME[x['game']],'version':x['version'],'name':x['name'],'sha256':x['sha256'],'url':x['url']} for x in C['demos']],
               'changes_since':changes_since(f,raw,A),'by_maintainer':bool(raw.get('by_maintainer')),'author_prompt':author_prompt(f,C['name'],C['ver'])}
         check(card,'card')
         json.dump(card,open(out+f'cards/{cid}.json','w'),indent=1,ensure_ascii=False)

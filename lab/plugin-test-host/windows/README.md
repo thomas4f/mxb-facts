@@ -37,6 +37,7 @@ only its evidence leaves it. Cloud sessions run both under Wine (`../README.md`,
 ```
 
 - `game`: `mxbikes` or `gpbikes` (a GP Bikes plugin runs in `gpbikes.exe`).
+- `game_version`: the demo the real-game runs use, from `../../real-game/games.json`. The workflow writes it after Claude's plan (`games.py plan`: the run's `game_version` input, else the tool's pin in `registry/tools.json`, else the newest; `../../real-game/README.md`, "Which demo"), so the plan leaves it out.
 - `licence`: what the release's licence says about analysing it: `allows`, `forbids` (rule 6: nothing runs) or `unclear`.
   The run uploads release files VirusTotal has no record of only on `allows` (CLAUDE.md, "VirusTotal").
 - `files`: the files players download, by URL and SHA-256 (at most 5): a direct https link, a MEGA file link

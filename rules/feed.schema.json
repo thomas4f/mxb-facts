@@ -427,11 +427,47 @@
         "header",
         "rubric",
         "yaml",
-        "card_image"
+        "card_image",
+        "tested_in"
       ],
       "properties": {
         "games": {
           "$ref": "#/$defs/games"
+        },
+        "tested_in": {
+          "type": "array",
+          "description": "The game demos the card's plugins ran in, from its real-game runs (lab/real-game/games.json); empty when none ran in the real game",
+          "items": {
+            "type": "object",
+            "required": [
+              "game",
+              "version",
+              "name",
+              "sha256",
+              "url"
+            ],
+            "properties": {
+              "game": {
+                "$ref": "#/$defs/games/items"
+              },
+              "version": {
+                "type": "string",
+                "minLength": 1
+              },
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "url": {
+                "type": "string",
+                "pattern": "^https://"
+              }
+            }
+          }
         },
         "result": {
           "$ref": "#/$defs/result"
