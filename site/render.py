@@ -99,14 +99,28 @@ def write_pages(SITE):
         c = Markup(f' <span class="c">{escape(cost)}</span>') if cost else ''
         return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{escape(words or s["label"])}{c}</span>')
 
+    def mark_cost(x, scored):
+        # What a mark shows of its cost, where the tool has a score: "−25", "in T1", "±0", or nothing.
+        if scored and x['cost']: return f'−{x["cost"]}'
+        if scored and x['cost_note'] and x['counted_with']: return f'in {x["counted_with"]}'
+        if scored and x['cost_note']: return '±0'
+        return None
+
+    def changed_marks(ch, scored):
+        # A release's changes as its marks: the answers whose mark moved (its state or the cost it shows), drawn as marks alone
+        # like Compare; the answers whose mark stayed but whose verdict moved ("No" to "Partly", both a Note), in words, since
+        # "Note → Note" says nothing; and how many answers show the same as before, counting those whose only change can't be
+        # seen on a mark (a Note no longer counted with another answer costs nothing either way).
+        seen = lambda x: (x['state'], mark_cost(x, scored))
+        moved = [r for r in ch['answers'] if seen(r['from']) != seen(r['to'])]
+        worded = [r for r in ch['answers'] if seen(r['from']) == seen(r['to']) and r['from']['verdict'] != r['to']['verdict']]
+        return {'moved': moved, 'worded': worded, 'unchanged': ch['unchanged'] + len(ch['answers']) - len(moved) - len(worded)}
+
     def answer_mark(x, scored, says=False, word=True):
         # An answer's mark: its state's word in its colour, with what it costs where the tool has a score ("Concern −25", "in T1"
         # when another answer already counts the same behaviour, or "±0" when the cost is waived), then the verdict itself ("Yes").
         # The word is text, never only a colour or icon, and never only a hover, which a phone doesn't show.
-        cost = None
-        if scored and x['cost']: cost = f'−{x["cost"]}'
-        elif scored and x['cost_note'] and x['counted_with']: cost = f'in {x["counted_with"]}'
-        elif scored and x['cost_note']: cost = '±0'
+        cost = mark_cost(x, scored)
         # Its hover: why it costs what it does where that needs saying, else what the mark means. Where the answer's own words
         # aren't beside it (says=True: Compare, a release's changes), the hover is those words, so a reader sees what this tool
         # does, not the legend. Compare shows the mark alone (word=False): the marks are what a reader compares, the answer
@@ -148,7 +162,7 @@ def write_pages(SITE):
     ver = {f: digest(open(HERE + 'static/' + f, 'rb').read()) for f in ('site.css', 'site.js')}
     ver['icons.css'] = digest(icons_css.encode())
     env.globals['asset'] = lambda f: f'assets/{f}?v={ver[f]}'
-    env.globals.update(copy_block=copy_block, WORDMARK=Markup(wordmark_html()), HERO_LOGO=Markup(hero_html()), DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
+    env.globals.update(copy_block=copy_block, WORDMARK=Markup(wordmark_html()), HERO_LOGO=Markup(hero_html()), DARK=DARK, mark=mark, answer_mark=answer_mark, changed_marks=changed_marks, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
                        area_name={a['id']: a['name'] for a in AREAS}, money={m['label']: m for m in IX['money']})
 
     out = SITE
