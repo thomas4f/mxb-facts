@@ -31,6 +31,13 @@ class _NoHTML(markdown.Extension):
 _MD = markdown.Markdown(extensions=['tables', 'fenced_code', _NoHTML()])
 
 
+def copy_block(id, text, label='', attrs=''):
+    # A code block with its Copy button (site.js copies the code by its id): every block of text to copy on the site is this one.
+    # text is escaped unless it is markup already; label, when given, says what the button copies.
+    return Markup(f'<div class="copy"><pre><code id="{id}"{attrs}>{escape(text)}</code></pre><button class="cpb" type="button" '
+                  f'data-copy="{id}" title="Copy"><span class="vh">Copy{" " + str(escape(label)) if label else ""}</span></button></div>')
+
+
 def _post(h):
     # Links to other sites open in a new tab; a table scrolls on its own on a phone and names what its headers head.
     # Card text links only to https addresses and #fragments (cards.no_html); anything else (javascript:, data:) loses its href.
@@ -39,12 +46,9 @@ def _post(h):
     h = re.sub(r'<th(?=[ >])(?![^>]*scope)', '<th scope="col"', h)
     # A dated table (its first header is "Date") keeps each date on one line, as the Card history does.
     h = re.sub(r'<table>\s*<thead>\s*<tr>\s*<th scope="col">Date</th>.*?</table>', lambda m: re.sub(r'<tr>\s*<td>', '<tr>\n<td class="nowrap">', m.group(0)), h, flags=re.S)
-    # A code block gets the Copy button every other code block on the site has (macros.html, snippet), named by its text so the
-    # same block keeps the same id.
-    h = re.sub(r'<pre><code([^>]*)>(.*?)</code></pre>', lambda m: (
-        f'<div class="copy"><pre><code id="code-{hashlib.sha256(m.group(2).encode()).hexdigest()[:8]}"{m.group(1)}>{m.group(2)}</code></pre>'
-        f'<button class="cpb" type="button" data-copy="code-{hashlib.sha256(m.group(2).encode()).hexdigest()[:8]}" title="Copy">'
-        '<span class="vh">Copy</span></button></div>'), h, flags=re.S)
+    # A code block gets its Copy button (copy_block), named by its text so the same block keeps the same id.
+    h = re.sub(r'<pre><code([^>]*)>(.*?)</code></pre>', lambda m: copy_block(
+        'code-' + hashlib.sha256(m.group(2).encode()).hexdigest()[:8], Markup(m.group(2)), attrs=m.group(1)), h, flags=re.S)
     return h.replace('<table>', '<div class="tw"><table class="t">').replace('</table>', '</table></div>')
 
 
@@ -144,7 +148,7 @@ def write_pages(SITE):
     ver = {f: digest(open(HERE + 'static/' + f, 'rb').read()) for f in ('site.css', 'site.js')}
     ver['icons.css'] = digest(icons_css.encode())
     env.globals['asset'] = lambda f: f'assets/{f}?v={ver[f]}'
-    env.globals.update(WORDMARK=Markup(wordmark_html()), HERO_LOGO=Markup(hero_html()), DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
+    env.globals.update(copy_block=copy_block, WORDMARK=Markup(wordmark_html()), HERO_LOGO=Markup(hero_html()), DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
                        area_name={a['id']: a['name'] for a in AREAS}, money={m['label']: m for m in IX['money']})
 
     out = SITE
@@ -174,6 +178,7 @@ def write_pages(SITE):
 
     def card_path(c):
         return f'{c["tool"]}/' if c['latest'] else f'{c["tool"]}/{c["version"]}/'
+    env.globals['card_path'] = card_path
 
     # Where each card lives, so a link to a card file id (an old "#<card>" or "#<tool>" address included) finds its page.
     addr = {cid: card_path(c) for cid, c in CARDS.items()}

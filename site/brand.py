@@ -16,6 +16,9 @@ def _theme(start):
 
 DARK = _theme(':root {')                      # the pit board: what badges and previews are drawn in
 LIGHT = _theme(':root[data-theme="light"]')   # only the favicon uses it, for light browser chrome
+# The light theme is written twice in site.css (for a light system setting, and when the reader picks it); they must not drift.
+_block = lambda start: ' '.join(_css[_css.index(start) + len(start):_css.index('}', _css.index(start))].split())
+assert _block(':root:not([data-theme="dark"]) {') == _block(':root[data-theme="light"] {'), 'site/static/site.css: the two light theme blocks differ'
 for _k in ('bg', 'surface', 'sunk', 'line', 'ink', 'muted', 'accent', 'accent-ink'):
     assert _k in DARK and _k in LIGHT, f'site/static/site.css: each theme needs --{_k}'
 RED = '#cf222e'  # signs of malware, and nothing else

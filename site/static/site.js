@@ -96,7 +96,8 @@
       m.setAttribute('aria-expanded', 'true'); m.firstChild.textContent = 'Fewer';
     });
     // The hint keeps its line whatever is picked (only its words change), so the picker and the table never jump.
-    var hint = $('[data-cmp-hint]'); if (hint) hint.textContent = on.length >= 2 ? 'Add or remove tools below, or from the tools list.' : 'Tick two or more tools below, or from the tools list.';
+    var hint = $('[data-cmp-hint]');
+    if (hint) { hint.dataset.none = hint.dataset.none || hint.textContent; hint.textContent = on.length >= 2 ? hint.dataset.some : hint.dataset.none; }
     $$('.cmptools [data-cmp-clear]').forEach(function (b) { b.disabled = !on.length; });
     var lab = $('[data-cmp-n-label]'); if (lab) lab.textContent = on.length ? '· ' + on.length + ' picked' : '';
     t.hidden = on.length < 2;
