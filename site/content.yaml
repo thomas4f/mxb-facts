@@ -2,7 +2,7 @@
 # pages draw them from there. Links are absolute https addresses, as the feed requires. Rule 8's AI note is ai_note.
 # The home page's heading, also on the site's link preview and in every page's description; heading_accent is its word drawn
 # in the accent colour.
-heading: Know what you install.
+heading: Check before you install.
 heading_accent: install
 lede: >-
   Plugins, apps and mods for MX Bikes and GP Bikes run on your PC with your access: they can change your files and game,
