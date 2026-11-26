@@ -84,7 +84,7 @@ key:
   K6: 'No. It reads mods to list and draw them, and stops at encrypted ones.'
   K7: 'No. Only the built app is published, with no licence.'
   K8: >-
-    No. Its README says it downloads and installs updates by itself; it waits for your click.
+    No; it is more careful than its README, which says it downloads and installs updates by itself: it waits for your click.
   K9: 'No. Not code-signed, and there is no public source to trace it to.'
   K10: 'Yes. It asks GitHub for a newer version at each start and every hour.'
 areas:
@@ -453,9 +453,9 @@ answers:
     evidence: '`file` on each (`lab/evidence/knee-down-0.1.8/file.txt`, `lab/evidence/knee-down-0.1.8/bundled.txt`), `lab/evidence/knee-down-0.1.8/versions.txt`; [the repository at the tag](https://github.com/gsv-r/knee-down/tree/27abfcc757fcbc726678b50ea8c6240fa6863203) (only README.md).'
   T2:
     verdict: 'Yes'
-    mark: concern
+    mark: note
     text: >-
-      Its README and gpb-mods.com page say it downloads and installs updates by itself; the code waits for your click on
+      Only in your favour: its README and gpb-mods.com page say it downloads and installs updates by itself; the code waits for your click on
       "New Update" (P2). See "What it says vs what it does".
     evidence: '`lab/evidence/knee-down-0.1.8/readme.txt`, `lab/evidence/knee-down-0.1.8/gpb-mods.txt`, `lab/evidence/knee-down-0.1.8/update-ui.txt`.'
   T3:
