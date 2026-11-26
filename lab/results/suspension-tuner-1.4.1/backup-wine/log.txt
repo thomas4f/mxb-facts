@@ -1,0 +1,112 @@
+== zip
+58b8463c7e49f8e30268df4b78d7200668a721eb170b51c571f7962bb66af525  SuspensionTuner.zip
+SHA-256 of the stock file: a9573f95dd220a069afc7670ac52177681b6de4aa3205ee8109225775957ad4c
+SHA-256 of the hand-edited file: 1d937944512ed0c61dfc359ae634f6779983944b52f8ac053747080c4d3c9c00
+== test folder before run 1
+25cf54c697a69632c5952486ec189be371ddddc422bca30910f17b2c3a0ba31d  10:44:41.811  mxbikes.exe
+a9573f95dd220a069afc7670ac52177681b6de4aa3205ee8109225775957ad4c  10:44:41.811  proxy_udp.ini
+-- proxy_udp.ini
+[params]
+enable = 0
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+-- proxy_udp.ini.bak: none
+== run 1: start the app
+== run 1: click Start listening
+== test folder after run 1
+25cf54c697a69632c5952486ec189be371ddddc422bca30910f17b2c3a0ba31d  10:44:41.811  mxbikes.exe
+834b402e205af3b147acd81ffc8488577ad67acbfbf6555867d2b8c26c3737f9  10:45:09.988  proxy_udp.ini
+a9573f95dd220a069afc7670ac52177681b6de4aa3205ee8109225775957ad4c  10:45:09.987  proxy_udp.ini.bak
+-- proxy_udp.ini
+[params]
+enable = 1
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+-- proxy_udp.ini.bak
+[params]
+enable = 0
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+== run 2: start the app
+== run 2: click Start listening
+== test folder after run 2 (no change in between)
+25cf54c697a69632c5952486ec189be371ddddc422bca30910f17b2c3a0ba31d  10:44:41.811  mxbikes.exe
+834b402e205af3b147acd81ffc8488577ad67acbfbf6555867d2b8c26c3737f9  10:45:09.988  proxy_udp.ini
+a9573f95dd220a069afc7670ac52177681b6de4aa3205ee8109225775957ad4c  10:45:09.987  proxy_udp.ini.bak
+-- proxy_udp.ini
+[params]
+enable = 1
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+-- proxy_udp.ini.bak
+[params]
+enable = 0
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+== test folder after the hand edit (ip = 127.0.0.1:40000)
+25cf54c697a69632c5952486ec189be371ddddc422bca30910f17b2c3a0ba31d  10:44:41.811  mxbikes.exe
+1d937944512ed0c61dfc359ae634f6779983944b52f8ac053747080c4d3c9c00  10:46:14.851  proxy_udp.ini
+a9573f95dd220a069afc7670ac52177681b6de4aa3205ee8109225775957ad4c  10:45:09.987  proxy_udp.ini.bak
+-- proxy_udp.ini
+[params]
+enable = 1
+port = 30000
+ip = 127.0.0.1:40000
+delay = 1
+-- proxy_udp.ini.bak
+[params]
+enable = 0
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+== run 3: start the app
+== run 3: click Start listening
+== test folder after run 3
+25cf54c697a69632c5952486ec189be371ddddc422bca30910f17b2c3a0ba31d  10:44:41.811  mxbikes.exe
+834b402e205af3b147acd81ffc8488577ad67acbfbf6555867d2b8c26c3737f9  10:46:43.599  proxy_udp.ini
+a9573f95dd220a069afc7670ac52177681b6de4aa3205ee8109225775957ad4c  10:45:09.987  proxy_udp.ini.bak
+-- proxy_udp.ini
+[params]
+enable = 1
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+-- proxy_udp.ini.bak
+[params]
+enable = 0
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+== test folder after deleting the .bak and the same hand edit
+25cf54c697a69632c5952486ec189be371ddddc422bca30910f17b2c3a0ba31d  10:44:41.811  mxbikes.exe
+1d937944512ed0c61dfc359ae634f6779983944b52f8ac053747080c4d3c9c00  10:47:02.119  proxy_udp.ini
+-- proxy_udp.ini
+[params]
+enable = 1
+port = 30000
+ip = 127.0.0.1:40000
+delay = 1
+-- proxy_udp.ini.bak: none
+== run 4: start the app
+== run 4: click Start listening
+== test folder after run 4
+25cf54c697a69632c5952486ec189be371ddddc422bca30910f17b2c3a0ba31d  10:44:41.811  mxbikes.exe
+834b402e205af3b147acd81ffc8488577ad67acbfbf6555867d2b8c26c3737f9  10:47:30.847  proxy_udp.ini
+1d937944512ed0c61dfc359ae634f6779983944b52f8ac053747080c4d3c9c00  10:47:30.845  proxy_udp.ini.bak
+-- proxy_udp.ini
+[params]
+enable = 1
+port = 30000
+ip = 127.0.0.1:30001
+delay = 1
+-- proxy_udp.ini.bak
+[params]
+enable = 1
+port = 30000
+ip = 127.0.0.1:40000
+delay = 1

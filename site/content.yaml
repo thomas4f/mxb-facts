@@ -5,8 +5,8 @@
 heading: Know what you install.
 heading_accent: install
 lede: >-
-  Plugins, apps and mods for MX Bikes and GP Bikes run on your PC and can do what you can. See what each one installs,
-  changes and sends, with evidence for every answer.
+  Plugins, apps and mods for MX Bikes and GP Bikes run on your PC with your access: they can change your files and game,
+  and send your data. Each gets a score out of 100: the lower it is, the more it does that you might not want.
 ai_note: >-
   Claude, an AI, does the analysis from [a public prompt](https://thomas4f.github.io/mxb-facts/how/#prompt), and no person
   checks each answer, so one can be wrong. A score sums up the findings and what could be checked: a high score doesn't prove
