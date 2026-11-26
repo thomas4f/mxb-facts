@@ -29,10 +29,6 @@
 <div class="stack tight">
 {% call fold('marks-and-scores', 'Marks and scores') %}<div class="prose pad">{{ tpl['Marks and scores'] | md }}</div>{% endcall %}
 {% call fold('scores', 'How scores are worked out', note='rubric ' ~ SITE.rubric ~ '') %}<div class="prose pad">{% for s in SITE.scores %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}</div>{% endcall %}
-{% call fold('exceptions', 'Who each exception helps', note='the cards a Note-if rule spares') %}<div class="prose pad"><p>Some questions are a Concern by default, with one exception that makes the answer a Note and costs nothing. Each exception holds for every tool; here is every card it applies to now, so you can see which tools it spares. MXBMRP3, which the maintainer makes, has no card yet; when it has, it shows here like any other tool.</p>
-<div class="tw"><table class="t"><thead><tr><th scope="col">Question</th><th scope="col">Exception</th><th scope="col">Cards it applies to</th></tr></thead><tbody>
-{% for x in exceptions %}<tr><td><b>{{ x.id }}</b> {{ x.question | mdi }} ({{ x.verdict }})</td><td>{{ x.when | mdi }}</td><td>{% for c in x.cards %}<a href="{{ c.page }}">{{ c.name }} {{ c.version }}</a>{{ ', ' if not loop.last }}{% else %}None yet{% endfor %}</td></tr>
-{% endfor %}</tbody></table></div></div>{% endcall %}
 {% call fold('ai', 'How AI is used') %}<div class="prose pad">{{ tpl['How AI is used'] | md }}</div>{% endcall %}
 {% call fold('prompt', 'The analysis prompt', note='every card starts from it') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}{{ SITE.prompt.text | md }}</div>{% endcall %}
 {% call fold('writers', 'For card writers', note='what a card holds and how it is written') %}<div class="prose pad"><h3>Sections</h3>{{ tpl['Sections'] | md }}<h3>Wording</h3>{{ tpl['Wording'] | md }}</div>{% endcall %}

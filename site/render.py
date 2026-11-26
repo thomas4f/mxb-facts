@@ -166,18 +166,7 @@ def write_pages(SITE):
     missing = [u for t in IX['tools'] for u in [t['card_image']] + [r['card_image'] for r in t['releases']] if not os.path.exists(out + u[len(IX['site']):])]
     assert not missing, 'card images the feed names but the site lacks: ' + ', '.join(missing)
     page('compare/index.html', 'compare.html', 1, cards=[CARDS[r['card']] for t in IX['tools'] for r in t['releases']])
-    # Who each exception helps: an answer whose verdict is a Concern by default, made a Note by the exception its mark cell
-    # names ("Concern; Note if ..."), listed by question with every card it applies to, so a reader sees which tools a rule
-    # spares, the maintainer's own included, without reading every card.
-    exc = []
-    for q in SITEJ['questions']:
-        for v, cell in q['marks'].items():
-            if not cell.startswith('Concern; Note if'): continue
-            # "Yes, on request" and "Yes, not by default" are Yes answers too; on request is what P4's and P6's exception names.
-            hits = [c for c in CARDS.values() if any(a['id'] == q['id'] and a['verdict'].split(',')[0] == v and a['state'] in ('note', 'req') for a in c['answers'])]
-            exc.append({'id': q['id'], 'question': q['question'], 'verdict': v, 'when': cell[len('Concern; '):],
-                        'cards': sorted(hits, key=lambda c: (c['name'].lower(), c['analysed_iso']))})
-    page('how/index.html', 'how.html', 1, exceptions=exc)
+    page('how/index.html', 'how.html', 1)
     page('authors/index.html', 'authors.html', 1)
     # The page GitHub Pages serves for an address the site doesn't have, at any depth, so its links start at the site's root.
     # It names the tool or release the address asks for when it can (site.js), from every tool's releases listed here.
