@@ -77,7 +77,8 @@ small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); l
 .wrap { max-width: 1180px; margin: 0 auto; padding: var(--s5) max(16px, env(safe-area-inset-right, 0px)) var(--s7) max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: var(--s5) }
 .stack { display: grid; gap: var(--s5) }
 .hero { background: var(--hero); border: 1px solid var(--line); border-radius: 16px; padding: var(--s5); display: grid; gap: var(--s3) }
-.hero h1 { font: 600 clamp(30px, 5vw, 48px)/1.02 var(--f-display); letter-spacing: -.02em }
+/* Every title on the site, and on the link previews (preview.py), is the head face at 700; the hero's only differs in size. */
+.hero h1 { font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em }
 .hero h1 span { color: var(--accent) }
 .hero p { margin: 0; color: var(--muted); max-width: 60ch; font-size: 16.5px }
 /* On a phone the intro is plain text, not a panel, so the tools list starts on the first screen. */
@@ -121,14 +122,17 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .crumb { margin-bottom: var(--s2) } .crumb a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px } .crumb a:hover { color: var(--accent) }
 .card .score { font: 700 34px/1 var(--f-head); text-align: right }
 .card .score.word { font-size: 16px; color: var(--grey) }
-.card h3 { font: 600 21px/1.2 var(--f-display) } .card h3 a { color: var(--ink); text-decoration: none }
+.card h3 { font: 700 24px/1.15 var(--f-head); letter-spacing: .01em } .card h3 a { color: var(--ink); text-decoration: none }
 .card .meta { color: var(--muted); font-size: 13.5px }
 .card .sum { margin: 0; font-size: 15px }
 .card .foot { margin-top: auto; padding-top: var(--s3); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: var(--s2) }
 .btn { display: inline-flex; align-items: center; gap: var(--s2); padding: var(--s2) var(--s4); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface); cursor: pointer; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 14.5px }
 .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
-.cmpbar { position: sticky; bottom: max(12px, env(safe-area-inset-bottom, 0px)); display: flex; gap: var(--s3); align-items: center; justify-content: space-between; flex-wrap: wrap;
-  background: var(--surface); border: 1px solid var(--accent); border-radius: var(--r); padding: var(--s3) var(--s4); box-shadow: 0 8px 28px rgba(0,0,0,.25) }
+/* The compare tray stays one slim row at every width (its words wrap, its buttons don't), so on a phone it covers as little of
+   the tools list as it can. */
+.cmpbar { position: sticky; bottom: max(12px, env(safe-area-inset-bottom, 0px)); display: flex; gap: var(--s3); align-items: center; justify-content: space-between;
+  background: var(--surface); border: 1px solid var(--accent); border-radius: var(--r); padding: var(--s2) var(--s2) var(--s2) var(--s4); box-shadow: 0 8px 28px rgba(0,0,0,.25) }
+.cmpbar > span:first-child { min-width: 0; line-height: 1.3 } .cmpbar .links { flex-wrap: nowrap; flex-shrink: 0 }
 .empty { padding: var(--s6); text-align: center; color: var(--muted); border: 1px dashed var(--line); border-radius: var(--r) }
 
 /* Tool page */
@@ -185,6 +189,13 @@ details.fold > .body { border-top: 1px solid var(--line) }
 table.t { border-collapse: collapse; width: 100%; font-size: 14px }
 table.t th, table.t td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 table.t th { color: var(--muted); font-weight: 600; font-size: 13px }
+/* A table whose middle column holds long addresses stacks on a phone: each row reads top to bottom (what, address, what it
+   shows), so an address gets the full width instead of breaking every few letters in a narrow column. */
+@media (max-width: 640px) {
+  table.t.stack, table.t.stack tbody { display: block } table.t.stack thead { display: none }
+  table.t.stack tr { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.stack tbody tr:last-child { border-bottom: 0 }
+  table.t.stack td { padding: 0; border: 0 } table.t.stack td:first-child { font-weight: 600 }
+}
 /* The table's box draws the last line; a row's own line there would double it. */
 table.t tbody tr:last-child > *, table.cmp tbody tr:last-child > * { border-bottom: 0 }
 details.sub:last-child { border-bottom: 0 }
@@ -220,14 +231,16 @@ table.cmp { border-collapse: collapse; width: 100%; min-width: 560px; font-size:
 table.cmp th, table.cmp td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: middle }
 table.cmp thead th { background: var(--surface); font-size: 15px }
 table.cmp th[scope=row] { font-weight: 500; color: var(--muted); max-width: 340px }
-table.cmp tr.grp th { background: var(--sunk); color: var(--ink); font: 700 16px var(--f-head); letter-spacing: .02em }
+/* An area's heading has the site's one sub-heading look (a fold's title, a reading page's h3): 700 20px head font. */
+table.cmp tr.grp th { background: var(--sunk); color: var(--ink); font: 700 20px/1.2 var(--f-head); letter-spacing: .01em }
 table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .mini b { font: 700 18px var(--f-head) }
 
 @media (max-width: 640px) {
   .ctw { overflow: visible; border: 0; background: none }
   table.cmp { min-width: 0; display: block } table.cmp thead { display: none } table.cmp tbody { display: grid; gap: var(--s2) }
   table.cmp tr { display: grid; gap: var(--s2); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s3) }
-  table.cmp tr.grp { background: none; border: 0; padding: var(--s3) 0 0 }
+  /* An area's heading is a plain heading above its question panels on a phone, like the tool page's area headings: no band. */
+  table.cmp tr.grp { background: none; border: 0; padding: var(--s3) 0 0 } table.cmp tr.grp th { background: none }
   table.cmp th, table.cmp td { border: 0; padding: 0; max-width: none }
   table.cmp td { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--s3) }
   table.cmp td::before { content: attr(data-l); color: var(--muted); font-size: 13.5px }
@@ -246,6 +259,8 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
 .fold .prose { padding: var(--s4) var(--s4) }
 .legend { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s2) var(--s4); align-items: baseline; font-size: 14.5px; margin: 0 }
 .legend dd { margin: 0; color: var(--muted) }
+/* On a phone a legend stacks, term over meaning: the widest tag would otherwise squeeze every meaning into a narrow column. */
+@media (max-width: 640px) { .legend { grid-template-columns: minmax(0, 1fr); gap: var(--s1) } .legend dd + dt { margin-top: var(--s3) } }
 /* A copy button is an icon in the block's top right corner, as on GitHub and most docs; a tick replaces it once copied. */
 .copy { position: relative } .copy pre { margin: 0; padding-right: var(--s7) }
 .cpb { position: absolute; top: var(--s1); right: var(--s1); width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--surface); color: var(--muted); cursor: pointer }

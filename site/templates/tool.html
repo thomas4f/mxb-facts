@@ -178,7 +178,9 @@
 <p>Something wrong, missing, or context to add? Use "Comment on …" under any answer's evidence, Good ones included, or the <a href="{{ SITE.links.comment }}">comment form</a>; a correction shows here, and on the answer it names, until it is decided.</p>
 </div>
 
-{% call fold('author', "For the tool's author", h='h2') %}
+{# A section like the others on the page: its heading, then its fold, so every section title looks the same. #}
+<h2 class="h2" id="for-author">For the tool's author</h2>
+{% call fold('author', 'Use this card', note='4 steps', h='h3') %}
 <div class="pad stack tight">
   <p>Give this card to the AI agent you build with (Claude Code, Codex, Cursor or any other). Every answer links its evidence, so the agent can find the cause in your code. We don't suggest fixes: what to change, if anything, depends on what your tool is for.</p>
   <ol class="steps">
