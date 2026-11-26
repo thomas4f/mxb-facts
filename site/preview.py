@@ -154,7 +154,10 @@ def site_image(IX, SITE):
     # The site, as the home page opens: the wordmark, its heading, its intro and how many tools have a card.
     im, d = canvas(); muted = DARK['muted']
     wordmark(d, M, 78, 64)
-    f = font(HEAD, 132)  # the home page's heading, its last word in the accent
+    size = 132  # the home page's heading, its last word in the accent, as large as fits the width
+    while size > 96 and d.textlength(SITE['heading'], font=font(HEAD, size)) > W - 2 * M: size -= 2
+    f = font(HEAD, size)
+    assert d.textlength(SITE['heading'], font=f) <= W - 2 * M, 'preview.py: the home heading is too wide for the site image'
     a, b = SITE['heading'].split(SITE['heading_accent'], 1); x = M
     for t, col in ((a, DARK['ink']), (SITE['heading_accent'], DARK['accent']), (b, DARK['ink'])):
         d.text((x, 280), t, font=f, fill=col, anchor='ls'); x += d.textlength(t, font=f)
