@@ -119,47 +119,47 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 - Three tags come from the card itself: "<n> held back" (the Held back row), "<n> not checked" (answers "Not checked", not counting those held back) and "Licence forbids analysis" (any answer "Not allowed"). A tool shows "No critical findings" only when it has no critical tag, every question is answered and nothing is held back.
 
 <!-- rules/scoring.yaml: tags. Edit that file, not this table: the build writes it. -->
-| From | Answer | Tag | Kind | Icon |
-|---|---|---|---|---|
-| P9 | Yes | Signs of malware | Critical | bug |
-| P1 | Yes | Some antivirus engines flag it | Critical | shield-x |
-| P2 | Yes | Updates without asking | Critical | refresh-cw |
-| P3 | No | Unchecked updates | Critical | refresh-cw-off |
-| P3 | Partly | Updates partly checked | Critical | refresh-ccw-dot |
-| P4 | Yes | Deletes or overwrites others' files | Critical | trash-2 |
-| P5 | No | Not signed or traceable | Critical | badge-x |
-| P6 | Yes | Changes Windows settings | Critical | monitor-cog |
-| P7 | Yes | Changes game files | Critical | folder-pen |
-| P8 | Yes | Leaves changes behind | Critical | footprints |
-| D2 | Yes | Sends your data | Critical | send |
-| D3 | Yes | Sends an identifier | Critical | fingerprint |
-| D4 | Yes | Sends other players' data | Critical | users |
-| D5 | Yes | Open local web server | Critical | server |
-| D6 | Yes | Reads other people's data | Critical | file-search |
-| D7 | Yes | Publishes riders' data | Critical | megaphone |
-| D8 | No | No off switch | Critical | power-off |
-| D9 | Yes | Needs an online account | Critical | circle-user |
-| D10 | Yes | Shares game data locally | Critical | share-2 |
-| G1 | Yes | Injects into the game | Critical | syringe |
-| G2 | Yes | Changes game memory | Critical | memory-stick |
-| G3 | Yes | Changes the game online | Critical | globe |
-| G3 | Partly | Changes what you see online | Critical | scan-eye |
-| G12 | Yes | Gets around a game check | Critical | shield-off |
-| G5 | Yes | Takes over game input | Critical | keyboard |
-| G6 | Yes | Changes other plugins | Critical | puzzle |
-| G9 | Yes | Starts with Windows | Critical | rocket |
-| C1 | Yes | Decrypts protected content | Critical | key-round |
-| C2 | Yes | Copies others' content | Critical | copy |
-| C3 | Yes | Shares unprotected content | Critical | lock-open |
-| T7 | No | No open-source licence (not when T1 is No) | Critical | scale |
-| T1 | No | Closed source | Critical | file-lock |
-| T2 | Yes | Docs contradict code | Critical | book-x |
-| T3 | No | Not traced to source (not when T1 is No or T4 is Yes) | Critical | route-off |
-| T4 | No | Covered by "Not traced to source", "Not signed or traceable" or "Closed source": the answer is also No when there is no public source to rebuild from | None |  |
-| T6 | No | Dependencies not pinned | Critical | pin-off |
-| T1 | Yes | Open source | Positive | code-xml |
-| T3 | Yes | Built from public source | Positive | workflow |
-| T4 | Yes | Rebuild matches source | Positive | git-compare |
-| P5 | Yes | Code-signed | Positive | badge-check |
-| D1 | No | No internet connections | Positive | wifi-off |
+| From | Answer | Tag | Kind | Icon | What it means |
+|---|---|---|---|---|---|
+| P9 | Yes | Signs of malware | Critical | bug | The analysis found code that is hidden, disguised, or does something the tool doesn't show you, and a second check confirmed it. This replaces the score. |
+| P1 | Yes | Some antivirus engines flag it | Critical | shield-x | Enough antivirus engines on VirusTotal flag a release file to count; the answer gives the count. Unsigned hobby builds are often flagged by mistake. |
+| P2 | Yes | Updates without asking | Critical | refresh-cw | New code can reach your PC without you choosing it, so what you run can change after this card was made. |
+| P3 | No | Unchecked updates | Critical | refresh-cw-off | Updates are installed without a check that they really come from the author, so a tampered download would not be caught. |
+| P3 | Partly | Updates partly checked | Critical | refresh-ccw-dot | Updates are checked in some ways but not all, so some tampering would not be caught; the answer says which part is missing. |
+| P4 | Yes | Deletes or overwrites others' files | Critical | trash-2 | Files that belong to the game, Windows or another tool can be lost or replaced, without a copy kept to put them back. |
+| P5 | No | Not signed or traceable | Critical | badge-x | The files carry no signature and can't be traced to public source, so you can't confirm who built them or that they weren't changed on the way to you. |
+| P6 | Yes | Changes Windows settings | Critical | monitor-cog | It changes how Windows is set up beyond its own entries, which can affect other programs and may stay after you remove it. |
+| P7 | Yes | Changes game files | Critical | folder-pen | It writes into the game's folders beyond its own files, which can affect the game, other mods, or a reinstall. |
+| P8 | Yes | Leaves changes behind | Critical | footprints | Removing it doesn't undo everything it did; the answer lists what stays. |
+| D2 | Yes | Sends your data | Critical | send | Something about you or your game leaves your PC; the answer says what and to whom. |
+| D3 | Yes | Sends an identifier | Critical | fingerprint | An identifier is sent that can link your sessions together over time, beyond a random install ID the tool makes itself. |
+| D4 | Yes | Sends other players' data | Critical | users | Data about other riders in your session leaves your PC, without them having chosen this tool. |
+| D5 | Yes | Open local web server | Critical | server | Any website open in your browser can read what the local server shares while the tool runs. |
+| D6 | Yes | Reads other people's data | Critical | file-search | It reads files or data that belong to other programs on your PC. |
+| D7 | Yes | Publishes riders' data | Critical | megaphone | Data about its users is made public, where anyone can see it. |
+| D8 | No | No off switch | Critical | power-off | At least one connection that carries something about you can't be turned off; you can only stop using the tool. |
+| D9 | Yes | Needs an online account | Critical | circle-user | You need an account with an online service to use it, which ties your use to that account. |
+| D10 | Yes | Shares game data locally | Critical | share-2 | It passes your game data to other programs on your PC, which can then use or send it. |
+| G1 | Yes | Injects into the game | Critical | syringe | Another program puts code into the running game, rather than the game loading it as a plugin. |
+| G2 | Yes | Changes game memory | Critical | memory-stick | It changes the game's own code or memory while it runs, beyond what the plugin interface offers. |
+| G3 | Yes | Changes the game online | Critical | globe | It changes how the game behaves on online servers, in physics, timing or what the game sends, which affects the other riders on the server. |
+| G3 | Partly | Changes what you see online | Critical | scan-eye | It changes only what you see on your own screen while you're online, not physics, timing or what the game sends. |
+| G12 | Yes | Gets around a game check | Critical | shield-off | It gets around a check the game makes, such as a version or licence check or anti-cheat. |
+| G5 | Yes | Takes over game input | Critical | keyboard | It takes over the game's input or presses keys for you, so the game may do things you didn't press. |
+| G6 | Yes | Changes other plugins | Critical | puzzle | It changes another plugin or tool, which can stop that one working the way its own author intended. |
+| G9 | Yes | Starts with Windows | Critical | rocket | It runs every time Windows starts, even when you aren't playing. |
+| C1 | Yes | Decrypts protected content | Critical | key-round | It removes the protection creators put on their models or textures. |
+| C2 | Yes | Copies others' content | Critical | copy | It saves copies of other creators' models or textures as files on your PC. |
+| C3 | Yes | Shares unprotected content | Critical | lock-open | It shares other creators' content with its protection removed. |
+| T7 | No | No open-source licence (not when T1 is No) | Critical | scale | There is no open-source licence, so others may not be allowed to fix, fork or keep it alive if the author stops. |
+| T1 | No | Closed source | Critical | file-lock | The source isn't public, so nobody outside can read what the release does; the card relies on what the files themselves show. |
+| T2 | Yes | Docs contradict code | Critical | book-x | Its docs describe something its code doesn't do, on a point these questions ask about, so the docs aren't a reliable guide there. |
+| T3 | No | Not traced to source (not when T1 is No or T4 is Yes) | Critical | route-off | The release wasn't built in public from tagged source, so the files can't be tied to the source that is public. |
+| T4 | No | Covered by "Not traced to source", "Not signed or traceable" or "Closed source": the answer is also No when there is no public source to rebuild from | None |  |  |
+| T6 | No | Dependencies not pinned | Critical | pin-off | Its dependencies aren't pinned to exact versions, so a rebuild can pull in different code than the release used. |
+| T1 | Yes | Open source | Positive | code-xml | Anyone can read the full source of this release. |
+| T3 | Yes | Built from public source | Positive | workflow | The release was built in public from tagged source, so the files can be tied to that source. |
+| T4 | Yes | Rebuild matches source | Positive | git-compare | The release was rebuilt from its source and gave the same files. |
+| P5 | Yes | Code-signed | Positive | badge-check | The files are code-signed, so you can confirm who published them and that they weren't changed since. |
+| D1 | No | No internet connections | Positive | wifi-off | It makes no internet connections, so nothing leaves your PC through it. |
 <!-- /rules/scoring.yaml -->

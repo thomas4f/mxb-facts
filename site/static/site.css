@@ -271,6 +271,7 @@ footer p { margin: 0 }
 /* A comment under review: blue with a speech bubble, so it stands out without reading like a finding (it costs nothing). */
 .rv { color: var(--info); background: var(--info-bg); border-color: color-mix(in srgb, var(--info) 40%, transparent) }
 .tag.rv { font-weight: 600 }
+.legend + .prose, .prose + .legend { margin-top: var(--s4) }
 .cx { color: var(--grey); background: var(--grey-bg); border-color: var(--line) }
 .tags .st { font-weight: 500 }
 

@@ -18,7 +18,12 @@
   <dt>{{ mark(k) }}</dt><dd>{{ IX.legend[k] if k in IX.legend else STATES[k].meaning }}.</dd>
   {% endfor %}
   <dt><span class="st rv">Under review</span></dt><dd>{{ SITE.under_review }}.</dd>
-  <dt><span class="tag concern">{{ (IX.tags | selectattr('question', 'equalto', 'D3') | first).label }}</span></dt><dd>A tag. {{ SITE.tags_legend }}.</dd>
+</dl>
+<div class="prose"><h3 id="tags">Tags</h3><p>{{ SITE.tags_legend }}.</p></div>
+<dl class="legend">
+  {% for x in (IX.tags | selectattr('kind', 'equalto', 'critical') | list) + (IX.tags | selectattr('kind', 'equalto', 'positive') | list) %}
+  <dt><span class="tag {{ 'concern' if x.kind == 'critical' else 'positive' }}">{{ x.label }}</span></dt><dd>{{ x.means }} <span class="muted">({{ x.question }} {{ x.answer }})</span></dd>
+  {% endfor %}
 </dl></div>
 <h2 class="h2">In detail</h2>
 <div class="stack tight">

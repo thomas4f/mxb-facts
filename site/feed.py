@@ -255,7 +255,7 @@ def write_feed(SITE,CARDS):
            'money':[{'label':l,'means':x['means'],'grey':l in MLEFT} for l,x in MLAB.items()],
            'categories':[c for c in CATS if any(t['category']==c for t in tools.values())],
            'says_question':SAYSQ,'legend':legend(),'correction_kinds':CKINDS,'links':{'comment':CORRFORM,'recheck':REQFORM,'repo':REPO},
-           'tags':[{'label':x['tag'],'question':x['from'],'answer':x['answer'],'kind':x['kind'].lower(),'icon':x.get('icon')} for x in SC['tags'] if x['kind']!='None'],
+           'tags':[{'label':x['tag'],'question':x['from'],'answer':x['answer'],'kind':x['kind'].lower(),'icon':x.get('icon'),'means':x.get('means')} for x in SC['tags'] if x['kind']!='None'],
            'tools':sorted(tools.values(),key=lambda t:t['name'].lower())}
     check(index,'index')
     json.dump(index,open(out+'index.json','w'),indent=1,ensure_ascii=False)
