@@ -24,6 +24,10 @@
   --t-title: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); --t-section: 700 28px/1.1 var(--f-head); --t-heading: 700 24px/1.15 var(--f-head);
   --t-sub: 700 20px/1.2 var(--f-head); --t-label: 700 12.5px/1.2 var(--f-head);
   --t-score: 700 clamp(48px, 10vw, 128px)/.8 var(--f-head); --t-score-card: 700 34px/1 var(--f-head); --t-score-row: 700 18px var(--f-head);
+  /* Width: every page's column is --w-page wide, and its panels, folds, tables, grids and pictures span it. Running text,
+     read line by line (paragraphs, list items, answers, code), stops at --w-text on every page, in a panel or not, so a line
+     is never longer on one page than on another (the rule is under "Width" below). */
+  --w-page: 1180px; --w-text: 43rem;
   --r: 12px; --r-ctl: 8px; color-scheme: dark;
 }
 @media (prefers-color-scheme: light) { :root:not([data-theme="dark"]) {
@@ -53,7 +57,7 @@ h1, h2, h3, h4 { text-wrap: balance; margin: 0 }
 
 .top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line) }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 11; background: var(--bg) }
-.top .in { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--s1) var(--s3); padding: var(--s3) max(16px, env(safe-area-inset-right, 0px)) var(--s1) max(16px, env(safe-area-inset-left, 0px)) }
+.top .in { max-width: var(--w-page); margin: 0 auto; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--s1) var(--s3); padding: var(--s3) max(16px, env(safe-area-inset-right, 0px)) var(--s1) max(16px, env(safe-area-inset-left, 0px)) }
 /* On a phone the header scrolls away (the brand and the theme on one row, the links under them); from 760 px it stays, on one row. */
 .top .nav { grid-column: 1 / -1; grid-row: 2 }
 .here { display: none }
@@ -82,13 +86,13 @@ small.of { font-size: max(12px, .42em); font-weight: 700; color: var(--muted); l
 
 /* Spacing: a section's heading sits close to what it heads (--s3); sections, and folds standing alone, are --s5 apart. */
 .wrap > .h2 + * { margin-top: calc(var(--s3) - var(--s5)) }
-.wrap { max-width: 1180px; margin: 0 auto; padding: var(--s5) max(16px, env(safe-area-inset-right, 0px)) var(--s7) max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: var(--s5) }
+.wrap { max-width: var(--w-page); margin: 0 auto; padding: var(--s5) max(16px, env(safe-area-inset-right, 0px)) var(--s7) max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: var(--s5) }
 .stack { display: grid; gap: var(--s5) }
 .hero { background: var(--hero); border: 1px solid var(--line); border-radius: 16px; padding: var(--s5); display: grid; gap: var(--s3) }
 /* Every title on the site, and on the link previews (preview.py), is the head face at 700; the hero's only differs in size. */
 .hero h1 { font: var(--t-title) }
 .hero h1 span { color: var(--accent) }
-.hero p { margin: 0; color: var(--muted); max-width: 60ch; font-size: 16.5px }
+.hero p { margin: 0; color: var(--muted); font-size: 16.5px }
 /* The big wordmark beside the heading, on desktop only, centred on the hero's height. */
 .hlogo { display: none }
 @media (min-width: 900px) { .hero { grid-template-columns: minmax(0, 1fr) 38%; column-gap: var(--s6) } .hero > h1 { grid-column: 1 / -1; grid-row: 1 } .hero > :not(h1):not(.hlogo) { grid-column: 1 }
@@ -161,7 +165,7 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 @media (max-width: 620px) { .thead { grid-template-areas: "crumb crumb" "name big" "meta meta" "sum sum"; column-gap: var(--s4) } }
 .thead h1 { grid-area: name; min-width: 0; font: var(--t-title) } .thead h1 small { font-size: .5em; color: var(--muted); font-weight: 700 }
 .thead .meta { grid-area: meta; color: var(--muted); margin-top: var(--s2) }
-.thead .sum { grid-area: sum; margin: var(--s3) 0 0; font-size: 17px; max-width: 65ch }
+.thead .sum { grid-area: sum; margin: var(--s3) 0 0; font-size: 17px }
 .big { grid-area: big; margin: 0; align-self: start; white-space: nowrap }
 .big b { display: block; font: var(--t-score); letter-spacing: -.01em } .big small.of { font-size: .32em }
 .big.word { padding-top: var(--s2) } .big.word .st { font-size: 15px; padding: var(--s1) var(--s3) }
@@ -269,7 +273,7 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
   table.cmp td::before { content: attr(data-l); color: var(--muted); font-size: 13.5px }
 }
 /* Reading pages (How it works, For authors) */
-.prose { max-width: 78ch; display: grid; gap: var(--s4) }
+.prose { display: grid; gap: var(--s4) }
 .prose p, .prose ul, .prose ol { margin: 0 }
 .prose li + li { margin-top: var(--s2) }
 .prose table { border-collapse: collapse; font-size: 14px; display: block; overflow-x: auto }
@@ -277,7 +281,7 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
 .prose th { color: var(--muted); font-weight: 600 }
 .prose h2, .prose h3 { font: var(--t-sub); margin-top: var(--s2) }
 .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s3) }
-.steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, 78ch); gap: var(--s3); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s4) }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, var(--w-text)); gap: var(--s3); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s4) }
 .steps li::before { content: counter(s); font: var(--t-sub); color: var(--accent) }
 .fold .prose { padding: var(--s4) var(--s4) }
 .legend { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s2) var(--s4); align-items: baseline; font-size: 14.5px; margin: 0 }
@@ -291,10 +295,10 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
 .cpb::before { content: ''; width: 18px; height: 18px; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat }
 
 footer { border-top: 1px solid var(--line); margin-top: var(--s2) }
-footer .in { max-width: 1180px; margin: 0 auto; padding: var(--s4) max(16px, env(safe-area-inset-right, 0px)) var(--s5) max(16px, env(safe-area-inset-left, 0px)); color: var(--muted); font-size: 14px; display: grid; gap: var(--s3) }
+footer .in { max-width: var(--w-page); margin: 0 auto; padding: var(--s4) max(16px, env(safe-area-inset-right, 0px)) var(--s5) max(16px, env(safe-area-inset-left, 0px)); color: var(--muted); font-size: 14px; display: grid; gap: var(--s3) }
 footer p { margin: 0 }
 .fgrid { display: grid; gap: var(--s4) var(--s6); grid-template-columns: 1fr 1fr }
-.fabout { grid-column: 1 / -1; display: grid; align-content: start; gap: var(--s2); max-width: 40ch } .fabout .brand { font-size: 20px; justify-self: start }
+.fabout { grid-column: 1 / -1; display: grid; align-content: start; gap: var(--s2); max-width: var(--w-text) } .fabout .brand { font-size: 20px; justify-self: start }
 @media (min-width: 760px) { .fgrid { grid-template-columns: 2fr 1fr 1fr } .fabout { grid-column: auto } }
 .flinks { display: grid; align-content: start; gap: 0 } .fh { margin: 0 0 var(--s1) }
 .flinks a { color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; min-height: 36px; justify-self: start } .flinks a:hover { color: var(--accent); text-decoration: underline }
@@ -344,7 +348,7 @@ code.hash { font-size: 12px }
 .snip { display: grid; gap: var(--s1); min-width: 0 } .snip pre { white-space: pre-wrap; overflow-wrap: anywhere }
 .badges { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s3) } .bopt { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s1) } .bopt img { max-width: 100%; height: auto }
 .lims.plain { list-style: none; padding-left: 0 }
-.measure { max-width: 78ch; margin: 0 }
+.measure { margin: 0 }
 .nflinks { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s2) }
 .ft { display: inline-flex; gap: var(--s2); align-items: baseline }
 .cmptools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s3) }
@@ -371,3 +375,10 @@ details.fold > summary h3.ft { font: inherit }
 /* Inside a box, the box's padding is the only space at its edges. */
 .box > :first-child, .pad > :first-child, .prose > :first-child { margin-top: 0 }
 .box > :last-child, .pad > :last-child, .prose > :last-child { margin-bottom: 0 }
+
+/* Width (the tokens are in :root): running text stops at --w-text wherever it stands; what it sits in still spans the page. A
+   table, a grid of cards and a picture are not running text and keep the full width; a legend is (a term, then its sentence). */
+:is(.hero p, .thead .sum, .wrap > p:not(.ainote, .notice), .fabout, .measure, .prose > :not(table), .box > p:not(.lead), .pad > p:not(.lead), .legend, .row .rb, .also p, .lims li, .chg li, .facts dd, .emb > p, .copy) { max-width: var(--w-text) }
+/* A lead line and a note are framed across the page (a rule under it, a box round it), so their text stops at the measure
+   through their padding instead. tests/site/tests/layout.spec.mjs fails on running text wider than --w-text on any page. */
+.lead, .notice, .wrap > .ainote { padding-right: max(var(--s4), calc(100% - var(--w-text))) }

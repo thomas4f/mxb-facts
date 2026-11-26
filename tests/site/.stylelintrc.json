@@ -27,10 +27,14 @@
         ],
         "/^font$/": [
           "/var\\(--f-head\\)/"
+        ],
+        "/^max-width$/": [
+          "/\\d(ch|rem|em)\\b/",
+          "/1180px/"
         ]
       },
       {
-        "message": "Use a spacing token (var(--s0) to var(--s7)) for padding, margin and gap, and a type token (var(--t-title) and the others in :root) for a font in the head face"
+        "message": "Use a spacing token (var(--s0) to var(--s7)) for padding, margin and gap, a type token (var(--t-title) and the others in :root) for a font in the head face, and a width token (var(--w-page), var(--w-text)) for a page's or a text's width"
       }
     ]
   }
