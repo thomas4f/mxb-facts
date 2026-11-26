@@ -1,0 +1,18 @@
+$ grep -nE 'STEAM_REGISTRY_QUERY =|LIBRARY_FOLDERS_FILE =|appmanifest_|MODS_PATH =|PROFILES_PATH =|GLOBAL_INI_FILENAME =|GAME_APP_ID =|readFileSync\(|function findSteamPath|function findGameInLibraries|function parseProfileInfo' asar/out/main/index.js
+30:const GAME_APP_ID = "848050";
+114:const STEAM_REGISTRY_QUERY = 'reg query "HKEY_CURRENT_USER\\Software\\Valve\\Steam" /v SteamPath';
+116:const LIBRARY_FOLDERS_FILE = path.join("steamapps", "libraryfolders.vdf");
+117:const MODS_PATH = path.join(os.homedir(), "Documents", "PiBoSo", "GP Bikes", "mods");
+118:const PROFILES_PATH = path.join(os.homedir(), "Documents", "PiBoSo", "GP Bikes", "profiles");
+119:const GLOBAL_INI_FILENAME = "global.ini";
+173:function findSteamPath() {
+190:function findGameInLibraries(steamDir, appId) {
+193:  const vdf = fs.readFileSync(vdfPath, "utf-8");
+200:    const manifest = path.join(library, "steamapps", `appmanifest_${appId}.acf`);
+202:    const installDir = fs.readFileSync(manifest, "utf-8").match(/"installdir"\s*"([^"]+)"/i)?.[1];
+390:function parseProfileInfo(content) {
+417:    const parsed = parseProfileInfo(fs.readFileSync(iniPath, "utf-8"));
+563:      raw = fs.readFileSync(iniPath, "utf-8");
+615:    previousProfileRaw = fs.readFileSync(iniPath, "utf-8");
+654:  const raw = fs.readFileSync(iniPath, "utf-8");
+(exit 0)

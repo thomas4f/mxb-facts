@@ -1,0 +1,24 @@
+$ grep -nE 'writeFile(Sync)?\(|mkdir(Sync)?\(|rename(Sync)?\(|\.rm\(|rmSync|unlink|copyFile|fs\$1\.link' asar/out/main/index.js
+108:    fs.renameSync(source, backup);
+567:    fs.mkdirSync(path.dirname(iniPath), { recursive: true });
+568:    fs.writeFileSync(iniPath, updateGlobalIniContent(raw, lastprofile, nickname), "utf-8");
+604:      fs.renameSync(oldDir, nextDir);
+616:    fs.writeFileSync(
+625:        fs.renameSync(targetDir, oldDir);
+633:      fs.writeFileSync(iniPath, previousProfileRaw, "utf-8");
+639:        fs.renameSync(targetDir, oldDir);
+655:  fs.writeFileSync(iniPath, updateProfileIniContent(raw, "", ""), "utf-8");
+1259:  fs.writeFileSync(path.join(gamePath, PRACTICE_INI_FILENAME), `${buildPracticeIni()}
+2119:      (entry) => fs$1.mkdir(path.join(paintsDir, path.basename(entry.name, path.extname(entry.name))), {
+2158:    await fs$1.writeFile(previewPath, png, { flag: "wx" });
+2168:      await fs$1.rename(filePath, targetPath);
+2181:    await fs$1.writeFile(tempPath, data);
+2184:        await fs$1.link(tempPath, filePath);
+2192:            await fs$1.writeFile(filePath, data, { flag: "wx" });
+2205:    await fs$1.rm(tempPath, { force: true }).catch(() => {
+2219:          if (stat.mtimeMs < cutoff) await fs$1.rm(filePath, { force: true });
+2251:    await fs$1.mkdir(itemDir, { recursive: true });
+2253:      await fs$1.mkdir(path.join(itemDir, dir), { recursive: true });
+4233:    await fs$1.mkdir(paintDir, { recursive: true });
+4234:    await fs$1.writeFile(path.join(paintDir, PREVIEW_FILENAME), result.png);
+(exit 0)

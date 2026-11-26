@@ -1,0 +1,1359 @@
+    1  cmd.exe  CreateFile  \Device\NamedPipe  SUCCESS
+    1  cmd.exe  CreatePipe  \Device\NamedPipe  SUCCESS
+    1  cmd.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  cmd.exe  Process Create  C:\Windows\SysWOW64\findstr.exe  SUCCESS
+    1  cmd.exe  Process Create  C:\Windows\SysWOW64\tasklist.exe  SUCCESS
+    1  cmd.exe  Process Exit    SUCCESS
+    1  cmd.exe  Process Start    SUCCESS
+    1  findstr.exe  Process Exit    SUCCESS
+    1  findstr.exe  Process Start    SUCCESS
+    6  KneeDown-preset.exe  CreateFile  \Device\NamedPipe  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  \Device\NamedPipe\srvsvc  SUCCESS
+    6  KneeDown-preset.exe  CreateFile  C:\Users  NAME COLLISION
+    7  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+    6  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData  NAME COLLISION
+    7  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local  NAME COLLISION
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\client-updater  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\client-updater\installer.exe  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches  NAME COLLISION
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches\{AFBF9F1A-8EE8-4C77-AF34-C647E37CA0D9}.1.ver0x0000000000000000.db  NAME NOT FOUND
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs  NAME COLLISION
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown  NAME COLLISION
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\chrome_100_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\chrome_200_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\d3dcompiler_47.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\dxcompiler.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\dxil.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\ffmpeg.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\icudtl.dat  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\libEGL.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\libGLESv2.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\LICENSE.electron.txt  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\LICENSES.chromium.html  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\af.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\am.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ar.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\bg.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\bn.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ca.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\cs.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\da.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\de.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\el.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\en-GB.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\en-US.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\es-419.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\es.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\et.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fa.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fi.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fil.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fr.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\gu.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\he.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hi.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hr.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hu.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\id.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\it.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ja.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\kn.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ko.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\lt.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\lv.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ml.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\mr.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ms.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\nb.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\nl.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pl.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pt-BR.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pt-PT.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ro.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ru.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sk.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sl.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sr.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sv.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sw.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ta.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\te.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\th.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\tr.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\uk.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ur.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\vi.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\zh-CN.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\zh-TW.pak  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources.pak  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app-update.yml  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\elevate.exe  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\snapshot_blob.bin  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\Uninstall KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\v8_context_snapshot.bin  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vk_swiftshader_icd.json  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vk_swiftshader.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vulkan-1.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp  NAME COLLISION
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp  NAME COLLISION
+    5  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out  NAME COLLISION
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSE.electron.txt  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  SUCCESS
+   55  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales  NAME COLLISION
+    6  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  SUCCESS
+    7  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources  NAME COLLISION
+    6  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app-update.yml  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  SUCCESS
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked  NAME COLLISION
+    6  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources  NAME COLLISION
+    6  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader_icd.json  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  SUCCESS
+    4  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  SUCCESS
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\app-64.7z  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsExec.dll  NAME COLLISION
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsExec.dll  SUCCESS
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsis7z.dll  SUCCESS
+    7  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\StdUtils.dll  NAME COLLISION
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\StdUtils.dll  SUCCESS
+  311  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\System.dll  NAME COLLISION
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\System.dll  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\UAC.dll  NAME COLLISION
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\UAC.dll  SUCCESS
+    1  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\WinShell.dll  NAME COLLISION
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\WinShell.dll  SUCCESS
+    2  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsj5D15.tmp  SUCCESS
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Knee Down.lnk  SUCCESS
+    3  KneeDown-preset.exe  CreateFile  C:\Users\runneradmin\Desktop\Knee Down.lnk  SUCCESS
+    6  KneeDown-preset.exe  CreatePipe  \Device\NamedPipe  SUCCESS
+   91  KneeDown-preset.exe  DeviceIoControl  C:\Users  FAST IO DISALLOWED
+   91  KneeDown-preset.exe  DeviceIoControl  C:\Users  INVALID PARAMETER
+    2  KneeDown-preset.exe  DeviceIoControl  C:\Users\desktop.ini  FAST IO DISALLOWED
+    2  KneeDown-preset.exe  DeviceIoControl  C:\Users\desktop.ini  INVALID PARAMETER
+   89  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin  FAST IO DISALLOWED
+   89  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin  INVALID PARAMETER
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData  FAST IO DISALLOWED
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData  INVALID PARAMETER
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local  FAST IO DISALLOWED
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local  INVALID PARAMETER
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp  FAST IO DISALLOWED
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp  INVALID PARAMETER
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp  FAST IO DISALLOWED
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp  INVALID PARAMETER
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out  FAST IO DISALLOWED
+   78  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSE.electron.txt  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSE.electron.txt  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  INVALID PARAMETER
+   55  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales  FAST IO DISALLOWED
+   55  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  INVALID PARAMETER
+    5  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources  FAST IO DISALLOWED
+    5  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app-update.yml  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app-update.yml  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  INVALID PARAMETER
+    2  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked  FAST IO DISALLOWED
+    2  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked  INVALID PARAMETER
+    2  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources  FAST IO DISALLOWED
+    2  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader_icd.json  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader_icd.json  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Contacts  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Contacts  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Contacts\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Contacts\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Desktop  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Desktop  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Desktop\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Desktop\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Documents  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Documents  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Downloads  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Downloads  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Downloads\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Downloads\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Favorites  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Favorites  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Favorites\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Favorites\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Links  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Links  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Links\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Links\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Music  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Music  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Music\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Music\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Pictures  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Pictures  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Pictures\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Pictures\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Saved Games  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Saved Games  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Saved Games\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Saved Games\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Searches  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Searches  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Searches\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Searches\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Videos  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Videos  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Videos\desktop.ini  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  C:\Users\runneradmin\Videos\desktop.ini  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start\release  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start\release  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start\release\KneeDown-preset.exe  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start\release\KneeDown-preset.exe  INVALID PARAMETER
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start\release\KneeDown-preset.exe\KneeDown-preset.exe  FAST IO DISALLOWED
+    1  KneeDown-preset.exe  DeviceIoControl  D:\a\_temp\mxbfacts\run-install-and-start\release\KneeDown-preset.exe\KneeDown-preset.exe  INVALID PARAMETER
+    2  KneeDown-preset.exe  FileSystemControl  \Device\NamedPipe  BUFFER OVERFLOW
+  158  KneeDown-preset.exe  FileSystemControl  \Device\NamedPipe  SUCCESS
+    1  KneeDown-preset.exe  FileSystemControl  \Device\NamedPipe\srvsvc  SUCCESS
+  182  KneeDown-preset.exe  FileSystemControl  C:\Users  NOT REPARSE POINT
+  178  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin  NOT REPARSE POINT
+  156  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData  NOT REPARSE POINT
+  156  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Programs\KneeDown  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\KneeDown.exe  SUCCESS
+  156  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp  NOT REPARSE POINT
+  156  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp  NOT REPARSE POINT
+  156  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out  NOT REPARSE POINT
+    1  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  NOT SUPPORTED
+  110  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales  NOT REPARSE POINT
+   10  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources  NOT REPARSE POINT
+    4  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked  NOT REPARSE POINT
+    4  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Contacts  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Desktop  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Documents  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Downloads  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Favorites  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Links  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Music  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Pictures  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Saved Games  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Searches  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  C:\Users\runneradmin\Videos  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  D:\a  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  D:\a\_temp  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  D:\a\_temp\mxbfacts  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  D:\a\_temp\mxbfacts\run-install-and-start  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  D:\a\_temp\mxbfacts\run-install-and-start\release  NOT REPARSE POINT
+    2  KneeDown-preset.exe  FileSystemControl  D:\a\_temp\mxbfacts\run-install-and-start\release\KneeDown-preset.exe  NOT REPARSE POINT
+    1  KneeDown-preset.exe  Process Create  C:\Windows\SysWOW64\cmd.exe  SUCCESS
+    2  KneeDown-preset.exe  Process Create  C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe  SUCCESS
+    1  KneeDown-preset.exe  Process Exit    SUCCESS
+    1  KneeDown-preset.exe  Process Start    SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\Software  SUCCESS
+    3  KneeDown-preset.exe  RegCreateKey  HKCU\Software\ef4c3247-2f57-53ed-9ef5-575378f91ba2  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Shell Extensions\Cached  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2  NAME NOT FOUND
+   14  KneeDown-preset.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\SyncRootManager  SUCCESS
+    1  KneeDown-preset.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Explorer  SUCCESS
+    2  KneeDown-preset.exe  RegCreateKey  HKLM\SYSTEM\Software\Microsoft\TIP\AggregateResults  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\System32\urlmon.dll,-4200  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\ef4c3247-2f57-53ed-9ef5-575378f91ba2\InstallLocation  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\ef4c3247-2f57-53ed-9ef5-575378f91ba2\KeepShortcuts  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\ef4c3247-2f57-53ed-9ef5-575378f91ba2\ShortcutName  SUCCESS
+    2  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+    2  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+    2  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+    2  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Shell Extensions\Cached\{40DD6E20-7C17-11CE-A804-00AA003CA9F6} {000214FC-0000-0000-C000-000000000046} 0xFFFF  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\Comments  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\DisplayIcon  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\DisplayName  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\DisplayVersion  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\EstimatedSize  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\HelpLink  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\NoModify  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\NoRepair  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\Publisher  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\QuietUninstallString  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\Readme  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\UninstallString  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\URLInfoAbout  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\ef4c3247-2f57-53ed-9ef5-575378f91ba2\URLUpdateInfo  SUCCESS
+    2  KneeDown-preset.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC3475  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKLM\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\GlobalAssocChangedCounter  SUCCESS
+    1  KneeDown-preset.exe  RegSetValue  HKLM\SYSTEM\Software\Microsoft\TIP\AggregateResults\data  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  SUCCESS
+    1  KneeDown-preset.exe  SetAllocationInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\client-updater\installer.exe  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\chrome_100_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\chrome_200_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\d3dcompiler_47.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\dxcompiler.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\dxil.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\ffmpeg.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\icudtl.dat  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\libEGL.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\libGLESv2.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\LICENSE.electron.txt  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\LICENSES.chromium.html  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\af.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\am.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ar.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\bg.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\bn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ca.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\cs.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\da.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\de.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\el.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\en-GB.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\en-US.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\es-419.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\es.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\et.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fa.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fil.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\gu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\he.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\id.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\it.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ja.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\kn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ko.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\lt.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\lv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ml.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\mr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ms.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\nb.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\nl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pt-BR.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pt-PT.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ro.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ru.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sw.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ta.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\te.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\th.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\tr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\uk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ur.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\vi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\zh-CN.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\zh-TW.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources.pak  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app-update.yml  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\elevate.exe  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\snapshot_blob.bin  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\Uninstall KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\v8_context_snapshot.bin  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vk_swiftshader_icd.json  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vk_swiftshader.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vulkan-1.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSE.electron.txt  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  SUCCESS
+    4  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  SUCCESS
+    4  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app-update.yml  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  SUCCESS
+    4  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked  SUCCESS
+    4  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader_icd.json  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  SUCCESS
+    3  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  SUCCESS
+    2  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\app-64.7z  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsExec.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsis7z.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\StdUtils.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\System.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\UAC.dll  SUCCESS
+    1  KneeDown-preset.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\WinShell.dll  SUCCESS
+    2  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSE.electron.txt  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app-update.yml  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader_icd.json  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\app-64.7z  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsExec.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsis7z.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\StdUtils.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\System.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\UAC.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\WinShell.dll  SUCCESS
+    1  KneeDown-preset.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nsj5D15.tmp  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\client-updater\installer.exe  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\chrome_100_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\chrome_200_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\d3dcompiler_47.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\dxcompiler.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\dxil.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\ffmpeg.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\icudtl.dat  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\libEGL.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\libGLESv2.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\LICENSE.electron.txt  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\LICENSES.chromium.html  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\af.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\am.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ar.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\bg.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\bn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ca.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\cs.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\da.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\de.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\el.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\en-GB.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\en-US.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\es-419.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\es.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\et.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fa.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fil.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\fr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\gu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\he.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\hu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\id.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\it.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ja.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\kn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ko.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\lt.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\lv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ml.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\mr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ms.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\nb.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\nl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pt-BR.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\pt-PT.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ro.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ru.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\sw.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ta.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\te.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\th.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\tr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\uk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\ur.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\vi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\zh-CN.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\locales\zh-TW.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app-update.yml  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\resources\elevate.exe  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\snapshot_blob.bin  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\v8_context_snapshot.bin  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vk_swiftshader_icd.json  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vk_swiftshader.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\vulkan-1.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsExec.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsis7z.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\StdUtils.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\System.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\UAC.dll  SUCCESS
+    1  KneeDown-preset.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\WinShell.dll  SUCCESS
+    1  KneeDown-preset.exe  SetPipeInformation  \Device\NamedPipe\srvsvc  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  \Device\NamedPipe\srvsvc  SUCCESS
+    6  KneeDown-preset.exe  WriteFile  C:\$LogFile  SUCCESS
+    3  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\Uninstall KneeDown.exe  FAST IO DISALLOWED
+   10  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Programs\KneeDown\Uninstall KneeDown.exe  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_100_percent.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\chrome_200_percent.pak  SUCCESS
+   19  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\d3dcompiler_47.dll  SUCCESS
+  100  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxcompiler.dll  SUCCESS
+    6  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\dxil.dll  SUCCESS
+   12  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\ffmpeg.dll  SUCCESS
+   10  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\icudtl.dat  SUCCESS
+  805  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\KneeDown.exe  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libEGL.dll  SUCCESS
+   33  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\libGLESv2.dll  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSE.electron.txt  SUCCESS
+   15  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\LICENSES.chromium.html  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\af.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\am.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ar.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bg.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\bn.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ca.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\cs.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\da.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\de.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\el.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-GB.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\en-US.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es-419.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\es.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\et.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fa.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fi.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fil.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\fr.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\gu.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\he.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hi.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hr.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\hu.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\id.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\it.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ja.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\kn.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ko.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lt.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\lv.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ml.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\mr.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ms.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nb.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\nl.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pl.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-BR.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\pt-PT.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ro.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ru.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sk.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sl.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sr.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sv.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\sw.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ta.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\te.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\th.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\tr.pak  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\uk.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\ur.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\vi.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-CN.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\locales\zh-TW.pak  SUCCESS
+    7  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources.pak  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app-update.yml  SUCCESS
+   53  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.ico  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\app.asar.unpacked\resources\icon.png  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\resources\elevate.exe  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\snapshot_blob.bin  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\v8_context_snapshot.bin  SUCCESS
+    1  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader_icd.json  SUCCESS
+   22  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vk_swiftshader.dll  SUCCESS
+    4  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\7z-out\vulkan-1.dll  SUCCESS
+  191  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\app-64.7z  FAST IO DISALLOWED
+ 3013  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\app-64.7z  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsExec.dll  SUCCESS
+    5  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsis7z.dll  FAST IO DISALLOWED
+   19  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\nsis7z.dll  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\StdUtils.dll  FAST IO DISALLOWED
+    6  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\StdUtils.dll  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\System.dll  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\UAC.dll  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse5E7D.tmp\WinShell.dll  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Knee Down.lnk  SUCCESS
+    2  KneeDown-preset.exe  WriteFile  C:\Users\runneradmin\Desktop\Knee Down.lnk  SUCCESS
+    2  powershell.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+    2  powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-NonInteractive  SUCCESS
+    2  powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_biij5si1.dr5.ps1  SUCCESS
+    2  powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_jzm0w54p.jqt.psm1  SUCCESS
+    2  powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_nuz5xfw3.xp4.psm1  SUCCESS
+    2  powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_y0u2hzeo.sen.ps1  SUCCESS
+    2  powershell.exe  CreateFile  C:\Users\runneradmin\AppData\Roaming  NAME COLLISION
+    2  powershell.exe  CreateFile  C:\Windows\System32\CatRoot  NAME COLLISION
+    2  powershell.exe  CreateFile  C:\Windows\System32\catroot2  NAME COLLISION
+    1  powershell.exe  CreatePipe  \Device\NamedPipe\PSHost.134401528629739148.4784.DefaultAppDomain.powershell  SUCCESS
+    1  powershell.exe  CreatePipe  \Device\NamedPipe\PSHost.134401528698240303.3452.DefaultAppDomain.powershell  SUCCESS
+    2  powershell.exe  DeviceIoControl  C:\Program Files  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Program Files  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7\Modules  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7\Modules  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7\Modules\Microsoft.PowerShell.Security  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7\Modules\Microsoft.PowerShell.Security  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7\Modules\Microsoft.PowerShell.Security\Security.types.ps1xml  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Program Files\PowerShell\7\Modules\Microsoft.PowerShell.Security\Security.types.ps1xml  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Users  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Users  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local  INVALID PARAMETER
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp  FAST IO DISALLOWED
+    2  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp  INVALID PARAMETER
+    1  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_biij5si1.dr5.ps1  FAST IO DISALLOWED
+    1  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_biij5si1.dr5.ps1  INVALID PARAMETER
+    1  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_y0u2hzeo.sen.ps1  FAST IO DISALLOWED
+    1  powershell.exe  DeviceIoControl  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_y0u2hzeo.sen.ps1  INVALID PARAMETER
+    1  powershell.exe  FileSystemControl  \Device\NamedPipe\PSHost.134401528629739148.4784.DefaultAppDomain.powershell  PIPE BROKEN
+    1  powershell.exe  FileSystemControl  \Device\NamedPipe\PSHost.134401528698240303.3452.DefaultAppDomain.powershell  PIPE BROKEN
+    4  powershell.exe  FileSystemControl  C:\Program Files  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Program Files\PowerShell  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Program Files\PowerShell\7  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Program Files\PowerShell\7\Modules  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Program Files\PowerShell\7\Modules\Microsoft.PowerShell.Security  NOT REPARSE POINT
+    2  powershell.exe  FileSystemControl  C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26100.4-0\X86\MpOAV.dll  SUCCESS
+    4  powershell.exe  FileSystemControl  C:\Users  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Users\runneradmin  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Users\runneradmin\AppData  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local  NOT REPARSE POINT
+    4  powershell.exe  FileSystemControl  C:\Users\runneradmin\AppData\Local\Temp  NOT REPARSE POINT
+    2  powershell.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    2  powershell.exe  Process Exit    SUCCESS
+    2  powershell.exe  Process Start    SUCCESS
+    4  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\CA  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+   10  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\Disallowed  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\Root  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\Root\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\SmartCardRoot  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\trust  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\SystemCertificates\TrustedPublisher  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher\Certificates  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher\CRLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher\CTLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\WinTrust\Trust Providers\Software Publishing  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\CA  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\Disallowed  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+    5  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\trust  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\Software\Policies\Microsoft\SystemCertificates\TrustedPublisher  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPublisher\Certificates  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPublisher\CRLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKCU\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPublisher\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\CA\CTLs  SUCCESS
+   10  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\Certificates  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\CRLs  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Disallowed\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Root\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\trust  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\Trust\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPeople\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPublisher  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPublisher\Certificates  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPublisher\CRLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\EnterpriseCertificates\TrustedPublisher\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\AuthRoot\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+   10  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\FlightRoot\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\Root  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\ROOT\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\SmartCardRoot\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TestSignRoot\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher\Certificates  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher\CRLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\SystemCertificates\TrustedPublisher\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\CA\CTLs  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\Certificates  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CRLs  SUCCESS
+    5  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\Root\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\trust\CTLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\Certificates  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CRLs  SUCCESS
+    2  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPeople\CTLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPublisher  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPublisher\Certificates  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPublisher\CRLs  SUCCESS
+    1  powershell.exe  RegCreateKey  HKLM\SOFTWARE\Policies\Microsoft\SystemCertificates\TrustedPublisher\CTLs  SUCCESS
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EnterpriseCertificates\CA  REPARSE
+   10  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EnterpriseCertificates\Disallowed  REPARSE
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EnterpriseCertificates\Root  REPARSE
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EnterpriseCertificates\trust  REPARSE
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EnterpriseCertificates\TrustedPeople  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\EnterpriseCertificates\TrustedPublisher  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\AuthRoot  REPARSE
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\CA  REPARSE
+   10  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\Disallowed  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\FlightRoot  REPARSE
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\Root  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\SmartCardRoot  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\TestSignRoot  REPARSE
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\trust  REPARSE
+    4  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\TrustedPeople  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\SystemCertificates\TrustedPublisher  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Policies\Microsoft\SystemCertificates\CA  REPARSE
+    5  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Policies\Microsoft\SystemCertificates\Disallowed  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Policies\Microsoft\SystemCertificates\Root  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Policies\Microsoft\SystemCertificates\trust  REPARSE
+    2  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Policies\Microsoft\SystemCertificates\TrustedPeople  REPARSE
+    1  powershell.exe  RegCreateKey  HKLM\Software\WOW6432Node\Policies\Microsoft\SystemCertificates\TrustedPublisher  REPARSE
+    1  powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\system32\dnsapi.dll,-103  SUCCESS
+    1  powershell.exe  RegSetValue  HKCU\Software\Classes\Local Settings\MuiCache\1b4\52C64B7E\@%SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe,-124  SUCCESS
+    2  powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+    2  powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+    2  powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+    2  powershell.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+    1  powershell.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_biij5si1.dr5.ps1  SUCCESS
+    1  powershell.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_jzm0w54p.jqt.psm1  SUCCESS
+    1  powershell.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_nuz5xfw3.xp4.psm1  SUCCESS
+    1  powershell.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_y0u2hzeo.sen.ps1  SUCCESS
+    9  powershell.exe  WriteFile  \Device\NamedPipe  SUCCESS
+    2  powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\PowerShell\StartupProfileData-NonInteractive  SUCCESS
+    1  powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_biij5si1.dr5.ps1  SUCCESS
+    1  powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_jzm0w54p.jqt.psm1  SUCCESS
+    1  powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_nuz5xfw3.xp4.psm1  SUCCESS
+    1  powershell.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\__PSScriptPolicyTest_y0u2hzeo.sen.ps1  SUCCESS
+    1  tasklist.exe  FileSystemControl  C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.26100.4-0\X86\MpOAV.dll  SUCCESS
+    1  tasklist.exe  Process Exit    SUCCESS
+    1  tasklist.exe  Process Start    SUCCESS
+    2  tasklist.exe  RegCreateKey  HKLM\Software\WOW6432Node\Microsoft\WBEM\CIMOM  SUCCESS
+    1  tasklist.exe  WriteFile  \Device\NamedPipe  SUCCESS

@@ -1,0 +1,78 @@
+$ cat app/resources/app-update.yml; echo; echo '== latest.yml'; cat latest.yml; echo '== the app (out/main/index.js)'; grep -nE 'autoUpdater\.(autoDownload|autoInstallOnAppQuit|checkForUpdates|downloadUpdate|quitAndInstall)|CHECK_INTERVAL_MS =|did-finish-load|startPeriodicChecks\(\);|if \(!app.isPackaged\) return' asar/out/main/index.js; echo '== electron-updater: NsisUpdater.js (signature check only with a publisherName)'; sed -n '50,57p;84,100p' asar/node_modules/electron-updater/out/NsisUpdater.js; echo '== electron-updater: AppUpdater.js (install ID header, .updaterId)'; sed -n '386,387p;501,519p' asar/node_modules/electron-updater/out/AppUpdater.js; echo '== electron-updater: sha512 check of the download'; grep -n 'sha512' asar/node_modules/electron-updater/out/AppUpdater.js asar/node_modules/electron-updater/out/providers/GitHubProvider.js | head -5
+owner: gsv-r
+repo: knee-down
+provider: github
+private: false
+releaseType: release
+updaterCacheDirName: client-updater
+
+== latest.yml
+version: 0.1.8
+files:
+  - url: KneeDown-preset.exe
+    sha512: oUEvY5+6LDUgMVWb+RsS+O+/fGNPen2jsFupbY2wEkg4SgPgB9hwtWnY0jpxSVviKHUC3RymUvzJxXc794Glcg==
+    size: 99302836
+path: KneeDown-preset.exe
+sha512: oUEvY5+6LDUgMVWb+RsS+O+/fGNPen2jsFupbY2wEkg4SgPgB9hwtWnY0jpxSVviKHUC3RymUvzJxXc794Glcg==
+releaseDate: '2026-11-04T20:13:14.051Z'
+== the app (out/main/index.js)
+3294:const CHECK_INTERVAL_MS = 60 * 60 * 1e3;
+3316:  autoUpdater.autoDownload = false;
+3317:  autoUpdater.autoInstallOnAppQuit = true;
+3372:  if (!app.isPackaged) return;
+3373:  window.webContents.once("did-finish-load", () => {
+3376:    startPeriodicChecks();
+3406:    const result = await autoUpdater.checkForUpdates();
+3448:    await autoUpdater.downloadUpdate();
+3462:  autoUpdater.quitAndInstall(false, true);
+== electron-updater: NsisUpdater.js (signature check only with a publisherName)
+                    await this.httpExecutor.download(fileInfo.url, destinationFile, downloadOptions);
+                }
+                const signatureVerificationStatus = await this.verifySignature(destinationFile);
+                if (signatureVerificationStatus != null) {
+                    await removeTempDirIfAny();
+                    // noinspection ThrowInsideFinallyBlockJS
+                    throw (0, builder_util_runtime_1.newError)(`New version ${downloadUpdateOptions.updateInfoAndProvider.info.version} is not signed by the application owner: ${signatureVerificationStatus}`, "ERR_UPDATER_INVALID_SIGNATURE");
+                }
+    async verifySignature(tempUpdateFile) {
+        let publisherName;
+        try {
+            publisherName = (await this.configOnDisk.value).publisherName;
+            if (publisherName == null) {
+                return null;
+            }
+        }
+        catch (e) {
+            if (e.code === "ENOENT") {
+                // no app-update.yml
+                return null;
+            }
+            throw e;
+        }
+        return await this._verifyUpdateCodeSignature(Array.isArray(publisherName) ? publisherName : [publisherName], tempUpdateFile);
+    }
+== electron-updater: AppUpdater.js (install ID header, .updaterId)
+        const stagingUserId = await this.stagingUserIdPromise.value;
+        client.setRequestHeaders(this.computeFinalHeaders({ "x-user-staging-id": stagingUserId }));
+    async getOrCreateStagingUserId() {
+        const file = path.join(this.app.userDataPath, ".updaterId");
+        try {
+            const id = await (0, fs_extra_1.readFile)(file, "utf-8");
+            if (builder_util_runtime_1.UUID.check(id)) {
+                return id;
+            }
+            else {
+                this._logger.warn(`Staging user id file exists, but content was invalid: ${id}`);
+            }
+        }
+        catch (e) {
+            if (e.code !== "ENOENT") {
+                this._logger.warn(`Couldn't read staging user ID, creating a blank one: ${e}`);
+            }
+        }
+        const id = builder_util_runtime_1.UUID.v5((0, crypto_1.randomBytes)(4096), builder_util_runtime_1.UUID.OID);
+        this._logger.info(`Generated new staging user ID: ${id}`);
+        try {
+== electron-updater: sha512 check of the download
+asar/node_modules/electron-updater/out/AppUpdater.js:565:            sha512: fileInfo.info.sha512,
+(exit 0)

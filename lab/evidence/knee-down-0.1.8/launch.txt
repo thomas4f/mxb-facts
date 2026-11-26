@@ -1,0 +1,55 @@
+$ grep -nE 'PRACTICE_LAUNCH_ARGS =|GAME_PROCESS_NAME =|PRACTICE_INI_FILENAME =' asar/out/main/index.js; sed -n '1258,1275p;1540,1563p;4583,4587p' asar/out/main/index.js; grep -nE 'persistPracticeIni\(\);' asar/out/main/index.js | head -3
+31:const GAME_PROCESS_NAME = "gpbikes.exe";
+32:const PRACTICE_LAUNCH_ARGS = "-testing -set params practice.ini";
+1167:const PRACTICE_INI_FILENAME = "practice.ini";
+function writePracticeIni(gamePath) {
+  fs.writeFileSync(path.join(gamePath, PRACTICE_INI_FILENAME), `${buildPracticeIni()}
+`, "utf-8");
+}
+function persistPracticeIni() {
+  const gamePath = getResolvedGamePath();
+  if (!gamePath) {
+    console.warn("practice.ini not written: game folder not found.");
+    return false;
+  }
+  try {
+    writePracticeIni(gamePath);
+    return true;
+  } catch (error) {
+    console.error("Failed to write practice.ini:", error);
+    return false;
+  }
+}
+const execAsync = promisify(exec);
+async function launch(steamExe, appId, args) {
+  const { stdout, stderr } = await execAsync(`"${steamExe}" -applaunch ${appId} ${args}`);
+  if (stderr) console.log("Launch stderr:", stderr.trim());
+  return stdout;
+}
+function isRunning() {
+  const target = GAME_PROCESS_NAME.toLowerCase();
+  try {
+    const out = execSync(`tasklist /FI "IMAGENAME eq ${GAME_PROCESS_NAME}" /FO CSV /NH`, {
+      windowsHide: true
+    }).toString().toLowerCase();
+    if (out.includes(target)) return true;
+    return false;
+  } catch {
+    try {
+      return execSync("tasklist", { windowsHide: true }).toString().toLowerCase().includes(target);
+    } catch {
+      return false;
+    }
+  }
+}
+function validateAndRepairPracticeState() {
+  const modsAvailable = getResolvedModsPath() !== null;
+    };
+  }
+  writePracticeIni(gamePath);
+  await launch(steamExe, GAME_APP_ID, PRACTICE_LAUNCH_ARGS);
+  return { success: true };
+1286:    persistPracticeIni();
+1296:  persistPracticeIni();
+1303:    persistPracticeIni();
+(exit 0)

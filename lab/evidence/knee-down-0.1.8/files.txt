@@ -1,0 +1,10 @@
+$ sha256sum KneeDown-preset.exe latest.yml 'nsis/$PLUGINSDIR/app-64.7z' 'nsis/$R0/Uninstall KneeDown.exe' app/KneeDown.exe app/resources/app.asar app/resources/elevate.exe app/resources/app-update.yml
+3e26f60d72574dc531051b6381bdac7c5ce7b88c5510151450c68ce27148d824  KneeDown-preset.exe
+7407ef30bf1d52785fdb44c78513a9e3ed47c299c38625e79e671e3cd7bcff9e  latest.yml
+b57db135f70f540d4609502b7fa48c855fc25c34de2e0ab4ecc143c99f42ea33  nsis/$PLUGINSDIR/app-64.7z
+2d06e955ef48556f868aa1db6f64db42fd8f5e1bf30782f7d84908b718ed65c4  nsis/$R0/Uninstall KneeDown.exe
+e50cc071b8d832d1c705dc8c6ffb56b9a863837adc304ae29fbea1d7b2d47400  app/KneeDown.exe
+57856a028dd2c41cbef0ae509431a3645fb0d56383ad926fa0b08549687ee978  app/resources/app.asar
+9b1fbf0c11c520ae714af8aa9af12cfd48503eedecd7398d8992ee94d1b4dc37  app/resources/elevate.exe
+eca89a70914e429440c4277304cbf19d79857c317b7ca687058e3a7e9eea5921  app/resources/app-update.yml
+(exit 0)
