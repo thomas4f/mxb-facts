@@ -20,6 +20,10 @@ maintainer_notice: >-
   **Made by the maintainer of MXB Facts.** thomas4f, who runs this project, makes this tool. It is analysed from the same
   prompt, answers the same questions and is scored by the same fixed costs as every other tool, and every line links its
   evidence, so you can check it yourself ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
+# What "Under review" means, in the Reading a card legend and on the mark's hover.
+under_review: >-
+  Someone has commented on this answer: a correction, something missing, or the author's context. It costs nothing,
+  and no answer, mark or score changes until it is decided
 how_a_card_is_made:
   - >-
     **A tool is requested** through the request form, or the maintainer picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.

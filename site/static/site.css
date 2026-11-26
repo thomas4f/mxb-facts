@@ -17,6 +17,7 @@
   --hero: linear-gradient(135deg, #1e1f22 0%, #26201b 100%);
   --good: #5cc27a; --note: #9aa3ad; --concern: #e0a43a; --major: #ef7a3c; --danger: #ff7a70; --grey: #9a9fa5;
   --good-bg: rgba(92,194,122,.13); --note-bg: rgba(154,163,173,.12); --concern-bg: rgba(224,164,58,.14); --major-bg: rgba(239,122,60,.16); --danger-bg: rgba(240,90,79,.16); --grey-bg: rgba(124,129,135,.12);
+  --info: #6cb6ff; --info-bg: rgba(84,160,255,.14);
   --f-display: "Barlow", system-ui, sans-serif; --f-head: "Barlow Condensed", "Barlow", system-ui, sans-serif; --f-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
   --r: 12px; --r-ctl: 8px; color-scheme: dark;
 }
@@ -24,12 +25,12 @@
   --bg: #f4f1ed; --surface: #ffffff; --sunk: #efebe5; --line: #e0d9cf; --ink: #1c1a17; --muted: #6b655d; --accent: #a8500c; --accent-ink: #ffffff;
   --hero: linear-gradient(135deg, #fffaf4 0%, #f7e8da 100%);
   --good: #1f7a3a; --note: #5f6770; --concern: #8f6200; --major: #b04a0f; --danger: #c4271c; --grey: #5f646a;
-  --good-bg: #e3f3e6; --note-bg: #eceef0; --concern-bg: #fbf0d6; --major-bg: #fbe6d8; --danger-bg: #fbe2df; --grey-bg: #efefef; color-scheme: light } }
+  --good-bg: #e3f3e6; --note-bg: #eceef0; --concern-bg: #fbf0d6; --major-bg: #fbe6d8; --danger-bg: #fbe2df; --grey-bg: #efefef; --info: #0550ae; --info-bg: #ddf4ff; color-scheme: light } }
 :root[data-theme="light"] {
   --bg: #f4f1ed; --surface: #ffffff; --sunk: #efebe5; --line: #e0d9cf; --ink: #1c1a17; --muted: #6b655d; --accent: #a8500c; --accent-ink: #ffffff;
   --hero: linear-gradient(135deg, #fffaf4 0%, #f7e8da 100%);
   --good: #1f7a3a; --note: #5f6770; --concern: #8f6200; --major: #b04a0f; --danger: #c4271c; --grey: #5f646a;
-  --good-bg: #e3f3e6; --note-bg: #eceef0; --concern-bg: #fbf0d6; --major-bg: #fbe6d8; --danger-bg: #fbe2df; --grey-bg: #efefef; color-scheme: light }
+  --good-bg: #e3f3e6; --note-bg: #eceef0; --concern-bg: #fbf0d6; --major-bg: #fbe6d8; --danger-bg: #fbe2df; --grey-bg: #efefef; --info: #0550ae; --info-bg: #ddf4ff; color-scheme: light }
 
 * { box-sizing: border-box }
 [hidden] { display: none !important }
@@ -265,9 +266,11 @@ footer p { margin: 0 }
 @media (prefers-reduced-motion: no-preference) { .card, .area { transition: border-color .15s, background .15s } }
 
 /* Marks and tags carry their icon (icons.css), drawn in the mark's own colour. */
-.st::before { content: ""; width: 12px; height: 12px; flex: none; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat }
+.st::before, .rv::before { content: ""; width: 12px; height: 12px; flex: none; background: currentColor; -webkit-mask: center / contain no-repeat; mask: center / contain no-repeat }
 .tag.concern.major { color: var(--major); border-color: color-mix(in srgb, var(--major) 45%, transparent); background: var(--major-bg); font-weight: 600 }
-.tag.review { border-style: dashed; color: var(--ink) }
+/* A comment under review: blue with a speech bubble, so it stands out without reading like a finding (it costs nothing). */
+.rv { color: var(--info); background: var(--info-bg); border-color: color-mix(in srgb, var(--info) 40%, transparent) }
+.tag.rv { font-weight: 600 }
 .tags .st { font-weight: 500 }
 
 /* Rows: answers and claims, one shape (templates/macros.html, row). */
@@ -275,7 +278,7 @@ footer p { margin: 0 }
 .row .t p { margin: 0 0 var(--s2) } .row .t p:last-child { margin: 0 }
 .row .cmtp { margin: var(--s2) 0 0 } .row .cmt { font-size: 13px; display: inline-flex; align-items: center; min-height: 44px }
 .row .vd { font-weight: 700; font-size: 14px }
-.row .sm.corr { color: var(--ink); border: 1px dashed var(--line); border-radius: 6px; padding: 0 var(--s2) }
+.row .sm.rv { display: inline-flex; align-items: center; gap: var(--s1); border: 1px solid color-mix(in srgb, var(--info) 40%, transparent); border-radius: 6px; padding: 0 var(--s2); color: var(--info) }
 @media (max-width: 520px) { .row { grid-template-columns: 34px minmax(0, 1fr) } }
 .row .v .sm { font-size: 13px }
 a.sm { color: var(--accent) }
