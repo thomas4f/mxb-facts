@@ -106,14 +106,15 @@ def write_pages(SITE):
         if scored and x['cost_note']: return '±0'
         return None
 
-    def changed_marks(ch, scored):
+    def changed_marks(ch, was_scored, scored):
         # A release's changes as its marks: the answers whose mark moved (its state or the cost it shows), drawn as marks alone
         # like Compare; the answers whose mark stayed but whose verdict moved ("No" to "Partly", both a Note), in words, since
         # "Note → Note" says nothing; and how many answers show the same as before, counting those whose only change can't be
         # seen on a mark (a Note no longer counted with another answer costs nothing either way).
-        seen = lambda x: (x['state'], mark_cost(x, scored))
-        moved = [r for r in ch['answers'] if seen(r['from']) != seen(r['to'])]
-        worded = [r for r in ch['answers'] if seen(r['from']) == seen(r['to']) and r['from']['verdict'] != r['to']['verdict']]
+        # Each side as its own release draws it: a release without a score shows no costs.
+        same = lambda r: (r['from']['state'], mark_cost(r['from'], was_scored)) == (r['to']['state'], mark_cost(r['to'], scored))
+        moved = [r for r in ch['answers'] if not same(r)]
+        worded = [r for r in ch['answers'] if same(r) and r['from']['verdict'] != r['to']['verdict']]
         return {'moved': moved, 'worded': worded, 'unchanged': ch['unchanged'] + len(ch['answers']) - len(moved) - len(worded)}
 
     def answer_mark(x, scored, says=False, word=True):
