@@ -35,6 +35,18 @@
   <li><div><b>Go through it with your agent:</b> download the card and paste one prompt. Your agent follows each answer's evidence into your code; we don't suggest fixes.</div></li>
   <li><div><b>Release, then <a href="{{ SITE.links.request }}">request a re-check</a>.</b> The new release gets a new card; the old one stays.</div></li>
   <li><div><b>Something wrong, missing, or context to add?</b> Use "Comment" beside any answer, Good ones included, or <a href="{{ SITE.links.comment }}">comment on an answer</a> with its evidence; it is answered in public.</div></li>
-  <li><div><b>Add the badge to your page:</b> your score in five styles, each pinned to the card's version.</div></li>
+  <li><div><b>Show the card on your pages:</b> the card image for a mods-site post, a forum or your site (it always shows your newest card), the page's address for Discord, which draws the same image, or a badge for a README, pinned to one release. Each comes ready to copy as HTML, Markdown or BBCode.</div></li>
 </ol>
+
+<h2 class="h2" id="embed">Show cards on a mods site or in an app</h2>
+<p class="measure">Every card can be shown without asking us, under <a href="{{ SITE.licence.url }}">{{ SITE.licence.data | replace('-', ' ') }}</a>: credit MXB Facts with a link to the card. Wherever you show a score, show the release it covers and the AI note; the card image has both. The same addresses work for every tool, and the tool's id is the last part of its page's address.</p>
+{% set base = IX.site %}
+<div class="tw"><table class="t"><thead><tr><th scope="col">What</th><th scope="col">Address</th><th scope="col">Shows</th></tr></thead><tbody>
+<tr><td>Card page</td><td><code>{{ base }}&lt;tool&gt;/</code></td><td>The tool's newest card; an earlier release's is at <code>&lt;tool&gt;/&lt;version&gt;/</code>. Chat apps show the card image under it.</td></tr>
+<tr><td>Card image, newest</td><td><code>{{ base }}badge/&lt;tool&gt;/card.png</code></td><td>The tool's newest card, 1200 by 630, at an address that never changes. A newer release with no card yet is named on it.</td></tr>
+<tr><td>Card image, one release</td><td><code>{{ base }}badge/&lt;tool&gt;/&lt;version&gt;-card.png</code></td><td>That release's card, for an app that knows which version is installed. A newer release that has no card yet shows "Not analysed yet".</td></tr>
+<tr><td>Badges, one release</td><td><code>{{ base }}badge/&lt;tool&gt;/&lt;version&gt;.svg</code></td><td>The score as a shield; <code>-flat-square</code>, <code>-for-the-badge</code>, <code>-score</code> and <code>-areas</code> before <code>.svg</code> give the other styles, <code>.json</code> the shields.io endpoint.</td></tr>
+<tr><td>Data feed</td><td><code>{{ base }}api/v1/index.json</code></td><td>Every tool with its newest result and all of the addresses above. <code>match.json</code> finds a tool by its mods-site post, its GitHub repository or the SHA-256 of a file a player has.</td></tr>
+</tbody></table></div>
+<p class="measure">A mods site can look a post up in <code>match.json</code> and show that tool's card image beside it; an app can hash the files it finds and show the card for the exact release installed. <a href="{{ SITE.repo }}blob/main/docs/FEED.md#showing-a-card">The feed's documentation</a> has the details and an example.</p>
 {% endblock %}

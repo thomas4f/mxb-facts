@@ -7,11 +7,11 @@ Usage: from build.py, write_feed(SITE, CARDS) and write_site(SITE, skill, agents
 import datetime, json, jsonschema, os, re, subprocess
 from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PMEANS, QCELL, QIDS, QS, RUBRICV,
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
-from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games
+from cards import COMMIT, CORR, pending_versions, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games
 from badges import BADGES
 
 
-FEED_VERSION='1.0'
+FEED_VERSION='1.1'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
@@ -214,12 +214,14 @@ def write_feed(SITE,CARDS):
         reg=REG[slug]
         mods=[{'site':ms,'post':reg[k]['post'],'url':MM[k]['tools'].get(slug,{}).get('link')} for k,ms in SITES.values() if k in reg and reg[k]['post']]
         badges={(suf or '-flat').lstrip('-'):f'{SITEURL}badge/{slug}/{C["ver"]}{suf}.svg' for suf,_x,_y in BADGES}
+        # The card as one image (site/preview.py, the page's link preview), pinned to this release beside its badges.
+        image=f'{SITEURL}badge/{slug}/{C["ver"]}-card.png'
         vt={r[2].strip('`'):r[3] for r in files_table(f,raw)}
         files=[{'name':x['name'],'sha256':x['sha256'],'note':x.get('note',''),'inside':x.get('inside'),'virustotal':vt[x['sha256']]} for x in raw['files']]
         hist=[{'date':x['date'],'date_iso':iso(x['date']),'change':x['change']} for x in raw.get('history',[])]
         card={**base,'ai_note':note,'card':cid,'tool':slug,'name':C['name'],'version':C['ver'],'latest':latest,'games':games(h),'category':h['Category'],
               'summary':plain(h['In one line']),'author':REG[slug]['author'],'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'method':h['Method'],
-              'page':page,'yaml':f'{SITEURL}cards/{f}','badges':badges,'result':res,'tags':tags,'files':files,
+              'page':page,'yaml':f'{SITEURL}cards/{f}','badges':badges,'card_image':image,'result':res,'tags':tags,'files':files,
               'key_answers':key,'answers':ans,'sections':sections_out(d['sections']),'history':hist,'corrections':raw.get('corrections',[]),
               'facts':facts(h,slug),'header':[{'label':k,'text':h[k]} for k in HEADER if k in h and k not in TOP],'files_note':raw.get('files_note',''),
               'areas':[{'id':AREA_ID[ar],'name':ar,'summary':d['areas'][ar]} for ar in AREAN],
@@ -227,9 +229,11 @@ def write_feed(SITE,CARDS):
         check(card,'card')
         json.dump(card,open(out+f'cards/{cid}.json','w'),indent=1,ensure_ascii=False)
         rel={'version':C['ver'],'card':cid,'analysed':h['Analysed on'],'analysed_iso':iso(h['Analysed on']),'kind':res['kind'],'score':res['score'],
-             'page':page,'json':f'{SITEURL}api/v1/cards/{cid}.json'}
+             'page':page,'json':f'{SITEURL}api/v1/cards/{cid}.json','card_image':image}
+        # card_image: the tool's newest card as one image, at an address that never changes, for a page that shows the tool, not
+        # one release (docs/FEED.md, "Showing a card").
         t=tools.setdefault(slug,{'id':slug,'name':C['name'],'author':reg['author'],'games':games(h),'github':reg['github'],'homepage':reg['homepage'],
-                                 'mods_sites':mods,'releases':[None]*len(order)})
+                                 'mods_sites':mods,'card_image':f'{SITEURL}badge/{slug}/card.png','releases':[None]*len(order)})
         # Newest release first, in the registry's order (rule 2: every card stays).
         t['releases'][len(order)-1-order.index(f)]=rel
         # How many answers are still open, by why, and how many comments are under review: the counts the tools list shows beside the tags.
@@ -239,6 +243,12 @@ def write_feed(SITE,CARDS):
         for k,_ in SITES.values():
             if k in reg and reg[k]['post']: add(found['mods_post'],f'{k}:{reg[k]["post"]}',slug)
         for x in files: add(found['sha256'],x['sha256'],{'tool':slug,'card':cid,'version':C['ver'],'latest':latest,'file':x['name'],'inside':x['inside'],'note':x['note']})
+    # Releases the weekly inventory has seen that are newer than the tool's newest card and have none yet, as published
+    # (cards.pending_versions, as the "Not analysed yet" badges): the newest card image says so.
+    rel_seen=json.load(open(ROOT+'registry/releases.json'))['tools']
+    for slug,t in tools.items():
+        src=rel_seen.get(slug,{}); pub={x.get('version') for x in src.values() if isinstance(x,dict)}
+        t['not_analysed']=[v for v in pending_versions({r['version'] for r in t['releases']},max(r['analysed_iso'] for r in t['releases']),src) if v in pub]
     index={**base,'site':SITEURL,'ai_note':note,
            'areas':[{'id':AREA_ID[ar],'name':ar,'scored':ar in CONCERN} for ar in AREAN],
            'states':[{'id':k,'label':l,'meaning':m,'icon':i} for k,(l,_c,i,m) in STATES.items()],

@@ -297,7 +297,10 @@ details.sub { margin: 0; padding: 0 var(--s4); border-bottom: 1px solid var(--li
 .nowrap { white-space: nowrap }
 code.hash { font-size: 12px }
 .files td .sm { display: block; color: var(--muted); font-size: 13px }
-.badges { display: grid; gap: var(--s3); padding: var(--s2) 0 var(--s4) } .bopt img { max-width: 100%; height: auto }
+.embeds { display: grid; gap: var(--s4); padding-top: var(--s2) } .emb { display: grid; gap: var(--s2) } .emb > p { margin: 0 }
+.embimg { display: block; max-width: 600px } .embimg img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--r) }
+.snip { display: grid; gap: var(--s1); min-width: 0 } .snip pre { white-space: pre-wrap; overflow-wrap: anywhere }
+.badges { display: grid; gap: var(--s3) } .bopt { display: grid; gap: var(--s1) } .bopt img { max-width: 100%; height: auto }
 .lims.plain { list-style: none; padding-left: 0 }
 .measure { max-width: 78ch; margin: 0 }
 .nflinks { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s2) }

@@ -170,7 +170,8 @@
         "score",
         "page",
         "json",
-        "analysed_iso"
+        "analysed_iso",
+        "card_image"
       ],
       "properties": {
         "version": {
@@ -207,6 +208,10 @@
           "type": "string",
           "format": "date",
           "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "card_image": {
+          "type": "string",
+          "format": "uri"
         }
       }
     },
@@ -250,7 +255,9 @@
               "page",
               "mods_sites",
               "releases",
-              "latest"
+              "latest",
+              "card_image",
+              "not_analysed"
             ],
             "properties": {
               "id": {
@@ -318,6 +325,16 @@
                     }
                   }
                 }
+              },
+              "card_image": {
+                "type": "string",
+                "format": "uri"
+              },
+              "not_analysed": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               }
             }
           }
@@ -373,7 +390,8 @@
         "files_note",
         "header",
         "rubric",
-        "yaml"
+        "yaml",
+        "card_image"
       ],
       "properties": {
         "games": {
@@ -496,6 +514,10 @@
         },
         "licence": {
           "$ref": "#/$defs/licence"
+        },
+        "card_image": {
+          "type": "string",
+          "format": "uri"
         }
       }
     },
