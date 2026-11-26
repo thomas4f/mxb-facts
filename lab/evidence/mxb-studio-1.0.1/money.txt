@@ -1,0 +1,16 @@
+$ for p in '' download.html plans.html help.html changelog.html software-license.html terms.html; do echo "== mxbstudio.com/$p"; curl -sSL https://mxbstudio.com/$p | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r\"(?s)<(script|style).*?</\\1>\",\"\",t);t=re.sub(r\"<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>\",\"\\n\",t);t=re.sub(r\"<[^>]+>\",\"\",t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | grep -niE 'donat|ko-?fi|patreon|paypal|buymeacoffee|stripe'; done; echo '== README and release text'; { curl -sS https://raw.githubusercontent.com/smithtan91-netizen/mxb-studio-downloads/9518e331eff3d27984be476363881ee65019d451/README.md; curl -sS https://api.github.com/repos/smithtan91-netizen/mxb-studio-downloads/releases/tags/v1.0.1; } | grep -ciE 'donat|ko-?fi|patreon|paypal|buymeacoffee'
+== mxbstudio.com/
+== mxbstudio.com/download.html
+== mxbstudio.com/plans.html
+20:USD · before applicable tax$6 / monthBilled monthly$60 / yearBilled annuallyTry Pro free for 7 daysSign in to manage your plan. Stripe shows the final terms before confirmation.
+30:Cancel before the trial ends to avoid the first charge. Payment method required upfront. Stripe shows final tax and renewal charges before confirmation.
+33:Payment details are securely handled by Stripe.
+== mxbstudio.com/help.html
+== mxbstudio.com/changelog.html
+== mxbstudio.com/software-license.html
+== mxbstudio.com/terms.html
+12:Pro is $6 USD/month or $60 USD/year, before applicable tax. Monthly is the default; annual is selected and paid upfront. The final amount and renewal interval appear before purchase. Stripe Managed Payments uses Link as merchant of record; we remain seller of record.
+19:Subscription payments are generally final and non-refundable, except where required by applicable law or eligible under Stripe Managed Payments/Link rules. Stripe may process eligible refunds automatically. Mid-period cancellation alone does not promise a partial refund; provider/legal remedies remain directly available. Nothing in these terms limits rights you have under applicable law.
+== README and release text
+0
+(exit 1)

@@ -1,0 +1,5 @@
+$ file MXBStudio-win-Setup.exe MXBStudio-1.0.1-full.nupkg MXBStudio-1.0.1-delta.nupkg
+MXBStudio-win-Setup.exe:     PE32 executable for MS Windows 6.00 (GUI), Intel i386, 6 sections
+MXBStudio-1.0.1-full.nupkg:  Microsoft OOXML
+MXBStudio-1.0.1-delta.nupkg: Microsoft OOXML
+(exit 0)

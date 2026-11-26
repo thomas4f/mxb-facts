@@ -1,0 +1,387 @@
+tool: MXB Studio
+version: 1.0.1
+summary: >-
+  A closed-source track builder app for MX Bikes, free to use, with a Pro subscription that adds tools. Its Software License
+  Terms forbid reverse engineering it, so this card covers public facts only.
+header:
+  What it is: >-
+    A Windows desktop app for building MX Bikes tracks (terrain, track features, scenery) and exporting them for the game,
+    released as a code-signed installer, `MXBStudio-win-Setup.exe`, with two update packages. It is not a game plugin. Its
+    Software License Terms forbid reverse engineering, so nothing in the release was run or looked inside.
+  In one line: Closed-source MX Bikes track builder app; its licence forbids looking inside it
+  Category: Content creation
+  Author: >-
+    Tanner Smith (smithtan91-netizen on GitHub, TannyGlover on mxb-mods.com; the name on its Software License Terms and its
+    code signature)
+  Game: MX Bikes
+  mxb-mods.com: '[MXB Studio](https://mxb-mods.com/mxb-studio-create-your-entire-mx-bikes-track-in-one-app/)'
+  Homepage: '[mxbstudio.com](https://mxbstudio.com)'
+  GitHub: '[smithtan91-netizen/mxb-studio-downloads](https://github.com/smithtan91-netizen/mxb-studio-downloads) (releases only)'
+  Version analysed: >-
+    [v1.0.1](https://github.com/smithtan91-netizen/mxb-studio-downloads/releases/tag/v1.0.1), published 24 Nov 2026: the
+    tool's latest GitHub release when this run started. The homepage's download button leads to the same installer
+    (`lab/evidence/mxb-studio-1.0.1/download.txt`).
+  Source commit: >-
+    No source is public. The tag v1.0.1 points to
+    [9518e331eff3d27984be476363881ee65019d451](https://github.com/smithtan91-netizen/mxb-studio-downloads/tree/9518e331eff3d27984be476363881ee65019d451),
+    which holds only `README.md` (`lab/evidence/mxb-studio-1.0.1/repo.txt`).
+  Analysed on: 26 Nov 2026
+  Licence clause: >-
+    "Without our written permission, do not reverse engineer/decompile the proprietary software, bypass or falsify
+    license/access controls, redistribute/sublicense/rent/resell it, share access beyond the permitted use, or remove
+    proprietary notices." ([Software License Terms](https://mxbstudio.com/software-license.html), "Restrictions and
+    third-party rights", effective 8 Nov 2026, covering "the proprietary software and its updates"; page SHA-256
+    `08585c1bc64b89a4b93c6c403847a684e2b6b7fb1e9b49ee2caec1d6a37a51d8` as fetched on 26 Nov 2026;
+    `lab/evidence/mxb-studio-1.0.1/licence.txt`). The repository has no licence file.
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Its Software License Terms forbid reverse engineering and decompiling, so only public facts are covered (rule 6): the
+    release files' SHA-256 and types, the installer's code signature (checked with `osslsigncode`), whether the update
+    packages carry a package signature, the update feed on its site, the release page, the GitHub repository, and the tool's
+    licence, privacy, terms, plans and help pages; every command is in `lab/evidence/mxb-studio-1.0.1/run.sh`. Nothing was
+    run, installed, unpacked or disassembled, here or on the throwaway Windows machine (its plan ran nothing, for the same
+    reason), so no answer comes from a run, and none from Windows on a real GPU. VirusTotal: a hash lookup of the installer,
+    made before the analysis (26 Nov 2026); nothing was uploaded, as the licence forbids analysis.
+files:
+  - name: MXBStudio-win-Setup.exe
+    sha256: 74ff05e11f19e443a73e7aee8e76e442171fa6cc40495286515150bf747bae7c
+    note: The Windows installer, the download its homepage gives (PE32, code-signed).
+  - name: MXBStudio-1.0.1-full.nupkg
+    sha256: 6c479be1908276ba3d7bc69b3611ab8dc502049320fa69a7b44d65133d577bfe
+    note: The full update package, the one the update feed on its site names.
+  - name: MXBStudio-1.0.1-delta.nupkg
+    sha256: a690225e1d9feb2d10d243c9c148e23f4a6a36c3952542dfd50f9705971049b9
+    note: The delta update package.
+files_note: >-
+  Every hash matches the digest GitHub publishes for the asset (`lab/evidence/mxb-studio-1.0.1/files.txt`,
+  `lab/evidence/mxb-studio-1.0.1/release.txt`).
+key:
+  K1: 'None flag it. No engine has looked: the installer is not on VirusTotal. Looking inside it for malware is not allowed by its licence.'
+  K2: 'Not allowed. Its licence forbids looking at how it updates; its help says you choose "Check for updates".'
+  K3: 'Not allowed. Its licence forbids looking at what it writes or deletes.'
+  K4: 'Not allowed. Its licence forbids looking at what it sends.'
+  K5: 'Not allowed. Its licence forbids looking at what it does to the game.'
+  K6: 'Not allowed. Its licence forbids looking at how it treats other people''s content.'
+  K7: 'No. The repository holds only a README and the release files.'
+  K8: 'Not allowed. Its licence forbids comparing its docs with its code.'
+  K9: 'Partly. The installer is code-signed; the update packages carry no package signature, and there is no public source to trace them to.'
+  K10: 'Not allowed. Its licence forbids looking at its connections.'
+areas:
+  Your PC and files: >-
+    A code-signed Windows installer and two update packages without a package signature; what it installs, changes and
+    updates is not allowed to be looked at.
+  Your data: >-
+    Not allowed to be looked at; its Privacy Policy describes update requests, an optional Discord status, and sign-in and
+    licence activation for Pro.
+  Your game: Not allowed to be looked at; a desktop app, not a game plugin, that its help says installs exported tracks into the game's track folder.
+  Creators' content: Not allowed to be looked at.
+  Transparency: Closed source under proprietary licence terms; the public repository holds only a README.
+  Money: Free to use; Studio Pro, with more tools, costs $6 a month or $60 a year.
+sections:
+  - title: Your PC and files
+    blocks: []
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"Official signed MXB Studio downloads." (README)'
+            Verdict: Partly
+            Evidence: >-
+              The installer carries a valid Authenticode signature (`lab/evidence/mxb-studio-1.0.1/signature.txt`); the two
+              `.nupkg` update packages have no package signature (`lab/evidence/mxb-studio-1.0.1/nupkg-signature.txt`), and
+              whether the files inside them are signed can't be looked at (licence). `lab/evidence/mxb-studio-1.0.1/readme.txt`.
+          - Claim: >-
+              "Save your project, open the main menu, and choose Check for updates. Once the update is downloaded, close
+              Studio normally and reopen it." (Help)
+            Verdict: Not allowed
+            Evidence: >-
+              The update feed on its site names the full package with its SHA-256 (`lab/evidence/mxb-studio-1.0.1/feed.txt`);
+              what the app does with it can't be looked at (licence). `lab/evidence/mxb-studio-1.0.1/help.txt`.
+          - Claim: >-
+              "Update requests/downloads contact the site and release hosts including GitHub. Optional Discord activity
+              shares generic “Building a track” status without project names/paths." (Privacy Policy)
+            Verdict: Not allowed
+            Evidence: Its connections can't be looked at (licence). `lab/evidence/mxb-studio-1.0.1/privacy.txt`.
+          - Claim: >-
+              "wyDay’s LimeLM/TurboActivate receives license/product and hardware-derived activation information." (Privacy
+              Policy, for Pro)
+            Verdict: Not allowed
+            Evidence: What it sends can't be looked at (licence). `lab/evidence/mxb-studio-1.0.1/privacy.txt`.
+          - Claim: '"Free download. No account required." (homepage)'
+            Verdict: Not allowed
+            Evidence: >-
+              Whether the app asks for an account can't be looked at (licence). `lab/evidence/mxb-studio-1.0.1/home.txt`,
+              `lab/evidence/mxb-studio-1.0.1/terms.txt`.
+          - Claim: '"Install in MX Bikes installs a Player track in your chosen game folder." (Export guide)'
+            Verdict: Not allowed
+            Evidence: What it writes into the game's folders can't be looked at (licence). `lab/evidence/mxb-studio-1.0.1/help.txt`.
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              Its Software License Terms forbid reverse engineering and decompiling the software (Licence clause), so nothing
+              in the release was run, installed, unpacked or disassembled, and every answer that would need it is "Not
+              allowed".
+            questions: []
+          - text: >-
+              Only the installer was looked up on VirusTotal, before the analysis; the two `.nupkg` update packages weren't.
+              Nothing was uploaded.
+            questions: [P1]
+          - text: >-
+              Whether it asks for donations was read on its release page, README and website only; the app's own screens
+              weren't seen.
+            questions: [M3]
+          - text: >-
+              The public pages (Software License Terms, Privacy Policy, Terms of Service, plans, help) are quoted as they read
+              on 26 Nov 2026; they aren't pinned to the release and can change.
+            questions: [M1, M2]
+          - text: >-
+              Its mxb-mods.com page links a MediaFire download, which answered this run with a browser check, so that file
+              wasn't fetched or compared with the GitHub release; the card covers the GitHub release, where the homepage's
+              download button leads.
+            questions: []
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No engine has flagged a release file, because none has looked at one: `MXBStudio-win-Setup.exe` is not on VirusTotal
+      (hash lookup on 26 Nov 2026), and wasn't uploaded, as the licence forbids analysis. `MXBStudio-1.0.1-full.nupkg` and
+      `MXBStudio-1.0.1-delta.nupkg` weren't looked up.
+    evidence: >-
+      [MXBStudio-win-Setup.exe](https://www.virustotal.com/gui/file/74ff05e11f19e443a73e7aee8e76e442171fa6cc40495286515150bf747bae7c)
+  P2:
+    verdict: Not allowed
+    text: >-
+      Whether it installs updates without asking can't be looked at (licence). Its help says to "choose Check for updates"
+      from the main menu.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`, `lab/evidence/mxb-studio-1.0.1/help.txt`.'
+  P3:
+    verdict: Not allowed
+    text: >-
+      Whether the app checks an update before installing it can't be looked at (licence). The update feed on its site,
+      `releases.win.json`, names `MXBStudio-1.0.1-full.nupkg` with its SHA-256, which matches the release file.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/feed.txt`, `lab/evidence/mxb-studio-1.0.1/files.txt`, `lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  P4:
+    verdict: Not allowed
+    text: What it deletes or overwrites can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  P5:
+    verdict: Partly
+    mark: note
+    text: >-
+      `MXBStudio-win-Setup.exe`, the file players download, has a valid Authenticode signature: signer "Tanner Smith", issued
+      by Microsoft ID Verified CS EOC CA 04, timestamped 24 Nov 2026 (checked with `osslsigncode verify` against Microsoft's
+      Identity Verification Root 2020, not by Windows itself). The two `.nupkg` update packages carry no package signature;
+      whether the files inside them are signed can't be looked at (licence). There is no public source to trace the files to.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/signature.txt`, `lab/evidence/mxb-studio-1.0.1/nupkg-signature.txt`.'
+  P6:
+    verdict: Not allowed
+    text: What it changes in Windows can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  P7:
+    verdict: Not allowed
+    text: >-
+      What it writes into the game's folders can't be looked at (licence). Its export guide says "Install in MX Bikes installs
+      a Player track in your chosen game folder".
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`, `lab/evidence/mxb-studio-1.0.1/help.txt`.'
+  P8:
+    verdict: Not allowed
+    text: What uninstalling leaves behind can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  P9:
+    verdict: Not allowed
+    text: Looking inside the release for signs of malware isn't allowed (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  D1:
+    verdict: Not allowed
+    text: >-
+      Its connections can't be looked at (licence). Its Privacy Policy names update requests to its site and GitHub, an
+      optional Discord status, and sign-in and licence activation for Pro.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`, `lab/evidence/mxb-studio-1.0.1/privacy.txt`.'
+  D2:
+    verdict: Not allowed
+    text: What it sends can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  D3:
+    verdict: Not allowed
+    text: >-
+      Whether it sends an identifier can't be looked at (licence). Its Privacy Policy says Pro activation sends
+      "hardware-derived activation information" to wyDay's LimeLM/TurboActivate.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`, `lab/evidence/mxb-studio-1.0.1/privacy.txt`.'
+  D4:
+    verdict: Not allowed
+    text: Whether it sends other players' data can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  D5:
+    verdict: Not allowed
+    text: Whether it runs a local web server can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  D6:
+    verdict: Not allowed
+    text: What it reads on your PC can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  D7:
+    verdict: Not allowed
+    text: Whether data about its users is published can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  D8:
+    verdict: Not allowed
+    text: Whether its connections can be switched off can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  D9:
+    verdict: Not allowed
+    text: >-
+      Whether it needs an online account can't be looked at (licence). Its pages say Free needs no account and Pro needs
+      one.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`, `lab/evidence/mxb-studio-1.0.1/terms.txt`, `lab/evidence/mxb-studio-1.0.1/home.txt`.'
+  D10:
+    verdict: Not allowed
+    text: Whether it shares your game data with other programs can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G1:
+    verdict: Not allowed
+    text: Whether it injects code into the game can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G2:
+    verdict: Not allowed
+    text: Whether it changes the game's code or memory can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G3:
+    verdict: Not allowed
+    text: Whether it changes the game on online servers can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G4:
+    verdict: Not allowed
+    text: Whether it reads the game's memory can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G5:
+    verdict: Not allowed
+    text: Whether it takes over the game's input can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G6:
+    verdict: Not allowed
+    text: Whether it changes other plugins or tools can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G7:
+    verdict: Not allowed
+    text: Whether it reads the keyboard through Windows can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G8:
+    verdict: Not allowed
+    text: Whether it installs a crash handler can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G9:
+    verdict: Not allowed
+    text: Whether it starts with Windows can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G10:
+    verdict: Not allowed
+    text: Whether it runs next to the game can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G11:
+    verdict: Not allowed
+    text: >-
+      Whether anything of it runs inside the game can't be looked at (licence). The release itself is a Windows installer and
+      two update packages, with no game plugin among its files.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/file.txt`, `lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  G12:
+    verdict: Not allowed
+    text: Whether it gets around a check in the game can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  C1:
+    verdict: Not allowed
+    text: Whether it decrypts protected content can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  C2:
+    verdict: Not allowed
+    text: Whether it saves copies of other people's models or textures can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  C3:
+    verdict: Not allowed
+    text: Whether it shares other people's content with protection removed can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  C4:
+    verdict: Not allowed
+    text: What third-party code it ships, and whether it credits it, can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  C5:
+    verdict: Not allowed
+    text: Whether it opens other people's mods, tracks or models can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      No source is public: the repository's only file is `README.md`, which says "Application source is maintained
+      separately." Prebuilt program files in the release: `MXBStudio-win-Setup.exe` (PE32 installer) and the update packages
+      `MXBStudio-1.0.1-full.nupkg` and `MXBStudio-1.0.1-delta.nupkg` (zip archives), none with public source; what the
+      packages hold wasn't listed (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/repo.txt`, `lab/evidence/mxb-studio-1.0.1/readme.txt`, `lab/evidence/mxb-studio-1.0.1/file.txt`.'
+  T2:
+    verdict: Not allowed
+    text: Its docs can't be compared with its code (licence); the claims are in "What it says vs what it does".
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The release files are uploaded to a releases-only repository with no build files; there is no public source or build to
+      tie them to.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/repo.txt`, `lab/evidence/mxb-studio-1.0.1/release.txt`.'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/repo.txt`.'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No code history is public: the repository has one commit, "Initial commit" on 29 Oct 2026. Each release page carries a
+      changelog.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/repo.txt`, `lab/evidence/mxb-studio-1.0.1/release.txt`.'
+  T6:
+    verdict: Not allowed
+    text: No build files are public, and how its dependencies are pinned can't be looked at in the release (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/repo.txt`, `lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      It is under its own Software License Terms ("You do not own the software, source code or branding"), which forbid
+      reverse engineering and redistributing it; the repository has no licence file.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/repo.txt`, `lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Studio Free costs $0 and, by its pages, can build and export a complete track ("Both Free and Pro can create and export
+      a complete track at full quality").
+    evidence: '`lab/evidence/mxb-studio-1.0.1/plans.txt`, `lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  M2:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Studio Pro is sold as a subscription, $6 a month or $60 a year (before tax), paid through Stripe, with a 7-day trial
+      that needs a payment method. It adds tools (for example erosion, multi-ruts, cameras and marshals, multiple editable layouts) and
+      removes the Studio watermark Free puts on the track-menu image.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/plans.txt`, `lab/evidence/mxb-studio-1.0.1/terms.txt`, `lab/evidence/mxb-studio-1.0.1/money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: Its release page, README and website ask for no donations.
+    evidence: '`lab/evidence/mxb-studio-1.0.1/money.txt`.'
+history:
+  - date: 26 Nov 2026
+    change: First card, for v1.0.1.

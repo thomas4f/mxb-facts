@@ -1250,6 +1250,14 @@
         "permalink": "https://www.virustotal.com/gui/file/2938f80c19af2f34bfbc4685fc1cde5f4fc1a96423f3a217740783084e6c233b"
       }
     },
+    "mxb-studio-1.0.1.yaml": {
+      "74ff05e11f19e443a73e7aee8e76e442171fa6cc40495286515150bf747bae7c": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45766239218",
+        "permalink": "https://www.virustotal.com/gui/file/74ff05e11f19e443a73e7aee8e76e442171fa6cc40495286515150bf747bae7c"
+      }
+    },
     "mxbfix-0.1.8.yaml": {
       "16f74620f911260776d8beaeedf649fd5da99ffd9a8078a43868ef07f31816cb": {
         "found": false,

@@ -1,0 +1,14 @@
+$ curl -sSL https://mxbstudio.com/plans.html | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r\"(?s)<(script|style).*?</\\1>\",\"\",t);t=re.sub(r\"<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>\",\"\\n\",t);t=re.sub(r\"<[^>]+>\",\"\",t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | grep -nE '^\$0|month|Free and Pro both|Exports without the Studio watermark|Track-menu image without|^Erosion|^Multi-ruts, bumps|^Cameras and marshals|^Multiple editable layouts'
+5:Free and Pro both let you build and export a complete MX Bikes track. Compare the tools included with each plan below.
+9:$0
+20:USD · before applicable tax$6 / monthBilled monthly$60 / yearBilled annuallyTry Pro free for 7 daysSign in to manage your plan. Stripe shows the final terms before confirmation.
+25:Multiple editable layouts
+26:Exports without the Studio watermarkOn the track-menu image.
+28:One trial per account. Available with monthly or annual billing.
+29:Then $6 USD/month after the trial ends unless canceled.
+40:ErosionNot includedIncluded
+50:Multi-ruts, bumps, and whoopsNot includedIncluded
+79:Cameras and marshalsNot includedIncluded
+83:Multiple editable layoutsNot includedIncluded
+86:Track-menu image without the Studio watermarkFree includes a Studio watermark on the track-menu image.Not includedIncluded
+(exit 0)

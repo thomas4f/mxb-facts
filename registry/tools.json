@@ -422,7 +422,9 @@
     "author": "TannyGlover",
     "github": "smithtan91-netizen/mxb-studio-downloads",
     "homepage": "https://mxbstudio.com",
-    "cards": [],
+    "cards": [
+      "mxb-studio-1.0.1.yaml"
+    ],
     "mxb-mods": {
       "post": 191279,
       "tied_by": "mediafire.com/file/ej7vcdtbtt6crd4"

@@ -1,0 +1,21 @@
+$ curl -sS https://api.github.com/repos/smithtan91-netizen/mxb-studio-downloads/releases/tags/v1.0.1 | python3 -I -c 'import json,sys;r=json.load(sys.stdin);print(r["tag_name"],r["name"],r["published_at"],"target:",r["target_commitish"]);[print(a["name"],a["size"],a["digest"]) for a in r["assets"]];print(r["body"])'
+v1.0.1 MXB Studio 1.0.1 2026-11-24T00:51:58Z target: main
+MXBStudio-1.0.1-delta.nupkg 3283426 sha256:a690225e1d9feb2d10d243c9c148e23f4a6a36c3952542dfd50f9705971049b9
+MXBStudio-1.0.1-full.nupkg 1963749292 sha256:6c479be1908276ba3d7bc69b3611ab8dc502049320fa69a7b44d65133d577bfe
+MXBStudio-win-Setup.exe 1968321720 sha256:74ff05e11f19e443a73e7aee8e76e442171fa6cc40495286515150bf747bae7c
+# More tools in Free and faster editing on large tracks
+
+Scatter, Array, Braking Bumps, Whoops, and primary heightmap import are back in Free\. This update also makes dense object scenes easier to edit and reduces exported centerline segments on long closed courses\.
+
+- Changed \- Studio Free can create and edit Scatter, Array, Braking Bumps, and Whoops, and import or replace the primary heightmap\.
+- New \- Scatter can place up to 20,000 objects in one pass\. It avoids occupied object centers and can keep clear of multiple selected track paths with a signed edge offset\. The preview explains when the requested count cannot fit\.
+- New \- Use Preview on a new drawn or track\-linked Array to see the copies before applying\. Adjust the source, path, spacing, count, or scale and watch the preview update\. Apply commits the result in one Undo step\.
+- Changed \- New Project opens directly to Generated landscape, Flat ground, or Import heightmap\. Existing projects keep their saved layout types\.
+- Fixed \- Select trees by their visible foliage or trunk\. Clicking a gap between branches can now reach the object behind it, and the selection highlight follows the tree silhouette\.
+- Fixed \- Placing or selecting models, creating groups, moving rows between groups, and expanding or collapsing large groups are faster in dense scenes\.
+- Fixed \- Large projects can save up to 64 MiB of editable project metadata\. Use 1\.0\.1 or later to reopen saves that exceed the old limit\.
+- Changed \- Closed courses longer than 2,500 meters can export with fewer centerline segments\.
+- Fixed \- The folder button in Wear Paths opens the wear pattern library directly\.
+
+<!-- MXB release 3929635e83b94080b32eb1c30421fa1f; source 5442d039dc08c9e13212cbf4205463dec3cc9ad1; feed FE551C29D4497BC72008883AC4EC3B25FBBF88EFB7088DC4BCA77A3E9A1511C2 -->
+(exit 0)

@@ -1,0 +1,7 @@
+$ curl -sS https://api.github.com/repos/smithtan91-netizen/mxb-studio-downloads/git/refs/tags/v1.0.1 | python3 -I -c 'import json,sys;print("tag v1.0.1 ->",json.load(sys.stdin)["object"]["sha"])'; curl -sS 'https://api.github.com/repos/smithtan91-netizen/mxb-studio-downloads/git/trees/9518e331eff3d27984be476363881ee65019d451?recursive=1' | python3 -I -c 'import json,sys;[print(t["type"],t["path"]) for t in json.load(sys.stdin)["tree"]]'; curl -sS https://api.github.com/repos/smithtan91-netizen/mxb-studio-downloads | python3 -I -c 'import json,sys;r=json.load(sys.stdin);print("description:",r["description"]);print("license:",r["license"])'; curl -sS https://api.github.com/repos/smithtan91-netizen/mxb-studio-downloads/commits | python3 -I -c 'import json,sys;[print(c["sha"],c["commit"]["committer"]["date"],c["commit"]["message"].splitlines()[0]) for c in json.load(sys.stdin)]'
+tag v1.0.1 -> 9518e331eff3d27984be476363881ee65019d451
+blob README.md
+description: Official signed MXB Studio downloads. Application source is maintained separately.
+license: None
+9518e331eff3d27984be476363881ee65019d451 2026-10-29T09:50:28Z Initial commit
+(exit 0)
