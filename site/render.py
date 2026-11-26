@@ -90,10 +90,12 @@ def write_pages(SITE):
         return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{escape(words or s["label"])}{c}</span>')
 
     def answer_mark(x, scored):
-        # An answer's mark: its state's word in its colour, with what it costs where the tool has a score ("Concern −25", or
-        # "±0" when another answer counts it), then the verdict itself ("Yes"). The word is text, never only a colour or icon.
+        # An answer's mark: its state's word in its colour, with what it costs where the tool has a score ("Concern −25", "in T1"
+        # when another answer already counts the same behaviour, or "±0" when the cost is waived), then the verdict itself ("Yes").
+        # The word is text, never only a colour or icon, and never only a hover, which a phone doesn't show.
         cost = None
         if scored and x['cost']: cost = f'−{x["cost"]}'
+        elif scored and x['cost_note'] and x['counted_with']: cost = f'in {x["counted_with"]}'
         elif scored and x['cost_note']: cost = '±0'
         pill = mark(x['state'], None, cost, x['cost_note'] or None)
         return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill
