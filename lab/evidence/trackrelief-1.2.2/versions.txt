@@ -1,0 +1,36 @@
+$ echo '- python314.dll:'; strings -el zip/TrackRelief/app/python314.dll | grep -A1 -xE 'FileVersion|ProductName'; echo '- libcrypto-3.dll:'; strings -n 5 zip/TrackRelief/app/libcrypto-3.dll | grep -E '^OpenSSL [0-9]' | head -1; echo '- tcl86t.dll:'; strings zip/TrackRelief/app/tcl86t.dll | grep -xE '8\.6\.[0-9]+' | head -1; for m in PIL._version customtkinter numpy.version scipy.version rasterio pyproj tkintermapview geocoder certifi; do echo "- $m:"; nuitka.py consts zip/TrackRelief/app/TrackRelief.exe $m | grep -m2 -xE 'u[0-9]+\.[0-9]+(\.[0-9]+)?'; done; echo '- Nuitka (lines naming it in the app):'; strings -n 8 zip/TrackRelief/app/TrackRelief.exe | grep -cE 'Nuitka'; strings -n 8 zip/TrackRelief/app/TrackRelief.exe | grep -m3 -E 'nuitka\.net|__nuitka_version__|__compiled__'
+- python314.dll:
+FileVersion
+3.14.2
+--
+ProductName
+Python
+- libcrypto-3.dll:
+OpenSSL 3.0.18 30 Sep 2025
+- tcl86t.dll:
+8.6.15
+- PIL._version:
+u12.3.0
+- customtkinter:
+u0.0
+u6.0.0
+- numpy.version:
+u2.5.3
+- scipy.version:
+u1.18.1
+- rasterio:
+u1.5.1
+- pyproj:
+u3.8.0
+- tkintermapview:
+u1.30
+- geocoder:
+u1.38.1
+- certifi:
+u2026.07.22
+- Nuitka (lines naming it in the app):
+16
+__nuitka_version__
+__compiled__\n\nVersion information as a named tuple.
+a__compiled__
+(exit 0)

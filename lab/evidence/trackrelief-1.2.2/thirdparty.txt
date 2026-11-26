@@ -1,0 +1,5 @@
+$ unzip -l TrackRelief.zip | grep -iE 'licen|copying|credit|notice|readme|authors'
+     2307  2026-01-27 19:28   TrackRelief/app/tk/license.terms
+      329  2026-01-27 19:28   TrackRelief/app/tk/images/README
+    21841  2026-09-24 19:13   TrackRelief/app/rasterio/gdal_data/LICENSE.TXT
+(exit 0)

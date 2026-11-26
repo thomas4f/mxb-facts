@@ -1,0 +1,2 @@
+TrackRelief.exe  CreateFile  \Device\NamedPipe  SUCCESS
+TrackRelief.exe  WriteFile  \Device\NamedPipe  SUCCESS

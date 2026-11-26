@@ -1,0 +1,4 @@
+TrackRelief.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS
+TrackRelief.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+TrackRelief.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+TrackRelief.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\TrackRelief.exe  SUCCESS

@@ -1,0 +1,46 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe __main__ | grep -nE 'LiDAR|3DEP|DGM1|OpenTopography|Italy PCN|Only needed outside|My own file|Automatic'; nuitka.py consts zip/TrackRelief/app/TrackRelief.exe api_fetcher | grep -nE 'https?://|api_key|API_Key'
+417:uOpenTopography API key
+442:uOnly needed outside Switzerland, France, England, the USA, the Netherlands, Flanders and parts of Germany (NRW, Hesse, Baden-Württemberg, Brandenburg/Berlin, Lower Saxony, Saxony-Anhalt). In those places TrackRelief uses free high-detail LiDAR. Elsewhere it uses global elevation data (about 30 m detail, much coarser), which OpenTopography provides with a free key.
+463:aAutomatic
+464:uMy own file
+473:uAutomatic: TrackRelief downloads the elevation data for the area you draw.
+474:My own file: use an elevation file you already have (GeoTIFF, .tif), for example high-detail LiDAR from your country's open-data website. You choose the file when you press Generate, and only the area you drew is used.
+1170:aUSGS3DEP
+1259:uAn OpenTopography API key is needed for this area.
+1552:uSwisstopo LiDAR
+1553:uIGN LiDAR HD
+1554:uUSGS 3DEP (USA)
+1555:uEnvironment Agency LiDAR (England)
+1556:uGerman state LiDAR (DGM1)
+1557:uRegional LiDAR (Netherlands / Flanders)
+1558:uItaly PCN DTM
+1559:uOpenTopography (global)
+63:uhttps://
+663:uhttp://www.opengis.net/def/crs/EPSG/0/2154
+1143:uhttp://www.opengis.net/def/crs/EPSG/0/{}
+1203:aapi_key
+1250:wraapi_key
+1255:aapi_key
+1278:aAPI_Key
+1288:aopentopo_api_key
+1298:aapi_key
+1337:aapi_key
+1341:aapi_key
+1571:uhttps://data.geo.admin.ch/api/stac/v0.9
+1573:uhttps://data.geopf.fr/wcs/ows
+1576:uhttps://portal.opentopography.org/API/globaldem
+1577:uhttps://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer
+1581:uhttp://www.pcn.minambiente.it/geoserver/wcs
+1583:uhttps://tinitaly.pi.ingv.it/TINItaly_1_1/wcs
+1585:uhttps://environment.data.gov.uk/spatialdata/lidar-composite-digital-terrain-model-dtm-1m/wcs
+1606:uhttps://www.wcs.nrw.de/geobasis/wcs_nw_dgm
+1614:uhttps://inspire-hessen.de/raster/dgm1/ows
+1625:uhttps://owsproxy.lgl-bw.de/owsproxy/wcs/WCS_INSP_BW_Hoehe_Coverage_DGM1
+1631:uhttps://inspire.brandenburg.de/services/el_dgm1_wcs
+1639:uhttps://www.geodatenportal.sachsen-anhalt.de/wss/service/ST_LVermGeo_DGM1_WCS_OpenData/guest
+1644:uhttps://opendata.geoservices.lgln.niedersachsen.de/dgm_wcs
+1649:uhttps://service.pdok.nl/rws/ahn/wcs/v1_0
+1657:uhttps://geo.api.vlaanderen.be/el-dtm/wcs
+2815:opentopo_api_keyz
+2872:uhttps://overpass-api.de/api/interpreter
+(exit 0)

@@ -1,0 +1,514 @@
+tool: TrackRelief
+version: 1.2.2
+summary: >-
+  A Windows app that downloads elevation data for an area you draw on a map and turns it into a 16-bit heightmap, a
+  surface mask and game files, among them an MX Bikes `.tht` file. It loads its map from the internet as it opens and
+  checks GitHub for a newer version at each start, which a setting switches off.
+header:
+  What it is: >-
+    A closed-source Windows app for making terrain: a small .NET launcher, `TrackRelief.exe`, that starts the real program
+    in `app\`, a Python app compiled with Nuitka. You search a place, draw a rectangle, and it downloads elevation data
+    (national LiDAR services, or a global source) and writes a heightmap, masks, a satellite texture and files for MX
+    Bikes, BeamNG or Assetto Corsa into a folder you choose. It is offered as a zip and as an Inno Setup installer; it is
+    not a plugin.
+  In one line: App that turns online elevation data into heightmaps and MX Bikes terrain files
+  Category: Content creation
+  Author: Lilian1134 (GitHub name)
+  Game: MX Bikes
+  mxb-mods.com: '[TrackRelief](https://mxb-mods.com/trackrelief/), published 14 Oct 2026, updated 21 Oct 2026'
+  Homepage: None found
+  GitHub: '[Lilian1134/TrackRelief](https://github.com/Lilian1134/TrackRelief)'
+  Version analysed: >-
+    1.2.2: the GitHub release [TrackRelief v1.2.2](https://github.com/Lilian1134/TrackRelief/releases/tag/1.2.2) (23 Oct
+    2026), `TrackRelief.zip` and `TrackRelief_Setup.exe`; the newest release in the inventory (`registry/releases.json`,
+    from GitHub; its mxb-mods.com page lists no files of its own).
+  Source commit: >-
+    [dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21](https://github.com/Lilian1134/TrackRelief/tree/dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21)
+    ("Initial commit", 28 Sep 2026), the commit tag `1.2.2` points to. At that commit the repository holds only
+    `README.md`: the source isn't public.
+  Analysed on: 26 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    No licence was found (none in the repository, the zip or on its pages), so nothing forbids the analysis; closed source,
+    so the release was examined without running it here. The launcher (.NET) was decompiled with ILSpy (`ilspycmd`
+    11.2.0). The app is compiled with Nuitka, so its Python code is machine code: it was read through the constants each of
+    its seven own modules keeps (the names it calls, its texts, its web addresses), listed with `lab/evidence/nuitka.py`, and
+    through its imports; its control flow wasn't traced instruction by instruction. Every program file in the zip was listed
+    with its type and hash, and the three main ones with their code-signing entry. The installer (Inno Setup 6.7) could not
+    be unpacked: innoextract 1.9 can't read that version. Every command is in `lab/evidence/trackrelief-1.2.2/run.sh`. The
+    release was not rebuilt (no public source). A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software
+    OpenGL, not Windows on a real GPU), no game, no Steam and no keys started the launcher, the app on its own, and the
+    installer, each under Process Monitor with the run folder's programs blocked by the firewall, and clicked nothing. No
+    game plugin, so no run in the game. VirusTotal: hash lookups made before the analysis (26 Nov 2026), 40 files of the
+    release; nothing uploaded, as no licence was found.
+files:
+  - name: TrackRelief.zip
+    sha256: f0a6da926090a45bad2b8c332cb571dbbe0d9a10f7a6078899411d96d33da49e
+    note: The zip download of the GitHub release (no installation).
+  - name: TrackRelief_Setup.exe
+    sha256: 5ddfa9207e786b397f58b47274ade0f827e662d919681a92cd9537570e0404ec
+    note: The installer download of the same release (Inno Setup 6.7); not unpacked; its run, with nothing clicked, only unpacked its setup program into the temp folder (see Limits).
+  - name: TrackRelief.exe
+    sha256: 3f52130f89e40aabe0973738e2b0fb5eacb352f9a629c1aede574597b1309e97
+    inside: TrackRelief.zip
+    note: The launcher (`TrackRelief\TrackRelief.exe`, .NET), which starts the app below.
+  - name: app\TrackRelief.exe
+    sha256: 590181c3c87e198a88cc28246baa37f34df2958ffde2e6961fa3fed6d2b189e0
+    inside: TrackRelief.zip
+    note: >-
+      The app (Nuitka, Python 3.14.2), with the tool's own modules compiled in. Beside it in `app\` are Python's DLL and
+      modules, numpy, SciPy, rasterio (GDAL), pyproj (PROJ), Pillow, Tcl/Tk, OpenSSL and the C runtime: 208 program files in
+      all, each with its SHA-256 and type in `lab/evidence/trackrelief-1.2.2/bundled.txt`.
+files_note: >-
+  None of the installer, the launcher or the app is code-signed (`lab/evidence/trackrelief-1.2.2/signature.txt`). The zip's
+  and the installer's hashes match the ones the Windows machine ran
+  (`lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/machine.txt`), and the launcher's and app's the ones it
+  started (`lab/results/trackrelief-1.2.2/trackrelief-zip-windows/plugins.sha256`).
+key:
+  K1: >-
+    No; no malware found. No engine flags the files looked up, but the zip, the installer, the launcher and the app
+    aren't on VirusTotal.
+  K2: 'No. It checks GitHub for a newer version and only tells you; it installs nothing.'
+  K3: 'No. It writes into a new folder of its own for each terrain it makes, and deletes only its own files.'
+  K4: 'No. It sends the place you search and the area you draw to map and elevation services, and nothing about you.'
+  K5: 'No. It changes nothing in the game; you copy the files it makes into a track yourself.'
+  K6: 'No. It opens no one''s content.'
+  K7: 'No. Only the compiled program is published, with no licence.'
+  K8: 'Yes, as far as checked.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: >-
+    Yes. As it opens it loads map tiles and asks GitHub for its release list; it downloads elevation data when you
+    generate.
+areas:
+  Your PC and files: >-
+    No updater; it writes each terrain into a new folder of its own and keeps a download cache in the temp folder; not
+    code-signed, and the four main files aren't on VirusTotal.
+  Your data: >-
+    Loads map tiles and checks GitHub at start (the check has a switch); place searches and elevation downloads carry only
+    the place and area you pick.
+  Your game: A separate program that makes terrain files; it doesn't touch the game, which it never looks for.
+  Creators' content: Opens no mods, paints, tracks or models; ships only Tk's and GDAL's licence terms for the code it packs.
+  Transparency: Closed source with no licence; the GitHub repository holds only a two-line README and the release files.
+  Money: Free; a "Support on Gumroad" button links to an optional support page.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: its settings (`settings.json`, with your search history and your OpenTopography key if you set one)
+          are kept in `%APPDATA%\TrackRelief`; the app looked for that file when it started in the run, and wrote nothing
+          there until a setting is saved (`lab/evidence/trackrelief-1.2.2/defaults.txt`,
+          `lab/evidence/trackrelief-1.2.2/search.txt`,
+          `lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/raw/procmon.csv.gz`).
+        mark: note
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: Requests for map tiles (the part of the map on screen), with the User-Agent `TrackRelief/1.0`
+            Where to: >-
+              `a.tile.openstreetmap.org` (OpenStreetMap), or `server.arcgisonline.com` (Esri) for the Satellite style,
+              HTTPS
+            When: >-
+              As the window opens and as you move the map; in the app run, over 300 attempts to 140.248.145.91 (a Fastly
+              address) began about 1.3 s after the start
+            Switch: None
+          - What: >-
+              A request for the tool's release list (`/repos/Lilian1134/TrackRelief/releases?per_page=20`), with the
+              User-Agent `TrackRelief/1.2.2`
+            Where to: '`api.github.com` (GitHub), HTTPS'
+            When: >-
+              At each start, and on Check for updates in Settings; seen about 3 s after the start in the app run (to
+              140.82.112.5, GitHub)
+            Switch: Check for updates at startup (Settings), on by default
+          - What: The text you type in the search box
+            Where to: '`nominatim.openstreetmap.org` (OpenStreetMap), HTTPS'
+            When: When you search
+            Switch: Don't search
+          - What: >-
+              The area you drew (its corner coordinates), to download elevation data, roads for the surface mask and
+              satellite imagery; your OpenTopography key, if you set one, goes to OpenTopography
+            Where to: >-
+              The elevation services for that area (swisstopo, IGN, USGS, Environment Agency, the German states, PDOK,
+              Flanders, Italy's PCN and TINItaly, OpenTopography), `overpass-api.de` (OpenStreetMap roads) and
+              `server.arcgisonline.com` (satellite texture); HTTPS, except Italy's PCN, over plain HTTP
+              (`lab/evidence/trackrelief-1.2.2/urls.txt`)
+            When: When you press Generate with Elevation data on Automatic, as it is by default
+            Switch: Elevation data "My own file", or don't generate
+          - What: Your browser opens the Discord invite, the Gumroad page, OpenTopography's site or the release page
+            Where to: '`discord.gg`, `gumroad.com`, `portal.opentopography.org`, `github.com`'
+            When: Only when you click their buttons
+            Switch: Don't click them
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks:
+      - text: >-
+          Also found: the release notes of 1.2.2 say to "launch Suspension Tuner from the Start menu or the desktop
+          shortcut" after installing, the name of the same author's other tool
+          ([release 1.2.2](https://github.com/Lilian1134/TrackRelief/releases/tag/1.2.2)).
+        mark: note
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "Search a place, draw a rectangle on the map, and it downloads the terrain and exports a 16-bit heightmap and
+              terrain mesh." (its mxb-mods.com page)
+            Verdict: Matches
+            Evidence: >-
+              Its code holds the place search (Nominatim), the elevation services, "Building 16-bit heightmap...",
+              `heightmap_16bit.png` and `terrain_mesh.obj` (`lab/evidence/trackrelief-1.2.2/search.txt`,
+              `lab/evidence/trackrelief-1.2.2/sources.txt`, `lab/evidence/trackrelief-1.2.2/file-writes.txt`,
+              `lab/evidence/trackrelief-1.2.2/exports.txt`, `lab/evidence/trackrelief-1.2.2/consts-__main__.txt`). No area was
+              generated in the runs.
+          - Claim: >-
+              "TrackRelief is 100% free and open to everyone: [...] No account, no license key, nothing to unlock." (its
+              window)
+            Verdict: Matches
+            Evidence: >-
+              Its code has no account, licence key or payment step of its own; the only money link is the optional "Support
+              on Gumroad" button. Areas outside the listed countries need a free OpenTopography key (D9)
+              (`lab/evidence/trackrelief-1.2.2/strings-money.txt`, `lab/evidence/trackrelief-1.2.2/sources.txt`).
+          - Claim: >-
+              "Keep the app folder next to TrackRelief.exe: the program needs it to start." (release 1.2.2)
+            Verdict: Matches
+            Evidence: >-
+              The launcher shows "The "app" folder is missing or incomplete." and stops when `app\TrackRelief.exe` isn't
+              there (`lab/evidence/trackrelief-1.2.2/launcher.txt`).
+          - Claim: >-
+              "Turn real world LiDAR elevation data into race track heightmaps"
+              ([README.md](https://github.com/Lilian1134/TrackRelief/blob/dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21/README.md#L2))
+            Verdict: Partly
+            Evidence: >-
+              Outside the listed countries it uses "global elevation data (about 30 m detail, much coarser)" from
+              OpenTopography, not LiDAR, as its Settings say (`lab/evidence/trackrelief-1.2.2/sources.txt`).
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real
+              GPU, without the game or Steam, with the internet blocked, and nothing was clicked: no search, no Generate, no
+              settings and no update notice. What those do rests on the app's constants.
+            questions: [P4, P7, P8, D2, D6]
+          - text: >-
+              The app is compiled to machine code by Nuitka; the analysis read the names, texts and web addresses each module
+              keeps, not the order its code runs them in. That the Download button of the update notice opens the release page
+              rather than fetching a file, what each request carries beyond the area and the search text, and the default
+              output folder (its value isn't among the constants) rest on that reading.
+            questions: [P2, P7, D2, D3]
+          - text: >-
+              The installer, `TrackRelief_Setup.exe` (Inno Setup 6.7), couldn't be unpacked (innoextract 1.9 doesn't read
+              that version), and its 90 s run, with nothing clicked, only unpacked its setup program into the temp folder, so what it installs, any licence page in it, its
+              shortcuts and its uninstaller weren't seen. The card covers the zip's files.
+            questions: [P6, P8, G9, T7]
+          - text: >-
+              VirusTotal was asked about 40 of the release's 1,418 files; the other 1,354 (most of the bundled libraries,
+              Tcl/Tk scripts and data files) weren't looked up.
+            questions: [P1]
+          - text: >-
+              The zip run ended about 5 s after the launcher started the app (the launcher exits at once), before the app's
+              update check; the app's own 90 s run is the one that shows its start.
+            questions: []
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: >-
+      `TrackRelief.zip`, `TrackRelief_Setup.exe`, the launcher `TrackRelief.exe` and the app `app\TrackRelief.exe` are not on
+      VirusTotal (hash lookup on 26 Nov 2026), and weren't uploaded, as no licence was found. 36 bundled library files of the
+      zip that were looked up (Python's, OpenSSL's, Tcl/Tk's, the C runtime and package DLLs) are on VirusTotal, and no
+      engine flags any of them; the rest of the zip wasn't looked up (Limits).
+    evidence: >-
+      [TrackRelief.zip](https://www.virustotal.com/gui/file/f0a6da926090a45bad2b8c332cb571dbbe0d9a10f7a6078899411d96d33da49e),
+      [TrackRelief_Setup.exe](https://www.virustotal.com/gui/file/5ddfa9207e786b397f58b47274ade0f827e662d919681a92cd9537570e0404ec),
+      [TrackRelief.exe](https://www.virustotal.com/gui/file/3f52130f89e40aabe0973738e2b0fb5eacb352f9a629c1aede574597b1309e97),
+      [app\TrackRelief.exe](https://www.virustotal.com/gui/file/590181c3c87e198a88cc28246baa37f34df2958ffde2e6961fa3fed6d2b189e0)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It installs no updates. The update check reads GitHub's release list and keeps the newest version's number, notes and
+      page; a newer version shows an "Update available" notice with a Download button. No module of the tool downloads or
+      writes a program file.
+    evidence: '`lab/evidence/trackrelief-1.2.2/update.txt`, `lab/evidence/trackrelief-1.2.2/update-ui.txt`, `lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater that installs anything; the update check only tells you about a newer version (P2).
+    evidence: '`lab/evidence/trackrelief-1.2.2/update.txt`, `lab/evidence/trackrelief-1.2.2/update-ui.txt`.'
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Each Generate writes into a new `TrackRelief_<date>_<time>` folder inside the output folder (Settings, "Save files
+      to"). It deletes only its own files: the merged elevation file `merged_dem.tif` after use, and its download cache
+      (`TrackRelief\tiles` in the temp folder) when cleared.
+    evidence: '`lab/evidence/trackrelief-1.2.2/file-writes.txt`, `lab/evidence/trackrelief-1.2.2/consts-api_fetcher.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`.'
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Neither the installer, the launcher nor the app is code-signed, and they can't be traced to public source.
+    evidence: Empty Security Directory for each (`lab/evidence/trackrelief-1.2.2/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its own modules use no registry or Windows settings calls. In the runs, the registry writes were Windows' own (WMI, the
+      network stack, the app-use record `bam`).
+    evidence: '`lab/evidence/trackrelief-1.2.2/registry.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`; `lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/registry.txt`, `lab/results/trackrelief-1.2.2/trackrelief-installer-windows/registry.txt`.'
+  P7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No module names a game folder, Steam or PiBoSo's folders: it writes the MX Bikes `track.tht` and the images into its
+      own output folder, and you copy them into a track yourself. It writes into a game folder only if you choose one as
+      the output folder. Nothing was written when the app only started.
+    evidence: '`lab/evidence/trackrelief-1.2.2/exports.txt`, `lab/evidence/trackrelief-1.2.2/file-writes.txt`; `lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/files.diff`, `lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/outside.txt`.'
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The zip has no uninstaller; deleting its folder leaves its own `%APPDATA%\TrackRelief\settings.json`, its cache in the
+      temp folder and the terrain folders it made. Nothing that isn't its own is changed. The installer's uninstaller wasn't
+      examined (Limits).
+    evidence: '`lab/evidence/trackrelief-1.2.2/defaults.txt`, `lab/evidence/trackrelief-1.2.2/file-writes.txt`, `lab/evidence/trackrelief-1.2.2/file.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The launcher is a .NET program that starts `app\TrackRelief.exe` and exits. The app's own modules do
+      what its window shows: search places, download elevation, roads and imagery for the area you draw, write the terrain
+      files, and check GitHub for a version; they hold no code to start other programs, open other processes or press keys.
+    evidence: '`lab/evidence/trackrelief-1.2.2/launcher.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/urls.txt`, `lab/evidence/trackrelief-1.2.2/blocks.txt`; `lab/results/trackrelief-1.2.2/trackrelief-zip-windows/procmon.txt`.'
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      As it opens it loads map tiles from OpenStreetMap and asks `api.github.com` for the tool's release list, over HTTPS;
+      the app run tried both (140.248.145.91, a Fastly address, from about 1.3 s after the start, and 140.82.112.5, GitHub,
+      at about 3 s). Searches and Generate reach the services in "Connections found".
+    evidence: '`lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/network.txt`; `lab/evidence/trackrelief-1.2.2/urls.txt`, `lab/evidence/trackrelief-1.2.2/update.txt`.'
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      What leaves your PC is what the job needs: the map area on screen, the place you search, the area you draw, and the
+      update check with the tool's version in its User-Agent. Nothing about your PC, your account or your game is sent.
+    evidence: '`lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/search.txt`, `lab/evidence/trackrelief-1.2.2/sources.txt`, `lab/evidence/trackrelief-1.2.2/update.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`.'
+  D3:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      Only if you enter an OpenTopography API key in Settings, it is sent to OpenTopography with each download from its
+      global source, and ties those requests to your OpenTopography account. Otherwise no identifier is sent; the tool makes
+      none.
+    evidence: '`lab/evidence/trackrelief-1.2.2/sources.txt`, `lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: It handles no data about other players.
+    evidence: '`lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/urls.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: It runs no web server and listens on no port.
+    evidence: '`lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`.'
+  D6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads its own settings and cache, and an elevation file (GeoTIFF) only when you pick "My own file"; it doesn't
+      look for the game or other programs' data.
+    evidence: '`lab/evidence/trackrelief-1.2.2/sources.txt`, `lab/evidence/trackrelief-1.2.2/exports.txt`, `lab/evidence/trackrelief-1.2.2/registry.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing; its requests only fetch data.
+    evidence: '`lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/urls.txt`.'
+  D8:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The update check has a switch (Settings, "Check for updates at startup", on by default), but the map tiles load
+      whenever the window shows, with no switch. They carry nothing about you.
+    evidence: '`lab/evidence/trackrelief-1.2.2/update-ui.txt`, `lab/evidence/trackrelief-1.2.2/defaults.txt`, `lab/evidence/trackrelief-1.2.2/urls.txt`; `lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/network.txt`.'
+  D9:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      Areas outside Switzerland, France, England, the USA, the Netherlands, Flanders and six German states need an
+      OpenTopography API key ("An OpenTopography API key is needed for this area."), which you get with an OpenTopography
+      account; the default sources need none, and TrackRelief itself has no account.
+    evidence: '`lab/evidence/trackrelief-1.2.2/sources.txt`, `lab/evidence/trackrelief-1.2.2/consts-__main__.txt`, `lab/evidence/trackrelief-1.2.2/strings-money.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: It shares no game data with other programs; it doesn't read the game at all.
+    evidence: '`lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It doesn't open or write into the game's process.
+    evidence: '`lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/imports.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: It doesn't touch the game's code or memory.
+    evidence: '`lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/imports.txt`.'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game (G2); the terrain files it makes are used only in a track you build with them.
+    evidence: '`lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/exports.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: It reads nothing from the game.
+    evidence: '`lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/exports.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It takes input only in its own window; it has no code to press keys or read them elsewhere.
+    evidence: '`lab/evidence/trackrelief-1.2.2/absent.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: It changes no other plugin or tool; no module names one.
+    evidence: '`lab/evidence/trackrelief-1.2.2/file-writes.txt`, `lab/evidence/trackrelief-1.2.2/exports.txt`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It reads no keys through Windows; its own modules hold no keyboard functions.
+    evidence: '`lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/registry.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: It doesn't run in the game, so it sets no crash handler there.
+    evidence: '`lab/evidence/trackrelief-1.2.2/file.txt`, `lab/evidence/trackrelief-1.2.2/imports.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; its code writes no registry value and the runs wrote no start-up entry.
+    evidence: '`lab/evidence/trackrelief-1.2.2/registry.txt`; `lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/registry.txt`.'
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: The tool is a separate program you open yourself; it doesn't need the game running.
+    evidence: '`lab/evidence/trackrelief-1.2.2/file.txt`, `lab/evidence/trackrelief-1.2.2/launcher.txt`; `lab/results/trackrelief-1.2.2/trackrelief-app-direct-windows/loaded.txt`.'
+  G11:
+    verdict: 'No'
+    mark: good
+    text: It ships no plugin and loads nothing into the game.
+    evidence: '`lab/evidence/trackrelief-1.2.2/bundled.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, version, licence or anti-cheat check is got around; it doesn't touch the game.
+    evidence: '`lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/exports.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing; it reads public elevation, road and imagery data and your own GeoTIFF files.
+    evidence: '`lab/evidence/trackrelief-1.2.2/sources.txt`, `lab/evidence/trackrelief-1.2.2/file-writes.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves no one's models or textures; it writes terrain images and files it makes itself.
+    evidence: '`lab/evidence/trackrelief-1.2.2/file-writes.txt`, `lab/evidence/trackrelief-1.2.2/exports.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; its requests only fetch data.
+    evidence: '`lab/evidence/trackrelief-1.2.2/network.txt`, `lab/evidence/trackrelief-1.2.2/urls.txt`.'
+  C4:
+    verdict: Partly
+    mark: note
+    text: >-
+      Tk's licence terms (`app\tk\license.terms`) and GDAL's (`app\rasterio\gdal_data\LICENSE.TXT`) ship with their files;
+      nothing credits Python, numpy, SciPy, rasterio, pyproj, Pillow, customtkinter, tkintermapview, geopy, geocoder,
+      OpenSSL or Nuitka, and the repository has only a README.
+    evidence: '`lab/evidence/trackrelief-1.2.2/thirdparty.txt`, `lab/evidence/trackrelief-1.2.2/versions.txt`, `lab/evidence/trackrelief-1.2.2/blocks.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: It opens no mods, paints, tracks or models; it reads elevation data and makes new files from it.
+    evidence: '`lab/evidence/trackrelief-1.2.2/file-writes.txt`, `lab/evidence/trackrelief-1.2.2/exports.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source of its own code isn't public. Prebuilt program files: `TrackRelief.exe` (PE32 .NET program, the launcher,
+      no public source); `app\TrackRelief.exe` (PE32+ GUI program, x86-64, Nuitka), holding the tool's seven compiled modules
+      (no public source) and the Python packages it uses (customtkinter, tkintermapview, geopy, geocoder, requests and
+      others); `python314.dll` and 21 `.pyd` modules (Python 3.14.2); 81 files in `scipy\` and one in `scipy.libs\` (SciPy
+      1.18.1); 15 in `numpy\` and 2 in `numpy.libs\` (numpy 2.5.3); 15 in `rasterio\` and 36 in `rasterio.libs\` (rasterio
+      1.5.1 with GDAL and its libraries); 10 in `pyproj\` and 8 in `pyproj.libs\` (pyproj 3.8.0 with PROJ); 7 in `PIL\`
+      (Pillow 12.3.0); 2 in `charset_normalizer\`; `libcrypto-3.dll` and `libssl-3.dll` (OpenSSL 3.0.18); `libffi-8.dll`;
+      `sqlite3.dll`; `tcl86t.dll` and `tk86t.dll` (Tcl/Tk 8.6.15); `zlib1.dll`; `vcruntime140.dll` and `vcruntime140_1.dll`
+      (Microsoft's C runtime); and `TrackRelief_Setup.exe` (Inno Setup 6.7 installer, contents not unpacked).
+    evidence: '`file` on each (`lab/evidence/trackrelief-1.2.2/file.txt`, `lab/evidence/trackrelief-1.2.2/bundled.txt`), `lab/evidence/trackrelief-1.2.2/versions.txt`, `lab/evidence/trackrelief-1.2.2/setup.txt`; [the repository at the tag](https://github.com/Lilian1134/TrackRelief/tree/dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21) (only README.md).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing its README, page or window says on these questions differs from what its code does; the claims are in "What
+      it says vs what it does".
+    evidence: '`lab/evidence/trackrelief-1.2.2/ui-claims.txt`, `lab/evidence/trackrelief-1.2.2/strings-money.txt`, `lab/evidence/trackrelief-1.2.2/sources.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release files are uploaded to a GitHub release; the repository has no source and no build.
+    evidence: '[The repository at the tag](https://github.com/Lilian1134/TrackRelief/tree/dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21), [release 1.2.2](https://github.com/Lilian1134/TrackRelief/releases/tag/1.2.2).'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[The repository at the tag](https://github.com/Lilian1134/TrackRelief/tree/dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No code history is public: the repository has one commit, "Initial commit" on 28 Sep 2026, with a two-line README. The
+      GitHub releases have short notes for each version.
+    evidence: '[Commit history](https://github.com/Lilian1134/TrackRelief/commits/dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21), [releases](https://github.com/Lilian1134/TrackRelief/releases).'
+  T6:
+    verdict: Not checked
+    text: >-
+      No source or build files are public, so how its dependencies are pinned can't be read; the packed files show the
+      exact versions that were packed.
+    evidence: '`lab/evidence/trackrelief-1.2.2/versions.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      No licence was found: GitHub reports none, the repository holds only a README without one, and the zip has none of
+      its own.
+    evidence: '[The repository at the tag](https://github.com/Lilian1134/TrackRelief/tree/dd8f3ce4ba5e607f75849f6b330d5b9d5f647b21), `lab/evidence/trackrelief-1.2.2/thirdparty.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/trackrelief-1.2.2/strings-money.txt`, `lab/evidence/trackrelief-1.2.2/ui-claims.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing is sold or unlocked; its window says "TrackRelief is free, with every feature included." and "No account, no
+      license key, nothing to unlock."
+    evidence: '`lab/evidence/trackrelief-1.2.2/strings-money.txt`, `lab/evidence/trackrelief-1.2.2/ui-claims.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Settings has a Support section with a "♥ Support TrackRelief" button, and a support window ("It's entirely optional
+      and changes nothing in the app.") has "♥ Support on Gumroad", which opens
+      [its Gumroad page](https://lilian12.gumroad.com/l/TrackReliefPro): despite "Pro" in its address, a "Support me" item.
+    evidence: '`lab/evidence/trackrelief-1.2.2/strings-money.txt`, `lab/evidence/trackrelief-1.2.2/ui-claims.txt`.'
+corrections: []
+history:
+  - date: 26 Nov 2026
+    change: First card, for 1.2.2.

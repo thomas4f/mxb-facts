@@ -1,0 +1,27 @@
+$ for m in __main__ api_fetcher exporters satellite settings terrain_processor update; do nuitka.py consts zip/TrackRelief/app/TrackRelief.exe $m | sed "s/^/$m: /"; done | grep -nE ': (a|u)(urllib|urlopen|requests|Session|socket|bind|listen|webbrowser|User-Agent|TrackRelief/1\.0.*|TrackRelief/|api_key|opentopo_api_key|http\.server|HTTPServer)$'
+17:__main__: uUser-Agent
+104:__main__: abind
+428:__main__: aapi_key
+513:__main__: awebbrowser
+1015:__main__: arequests
+1018:__main__: uUser-Agent
+1019:__main__: uTrackRelief/1.0
+1419:__main__: aopentopo_api_key
+1532:__main__: uTrackRelief/1.0 (https://discord.gg/Tg3xVH7XHz)
+2496:api_fetcher: arequests
+2497:api_fetcher: aSession
+2510:api_fetcher: uTrackRelief/1.0
+2512:api_fetcher: uUser-Agent
+3647:api_fetcher: aapi_key
+3699:api_fetcher: aapi_key
+3732:api_fetcher: aopentopo_api_key
+3742:api_fetcher: aapi_key
+3781:api_fetcher: aapi_key
+3785:api_fetcher: aapi_key
+5969:satellite: arequests
+6349:settings: aapi_key
+6781:update: aurllib
+6785:update: uUser-Agent
+6786:update: uTrackRelief/
+6789:update: aurlopen
+(exit 0)

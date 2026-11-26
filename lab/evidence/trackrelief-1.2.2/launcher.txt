@@ -1,0 +1,41 @@
+$ objdump -p zip/TrackRelief/TrackRelief.exe | grep -E 'DLL Name|CorExeMain'; "$ILSPYCMD" zip/TrackRelief/TrackRelief.exe
+	DLL Name: mscoree.dll
+	00002000  <none>  0000  _CorExeMain
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
+
+[assembly: CompilationRelaxations(8)]
+[assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
+[assembly: AssemblyVersion("0.0.0.0")]
+internal static class Launcher
+{
+	[STAThread]
+	private static void Main()
+	{
+		//IL_0070: Unknown result type (might be due to invalid IL or missing references)
+		//IL_0036: Unknown result type (might be due to invalid IL or missing references)
+		try
+		{
+			string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+			string text = Path.Combine(Path.Combine(baseDirectory, "app"), "TrackRelief.exe");
+			if (!File.Exists(text))
+			{
+				MessageBox.Show("The \"app\" folder is missing or incomplete.\nKeep TrackRelief.exe and the \"app\" folder together.", "TrackRelief", (MessageBoxButtons)0, (MessageBoxIcon)16);
+				return;
+			}
+			ProcessStartInfo processStartInfo = new ProcessStartInfo(text);
+			processStartInfo.WorkingDirectory = Path.GetDirectoryName(text);
+			processStartInfo.UseShellExecute = false;
+			Process.Start(processStartInfo);
+		}
+		catch (Exception ex)
+		{
+			MessageBox.Show(ex.Message, "TrackRelief", (MessageBoxButtons)0, (MessageBoxIcon)16);
+		}
+	}
+}
+(exit 0)

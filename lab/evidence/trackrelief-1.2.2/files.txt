@@ -1,0 +1,6 @@
+$ sha256sum TrackRelief.zip TrackRelief_Setup.exe zip/TrackRelief/TrackRelief.exe zip/TrackRelief/app/TrackRelief.exe
+f0a6da926090a45bad2b8c332cb571dbbe0d9a10f7a6078899411d96d33da49e  TrackRelief.zip
+5ddfa9207e786b397f58b47274ade0f827e662d919681a92cd9537570e0404ec  TrackRelief_Setup.exe
+3f52130f89e40aabe0973738e2b0fb5eacb352f9a629c1aede574597b1309e97  zip/TrackRelief/TrackRelief.exe
+590181c3c87e198a88cc28246baa37f34df2958ffde2e6961fa3fed6d2b189e0  zip/TrackRelief/app/TrackRelief.exe
+(exit 0)

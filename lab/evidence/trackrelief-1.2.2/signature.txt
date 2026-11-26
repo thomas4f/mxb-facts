@@ -1,0 +1,11 @@
+$ for f in TrackRelief_Setup.exe zip/TrackRelief/TrackRelief.exe zip/TrackRelief/app/TrackRelief.exe; do echo "$f"; objdump -p "$f" | grep -E 'file format|Security Directory'; done
+TrackRelief_Setup.exe
+TrackRelief_Setup.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+zip/TrackRelief/TrackRelief.exe
+zip/TrackRelief/TrackRelief.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+zip/TrackRelief/app/TrackRelief.exe
+zip/TrackRelief/app/TrackRelief.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

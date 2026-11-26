@@ -1,0 +1,25 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe __main__ | grep -nE -A6 '100% free and open|is free, with every feature|entirely optional|changes nothing in the app'
+510:uTrackRelief is free, with every feature included. If it saved you time and you'd like to support its development, you can do so (entirely optional) with the button below. Thank you!
+511-u♥ Support TrackRelief
+512-a_support
+513-awebbrowser
+514-uhttps://portal.opentopography.org/
+515-aDISCORD_URL
+516-a_grab
+--
+630:uIf TrackRelief is useful to you and you'd like to help keep it going, you can support its development. It's entirely optional and changes nothing in the app.
+631-afill
+632-apady
+633-wxT
+634-u♥ Support on Gumroad
+635-wxD
+636-aside
+--
+1577:uTrackRelief is 100% free and open to everyone:
+1578-  • Unlimited area (long rally stages, full circuits)
+1579-  • Unlimited resolution
+1580-  • Heightmap PNG, surface mask, satellite texture and terrain info
+1581-  • One-click export for MX Bikes (.tht), BeamNG (.json) and Assetto Corsa (mesh)
+1582-No account, no license key, nothing to unlock.
+1583-uhttps://lilian12.gumroad.com/l/TrackReliefPro
+(exit 0)

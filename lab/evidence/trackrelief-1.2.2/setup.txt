@@ -1,0 +1,5 @@
+$ strings -n 6 TrackRelief_Setup.exe | grep -m3 -E 'Inno Setup'
+Inno Setup Setup Data (6.7.0)
+Inno Setup Messages (6.5.0) (u)
+<description>Inno Setup</description>
+(exit 0)
