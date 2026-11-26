@@ -194,3 +194,4 @@ def write_pages(SITE):
     # The favicon: the wordmark's slash on the pit board (brand.py).
     open(out + 'assets/favicon.svg', 'w').write(favicon() + '\n')
     open(out + 'assets/touch-icon.png', 'wb').write(touch_icon())
+    open(out + 'assets/favicon.png', 'wb').write(touch_icon(96))  # for search results, which don't show an SVG icon

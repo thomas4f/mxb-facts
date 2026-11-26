@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{% block title %}MXB Facts{% endblock %}</title>
-<meta name="description" content="{% block description %}{{ SITE.heading }} {{ SITE.lede | mdi | striptags }}{% endblock %}">
+<meta name="description" content="{% block description %}{{ SITE.description }}{% endblock %}">
 <link rel="canonical" href="{{ IX.site }}{{ path | replace('index.html', '') }}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MXB Facts">
@@ -21,6 +21,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ img }}">
 <meta name="theme-color" content="{{ DARK.bg }}">
+<link rel="icon" href="{{ root }}assets/favicon.png" type="image/png" sizes="96x96">
 <link rel="icon" href="{{ root }}assets/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="{{ root }}assets/touch-icon.png">
 {# The fonts every page shows above the fold, fetched with the stylesheet so text doesn't move when they arrive. #}
