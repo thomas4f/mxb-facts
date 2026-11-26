@@ -48,3 +48,5 @@ ev inject "objdump -d mxb_ragdoll.dlo | awk '/^[0-9a-f]+ <.*>:\$/{fn=\$2} /g_inj
 dis mxb_ragdoll.dlo 18007b9aa 18007b9b8
 dis mxb_ragdoll.dlo 18007b9f0 18007ba54
 dis mxb_ragdoll.dlo 18007c0f7 18007c10c
+# The shipped settings' defaults that G3 and G5 name: online use off, get back on (the respawn hold-back) on.
+ev ini-defaults "grep -nE '^(online|get_back_on) =' 'MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll.ini'"

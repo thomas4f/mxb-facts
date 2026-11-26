@@ -25,7 +25,7 @@ virustotal:
 # names: words the key answer must hold whenever that source question is a Concern by default, so one behaviour isn't hidden
 # behind another that shares the key question's mark.
 keys:
-  K1: {question: "Do antivirus engines flag it, or did the analysis find signs of malware?", short: "Flagged or malware?", from: [P1, P9], mark: strongest}
+  K1: {question: "Did the analysis find signs of malware, and do antivirus engines flag it?", short: "Malware? Antivirus flags?", from: [P1, P9], mark: strongest}
   K2: {question: "Does it update itself without asking, or without checking the file?", short: "Updates unchecked?", from: [P2, P3], mark: strongest}
   K3: {question: "Can it delete or change files that aren't its own?", short: "Touches other files?", from: [P4, P6, P7], mark: strongest}
   K4: {question: "Does it send data about you?", short: "Sends your data?", from: [D2, D3], mark: strongest}
@@ -63,7 +63,7 @@ questions:
     yes_mark: Concern
     note_on_request: true   # "Yes, on request" is a Note, every other Yes a Concern; the build checks it
     no_mark: Good
-    partly_means: it only moves or renames such files and keeps them, so they can be put back
+    partly_means: it only moves, renames or copies such files before changing them, and for each file the latest version that anything other than this tool wrote is kept, beside it or in a folder the tool names, so it can be put back (a file the tool wrote that something else has since edited, even in part, counts as something else's)
   P5:
     text: Are the release files code-signed?
     yes_mark: Good
@@ -154,7 +154,7 @@ questions:
     text: Does it change other plugins or tools, their files or their memory?
     yes_mark: Concern; Note if installing or updating that tool is its stated job
     no_mark: Good
-    partly_means: it only moves or renames their files and keeps them, so they can be put back
+    partly_means: it only moves, renames or copies their files before changing them, and for each file the latest version that anything other than this tool wrote is kept, beside it or in a folder the tool names, so it can be put back (a file the tool wrote that something else has since edited, even in part, counts as something else's; changes to memory can't be Partly)
   G7:
     text: Does it read the keyboard through Windows, also while the game isn't focused?
     yes_mark: Note
@@ -208,7 +208,7 @@ questions:
     partly: never
   T2:
     text: Do its docs say something its code doesn't do, on a point these questions ask about?
-    yes_mark: Concern
+    yes_mark: Concern; Note if each such line describes riskier behaviour than the code has
     no_mark: Good
     partly: never
   T3:
@@ -259,59 +259,60 @@ money:
     Not checked: {means: "The analysis couldn't settle what it costs; the Money answers say why"}
 
 # Front-page tags, each from one answer. kind: Critical, Positive, or None (no tag: the label says which tag covers it).
+# means: what the tag means for a player, shown on its hover and in Reading a card.
 # unless: a list of "<question> yes", "<question> no" or "<question> partly"; any of them leaves the tag out, because another tag
 # or answer says it (a closed-source tool shows only "Closed source"; a release a matching rebuild traces isn't "Not traced").
 # icon: the Lucide icon (site/icons.py) the tag shows, one per tag and none a mark's or state's own, so the icon says what the
 # tag is about and its colour how much it costs.
 tags:
-  - {from: P9, answer: "Yes", tag: Signs of malware, kind: Critical, icon: bug}
-  - {from: P1, answer: "Yes", tag: Flagged by antivirus, kind: Critical, icon: shield-x}
-  - {from: P2, answer: "Yes", tag: Updates without asking, kind: Critical, icon: refresh-cw}
-  - {from: P3, answer: "No", tag: Unchecked updates, kind: Critical, icon: refresh-cw-off}
-  - {from: P3, answer: "Partly", tag: Updates partly checked, kind: Critical, icon: refresh-ccw-dot}
-  - {from: P4, answer: "Yes", tag: Deletes others' files, kind: Critical, icon: trash-2}
-  - {from: P5, answer: "No", tag: Not signed or traceable, kind: Critical, icon: badge-x}
-  - {from: P6, answer: "Yes", tag: Changes Windows settings, kind: Critical, icon: monitor-cog}
-  - {from: P7, answer: "Yes", tag: Changes game files, kind: Critical, icon: folder-pen}
-  - {from: P8, answer: "Yes", tag: Leaves changes behind, kind: Critical, icon: footprints}
-  - {from: D2, answer: "Yes", tag: Sends your data, kind: Critical, icon: send}
-  - {from: D3, answer: "Yes", tag: Sends an identifier, kind: Critical, icon: fingerprint}
-  - {from: D4, answer: "Yes", tag: Sends other players' data, kind: Critical, icon: users}
-  - {from: D5, answer: "Yes", tag: Open local web server, kind: Critical, icon: server}
-  - {from: D6, answer: "Yes", tag: Reads other people's data, kind: Critical, icon: file-search}
-  - {from: D7, answer: "Yes", tag: Publishes user data, kind: Critical, icon: megaphone}
-  - {from: D8, answer: "No", tag: No off switch, kind: Critical, icon: power-off}
-  - {from: D9, answer: "Yes", tag: Needs an online account, kind: Critical, icon: circle-user}
-  - {from: D10, answer: "Yes", tag: Shares identifiers locally, kind: Critical, icon: share-2}
-  - {from: G1, answer: "Yes", tag: Injects into the game, kind: Critical, icon: syringe}
-  - {from: G2, answer: "Yes", tag: Changes game memory, kind: Critical, icon: memory-stick}
-  - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical, icon: globe}
-  - {from: G3, answer: "Partly", tag: Changes what you see online, kind: Critical, icon: scan-eye}
-  - {from: G12, answer: "Yes", tag: Gets around a game check, kind: Critical, icon: shield-off}
-  - {from: G5, answer: "Yes", tag: Presses keys for you, kind: Critical, icon: keyboard}
-  - {from: G6, answer: "Yes", tag: Changes other plugins, kind: Critical, icon: puzzle}
-  - {from: G9, answer: "Yes", tag: Starts with Windows, kind: Critical, icon: rocket}
-  - {from: C1, answer: "Yes", tag: Decrypts protected content, kind: Critical, icon: key-round}
-  - {from: C2, answer: "Yes", tag: Copies others' content, kind: Critical, icon: copy}
-  - {from: C3, answer: "Yes", tag: Shares unprotected content, kind: Critical, icon: lock-open}
-  - {from: T7, answer: "No", tag: No open-source licence, kind: Critical, icon: scale, unless: [T1 no]}
-  - {from: T1, answer: "No", tag: Closed source, kind: Critical, icon: file-lock}
-  - {from: T2, answer: "Yes", tag: Docs contradict code, kind: Critical, icon: book-x}
-  - {from: T3, answer: "No", tag: Not traced to source, kind: Critical, icon: route-off, unless: [T1 no, T4 yes]}
+  - {from: P9, answer: "Yes", tag: Signs of malware, kind: Critical, icon: bug, means: "The analysis found code that is hidden, disguised, or does something the tool doesn't show you, and a second check confirmed it. This replaces the score."}
+  - {from: P1, answer: "Yes", tag: Some antivirus engines flag it, kind: Critical, icon: shield-x, means: "Enough antivirus engines on VirusTotal flag a release file to count; the answer gives the count. Detections aren't proof of malware: packed and unsigned files are often flagged."}
+  - {from: P2, answer: "Yes", tag: Updates without asking, kind: Critical, icon: refresh-cw, means: "New code can reach your PC without you choosing it, so what you run can change after this card was made."}
+  - {from: P3, answer: "No", tag: Unchecked updates, kind: Critical, icon: refresh-cw-off, means: "Updates are installed without a check that they really come from the author, so a tampered download would not be caught."}
+  - {from: P3, answer: "Partly", tag: Updates partly checked, kind: Critical, icon: refresh-ccw-dot, means: "Updates are checked in some ways but not all, so some tampering would not be caught; the answer says which part is missing."}
+  - {from: P4, answer: "Yes", tag: Deletes or overwrites others' files, kind: Critical, icon: trash-2, means: "Files that belong to the game, Windows or another tool can be lost or replaced, without a copy kept of the latest version that something else wrote."}
+  - {from: P5, answer: "No", tag: Not signed or traceable, kind: Critical, icon: badge-x, means: "The files carry no signature and can't be traced to public source, so you can't confirm who built them or that they weren't changed on the way to you."}
+  - {from: P6, answer: "Yes", tag: Changes Windows settings, kind: Critical, icon: monitor-cog, means: "It changes how Windows is set up beyond its own entries, which can affect other programs and may stay after you remove it."}
+  - {from: P7, answer: "Yes", tag: Changes game files, kind: Critical, icon: folder-pen, means: "By default it adds content to the game's folders that you didn't pick."}
+  - {from: P8, answer: "Yes", tag: Leaves changes behind, kind: Critical, icon: footprints, means: "Removing it doesn't undo everything it did; the answer lists what stays."}
+  - {from: D2, answer: "Yes", tag: Sends your data, kind: Critical, icon: send, means: "Something about you or your game leaves your PC; the answer says what and to whom."}
+  - {from: D3, answer: "Yes", tag: Sends an identifier, kind: Critical, icon: fingerprint, means: "An identifier is sent that can link your sessions together over time, beyond a random install ID the tool makes itself."}
+  - {from: D4, answer: "Yes", tag: Sends other players' data, kind: Critical, icon: users, means: "Data about other riders in your session leaves your PC, without them having chosen this tool."}
+  - {from: D5, answer: "Yes", tag: Open local web server, kind: Critical, icon: server, means: "Any website open in your browser can read what the local server shares while the tool runs."}
+  - {from: D6, answer: "Yes", tag: Reads other people's data, kind: Critical, icon: file-search, means: "It reads other people's data on your PC, such as from other programs' files."}
+  - {from: D7, answer: "Yes", tag: Publishes riders' data, kind: Critical, icon: megaphone, means: "Data about its users is made public, where anyone can see it."}
+  - {from: D8, answer: "No", tag: No off switch, kind: Critical, icon: power-off, means: "At least one connection that carries something about you can't be turned off; you can only stop using the tool."}
+  - {from: D9, answer: "Yes", tag: Needs an online account, kind: Critical, icon: circle-user, means: "It needs, or creates, an account with an online service, which ties your use to that account."}
+  - {from: D10, answer: "Yes", tag: Shares identifiers locally, kind: Critical, icon: share-2, means: "Any program on your PC can read your identifiers or other riders' data from it."}
+  - {from: G1, answer: "Yes", tag: Injects into the game, kind: Critical, icon: syringe, means: "Another program puts code into the running game, rather than the game loading it as a plugin."}
+  - {from: G2, answer: "Yes", tag: Changes game memory, kind: Critical, icon: memory-stick, means: "It changes the game's own code or memory while it runs, beyond what the plugin interface offers."}
+  - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical, icon: globe, means: "It changes how the game behaves on online servers, in physics, timing or what the game sends, which can affect the other riders on the server."}
+  - {from: G3, answer: "Partly", tag: Changes what you see online, kind: Critical, icon: scan-eye, means: "It changes only what you see on your own screen while you're online, not physics, timing or what the game sends."}
+  - {from: G12, answer: "Yes", tag: Gets around a game check, kind: Critical, icon: shield-off, means: "It gets around a check the game makes, such as a version or licence check or anti-cheat."}
+  - {from: G5, answer: "Yes", tag: Takes over game input, kind: Critical, icon: keyboard, means: "It takes over the game's input or presses keys for you, so the game may do things you didn't press."}
+  - {from: G6, answer: "Yes", tag: Changes other plugins, kind: Critical, icon: puzzle, means: "It changes another plugin or tool, which can stop that one working the way its own author intended."}
+  - {from: G9, answer: "Yes", tag: Starts with Windows, kind: Critical, icon: rocket, means: "It runs every time Windows starts, even when you aren't playing."}
+  - {from: C1, answer: "Yes", tag: Decrypts protected content, kind: Critical, icon: key-round, means: "It removes the protection creators put on their models or textures."}
+  - {from: C2, answer: "Yes", tag: Copies others' content, kind: Critical, icon: copy, means: "It saves copies of other creators' models or textures as files on your PC."}
+  - {from: C3, answer: "Yes", tag: Shares unprotected content, kind: Critical, icon: lock-open, means: "It shares other creators' content with its protection removed."}
+  - {from: T7, answer: "No", tag: No open-source licence, kind: Critical, icon: scale, unless: [T1 no], means: "There is no open-source licence, so others may not be allowed to fix, fork or keep it alive if the author stops."}
+  - {from: T1, answer: "No", tag: Closed source, kind: Critical, icon: file-lock, means: "The source isn't public, so nobody outside can read it; the card relies on what the release files show."}
+  - {from: T2, answer: "Yes", tag: Docs contradict code, kind: Critical, icon: book-x, means: "Its docs describe something its code doesn't do, on a point these questions ask about, so the docs aren't a reliable guide there."}
+  - {from: T3, answer: "No", tag: Not traced to source, kind: Critical, icon: route-off, unless: [T1 no, T4 yes], means: "The release wasn't built in public from tagged source, so the files can't be tied to the source that is public."}
   - {from: T4, answer: "No", tag: "Covered by \"Not traced to source\", \"Not signed or traceable\" or \"Closed source\": the answer is also No when there is no public source to rebuild from", kind: None}
-  - {from: T6, answer: "No", tag: Dependencies not pinned, kind: Critical, icon: pin-off}
-  - {from: T1, answer: "Yes", tag: Open source, kind: Positive, icon: code-xml}
-  - {from: T3, answer: "Yes", tag: Built from public source, kind: Positive, icon: workflow}
-  - {from: T4, answer: "Yes", tag: Rebuild matches source, kind: Positive, icon: git-compare}
-  - {from: P5, answer: "Yes", tag: Code-signed, kind: Positive, icon: badge-check}
-  - {from: D1, answer: "No", tag: No internet connections, kind: Positive, icon: wifi-off}
+  - {from: T6, answer: "No", tag: Dependencies not pinned, kind: Critical, icon: pin-off, means: "Its dependencies aren't pinned to exact versions, so a rebuild can pull in different code than the release used."}
+  - {from: T1, answer: "Yes", tag: Open source, kind: Positive, icon: code-xml, means: "Anyone can read the full source of this release."}
+  - {from: T3, answer: "Yes", tag: Built from public source, kind: Positive, icon: workflow, means: "The release was built in public from tagged source, so the files can be tied to that source."}
+  - {from: T4, answer: "Yes", tag: Rebuild matches source, kind: Positive, icon: git-compare, means: "The release was rebuilt from its source and gave the same files."}
+  - {from: P5, answer: "Yes", tag: Code-signed, kind: Positive, icon: badge-check, means: "The files are code-signed, so you can confirm who published them and that they weren't changed since."}
+  - {from: D1, answer: "No", tag: No internet connections, kind: Positive, icon: wifi-off, means: "It sends nothing over the internet."}
 
 # The overall score (rules/scores.md, which explains it; the build writes its tables from here). Each area starts at 100 and every
 # answer that is a Concern by default takes off its cost; questions in one group describe one behaviour, so only the highest cost
 # in a group counts. A change to any number here is a new version: it rescores every card at once, and rules/scores.md,
 # "Changes to this rubric", gets a row.
 scores:
-  version: v3
+  version: v4
   # The tiers, set first; every cost below is one of them.
   tiers: {small: 5, low: 10, medium: 15, large: 25, severe: 40, malware: 100}
   # What a Concern by default costs, by question (by verdict where it differs). Every question that can be a Concern has one.

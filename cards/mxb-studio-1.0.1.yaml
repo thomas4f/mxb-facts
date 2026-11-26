@@ -56,7 +56,7 @@ files_note: >-
   Every hash matches the digest GitHub publishes for the asset (`lab/evidence/mxb-studio-1.0.1/files.txt`,
   `lab/evidence/mxb-studio-1.0.1/release.txt`).
 key:
-  K1: 'None flag it. No engine has looked: the installer is not on VirusTotal. Looking inside it for malware is not allowed by its licence.'
+  K1: 'Not on VirusTotal yet. No engine has scanned the installer, and looking inside it for malware is not allowed by its licence.'
   K2: 'Not allowed. Its licence forbids looking at how it updates; its help says you choose "Check for updates".'
   K3: 'Not allowed. Its licence forbids looking at what it writes or deletes.'
   K4: 'Not allowed. Its licence forbids looking at what it sends.'
@@ -385,3 +385,6 @@ answers:
 history:
   - date: 26 Nov 2026
     change: First card, for v1.0.1.
+  - date: 26 Nov 2026
+    change: >-
+      K1 now opens "Not on VirusTotal yet"; it opened "None flag it", which read as a scan result although no engine had scanned the installer. Mark unchanged.

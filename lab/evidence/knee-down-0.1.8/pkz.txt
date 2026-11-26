@@ -1,0 +1,15 @@
+$ grep -nE 'Encrypted PKZ|plain ZIP only|function isWantedName|bn.endsWith\(".edf"\) \|\||function looksLikeEdf|function readPackedLayer|function readPaint|function gatherTyreFiles|PREVIEW_WIDTH =|PREVIEW_HEIGHT =' asar/out/main/index.js
+3581:    throw new Error(`Not a supported PKZ archive (plain ZIP only): ${filePath}`);
+3586:    throw new Error(`Not a supported PKZ archive (plain ZIP only): ${filePath}`);
+3655:      throw new Error("Encrypted PKZ entries are not supported.");
+3728:    throw new Error("Encrypted PKZ entries are not supported.");
+3756:function isWantedName(name) {
+3758:  return bn.endsWith(".edf") || bn.endsWith(".hrc") || bn.endsWith(".cfg") || bn.endsWith(".geom") || bn.endsWith(".ini");
+3768:function looksLikeEdf(bytes) {
+3801:async function readPackedLayer(pkzPath, known) {
+3913:async function readPaint(bikeDir, packed, name) {
+3935:  return bn.endsWith(".edf") || bn.endsWith(".hrc") || bn.endsWith(".cfg");
+3937:async function gatherTyreFiles(modsPath, gfxBytes) {
+3987:const PREVIEW_WIDTH = 450;
+3988:const PREVIEW_HEIGHT = 270;
+(exit 0)

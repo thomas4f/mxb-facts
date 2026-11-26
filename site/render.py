@@ -36,6 +36,8 @@ def _post(h):
     h = re.sub(r'<a href="(?!https://|#)[^"]*"', '<a', h)
     h = re.sub(r'<a href="(https?://[^"]+)"', r'<a href="\1" target="_blank" rel="noopener"', h)
     h = re.sub(r'<th(?=[ >])(?![^>]*scope)', '<th scope="col"', h)
+    # A dated table (its first header is "Date") keeps each date on one line, as the Card history does.
+    h = re.sub(r'<table>\s*<thead>\s*<tr>\s*<th scope="col">Date</th>.*?</table>', lambda m: re.sub(r'<tr>\s*<td>', '<tr>\n<td class="nowrap">', m.group(0)), h, flags=re.S)
     return h.replace('<table>', '<div class="tw"><table class="t">').replace('</table>', '</table></div>')
 
 
@@ -95,10 +97,12 @@ def write_pages(SITE):
         pill = mark(x['state'], None, cost, x['cost_note'] or None)
         return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill
 
+    TAGMEANS = {x['label']: x['means'] for x in IX['tags']}
     def tag(t, hidden=False, base=''):
         # A tag is text and colour only (40 kinds: too many shapes to learn; the marks keep their icons). It links to the answer it comes from: on its own page (#q-ID), or on the tool's page from the tools list (base).
         cls = 'concern major' if t['kind'] == 'concern' and t.get('major') else t['kind']
-        tip = f'From {t["question"]}' + (', only after a choice you make' if t['kind'] == 'off_by_default' else '')
+        # Its hover says what the tag means for a player (rules/scoring.yaml, the same text Reading a card lists), so the two can't drift.
+        tip = TAGMEANS[t['label']] + (' Here, only after a choice you make.' if t['kind'] == 'off_by_default' else '')
         return Markup(f'<a class="tag {cls}" href="{base}#q-{t["question"]}" title="{escape(tip)}"{" hidden" if hidden else ""}>{escape(t["label"])}</a>')
 
     env.globals.update(DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
@@ -181,6 +185,8 @@ def write_pages(SITE):
     css += [f'.st.{k}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for k, v in icon.items()]
     # A comment under review (.rv): neither a state nor a tag, since it costs nothing and changes nothing until it is decided.
     css.append(f'.rv::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
+    # The author's context (.cx) shares the comment icon, in grey: it is listed and puts no answer under review.
+    css.append(f'.cx::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
     css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}',
             f'.theme {{ --i: {mask_url("sun-moon")} }}', f'.theme[data-t="light"] {{ --i: {mask_url("sun")} }}', f'.theme[data-t="dark"] {{ --i: {mask_url("moon")} }}']
     css.append('/*\n' + ICON_LICENCE + '*/')

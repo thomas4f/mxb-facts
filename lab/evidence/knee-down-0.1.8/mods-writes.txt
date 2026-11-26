@@ -1,0 +1,159 @@
+$ sed -n '2111,2124p;2143,2163p;2236,2257p;2329,2368p;4141,4165p;4228,4236p;4278,4284p' asar/out/main/index.js; echo '== at start'; sed -n '4928,4945p' asar/out/main/index.js
+  let entries;
+  try {
+    entries = await fs$1.readdir(paintsDir, { withFileTypes: true });
+  } catch {
+    return;
+  }
+  await Promise.all(
+    entries.filter((entry) => entry.isFile() && entry.name.toLowerCase().endsWith(PAINT_FILE_EXTENSION)).map(
+      (entry) => fs$1.mkdir(path.join(paintsDir, path.basename(entry.name, path.extname(entry.name))), {
+        recursive: true
+      })
+    )
+  );
+}
+async function convertTrackPreviewToPng(trackDir, picInfoName) {
+  const sourcePath = await findTrackPreviewImage(trackDir, picInfoName);
+  if (!sourcePath) return false;
+  try {
+    const buffer = await fs$1.readFile(sourcePath);
+    const ext = sourcePath.toLowerCase();
+    let decoded = null;
+    if (ext.endsWith(".tga")) {
+      decoded = decodeTga(buffer);
+    } else if (ext.endsWith(".bmp")) {
+      decoded = decodeBmp(buffer);
+    }
+    if (!decoded) return false;
+    const png = await encodePng(decoded.width, decoded.height, decoded.rgba);
+    const previewPath = path.join(trackDir, "preview.png");
+    await fs$1.writeFile(previewPath, png, { flag: "wx" });
+    return true;
+  } catch {
+    return false;
+  }
+}
+  if (!modsPath) return false;
+  const itemsPath = path.join(modsPath, subdir);
+  let entries;
+  try {
+    entries = await fs$1.readdir(itemsPath, { withFileTypes: true });
+  } catch {
+    return false;
+  }
+  const pkzNames = entries.filter((e) => e.isFile() && e.name.endsWith(MOD_FILE_EXTENSION)).map((e) => path.basename(e.name, MOD_FILE_EXTENSION));
+  const items = [
+    ...pkzNames,
+    ...entries.filter((e) => e.isDirectory() && !pkzNames.includes(e.name)).map((e) => e.name)
+  ];
+  await mapWithLimit(items, 8, async (item) => {
+    const itemDir = path.join(itemsPath, item);
+    await fs$1.mkdir(itemDir, { recursive: true });
+    for (const dir of extraDirs) {
+      await fs$1.mkdir(path.join(itemDir, dir), { recursive: true });
+    }
+    await preparePaintDirs(itemDir);
+    const finalMetadata = { ...metadata };
+    const infoFields = {};
+      }
+    }
+    const metadataPath = path.join(itemDir, METADATA_FILENAME);
+    let existing;
+    try {
+      const raw = await fs$1.readFile(metadataPath, "utf-8");
+      try {
+        existing = { raw, parsed: JSON.parse(raw) };
+      } catch (error) {
+        console.error(`Invalid metadata.json at "${metadataPath}":`, error);
+        existing = { raw, parsed: null };
+      }
+    } catch {
+      existing = null;
+    }
+    let toWrite;
+    let writeFlag;
+    if (existing && existing.parsed === null) {
+      toWrite = { id: item, ...finalMetadata };
+      writeFlag = "w";
+    } else if (existing) {
+      toWrite = { ...existing.parsed, ...infoFields, id: item };
+      writeFlag = "w";
+    } else {
+      toWrite = { id: item, ...finalMetadata };
+      writeFlag = infoFound ? "w" : "wx";
+    }
+    const existingSerialized = existing && existing.parsed !== null ? JSON.stringify(existing.parsed) : null;
+    const nextSerialized = JSON.stringify(toWrite);
+    if (existingSerialized === nextSerialized) ;
+    else {
+      await cleanupOrphanTempFiles(itemDir);
+      try {
+        await writeJsonAtomic(metadataPath, JSON.stringify(toWrite), writeFlag);
+      } catch {
+      }
+    }
+  });
+  return items;
+}
+async function hasFreshPreview(dir, paint) {
+  let previewPath = null;
+  let previewName = null;
+  for (const name of PREVIEW_IMAGE_FILENAMES) {
+    const candidate = path.join(dir, PAINTS_DIR, paint, name);
+    if (await exists(candidate)) {
+      previewPath = candidate;
+      previewName = name;
+      break;
+    }
+  }
+  if (!previewPath || !previewName) return false;
+  const paintPath = path.join(dir, PAINTS_DIR, `${paint}.pnt`);
+  let stats;
+  try {
+    stats = await Promise.all([fs$1.stat(paintPath), fs$1.stat(previewPath)]);
+  } catch {
+    return true;
+  }
+  const [paintStat, previewStat] = stats;
+  if (previewStat.mtimeMs < paintStat.mtimeMs) return false;
+  if (previewName === PREVIEW_FILENAME) {
+    const size = await readPngPreviewSize(previewPath);
+    if (!size || size.width !== PREVIEW_WIDTH || size.height !== PREVIEW_HEIGHT) return false;
+  }
+        failed: run.failed,
+        total: run.generated + run.skipped + run.failed
+      });
+      continue;
+    }
+    await fs$1.mkdir(paintDir, { recursive: true });
+    await fs$1.writeFile(path.join(paintDir, PREVIEW_FILENAME), result.png);
+    run.generated += 1;
+    emitProgress({
+      const toGenerate = [];
+      for (const paint of paints) {
+        if (!force && await hasPreview(path.join(dir, PAINTS_DIR, paint))) {
+          if (await hasFreshPreview(dir, paint)) continue;
+        }
+        toGenerate.push(paint);
+      }
+== at start
+app.whenReady().then(async () => {
+  electronApp.setAppUserModelId("com.gsvr.kneedown");
+  app.on("browser-window-created", (_, window) => {
+    optimizer.watchWindowShortcuts(window);
+  });
+  registerLocalFileProtocolHandler();
+  initModsWatcher(broadcastModsDiff);
+  const initialModsScan = whenModsScanSettles();
+  const initialWindow = createWindow();
+  setMainWindow(initialWindow);
+  registerUpdater(initialWindow);
+  initialWindow.once("ready-to-show", () => {
+    void initialModsScan.then(() => generateBikePreviews()).catch((error) => {
+      console.warn("[bikes] preview generation failed:", error);
+    });
+  });
+  app.on("activate", function() {
+    if (BrowserWindow.getAllWindows().length === 0) {
+(exit 0)

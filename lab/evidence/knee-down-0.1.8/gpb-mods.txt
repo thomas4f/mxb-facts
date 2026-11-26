@@ -1,0 +1,29 @@
+$ curl -sSL https://gpb-mods.com/knee-down-launcher/ | python3 -I -c "import html,re,sys;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\1>','',t);t=re.sub(r'<br\\s*/?>|</p>|</li>|</h[0-9]>|</div>','\\n',t);t=re.sub(r'<[^>]+>','',t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]" | sed -n '/^Installation Guide/,/^Mod Rating/p'
+Installation Guide
+Follow the steps below to install Knee Down and get started.
+Prerequisite
+You must have launched the vanilla (unmodded) version of GP Bikes directly through Steam at least once. If you’ve already played the game without using Knee Down, you’re all set.
+Installation
+Download the latest installer from GitHub Releases.
+Download KneeDown-<version>-Setup.exe.
+Run the installer and follow the on-screen instructions.
+Note: Ignore latest.yml and .blockmap. These are internal files used by the auto-update system.
+Updates
+Knee Down automatically detects, downloads, and installs new updates, then restarts itself. No manual update installation is required.
+Downloads
+Total downloads138
+Made for Beta 22.
+Recommended
+GitHub
+Download from github.com
+https://github.com/gsv-r/knee-down/releases/latest
+Changelog1 entry · last Nov 3, 2026Nov 3, 2026Hey riders!
+The v0.1.6 update brings improved track and bike previews, a more reliable presets system, better validation, and overall performance improvements.
+v0.1.6
+- Expanded track and bike information extraction.
+- Track previews and realistic 3D bike model previews.
+- More reliable presets, preserving saved paints and configurations.
+- Bike, paint, track, and layout validation before launching the game, with specific error messages.
+- Improved performance, optimized filters, and better compatibility with mod preview images.
+Mod Rating
+(exit 0)

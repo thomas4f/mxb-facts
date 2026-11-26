@@ -133,13 +133,18 @@ def corrections_md(f,d):
     assert len({c['issue'] for c in cs})==len(cs), f+': a correction is listed twice'
     out=[]
     for c in cs:
-        n=c['issue']; qs=', '.join('{q:'+q+'}' for q in c['questions'])
+        n=c['issue']; qs=', '.join('{q:'+q+'}' for q in c['questions']) or 'the card as a whole'
         assert all(q in QIDS for q in c['questions']), f+': correction #'+str(n)+' names an unknown question'
+        # Only the questions the comment itself names are listed. A correction or something missing names at least one; the
+        # author's context may name none, and marks no answer: it adds to the card, it doesn't dispute it.
+        ctx=c.get('kind')=='context'
+        assert ctx or c['questions'], f+': correction #'+str(n)+' is a '+c.get('kind','correction')+', so it names the questions it is about'
         link=f'{CKIND[c.get("kind","correction")]} [#{n}]({REPO}issues/{n})'
         if c['status']=='open':
             assert 'closed' not in c and 'reason' not in c, f+': correction #'+str(n)+' is open, so it has no "closed" date or "reason" yet'
-            for q in c['questions']: CORR[f].setdefault(q,[]).append(n)
-            out.append(f'- <span class="mark corr">Under review</span> {link}, sent {c["opened"]}, about {qs}. Nothing on the card changes until it is decided.')
+            if not ctx:
+                for q in c['questions']: CORR[f].setdefault(q,[]).append(n)
+            out.append('- '+('' if ctx else '<span class="mark corr">Under review</span> ')+f'{link}, sent {c["opened"]}, about {qs}. '+('It adds context and marks no answer.' if ctx else 'Nothing on the card changes until it is decided.'))
         else:
             assert c.get('closed') and c.get('reason'), f+': correction #'+str(n)+' is '+c['status']+', so it needs the "closed" date and a "reason"'
             assert day(c['closed'])>=day(c['opened']), f+': correction #'+str(n)+' is closed before it was sent'
@@ -178,6 +183,14 @@ def check_card(f,raw):
     # feed.py makes the feed from this.
     jsonschema.validate(raw,SCHEMA); no_html(f,raw)
     check_files(raw)
+    # T2 is Yes only when a "What it says vs what it does" claim reads "Doesn't match" (rules/template.md, section 9): a Partly
+    # claim leaves it No, the same on every card.
+    says=[r['Verdict'] for s in raw['sections'] if s['title']=='What it says vs what it does' for b in s['blocks'] for r in b.get('rows',[])]
+    assert raw['answers']['T2']['verdict']!='Yes' or any(v.startswith("Doesn't match") for v in says), f+': T2 is Yes, so a claim under "What it says vs what it does" reads "Doesn\'t match"'
+    # Rule 9: a card with a held item stays private until the hold ends, since its "Held back" row names the questions a held
+    # item touches. With PUBLISH=1, as in Check cards on every pull request and in the Pages build, it is refused, so it
+    # never reaches main; a local build still checks it.
+    assert not (raw['header'].get('Held back') and os.environ.get('PUBLISH')=='1'), f+': it has a "Held back" row, so it isn\'t published until the hold ends (rule 9)'
     assert not set(raw['header'])-set(HEADER), f+': unknown header rows '+', '.join(set(raw['header'])-set(HEADER))
     # A Yes on a question with second_check (rules/scoring.yaml) is confirmed by a second check with another method, named
     # with its evidence; only such an answer has one.

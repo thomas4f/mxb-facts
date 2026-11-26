@@ -21,8 +21,8 @@ name: Analyse a tool
 # untrusted files (releases, READMEs, pages) in a job that can only read the repository, with no git credentials kept in the
 # checkout and a spending limit (tools/agent_run.py). VirusTotal hash lookups of the release files and what they unpack
 # to are made beside the Windows run ("vt-hash", "vt-lookup"), for the analysis to answer P1 from; the files players download
-# that VirusTotal has no record of are uploaded there too, unless "skip_upload" is set or the plan's licence read isn't
-# "allows" (rule 6; CLAUDE.md, "VirusTotal"). A last job, which runs
+# that VirusTotal has no record of are uploaded there only when "upload" is set, for a tool whose author agreed, and the
+# plan's licence read is "allows" (rule 6; CLAUDE.md, "VirusTotal"). A last job, which runs
 # nothing from the analysis, applies its changes (never to workflow files), writes vt/results.json from those lookups,
 # opens the draft pull request and starts "Check cards" on it.
 on:
@@ -100,8 +100,8 @@ on:
       release:
         description: "Link to that release or its download page (leave empty together with version, for the same lookup)"
         default: ""
-      skip_upload:
-        description: "Skip upload: don't upload release files VirusTotal has no record of (the hash lookups still run)"
+      upload:
+        description: "Upload to VirusTotal the release files it has no record of: only when the tool's author agreed (the hash lookups always run)"
         type: boolean
         default: false
 permissions: {}
@@ -206,7 +206,7 @@ jobs:
         with: { name: release, path: "${{ runner.temp }}/release", retention-days: 7 }
   # VirusTotal hash lookups for the release, before the analysis, so that it can answer P1 (rule 6 allows them for any
   # tool). The first job unpacks the release files with 7-Zip and hashes them, without any key; the second holds
-  # VT_API_KEY, reads the list of hashes and, when the licence read is "allows" and "skip_upload" is off, uploads the
+  # VT_API_KEY, reads the list of hashes and, when the licence read is "allows" and "upload" is on, uploads the
   # downloaded files VirusTotal has no record of, as bytes, and waits up to 15 minutes for their scans (tools/vt_release.py).
   # It starts with the Windows run, so the scans overlap it; one that isn't finished is recorded as pending and never holds
   # up the analysis. Neither job runs anything from the release, and this workflow only runs when the maintainer starts it.
@@ -243,16 +243,16 @@ jobs:
       - if: steps.hashes.outcome == 'failure'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: vt-hashes, path: "${{ runner.temp }}/vt" }
-      - if: needs.plan.outputs.licence == 'allows' && !inputs.skip_upload
+      - if: needs.plan.outputs.licence == 'allows' && inputs.upload
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: release, path: "${{ runner.temp }}/release" }
       - env:
           VT_API_KEY: ${{ secrets.VT_API_KEY }}
-          UPLOAD: ${{ needs.plan.outputs.licence == 'allows' && !inputs.skip_upload }}
+          UPLOAD: ${{ needs.plan.outputs.licence == 'allows' && inputs.upload }}
           LICENCE: ${{ needs.plan.outputs.licence }}
-          SKIP: ${{ inputs.skip_upload }}
+          ASKED: ${{ inputs.upload }}
         run: |
-          if [ "$UPLOAD" = true ]; then up=(--upload "$RUNNER_TEMP/release"); else up=(); echo "No uploads in this run (licence read: $LICENCE, skip upload: $SKIP)."; fi
+          if [ "$UPLOAD" = true ]; then up=(--upload "$RUNNER_TEMP/release"); else up=(); echo "No uploads in this run (licence read: $LICENCE, upload: $ASKED)."; fi
           python3 -I tools/vt_release.py lookup "$RUNNER_TEMP/vt/hashes.json" "$RUNNER_TEMP/vt/lookups.json" "${up[@]}"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with: { name: vt-lookups, path: "${{ runner.temp }}/vt/lookups.json", retention-days: 7 }

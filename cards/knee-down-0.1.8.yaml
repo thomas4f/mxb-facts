@@ -1,0 +1,512 @@
+tool: Knee Down
+version: 0.1.8
+summary: >-
+  A GP Bikes launcher that lists your installed bikes, tracks, riders and paints, keeps presets, and starts a practice
+  session through Steam. At each start it writes its own files into the game's mods folder, and it checks GitHub for a
+  newer version every hour, with a random install ID; updates install after you click "New Update".
+header:
+  What it is: >-
+    A closed-source Windows app built with Electron (a web page in its own window) that finds GP Bikes through Steam,
+    lists the mods in `Documents\PiBoSo\GP Bikes\mods`, draws a 3D preview of each bike paint, and saves presets of bike,
+    paint, rider, track, layout and weather. Its launch button writes `practice.ini` into the game folder and starts the
+    game through Steam in a practice session. It is installed with an NSIS installer; it is not a plugin.
+  In one line: GP Bikes launcher that lists your mods, keeps presets and starts practice sessions
+  Category: Mod managers
+  Author: gsv-r (GitHub name)
+  Game: GP Bikes
+  gpb-mods.com: '[Knee Down](https://gpb-mods.com/knee-down-launcher/), published 9 Oct 2026, updated 19 Oct 2026'
+  Homepage: None found
+  GitHub: '[gsv-r/knee-down](https://github.com/gsv-r/knee-down)'
+  Version analysed: >-
+    0.1.8: the GitHub release [v0.1.8](https://github.com/gsv-r/knee-down/releases/tag/v0.1.8) (4 Nov 2026), its installer
+    `KneeDown-preset.exe`, the tool's latest GitHub release when the analysis started. Its gpb-mods.com page links to the
+    GitHub releases and lists no files of its own. The release's `latest.yml` and `.blockmap` are files for the updater,
+    not for players.
+  Source commit: >-
+    [27abfcc757fcbc726678b50ea8c6240fa6863203](https://github.com/gsv-r/knee-down/tree/27abfcc757fcbc726678b50ea8c6240fa6863203)
+    ("update readme", 4 Nov 2026), the commit tag `v0.1.8` points to. At that commit the repository holds only
+    `README.md`: the source isn't public.
+  Analysed on: 26 Nov 2026
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    No licence was found (none in the repository, the installer or the app's `package.json`), so nothing forbids the
+    analysis; closed source, so the release files were examined. The installer was unpacked with 7-Zip and the app's own
+    code (`app.asar`) with `lab/evidence/asar.py`; it is JavaScript as built, read directly (the main process and preload
+    unminified, the minified window code through searches), with the updater library it ships (electron-updater 6.8.9). Every
+    program file was listed with its type, hash and code-signing entry. Every command is in
+    `lab/evidence/knee-down-0.1.8/run.sh`. The release was not rebuilt (no public source). A throwaway Windows Server 2025
+    machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU), no game, no Steam and no keys ran the
+    installer silently under Process Monitor, with the run folder's programs blocked by the firewall; it installed, but the
+    app itself didn't start in that run (Limits). No game plugin, so no run in the game. VirusTotal: hash lookups made
+    before the analysis (26 Nov 2026), 40 files of the release; nothing uploaded, as no licence allows it.
+files:
+  - name: KneeDown-preset.exe
+    sha256: 3e26f60d72574dc531051b6381bdac7c5ce7b88c5510151450c68ce27148d824
+    note: The installer, the release's only file for players (NSIS 3, electron-builder).
+  - name: app-64.7z
+    sha256: b57db135f70f540d4609502b7fa48c855fc25c34de2e0ab4ecc143c99f42ea33
+    inside: KneeDown-preset.exe
+    note: The app's files, which the installer unpacks into `%LOCALAPPDATA%\Programs\KneeDown`.
+  - name: Uninstall KneeDown.exe
+    sha256: 2d06e955ef48556f868aa1db6f64db42fd8f5e1bf30782f7d84908b718ed65c4
+    inside: KneeDown-preset.exe
+    note: The uninstaller (NSIS 3); not run.
+  - name: KneeDown.exe
+    sha256: e50cc071b8d832d1c705dc8c6ffb56b9a863837adc304ae29fbea1d7b2d47400
+    inside: KneeDown-preset.exe
+    note: Electron 39.8.10's program, renamed, from `app-64.7z`; it runs the app's code in `resources\app.asar`.
+  - name: resources\app.asar
+    sha256: 57856a028dd2c41cbef0ae509431a3645fb0d56383ad926fa0b08549687ee978
+    inside: KneeDown-preset.exe
+    note: The app's own code (JavaScript) and the 68 packages it ships, from `app-64.7z`.
+  - name: resources\elevate.exe
+    sha256: 9b1fbf0c11c520ae714af8aa9af12cfd48503eedecd7398d8992ee94d1b4dc37
+    inside: KneeDown-preset.exe
+    note: electron-builder's helper for installing an update with administrator rights, from `app-64.7z`.
+files_note: >-
+  None of the installer, the uninstaller, `KneeDown.exe` or `elevate.exe` is code-signed
+  (`lab/evidence/knee-down-0.1.8/signature.txt`). The installer's hash matches the one the Windows machine ran
+  (`lab/results/knee-down-0.1.8/install-and-start-windows/machine.txt`). The update feed `latest.yml` of the same release
+  has SHA-256 7407ef30bf1d52785fdb44c78513a9e3ed47c299c38625e79e671e3cd7bcff9e (`lab/evidence/knee-down-0.1.8/files.txt`).
+key:
+  K1: >-
+    No; no malware found. No engine flags the files looked up, but the installer, the app and its code aren't on
+    VirusTotal.
+  K2: >-
+    Partly checked. It installs only after you click "New Update"; the only check is the SHA-512 in `latest.yml`, from
+    the same GitHub release as the file.
+  K3: >-
+    Yes. At each start it can overwrite a `preview.png` in a paint's folder and rewrites `metadata.json` in each mod's
+    folder in the game's mods folder; on request it edits your profile's name in the game's `profile.ini` and
+    `global.ini`.
+  K4: 'Yes, an install ID. Each update check carries a random install ID it makes; nothing else about you is sent.'
+  K5: 'No. It starts the game through Steam and changes nothing in it.'
+  K6: 'No. It reads mods to list and draw them, and stops at encrypted ones.'
+  K7: 'No. Only the built app is published, with no licence.'
+  K8: >-
+    Yes, as far as checked; its README says it installs updates by itself, and it does so only after your click.
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'Yes. It asks GitHub for a newer version at each start and every hour.'
+areas:
+  Your PC and files: >-
+    Writes its files into the game's mods folder at each start, overwriting some; updates install on your click, checked
+    only against the release's own hash; not code-signed and not on VirusTotal.
+  Your data: >-
+    Its only connection is the hourly update check to GitHub, with a random install ID and no switch; it reads Steam's
+    library list and your game profile.
+  Your game: A separate launcher that starts GP Bikes through Steam with a practice file it writes; it doesn't change the game's code or memory.
+  Creators' content: Opens your installed mods and paints to list them and draw previews; stops at encrypted archives.
+  Transparency: >-
+    Closed source with no licence; the GitHub repository holds only a README, which says updates install by themselves.
+  Money: Free; no shop or donation link, only a Discord invite.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: the installer adds "Knee Down" shortcuts to the desktop and the Start menu, an uninstall entry and a
+          key of its own under `HKCU\Software`, and keeps a copy of itself as
+          `%LOCALAPPDATA%\client-updater\installer.exe`
+          (`lab/results/knee-down-0.1.8/install-and-start-windows/outside.txt`,
+          `lab/results/knee-down-0.1.8/install-and-start-windows/registry.txt`).
+        mark: note
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: >-
+              The update check: the release list (`releases.atom`) and `latest.yml` of `gsv-r/knee-down`, with a random
+              install ID in the `x-user-staging-id` header
+            Where to: '`github.com` (GitHub), HTTPS'
+            When: When the window has loaded, then every hour
+            Switch: None
+          - What: The new installer
+            Where to: '`github.com` (GitHub), HTTPS'
+            When: Only after you click "New Update"
+            Switch: Don't click it
+          - What: Your browser opens the Discord invite
+            Where to: '`discord.gg`'
+            When: Only when you click "discord" in the side bar
+            Switch: Don't click it
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: its launch button writes `practice.ini` (bike, paint, rider, helmet, track, layout and weather) into
+          the game folder and runs Steam with `-applaunch 848050 -testing -set params practice.ini`; it checks whether the
+          game is running with `tasklist` (`lab/evidence/knee-down-0.1.8/launch.txt`,
+          `lab/evidence/knee-down-0.1.8/absent.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "The app automatically detects, downloads, and installs updates from this repository’s releases, then
+              restarts itself."
+              ([README.md](https://github.com/gsv-r/knee-down/blob/27abfcc757fcbc726678b50ea8c6240fa6863203/README.md#updates))
+            Verdict: Partly
+            Evidence: >-
+              It looks for a newer version by itself, at start and every hour, but downloads and installs only after you
+              click "New Update" ("Download and install the new version"), then restarts (`autoDownload = false`)
+              (`lab/evidence/knee-down-0.1.8/update.txt`, `lab/evidence/knee-down-0.1.8/update-ui.txt`).
+          - Claim: >-
+              "Knee Down automatically detects, downloads, and installs new updates, then restarts itself. No manual update
+              installation is required." (its gpb-mods.com page)
+            Verdict: Partly
+            Evidence: >-
+              The same: the download and install wait for a click on "New Update"
+              (`lab/evidence/knee-down-0.1.8/gpb-mods.txt`, `lab/evidence/knee-down-0.1.8/update-ui.txt`).
+          - Claim: >-
+              "Download the installer `KneeDown-<version>-Setup.exe`"
+              ([README.md](https://github.com/gsv-r/knee-down/blob/27abfcc757fcbc726678b50ea8c6240fa6863203/README.md#first-time-installation))
+            Verdict: Doesn't match
+            Evidence: >-
+              The release's installer is named `KneeDown-preset.exe`; no file of that name is in it
+              (`lab/evidence/knee-down-0.1.8/release.txt`).
+          - Claim: >-
+              "You must have launched the vanilla (unmodded) version of GP Bikes directly through Steam at least once."
+              (its gpb-mods.com page)
+            Verdict: Matches
+            Evidence: >-
+              It needs a profile folder with a `profile.ini` in `Documents\PiBoSo\GP Bikes\profiles`, which the game makes
+              on its first start (`lab/evidence/knee-down-0.1.8/reads.txt`, `lab/evidence/knee-down-0.1.8/gpb-mods.txt`).
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The run was on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real
+              GPU, without the game or Steam, with the internet blocked. The installer ran silently and installed, but the
+              app (`KneeDown.exe`) didn't start in that run, so its first start, update check, mods scan and previews weren't
+              seen; what it does rests on reading its code.
+            questions: [P4, P7, D1, D2, D3, D6, D8]
+          - text: >-
+              The uninstaller wasn't run, and 7-Zip doesn't show its script, so what uninstalling removes (its settings, the
+              files it wrote into the mods and game folders) wasn't seen.
+            questions: [P8]
+          - text: >-
+              VirusTotal was asked about 40 of the release's files; the other 49 (`app.asar`, `app-update.yml`, the two icons
+              and 45 of the Chromium language files) weren't looked up.
+            questions: [P1]
+          - text: >-
+              The game wasn't run: whether GP Bikes lists the empty folder Knee Down makes beside each `.pkz` mod, and how it
+              starts with the practice file, weren't tried.
+            questions: [P7]
+          - text: >-
+              No source or build files are public, so whether a lockfile pins the dependencies at build time isn't known;
+              the shipped `package.json` gives ranges.
+            questions: [T6]
+answers:
+  P1:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The installer `KneeDown-preset.exe`, the app archive `app-64.7z`, the uninstaller and `KneeDown.exe` are not on
+      VirusTotal (hash lookup on 26 Nov 2026), and weren't uploaded, as no licence allows it. `elevate.exe`: 0 of 70 engines
+      flagged it on 26 Nov 2026. `app.asar` wasn't looked up (Limits). The 35 other bundled files looked up (the NSIS
+      plugins, Electron's libraries and data files) are on VirusTotal, and no engine flags any of them.
+    evidence: >-
+      [KneeDown-preset.exe](https://www.virustotal.com/gui/file/3e26f60d72574dc531051b6381bdac7c5ce7b88c5510151450c68ce27148d824),
+      [app-64.7z](https://www.virustotal.com/gui/file/b57db135f70f540d4609502b7fa48c855fc25c34de2e0ab4ecc143c99f42ea33),
+      [Uninstall KneeDown.exe](https://www.virustotal.com/gui/file/2d06e955ef48556f868aa1db6f64db42fd8f5e1bf30782f7d84908b718ed65c4),
+      [KneeDown.exe](https://www.virustotal.com/gui/file/e50cc071b8d832d1c705dc8c6ffb56b9a863837adc304ae29fbea1d7b2d47400),
+      [elevate.exe](https://www.virustotal.com/gui/file/9b1fbf0c11c520ae714af8aa9af12cfd48503eedecd7398d8992ee94d1b4dc37)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It downloads nothing by itself (`autoDownload = false`). When the hourly check finds a newer version, a "New Update"
+      button appears in the title bar ("Download and install the new version"); after your click it downloads the
+      installer and runs it, then restarts.
+    evidence: '`lab/evidence/knee-down-0.1.8/update.txt`, `lab/evidence/knee-down-0.1.8/update-ui.txt`.'
+  P3:
+    verdict: Partly
+    mark: concern
+    text: >-
+      The download must match the SHA-512 in `latest.yml`, which comes from the same GitHub release as the installer. Its
+      updater checks the installer's code signature only when a publisher name is set, and `app-update.yml` sets none; the
+      installer isn't signed anyway (P5).
+    evidence: '`lab/evidence/knee-down-0.1.8/update.txt`, `lab/evidence/knee-down-0.1.8/signature.txt`.'
+  P4:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      At each start, in the game's mods folder, it rewrites `metadata.json` in each mod's folder with the name, brand, class
+      or year it reads from the mod (replacing one it can't read), and writes a 450×270 `preview.png` into
+      `paints\<paint>\` of each bike, overwriting one that is older than the paint or another size, without checking who
+      made it. On request, the Profile page renames your profile folder and rewrites the name and race number in its
+      `profile.ini` and `lastprofile` and `nickname` in the game's `global.ini`, and "reset" clears them.
+    evidence: '`lab/evidence/knee-down-0.1.8/mods-writes.txt`, `lab/evidence/knee-down-0.1.8/writes.txt`, `lab/evidence/knee-down-0.1.8/profile.txt`.'
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Neither the installer, the uninstaller, `KneeDown.exe` nor `elevate.exe` is code-signed, and they can't be traced to
+      public source.
+    evidence: Empty Security Directory for each (`lab/evidence/knee-down-0.1.8/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The installer writes its uninstall entry and a key of its own under `HKCU\Software`; the other registry writes in the
+      run were Windows' own (Internet zone and shell caches). The app only reads Steam's `SteamPath` value with `reg
+      query`.
+    evidence: '`lab/results/knee-down-0.1.8/install-and-start-windows/registry.txt`; `lab/evidence/knee-down-0.1.8/reads.txt`, `lab/evidence/knee-down-0.1.8/absent.txt`.'
+  P7:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      At each start, in `Documents\PiBoSo\GP Bikes\mods`, it makes a folder beside each `.pkz` mod, a folder for each paint,
+      and its own `metadata.json` and `preview.png` files (a track picture turned into PNG, a drawn picture per bike paint).
+      When you pick a bike or track, and when you launch, it writes `practice.ini` into the game folder. It adds no bikes,
+      tracks or paints.
+    evidence: '`lab/evidence/knee-down-0.1.8/mods-writes.txt`, `lab/evidence/knee-down-0.1.8/writes.txt`, `lab/evidence/knee-down-0.1.8/launch.txt`.'
+  P8:
+    verdict: Not checked
+    text: >-
+      The uninstaller wasn't run in the plan and its script can't be read with 7-Zip, so what stays after uninstalling
+      wasn't seen (Limits). The app writes outside its install folder: its settings in its data folder, and files in the
+      game's mods and game folders.
+    evidence: '`lab/evidence/knee-down-0.1.8/file.txt`, `lab/evidence/knee-down-0.1.8/writes.txt`.'
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. Its code does what its window shows: find Steam and the game, list and draw your mods, keep presets,
+      write the practice file, start the game through Steam and check GitHub for updates. The only programs its code starts
+      are `reg query`, `tasklist` and Steam; it has no code that loads code from the internet or opens other processes.
+      In the install run, the installer started only `cmd.exe` (with `tasklist` and `findstr`) and PowerShell.
+    evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`, `lab/evidence/knee-down-0.1.8/urls.txt`, `lab/evidence/knee-down-0.1.8/network.txt`; `lab/results/knee-down-0.1.8/install-and-start-windows/procmon.txt`.'
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It asks GitHub for its newest release when the window has loaded and every hour after, over HTTPS. Its own code has
+      no other connection: the window loads only its own files. The run saw no attempt, as the app didn't start (Limits).
+    evidence: '`lab/evidence/knee-down-0.1.8/update.txt`, `lab/evidence/knee-down-0.1.8/network.txt`, `lab/evidence/knee-down-0.1.8/urls.txt`; `lab/results/knee-down-0.1.8/install-and-start-windows/network.txt`.'
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Only the update check leaves your PC: GitHub sees the request for the release list and `latest.yml`, with the
+      install ID (D3). Nothing about your game, mods or profile is sent.
+    evidence: '`lab/evidence/knee-down-0.1.8/update.txt`, `lab/evidence/knee-down-0.1.8/network.txt`.'
+  D3:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Its updater makes a random ID on first use, keeps it in `.updaterId` in the app's data folder, and sends it with every
+      update check in the `x-user-staging-id` header. It is the only identifier sent.
+    evidence: '`lab/evidence/knee-down-0.1.8/update.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: It handles no data about other players.
+    evidence: '`lab/evidence/knee-down-0.1.8/network.txt`, `lab/evidence/knee-down-0.1.8/reads.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It runs no web server. Its `local-file:` address scheme works only inside its own window and serves only preview
+      pictures from the mods folder.
+    evidence: '`lab/evidence/knee-down-0.1.8/network.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads Steam's install path from the registry and Steam's `libraryfolders.vdf` and the game's `appmanifest` to find
+      GP Bikes, and the game's profiles (name, race number) and mods. None of it is other people's data.
+    evidence: '`lab/evidence/knee-down-0.1.8/reads.txt`.'
+  D7:
+    verdict: 'No'
+    mark: good
+    text: It publishes nothing.
+    evidence: '`lab/evidence/knee-down-0.1.8/network.txt`, `lab/evidence/knee-down-0.1.8/urls.txt`.'
+  D8:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The update check runs at every start and every hour with no setting to turn it off, and it carries the install ID
+      (D3).
+    evidence: '`lab/evidence/knee-down-0.1.8/update.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account is needed or made.
+    evidence: '`lab/evidence/knee-down-0.1.8/network.txt`, `lab/evidence/knee-down-0.1.8/money.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing with other programs; it reads the game's files and passes only `practice.ini` to the game.
+    evidence: '`lab/evidence/knee-down-0.1.8/network.txt`, `lab/evidence/knee-down-0.1.8/launch.txt`.'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It doesn't open or write into the game's process; it starts the game through Steam.
+    evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`, `lab/evidence/knee-down-0.1.8/launch.txt`.'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: It doesn't touch the game's code or memory.
+    evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`.'
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It changes nothing in the game (G2); it starts an offline practice session with the file it writes.
+    evidence: '`lab/evidence/knee-down-0.1.8/launch.txt`, `lab/evidence/knee-down-0.1.8/absent.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: It reads the game's files, not its memory.
+    evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`, `lab/evidence/knee-down-0.1.8/reads.txt`.'
+  G5:
+    verdict: 'No'
+    mark: good
+    text: It takes input only in its own window; it has no code to press keys or read them elsewhere.
+    evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`.'
+  G6:
+    verdict: 'No'
+    mark: good
+    text: It changes no other plugin or tool; it writes only into mod folders (P7) and the game's profile files on request.
+    evidence: '`lab/evidence/knee-down-0.1.8/writes.txt`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: It sets no global shortcut and reads no keys through Windows.
+    evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`.'
+  G8:
+    verdict: 'No'
+    mark: good
+    text: It doesn't run in the game, so it sets no crash handler there.
+    evidence: '`lab/evidence/knee-down-0.1.8/file.txt`, `lab/evidence/knee-down-0.1.8/absent.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing is added to Windows start-up: its code doesn't set a login item and the installer wrote no start-up entry,
+      only shortcuts.
+    evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`; `lab/results/knee-down-0.1.8/install-and-start-windows/registry.txt`, `lab/results/knee-down-0.1.8/install-and-start-windows/outside.txt`.'
+  G10:
+    verdict: 'Yes'
+    mark: note
+    text: The tool is a separate program you open yourself; it starts the game through Steam when you press launch.
+    evidence: '`lab/evidence/knee-down-0.1.8/file.txt`, `lab/evidence/knee-down-0.1.8/launch.txt`.'
+  G11:
+    verdict: 'No'
+    mark: good
+    text: It ships no plugin and loads nothing into the game.
+    evidence: '`lab/evidence/knee-down-0.1.8/bundled.txt`.'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No integrity, version, licence or anti-cheat check is got around; it starts the game through Steam with the game's
+      own `-testing` and `-set params` options.
+    evidence: '`lab/evidence/knee-down-0.1.8/launch.txt`, `lab/evidence/knee-down-0.1.8/absent.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It decrypts nothing: it reads `.pkz` mods as plain ZIP archives and stops with "Encrypted PKZ entries are not
+      supported." at an encrypted entry; mesh files that don't start like a plain `.edf` are skipped.
+    evidence: '`lab/evidence/knee-down-0.1.8/pkz.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It saves no model or texture. It draws each bike paint into a 450×270 picture, `preview.png`, in the mods folder
+      (P7).
+    evidence: '`lab/evidence/knee-down-0.1.8/pkz.txt`, `lab/evidence/knee-down-0.1.8/mods-writes.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares nothing; its only connection is the update check.
+    evidence: '`lab/evidence/knee-down-0.1.8/network.txt`, `lab/evidence/knee-down-0.1.8/urls.txt`.'
+  C4:
+    verdict: Partly
+    mark: note
+    text: >-
+      Electron's and Chromium's licences ship beside the program, and the packages in `app.asar` keep their licence files;
+      React and the other packages built into the window's code ship no licence or credit.
+    evidence: '`lab/evidence/knee-down-0.1.8/thirdparty.txt`, `lab/evidence/knee-down-0.1.8/versions.txt`.'
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      To list and draw them, it opens your installed bikes, tracks, riders, helmets and tyres: their `.ini`, `.cfg`, `.hrc`,
+      `.geom` and `.edf` files and `.pnt` paints, loose or inside unencrypted `.pkz` archives, and track pictures.
+    evidence: '`lab/evidence/knee-down-0.1.8/pkz.txt`, `lab/evidence/knee-down-0.1.8/mods-writes.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The source of its own code isn't public; `app.asar` holds it only as built. Prebuilt program files: `KneeDown.exe`
+      (PE32+ GUI program, Electron 39.8.10's runtime, renamed), `d3dcompiler_47.dll`, `dxcompiler.dll`, `dxil.dll`,
+      `ffmpeg.dll`, `libEGL.dll`, `libGLESv2.dll`, `vk_swiftshader.dll` and `vulkan-1.dll` (Electron 39.8.10's libraries);
+      `resources\elevate.exe` (electron-builder's helper); `KneeDown-preset.exe` and `Uninstall KneeDown.exe` (NSIS 3) with
+      the NSIS plugins `StdUtils.dll`, `System.dll`, `UAC.dll`, `WinShell.dll`, `nsDialogs.dll`, `nsExec.dll` and
+      `nsis7z.dll`. No native modules (`.node`) are in `app.asar`.
+    evidence: '`file` on each (`lab/evidence/knee-down-0.1.8/file.txt`, `lab/evidence/knee-down-0.1.8/bundled.txt`), `lab/evidence/knee-down-0.1.8/versions.txt`; [the repository at the tag](https://github.com/gsv-r/knee-down/tree/27abfcc757fcbc726678b50ea8c6240fa6863203) (only README.md).'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No claim on a point these questions ask about reads "Doesn't match". Its README and gpb-mods.com page say it detects, downloads and installs updates by itself; it
+      detects them by itself but downloads and installs only after your click on "New Update" (P2), so those claims read Partly. See "What it says vs what it does".
+    evidence: '`lab/evidence/knee-down-0.1.8/readme.txt`, `lab/evidence/knee-down-0.1.8/gpb-mods.txt`, `lab/evidence/knee-down-0.1.8/update-ui.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release files are uploaded to a GitHub release; the repository has no source and no build.
+    evidence: '[The repository at the tag](https://github.com/gsv-r/knee-down/tree/27abfcc757fcbc726678b50ea8c6240fa6863203), `lab/evidence/knee-down-0.1.8/repo.txt`.'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '[The repository at the tag](https://github.com/gsv-r/knee-down/tree/27abfcc757fcbc726678b50ea8c6240fa6863203).'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No code history is public: the repository's ten commits, from 9 Oct to 11 Nov 2026, change only the README. The
+      GitHub releases have short notes for each version.
+    evidence: '`lab/evidence/knee-down-0.1.8/repo.txt`, [releases](https://github.com/gsv-r/knee-down/releases).'
+  T6:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The `package.json` it ships names its dependencies by ranges (`"electron-updater": "^6.8.9"`, `"three":
+      "^0.186.1"`), not exact versions; no lockfile is public. The release packs one version of each.
+    evidence: '`lab/evidence/knee-down-0.1.8/versions.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      No licence was found: GitHub reports none, the repository holds only a README without one, the app's `package.json`
+      has no licence field, and the installer shows none.
+    evidence: '`lab/evidence/knee-down-0.1.8/repo.txt`, `lab/evidence/knee-down-0.1.8/versions.txt`, `lab/evidence/knee-down-0.1.8/thirdparty.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/knee-down-0.1.8/money.txt`, `lab/evidence/knee-down-0.1.8/release.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold or unlocked.
+    evidence: '`lab/evidence/knee-down-0.1.8/money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It asks for no donations; its only outside link is a Discord invite. The release page, README and gpb-mods.com page
+      have no donation link either.
+    evidence: '`lab/evidence/knee-down-0.1.8/money.txt`, `lab/evidence/knee-down-0.1.8/urls.txt`, `lab/evidence/knee-down-0.1.8/readme.txt`, `lab/evidence/knee-down-0.1.8/gpb-mods.txt`.'
+corrections: []
+history:
+  - date: 26 Nov 2026
+    change: First card, for 0.1.8.

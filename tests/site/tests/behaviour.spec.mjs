@@ -163,7 +163,7 @@ test('a link\'s icon comes before its fold, so Tab reaches it before what the fo
 
 test('the home page says how scores read beside the count, and points to the marks on How it works', async ({ page }) => {
   await page.goto('');
-  await expect(page.locator('.cntr')).toContainText('Scores are out of 100; higher is better.');
+  await expect(page.locator('.cntr')).toContainText('A score sums up what was found and what could be checked');
   await expect(page.locator('.legend')).toHaveCount(0);
   await page.getByRole('link', { name: 'Reading a card' }).click();
   await expect(page).toHaveURL(/how\/#marks$/);

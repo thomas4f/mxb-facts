@@ -78,4 +78,5 @@ BADGES=[  # (file suffix, name shown to authors, how it is drawn)
 ]
 def badge_json(ver,G):
     # The shields.io "endpoint" format, so shields.io can draw it in any of its styles, in the same colours.
-    return json.dumps({'schemaVersion':1,'label':BLABEL,'message':_gtext(G),'color':GCOL[G['kind']].lstrip('#'),'labelColor':DARK['bg'].lstrip('#')})
+    # The label names the release, so a score shown away from its card still says which release it is for.
+    return json.dumps({'schemaVersion':1,'label':f'{BLABEL} {ver}','message':_gtext(G),'color':GCOL[G['kind']].lstrip('#'),'labelColor':DARK['bg'].lstrip('#')})

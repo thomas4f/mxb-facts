@@ -114,7 +114,7 @@ files_note: >-
   Neither program file is code-signed (`lab/evidence/mxb-ragdoll-1.0/signature.txt`). The zip's hash is the one the Windows machine ran
   (`lab/results/mxb-ragdoll-1.0/bail-walk-windows/machine.txt`), and every hash is in `lab/evidence/mxb-ragdoll-1.0/files.txt`.
 key:
-  K1: 'No malware found. 1 of 65 engines flagged the setup, fewer than 1 in 10; nothing in the release files was hidden or disguised.'
+  K1: 'No malware found. 1 of 65 engines flagged the setup, fewer than 1 in 10.'
   K2: 'No updater. Neither program has network code, so nothing is updated.'
   K3: 'No. It writes only files named `mxb_ragdoll…` in `plugins`, and the setup its own log in your Temp folder.'
   K4: 'No. It makes no internet connection.'
@@ -397,7 +397,9 @@ answers:
       Limits).
     evidence: >-
       `lab/evidence/mxb-ragdoll-1.0/startup-installs.txt` (what Startup installs, and which functions read `g_offline`);
-      `lab/evidence/mxb-ragdoll-1.0/strings-online.txt`; shipped `mxb_ragdoll.ini` `online = 0`.
+      `lab/evidence/mxb-ragdoll-1.0/strings-online.txt`; shipped `mxb_ragdoll.ini` `online = 0`
+      (`lab/evidence/mxb-ragdoll-1.0/ini-defaults.txt`); the patches' start-up time in
+      `lab/results/mxb-ragdoll-1.0/bail-walk-windows/mxb_ragdoll.log`.
   G4:
     verdict: 'Yes'
     mark: note
@@ -416,7 +418,7 @@ answers:
       down after a crash, and hand the game a respawn press themselves when you tap it twice (`input::Replay` sets the press the hooked
       reads return to the game). It also takes keys for its F8 menu. It imports nothing that presses keys system-wide.
     evidence: >-
-      Text "respawn on key %s held back while crashed (DirectInput hooked)" (`lab/evidence/mxb-ragdoll-1.0/strings-hooks.txt`);
+      Shipped `mxb_ragdoll.ini` `get_back_on = 1` (`lab/evidence/mxb-ragdoll-1.0/ini-defaults.txt`); text "respawn on key %s held back while crashed (DirectInput hooked)" (`lab/evidence/mxb-ragdoll-1.0/strings-hooks.txt`);
       `lab/evidence/mxb-ragdoll-1.0/mxb_ragdoll.dlo.180078c50-180078c62.txt` (Replay sets `g_inject`), and the hooked reads that use it
       (`lab/evidence/mxb-ragdoll-1.0/inject.txt`); `lab/evidence/mxb-ragdoll-1.0/imports-absent.txt`; the menu drew 108 quads after F8
       (`lab/results/mxb-ragdoll-1.0/hotkeys-windows/host.log`).
@@ -510,7 +512,7 @@ answers:
     verdict: 'Yes'
     mark: note
     text: >-
-      It reads every rider model's skeleton and animations, third-party riders included, and the track's shape and collision boxes in the
+      By its functions' names, it reads every rider model's skeleton and animations, third-party riders included, and the track's shape and collision boxes in the
       game's memory, outside the plugin interface, and moves riders' bones. The installers copy three fonts out of the game's `misc.pkz`
       and `ui.pkz`.
     evidence: >-
@@ -576,3 +578,12 @@ answers:
 history:
   - date: 25 Nov 2026
     change: First card, for 1.0.
+  - date: 26 Nov 2026
+    change: >-
+      K1 ends at "No malware found" and the VirusTotal count; it also said nothing in the release files was hidden or disguised, which is more than the analysis showed. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      G5 and G3 now link the shipped settings' defaults (`get_back_on = 1`, `online = 0`, `lab/evidence/mxb-ragdoll-1.0/ini-defaults.txt`), and G3 the run's log for when the patches are made. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      C5 says the skeleton and animation reads come from its functions' names, since the ragdoll didn't run. No score change.

@@ -249,6 +249,42 @@ check('a second check that repeats the first check\'s evidence is refused', 'onl
 check('a second check on P9 No is refused', 'only a Yes' in second_refused({'verdict': 'No', 'mark': 'good', 'evidence': 'e', 'second_check': 'x'}))
 
 
+# T2 is Yes only when a claim under "What it says vs what it does" reads "Doesn't match"; a Partly claim leaves it No.
+def t2_refused(verdicts):
+    d = made_up_card()
+    d['answers']['T2'] = {'verdict': 'Yes', 'mark': 'concern', 'text': 'Its docs say otherwise.', 'evidence': '`lab/evidence/README.md`'}
+    d['sections'] = [{'title': 'What it says vs what it does', 'blocks': [{'table': ['Claim', 'Verdict', 'Evidence'], 'rows': [{'Claim': 'c', 'Verdict': v, 'Evidence': '`lab/evidence/README.md`'} for v in verdicts]}]}]
+    try:
+        B['check_card']('t.yaml', d)
+        return ''
+    except (AssertionError, Exception) as e:
+        return str(e)
+
+
+check('T2 Yes with only Partly claims is refused', 'reads "Doesn' in t2_refused(['Partly']), t2_refused(['Partly']))
+check('T2 Yes with a claim that reads Doesn\'t match passes that check', 'reads "Doesn' not in t2_refused(['Partly', "Doesn't match"]), t2_refused(['Partly', "Doesn't match"]))
+
+
+# Rule 9: with PUBLISH=1 a card with a "Held back" row is refused; a local build still checks it.
+def held_refused(publish):
+    d = made_up_card()
+    d['header']['Held back'] = '1 item (rule 9): D2'
+    old = os.environ.get('PUBLISH')
+    os.environ['PUBLISH'] = publish
+    try:
+        B['check_card']('t.yaml', d)
+        return ''
+    except (AssertionError, Exception) as e:
+        return str(e)
+    finally:
+        if old is None: os.environ.pop('PUBLISH')
+        else: os.environ['PUBLISH'] = old
+
+
+check('a held card is refused when publishing', 'held' in held_refused('1').lower() and 'rule 9' in held_refused('1'), held_refused('1'))
+check('a held card is not refused for its hold in a local build', 'until the hold ends' not in held_refused(''), held_refused(''))
+
+
 # Every answer links its evidence, and a line that names a command links its output.
 def evidence_refused(ev):
     d = made_up_card()
@@ -287,6 +323,11 @@ check('an open correction has no reason yet', refused(corr([{'issue': 1, 'questi
 check('a decided correction needs its date and reason', refused(corr([{'issue': 1, 'questions': ['D2'], 'opened': '20 Nov 2026', 'status': 'declined'}])))
 check('a fixed correction needs a history row linking its issue', refused(corr([{'issue': 1, 'questions': ['D2'], 'opened': '20 Nov 2026', 'status': 'fixed', 'closed': '21 Nov 2026', 'reason': 'D2 fixed.'}])))
 check('a correction names known questions', refused(corr([{'issue': 1, 'questions': ['Z9'], 'opened': '20 Nov 2026', 'status': 'open'}])))
+check('a correction names at least one question', refused(corr([{'issue': 1, 'questions': [], 'opened': '20 Nov 2026', 'status': 'open'}])))
+B['corrections_md']('t.yaml', corr([{'issue': 78, 'kind': 'context', 'questions': [], 'opened': '25 Nov 2026', 'status': 'open'}]))
+check("the author's context naming no question is allowed, and marks nothing", B['CORR']['t.yaml'] == {})
+B['corrections_md']('t.yaml', corr([{'issue': 78, 'kind': 'context', 'questions': ['P4'], 'opened': '25 Nov 2026', 'status': 'open'}]))
+check("the author's context marks no answer under review, even one it names", B['CORR']['t.yaml'] == {})
 
 # The comment icon fills in the comment form's card and line fields.
 _l = B['correction_link']('HoleShot 0.24.0', 'D3')

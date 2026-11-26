@@ -1,0 +1,2 @@
+$ grep -oiE '.{0,30}(donat|ko-?fi|patreon|paypal|buymeacoffee|premium|purchase|subscription|licen[cs]e key).{0,30}' asar/out/main/index.js asar/out/preload/*.js asar/out/renderer/assets/*.js
+(exit 1)

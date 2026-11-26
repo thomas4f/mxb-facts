@@ -74,7 +74,7 @@ def gen_tables():
         'keys':['| Key | Key question | Short | From | Mark |','|---|---|---|---|---|']+[row(k,x['question'],x['short'],', '.join(x['from']),x['mark'].capitalize()) for k,x in SC['keys'].items()],
         'p1':['| P1 | When |','|---|---|','| No | no engine flagged any release file |',f'| Partly | fewer than 1 in {n} engines flagged a file |',f'| Yes | 1 in {n} or more flagged a file |'],
         'questions':['| ID | Area | Question | Yes | No | Partly |','|---|---|---|---|---|---|']+[row(i,ar[i[0]]['name'],x['text'],yes_cell(x),x['no_mark'],partly_cell(x)) for i,x in q.items()],
-        'tags':['| From | Answer | Tag | Kind | Icon |','|---|---|---|---|---|']+[row(x['from'],x['answer'],x['tag']+(f' (not when {" or ".join(w.replace(" yes"," is Yes").replace(" no"," is No") for w in x["unless"])})' if 'unless' in x else ''),x['kind'],x.get('icon','')) for x in SC['tags']]},
+        'tags':['| From | Answer | Tag | Kind | Icon | What it means |','|---|---|---|---|---|---|']+[row(x['from'],x['answer'],x['tag']+(f' (not when {" or ".join(w.replace(" yes"," is Yes").replace(" no"," is No") for w in x["unless"])})' if 'unless' in x else ''),x['kind'],x.get('icon',''),x.get('means','')) for x in SC['tags']]},
       'template.md':{
         'header':['| | |','|---|---|']+[hrow(k) for k in HEADER],
         'money':['| Label | Shown when | What it means |','|---|---|---|']+[row(l,money_when(l),x['means']) for l,x in MLAB.items()]},
@@ -179,7 +179,7 @@ def ans_md(a):
     return mark_md(a)+v+('. '+a['text'] if a.get('text') else '')+(' Second check: '+a['second_check'] if a.get('second_check') else '')
 # Front-page tags: each from one answer, by the tags in rules/scoring.yaml, never picked by hand.
 TAGS=[(x['from'],x['answer'],x['tag'],x['kind']) for x in SC['tags']]
-assert all({'from','answer','tag','kind'}<=set(x)<={'from','answer','tag','kind','unless','icon'} and ('icon' in x)==(x['kind']!='None') and x['answer'] in ('Yes','No','Partly') and x['kind'] in ('Critical','Positive','None') for x in SC['tags']), 'rules/scoring.yaml: a tag is malformed (answer is Yes, No or Partly, kind is Critical, Positive or None, an icon unless kind is None, and maybe unless)'
+assert all({'from','answer','tag','kind'}<=set(x)<={'from','answer','tag','kind','unless','icon','means'} and ('icon' in x)==(x['kind']!='None')==('means' in x) and x['answer'] in ('Yes','No','Partly') and x['kind'] in ('Critical','Positive','None') for x in SC['tags']), 'rules/scoring.yaml: a tag is malformed (answer is Yes, No or Partly, kind is Critical, Positive or None, an icon and a means unless kind is None, and maybe unless)'
 assert TAGS and all(q in QIDS for q,v,_l,k in TAGS), 'rules/scoring.yaml: a tag names an unknown question'
 UNLESS={(x['from'],x['answer']):unless(x['unless']) for x in SC['tags'] if 'unless' in x}
 # No gap between marks and tags: every answer the mark table can make a Concern has a tag row (or a row saying why it has none).

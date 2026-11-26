@@ -2,11 +2,11 @@
 # pages draw them from there. Links are absolute https addresses, as the feed requires. Rule 8's AI note is ai_note.
 # The home page's heading, also on the site's link preview and in every page's description; heading_accent is its word drawn
 # in the accent colour.
-heading: Know what you install.
+heading: Check before you install.
 heading_accent: install
 lede: >-
-  Plugins, apps and mods for MX Bikes and GP Bikes run on your PC and can do what you can. See what each one installs,
-  changes and sends, with evidence for every answer.
+  Plugins, apps and mods for MX Bikes and GP Bikes run on your PC with your access: they can change your files and game,
+  and send your data. Each gets a score out of 100: the lower it is, the more it does that you might not want.
 ai_note: >-
   Claude, an AI, does the analysis from [a public prompt](https://thomas4f.github.io/mxb-facts/how/#prompt), and no person
   checks each answer, so one can be wrong. A score sums up the findings and what could be checked: a high score doesn't prove
@@ -19,11 +19,18 @@ ai_short: >-
 maintainer_notice: >-
   **Made by the maintainer of MXB Facts.** thomas4f, who runs this project, makes this tool. It is analysed from the same
   prompt, answers the same questions and is scored by the same fixed costs as every other tool, and every line links its
-  evidence, so you can check it yourself ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
+  evidence, so you can check it yourself. The maintainer directs and publishes every card, this one included. Like any author, the
+  maintainer can run the For authors check on a release before it is out ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
+# What a tag is, in the Reading a card legend.
+tags: >-
+  A tag sums up one answer, in that answer's colour: orange, or red when Major, when it costs points; grey with a dashed
+  edge when it happens only after a choice you make; green when it is in the tool's favour. Hover a tag for what it means;
+  select it for the answer, which says what this tool does and links the evidence. A question that is a Note in some cases
+  has its tag only where it is a Concern
 # What "Under review" means, in the Reading a card legend and on the mark's hover.
 under_review: >-
-  Someone has commented on this answer: a correction, something missing, or the author's context. It costs nothing,
-  and no answer, mark or score changes until it is decided
+  Someone has sent a correction about this answer, or something it misses. It costs nothing, and no answer, mark or score
+  changes until it is decided. The author's context is listed under Comments and corrections and puts no answer under review
 how_a_card_is_made:
   - >-
     **A tool is requested** through the request form, or the maintainer picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.
@@ -32,14 +39,14 @@ how_a_card_is_made:
   - >-
     **The licence is read first.** If it forbids analysis, only public facts are covered, the rest says "Not allowed", nothing is run or uploaded, and the tool isn't scored.
   - >-
-    **The AI analyses it** from the published prompt: source or binaries, an offline run on a throwaway Windows machine (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup. A downloaded file VirusTotal has never seen is uploaded for a scan.
+    **The AI analyses it** from the published prompt: source or binaries, an offline run on a throwaway Windows machine (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup of every file's hash. A file VirusTotal has never seen is uploaded for a scan only when its author agrees, since a first scan of an unsigned file can itself start antivirus detections.
   - >-
     **Every question is answered** with its evidence: a pinned code link, a file hash or a test anyone can repeat. What can't be proven or run goes under "Limits of this analysis", linked to the answers it affects.
   - >-
     **The build checks the card** against the rules: it checks each answer's mark against the mark table, and sets every key-question mark, tag and score itself; nobody picks one of those by hand.
   - >-
-    **A security problem that isn't public is held back.** The finished card stays private until the author has been told; it is then published with a "Held back" row in place of the details (rule 9).
+    **A security problem that isn't public is held back.** The author is told privately, and the finished card stays private until a fix ships or 30 days have passed since the author was told; then it is published with the details (rule 9).
   - >-
-    **Comments come in as issues:** a correction, something missing, or the author's context. While one is open, the answers it names show its count, and nothing else changes. When one holds, the line is fixed and the card's history says what changed and why.
+    **Comments come in as issues:** a correction, something missing, or the author's context. While a correction is open, the answers it names show its count, and nothing else changes; the author's context marks no answer. When a card is published, its author, if they have a public contact, gets a short note with its link and how to comment. When one holds, the line is fixed and the card's history says what changed and why.
   - >-
     **A new release gets a new card.** The tool's page shows the newest; earlier cards stay under History, and Compare can put two releases side by side.

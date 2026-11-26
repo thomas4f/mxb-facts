@@ -372,7 +372,7 @@
   },
   "corrections": {
    "type": "array",
-   "description": "Comments on answers sent through the \"Comment on an answer\" form (GitHub issues), oldest first: a correction, something missing, or context from the tool's author. While one is open, each answer it names shows its count on the comment icon, and the tool a neutral \"under review\" tag; nothing else on the card changes until it is decided",
+   "description": "Comments on answers sent through the \"Comment on an answer\" form (GitHub issues), oldest first: a correction, something missing, or context from the tool's author. While a correction or something missing is open, each answer it names shows its count on the comment icon, and the tool a neutral \"under review\" tag; nothing else on the card changes until it is decided. The author's context marks no answer",
    "items": {
     "type": "object",
     "additionalProperties": false,
@@ -398,13 +398,13 @@
      },
      "questions": {
       "type": "array",
-      "minItems": 1,
+      "minItems": 0,
       "uniqueItems": true,
       "items": {
        "type": "string",
        "pattern": "^[PDGCTM]\\d+$"
       },
-      "description": "The questions whose answers it is about"
+      "description": "The questions the comment itself names. A correction or something missing names at least one; the author's context may name none, and marks no answer either way"
      },
      "opened": {
       "type": "string",

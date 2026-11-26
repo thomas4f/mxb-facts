@@ -1,0 +1,4 @@
+$ grep -nE '^(online|get_back_on) =' 'MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll.ini'
+13:online = 0
+25:get_back_on = 1
+(exit 0)

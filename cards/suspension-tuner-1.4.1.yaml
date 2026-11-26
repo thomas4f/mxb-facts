@@ -3,7 +3,7 @@ version: 1.4.1
 summary: >-
   A Windows app that listens for the ride data MX Bikes' own proxy_udp plugin sends, analyses your laps and writes a new
   `.stp` suspension setup into the game's setups folder. With its default settings it switches the game's proxy_udp plugin
-  on itself (after a backup) and checks GitHub for a newer version each time it starts.
+  on itself (keeping a copy of only the first version it changed) and checks GitHub for a newer version each time it starts.
 header:
   What it is: >-
     A closed-source Windows app you run beside the game: a small .NET launcher, `SuspensionTuner.exe`, that starts the real
@@ -29,11 +29,11 @@ header:
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     No licence was found (none in the repository, the zip or on its pages), so nothing forbids the analysis; closed source,
-    so the release was examined without running it here. The launcher (.NET) was decompiled with ILSpy (`ilspycmd`
-    11.2.0). The app is compiled with Nuitka, so its Python code is machine code: it was read through the constants each of
+    so the release was examined without running it here, except one run under Wine (Limits). The launcher (.NET) was decompiled with ILSpy (`ilspycmd`
+    9.1.0). The app is compiled with Nuitka, so its Python code is machine code: it was read through the constants each of
     its nine own modules keeps (the names it calls, its texts, its defaults), listed with `lab/evidence/nuitka.py`, and
     through its imports; its control flow wasn't traced instruction by instruction. Every program file in the zip was listed
-    with its type, hash and code-signing entry. The installer (Inno Setup 6.7) could not be unpacked: innoextract 1.9 can't
+    with its type and hash, and the installer, launcher and app with their code-signing entry. The installer (Inno Setup 6.7) could not be unpacked: innoextract 1.9 can't
     read that version. Every command is in `lab/evidence/suspension-tuner-1.4.1/run.sh`. The release was not rebuilt (no
     public source). A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a
     real GPU), no game, no Steam and no keys started the launcher and, separately, the app for 90 s, under Process Monitor,
@@ -67,13 +67,13 @@ files_note: >-
   (`lab/results/suspension-tuner-1.4.1/app-direct-windows/machine.txt`), and the launcher's and app's the ones it started
   (`lab/results/suspension-tuner-1.4.1/app-direct-windows/plugins.sha256`).
 key:
-  K1: 'Flagged; no malware found. 9 of 66 engines flag the launcher and 4 of 71 the installer; the zip isn''t on VirusTotal.'
+  K1: 'No malware found; some engines flag it: 9 of 66 flag the launcher and 4 of 71 the installer; the zip isn''t on VirusTotal.'
   K2: 'No. It checks GitHub for a newer version and only tells you; it installs nothing.'
   K3: >-
-    Yes. With its default settings, starting an analysis rewrites the game's `proxy_udp.ini` (after a copy to
-    `proxy_udp.ini.bak`) to switch the plugin on and point it at the tool.
+    Yes. With its default settings, starting an analysis rewrites the game's `proxy_udp.ini` to switch the plugin on and
+    point it at the tool; it keeps a copy only of the first version it changed, so a later edit by you or another tool is lost.
   K4: 'No. The only thing it sends off your PC is the update check to GitHub.'
-  K5: 'No. It changes nothing in the game; it reads the data the game''s own proxy_udp plugin sends.'
+  K5: 'No. It changes nothing in the game''s code or memory; it reads the data the game''s own proxy_udp plugin sends.'
   K6: 'No. It opens no one''s content.'
   K7: 'No. Only the compiled program is published, with no licence.'
   K8: 'Yes, as far as checked.'
@@ -81,13 +81,13 @@ key:
   K10: 'Yes. Each start it asks GitHub for the tool''s release list.'
 areas:
   Your PC and files: >-
-    No updater; with default settings it switches on the game's proxy_udp plugin by rewriting `proxy_udp.ini` (with a
-    backup) and writes its setups into the game's setups folder; not code-signed, and 9 of 66 engines flag the launcher.
+    No updater; with default settings it switches on the game's proxy_udp plugin by rewriting `proxy_udp.ini` (keeping
+    only a first copy) and writes its setups into the game's setups folder; not code-signed, and 9 of 66 engines flag the launcher.
   Your data: >-
     Asks GitHub for its release list at each start, with no switch; the game's data comes in over UDP and stays on your PC.
   Your game: >-
     A separate program that reads the game's own proxy_udp output; it changes that plugin's settings file, and nothing
-    in the game.
+    in the game's code or memory.
   Creators' content: Opens no mods, paints, tracks or models; ships only Tk's licence terms for the code it packs.
   Transparency: Closed source with no licence; the GitHub repository holds only a README and the release files.
   Money: Free; a "Support on Gumroad" button links to an optional support page.
@@ -155,13 +155,12 @@ sections:
               Bikes once." (its Settings, Configure MX Bikes automatically)
             Verdict: Partly
             Evidence: >-
-              The switch is on by default and its code holds the rewrite of `proxy_udp.ini` (after a copy to
-              `proxy_udp.ini.bak`) (`lab/evidence/suspension-tuner-1.4.1/defaults.txt`,
+              The switch is on by default and its code holds the rewrite of `proxy_udp.ini`
+              (`lab/evidence/suspension-tuner-1.4.1/defaults.txt`,
               `lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`). It isn't done at the first start: in the 90 s app run it
               didn't look for the game or `proxy_udp.ini`
-              (`lab/results/suspension-tuner-1.4.1/app-direct-windows/raw/procmon.csv.gz`); the window passes `--no-setup` to
-              the analysis when the switch is off, so it comes with Start listening
-              (`lab/evidence/suspension-tuner-1.4.1/auto-plugin.txt`).
+              (`lab/results/suspension-tuner-1.4.1/app-direct-windows/raw/procmon.csv.gz`); it comes with Start listening, at
+              every analysis where the file doesn't already have `enable = 1` and the tool's address (`lab/results/suspension-tuner-1.4.1/backup-wine/log.txt`).
           - Claim: >-
               "Put the newly generated .stp file into your bike's setup folder and load it in the garage."
               ([README.md](https://github.com/Lilian1134/Suspension-Tuner/blob/895a62d8dfdaba844a85878c4eae0cd2295fa3dc/README.md#L10))
@@ -180,15 +179,17 @@ sections:
       - limits:
           - text: >-
               The runs were on a Windows Server machine with no GPU and software OpenGL (Mesa llvmpipe), not Windows on a real
-              GPU, without the game or Steam, so no game data was received, and nothing was clicked: Start listening, Finish &
+              GPU, without the game or Steam, so no game data was received, and nothing was clicked. A later run under Wine 9
+              (not Windows) with a test game folder and no network clicked only Start listening (`lab/results/suspension-tuner-1.4.1/backup-wine/log.txt`); Finish &
               analyze, the settings, Reset history, the Discord and Gumroad buttons and the update notice weren't run. What
               they do rests on the app's constants.
             questions: [P4, P7, P8, G6, D6]
           - text: >-
               The app is compiled to machine code by Nuitka; the analysis read the names, texts and defaults each module keeps,
-              not the order its code runs them in. That `proxy_udp.ini` gets `enable = 1` and `ip = 127.0.0.1:<port>`, and that
-              the Download button opens the release page rather than fetching a file, rest on those constants: the update
-              module's only internet call reads the release list, and no module holds a download or write of a fetched file.
+              not the order its code runs them in. That the Download button opens the release page rather than fetching a file
+              rests on those constants: the update module's only internet call reads the release list, and no module holds a
+              download or write of a fetched file. What it does to `proxy_udp.ini` and its `.bak` was seen in the Wine run, in
+              a test folder at `C:\MX Bikes`, one of the four fixed folders it looks in; finding the game through Steam wasn't run.
             questions: [P2, P4, G6]
           - text: >-
               The installer, `SuspensionTuner_Setup.exe` (Inno Setup 6.7), couldn't be unpacked (innoextract 1.9 doesn't read
@@ -233,10 +234,13 @@ answers:
     mark: concern
     text: >-
       With Configure MX Bikes automatically on, as it is by default, starting an analysis looks for the game (Steam's folder
-      from the registry, Steam's `libraryfolders.vdf`, four fixed folders) and rewrites its `proxy_udp.ini` after copying it
-      to `proxy_udp.ini.bak`, setting `enable = 1` and `ip = 127.0.0.1:<port>`. It writes its own `ST_*.stp` setups and
-      calibration test files; no code deletes other programs' files.
-    evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/auto-plugin.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
+      from the registry, Steam's `libraryfolders.vdf`, four fixed folders) and rewrites its `proxy_udp.ini`, setting
+      `enable = 1` and `ip = 127.0.0.1:<port>`. It copies the file to `proxy_udp.ini.bak` only when there is no `.bak` yet: in
+      a run with a test game folder, after the file was edited by hand to send the data to another address, the next
+      analysis rewrote it and kept the first copy, so the edited version was lost. It writes its own `ST_*.stp` setups and
+      calibration test files; no delete of other programs' files was found in its constants. A program that got the proxy_udp
+      data at another address gets none until you put the backup back.
+    evidence: '`lab/results/suspension-tuner-1.4.1/backup-wine/log.txt` (runs 1 to 4, made by `run.sh` beside it); `lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/auto-plugin.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
   P5:
     verdict: 'No'
     mark: concern
@@ -263,7 +267,7 @@ answers:
     verdict: 'Yes'
     mark: concern
     text: >-
-      The zip has no uninstaller; deleting its folder leaves the changed `proxy_udp.ini` (its backup sits next to it, to put
+      The zip has no uninstaller; deleting its folder leaves the changed `proxy_udp.ini` (its first copy sits next to it, to put
       back by hand), the `.stp` files it wrote and `%APPDATA%\SuspensionTuner`. The installer's uninstaller wasn't examined
       (Limits).
     evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/file.txt`.'
@@ -363,12 +367,11 @@ answers:
     text: It takes input only in its own window; it has no code to press keys or read them elsewhere.
     evidence: '`lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
   G6:
-    verdict: 'Yes'
-    mark: concern
+    verdict: 'No'
+    mark: good
     text: >-
-      Starting an analysis with its default settings rewrites the settings file of the game's own proxy_udp plugin (P4): it
-      switches the plugin on and sets the address it sends to, so a program that got that data before gets none until you
-      put the backup back.
+      It changes no other plugin or tool. The proxy_udp plugin it switches on ships with the game, so rewriting its
+      `proxy_udp.ini` is a change to the game's own files, counted under P4.
     evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`.'
   G7:
     verdict: 'No'
@@ -498,18 +501,26 @@ answers:
 corrections:
 - issue: 78
   kind: context
-  questions:
-  - P1
-  - P4
-  - P5
-  - P8
-  - G6
-  - T1
-  - T3
-  - T4
-  - T7
+  questions: []
   opened: 25 Nov 2026
-  status: open
+  status: noted
+  closed: 26 Nov 2026
+  reason: The author's context, listed on the card; it names no answer, so no mark or score changes.
 history:
   - date: 24 Nov 2026
     change: First card, for 1.4.1.
+  - date: 26 Nov 2026
+    change: >-
+      K1's short answer now leads with "No malware found", the result of the malware check, and then says some engines flag it; before, it led with "Flagged". Mark and score unchanged.
+  - date: 26 Nov 2026
+    change: >-
+      The launcher's decompiled code is now in `lab/evidence/suspension-tuner-1.4.1/launcher.txt`. The first run's output showed `ilspycmd` missing, so P9's line on the launcher ("starts `app\SuspensionTuner.exe` with the same arguments and exits") had no evidence; the decompile confirms it. The Method row now names the version used (9.1.0) and says which files' signing entries were read.
+  - date: 26 Nov 2026
+    change: >-
+      G6 is No: the proxy_udp plugin ships with the game, so changing its settings file is a change to the game's own files, counted under P4, as on MXB Ragdoll's card; before, G6 was a Concern. Score 56 to 59.
+  - date: 26 Nov 2026
+    change: >-
+      P4 stays Yes under rubric v4, now from a run under Wine with a test game folder (`lab/results/suspension-tuner-1.4.1/backup-wine/log.txt`): it copies `proxy_udp.ini` to `proxy_udp.ini.bak` only when there is no `.bak` yet, so a later edit is lost at the next rewrite; before, the card said each rewrite copies the file first. It also no longer says no code deletes other programs' files, only that no delete was found in its constants. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      K5 and the Your game line say it changes nothing in the game's code or memory, since it does change the game's `proxy_udp.ini`. No score change.

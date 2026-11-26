@@ -1,0 +1,5 @@
+$ grep -oE '.{0,40}function b2\(n,r,o\).{0,200}' asar/out/renderer/assets/index-*.js; grep -oE 'g\?k.jsx\(za,\{variant:"ghost",className:z2,onClick:c,title:.{0,140}' asar/out/renderer/assets/index-*.js; grep -oE 'const h=_.useCallback\(\(\)=>\{c\(!0\),s.current=!0.{0,90}' asar/out/renderer/assets/index-*.js
+{variant:r,size:o,className:n})),...s})}function b2(n,r,o){return r?n==="available"&&o!=="available"?"download":n==="downloaded"&&o!=="downloaded"?"install":n==="up-to-date"||n==="error"||n==="idle"?"stop":null:null}const S2={status:"idle",version:null,perce
+g?k.jsx(za,{variant:"ghost",className:z2,onClick:c,title:r?`Version ${r} available${o?` (installed ${o})`:""}`:"Download and install the new version",children:"New Update"}):null,k.jsx(za,{variant:
+const h=_.useCallback(()=>{c(!0),s.current=!0,d.current="available",window.updater?.downloadUpdate().catch(()=>{})},[]);return{...n,upd
+(exit 0)
