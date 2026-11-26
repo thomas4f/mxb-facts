@@ -1,0 +1,79 @@
+$ sed -n '558,574p;575,612p;647,657p;1565,1573p' asar/out/main/index.js; grep -nE 'ipcMain.handle\("(profiles:save|launcher:reset)"' asar/out/main/index.js
+function syncGlobalProfile(lastprofile, nickname) {
+  const iniPath = getGlobalIniPath();
+  try {
+    let raw = "";
+    try {
+      raw = fs.readFileSync(iniPath, "utf-8");
+    } catch {
+      raw = "";
+    }
+    fs.mkdirSync(path.dirname(iniPath), { recursive: true });
+    fs.writeFileSync(iniPath, updateGlobalIniContent(raw, lastprofile, nickname), "utf-8");
+    return true;
+  } catch (error) {
+    console.error(`Failed to write global.ini at "${iniPath}":`, error);
+    return false;
+  }
+}
+function saveProfileInfo(profileId, name, raceNumber) {
+  const id = profileId.trim();
+  const cleanName = name.trim();
+  const cleanRace = raceNumber.trim();
+  if (id === "" || id === "." || id === ".." || /[/\\]/.test(id)) {
+    return { ok: false, reason: "invalid-id" };
+  }
+  if (!profileNameSchema.safeParse(cleanName).success || !isValidProfileFolderName(cleanName)) {
+    return { ok: false, reason: "invalid-name" };
+  }
+  if (!raceNumberSchema.safeParse(cleanRace).success) {
+    return { ok: false, reason: "invalid-race-number" };
+  }
+  const profilesPath = getResolvedProfilePath();
+  if (!profilesPath) return { ok: false, reason: "profile-not-found" };
+  const active = resolveActiveProfile(listProfilesIn(profilesPath));
+  if (active === null || active.id !== id) return { ok: false, reason: "profile-not-found" };
+  const oldDir = path.join(profilesPath, id);
+  if (!isFile(path.join(oldDir, PROFILE_INI_FILENAME))) {
+    return { ok: false, reason: "profile-not-found" };
+  }
+  let targetDir = oldDir;
+  let renamed = false;
+  if (cleanName !== id) {
+    const nextDir = path.join(profilesPath, cleanName);
+    if (fs.existsSync(nextDir) && oldDir.toLowerCase() !== nextDir.toLowerCase()) {
+      return { ok: false, reason: "name-taken" };
+    }
+    try {
+      fs.renameSync(oldDir, nextDir);
+    } catch (error) {
+      console.error(`Failed to rename profile folder "${oldDir}" to "${nextDir}":`, error);
+      return { ok: false, reason: "write-failed" };
+    }
+    targetDir = nextDir;
+    renamed = true;
+  }
+  const iniPath = path.join(targetDir, PROFILE_INI_FILENAME);
+function resetActiveProfileInfo() {
+  const profilesPath = getResolvedProfilePath();
+  if (!profilesPath) return false;
+  const active = resolveActiveProfile(listProfilesIn(profilesPath));
+  if (active === null) return false;
+  const iniPath = path.join(profilesPath, active.id, PROFILE_INI_FILENAME);
+  if (!isFile(iniPath)) return false;
+  const raw = fs.readFileSync(iniPath, "utf-8");
+  fs.writeFileSync(iniPath, updateProfileIniContent(raw, "", ""), "utf-8");
+  return true;
+}
+}
+function resetLauncher() {
+  try {
+    resetActiveProfileInfo();
+    store.clear();
+  } catch (error) {
+    throw new Error("Could not reset launcher settings.", { cause: error });
+  }
+}
+4755:  ipcMain.handle("profiles:save", (e, args) => {
+4824:  ipcMain.handle("launcher:reset", (e) => {
+(exit 0)

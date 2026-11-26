@@ -1,0 +1,12 @@
+$ ls app | grep -iE 'licen'; echo '== packages in app.asar with a licence file'; find asar/node_modules -maxdepth 3 -iname 'licen[cs]e*' | wc -l; echo '== packages in app.asar'; find asar/node_modules -maxdepth 2 -name package.json | wc -l; echo '== React in app.asar'; ls asar/node_modules | grep -xE 'react|react-dom' ; echo '== licence comments in the window code'; grep -lE '@license|Copyright' asar/out/renderer/assets/*.js; echo '== React in the window code'; grep -oE 'react.dev/errors' asar/out/renderer/assets/*.js | sort | uniq -c
+LICENSE.electron.txt
+LICENSES.chromium.html
+== packages in app.asar with a licence file
+103
+== packages in app.asar
+68
+== React in app.asar
+== licence comments in the window code
+== React in the window code
+      2 asar/out/renderer/assets/index-BBYlot8S.js:react.dev/errors
+(exit 0)

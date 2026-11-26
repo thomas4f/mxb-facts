@@ -1,0 +1,9 @@
+$ grep -nE 'globalShortcut|setLoginItemSettings|openAtLogin|crashReporter|uncaughtException|WriteProcessMemory|OpenProcess|robotjs|sendInputEvent|reg add|reg delete|HKEY_LOCAL_MACHINE|eval\(|new Function\(|ffi|\.node"' asar/out/main/index.js asar/out/preload/*.js; echo '== child processes started (all)'; grep -nE 'execSync\(|execAsync\(|exec\(|spawn\(|execFile\(' asar/out/main/index.js
+== child processes started (all)
+175:    const stdout = execSync(STEAM_REGISTRY_QUERY, { encoding: "utf-8" });
+1049:  const initialMatch = new RegExp("(?:^|[\\s_([.-])\\p{L}\\.\\s*([\\p{L}]{3,})", "u").exec(key);
+1082:    const match = /livery[\s_.-]*(\d*)/.exec(paintKey(name));
+1542:  const { stdout, stderr } = await execAsync(`"${steamExe}" -applaunch ${appId} ${args}`);
+1549:    const out = execSync(`tasklist /FI "IMAGENAME eq ${GAME_PROCESS_NAME}" /FO CSV /NH`, {
+1556:      return execSync("tasklist", { windowsHide: true }).toString().toLowerCase().includes(target);
+(exit 0)

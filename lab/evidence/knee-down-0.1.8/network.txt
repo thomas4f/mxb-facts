@@ -1,0 +1,29 @@
+$ grep -nE 'net\.(fetch|request)|fetch\(|XMLHttpRequest|WebSocket|createServer|listen\(|require\("(http|https|net|dgram)"\)|from "(http|https|net|dgram)"' asar/out/main/index.js asar/out/preload/*.js; echo '== renderer'; grep -cE 'XMLHttpRequest|new WebSocket|sendBeacon' asar/out/renderer/assets/*.js; echo '== content policy'; grep -h -A1 'Content-Security-Policy' asar/out/renderer/*.html; echo '== links opened in the browser'; grep -nE 'shell\.openExternal|setWindowOpenHandler' asar/out/main/index.js; grep -oE 'const dE="[^"]+"|onClick:\(\)=>window.open\(dE,"_blank"\)' asar/out/renderer/assets/index-*.js
+asar/out/main/index.js:4909:        return await net.fetch(pathToFileURL(decision.path).toString());
+== renderer
+asar/out/renderer/assets/bikes-CoNraXEe.js:0
+asar/out/renderer/assets/index-BBYlot8S.js:0
+asar/out/renderer/assets/mod-list-page-Bht7Fg7x.js:0
+asar/out/renderer/assets/mod-preview-DB0d-7Xn.js:0
+asar/out/renderer/assets/practice-D5riORbW.js:0
+asar/out/renderer/assets/practice-cache-1IvLT0Ti.js:0
+asar/out/renderer/assets/preview-D6VFEaIV.js:0
+asar/out/renderer/assets/profile-TWVarejq.js:0
+asar/out/renderer/assets/select-fGqNy9Z9.js:0
+asar/out/renderer/assets/settings-CF3xGocD.js:0
+asar/out/renderer/assets/tracks-BKO9li9R.js:0
+asar/out/renderer/assets/useActivePreset-CIvPu7W4.js:0
+asar/out/renderer/assets/usePaths-P19sI6So.js:0
+asar/out/renderer/assets/usePresets-XaAqn9T5.js:0
+== content policy
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: local-file:"
+--
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'"
+== links opened in the browser
+4491:  window.webContents.setWindowOpenHandler((details) => {
+4496:      shell.openExternal(details.url);
+const dE="https://discord.gg/SGGnWN7a6Y"
+onClick:()=>window.open(dE,"_blank")
+(exit 0)

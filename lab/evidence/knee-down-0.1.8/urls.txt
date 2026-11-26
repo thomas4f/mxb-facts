@@ -1,0 +1,18 @@
+$ grep -ohE 'https?://[a-zA-Z0-9._/-]+' asar/out/main/index.js asar/out/preload/*.js asar/out/renderer/*.html asar/out/renderer/assets/*.js | sort | uniq -c | sort -rn
+      7 http://www.w3.org/2000/svg
+      7 http://www.w3.org/1999/xlink
+      3 http://www.w3.org/XML/1998/namespace
+      3 http://www.w3.org/1998/Math/MathML
+      2 https://reactrouter.com/en/main/routers/picking-a-router.
+      2 https://react.dev/errors/
+      2 https://placeholder.example.com
+      2 http://localhost
+      1 https://json-schema.org/draft/2020-12/schema
+      1 https://jcgt.org/published/0007/04/01/
+      1 https://discord.gg/SGGnWN7a6Y
+      1 https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
+      1 http://www.w3.org/1999/xhtml
+      1 http://json-schema.org/draft-07/schema
+      1 http://json-schema.org/draft-04/schema
+      1 http://127.0.0.1
+(exit 0)

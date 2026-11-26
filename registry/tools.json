@@ -178,7 +178,9 @@
     "author": "gsv-r",
     "github": "gsv-r/knee-down",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "knee-down-0.1.8.yaml"
+    ],
     "gpb-mods": {
       "post": 5300,
       "tied_by": "github.com/gsv-r/knee-down"

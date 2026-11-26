@@ -1,0 +1,14 @@
+$ for f in KneeDown-preset.exe 'nsis/$R0/Uninstall KneeDown.exe' app/KneeDown.exe app/resources/elevate.exe; do echo "$f"; objdump -p "$f" | grep -E 'file format|Security Directory'; done
+KneeDown-preset.exe
+KneeDown-preset.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+nsis/$R0/Uninstall KneeDown.exe
+nsis/$R0/Uninstall KneeDown.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+app/KneeDown.exe
+app/KneeDown.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+app/resources/elevate.exe
+app/resources/elevate.exe:     file format pei-i386
+Entry 4 00000000 00000000 Security Directory
+(exit 0)

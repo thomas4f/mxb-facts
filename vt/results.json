@@ -382,6 +382,42 @@
         "permalink": "https://www.virustotal.com/gui/file/33a99f01c2ba63efb8d96bea4ea5d37df8808ff165f1a9ecb4444c21665f691e"
       }
     },
+    "knee-down-0.1.8.yaml": {
+      "3e26f60d72574dc531051b6381bdac7c5ce7b88c5510151450c68ce27148d824": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45777567513",
+        "permalink": "https://www.virustotal.com/gui/file/3e26f60d72574dc531051b6381bdac7c5ce7b88c5510151450c68ce27148d824"
+      },
+      "b57db135f70f540d4609502b7fa48c855fc25c34de2e0ab4ecc143c99f42ea33": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45777567513",
+        "permalink": "https://www.virustotal.com/gui/file/b57db135f70f540d4609502b7fa48c855fc25c34de2e0ab4ecc143c99f42ea33"
+      },
+      "2d06e955ef48556f868aa1db6f64db42fd8f5e1bf30782f7d84908b718ed65c4": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45777567513",
+        "permalink": "https://www.virustotal.com/gui/file/2d06e955ef48556f868aa1db6f64db42fd8f5e1bf30782f7d84908b718ed65c4"
+      },
+      "e50cc071b8d832d1c705dc8c6ffb56b9a863837adc304ae29fbea1d7b2d47400": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45777567513",
+        "permalink": "https://www.virustotal.com/gui/file/e50cc071b8d832d1c705dc8c6ffb56b9a863837adc304ae29fbea1d7b2d47400"
+      },
+      "9b1fbf0c11c520ae714af8aa9af12cfd48503eedecd7398d8992ee94d1b4dc37": {
+        "found": true,
+        "flagged": 0,
+        "engines": 70,
+        "flagged_by": [],
+        "last_scanned": "2026-11-26",
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45777567513",
+        "permalink": "https://www.virustotal.com/gui/file/9b1fbf0c11c520ae714af8aa9af12cfd48503eedecd7398d8992ee94d1b4dc37"
+      }
+    },
     "maxhud-2.2.7.yaml": {
       "7bad0de4e79f07d555b00f487dc9849a3220fcd475d547235e357b5a46fe2d58": {
         "found": true,

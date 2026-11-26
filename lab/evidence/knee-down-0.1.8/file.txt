@@ -1,0 +1,9 @@
+$ file KneeDown-preset.exe 'nsis/$R0/Uninstall KneeDown.exe' app/KneeDown.exe app/resources/elevate.exe; 7z l KneeDown-preset.exe | grep -E 'SubType|app-64|Uninstall'
+KneeDown-preset.exe:             PE32 executable for MS Windows 4.00 (GUI), Intel i386, Nullsoft Installer self-extracting archive, 5 sections
+nsis/$R0/Uninstall KneeDown.exe: PE32 executable for MS Windows 4.00 (GUI), Intel i386, Nullsoft Installer self-extracting archive, 5 sections
+app/KneeDown.exe:                PE32+ executable for MS Windows 10.00 (GUI), x86-64, 14 sections
+app/resources/elevate.exe:       PE32 executable for MS Windows 6.00 (console), Intel i386, 6 sections
+SubType = NSIS-3 Unicode
+2026-11-04 20:13:00 .....     98727499     98727499  $PLUGINSDIR/app-64.7z
+2026-11-04 20:13:02 .....                    151251  $R0/Uninstall KneeDown.exe
+(exit 0)

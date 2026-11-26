@@ -1,0 +1,19 @@
+$ curl -sS https://api.github.com/repos/gsv-r/knee-down/releases/tags/v0.1.8 | python3 -I -c 'import json,sys;r=json.load(sys.stdin);print(r["tag_name"],r["name"],r["published_at"],"target:",r["target_commitish"]);[print(a["name"],a["size"],a["digest"]) for a in r["assets"]];print(r["body"])'
+v0.1.8 v0.1.8 2026-11-04T20:11:18Z target: main
+KneeDown-preset.exe 99302836 sha256:3e26f60d72574dc531051b6381bdac7c5ce7b88c5510151450c68ce27148d824
+KneeDown-preset.exe.blockmap 105479 sha256:22e8421d02450b1ebf0769b855d7d1efe4a26fc58acc60ea924df6eaac5f4da0
+latest.yml 334 sha256:7407ef30bf1d52785fdb44c78513a9e3ed47c299c38625e79e671e3cd7bcff9e
+Hey riders!
+
+The v0.1.8 update brings bug fixes and improvements.
+
+v0.1.8
+
+- Fixed version bump from 0.1.7 to 0.1.8
+- Updated release process
+
+[Download the latest version of KneeDown](https://github.com/gsv-r/knee-down/releases/latest/download/KneeDown-preset.exe)
+
+`latest.yml` and `.blockmap` are internal auto-update files — do not download or run them.
+
+(exit 0)

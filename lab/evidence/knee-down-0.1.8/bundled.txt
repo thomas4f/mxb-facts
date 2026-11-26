@@ -1,0 +1,40 @@
+$ find nsis app -type f \( -iname '*.dll' -o -iname '*.exe' -o -iname '*.node' \) | sort | while read f; do sha256sum "$f"; file -b "$f"; done; echo '.node files in app.asar:'; find asar -name '*.node' | wc -l
+e50cc071b8d832d1c705dc8c6ffb56b9a863837adc304ae29fbea1d7b2d47400  app/KneeDown.exe
+PE32+ executable for MS Windows 10.00 (GUI), x86-64, 14 sections
+c8e25abd3d45dfb55966a74613258c39b4a83ea2ac77f2f80903499f4d5c03f0  app/d3dcompiler_47.dll
+PE32+ executable for MS Windows 6.02 (DLL), x86-64, 8 sections
+d59f53e6c8a0a02003c414ce3ca11f973b31809008f0c94cf3c2559687a5e6c7  app/dxcompiler.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+436f128f22050ae27323da61321a469de0678def7a4e6d86f9ccad4858724f0a  app/dxil.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 7 sections
+f3705d563d2d8f93a0d497233c01506d5e4ecc66476022588d422d7509694bca  app/ffmpeg.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 8 sections
+df2581628fdc5e9ce1a7faf61e1c685730802e31ef828f2e6eb6aecbfa00b02a  app/libEGL.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+08888aafcffd55b349e528f9979c335276ad0fd8c6ce92448179f97557c03ea1  app/libGLESv2.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+9b1fbf0c11c520ae714af8aa9af12cfd48503eedecd7398d8992ee94d1b4dc37  app/resources/elevate.exe
+PE32 executable for MS Windows 6.00 (console), Intel i386, 6 sections
+597ca957c8aaa18911c719f7973dc1628c02e6a4319f1eda3a15134a403d1d68  app/vk_swiftshader.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+3500028f57bb570f75b6bef56b13fb788da0ffb8d0fe1ec61c058c839be19eb8  app/vulkan-1.dll
+PE32+ executable for MS Windows 10.00 (DLL), x86-64, 9 sections
+b72e9013a6204e9f01076dc38dabbf30870d44dfc66962adbf73619d4331601e  nsis/$PLUGINSDIR/StdUtils.dll
+PE32 executable for MS Windows 5.00 (DLL), Intel i386, 5 sections
+3eb38ae99653a7dbc724132ee240f6e5c4af4bfe7c01d31d23faf373f9f2eaca  nsis/$PLUGINSDIR/System.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386, 4 sections
+2f7f8fc05dc4fd0d5cda501b47e4433357e887bbfed7292c028d99c73b52dc08  nsis/$PLUGINSDIR/UAC.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386, 4 sections
+9be85b986ea66a6997dde658abe82b3147ed2a1a3dcb784bb5176f41d22815a6  nsis/$PLUGINSDIR/WinShell.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386, 2 sections
+1e40211af65923c2f4fd02ce021458a7745d28e2f383835e3015e96575632172  nsis/$PLUGINSDIR/nsDialogs.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386, 5 sections
+5d9ceb1ce5f35aea5f9e5a0c0edeeec04dfefe0c77890c80c70e98209b58b962  nsis/$PLUGINSDIR/nsExec.dll
+PE32 executable for MS Windows 4.00 (DLL), Intel i386, 4 sections
+b393f05e8ff919ef071181050e1873c9a776e1a0ae8329aefff7007d0cadf592  nsis/$PLUGINSDIR/nsis7z.dll
+PE32 executable for MS Windows 6.00 (DLL), Intel i386, 5 sections
+2d06e955ef48556f868aa1db6f64db42fd8f5e1bf30782f7d84908b718ed65c4  nsis/$R0/Uninstall KneeDown.exe
+PE32 executable for MS Windows 4.00 (GUI), Intel i386, Nullsoft Installer self-extracting archive, 5 sections
+.node files in app.asar:
+0
+(exit 0)

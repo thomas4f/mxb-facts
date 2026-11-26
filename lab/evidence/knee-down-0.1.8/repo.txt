@@ -1,0 +1,24 @@
+$ curl -sS https://api.github.com/repos/gsv-r/knee-down/git/refs/tags/v0.1.8 | python3 -I -c 'import json,sys;print("tag v0.1.8 ->",json.load(sys.stdin)["object"]["sha"])'; curl -sS 'https://api.github.com/repos/gsv-r/knee-down/git/trees/27abfcc757fcbc726678b50ea8c6240fa6863203?recursive=1' | python3 -I -c 'import json,sys;[print(t["type"],t["path"]) for t in json.load(sys.stdin)["tree"]]'; curl -sS https://api.github.com/repos/gsv-r/knee-down | python3 -I -c 'import json,sys;r=json.load(sys.stdin);print("description:",r["description"]);print("license:",r["license"])'; curl -sS 'https://api.github.com/repos/gsv-r/knee-down/commits?per_page=100' | python3 -I -c 'import json,sys;[print(c["sha"],c["commit"]["committer"]["date"],c["commit"]["message"].splitlines()[0]) for c in json.load(sys.stdin)]'; curl -sS 'https://api.github.com/repos/gsv-r/knee-down/releases?per_page=100' | python3 -I -c 'import json,sys;[print(r["tag_name"],r["published_at"]) for r in json.load(sys.stdin)]'
+tag v0.1.8 -> 27abfcc757fcbc726678b50ea8c6240fa6863203
+blob README.md
+description: Client for GP Bikes.
+license: None
+2b5f2c709ea05de981d5cff570a9d2fe196dd3ff 2026-11-11T17:05:10Z update readme
+08b2536bc51f728ded6cece064c0c092e4c1ce7b 2026-11-06T11:34:38Z update readme
+168c260c77486729ad047e6d19e63cb212e7bbd1 2026-11-06T10:09:25Z update readme 
+f79a8f7fb1c010a352bfd52185fa9783a400e74c 2026-11-05T20:55:03Z update readme
+27abfcc757fcbc726678b50ea8c6240fa6863203 2026-11-04T16:02:54Z update readme
+a053e594a33b414f753d37a3da99199ddaadcd4c 2026-10-11T08:25:50Z update readme
+78aac57c90140bf1f963bf55e580cec84e504502 2026-10-11T08:04:08Z docs: download links (instalador .exe + auto update)
+d2dea3a31c43e33689995b5ac44ff28c65360106 2026-10-10T20:49:02Z update readme
+32c9fca25cd70f0b1004192f30e90e8ea7515a87 2026-10-10T20:24:15Z docs: download links (instalador .exe + auto update)
+a5a2744920abad852a05424ffe3507096a2b4f7d 2026-10-09T18:12:29Z Initial commit
+v0.1.8 2026-11-04T20:11:18Z
+v0.1.7 2026-11-04T14:53:18Z
+v0.1.6 2026-11-03T18:09:01Z
+v0.1.5 2026-10-24T05:00:35Z
+v0.1.4 2026-10-19T07:52:12Z
+v0.1.3 2026-10-11T08:01:51Z
+v0.1.2 2026-10-10T20:21:35Z
+v0.1.1 2026-10-09T19:11:58Z
+(exit 0)
