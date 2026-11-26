@@ -75,6 +75,7 @@ on:
           - mxbmrp3
           - mxbtt
           - mxpulse
+          - mxrp-ragdoll
           - mxtuner
           - painthub
           - performance-lab
