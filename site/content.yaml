@@ -21,6 +21,11 @@ maintainer_notice: >-
   prompt, answers the same questions and is scored by the same fixed costs as every other tool, and every line links its
   evidence, so you can check it yourself. The maintainer directs and publishes every card, this one included. Like any author, the
   maintainer can run the For authors check on a release before it is out ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
+# What a tag is, in the Reading a card legend.
+tags: >-
+  Sums up one answer, in that answer's colour: orange, or red when Major, when it costs points; grey with a dashed edge
+  when it happens only after a choice you make; green when it is in the tool's favour. Hover it for the question; select it
+  for the answer, which says what the tool does, why it is marked that way, and the evidence
 # What "Under review" means, in the Reading a card legend and on the mark's hover.
 under_review: >-
   Someone has sent a correction about this answer, or something it misses. It costs nothing, and no answer, mark or score

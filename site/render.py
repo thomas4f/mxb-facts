@@ -97,10 +97,12 @@ def write_pages(SITE):
         pill = mark(x['state'], None, cost, x['cost_note'] or None)
         return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill
 
+    QTEXT = {q['id']: q['question'] for q in SITEJ['questions']}
     def tag(t, hidden=False, base=''):
         # A tag is text and colour only (40 kinds: too many shapes to learn; the marks keep their icons). It links to the answer it comes from: on its own page (#q-ID), or on the tool's page from the tools list (base).
         cls = 'concern major' if t['kind'] == 'concern' and t.get('major') else t['kind']
-        tip = f'From {t["question"]}' + (', only after a choice you make' if t['kind'] == 'off_by_default' else '')
+        # Its hover gives the question it sums up, from the same source as the answer (site.json), so the two can't drift.
+        tip = f'{t["question"]}: {QTEXT.get(t["question"], "")}' + (' Only after a choice you make.' if t['kind'] == 'off_by_default' else '')
         return Markup(f'<a class="tag {cls}" href="{base}#q-{t["question"]}" title="{escape(tip)}"{" hidden" if hidden else ""}>{escape(t["label"])}</a>')
 
     env.globals.update(DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,

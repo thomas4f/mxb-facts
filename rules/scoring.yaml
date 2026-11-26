@@ -282,7 +282,7 @@ tags:
   - {from: D7, answer: "Yes", tag: Publishes riders' data, kind: Critical, icon: megaphone}
   - {from: D8, answer: "No", tag: No off switch, kind: Critical, icon: power-off}
   - {from: D9, answer: "Yes", tag: Needs an online account, kind: Critical, icon: circle-user}
-  - {from: D10, answer: "Yes", tag: Shares identifiers locally, kind: Critical, icon: share-2}
+  - {from: D10, answer: "Yes", tag: Shares game data locally, kind: Critical, icon: share-2}
   - {from: G1, answer: "Yes", tag: Injects into the game, kind: Critical, icon: syringe}
   - {from: G2, answer: "Yes", tag: Changes game memory, kind: Critical, icon: memory-stick}
   - {from: G3, answer: "Yes", tag: Changes the game online, kind: Critical, icon: globe}

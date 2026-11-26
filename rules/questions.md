@@ -139,7 +139,7 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 | D7 | Yes | Publishes riders' data | Critical | megaphone |
 | D8 | No | No off switch | Critical | power-off |
 | D9 | Yes | Needs an online account | Critical | circle-user |
-| D10 | Yes | Shares identifiers locally | Critical | share-2 |
+| D10 | Yes | Shares game data locally | Critical | share-2 |
 | G1 | Yes | Injects into the game | Critical | syringe |
 | G2 | Yes | Changes game memory | Critical | memory-stick |
 | G3 | Yes | Changes the game online | Critical | globe |
