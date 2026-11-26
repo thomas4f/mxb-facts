@@ -7,7 +7,7 @@ Usage: from build.py, write_feed(SITE, CARDS) and write_site(SITE, skill, agents
 import datetime, json, jsonschema, os, re, subprocess
 from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PMEANS, QCELL, QIDS, QS, RUBRICV,
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
-from cards import COMMIT, CORR, pending_versions, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games
+from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games, pending_versions
 from badges import BADGES
 
 

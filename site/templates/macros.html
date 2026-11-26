@@ -57,7 +57,7 @@
   <div class="emb">
     <p><b>Card image</b>: for a mods-site post, a forum or your own site. It always shows your tool's newest card, with the "Made by AI" line, so you never update it; a newer release that has no card yet is named on it.</p>
     <a class="embimg" href="{{ t.page | replace(site, root) }}"><img src="{{ t.card_image | replace(site, root) }}" width="600" height="315" alt="{{ alt }}" loading="lazy"></a>
-    {{ snippet('emb-html', 'HTML', '<a href="' ~ t.page ~ '"><img src="' ~ t.card_image ~ '" width="600" alt="' ~ alt ~ '"></a>') }}
+    {{ snippet('emb-html', 'HTML', '<a href="' ~ t.page ~ '"><img src="' ~ t.card_image ~ '" width="600" alt="' ~ alt | replace('"', '&quot;') ~ '"></a>') }}
     {{ snippet('emb-md', 'Markdown', '[![' ~ alt ~ '](' ~ t.card_image ~ ')](' ~ t.page ~ ')') }}
     {{ snippet('emb-bb', 'BBCode (forums)', '[url=' ~ t.page ~ '][img]' ~ t.card_image ~ '[/img][/url]') }}
   </div>
@@ -67,7 +67,7 @@
   </div>
   <div class="emb">
     <p><b>Badge</b>: for a README. A badge shows a score without the release it belongs to, so each is pinned to one release ({{ c.version }}) and links to its card; when you move it to a new release, it says "Not analysed yet" until that card is published, from when our weekly check has seen the release.</p>
-    <details class="ev"><summary>Five badge styles, ready to copy</summary><div class="badges">
+    <details><summary>Five badge styles, ready to copy</summary><div class="badges">
     {% for name, url in c.badges.items() %}
       <div class="bopt"><img src="{{ url | replace(site, root) }}" alt="MXB Facts score, {{ name }} style" loading="lazy">{{ snippet('badge-' ~ name, name | replace('-', ' ') | capitalize ~ ', Markdown', '[![MXB Facts score](' ~ url ~ ')](' ~ c.page ~ ')') }}</div>
     {% endfor %}
