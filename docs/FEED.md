@@ -18,6 +18,8 @@ GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a brows
 | `site.json` | Everything the site's own pages need beyond the cards: the questions with what earns a Good answer, the rules, the prompt, the authors' check, the site's text and links, and `closed_cap`, the highest score a closed-source tool can reach. The site's pages are made from this file and the three above alone, so anything a page shows, the feed has. | |
 | `schema/feed.schema.json` | JSON Schema for every file above (`$defs`: `index`, `card`, `match`, `site`). Every field the site uses is required, so the promise below is checked on each build. | |
 
+Outside `api/v1/`, the site also has `cards.atom`, an Atom feed with one entry per card, newest change first (its title, score, summary and latest Card history row), for news readers and chat bots; and `sitemap.xml`, every page for search engines.
+
 ## What you can rely on
 
 - **The feed decides nothing for you.** Scores, area scores, states, costs and tags are worked out by the build from [`rules/scoring.yaml`](../rules/scoring.yaml), with the same functions the site uses. Show them as given; never recompute them. An answer's `cost` is what it takes off its area, as its line on the site shows it: `0` when another answer of the same behaviour counts it (`counted_with` names it), and the highest cost while it is `open` (not checked, not allowed or held back).

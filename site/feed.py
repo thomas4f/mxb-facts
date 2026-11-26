@@ -62,6 +62,7 @@ def iso(day): return datetime.datetime.strptime(day,'%d %b %Y').date().isoformat
 
 # The site's own words (site/content.yaml): the lede, rule 8's AI note, the maintainer's notice, what Under review means and How a card is made.
 CONTENT=load_yaml(ROOT+'site/content.yaml')
+assert len(CONTENT['description'])<=160, 'content.yaml: the description is longer than the 160 characters search results show'
 assert CONTENT['heading_accent'] in CONTENT['heading'], 'site/content.yaml: heading_accent must be a word of heading'
 
 def ai_note(text=None):
@@ -311,7 +312,7 @@ def write_site(SITE,skill,agents_line):
     # (VirusTotal): renumbering the prompt must update them too.
     assert re.search(r'^5\. Run it',prm,re.M) and re.search(r'^6\. Look up the hashes on VirusTotal',prm,re.M), 'prompts/analyse-tool.md: step 5 must be running the tool and step 6 the VirusTotal lookup, as SKILL.md, CLAUDE.md and the For authors page say; update them if the steps move'
     data={**base,'site':SITEURL,'repo':REPO,
-          'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],'under_review':CONTENT['under_review'],'tags_legend':CONTENT['tags'],
+          'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'description':CONTENT['description'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],'under_review':CONTENT['under_review'],'tags_legend':CONTENT['tags'],
           'how_a_card_is_made':CONTENT['how_a_card_is_made'],'closed_cap':closed_cap(),
           'template':sections(doc(MDTXT['template.md'],'rules/template.md')),
           'scores':sections(doc(MDTXT['scores.md'],'rules/scores.md')),
@@ -319,6 +320,6 @@ def write_site(SITE,skill,agents_line):
           'questions':[{'id':i,'area':QAREA[i],'question':qt,'good_when':goodwhen(i),'marks':QCELL[i],'max_cost':maxcost(i) if i in GCOST else 0} for i,_a,qt in QS],
           'key_questions':[{'id':k,'question':q,'short':s,'from':src} for k,q,s,src in KEYS],
           'authors_check':{'path':'.claude/skills/mxb-facts-check/SKILL.md','download':SITEURL+'authors/mxb-facts-check/SKILL.md','text':skill,'agents_line':agents_line},
-          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f'}}
+          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f','visits':'https://mxb-facts.goatcounter.com/'}}
     check(data,'site')
     json.dump(data,open(SITE+'api/v1/site.json','w'),indent=1,ensure_ascii=False)

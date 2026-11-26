@@ -599,6 +599,7 @@
         "heading",
         "heading_accent",
         "lede",
+        "description",
         "licence",
         "maintainer_notice",
         "repo",
