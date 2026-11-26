@@ -75,17 +75,18 @@ def wordmark_html():
 def hero_html():
     # The home page's big wordmark. Its badge check is drawn as the box with the check masked out of it, so site.js can play it
     # once as the page opens: the box pops in, then the check is cut along its spine. Without the script, or with reduced motion,
-    # it stays as drawn: the attributes hold the finished state and the animations only start when asked to.
+    # it stays as drawn: the attributes hold the finished state and the animations only start when asked to. With motion on,
+    # the page hides the box (.motion .mk) until site.js starts them, so it doesn't show finished first.
     m = WM['mark']; k = m['skew']; sp = 'M' + 'L'.join(f'{x:g} {y:g}' for x, y in m['spine'])
     cx, cy = m['w'] / 2 + k * WM['cap'] / 2, -WM['cap'] / 2  # the slanted box's centre, for the pop
     letters = ''.join(f'<g fill="var(--ink)" transform="translate({p["x"]:g} 0)">{p["g"]}</g>' for p in WM['parts'] if p['role'] == 'ink')
-    ease = 'calcMode="spline" keyTimes="0;1" keySplines=".5 0 .2 1"'
     check = (f'<path d="{sp}" transform="matrix(1 0 {-k:g} 1 0 0)" fill="none" stroke="#000" stroke-width="{m["stroke"]}" '
              f'stroke-linejoin="miter" stroke-miterlimit="8" pathLength="1" stroke-dasharray="1 1" stroke-dashoffset="0">'
-             f'<animate attributeName="stroke-dashoffset" values="1;0" dur=".4s" begin="indefinite" fill="freeze" {ease} data-d=".3"/></path>')
+             f'<animate attributeName="stroke-dashoffset" values="1;1;0" keyTimes="0;.4;1" dur=".7s" begin="indefinite" fill="freeze" '
+             f'calcMode="spline" keySplines="0 0 1 1;.5 0 .2 1"/></path>')
     box = (f'<g transform="translate({cx:g} {cy:g})"><g><animateTransform attributeName="transform" type="scale" values="0;1.1;1" '
-           f'keyTimes="0;.7;1" dur=".35s" begin="indefinite" fill="freeze" data-d="0"/><path fill="var(--accent)" '
+           f'keyTimes="0;.7;1" dur=".35s" begin="indefinite" fill="freeze"/><path fill="var(--accent)" '
            f'transform="translate({-cx:g} {-cy:g})" d="{m["box"]}"/></g></g>')
     return (f'<svg viewBox="{_viewbox()}" aria-hidden="true" focusable="false">{letters}'
             f'<g transform="translate({m["x"]:g} 0)"><mask id="hcheck" maskUnits="userSpaceOnUse" x="-100" y="-800" width="1000" height="900">'
-            f'<rect x="-100" y="-800" width="1000" height="900" fill="#fff"/>{check}</mask><g mask="url(#hcheck)">{box}</g></g></svg>')
+            f'<rect x="-100" y="-800" width="1000" height="900" fill="#fff"/>{check}</mask><g class="mk" mask="url(#hcheck)">{box}</g></g></svg>')

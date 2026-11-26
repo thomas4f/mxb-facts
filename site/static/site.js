@@ -235,8 +235,9 @@
         i.dataset.w = i.style.width; i.style.width = '0%'; b.classList.add('fill'); bo.observe(b);
       });
     }
-    $$('.hlogo animate, .hlogo animateTransform').forEach(function (a) { try { a.beginElementAt(+a.dataset.d || 0); } catch { /* no SMIL: it stays drawn */ } });
+    $$('.hlogo animate, .hlogo animateTransform').forEach(function (a) { try { a.beginElement(); } catch { /* no SMIL: it stays drawn */ } });
   }
+  document.documentElement.classList.remove('motion');  // started: what the head script hid until now can show
   window.addEventListener('hashchange', openTarget);
   showPicked(); showTools(); openTarget();
 })();

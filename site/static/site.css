@@ -111,7 +111,8 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .bar { height: 6px; border-radius: 99px; background: var(--sunk); overflow: hidden } .bar.off { opacity: .5 }
 /* A closed-source tool's bar is dimmed past the most it can score (--cap), with a tick there; site.js fills the bars in once as they come into view. */
 .bar.cap { position: relative; overflow: visible; background: linear-gradient(90deg, var(--sunk) var(--cap), color-mix(in srgb, var(--sunk) 50%, transparent) var(--cap)) } .bar.cap::after { content: ""; position: absolute; left: calc(var(--cap) - 1px); top: -4px; bottom: -4px; width: 2px; border-radius: 1px; background: var(--muted) }
-.bar.fill i { transition: width .7s cubic-bezier(.2, .7, .2, 1) } .bar i { display: block; height: 100%; background: var(--accent); border-radius: 99px }
+.bar.fill i { transition: width .7s cubic-bezier(.2, .7, .2, 1) }
+.motion .bar:not(.fill) i { width: 0 !important } .motion .hlogo .mk { visibility: hidden } .bar i { display: block; height: 100%; background: var(--accent); border-radius: 99px }
 
 .controls { display: flex; flex-wrap: wrap; gap: var(--s3); align-items: center }
 .controls input[type=search] { flex: 1 1 240px; min-width: 0; padding: var(--s3) var(--s3); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface) }
