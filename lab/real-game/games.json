@@ -29,6 +29,10 @@
     "wait": 30
    },
    {
+    "name": "menu",
+    "wait": 45
+   },
+   {
     "name": "testing",
     "click": [
      205,
