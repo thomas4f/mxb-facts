@@ -192,6 +192,8 @@ def write_pages(SITE):
     css += [f'.st.{k}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for k, v in icon.items()]
     # A comment under review (.rv): neither a state nor a tag, since it costs nothing and changes nothing until it is decided.
     css.append(f'.rv::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
+    # The author's context (.cx) shares the comment icon, in grey: it is listed and puts no answer under review.
+    css.append(f'.cx::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
     css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}',
             f'.theme {{ --i: {mask_url("sun-moon")} }}', f'.theme[data-t="light"] {{ --i: {mask_url("sun")} }}', f'.theme[data-t="dark"] {{ --i: {mask_url("moon")} }}']
     css.append('/*\n' + ICON_LICENCE + '*/')
