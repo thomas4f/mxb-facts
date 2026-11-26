@@ -476,6 +476,17 @@
       "tied_by": "github.com/daf0707pro-lgtm/MXPulse"
     }
   },
+  "mxrp-ragdoll": {
+    "name": "MXRP Ragdoll",
+    "author": "avare795",
+    "github": "avare795/MXRP-ragdoll",
+    "homepage": null,
+    "cards": [],
+    "mxb-mods": {
+      "post": null,
+      "note": "Not on mxb-mods.com (no post found by searching ragdoll or MXRP on 26 Nov 2026; the one ragdoll post, 194769, is MXB Ragdoll by BoredDev / mxbikesmods). The author also lists it on pitswap.net, whose download (a Google Drive folder) held Beta 2.1 on 26 Nov 2026, older than the GitHub release"
+    }
+  },
   "mxtuner": {
     "name": "MxTuner",
     "author": "dfmc_dadogamer91",

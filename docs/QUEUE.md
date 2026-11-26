@@ -13,6 +13,7 @@ Requested tools and releases, oldest first. Link the issue; remove the line when
 
 | Tool | Version | Issue | Note |
 |---|---|---|---|
+| MXRP Ragdoll (MX Bikes) | The newest when it runs (Beta 3.2, tag `v3.2`, plugin 1.8.177, on 26 Nov 2026) | Requested by the maintainer, 26 Nov 2026 | GitHub ([avare795/MXRP-ragdoll](https://github.com/avare795/MXRP-ragdoll)), by avare795; the repository holds only releases, no source and no licence file, and the release's README has no licence terms. Release files: `MXRP_Beta_3.2.zip` (installer), `MXRP_Beta_3.2_manual.zip`, `MXRP_Ragdoll_1.8.177.dlo`, `MXRP_Ragdoll_Installer.exe`. A different tool from MXB Ragdoll 1.0 (other author, its own `MXRP_Ragdoll.dlo`), but its README says the installer removes `mxb_ragdoll.dlo`, which is MXB Ragdoll's file name. Not on mxb-mods.com; its pitswap.net listing still offers Beta 2.1. Registry `mxrp-ragdoll` |
 | GP Bikes Content Manager (GP Bikes) | The newest when it runs | Requested by the maintainer, 20 Nov 2026 | [gpb-mods.com page](https://gpb-mods.com/gp-bikes-content-manager-by-fixxer-1001/), by FIXXER 1001. A large desktop app (C#/WPF). Registry `gpb-content-manager`. On hold: too big for now (the maintainer's choice) |
 
 ## To analyse
