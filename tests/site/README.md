@@ -4,11 +4,11 @@ These check `_site/` as players get it, after `python3 -I site/build.py`. CI run
 
 | Check | Command | What it catches |
 |---|---|---|
-| ESLint, stylelint | `npm run lint` | Mistakes in `site/static/site.js`, and in `site/static/site.css` (a selector or property written twice, unknown ones, a padding, margin or gap that isn't a spacing token; `.stylelintrc.json`) |
+| ESLint, stylelint | `npm run lint` | Mistakes in `site/static/site.js`, and in `site/static/site.css` (a selector or property written twice, unknown ones, a padding, margin or gap that isn't a spacing token, a text width that isn't a width token; `.stylelintrc.json`) |
 | W3C Nu validator | `npm run validate` | Invalid HTML on any page (needs Java) |
 | axe, WCAG 2.2 AA | `npx playwright test tests/a11y.spec.mjs` | Accessibility on every page, in both themes, on a phone and a desktop; 44 px touch targets and no sideways scrolling on the phone |
 | Behaviour | `npx playwright test tests/behaviour.spec.mjs` | Search, categories, "+N more", Compare and "Show only differences", folds opening on a link, old addresses |
-| Layout | `npx playwright test tests/layout.spec.mjs` | Two borders meeting in a double line, or a framed box inside another, on every page with every fold open (`tests/borders.js`) |
+| Layout | `npx playwright test tests/layout.spec.mjs` | Two borders meeting in a double line, or a framed box inside another (`tests/borders.js`), and running text wider than `--w-text`, on every page with every fold open |
 | Screenshots | `npx playwright test tests/visual.spec.mjs` | Any change to how a page looks, compared with `tests/visual.spec.mjs-snapshots/` |
 | Lighthouse | `npm run lighthouse` | Accessibility, best practices and SEO at 100, performance at 90 or more, layout shift under 0.02 |
 

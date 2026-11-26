@@ -35,3 +35,24 @@ for (const [name, path] of PAGES) {
     expect(split).toEqual([]);
   });
 }
+
+// One measure: running text (a paragraph, a list item, a definition, a code block) is never wider than --w-text, on any page,
+// in a panel or not; panels, tables and grids span the page. Widths once differed page by page (60ch, 65ch, 78ch, none), so
+// a line ran 559 px on one page and 1100 px on the next. Text in a table cell follows its table, and a group's one-word label
+// (.cat) isn't running text; neither is checked.
+for (const [name, path] of [...PAGES, ['tool-releases', 'dirt-gear/']]) {
+  test(`${name}: running text keeps to one measure`, async ({ page }) => {
+    await page.goto(path);
+    await page.evaluate(() => document.querySelectorAll('details').forEach((d) => { d.open = true; }));
+    const wide = await page.evaluate(() => {
+      const probe = document.createElement('div'); probe.style.width = 'var(--w-text)'; document.body.append(probe);
+      const measure = probe.getBoundingClientRect().width; probe.remove();
+      return [...document.querySelectorAll('main p, main li:not(.steps > li), main .steps > li > div, main dd, main pre, footer .fabout p')]
+        .filter((e) => e.getClientRects().length && !e.closest('table') && !e.matches('.cat'))
+        .map((e) => { const s = getComputedStyle(e); return [e, e.getBoundingClientRect().width - parseFloat(s.paddingLeft) - parseFloat(s.paddingRight) - parseFloat(s.borderLeftWidth) - parseFloat(s.borderRightWidth)]; })
+        .filter(([, w]) => w > measure + 1)
+        .map(([e, w]) => `${e.tagName.toLowerCase()}.${e.className} ${Math.round(w)} > ${Math.round(measure)}: ${e.textContent.trim().slice(0, 40)}`);
+    });
+    expect(wide).toEqual([]);
+  });
+}
