@@ -70,8 +70,8 @@ key:
   K1: 'No malware found; some engines flag it: 9 of 66 flag the launcher and 4 of 71 the installer; the zip isn''t on VirusTotal.'
   K2: 'No. It checks GitHub for a newer version and only tells you; it installs nothing.'
   K3: >-
-    Partly. With its default settings, starting an analysis rewrites the game's `proxy_udp.ini` to switch the plugin on and
-    point it at the tool, after keeping the original as `proxy_udp.ini.bak`.
+    Not checked. With its default settings, starting an analysis rewrites the game's `proxy_udp.ini` to switch the plugin on and
+    point it at the tool, after copying it to `proxy_udp.ini.bak`; whether a later rewrite can replace that copy wasn't seen.
   K4: 'No. The only thing it sends off your PC is the update check to GitHub.'
   K5: 'No. It changes nothing in the game''s code or memory; it reads the data the game''s own proxy_udp plugin sends.'
   K6: 'No. It opens no one''s content.'
@@ -187,8 +187,10 @@ sections:
           - text: >-
               The app is compiled to machine code by Nuitka; the analysis read the names, texts and defaults each module keeps,
               not the order its code runs them in. That `proxy_udp.ini` gets `enable = 1` and `ip = 127.0.0.1:<port>`, and that
-              that each rewrite copies the file to `proxy_udp.ini.bak` first, and that the Download button opens the release page rather than fetching a file, rest on those constants: the update
-              module's only internet call reads the release list, and no module holds a download or write of a fetched file.
+              each rewrite copies the file to `proxy_udp.ini.bak` first, and that the Download button opens the release page rather than fetching a file, rest on those constants: the update
+              module's only internet call reads the release list, and no module holds a download or write of a fetched file. Whether a second rewrite, with or without
+              an edit by something else in between, replaces the `.bak` couldn't be read from the constants, and the runs found no game folder, so `proxy_udp.ini`
+              was never written; a run with a test game folder, started twice and then again after an edit by hand, would settle P4.
             questions: [P2, P4, G6]
           - text: >-
               The installer, `SuspensionTuner_Setup.exe` (Inno Setup 6.7), couldn't be unpacked (innoextract 1.9 doesn't read
@@ -229,10 +231,9 @@ answers:
     text: There is no updater that installs anything; the update check only tells you about a newer version (P2).
     evidence: '`lab/evidence/suspension-tuner-1.4.1/update.txt`, `lab/evidence/suspension-tuner-1.4.1/update-ui.txt`.'
   P4:
-    verdict: Partly
-    mark: note
+    verdict: Not checked
     text: >-
-      It only backs up and rewrites one such file: the file as it was is kept as `proxy_udp.ini.bak`. With Configure MX Bikes automatically on, as it is by default, starting an analysis looks for the game (Steam's folder
+      It rewrites one such file after copying it to one fixed name, `proxy_udp.ini.bak`. Whether a later rewrite can replace a `.bak` that holds the latest version something else wrote, which decides between Partly and Yes, wasn't seen (Limits). With Configure MX Bikes automatically on, as it is by default, starting an analysis looks for the game (Steam's folder
       from the registry, Steam's `libraryfolders.vdf`, four fixed folders) and rewrites its `proxy_udp.ini` after copying it
       to `proxy_udp.ini.bak`, setting `enable = 1` and `ip = 127.0.0.1:<port>`. It writes its own `ST_*.stp` setups and
       calibration test files; no delete of other programs' files was found in its constants. A program that got the proxy_udp
@@ -512,10 +513,10 @@ history:
       The launcher's decompiled code is now in `lab/evidence/suspension-tuner-1.4.1/launcher.txt`. The first run's output showed `ilspycmd` missing, so P9's line on the launcher ("starts `app\SuspensionTuner.exe` with the same arguments and exits") had no evidence; the decompile confirms it. The Method row now names the version used (9.1.0) and says which files' signing entries were read.
   - date: 26 Nov 2026
     change: >-
-      G6 is No: the proxy_udp plugin ships with the game, so changing its settings file is a change to the game's own files, counted under P4, as on MXB Ragdoll's card; before, G6 was a Concern. Score 80 to 83.
+      G6 is No: the proxy_udp plugin ships with the game, so changing its settings file is a change to the game's own files, counted under P4, as on MXB Ragdoll's card; before, G6 was a Concern. Score 56 to 59.
   - date: 26 Nov 2026
     change: >-
-      P4 no longer says no code deletes other programs' files, only that no delete was found in its constants. No score change.
+      P4 is Not checked under rubric v4 (it was Yes): whether a later rewrite can replace the `.bak` that holds the latest version something else wrote wasn't seen. It also no longer says no code deletes other programs' files, only that no delete was found in its constants. No score change: an open answer counts at its full cost.
   - date: 26 Nov 2026
     change: >-
       K5 and the Your game line say it changes nothing in the game's code or memory, since it does change the game's `proxy_udp.ini`. No score change.
