@@ -11,8 +11,6 @@ from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, 
 from badges import BADGES
 
 
-# The maintainer's Discord profile: a comment sent there is copied into an issue, so it is answered in public like the rest.
-DISCORD='https://discord.com/users/151767592514617344'
 FEED_VERSION='1.2'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
@@ -321,6 +319,6 @@ def write_site(SITE,skill,agents_line):
           'questions':[{'id':i,'area':QAREA[i],'question':qt,'good_when':goodwhen(i),'marks':QCELL[i],'max_cost':maxcost(i) if i in GCOST else 0} for i,_a,qt in QS],
           'key_questions':[{'id':k,'question':q,'short':s,'from':src} for k,q,s,src in KEYS],
           'authors_check':{'path':'.claude/skills/mxb-facts-check/SKILL.md','download':SITEURL+'authors/mxb-facts-check/SKILL.md','text':skill,'agents_line':agents_line},
-          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f','discord':DISCORD}}
+          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f'}}
     check(data,'site')
     json.dump(data,open(SITE+'api/v1/site.json','w'),indent=1,ensure_ascii=False)

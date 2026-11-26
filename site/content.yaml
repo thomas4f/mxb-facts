@@ -24,7 +24,7 @@ maintainer_notice: >-
 # What "Under review" means, in the Reading a card legend and on the mark's hover.
 under_review: >-
   Someone has sent a correction about this answer, or something it misses. It costs nothing, and no answer, mark or score
-  changes until it is decided. The author's context is listed under Corrections and marks no answer
+  changes until it is decided. The author's context is listed under Comments and corrections and puts no answer under review
 how_a_card_is_made:
   - >-
     **A tool is requested** through the request form, or the maintainer picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.
@@ -41,6 +41,6 @@ how_a_card_is_made:
   - >-
     **A security problem that isn't public is held back.** The author is told privately, and the finished card stays private until a fix ships or 30 days have passed since; then it is published with the details (rule 9).
   - >-
-    **Comments come in as issues:** a correction, something missing, or the author's context; one sent on Discord is copied into an issue. While a correction is open, the answers it names show its count, and nothing else changes; the author's context marks no answer. When a card is published, its author gets a short note with its link and how to comment. When one holds, the line is fixed and the card's history says what changed and why.
+    **Comments come in as issues:** a correction, something missing, or the author's context. While a correction is open, the answers it names show its count, and nothing else changes; the author's context marks no answer. When a card is published, its author gets a short note with its link and how to comment. When one holds, the line is fixed and the card's history says what changed and why.
   - >-
     **A new release gets a new card.** The tool's page shows the newest; earlier cards stay under History, and Compare can put two releases side by side.

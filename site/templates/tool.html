@@ -175,7 +175,7 @@
 {% for x in c.corrections %}<li>{% if x.status == 'open' and (x.kind | default('correction')) != 'context' %}<span class="st rv" title="{{ SITE.under_review }}">Under review</span> {% endif %}{{ IX.correction_kinds[x.kind | default('correction')] }} <a href="{{ SITE.repo }}issues/{{ x.issue }}">#{{ x.issue }}</a>, about {% for q in x.questions %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% else %}the card as a whole{% endfor %}: {% if x.status == 'open' %}sent {{ x.opened }}. {% if (x.kind | default('correction')) == 'context' %}It adds context and marks no answer.{% else %}Nothing on the card changes until it is decided.{% endif %}{% else %}{{ x.status }} on {{ x.closed }}. {{ x.reason }}{% endif %}</li>{% endfor %}
 </ul>
 {% else %}<p>No comment has been sent about this card.</p>{% endif %}
-<p>Something wrong, missing, or context to add? Use "Comment on …" under any answer's evidence, Good ones included, or <a href="{{ SITE.links.comment }}">comment on an answer</a> with its evidence; a correction shows here, and on the answer it names, until it is decided. No GitHub account? Send it to the maintainer on <a href="{{ SITE.links.discord }}">Discord</a>, and it is copied into an issue for you.</p>
+<p>Something wrong, missing, or context to add? Use "Comment on …" under any answer's evidence, Good ones included, or <a href="{{ SITE.links.comment }}">comment on an answer</a> with its evidence; a correction shows here, and on the answer it names, until it is decided.</p>
 </div>
 
 {% call fold('author', "For the tool's author", h='h2') %}
