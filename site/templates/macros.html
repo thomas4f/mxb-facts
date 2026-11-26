@@ -67,10 +67,12 @@
   </div>
   <div class="emb">
     <p><b>Badge</b>: for a README. A badge shows a score without the release it belongs to, so each is pinned to one release ({{ c.version }}) and links to its card; when you move it to a new release, it says "Not analysed yet" until that card is published, from when our weekly check has seen the release.</p>
-    <details><summary>Five badge styles, ready to copy</summary><div class="badges">
+    <details><summary>Badge styles, ready to copy</summary><div class="badges">
     {% for name, url in c.badges.items() %}
       <div class="bopt"><img src="{{ url | replace(site, root) }}" alt="MXB Facts score, {{ name }} style" loading="lazy">{{ snippet('badge-' ~ name, name | replace('-', ' ') | capitalize ~ ', Markdown', '[![MXB Facts score](' ~ url ~ ')](' ~ c.page ~ ')') }}</div>
     {% endfor %}
+      {% set ep = 'https://img.shields.io/endpoint?url=' ~ (c.badges.flat | replace('.svg', '.json')) %}
+      <div class="bopt"><p class="small">Or have shields.io draw it, in any of its styles (add <code>&amp;style=</code> and its options): the same score and colours, with shields.io's own text for the label.</p>{{ snippet('badge-endpoint', 'shields.io, Markdown', '[![MXB Facts score](' ~ ep ~ ')](' ~ c.page ~ ')') }}</div>
     </div></details>
   </div>
 </div>
