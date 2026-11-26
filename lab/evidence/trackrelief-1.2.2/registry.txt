@@ -1,0 +1,2 @@
+$ for m in __main__ api_fetcher exporters satellite settings terrain_processor update; do nuitka.py consts zip/TrackRelief/app/TrackRelief.exe $m | sed "s/^/$m: /"; done | grep -nE ': a(winreg|HKEY.*|OpenKey|QueryValueEx|SetValue|SetValueEx|CreateKey|DeleteKey|windll|ctypes|shell32|user32|SetCurrentProcess.*|SetProcessDpi.*)$'
+(exit 1)

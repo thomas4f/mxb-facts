@@ -1798,6 +1798,32 @@
         "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45376740299",
         "permalink": "https://www.virustotal.com/gui/file/8ccd6128481d5a3a15993c2f8a69585694ff972652a6b06dcaee276fc65633a7"
       }
+    },
+    "trackrelief-1.2.2.yaml": {
+      "f0a6da926090a45bad2b8c332cb571dbbe0d9a10f7a6078899411d96d33da49e": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45769868666",
+        "permalink": "https://www.virustotal.com/gui/file/f0a6da926090a45bad2b8c332cb571dbbe0d9a10f7a6078899411d96d33da49e"
+      },
+      "5ddfa9207e786b397f58b47274ade0f827e662d919681a92cd9537570e0404ec": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45769868666",
+        "permalink": "https://www.virustotal.com/gui/file/5ddfa9207e786b397f58b47274ade0f827e662d919681a92cd9537570e0404ec"
+      },
+      "3f52130f89e40aabe0973738e2b0fb5eacb352f9a629c1aede574597b1309e97": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45769868666",
+        "permalink": "https://www.virustotal.com/gui/file/3f52130f89e40aabe0973738e2b0fb5eacb352f9a629c1aede574597b1309e97"
+      },
+      "590181c3c87e198a88cc28246baa37f34df2958ffde2e6961fa3fed6d2b189e0": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45769868666",
+        "permalink": "https://www.virustotal.com/gui/file/590181c3c87e198a88cc28246baa37f34df2958ffde2e6961fa3fed6d2b189e0"
+      }
     }
   }
 }

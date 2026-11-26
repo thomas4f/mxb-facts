@@ -1,0 +1,4 @@
+TrackRelief_Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\is-P5Z8K0K36O.tmp  SUCCESS
+TrackRelief_Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\is-P5Z8K0K36O.tmp\TrackRelief_Setup.tmp  SUCCESS
+TrackRelief_Setup.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\is-P5Z8K0K36O.tmp\TrackRelief_Setup.tmp  SUCCESS
+TrackRelief_Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\is-P5Z8K0K36O.tmp\TrackRelief_Setup.tmp  SUCCESS

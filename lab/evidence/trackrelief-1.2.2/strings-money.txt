@@ -1,0 +1,38 @@
+$ for m in __main__ api_fetcher exporters satellite settings terrain_processor update; do nuitka.py consts zip/TrackRelief/app/TrackRelief.exe $m | sed "s/^/$m: /"; done | grep -niE 'gumroad|donat|support|paypal|ko-?fi|patreon|buy|price|premium|free|licen[cs]e key|unlock|discord\.gg'
+437:__main__: uGet a free key
+442:__main__: uOnly needed outside Switzerland, France, England, the USA, the Netherlands, Flanders and parts of Germany (NRW, Hesse, Baden-Württemberg, Brandenburg/Berlin, Lower Saxony, Saxony-Anhalt). In those places TrackRelief uses free high-detail LiDAR. Elsewhere it uses global elevation data (about 30 m detail, much coarser), which OpenTopography provides with a free key.
+509:__main__: aSupport
+510:__main__: uTrackRelief is free, with every feature included. If it saved you time and you'd like to support its development, you can do so (entirely optional) with the button below. Thank you!
+511:__main__: u♥ Support TrackRelief
+512:__main__: a_support
+595:__main__: a_support
+598:__main__: aSUPPORT_URL
+611:__main__: aSupportDialog
+613:__main__: uSupport TrackRelief
+615:__main__: FpuTrackRelief is free
+619:__main__: aSUPPORT_TEXT
+630:__main__: uIf TrackRelief is useful to you and you'd like to help keep it going, you can support its development. It's entirely optional and changes nothing in the app.
+634:__main__: u♥ Support on Gumroad
+642:__main__: aSupportDialog
+643:__main__: a_support
+645:__main__: aSupportDialog
+801:__main__: u♥ Support
+943:__main__: aSupportDialog
+1532:__main__: uTrackRelief/1.0 (https://discord.gg/Tg3xVH7XHz)
+1577:__main__: uTrackRelief is 100% free and open to everyone:
+1582:__main__: No account, no license key, nothing to unlock.
+1583:__main__: uhttps://lilian12.gumroad.com/l/TrackReliefPro
+1584:__main__: uhttps://discord.gg/Tg3xVH7XHz
+1970:__main__: uSettingsDialog._support
+1990:__main__: aSupportDialog
+2003:__main__: uSupportDialog.__annotate__
+2004:__main__: uSupportDialog.__init__
+2013:__main__: uSupportDialog._grab
+2022:__main__: uSupportDialog._support
+3332:api_fetcher: u: geographic native CRS not supported.
+3424:api_fetcher: u (free web services exist for: 
+3623:api_fetcher: u m/pixel data: too coarse for a detailed track (no better free source known for Italy outside the Alps' bordering regions).
+3665:api_fetcher: uAn OpenTopography API key is required outside Switzerland, France, England, the USA and the German states with an open LiDAR service (free at opentopography.org). Enter it in Settings.
+5682:exporters: uUnsupported game: '
+6121:satellite: uTrying the free national orthophoto first...
+(exit 0)

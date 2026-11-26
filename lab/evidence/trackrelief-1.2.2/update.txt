@@ -1,0 +1,96 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe update
+aconfigured
+aGITHUB_REPO
+uOWNER/REPO
+aparse_version
+atag
+are
+afindall
+u\d+
+w-T
+a.0
+wxuparse_version.<locals>
+uparse_version.<locals>.<genexpr>
+ais_newer
+aremote
+alocal
+wawbwn
+aparse_version
+amax
+a_get
+aurl
+aaccept
+areq
+aurllib
+arequest
+aRequest
+aAccept
+uUser-Agent
+uTrackRelief/
+aAPP_VERSION
+aheaders
+aurlopen
+aTIMEOUT
+atimeout
+aok
+anewer
+aversion
+anotes
+apage
+aerror
+FpnsnnC�
+acheck_latest
+aout
+wrarels
+wearel
+atag
+aconfigured
+uupdate source not configured
+aerror
+a_get
+uhttps://api.github.com/repos/
+u/releases?per_page=20
+ajson
+aloads
+adecode
+uutf-8
+nnnaHTTPError
+acode
+uGitHub answered 404: repository not found or private (check GITHUB_REPO)
+uGitHub rate limit reached, try again later
+uGitHub error 
+uno connection to GitHub (
+w)T
+adraft
+aprerelease
+atag_name
+uno published release found: on GitHub, create a Release (a simple tag is not enough)
+u<lambda>
+ucheck_latest.<locals>.<lambda>
+u<lambda>
+ucheck_latest.<locals>
+akey
+atag_name
+aok
+aversion
+alstrip
+avV
+anotes
+abody
+astrip
+apage
+ahtml_url
+uhttps://github.com/
+u/releases/latest
+anewer
+ais_newer
+aorigin
+ahas_location
+uurllib.error
+uurllib.request
+u1.2.2
+uLilian1134/TrackRelief
+uapplication/vnd.github+json
+acheck_latest
+uupdate.py
+(exit 0)

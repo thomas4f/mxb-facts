@@ -1,0 +1,542 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe exporters
+avalidate
+aself
+aname
+afield_name
+avalue
+aMaterialPreset
+aasdict
+aitems
+Oint
+Ofloat
+aExportError
+uMaterial '
+u': '
+u' is invalid (
+u).
+afriction
+@u': friction=
+u is unrealistic (> 2.0).
+a_log
+alog
+amessage
+alogger
+ainfo
+aexception
+uCallback de log en erreur.
+a_ensure_dir
+apath
+aout
+aexc
+aPath
+amkdir
+tpT
+aparents
+aexist_ok
+uCannot create folder '
+u': 
+a_render_material_block
+aname
+apreset
+aindent
+avalidate
+w{u    friction = 
+u.2f
+u    elasticity = 
+aelasticity
+u    softness = 
+asoftness
+u    thickness = 
+athickness
+u    bumpiness = 
+abumpiness
+u.3f
+u    depth = 
+adepth
+w}C�
+acompute_surface_stats
+asurface_mask
+atotal
+aexc
+andim
+asize
+uThe mask must be a non-empty 2D array.
+aSurfaceClass
+a_pct
+around
+anp
+acount_nonzero
+avalue
+Y@uStatistiques du masque impossibles : 
+agenerate_mxbikes_tht
+aoutput_dir
+afilename
+amaterials
+aseparate_cliff
+alog
+amats
+alines
+alayer_materials
+aname
+aidx
+aout_path
+afh
+aexc
+a_log
+uCalcul de la friction MX Bikes...
+aDEFAULT_MX_MATERIALS
+atarmac
+aoffroad
+arock
+amaterials
+a_render_material_block
+w}salayers
+w{u    layer
+u    {
+u        material = 
+u    }
+a_ensure_dir
+awrite
+nnnutrack.tht written: 
+EOSError
+EKeyError
+uMX Bikes export failed: 
+agenerate_beamng_material_json
+aoutput_dir
+alevel_name
+afilename
+atexture_size
+atexture_path
+alog
+adata
+akey
+agroundmodel
+amat_name
+abase
+asat_name
+aout_path
+afh
+aexc
+uGenerating BeamNG terrain.material.json...
+a_BEAMNG_GROUNDMODELS
+u/levels/
+u/art/terrain/
+ainternalName
+aclass
+aTerrainMaterial
+apersistentId
+auuid
+auuid5
+aNAMESPACE_DNS
+adiffuseMap
+u_d.dds
+adiffuseSize
+anormalMap
+u_n.dds
+anormalSize
+adetailMap
+u_detail.dds
+adetailSize
+adetailStrength
+agroundmodelName
+aannotation
+uTrackRelief - 
+a_satellite
+aasphalt
+uTrackRelief - satellite texture (aligned with the heightmap)
+uutf-8
+ajson
+adump
+aindent
+aensure_ascii
+u written: 
+uBeamNG export failed: 
+aexport_terrain_info
+aoutput_dir
+az_min
+az_max
+asize_px
+ameters_per_pixel
+asurface_mask
+afilename
+alog
+ainfo
+az_range
+aout_path
+afh
+aexc
+uz_max (
+u) must be > z_min (
+usize_px and meters_per_pixel must be > 0.
+az_min_m
+az_max_m
+aheight_range_m
+asize_px
+ameters_per_pixel
+aterrain_size_m
+avertical_step_m_per_level
+���@l
+abeamng
+aheightMapSize
+asquareSize
+amaxHeight
+abaseHeight
+amxbikes_terrained
+anote
+uVertical scale = height_range_m; offset = z_min_m.
+aheight_scale
+aheight_offset
+acompute_surface_stats
+asurface_stats
+uElevation metadata written: 
+EValueError
+EOSError
+uMetadata export failed: 
+aexport_mesh_obj
+adem_array
+ameters_per_pixel
+aoutput_dir
+afilename
+astep
+atexture_path
+alog
+wzarows
+acols
+axs
+ays
+axx
+ayy
+averts
+aidx
+wawbwcwdafaces
+aout_path
+auu
+avv
+auvs
+amtl_name
+afh
+aexc
+amin
+ashape
+uThe DEM must be a 2D array of at least 2x2.
+ustep must be >= 1.
+uGenerating OBJ mesh (step=
+u)...
+aastype
+afloat64
+ustep trop grand pour la taille du MNT.
+aarange
+ameshgrid
+acolumn_stack
+aravel
+areshape
+:nq
+n:nq
+:nq
+n:l
+nnT
+nn:l
+nnT
+nn:nq
+naconcatenate
+aaxis
+alinspace
+awith_suffix
+u.mtl
+u# TrackRelief material
+newmtl terrain_satellite
+Ka 1 1 1
+Kd 1 1 1
+Ks 0 0 0
+illum 1
+map_Kd 
+u# TrackRelief mesh
+umtllib 
+asavetxt
+uv %.3f %.3f %.3f
+afmt
+uvt %.6f %.6f
+uusemtl terrain_satellite
+arepeat
+uf %d/%d %d/%d %d/%d
+uf %d %d %d
+uOBJ mesh written: 
+u (
+u vertices, 
+u faces)
+EValueError
+EOSError
+EMemoryError
+uMesh export failed: 
+aexport_game_config
+agame
+aoutput_dir
+az_min
+az_max
+asize_px
+ameters_per_pixel
+asurface_mask
+adem_array
+atexture_path
+alog
+aresults
+akey
+amx
+agenerate_mxbikes_tht
+alog
+atht
+abeam
+agenerate_beamng_material_json
+atexture_path
+alog
+amaterial
+aassetto
+aac
+uAssetto Corsa: 'dem_array' is required for the mesh.
+aexport_mesh_obj
+amesh
+uUnsupported game: '
+u'.
+aexport_terrain_info
+aorigin
+ahas_location
+aannotations
+alogging
+adataclasses
+aasdict
+adataclass
+adataclass
+aenum
+aIntEnum
+aIntEnum
+aCallable
+aDict
+aOptional
+aUnion
+anumpy
+agetLogger
+aexporters
+aPathLike
+Ostr
+naLogFn
+ERuntimeError
+a__prepare__
+a__getitem__
+u%s.__prepare__() must return a mapping, not %s
+u<metaclass>
+aexporters
+l$a__firstlineno__
+a__static_attributes__
+a__orig_bases__
+l+W
+aSurfaceClass
+a__class__
+aROAD
+aOFFROAD
+aCLIFF
+afrozen
+aMaterialPreset
+l;W
+aMaterialPreset
+a__class__
+afloat
+name�
+str�
+return�
+None)
+NotImplementedError)
+_annotate_arguments
+&�$exporters$$$function__2___annotate__�
+__annotate__r
+�A�
+�x�
+uMaterialPreset.__annotate__
+uMaterialPreset.validate
+f)\���(�?f�������?Z
+f����Mb`?Z
+ףp=
+�?f333333�?f�������?f{
+�G�z�?f{
+�G�z�?f{
+�G�z�?T
+f�������?f�������?Z
+�G�z�?Z
+uDict[str, MaterialPreset]
+log�
+LogFn�
+message�
+str�
+return�
+None)
+NotImplementedError)
+_annotate_arguments
+&�$exporters$$$function__4___annotate__�
+__annotate__r
+�A�
+�w�	�5�(�F�
+a__annotate__
+path�
+PathLike�
+return�
+Path)
+NotImplementedError)
+_annotate_arguments
+&�$exporters$$$function__6___annotate__�
+__annotate__r
+�A�
+�H�f�
+u    
+name�
+str�
+preset�
+MaterialPreset�
+indent�
+returnz	list[str])
+NotImplementedError)
+_annotate_arguments
+&�$exporters$$$function__8___annotate__�
+__annotate__r
+�A�
+�x�)9�8�U�H�Va�
+surface_maskz
+np.ndarray�
+returnz
+Dict[str, float])
+NotImplementedError)
+_annotate_arguments
+&�%exporters$$$function__10___annotate__�
+__annotate__r
+�A�
+�h�8J�
+utrack.tht
+nFnX�
+R	R
+output_dir�
+PathLike�
+filename�
+str�	materialsz&Optional[Mapping[str, MaterialPreset]]�
+separate_cliff�
+bool�
+log�
+LogFn�
+return�
+Path)
+NotImplementedError)
+_annotate_arguments
+&�%exporters$$$function__12___annotate__�
+__annotate__r
+�A�
+�j�*�e�[�Jr�
+aasphalt
+adirt
+arock
+aASPHALT
+aDIRT
+aROCK
+uDict[str, str]
+atrackrelief_level
+uterrain.material.json
+nnX�
+R	R
+output_dir�
+PathLike�
+level_name�
+str�
+filename�
+texture_size�
+int�
+texture_pathz
+Optional[PathLike]�
+log�
+LogFn�
+return�
+Path)
+NotImplementedError)
+_annotate_arguments
+&�%exporters$$$function__14___annotate__�
+__annotate__r
+�A�
+�j�,�
+�z�5�R`�bg�iw�
+nuterrain_info.json
+nX�
+R	R
+/	#
+output_dir�
+PathLike�
+z_min�
+float�
+z_max�
+size_px�
+int�
+meters_per_pixel�
+surface_maskz
+Optional[np.ndarray]�
+filename�
+str�
+log�
+LogFn�
+return�
+Path)
+NotImplementedError)
+_annotate_arguments
+&�%exporters$$$function__16___annotate__�
+__annotate__r
+�A�
+�j�'�7�G�W�i�Y^�`r�t{�
+uterrain_mesh.obj
+nnX�
+R	R
+�	dem_arrayz
+np.ndarray�
+meters_per_pixel�
+float�
+output_dir�
+PathLike�
+filename�
+str�
+step�
+int�
+texture_pathz
+Optional[PathLike]�
+log�
+LogFn�
+return�
+Path)
+NotImplementedError)
+_annotate_arguments
+&�%exporters$$$function__18___annotate__�
+__annotate__r
+�A�
+�\�+=�w�
+�V`�bl�ns�u{�
+nnnnX�
+R	R
+game�
+str�
+output_dir�
+PathLike�
+z_min�
+float�
+z_max�
+size_px�
+int�
+meters_per_pixel�
+surface_maskz
+Optional[np.ndarray]�	dem_array�
+texture_pathz
+Optional[PathLike]�
+log�
+LogFn�
+returnz
+Dict[str, Path])
+NotImplementedError)
+_annotate_arguments
+&�%exporters$$$function__20___annotate__�
+__annotate__r
+�A�
+�|�Z�
+�'�7�T[�]f�hm�
+aexport_game_config
+uexporters.py
+(exit 0)

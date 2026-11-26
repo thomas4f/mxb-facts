@@ -1,0 +1,24 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe __main__ | grep -nE -B6 -A8 'nominatim'; nuitka.py consts zip/TrackRelief/app/TrackRelief.exe __main__ | grep -nE 'search_history|_add_to_history|_remove_history_entry'
+1014-aApp
+1015-arequests
+1016-ajson
+1017-alimit
+1018-uUser-Agent
+1019-uTrackRelief/1.0
+1020:uhttps://nominatim.openstreetmap.org/search
+1021-aparams
+1022-aheaders
+1023-atimeout
+1024-araise_for_status
+1025-asearch_none
+1026-agoto
+1027-adisplay_name
+1028-asearch_error
+1005:a_add_to_history
+1070:asearch_history
+1130:a_remove_history_entry
+1135:a_add_to_history
+1143:a_remove_history_entry
+2284:uApp._add_to_history
+2295:uApp._remove_history_entry
+(exit 0)

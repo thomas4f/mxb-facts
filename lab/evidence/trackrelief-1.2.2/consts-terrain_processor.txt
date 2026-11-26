@@ -1,0 +1,368 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe terrain_processor
+a_validate_dem
+adem_array
+anp
+andarray
+aTerrainProcessingError
+uThe DEM must be a numpy.ndarray.
+andim
+uThe DEM must be 2D (got 
+uD).
+ashape
+uThe DEM is too small (minimum 3x3 pixels).
+aissubdtype
+adtype
+anumber
+uThe DEM must contain numeric values.
+afill_nodata
+adem_array
+anodata_value
+adem
+ainvalid
+aidx
+a_validate_dem
+aastype
+afloat64
+acopy
+aisfinite
+aisclose
+aany
+aall
+uArea outside coverage: no valid elevation pixel.
+alogger
+ainfo
+uFilling %d nodata pixels (%.2f%%).
+Y@amean
+adistance_transform_edt
+FtT
+areturn_distances
+areturn_indices
+aclean_lidar_noise
+adem_array
+asigma
+adem
+afiltered
+aexc
+usigma must be >= 0.
+afill_nodata
+afloat32
+agaussian_filter
+anearest
+asigma
+amode
+uLiDAR cleaning failed: 
+aresample_dem
+adem_array
+atarget_size
+aorder
+aclamp_overshoot
+adem
+ath
+atw
+azoom
+aout
+alo
+ahi
+alo_up
+ahi_up
+aexc
+uInvalid target size.
+azoom
+aorder
+amode
+apad
+aedge
+amode
+aminimum_filter
+anearest
+asize
+amode
+amaximum_filter
+anearest
+aclip
+uResampling failed: 
+anormalize_to_16bit
+adem_array
+adem
+az_min
+az_max
+az_range
+anorm
+aout
+aexc
+amin
+amax
+f�����ư>awarning
+uPerfectly flat terrain: uniform heightmap at 0.
+azeros
+auint16
+adtype
+���@arint
+l��
+u16-bit normalisation failed: 
+acompute_slope_gradient
+adem_array
+aresolution_meters
+aunit
+adem
+agy
+agx
+atan_theta
+aexc
+uresolution_meters must be > 0.
+apercent
+adegrees
+uunit must be 'percent' or 'degrees'.
+agradient
+ahypot
+apercent
+adegrees
+aarctan
+uSlope computation failed: 
+aclassify_surface_mask
+aslope_percent
+aroad_max
+acliff_min
+amask
+uroad_max must be < cliff_min.
+afull
+aMASK_OFFROAD
+auint8
+aMASK_ROAD
+aMASK_CLIFF
+aexport_heightmap_16bit
+aarray_uint16
+aoutput_path
+aimg
+acheck
+aback
+aexc
+uExpected uint16, got 
+u (risk of precision loss).
+uThe heightmap must be 2D.
+aImage
+afromarray
+aascontiguousarray
+asave
+aPNG
+aformat
+aasarray
+nnnaarray_equal
+uVerification failed: the re-read PNG differs from the source.
+u16-bit heightmap exported: %s
+uCannot write (
+u): 
+u16-bit export failed: 
+aexport_surface_mask
+amask
+aoutput_path
+alut
+aexc
+aarray
+uSurface mask exported: %s
+uMask export failed: 
+aburn_roads_into_mask
+amask
+aroads_px
+whwwamargin
+aoverlay
+adraw
+awidth_px
+apoints
+apts
+aline_width
+wrwxwyaburned
+aexc
+uThe mask must be 2D.
+anew
+wLaImageDraw
+aDraw
+around
+aline
+acurve
+afill
+awidth
+ajoint
+@aellipse
+afill
+uRoad burning into mask failed: 
+acompute_metadata
+adem_array
+aresolution_meters
+adem
+aslope_deg
+acompute_slope_gradient
+adegrees
+aunit
+az_min
+az_max
+arelief_m
+amax_slope_deg
+aorigin
+ahas_location
+aannotations
+alogging
+aOptional
+anumpy
+aPIL
+aImage
+aImageDraw
+andimage
+agetLogger
+aterrain_processor
+EException
+a__prepare__
+a__getitem__
+u%s.__prepare__() must return a mapping, not %s
+u<metaclass>
+aterrain_processor
+l+a__firstlineno__
+a__static_attributes__
+a__orig_bases__
+�	dem_arrayz
+np.ndarray�
+return�
+None)
+NotImplementedError)
+_annotate_arguments
+&�,terrain_processor$$$function__2___annotate__�
+__annotate__r	
+�A�
+�\�8�V�
+a__annotate__
+nX�
+�	dem_arrayz
+np.ndarray�
+nodata_valuez
+Optional[float]�
+return)
+NotImplementedError)
+_annotate_arguments
+&�,terrain_processor$$$function__4___annotate__�
+__annotate__r	
+�A�
+�\�>�;L�h�Xd�
+f�������?X�
+�	dem_arrayz
+np.ndarray�
+sigma�
+float�
+return)
+NotImplementedError)
+_annotate_arguments
+&�,terrain_processor$$$function__6___annotate__�
+__annotate__r
+�A�
+�\�7�G�X�|�
+aclean_lidar_noise
+FX�
+R	R
+�	dem_arrayz
+np.ndarray�
+target_sizez
+tuple[int, int]�
+order�
+int�
+clamp_overshoot�
+bool�
+return)
+NotImplementedError)
+_annotate_arguments
+&�,terrain_processor$$$function__8___annotate__�
+__annotate__r
+�A�
+�\�=�:K�W�V[�]n�pv�
+aresample_dem
+�	dem_arrayz
+np.ndarray�
+returnz
+tuple[np.ndarray, float, float])
+NotImplementedError)
+_annotate_arguments
+&�-terrain_processor$$$function__10___annotate__�
+__annotate__r
+�A�
+�\�8�5V�
+anormalize_to_16bit
+�?apercent
+�	dem_arrayz
+np.ndarray�
+resolution_meters�
+float�
+unit�
+str�
+return)
+NotImplementedError)
+_annotate_arguments
+&�-terrain_processor$$$function__12___annotate__�
+__annotate__r
+�A�
+�\�+>�
+�QV�X`�bn�
+(@f
+�A@X�
+slope_percentz
+np.ndarray�
+road_max�
+float�	cliff_min�
+return)
+NotImplementedError)
+_annotate_arguments
+&�-terrain_processor$$$function__14___annotate__�
+__annotate__r
+�A�
+�z�7�K�QX�Zb�dp�
+aclassify_surface_mask
+array_uint16z
+np.ndarray�
+output_path�
+str�
+return�
+None)
+NotImplementedError)
+_annotate_arguments
+&�-terrain_processor$$$function__16___annotate__�
+__annotate__r
+�A�
+�m�U�H�f�
+aexport_heightmap_16bit
+maskz
+np.ndarray�
+output_path�
+str�
+return�
+None)
+NotImplementedError)
+_annotate_arguments
+&�-terrain_processor$$$function__18___annotate__�
+__annotate__r
+�A�
+�m�U�H�f�
+aexport_surface_mask
+maskz
+np.ndarray�
+roads_pxz-list[tuple[float, list[tuple[float, float]]]]�
+return)
+NotImplementedError)
+_annotate_arguments
+&�-terrain_processor$$$function__20___annotate__�
+__annotate__r	
+�A�
+�j�2a�ck�my�
+aburn_roads_into_mask
+�	dem_arrayz
+np.ndarray�
+resolution_meters�
+float�
+return�
+dict)
+NotImplementedError)
+_annotate_arguments
+&�-terrain_processor$$$function__22___annotate__�
+__annotate__r
+�A�
+�\�+>�
+�SY�
+acompute_metadata
+uterrain_processor.py
+(exit 0)

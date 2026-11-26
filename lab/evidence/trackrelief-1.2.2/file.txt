@@ -1,0 +1,7 @@
+$ file TrackRelief.zip TrackRelief_Setup.exe zip/TrackRelief/TrackRelief.exe zip/TrackRelief/app/TrackRelief.exe; unzip -l TrackRelief.zip | tail -1
+TrackRelief.zip:                     Zip archive data, at least v2.0 to extract, compression method=store
+TrackRelief_Setup.exe:               PE32 executable for MS Windows 6.01 (GUI), Intel i386, 11 sections
+zip/TrackRelief/TrackRelief.exe:     PE32 executable for MS Windows 4.00 (GUI), Intel i386 Mono/.Net assembly, 3 sections
+zip/TrackRelief/app/TrackRelief.exe: PE32+ executable for MS Windows 6.00 (GUI), x86-64, 7 sections
+351246888                     1507 files
+(exit 0)

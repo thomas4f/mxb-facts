@@ -1,0 +1,78 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe __main__ | grep -nE -B2 -A3 'auto_check_updates|Check for updates|check_update_startup|Update available|Download'
+486-l$aUpdates
+487-aBooleanVar
+488:aauto_check_updates
+489-avalue
+490-aauto_update_var
+491-aCTkCheckBox
+492:uCheck for updates at startup
+493-atext
+494-avariable
+495-acommand
+--
+499-ahover_color
+500-aanchor
+501:wwuCheck for updates
+502-a_check_update
+503-aupdate_btn
+504-uVersion 
+--
+543-astrip
+544-alocal
+545:aauto_check_updates
+546-auser_settings
+547-asave
+548-a_on_selection_change
+--
+689-aself
+690-lda_poll_queue
+691:a_check_update_startup
+692-ahide_discord
+693-Fl�
+694-ashow_discord_banner
+--
+698-NotImplementedError)
+699-_annotate_arguments
+700:&�H__main__$$$function__82__check_update_startup$$$function__2___annotate__�
+701-__annotate__r
+702-�A�
+703-�&�
+704:uApp._check_update_startup.<locals>.__annotate__
+705:uApp._check_update_startup.<locals>.work
+706-awork
+707-aself
+708:uApp._check_update_startup.<locals>
+709-aself
+710:a_check_update_startup
+711-aself
+712-awork
+713-aApp
+--
+726-apady
+727-aafter
+728:uUpdate available: version 
+729-wxl
+730-uYou have 
+731-wxl
+--
+733-apadx
+734-wxl
+735:aDownload
+736-uApp.show_update_banner.<locals>.<lambda>
+737-u<lambda>
+738-ares
+--
+1408-uUsing local GeoTIFF: 
+1409-avalidate
+1410:uDownloading elevation data...
+1411-afetch_dem_data
+1412-uApp._pipeline.<locals>.<lambda>
+1413-u<lambda>
+--
+2043-�A�
+2044-�&�
+2045:uApp._check_update_startup
+2046-resz
+2047-Dict[str, Any]�
+2048-return�
+(exit 0)

@@ -1,0 +1,15 @@
+$ objdump -p zip/TrackRelief/app/TrackRelief.exe | grep 'DLL Name'
+	DLL Name: python314.dll
+	DLL Name: USER32.dll
+	DLL Name: api-ms-win-crt-convert-l1-1-0.dll
+	DLL Name: api-ms-win-crt-filesystem-l1-1-0.dll
+	DLL Name: api-ms-win-crt-heap-l1-1-0.dll
+	DLL Name: api-ms-win-crt-math-l1-1-0.dll
+	DLL Name: api-ms-win-crt-private-l1-1-0.dll
+	DLL Name: api-ms-win-crt-runtime-l1-1-0.dll
+	DLL Name: api-ms-win-crt-stdio-l1-1-0.dll
+	DLL Name: api-ms-win-crt-string-l1-1-0.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: SHELL32.dll
+	DLL Name: api-ms-win-crt-environment-l1-1-0.dll
+(exit 0)

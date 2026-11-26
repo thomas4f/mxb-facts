@@ -1,0 +1,619 @@
+    2  TrackRelief.exe  CreateFile  \Device\NamedPipe  SUCCESS
+    2  TrackRelief.exe  CreatePipe  \Device\NamedPipe  SUCCESS
+    1  TrackRelief.exe  Process Exit    SUCCESS
+    1  TrackRelief.exe  Process Start    SUCCESS
+    4  TrackRelief.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS
+   22  TrackRelief.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+   22  TrackRelief.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  TrackRelief.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\TrackRelief.exe  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_asyncio.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_bz2.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_ctypes.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_decimal.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_elementtree.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_hashlib.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_lzma.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_overlapped.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_queue.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_socket.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_sqlite3.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_ssl.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_tkinter.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_uuid.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_wmi.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_zstd.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\cd.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\md.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\libcrypto-3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\libffi-8.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\libssl-3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy.libs\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy.libs\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\_core\_multiarray_umath.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\fft\_pocketfft_umath.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\linalg\_umath_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_bounded_integers.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_common.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_generator.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_mt19937.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_pcg64.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_philox.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_sfc64.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\bit_generator.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\mtrand.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\PIL\_imaging.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingft.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingtk.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyexpat.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\jpeg62-971fedc88cb0e86c3ad978ae1b7646db.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\libcurl-f49442d4be7d953952a0509cdd4501fa.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\liblzma-3c4c8780fcad6ce56344d2b5594bda5b.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\msvcp140-7c26614e1d733892c2deac7e245ce115.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\proj_9-7e5618bddacc5af688a84f477cf114c3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\sqlite3-9415ebc42378ab15b741623972c45846.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\tiff-69dcdf91c822b00d23e8dbf49655fe78.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\zlib1-985e9fefa27bf900be8e4df7dcc97287.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_compat.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_context.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_crs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_geod.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_network.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_sync.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_transformer.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_version.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\database.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\list.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\python314.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\freexl-1-a6147e8a0874d58341c5006b93489b0e.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gdal-a72f407b3502e5101c71e3af450342da.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos_c-b603f900266fc5dba59f4a09b91d5fcd.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos-dabffc25e549acf063a2123b00fd7bc8.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geotiff-0f6492f511ef1967bf1662225ca58036.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gif-050ff31eeba2013b9f5f494427b04cb9.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5_hl-7e7cde3a1641d66bcbe74a52f91f0a3c.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5-74affa4514d9e5191c173951be609be7.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\iconv-2-9fe1fe98747f36218282b14bd67668f4.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\jpeg62-a54a03145fbeae6eca2bf1276664dfc4.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\json-c-db85b2a41d4cff92fae29093033c6d22.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\Lerc-846a957ae26018a3d91d4f25cf5facac.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcrypto-3-x64-926c52527e18e976e9f4b061ee56a07c.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcurl-8cfe556d40799b77222986b4ec41c757.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libexpat-e168c64b7acc8714ee3d3f81efeca9e3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\liblzma-036cf26aab4d0c1148c1b168811c2cce.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpng16-88a1d225d50923c0e98af680c0c3bee2.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpq-8d86892b6cf7318038d981d5d0e51e99.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libsharpyuv-b2fe3747d3a41e51017bbca7ed3e2567.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libssl-3-x64-f439b894ec54b96cf5d4b32da59b500a.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libwebp-0c13d30ef06480ba72a456d0da9288e3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libxml2-3d081b12752e18187764ef8f077e6a84.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\minizip-35c542de9a341ea2f0d06a150435bb59.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\msvcp140-20076bc0e3fcb1842cab77dfe8ef816b.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\netcdf-2d9517c9391637a9e04f895fefbd5623.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\openjp2-379ffd8fb77dfeb6ad1d727d2e9b2a5c.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\pcre2-8-d3408fc88459d66d37153e43d4fcd1ad.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\proj_9-54131f78a93c8acbc9caf6d2f69aeca5.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\qhull_r-af0dc0818a078664bb668a56e8d62ca2.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\spatialite-f92cff5c471475544736d0adc77c68a9.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\sqlite3-83948bf6c20798e244ca12b8b0b54d05.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\szip-e59ebcd7c483ce8d26abe5005a2dd20d.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tiff-b1528085f399cbd37298e136b14467fb.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tinyxml2-d39e898a1f45f015e948ab66e516ad99.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\z-5c38e202e8268408352bf6e3cadbdc6d.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\zstd-665e50e3bd378ef19c7aab1b02410823.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_base.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_env.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_err.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_features.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_filepath.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_io.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_transform.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_version.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_vsiopener.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_warp.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\crs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy.libs\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\_cyutility.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\_lib\_ccallback_c.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_batched_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_cythonized_array_utils.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_decomp_update.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_fblas.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_flapack.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_internal_matfuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_linalg_pythran.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_solve_toeplitz.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_blas.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_lapack.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_nd_image.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_ni_label.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_rank_filter_1d.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_comb.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ellip_harm_2.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_gufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_specfun.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_special_ufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs_cxx.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\select.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\sqlite3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\tcl86t.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\tk86t.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\unicodedata.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\vcruntime140_1.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\vcruntime140.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\zlib1.dll  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49152 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49153 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49154 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49155 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49156 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49157 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49158 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49159 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49161 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49162 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49163 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49164 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49165 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49166 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49167 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49168 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49169 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49170 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49171 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49172 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49173 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49174 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49175 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49176 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49177 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49178 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49179 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49180 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49181 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49182 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49183 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49184 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49185 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49186 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49187 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49188 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49189 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49190 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49191 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49192 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49193 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49194 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49195 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49196 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49197 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49198 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49199 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49200 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49201 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49202 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49203 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49204 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49205 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49206 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49207 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49208 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49209 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49210 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49211 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49212 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49213 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49214 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49215 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49216 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49217 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49218 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49219 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49220 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49221 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49222 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49223 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49224 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49225 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49226 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49227 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49228 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49229 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49230 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49231 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49232 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49233 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49234 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49235 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49236 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49237 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49238 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49239 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49240 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49241 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49242 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49243 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49244 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49245 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49246 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49247 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49248 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49249 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49250 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49251 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49252 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49253 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49254 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49255 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49256 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49257 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49258 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49259 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49260 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49261 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49262 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49263 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49264 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49265 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49266 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49267 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49268 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49269 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49270 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49271 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49272 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49273 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49274 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49275 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49276 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49277 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49278 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49279 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49280 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49281 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49282 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49283 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49284 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49285 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49286 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49287 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49288 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49289 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49290 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49291 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49292 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49293 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49294 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49295 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49296 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49297 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49298 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49299 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49300 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49301 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49302 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49303 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49304 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49305 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49306 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49307 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49308 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49309 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49310 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49311 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49312 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49313 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49314 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49315 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49316 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49317 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49318 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49319 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49320 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49321 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49322 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49323 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49324 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49325 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49326 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49327 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49328 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49329 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49330 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49331 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49332 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49333 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49334 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49335 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49336 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49337 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49338 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49339 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49340 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49341 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49342 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49343 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49344 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49345 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49346 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49347 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49348 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49349 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49350 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49351 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49352 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49353 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49354 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49355 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49356 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49357 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49358 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49359 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49360 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49361 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49362 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49363 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49364 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49365 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49366 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49367 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49368 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49369 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49370 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49371 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49372 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49373 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49374 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49375 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49376 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49377 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49378 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49379 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49380 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49381 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49382 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49383 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49384 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49385 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49386 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49387 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49388 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49389 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49390 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49391 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49392 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49393 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49394 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49395 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49396 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49397 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49398 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49399 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49400 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49401 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49402 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49403 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49404 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49405 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49406 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49407 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49408 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49409 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49410 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49411 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49412 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49413 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49414 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49415 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49416 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49417 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49418 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49419 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49420 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49421 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49422 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49423 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49424 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49425 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49426 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49427 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49428 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49429 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49430 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49431 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49432 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49433 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49434 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49435 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49436 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49437 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49438 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49439 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49440 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49441 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49442 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49443 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49444 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49445 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49446 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49447 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49448 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49449 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49450 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49451 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49452 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49453 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49454 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49455 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49456 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49457 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49458 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49459 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49460 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49461 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49462 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49463 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49464 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49465 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49466 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49467 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49468 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49469 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49470 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49471 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49472 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49473 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49474 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49475 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49476 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49477 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49478 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49479 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49480 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49481 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49482 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49483 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49484 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49485 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49486 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49487 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49488 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49489 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49490 -> lb-140-82-112-5-iad.github.com:https  SUCCESS
+   24  TrackRelief.exe  WriteFile  \Device\NamedPipe  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_asyncio.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_bz2.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_ctypes.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_decimal.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_elementtree.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_hashlib.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_lzma.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_overlapped.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_queue.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_socket.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_sqlite3.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_ssl.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_tkinter.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_uuid.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_wmi.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\_zstd.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\cd.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\md.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\libcrypto-3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\libffi-8.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\libssl-3.dll  SUCCESS
+    3  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy.libs\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy.libs\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\_core\_multiarray_umath.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\fft\_pocketfft_umath.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\linalg\_umath_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_bounded_integers.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_common.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_generator.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_mt19937.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_pcg64.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_philox.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\_sfc64.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\bit_generator.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\numpy\random\mtrand.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\PIL\_imaging.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingft.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingtk.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyexpat.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\jpeg62-971fedc88cb0e86c3ad978ae1b7646db.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\libcurl-f49442d4be7d953952a0509cdd4501fa.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\liblzma-3c4c8780fcad6ce56344d2b5594bda5b.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\msvcp140-7c26614e1d733892c2deac7e245ce115.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\proj_9-7e5618bddacc5af688a84f477cf114c3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\sqlite3-9415ebc42378ab15b741623972c45846.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\tiff-69dcdf91c822b00d23e8dbf49655fe78.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\zlib1-985e9fefa27bf900be8e4df7dcc97287.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_compat.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_context.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_crs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_geod.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_network.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_sync.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_transformer.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\_version.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\database.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\pyproj\list.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\python314.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\freexl-1-a6147e8a0874d58341c5006b93489b0e.dll  SUCCESS
+    3  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gdal-a72f407b3502e5101c71e3af450342da.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos_c-b603f900266fc5dba59f4a09b91d5fcd.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos-dabffc25e549acf063a2123b00fd7bc8.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geotiff-0f6492f511ef1967bf1662225ca58036.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gif-050ff31eeba2013b9f5f494427b04cb9.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5_hl-7e7cde3a1641d66bcbe74a52f91f0a3c.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5-74affa4514d9e5191c173951be609be7.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\iconv-2-9fe1fe98747f36218282b14bd67668f4.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\jpeg62-a54a03145fbeae6eca2bf1276664dfc4.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\json-c-db85b2a41d4cff92fae29093033c6d22.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\Lerc-846a957ae26018a3d91d4f25cf5facac.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcrypto-3-x64-926c52527e18e976e9f4b061ee56a07c.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcurl-8cfe556d40799b77222986b4ec41c757.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libexpat-e168c64b7acc8714ee3d3f81efeca9e3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\liblzma-036cf26aab4d0c1148c1b168811c2cce.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpng16-88a1d225d50923c0e98af680c0c3bee2.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpq-8d86892b6cf7318038d981d5d0e51e99.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libsharpyuv-b2fe3747d3a41e51017bbca7ed3e2567.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libssl-3-x64-f439b894ec54b96cf5d4b32da59b500a.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libwebp-0c13d30ef06480ba72a456d0da9288e3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libxml2-3d081b12752e18187764ef8f077e6a84.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\minizip-35c542de9a341ea2f0d06a150435bb59.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\msvcp140-20076bc0e3fcb1842cab77dfe8ef816b.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\netcdf-2d9517c9391637a9e04f895fefbd5623.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\openjp2-379ffd8fb77dfeb6ad1d727d2e9b2a5c.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\pcre2-8-d3408fc88459d66d37153e43d4fcd1ad.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\proj_9-54131f78a93c8acbc9caf6d2f69aeca5.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\qhull_r-af0dc0818a078664bb668a56e8d62ca2.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\spatialite-f92cff5c471475544736d0adc77c68a9.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\sqlite3-83948bf6c20798e244ca12b8b0b54d05.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\szip-e59ebcd7c483ce8d26abe5005a2dd20d.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tiff-b1528085f399cbd37298e136b14467fb.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tinyxml2-d39e898a1f45f015e948ab66e516ad99.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\z-5c38e202e8268408352bf6e3cadbdc6d.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\zstd-665e50e3bd378ef19c7aab1b02410823.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_base.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_env.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_err.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_features.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_filepath.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_io.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_transform.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_version.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_vsiopener.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\_warp.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\rasterio\crs.pyd  SUCCESS
+    3  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy.libs\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\_cyutility.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\_lib\_ccallback_c.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_batched_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_cythonized_array_utils.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_decomp_update.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_fblas.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_flapack.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_internal_matfuncs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_linalg_pythran.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_solve_toeplitz.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_blas.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_lapack.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_nd_image.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_ni_label.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_rank_filter_1d.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_comb.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ellip_harm_2.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_gufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_specfun.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_special_ufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs_cxx.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\select.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\sqlite3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\tcl86t.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\tk86t.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\unicodedata.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\vcruntime140_1.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\vcruntime140.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-app-direct\release\TrackRelief.zip\TrackRelief\app\zlib1.dll  SUCCESS

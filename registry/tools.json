@@ -629,7 +629,9 @@
     "author": "Lilian1134",
     "github": "Lilian1134/TrackRelief",
     "homepage": null,
-    "cards": [],
+    "cards": [
+      "trackrelief-1.2.2.yaml"
+    ],
     "mxb-mods": {
       "post": 192258,
       "tied_by": "github.com/Lilian1134/TrackRelief"

@@ -1,0 +1,678 @@
+Internet connections the run's processes tried (Process Monitor), then the firewall's drops for them. Every program in the run folder was blocked by the firewall, so this shows attempts, not traffic.
+6:44:23.6554790 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49152 -> 140.248.145.91:https  SUCCESS
+6:44:23.6561320 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49154 -> 140.248.145.91:https  SUCCESS
+6:44:23.6561336 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49153 -> 140.248.145.91:https  SUCCESS
+6:44:23.6561729 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49155 -> 140.248.145.91:https  SUCCESS
+6:44:23.6561730 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49156 -> 140.248.145.91:https  SUCCESS
+6:44:23.6564173 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49157 -> 140.248.145.91:https  SUCCESS
+6:44:23.6564204 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49158 -> 140.248.145.91:https  SUCCESS
+6:44:23.6565237 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49159 -> 140.248.145.91:https  SUCCESS
+6:44:23.6566990 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49161 -> 140.248.145.91:https  SUCCESS
+6:44:23.6568657 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49162 -> 140.248.145.91:https  SUCCESS
+6:44:23.6569790 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49163 -> 140.248.145.91:https  SUCCESS
+6:44:23.6570001 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49164 -> 140.248.145.91:https  SUCCESS
+6:44:23.6570823 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49165 -> 140.248.145.91:https  SUCCESS
+6:44:23.6575168 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49166 -> 140.248.145.91:https  SUCCESS
+6:44:23.6576187 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49167 -> 140.248.145.91:https  SUCCESS
+6:44:23.6577886 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49168 -> 140.248.145.91:https  SUCCESS
+6:44:23.6579587 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49169 -> 140.248.145.91:https  SUCCESS
+6:44:23.7228600 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49170 -> 140.248.145.91:https  SUCCESS
+6:44:23.7239911 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49171 -> 140.248.145.91:https  SUCCESS
+6:44:23.7249285 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49172 -> 140.248.145.91:https  SUCCESS
+6:44:23.7258808 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49173 -> 140.248.145.91:https  SUCCESS
+6:44:23.7267594 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49174 -> 140.248.145.91:https  SUCCESS
+6:44:23.7276285 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49175 -> 140.248.145.91:https  SUCCESS
+6:44:23.7285090 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49176 -> 140.248.145.91:https  SUCCESS
+6:44:23.7294236 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49177 -> 140.248.145.91:https  SUCCESS
+6:44:23.7305078 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49178 -> 140.248.145.91:https  SUCCESS
+6:44:23.7313689 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49179 -> 140.248.145.91:https  SUCCESS
+6:44:23.7322573 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49180 -> 140.248.145.91:https  SUCCESS
+6:44:23.7331129 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49181 -> 140.248.145.91:https  SUCCESS
+6:44:23.7339629 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49182 -> 140.248.145.91:https  SUCCESS
+6:44:23.7348143 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49183 -> 140.248.145.91:https  SUCCESS
+6:44:23.7357248 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49184 -> 140.248.145.91:https  SUCCESS
+6:44:23.7365717 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49185 -> 140.248.145.91:https  SUCCESS
+6:44:23.7373999 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49186 -> 140.248.145.91:https  SUCCESS
+6:44:23.7382348 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49187 -> 140.248.145.91:https  SUCCESS
+6:44:23.7392674 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49188 -> 140.248.145.91:https  SUCCESS
+6:44:23.7401762 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49189 -> 140.248.145.91:https  SUCCESS
+6:44:23.7410720 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49190 -> 140.248.145.91:https  SUCCESS
+6:44:23.7419124 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49191 -> 140.248.145.91:https  SUCCESS
+6:44:23.7427860 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49192 -> 140.248.145.91:https  SUCCESS
+6:44:23.7436166 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49193 -> 140.248.145.91:https  SUCCESS
+6:44:23.7446911 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49194 -> 140.248.145.91:https  SUCCESS
+6:44:23.7460347 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49195 -> 140.248.145.91:https  SUCCESS
+6:44:23.7469810 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49196 -> 140.248.145.91:https  SUCCESS
+6:44:23.7478316 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49197 -> 140.248.145.91:https  SUCCESS
+6:44:23.7487002 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49198 -> 140.248.145.91:https  SUCCESS
+6:44:23.7496330 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49199 -> 140.248.145.91:https  SUCCESS
+6:44:23.7505069 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49200 -> 140.248.145.91:https  SUCCESS
+6:44:23.7514279 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49201 -> 140.248.145.91:https  SUCCESS
+6:44:23.7522661 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49202 -> 140.248.145.91:https  SUCCESS
+6:44:23.7531302 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49203 -> 140.248.145.91:https  SUCCESS
+6:44:23.7539599 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49204 -> 140.248.145.91:https  SUCCESS
+6:44:23.7547955 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49205 -> 140.248.145.91:https  SUCCESS
+6:44:23.7556445 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49206 -> 140.248.145.91:https  SUCCESS
+6:44:23.7565205 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49207 -> 140.248.145.91:https  SUCCESS
+6:44:23.7573758 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49208 -> 140.248.145.91:https  SUCCESS
+6:44:23.7582202 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49209 -> 140.248.145.91:https  SUCCESS
+6:44:23.7590787 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49210 -> 140.248.145.91:https  SUCCESS
+6:44:23.7601806 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49211 -> 140.248.145.91:https  SUCCESS
+6:44:23.7611041 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49212 -> 140.248.145.91:https  SUCCESS
+6:44:23.7619572 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49213 -> 140.248.145.91:https  SUCCESS
+6:44:23.7627855 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49214 -> 140.248.145.91:https  SUCCESS
+6:44:23.7635920 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49215 -> 140.248.145.91:https  SUCCESS
+6:44:23.7644195 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49216 -> 140.248.145.91:https  SUCCESS
+6:44:23.7652641 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49217 -> 140.248.145.91:https  SUCCESS
+6:44:23.7661378 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49218 -> 140.248.145.91:https  SUCCESS
+6:44:23.7670210 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49219 -> 140.248.145.91:https  SUCCESS
+6:44:23.7678772 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49220 -> 140.248.145.91:https  SUCCESS
+6:44:23.7687686 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49221 -> 140.248.145.91:https  SUCCESS
+6:44:23.7696582 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49222 -> 140.248.145.91:https  SUCCESS
+6:44:23.7706296 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49223 -> 140.248.145.91:https  SUCCESS
+6:44:23.7715990 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49224 -> 140.248.145.91:https  SUCCESS
+6:44:23.7724317 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49225 -> 140.248.145.91:https  SUCCESS
+6:44:23.7732623 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49226 -> 140.248.145.91:https  SUCCESS
+6:44:23.7740979 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49227 -> 140.248.145.91:https  SUCCESS
+6:44:23.7749022 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49228 -> 140.248.145.91:https  SUCCESS
+6:44:23.7760089 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49229 -> 140.248.145.91:https  SUCCESS
+6:44:23.7768854 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49230 -> 140.248.145.91:https  SUCCESS
+6:44:23.7777473 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49231 -> 140.248.145.91:https  SUCCESS
+6:44:23.7785813 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49232 -> 140.248.145.91:https  SUCCESS
+6:44:23.7794532 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49233 -> 140.248.145.91:https  SUCCESS
+6:44:23.7803801 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49234 -> 140.248.145.91:https  SUCCESS
+6:44:23.7813755 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49235 -> 140.248.145.91:https  SUCCESS
+6:44:23.7822914 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49236 -> 140.248.145.91:https  SUCCESS
+6:44:23.7832623 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49237 -> 140.248.145.91:https  SUCCESS
+6:44:23.7841256 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49238 -> 140.248.145.91:https  SUCCESS
+6:44:23.7849941 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49239 -> 140.248.145.91:https  SUCCESS
+6:44:23.7858496 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49240 -> 140.248.145.91:https  SUCCESS
+6:44:23.7866947 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49241 -> 140.248.145.91:https  SUCCESS
+6:44:23.7876362 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49242 -> 140.248.145.91:https  SUCCESS
+6:44:23.7884855 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49243 -> 140.248.145.91:https  SUCCESS
+6:44:23.7893329 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49244 -> 140.248.145.91:https  SUCCESS
+6:44:23.7901935 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49245 -> 140.248.145.91:https  SUCCESS
+6:44:23.7911627 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49246 -> 140.248.145.91:https  SUCCESS
+6:44:23.7923172 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49247 -> 140.248.145.91:https  SUCCESS
+6:44:23.7934796 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49248 -> 140.248.145.91:https  SUCCESS
+6:44:23.7946847 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49249 -> 140.248.145.91:https  SUCCESS
+6:44:23.7957606 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49250 -> 140.248.145.91:https  SUCCESS
+6:44:23.7968141 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49251 -> 140.248.145.91:https  SUCCESS
+6:44:23.7977397 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49252 -> 140.248.145.91:https  SUCCESS
+6:44:23.7985851 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49253 -> 140.248.145.91:https  SUCCESS
+6:44:23.7994567 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49254 -> 140.248.145.91:https  SUCCESS
+6:44:23.8003593 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49255 -> 140.248.145.91:https  SUCCESS
+6:44:23.8012989 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49256 -> 140.248.145.91:https  SUCCESS
+6:44:23.8022281 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49257 -> 140.248.145.91:https  SUCCESS
+6:44:23.8031117 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49258 -> 140.248.145.91:https  SUCCESS
+6:44:23.8039351 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49259 -> 140.248.145.91:https  SUCCESS
+6:44:23.8048041 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49260 -> 140.248.145.91:https  SUCCESS
+6:44:23.8056532 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49261 -> 140.248.145.91:https  SUCCESS
+6:44:23.8066941 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49262 -> 140.248.145.91:https  SUCCESS
+6:44:23.8077171 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49263 -> 140.248.145.91:https  SUCCESS
+6:44:23.8086663 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49264 -> 140.248.145.91:https  SUCCESS
+6:44:23.8095598 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49265 -> 140.248.145.91:https  SUCCESS
+6:44:23.8104191 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49266 -> 140.248.145.91:https  SUCCESS
+6:44:23.8113950 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49267 -> 140.248.145.91:https  SUCCESS
+6:44:23.8122371 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49268 -> 140.248.145.91:https  SUCCESS
+6:44:23.8132789 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49269 -> 140.248.145.91:https  SUCCESS
+6:44:23.8140964 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49270 -> 140.248.145.91:https  SUCCESS
+6:44:23.8149487 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49271 -> 140.248.145.91:https  SUCCESS
+6:44:23.8157613 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49272 -> 140.248.145.91:https  SUCCESS
+6:44:23.8165755 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49273 -> 140.248.145.91:https  SUCCESS
+6:44:23.8174132 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49274 -> 140.248.145.91:https  SUCCESS
+6:44:23.8182359 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49275 -> 140.248.145.91:https  SUCCESS
+6:44:23.8191343 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49276 -> 140.248.145.91:https  SUCCESS
+6:44:23.8199496 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49277 -> 140.248.145.91:https  SUCCESS
+6:44:23.8208179 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49278 -> 140.248.145.91:https  SUCCESS
+6:44:23.8218616 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49279 -> 140.248.145.91:https  SUCCESS
+6:44:23.8228055 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49280 -> 140.248.145.91:https  SUCCESS
+6:44:23.8237570 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49281 -> 140.248.145.91:https  SUCCESS
+6:44:23.8246075 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49282 -> 140.248.145.91:https  SUCCESS
+6:44:23.8254251 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49283 -> 140.248.145.91:https  SUCCESS
+6:44:23.8262745 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49284 -> 140.248.145.91:https  SUCCESS
+6:44:23.8271046 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49285 -> 140.248.145.91:https  SUCCESS
+6:44:23.8279433 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49286 -> 140.248.145.91:https  SUCCESS
+6:44:23.8287929 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49287 -> 140.248.145.91:https  SUCCESS
+6:44:23.8296597 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49288 -> 140.248.145.91:https  SUCCESS
+6:44:23.8304721 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49289 -> 140.248.145.91:https  SUCCESS
+6:44:23.8312952 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49290 -> 140.248.145.91:https  SUCCESS
+6:44:23.8321690 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49291 -> 140.248.145.91:https  SUCCESS
+6:44:23.8329971 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49292 -> 140.248.145.91:https  SUCCESS
+6:44:23.8338364 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49293 -> 140.248.145.91:https  SUCCESS
+6:44:23.8346647 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49294 -> 140.248.145.91:https  SUCCESS
+6:44:23.8354952 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49295 -> 140.248.145.91:https  SUCCESS
+6:44:23.8363441 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49296 -> 140.248.145.91:https  SUCCESS
+6:44:23.8371501 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49297 -> 140.248.145.91:https  SUCCESS
+6:44:23.8384246 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49298 -> 140.248.145.91:https  SUCCESS
+6:44:23.8392785 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49299 -> 140.248.145.91:https  SUCCESS
+6:44:23.8403514 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49300 -> 140.248.145.91:https  SUCCESS
+6:44:23.8412504 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49301 -> 140.248.145.91:https  SUCCESS
+6:44:23.8421925 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49302 -> 140.248.145.91:https  SUCCESS
+6:44:23.8430771 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49303 -> 140.248.145.91:https  SUCCESS
+6:44:23.8438960 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49304 -> 140.248.145.91:https  SUCCESS
+6:44:23.8448844 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49305 -> 140.248.145.91:https  SUCCESS
+6:44:23.8457655 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49306 -> 140.248.145.91:https  SUCCESS
+6:44:23.8466421 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49307 -> 140.248.145.91:https  SUCCESS
+6:44:23.8474883 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49308 -> 140.248.145.91:https  SUCCESS
+6:44:23.8483544 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49309 -> 140.248.145.91:https  SUCCESS
+6:44:23.8492096 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49310 -> 140.248.145.91:https  SUCCESS
+6:44:23.8500765 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49311 -> 140.248.145.91:https  SUCCESS
+6:44:23.8509221 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49312 -> 140.248.145.91:https  SUCCESS
+6:44:23.8517809 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49313 -> 140.248.145.91:https  SUCCESS
+6:44:23.8526928 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49314 -> 140.248.145.91:https  SUCCESS
+6:44:23.8537466 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49315 -> 140.248.145.91:https  SUCCESS
+6:44:23.8546283 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49316 -> 140.248.145.91:https  SUCCESS
+6:44:23.8555472 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49317 -> 140.248.145.91:https  SUCCESS
+6:44:23.8563691 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49318 -> 140.248.145.91:https  SUCCESS
+6:44:23.8572115 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49319 -> 140.248.145.91:https  SUCCESS
+6:44:23.8580812 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49320 -> 140.248.145.91:https  SUCCESS
+6:44:23.8590034 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49321 -> 140.248.145.91:https  SUCCESS
+6:44:23.8598302 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49322 -> 140.248.145.91:https  SUCCESS
+6:44:23.8606630 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49323 -> 140.248.145.91:https  SUCCESS
+6:44:23.8615184 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49324 -> 140.248.145.91:https  SUCCESS
+6:44:23.8661292 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49325 -> 140.248.145.91:https  SUCCESS
+6:44:23.8670634 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49326 -> 140.248.145.91:https  SUCCESS
+6:44:23.8679164 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49327 -> 140.248.145.91:https  SUCCESS
+6:44:23.8688156 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49328 -> 140.248.145.91:https  SUCCESS
+6:44:23.8697402 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49329 -> 140.248.145.91:https  SUCCESS
+6:44:23.8705951 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49330 -> 140.248.145.91:https  SUCCESS
+6:44:23.8716736 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49331 -> 140.248.145.91:https  SUCCESS
+6:44:23.8725713 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49332 -> 140.248.145.91:https  SUCCESS
+6:44:23.8734489 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49333 -> 140.248.145.91:https  SUCCESS
+6:44:23.8742751 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49334 -> 140.248.145.91:https  SUCCESS
+6:44:23.8751271 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49335 -> 140.248.145.91:https  SUCCESS
+6:44:23.8759602 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49336 -> 140.248.145.91:https  SUCCESS
+6:44:23.8769572 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49337 -> 140.248.145.91:https  SUCCESS
+6:44:23.8778437 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49338 -> 140.248.145.91:https  SUCCESS
+6:44:23.8787062 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49339 -> 140.248.145.91:https  SUCCESS
+6:44:23.8796059 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49340 -> 140.248.145.91:https  SUCCESS
+6:44:23.8804322 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49341 -> 140.248.145.91:https  SUCCESS
+6:44:23.8813224 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49342 -> 140.248.145.91:https  SUCCESS
+6:44:23.8821513 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49343 -> 140.248.145.91:https  SUCCESS
+6:44:23.8830359 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49344 -> 140.248.145.91:https  SUCCESS
+6:44:23.8838825 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49345 -> 140.248.145.91:https  SUCCESS
+6:44:23.8847571 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49346 -> 140.248.145.91:https  SUCCESS
+6:44:23.8856518 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49347 -> 140.248.145.91:https  SUCCESS
+6:44:23.8865447 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49348 -> 140.248.145.91:https  SUCCESS
+6:44:23.8876635 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49349 -> 140.248.145.91:https  SUCCESS
+6:44:23.8887200 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49350 -> 140.248.145.91:https  SUCCESS
+6:44:23.8897144 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49351 -> 140.248.145.91:https  SUCCESS
+6:44:23.8906749 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49352 -> 140.248.145.91:https  SUCCESS
+6:44:23.8915567 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49353 -> 140.248.145.91:https  SUCCESS
+6:44:23.8924046 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49354 -> 140.248.145.91:https  SUCCESS
+6:44:23.8934243 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49355 -> 140.248.145.91:https  SUCCESS
+6:44:23.8942743 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49356 -> 140.248.145.91:https  SUCCESS
+6:44:23.8951152 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49357 -> 140.248.145.91:https  SUCCESS
+6:44:23.8959719 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49358 -> 140.248.145.91:https  SUCCESS
+6:44:23.8968116 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49359 -> 140.248.145.91:https  SUCCESS
+6:44:23.8978066 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49360 -> 140.248.145.91:https  SUCCESS
+6:44:23.8992226 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49361 -> 140.248.145.91:https  SUCCESS
+6:44:23.9000911 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49362 -> 140.248.145.91:https  SUCCESS
+6:44:23.9010185 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49363 -> 140.248.145.91:https  SUCCESS
+6:44:23.9018703 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49364 -> 140.248.145.91:https  SUCCESS
+6:44:23.9027695 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49365 -> 140.248.145.91:https  SUCCESS
+6:44:23.9037383 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49366 -> 140.248.145.91:https  SUCCESS
+6:44:23.9045904 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49367 -> 140.248.145.91:https  SUCCESS
+6:44:23.9054267 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49368 -> 140.248.145.91:https  SUCCESS
+6:44:23.9062454 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49369 -> 140.248.145.91:https  SUCCESS
+6:44:23.9078920 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49370 -> 140.248.145.91:https  SUCCESS
+6:44:23.9088195 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49371 -> 140.248.145.91:https  SUCCESS
+6:44:23.9096398 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49372 -> 140.248.145.91:https  SUCCESS
+6:44:23.9105201 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49373 -> 140.248.145.91:https  SUCCESS
+6:44:23.9113986 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49374 -> 140.248.145.91:https  SUCCESS
+6:44:23.9122020 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49375 -> 140.248.145.91:https  SUCCESS
+6:44:23.9130796 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49376 -> 140.248.145.91:https  SUCCESS
+6:44:23.9139390 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49377 -> 140.248.145.91:https  SUCCESS
+6:44:23.9147556 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49378 -> 140.248.145.91:https  SUCCESS
+6:44:23.9161492 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49379 -> 140.248.145.91:https  SUCCESS
+6:44:23.9170520 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49380 -> 140.248.145.91:https  SUCCESS
+6:44:23.9179799 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49381 -> 140.248.145.91:https  SUCCESS
+6:44:23.9189358 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49382 -> 140.248.145.91:https  SUCCESS
+6:44:23.9200164 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49383 -> 140.248.145.91:https  SUCCESS
+6:44:23.9208857 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49384 -> 140.248.145.91:https  SUCCESS
+6:44:23.9217261 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49385 -> 140.248.145.91:https  SUCCESS
+6:44:23.9225817 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49386 -> 140.248.145.91:https  SUCCESS
+6:44:23.9234585 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49387 -> 140.248.145.91:https  SUCCESS
+6:44:23.9248801 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49388 -> 140.248.145.91:https  SUCCESS
+6:44:23.9257144 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49389 -> 140.248.145.91:https  SUCCESS
+6:44:23.9265810 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49390 -> 140.248.145.91:https  SUCCESS
+6:44:23.9274184 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49391 -> 140.248.145.91:https  SUCCESS
+6:44:23.9283561 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49392 -> 140.248.145.91:https  SUCCESS
+6:44:23.9292281 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49393 -> 140.248.145.91:https  SUCCESS
+6:44:23.9301352 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49394 -> 140.248.145.91:https  SUCCESS
+6:44:23.9309654 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49395 -> 140.248.145.91:https  SUCCESS
+6:44:23.9318980 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49396 -> 140.248.145.91:https  SUCCESS
+6:44:23.9355750 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49397 -> 140.248.145.91:https  SUCCESS
+6:44:23.9365314 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49398 -> 140.248.145.91:https  SUCCESS
+6:44:23.9374145 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49399 -> 140.248.145.91:https  SUCCESS
+6:44:23.9383329 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49400 -> 140.248.145.91:https  SUCCESS
+6:44:23.9392821 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49401 -> 140.248.145.91:https  SUCCESS
+6:44:23.9401413 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49402 -> 140.248.145.91:https  SUCCESS
+6:44:23.9410358 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49403 -> 140.248.145.91:https  SUCCESS
+6:44:23.9419052 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49404 -> 140.248.145.91:https  SUCCESS
+6:44:23.9429627 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49405 -> 140.248.145.91:https  SUCCESS
+6:44:23.9441437 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49406 -> 140.248.145.91:https  SUCCESS
+6:44:23.9450997 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49407 -> 140.248.145.91:https  SUCCESS
+6:44:23.9459312 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49408 -> 140.248.145.91:https  SUCCESS
+6:44:23.9467657 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49409 -> 140.248.145.91:https  SUCCESS
+6:44:23.9476599 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49410 -> 140.248.145.91:https  SUCCESS
+6:44:23.9485969 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49411 -> 140.248.145.91:https  SUCCESS
+6:44:23.9495919 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49412 -> 140.248.145.91:https  SUCCESS
+6:44:23.9504434 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49413 -> 140.248.145.91:https  SUCCESS
+6:44:23.9513265 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49414 -> 140.248.145.91:https  SUCCESS
+6:44:23.9586058 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49415 -> 140.248.145.91:https  SUCCESS
+6:44:23.9598849 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49416 -> 140.248.145.91:https  SUCCESS
+6:44:23.9608292 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49417 -> 140.248.145.91:https  SUCCESS
+6:44:23.9618323 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49418 -> 140.248.145.91:https  SUCCESS
+6:44:23.9626669 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49419 -> 140.248.145.91:https  SUCCESS
+6:44:23.9635604 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49420 -> 140.248.145.91:https  SUCCESS
+6:44:23.9644829 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49421 -> 140.248.145.91:https  SUCCESS
+6:44:23.9654076 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49422 -> 140.248.145.91:https  SUCCESS
+6:44:23.9662903 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49423 -> 140.248.145.91:https  SUCCESS
+6:44:23.9671291 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49424 -> 140.248.145.91:https  SUCCESS
+6:44:23.9679850 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49425 -> 140.248.145.91:https  SUCCESS
+6:44:23.9687988 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49426 -> 140.248.145.91:https  SUCCESS
+6:44:23.9698448 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49427 -> 140.248.145.91:https  SUCCESS
+6:44:23.9707107 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49428 -> 140.248.145.91:https  SUCCESS
+6:44:23.9716447 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49429 -> 140.248.145.91:https  SUCCESS
+6:44:23.9725923 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49430 -> 140.248.145.91:https  SUCCESS
+6:44:23.9734781 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49431 -> 140.248.145.91:https  SUCCESS
+6:44:23.9743953 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49432 -> 140.248.145.91:https  SUCCESS
+6:44:23.9752962 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49433 -> 140.248.145.91:https  SUCCESS
+6:44:23.9761819 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49434 -> 140.248.145.91:https  SUCCESS
+6:44:23.9770578 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49435 -> 140.248.145.91:https  SUCCESS
+6:44:23.9778745 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49436 -> 140.248.145.91:https  SUCCESS
+6:44:23.9787924 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49437 -> 140.248.145.91:https  SUCCESS
+6:44:23.9799481 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49438 -> 140.248.145.91:https  SUCCESS
+6:44:23.9810495 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49439 -> 140.248.145.91:https  SUCCESS
+6:44:23.9823546 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49440 -> 140.248.145.91:https  SUCCESS
+6:44:23.9836841 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49441 -> 140.248.145.91:https  SUCCESS
+6:44:23.9850031 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49442 -> 140.248.145.91:https  SUCCESS
+6:44:23.9863701 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49443 -> 140.248.145.91:https  SUCCESS
+6:44:23.9877768 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49444 -> 140.248.145.91:https  SUCCESS
+6:44:23.9893380 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49445 -> 140.248.145.91:https  SUCCESS
+6:44:23.9910068 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49446 -> 140.248.145.91:https  SUCCESS
+6:44:23.9924567 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49447 -> 140.248.145.91:https  SUCCESS
+6:44:23.9938302 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49448 -> 140.248.145.91:https  SUCCESS
+6:44:23.9952204 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49449 -> 140.248.145.91:https  SUCCESS
+6:44:23.9965518 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49450 -> 140.248.145.91:https  SUCCESS
+6:44:23.9979087 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49451 -> 140.248.145.91:https  SUCCESS
+6:44:23.9992651 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49452 -> 140.248.145.91:https  SUCCESS
+6:44:24.0005238 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49453 -> 140.248.145.91:https  SUCCESS
+6:44:24.0019934 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49454 -> 140.248.145.91:https  SUCCESS
+6:44:24.0034238 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49455 -> 140.248.145.91:https  SUCCESS
+6:44:24.0048561 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49456 -> 140.248.145.91:https  SUCCESS
+6:44:24.0061956 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49457 -> 140.248.145.91:https  SUCCESS
+6:44:24.0075152 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49458 -> 140.248.145.91:https  SUCCESS
+6:44:24.0088358 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49459 -> 140.248.145.91:https  SUCCESS
+6:44:24.0101246 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49460 -> 140.248.145.91:https  SUCCESS
+6:44:24.0115702 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49461 -> 140.248.145.91:https  SUCCESS
+6:44:24.0130312 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49462 -> 140.248.145.91:https  SUCCESS
+6:44:24.0144217 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49463 -> 140.248.145.91:https  SUCCESS
+6:44:24.0157515 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49464 -> 140.248.145.91:https  SUCCESS
+6:44:24.0170627 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49465 -> 140.248.145.91:https  SUCCESS
+6:44:24.0183307 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49466 -> 140.248.145.91:https  SUCCESS
+6:44:24.0196001 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49467 -> 140.248.145.91:https  SUCCESS
+6:44:24.0208651 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49468 -> 140.248.145.91:https  SUCCESS
+6:44:24.0221525 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49469 -> 140.248.145.91:https  SUCCESS
+6:44:24.0235528 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49470 -> 140.248.145.91:https  SUCCESS
+6:44:24.0249125 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49471 -> 140.248.145.91:https  SUCCESS
+6:44:24.0262873 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49472 -> 140.248.145.91:https  SUCCESS
+6:44:24.0277143 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49473 -> 140.248.145.91:https  SUCCESS
+6:44:24.0290569 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49474 -> 140.248.145.91:https  SUCCESS
+6:44:24.0302907 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49475 -> 140.248.145.91:https  SUCCESS
+6:44:24.0315567 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49476 -> 140.248.145.91:https  SUCCESS
+6:44:24.0329331 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49477 -> 140.248.145.91:https  SUCCESS
+6:44:24.0343756 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49478 -> 140.248.145.91:https  SUCCESS
+6:44:24.0356801 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49479 -> 140.248.145.91:https  SUCCESS
+6:44:24.0369161 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49480 -> 140.248.145.91:https  SUCCESS
+6:44:24.0381457 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49481 -> 140.248.145.91:https  SUCCESS
+6:44:24.0393500 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49482 -> 140.248.145.91:https  SUCCESS
+6:44:24.0405904 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49483 -> 140.248.145.91:https  SUCCESS
+6:44:24.0419617 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49484 -> 140.248.145.91:https  SUCCESS
+6:44:24.0435085 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49485 -> 140.248.145.91:https  SUCCESS
+6:44:24.0448838 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49486 -> 140.248.145.91:https  SUCCESS
+6:44:24.0462942 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49487 -> 140.248.145.91:https  SUCCESS
+6:44:24.0475769 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49488 -> 140.248.145.91:https  SUCCESS
+6:44:24.0492804 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49489 -> 140.248.145.91:https  SUCCESS
+6:44:25.2877590 AM  TrackRelief.exe (5752)  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:49490 -> lb-140-82-112-5-iad.github.com:https  SUCCESS
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49152 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49153 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49154 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49155 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49156 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49157 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49158 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49160 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49159 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49161 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49162 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49163 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49164 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49165 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49166 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49167 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49168 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49169 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49170 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49171 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49172 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49173 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49174 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49175 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49176 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49177 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49178 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49179 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49180 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49181 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49182 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49183 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49184 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49185 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49186 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49187 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49188 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49189 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49190 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49191 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49192 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49193 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49194 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49195 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49196 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49197 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49198 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49199 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49200 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49201 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49202 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49203 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49204 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49205 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49206 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49207 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49208 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49209 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49210 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49211 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49212 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49213 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49214 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49215 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49216 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49217 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49218 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49219 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49220 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49221 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49222 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49223 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49224 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49225 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49226 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49227 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49228 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49229 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49230 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49231 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49232 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49233 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49234 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49235 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49236 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49237 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49238 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49239 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49240 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49241 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49242 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49243 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49244 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49245 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49246 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49247 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49248 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49249 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49250 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49251 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49252 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49253 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49254 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49255 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49256 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49257 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49258 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49259 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49260 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49261 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49262 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49263 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49264 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49265 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49266 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49267 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49268 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49269 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49270 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49271 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49272 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49273 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49274 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49275 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49276 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49277 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49278 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49279 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49280 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49281 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49282 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49283 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49284 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49285 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49286 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49287 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49288 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49289 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49290 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49291 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49292 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49293 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49294 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49295 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49296 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49297 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49298 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49299 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49300 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49301 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49302 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49303 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49304 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49305 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49306 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49307 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49308 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49309 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49310 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49311 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49312 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49313 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49314 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49315 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49316 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49317 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49318 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49319 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49320 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49321 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49322 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49323 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49324 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49325 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49326 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49327 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49328 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49329 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49330 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49331 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49332 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49333 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49334 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49335 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49336 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49337 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49338 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49339 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49340 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49341 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49342 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49343 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49344 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49345 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49346 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49347 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49348 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49349 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49350 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49351 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49352 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49353 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49354 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49355 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49356 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49357 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49358 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49359 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49360 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49361 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49362 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49363 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49364 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49365 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49366 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49367 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49368 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49369 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49370 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49371 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49372 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49373 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49374 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49375 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49376 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49377 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49378 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49379 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49380 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49381 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49382 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49383 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49384 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49385 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49386 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49387 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49388 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49389 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49390 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49391 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49392 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49393 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49394 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49395 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49396 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49397 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49398 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49399 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49400 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49401 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49402 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49403 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49404 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49405 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49406 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49407 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49408 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49409 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49410 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49411 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49412 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49413 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49414 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49415 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49416 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49417 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49418 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49419 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49420 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49421 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49422 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49423 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49424 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49425 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49426 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49427 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49428 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49429 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49430 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49431 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49432 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49433 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49434 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49435 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49436 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49437 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49438 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49439 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49440 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49441 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49442 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49443 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49444 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49445 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49446 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49447 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49448 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49449 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49450 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49451 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:23 DROP TCP 10.1.0.57 140.248.145.91 49452 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49453 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49454 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49455 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49456 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49457 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49458 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49459 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49460 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49461 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49462 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49463 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49464 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49465 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49466 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49467 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49468 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49469 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49470 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49471 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49472 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49473 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49474 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49475 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49476 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49477 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49478 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49479 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49480 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49481 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49482 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49483 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49484 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49485 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49486 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49487 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49488 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:24 DROP TCP 10.1.0.57 140.248.145.91 49489 443 0 - 0 0 0 - - - SEND 5752
+2026-11-26 06:44:25 DROP TCP 10.1.0.57 140.82.112.5 49490 443 0 - 0 0 0 - - - SEND 5752

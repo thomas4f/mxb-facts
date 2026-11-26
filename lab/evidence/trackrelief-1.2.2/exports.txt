@@ -1,0 +1,39 @@
+$ nuitka.py consts zip/TrackRelief/app/TrackRelief.exe __main__ | grep -nE 'MX Bikes|BeamNG|Assetto|GAME_EXPORTS|Heightmap only'; nuitka.py consts zip/TrackRelief/app/TrackRelief.exe exporters | grep -nE 'tht|MX Bikes|material|layer|friction|\.json|\.obj|levels/'; for m in __main__ api_fetcher exporters satellite settings terrain_processor update; do nuitka.py consts zip/TrackRelief/app/TrackRelief.exe $m | sed "s/^/$m: /"; done | grep -niE 'PiBoSo|mxbikes|steamapps|Steam' || true
+1560:uHeightmap only (PNG)
+1561:uMX Bikes (.tht)
+1562:uBeamNG (.json)
+1563:uAssetto Corsa (mesh)
+1564:aGAME_EXPORTS
+1581:  • One-click export for MX Bikes (.tht), BeamNG (.json) and Assetto Corsa (mesh)
+16:afriction
+17:@u': friction=
+37:a_render_material_block
+42:w{u    friction = 
+70:agenerate_mxbikes_tht
+73:amaterials
+78:alayer_materials
+85:uCalcul de la friction MX Bikes...
+90:amaterials
+91:a_render_material_block
+92:w}salayers
+93:w{u    layer
+95:u        material = 
+99:nnnutrack.tht written: 
+102:uMX Bikes export failed: 
+103:agenerate_beamng_material_json
+119:uGenerating BeamNG terrain.material.json...
+121:u/levels/
+245:u# TrackRelief material
+284:agenerate_mxbikes_tht
+286:atht
+288:agenerate_beamng_material_json
+291:amaterial
+410:utrack.tht
+416:str�	materialsz&Optional[Mapping[str, MaterialPreset]]�
+437:uterrain.material.json
+460:nuterrain_info.json
+486:uterrain_mesh.obj
+5455:exporters: agenerate_mxbikes_tht
+5568:exporters: amxbikes_terrained
+5669:exporters: agenerate_mxbikes_tht
+(exit 0)

@@ -1,0 +1,327 @@
+    2  TrackRelief.exe  CreateFile  \Device\NamedPipe  SUCCESS
+    2  TrackRelief.exe  CreatePipe  \Device\NamedPipe  SUCCESS
+    2  TrackRelief.exe  FileSystemControl  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\TrackRelief.exe  INVALID DEVICE REQUEST
+    1  TrackRelief.exe  Process Create  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\TrackRelief.exe  SUCCESS
+    1  TrackRelief.exe  Process Exit    SUCCESS
+    2  TrackRelief.exe  Process Start    SUCCESS
+    4  TrackRelief.exe  RegCreateKey  HKLM\Software\Microsoft\WBEM\CIMOM  SUCCESS
+   22  TrackRelief.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+   22  TrackRelief.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_asyncio.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_bz2.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_ctypes.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_decimal.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_elementtree.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_hashlib.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_lzma.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_overlapped.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_queue.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_socket.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_sqlite3.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_ssl.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_tkinter.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_uuid.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_wmi.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_zstd.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\cd.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\md.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy.libs\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy.libs\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy\_core\_multiarray_umath.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy\linalg\_umath_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\PIL\_imaging.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingft.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingtk.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\jpeg62-971fedc88cb0e86c3ad978ae1b7646db.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\libcurl-f49442d4be7d953952a0509cdd4501fa.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\liblzma-3c4c8780fcad6ce56344d2b5594bda5b.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\msvcp140-7c26614e1d733892c2deac7e245ce115.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\proj_9-7e5618bddacc5af688a84f477cf114c3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\sqlite3-9415ebc42378ab15b741623972c45846.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\tiff-69dcdf91c822b00d23e8dbf49655fe78.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\zlib1-985e9fefa27bf900be8e4df7dcc97287.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_compat.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_context.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_crs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_geod.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_network.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_sync.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_transformer.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_version.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\database.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\list.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\freexl-1-a6147e8a0874d58341c5006b93489b0e.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gdal-a72f407b3502e5101c71e3af450342da.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos_c-b603f900266fc5dba59f4a09b91d5fcd.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos-dabffc25e549acf063a2123b00fd7bc8.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geotiff-0f6492f511ef1967bf1662225ca58036.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gif-050ff31eeba2013b9f5f494427b04cb9.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5_hl-7e7cde3a1641d66bcbe74a52f91f0a3c.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5-74affa4514d9e5191c173951be609be7.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\iconv-2-9fe1fe98747f36218282b14bd67668f4.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\jpeg62-a54a03145fbeae6eca2bf1276664dfc4.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\json-c-db85b2a41d4cff92fae29093033c6d22.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\Lerc-846a957ae26018a3d91d4f25cf5facac.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcrypto-3-x64-926c52527e18e976e9f4b061ee56a07c.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcurl-8cfe556d40799b77222986b4ec41c757.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libexpat-e168c64b7acc8714ee3d3f81efeca9e3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\liblzma-036cf26aab4d0c1148c1b168811c2cce.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpng16-88a1d225d50923c0e98af680c0c3bee2.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpq-8d86892b6cf7318038d981d5d0e51e99.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libsharpyuv-b2fe3747d3a41e51017bbca7ed3e2567.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libssl-3-x64-f439b894ec54b96cf5d4b32da59b500a.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libwebp-0c13d30ef06480ba72a456d0da9288e3.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libxml2-3d081b12752e18187764ef8f077e6a84.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\minizip-35c542de9a341ea2f0d06a150435bb59.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\msvcp140-20076bc0e3fcb1842cab77dfe8ef816b.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\netcdf-2d9517c9391637a9e04f895fefbd5623.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\openjp2-379ffd8fb77dfeb6ad1d727d2e9b2a5c.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\pcre2-8-d3408fc88459d66d37153e43d4fcd1ad.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\proj_9-54131f78a93c8acbc9caf6d2f69aeca5.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\qhull_r-af0dc0818a078664bb668a56e8d62ca2.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\spatialite-f92cff5c471475544736d0adc77c68a9.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\sqlite3-83948bf6c20798e244ca12b8b0b54d05.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\szip-e59ebcd7c483ce8d26abe5005a2dd20d.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tiff-b1528085f399cbd37298e136b14467fb.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tinyxml2-d39e898a1f45f015e948ab66e516ad99.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\z-5c38e202e8268408352bf6e3cadbdc6d.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\zstd-665e50e3bd378ef19c7aab1b02410823.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_base.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_env.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_err.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_features.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_filepath.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_io.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_transform.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_version.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_vsiopener.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_warp.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\crs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy.libs\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\_cyutility.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\_lib\_ccallback_c.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_batched_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_cythonized_array_utils.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_decomp_update.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_fblas.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_flapack.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_internal_matfuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_linalg_pythran.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_solve_toeplitz.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_blas.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_lapack.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_nd_image.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_ni_label.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_rank_filter_1d.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_comb.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ellip_harm_2.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_gufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_specfun.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_special_ufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs_cxx.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\TrackRelief.exe  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\unicodedata.pyd  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\vcruntime140_1.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\vcruntime140.dll  SUCCESS
+    1  TrackRelief.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\zlib1.dll  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65156 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65157 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65158 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65159 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65160 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65161 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65162 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65163 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65164 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65165 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65166 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65167 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65168 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65169 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65170 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65171 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65172 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65173 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65174 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65175 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65176 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65177 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65178 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65179 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65180 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65181 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65182 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65183 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65184 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65185 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65186 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65187 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65188 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65189 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65190 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65191 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65192 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65193 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65194 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65195 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65196 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65197 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65198 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65199 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65200 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65201 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65202 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65203 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65204 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65205 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65206 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65207 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65208 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65209 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65210 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65211 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65212 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65213 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65214 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65215 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65216 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65217 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65218 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65219 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65220 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65221 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65222 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65223 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65224 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65225 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65226 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65227 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65228 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65229 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65230 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65231 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65232 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65233 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65234 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65235 -> 140.248.145.91:https  SUCCESS
+    1  TrackRelief.exe  TCP Disconnect  runnervmop6rv.dgehf33nwgzu3h0izwsgvvwh4h.gx.internal.cloudapp.net:65236 -> 140.248.145.91:https  SUCCESS
+   24  TrackRelief.exe  WriteFile  \Device\NamedPipe  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_asyncio.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_bz2.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_ctypes.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_decimal.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_elementtree.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_hashlib.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_lzma.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_overlapped.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_queue.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_socket.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_sqlite3.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_ssl.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_tkinter.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_uuid.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_wmi.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\_zstd.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\cd.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\charset_normalizer\md.pyd  SUCCESS
+    3  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy.libs\libscipy_openblas64_-ed4f167a5330424524f45258e7ca2c8d.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy.libs\msvcp140-a4c2229bdc2a2a630acdc095b4d86008.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy\_core\_multiarray_umath.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\numpy\linalg\_umath_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\PIL\_imaging.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingft.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\PIL\_imagingtk.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\jpeg62-971fedc88cb0e86c3ad978ae1b7646db.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\libcurl-f49442d4be7d953952a0509cdd4501fa.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\liblzma-3c4c8780fcad6ce56344d2b5594bda5b.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\msvcp140-7c26614e1d733892c2deac7e245ce115.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\proj_9-7e5618bddacc5af688a84f477cf114c3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\sqlite3-9415ebc42378ab15b741623972c45846.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\tiff-69dcdf91c822b00d23e8dbf49655fe78.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj.libs\zlib1-985e9fefa27bf900be8e4df7dcc97287.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_compat.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_context.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_crs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_geod.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_network.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_sync.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_transformer.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\_version.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\database.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\pyproj\list.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\freexl-1-a6147e8a0874d58341c5006b93489b0e.dll  SUCCESS
+    3  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gdal-a72f407b3502e5101c71e3af450342da.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos_c-b603f900266fc5dba59f4a09b91d5fcd.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geos-dabffc25e549acf063a2123b00fd7bc8.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\geotiff-0f6492f511ef1967bf1662225ca58036.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\gif-050ff31eeba2013b9f5f494427b04cb9.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5_hl-7e7cde3a1641d66bcbe74a52f91f0a3c.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\hdf5-74affa4514d9e5191c173951be609be7.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\iconv-2-9fe1fe98747f36218282b14bd67668f4.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\jpeg62-a54a03145fbeae6eca2bf1276664dfc4.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\json-c-db85b2a41d4cff92fae29093033c6d22.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\Lerc-846a957ae26018a3d91d4f25cf5facac.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcrypto-3-x64-926c52527e18e976e9f4b061ee56a07c.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libcurl-8cfe556d40799b77222986b4ec41c757.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libexpat-e168c64b7acc8714ee3d3f81efeca9e3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\liblzma-036cf26aab4d0c1148c1b168811c2cce.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpng16-88a1d225d50923c0e98af680c0c3bee2.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libpq-8d86892b6cf7318038d981d5d0e51e99.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libsharpyuv-b2fe3747d3a41e51017bbca7ed3e2567.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libssl-3-x64-f439b894ec54b96cf5d4b32da59b500a.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libwebp-0c13d30ef06480ba72a456d0da9288e3.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\libxml2-3d081b12752e18187764ef8f077e6a84.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\minizip-35c542de9a341ea2f0d06a150435bb59.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\msvcp140-20076bc0e3fcb1842cab77dfe8ef816b.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\netcdf-2d9517c9391637a9e04f895fefbd5623.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\openjp2-379ffd8fb77dfeb6ad1d727d2e9b2a5c.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\pcre2-8-d3408fc88459d66d37153e43d4fcd1ad.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\proj_9-54131f78a93c8acbc9caf6d2f69aeca5.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\qhull_r-af0dc0818a078664bb668a56e8d62ca2.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\spatialite-f92cff5c471475544736d0adc77c68a9.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\sqlite3-83948bf6c20798e244ca12b8b0b54d05.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\szip-e59ebcd7c483ce8d26abe5005a2dd20d.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tiff-b1528085f399cbd37298e136b14467fb.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\tinyxml2-d39e898a1f45f015e948ab66e516ad99.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\z-5c38e202e8268408352bf6e3cadbdc6d.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio.libs\zstd-665e50e3bd378ef19c7aab1b02410823.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_base.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_env.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_err.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_features.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_filepath.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_io.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_transform.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_version.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_vsiopener.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\_warp.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\rasterio\crs.pyd  SUCCESS
+    3  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy.libs\libscipy_openblas-197ee2fc9b4d071f7e048078cac74115.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\_cyutility.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\_lib\_ccallback_c.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_batched_linalg.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_cythonized_array_utils.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_decomp_update.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_fblas.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_flapack.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_internal_matfuncs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_linalg_pythran.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\_solve_toeplitz.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_blas.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\linalg\cython_lapack.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_nd_image.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_ni_label.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\ndimage\_rank_filter_1d.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_comb.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ellip_harm_2.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_gufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_specfun.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_special_ufuncs.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs_cxx.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\scipy\special\_ufuncs.pyd  SUCCESS
+    5  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\TrackRelief.exe  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\unicodedata.pyd  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\vcruntime140_1.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\vcruntime140.dll  SUCCESS
+    1  TrackRelief.exe  WriteFile  D:\a\_temp\mxbfacts\run-trackrelief-zip\release\TrackRelief.zip\TrackRelief\app\zlib1.dll  SUCCESS

@@ -35,6 +35,7 @@ CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('projectgpb2-v2.yaml', 'projectgpb2'),
     ('setup-duper-0.1.8674.29660.yaml', 'setup-duper'),
     ('suspension-tuner-1.4.1.yaml', 'suspension-tuner'),
+    ('trackrelief-1.2.2.yaml', 'trackrelief'),
 ]
 # The dropdowns of the hand-started workflows (GitHub can only offer a fixed list), written like the rules tables. Both offer
 # the tools in registry/tools.json, never the cards: a new card then never changes a workflow file, which the "Analyse a

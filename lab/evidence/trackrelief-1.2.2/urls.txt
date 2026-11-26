@@ -1,0 +1,33 @@
+$ for m in __main__ api_fetcher exporters satellite settings terrain_processor update; do nuitka.py consts zip/TrackRelief/app/TrackRelief.exe $m | sed "s/^/$m: /"; done | grep -nE 'https?://'
+514:__main__: uhttps://portal.opentopography.org/
+1020:__main__: uhttps://nominatim.openstreetmap.org/search
+1532:__main__: uTrackRelief/1.0 (https://discord.gg/Tg3xVH7XHz)
+1549:__main__: uhttps://a.tile.openstreetmap.org/{z}/{x}/{y}.png
+1550:__main__: uhttps://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
+1583:__main__: uhttps://lilian12.gumroad.com/l/TrackReliefPro
+1584:__main__: uhttps://discord.gg/Tg3xVH7XHz
+2507:api_fetcher: uhttps://
+3107:api_fetcher: uhttp://www.opengis.net/def/crs/EPSG/0/2154
+3587:api_fetcher: uhttp://www.opengis.net/def/crs/EPSG/0/{}
+4015:api_fetcher: uhttps://data.geo.admin.ch/api/stac/v0.9
+4017:api_fetcher: uhttps://data.geopf.fr/wcs/ows
+4020:api_fetcher: uhttps://portal.opentopography.org/API/globaldem
+4021:api_fetcher: uhttps://elevation.nationalmap.gov/arcgis/rest/services/3DEPElevation/ImageServer
+4025:api_fetcher: uhttp://www.pcn.minambiente.it/geoserver/wcs
+4027:api_fetcher: uhttps://tinitaly.pi.ingv.it/TINItaly_1_1/wcs
+4029:api_fetcher: uhttps://environment.data.gov.uk/spatialdata/lidar-composite-digital-terrain-model-dtm-1m/wcs
+4050:api_fetcher: uhttps://www.wcs.nrw.de/geobasis/wcs_nw_dgm
+4058:api_fetcher: uhttps://inspire-hessen.de/raster/dgm1/ows
+4069:api_fetcher: uhttps://owsproxy.lgl-bw.de/owsproxy/wcs/WCS_INSP_BW_Hoehe_Coverage_DGM1
+4075:api_fetcher: uhttps://inspire.brandenburg.de/services/el_dgm1_wcs
+4083:api_fetcher: uhttps://www.geodatenportal.sachsen-anhalt.de/wss/service/ST_LVermGeo_DGM1_WCS_OpenData/guest
+4088:api_fetcher: uhttps://opendata.geoservices.lgln.niedersachsen.de/dgm_wcs
+4093:api_fetcher: uhttps://service.pdok.nl/rws/ahn/wcs/v1_0
+4101:api_fetcher: uhttps://geo.api.vlaanderen.be/el-dtm/wcs
+5316:api_fetcher: uhttps://overpass-api.de/api/interpreter
+6208:satellite: uhttps://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}
+6216:satellite: uhttps://wms.geo.admin.ch/
+6224:satellite: uhttps://data.geopf.fr/wms-r/wms
+6808:update: uhttps://api.github.com/repos/
+6840:update: uhttps://github.com/
+(exit 0)
