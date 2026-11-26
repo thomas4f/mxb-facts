@@ -11,7 +11,8 @@
 {% block here %}<a class="here" href="#main" data-here hidden>{{ c.name }} {{ c.version }}<span class="muted"> · {{ r.label }}</span></a>{% endblock %}
 {% block title %}{{ c.name }}{% if not c.latest %} {{ c.version }}{% endif %} · MXB Facts{% endblock %}
 {% block og_title %}{{ c.name }} {{ c.version }}: {{ r.label }}{% endblock %}
-{% block description %}{{ c.summary }}. {% for a in AREAS %}{{ a.name }} {{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}{{ ' · ' if not loop.last else '. ' }}{% endfor %}Every answer links its evidence.{% endblock %}
+{# The tool's line alone: the title gives the score and the image every area, so repeating them here only crowds search results. #}
+{% block description %}{{ c.summary }}.{% endblock %}
 {% block image_alt %}{{ c.name }} {{ c.version }} on MXB Facts: {{ r.label }}, with a score for each area.{% endblock %}
 {% block main %}
 <div class="thead">
