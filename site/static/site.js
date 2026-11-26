@@ -83,8 +83,13 @@
       var ks = $$('td.on', r).map(function (c) { return c.dataset.k; });
       r.classList.toggle('same', diff && ks.length > 1 && ks.every(function (k) { return k === ks[0]; }));
     });
-    // A tool's earlier releases show in the picker while one of its releases is picked.
-    $$('.chip.older').forEach(function (c) { c.classList.toggle('show', !!$('input:checked', c) || on.length > 0); });
+    // A tool's earlier releases open in the picker when one of them is picked (a shared ?c= link), as "+N earlier" opens them.
+    $$('.tchips').forEach(function (g) {
+      var m = $('[data-more]', g);
+      if (!m || m.getAttribute('aria-expanded') === 'true' || !$('label[hidden] input:checked', g)) return;
+      $$('.chip[hidden]', g).forEach(function (x) { x.dataset.extra = '1'; x.hidden = false; });
+      m.setAttribute('aria-expanded', 'true'); m.firstChild.textContent = 'Fewer';
+    });
     var hint = $('[data-cmp-hint]'); if (hint) hint.hidden = on.length >= 2;
     var lab = $('[data-cmp-n-label]'); if (lab) lab.textContent = on.length ? '· ' + on.length + ' picked' : '';
     t.hidden = on.length < 2;
@@ -150,7 +155,7 @@
     var m = t.closest('[data-more]');
     if (m) {
       var open = m.getAttribute('aria-expanded') !== 'true';
-      $$('.tag[data-extra], .tag[hidden]', m.parentNode).forEach(function (x) { x.dataset.extra = '1'; x.hidden = !open; });
+      $$('.tag[data-extra], .tag[hidden], .chip[data-extra], .chip[hidden]', m.parentNode).forEach(function (x) { x.dataset.extra = '1'; x.hidden = !open; });
       m.setAttribute('aria-expanded', String(open));
       m.firstChild.textContent = open ? 'Fewer' : m.dataset.label;
       return;
