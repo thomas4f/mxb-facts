@@ -503,7 +503,9 @@ corrections:
   kind: context
   questions: []
   opened: 25 Nov 2026
-  status: open
+  status: noted
+  closed: 26 Nov 2026
+  reason: The author's context, listed on the card; it names no answer, so no mark or score changes.
 history:
   - date: 24 Nov 2026
     change: First card, for 1.4.1.
