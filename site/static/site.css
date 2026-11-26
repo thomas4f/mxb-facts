@@ -192,9 +192,11 @@ table.t th { color: var(--muted); font-weight: 600; font-size: 13px }
 /* A table whose middle column holds long addresses stacks on a phone: each row reads top to bottom (what, address, what it
    shows), so an address gets the full width instead of breaking every few letters in a narrow column. */
 @media (max-width: 640px) {
-  table.t.stack, table.t.stack tbody { display: block } table.t.stack thead { display: none }
-  table.t.stack tr { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.stack tbody tr:last-child { border-bottom: 0 }
-  table.t.stack td { padding: 0; border: 0 } table.t.stack td:first-child { font-weight: 600 }
+  table.t.t-stack, table.t.t-stack tbody { display: block } table.t.t-stack thead { display: none }
+  table.t.t-stack tr { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.t-stack tbody tr:last-child { border-bottom: 0 }
+  table.t.t-stack td { padding: 0; border: 0 } table.t.t-stack td:first-child { font-weight: 600 }
+  /* With the headings hidden, a tag's last cell says what it is. */
+  .tags-t td:last-child::before { content: "From the answer " }
 }
 /* The table's box draws the last line; a row's own line there would double it. */
 table.t tbody tr:last-child > *, table.cmp tbody tr:last-child > * { border-bottom: 0 }
@@ -286,7 +288,7 @@ footer p { margin: 0 }
 /* A comment under review: blue with a speech bubble, so it stands out without reading like a finding (it costs nothing). */
 .rv { color: var(--info); background: var(--info-bg); border-color: color-mix(in srgb, var(--info) 40%, transparent) }
 .tag.rv { font-weight: 600 }
-.legend + .prose, .prose + .legend { margin-top: var(--s4) }
+.legend + .prose, .prose + .legend, .prose + .tw { margin-top: var(--s4) }
 .cx { color: var(--grey); background: var(--grey-bg); border-color: var(--line) }
 .tags .st { font-weight: 500 }
 

@@ -5,7 +5,7 @@ something the feed doesn't say.
 
 Usage: from build.py, write_pages(SITE) after the feed is written.
 """
-import json, os, re, shutil
+import hashlib, json, os, re, shutil
 from xml.sax.saxutils import escape as xesc
 import markdown
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
@@ -119,6 +119,25 @@ def write_pages(SITE):
     # The visit counter (GoatCounter, no cookies) is added only to the site GitHub Pages publishes (COUNT_VISITS=1 in
     # pages.yml), so previews, tests and local builds count nothing.
     env.globals['count_visits'] = os.environ.get('COUNT_VISITS') == '1'
+
+    # The CSS made from the feed's states and tags: each state's and tag's icon as a mask, so it takes the mark's colour.
+    icon = {k: s['icon'] for k, s in STATES.items()}
+    css = ['/* Made by site/render.py from the feed: one icon per state (Lucide, ISC licence, see the end of this file). */']
+    css += [f'.st.{k}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for k, v in icon.items()]
+    # A comment under review (.rv): neither a state nor a tag, since it costs nothing and changes nothing until it is decided.
+    css.append(f'.rv::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
+    # The author's context (.cx) shares the comment icon, in grey: it is listed and puts no answer under review.
+    css.append(f'.cx::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
+    css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}',
+            f'.theme {{ --i: {mask_url("sun-moon")} }}', f'.theme[data-t="light"] {{ --i: {mask_url("sun")} }}', f'.theme[data-t="dark"] {{ --i: {mask_url("moon")} }}']
+    css.append('/*\n' + ICON_LICENCE + '*/')
+    icons_css = '\n'.join(css) + '\n'
+    # Each page asks for its stylesheets and script with their content's hash (?v=), so a deploy reaches every visitor at once:
+    # GitHub Pages lets a browser keep a file 10 minutes, and new pages with the old script once showed a broken tools list.
+    digest = lambda b: hashlib.sha256(b).hexdigest()[:10]
+    ver = {f: digest(open(HERE + 'static/' + f, 'rb').read()) for f in ('site.css', 'site.js')}
+    ver['icons.css'] = digest(icons_css.encode())
+    env.globals['asset'] = lambda f: f'assets/{f}?v={ver[f]}'
     env.globals.update(DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
                        area_name={a['id']: a['name'] for a in AREAS}, money={m['label']: m for m in IX['money']})
 
@@ -189,23 +208,13 @@ def write_pages(SITE):
     page('404.html', '404.html', 0, root='/' + IX['site'].split('://', 1)[1].split('/', 1)[1], known=known)
     write_sitemap_and_atom(out, IX, CARDS, card_path)
 
-    # The static files, and the CSS made from the feed's states and tags: each state's and tag's icon as a mask, so it takes the mark's colour.
+    # The static files, and the icons' CSS made above.
     os.makedirs(out + 'assets', exist_ok=True)
     for f in os.listdir(HERE + 'static'):
         src = HERE + 'static/' + f
         if os.path.isdir(src): shutil.copytree(src, out + 'assets/' + f, dirs_exist_ok=True)
         else: shutil.copyfile(src, out + 'assets/' + f)
-    icon = {k: s['icon'] for k, s in STATES.items()}
-    css = ['/* Made by site/render.py from the feed: one icon per state (Lucide, ISC licence, see the end of this file). */']
-    css += [f'.st.{k}::before {{ -webkit-mask-image: {mask_url(v)}; mask-image: {mask_url(v)} }}' for k, v in icon.items()]
-    # A comment under review (.rv): neither a state nor a tag, since it costs nothing and changes nothing until it is decided.
-    css.append(f'.rv::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
-    # The author's context (.cx) shares the comment icon, in grey: it is listed and puts no answer under review.
-    css.append(f'.cx::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
-    css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}',
-            f'.theme {{ --i: {mask_url("sun-moon")} }}', f'.theme[data-t="light"] {{ --i: {mask_url("sun")} }}', f'.theme[data-t="dark"] {{ --i: {mask_url("moon")} }}']
-    css.append('/*\n' + ICON_LICENCE + '*/')
-    open(out + 'assets/icons.css', 'w').write('\n'.join(css) + '\n')
+    open(out + 'assets/icons.css', 'w').write(icons_css)
     # The favicon: the wordmark's slash on the pit board (brand.py).
     open(out + 'assets/favicon.svg', 'w').write(favicon() + '\n')
     open(out + 'assets/touch-icon.png', 'wb').write(touch_icon())
