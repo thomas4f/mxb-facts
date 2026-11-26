@@ -188,6 +188,13 @@ details.fold > .body { border-top: 1px solid var(--line) }
 table.t { border-collapse: collapse; width: 100%; font-size: 14px }
 table.t th, table.t td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 table.t th { color: var(--muted); font-weight: 600; font-size: 13px }
+/* A table whose middle column holds long addresses stacks on a phone: each row reads top to bottom (what, address, what it
+   shows), so an address gets the full width instead of breaking every few letters in a narrow column. */
+@media (max-width: 640px) {
+  table.t.stack, table.t.stack tbody { display: block } table.t.stack thead { display: none }
+  table.t.stack tr { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.stack tbody tr:last-child { border-bottom: 0 }
+  table.t.stack td { padding: 0; border: 0 } table.t.stack td:first-child { font-weight: 600 }
+}
 /* The table's box draws the last line; a row's own line there would double it. */
 table.t tbody tr:last-child > *, table.cmp tbody tr:last-child > * { border-bottom: 0 }
 details.sub:last-child { border-bottom: 0 }
@@ -251,6 +258,8 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
 .fold .prose { padding: var(--s4) var(--s4) }
 .legend { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: var(--s2) var(--s4); align-items: baseline; font-size: 14.5px; margin: 0 }
 .legend dd { margin: 0; color: var(--muted) }
+/* On a phone a legend stacks, term over meaning: the widest tag would otherwise squeeze every meaning into a narrow column. */
+@media (max-width: 640px) { .legend { grid-template-columns: minmax(0, 1fr); gap: var(--s1) } .legend dd + dt { margin-top: var(--s3) } }
 /* A copy button is an icon in the block's top right corner, as on GitHub and most docs; a tick replaces it once copied. */
 .copy { position: relative } .copy pre { margin: 0; padding-right: var(--s7) }
 .cpb { position: absolute; top: var(--s1); right: var(--s1); width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: var(--r-ctl); background: var(--surface); color: var(--muted); cursor: pointer }
