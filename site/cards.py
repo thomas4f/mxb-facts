@@ -114,6 +114,24 @@ def pending_versions(card_versions, newest_card_iso, sources):
         if v in card_versions or bare_version(v) in card_versions: continue
         out|={v,bare_version(v)}
     return sorted(out)
+def newer_releases(card_versions, card_hashes, newest_card_iso, sources):
+    # The releases the weekly inventory has seen that are newer than the tool's newest card, for the "newer release" notice on
+    # its pages: one per place it publishes, newest first. Newer by the weekly run's own rule (tools/releases_fetch.py): none
+    # of its files is one a card lists, and its version is none a card has; and, as for the badges, dated after the newest
+    # card's analysis, so an old or lagging entry gets nothing. A mods-site post names no version: its file's SHA-256 decides,
+    # and a place with neither a version nor a hash (Mega, Drive) can't show anything.
+    out=[]
+    for place,src in sources.items():
+        if not isinstance(src,dict): continue
+        v,d=src.get('version'),src.get('date') or ''
+        if not re.fullmatch(r'\d{4}-\d{2}-\d{2}',d) or d<=newest_card_iso: continue
+        if v is not None and (not re.fullmatch(VERSION_RE,v) or v in card_versions or bare_version(v) in card_versions): continue
+        hashes={(f.get('sha256') or '').lower() for f in src.get('files',[])}-{''}
+        if hashes & card_hashes or (v is None and not hashes): continue
+        where={'github':'GitHub'}.get(place) or next((n for k,n in SITES.values() if k==place),None) or urllib.parse.urlsplit(src.get('url') or '').hostname or place
+        out.append({'version':bare_version(v) if v else None,'where':where,'url':src.get('via') or src.get('url') or '','date_iso':d,
+                    'date':datetime.date.fromisoformat(d).strftime('%d %b %Y').lstrip('0')})
+    return sorted(out,key=lambda x:x['date_iso'],reverse=True)
 # Open corrections per card: question -> issue numbers. While one is open, each answer it names shows a neutral marker; nothing else moves.
 CORR={}
 def correction_link(card,q,ans=''):

@@ -7,11 +7,11 @@ Usage: from build.py, write_feed(SITE, CARDS) and write_site(SITE, skill, agents
 import datetime, json, jsonschema, os, re, subprocess
 from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, HELD, KEYS, MDTXT, MLAB, MLEFT, PMEANS, QCELL, QIDS, QS, RUBRICV,
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
-from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games, pending_versions
+from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games, newer_releases, pending_versions
 from badges import BADGES
 
 
-FEED_VERSION='1.6'
+FEED_VERSION='1.7'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
@@ -185,7 +185,7 @@ def write_feed(SITE,CARDS):
     base={'feed_version':FEED_VERSION,'built_at':when,'commit':COMMIT,'rubric':RUBRICV,'licence':LICENCE}
     note=ai_note()
     out=SITE+'api/v1/'; os.makedirs(out+'cards',exist_ok=True)
-    tools={}; found={'github':{},'mods_post':{},'sha256':{}}
+    tools={}; hashes={}; found={'github':{},'mods_post':{},'sha256':{}}
     for f,slug in CARDS:
         raw=load_yaml(D+f); C=check_card(f,raw); d=C['d']; h=C['h']; A=C['A']; held=C['held']; SETS=C['SETS']
         G=scored(A,held); crit,opt,pos=tagsof(raw)
@@ -246,6 +246,7 @@ def write_feed(SITE,CARDS):
         if reg['github']: add(found['github'],reg['github'].lower(),slug)
         for k,_ in SITES.values():
             if k in reg and reg[k]['post']: add(found['mods_post'],f'{k}:{reg[k]["post"]}',slug)
+        hashes.setdefault(slug,set()).update(x['sha256'].lower() for x in files)
         for x in files: add(found['sha256'],x['sha256'],{'tool':slug,'card':cid,'version':C['ver'],'latest':latest,'file':x['name'],'inside':x['inside'],'note':x['note']})
     # Releases the weekly inventory has seen that are newer than the tool's newest card and have none yet, as published
     # (cards.pending_versions, as the "Not analysed yet" badges): the newest card image says so.
@@ -253,6 +254,9 @@ def write_feed(SITE,CARDS):
     for slug,t in tools.items():
         src=rel_seen.get(slug,{}); pub={x.get('version') for x in src.values() if isinstance(x,dict)}
         t['not_analysed']=[v for v in pending_versions({r['version'] for r in t['releases']},max(r['analysed_iso'] for r in t['releases']),src) if v in pub]
+        # The same seen releases by the weekly run's rule, with where and when, for the "newer release" notice on its pages
+        # (cards.newer_releases): a mods-site post names no version, so its file's hash decides.
+        t['newer']=newer_releases({r['version'] for r in t['releases']},hashes.get(slug,set()),max(r['analysed_iso'] for r in t['releases']),src)
     index={**base,'site':SITEURL,'ai_note':note,
            'areas':[{'id':AREA_ID[ar],'name':ar,'scored':ar in CONCERN} for ar in AREAN],
            'states':[{'id':k,'label':l,'meaning':m,'icon':i} for k,(l,_c,i,m) in STATES.items()],
@@ -318,7 +322,7 @@ def write_site(SITE,skill,agents_line):
     # (VirusTotal): renumbering the prompt must update them too.
     assert re.search(r'^5\. Run it',prm,re.M) and re.search(r'^6\. Look up the hashes on VirusTotal',prm,re.M), 'prompts/analyse-tool.md: step 5 must be running the tool and step 6 the VirusTotal lookup, as SKILL.md, CLAUDE.md and the For authors page say; update them if the steps move'
     data={**base,'site':SITEURL,'repo':REPO,
-          'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'description':CONTENT['description'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],'under_review':CONTENT['under_review'],'marks_legend':CONTENT['marks'],'tags_legend':CONTENT['tags'],
+          'heading':CONTENT['heading'],'heading_accent':CONTENT['heading_accent'],'lede':CONTENT['lede'],'description':CONTENT['description'],'ai_note':CONTENT['ai_note'],'ai_short':CONTENT['ai_short'],'maintainer_notice':CONTENT['maintainer_notice'],'under_review':CONTENT['under_review'],'newer_release':CONTENT['newer_release'],'marks_legend':CONTENT['marks'],'tags_legend':CONTENT['tags'],
           'how_a_card_is_made':CONTENT['how_a_card_is_made'],'closed_cap':closed_cap(),
           'template':sections(doc(MDTXT['template.md'],'rules/template.md')),
           'scores':sections(doc(MDTXT['scores.md'],'rules/scores.md')),

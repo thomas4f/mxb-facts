@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import bar, of100 %}
+{% from "macros.html" import bar, newer_chip, of100 %}
 {% block nav %}tools{% endblock %}
 {% block main %}
 <section class="hero">
@@ -36,6 +36,7 @@
   <div class="meta">{{ t.latest.version }} · by {{ t.author }}</div>
   <p class="sum">{{ t.summary }}</p>
   <div class="tags">
+    {% if newer_of(t.id) %}{{ newer_chip(newer_of(t.id)) }}{% endif %}
     {% if t.latest.counts.under_review %}<a class="tag rv" href="{{ root }}{{ t.id }}/#corrections">{{ t.latest.counts.under_review }} under review</a>{% endif %}
     {% if r.held_back['items'] %}{{ mark('held', r.held_back['items'] ~ ' held back') }}{% endif %}
     {% if t.latest.counts.nc %}{{ mark('nc', t.latest.counts.nc ~ ' not checked') }}{% endif %}

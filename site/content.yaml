@@ -39,6 +39,10 @@ tags: >-
 under_review: >-
   Someone has sent a correction about this answer, or something it misses. It costs nothing, and no answer, mark or score
   changes until it is decided. The author's context is listed under Comments and corrections and puts no answer under review
+# What the "newer release" chip and notice mean, in the Reading a card legend and on the chip's hover.
+newer_release: >-
+  The weekly check has seen a newer release, or a newer download on a mods site, that has no card yet. The card and its
+  score stay those of the release analysed, until the new release's card is published
 how_a_card_is_made:
   - >-
     **A tool is requested** through the request form, or the maintainer picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.

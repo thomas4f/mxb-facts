@@ -152,6 +152,8 @@ def write_pages(SITE):
     # A comment under review (.rv): neither a state nor a tag, since it costs nothing and changes nothing until it is decided.
     css.append(f'.rv::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
     # The author's context (.cx) shares the comment icon, in grey: it is listed and puts no answer under review.
+    # A newer release with no card yet (.nw): neither a state nor a tag either, since it says nothing about the release analysed.
+    css.append(f'.nw::before {{ -webkit-mask-image: {mask_url("refresh-cw")}; mask-image: {mask_url("refresh-cw")} }}')
     css.append(f'.cx::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
     css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}',
             f'.theme {{ --i: {mask_url("sun-moon")} }}', f'.theme[data-t="light"] {{ --i: {mask_url("sun")} }}', f'.theme[data-t="dark"] {{ --i: {mask_url("moon")} }}']
@@ -194,6 +196,10 @@ def write_pages(SITE):
     def card_path(c):
         return f'{c["tool"]}/' if c['latest'] else f'{c["tool"]}/{c["version"]}/'
     env.globals['card_path'] = card_path
+    # The newer release a tool's pages name (the feed's "newer", newest first): one that names its version before a mods-site
+    # download that names none, since both usually are the same release. None when its newest card covers the newest release.
+    NEWER = {t['id']: next((n for n in t['newer'] if n['version']), t['newer'][0] if t['newer'] else None) for t in IX['tools']}
+    env.globals['newer_of'] = NEWER.get
 
     # Where each card lives, so a link to a card file id (an old "#<card>" or "#<tool>" address included) finds its page.
     addr = {cid: card_path(c) for cid, c in CARDS.items()}

@@ -19,6 +19,7 @@
   <dt>{{ mark(k) }}</dt><dd>{{ IX.legend[k] if k in IX.legend else STATES[k].meaning }}.</dd>
   {% endfor %}
   <dt><span class="st rv">Under review</span></dt><dd>{{ SITE.under_review }}.</dd>
+  <dt><span class="tag nw">1.2.0 out, not analysed</span></dt><dd>{{ SITE.newer_release }}.</dd>
 </dl>
 <div class="prose"><h3 id="tags">Tags</h3><p>{{ SITE.tags_legend }}.</p></div>
 {# Three columns, as the site's other tables: the tag, what it means for a player, and the answer it comes from. On a phone each row stacks. #}

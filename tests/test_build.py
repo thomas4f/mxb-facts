@@ -503,5 +503,16 @@ check('a release that has a card, written with a v, gets none', _pv({'3.0.4'}, '
 check('a release dated on or before the newest card gets none (an old or lagging entry)', _pv({'0.24.2'}, '2026-11-24', {'github': {'version': 'v0.23.0', 'date': '2026-10-01'}, 'mxb-mods': {'version': '0.25', 'date': '2026-11-24'}}) == [])
 check('a release with no date, or a version that is not one, gets none', _pv({'1.0'}, '2026-11-24', {'a': {'version': '1.1'}, 'b': {'version': '../x', 'date': '2026-12-01'}, 'c': None}) == [])
 
+# The "newer release" notice (cards.newer_releases): the weekly run's rule, dated after the newest card, a hash for a mods-site post.
+_nr = B['newer_releases']
+_gh = {'version': 'v3.0.5', 'date': '2026-11-30', 'url': 'https://github.com/a/b/releases/tag/v3.0.5', 'files': [{'sha256': 'AB' * 32}]}
+check('a newer GitHub release is named by its version, without its v', [(n['version'], n['where'], n['date']) for n in _nr({'3.0.4'}, {'cd' * 32}, '2026-11-24', {'github': _gh})] == [('3.0.5', 'GitHub', '30 Nov 2026')])
+check('a release whose file a card lists gets no notice, whatever its version says', _nr({'3.0.4'}, {'ab' * 32}, '2026-11-24', {'github': _gh}) == [])
+check('a release that has a card, written with a v, gets no notice', _nr({'3.0.5'}, set(), '2026-11-24', {'github': _gh}) == [])
+check('a release dated on or before the newest card gets no notice', _nr({'3.0.4'}, set(), '2026-11-30', {'github': _gh}) == [])
+_mm = {'version': None, 'date': '2026-11-30', 'url': 'https://www.mediafire.com/file/x', 'via': 'https://mxb-mods.com/x/', 'files': [{'sha256': 'ef' * 32}]}
+check('a mods-site download with a new file is named as a newer download, linking its post', [(n['version'], n['where'], n['url']) for n in _nr({'1.0'}, {'cd' * 32}, '2026-11-24', {'mxb-mods': _mm})] == [(None, 'mxb-mods.com', 'https://mxb-mods.com/x/')])
+check('a mods-site download with no hash (Mega, Drive) gets no notice', _nr({'1.0'}, set(), '2026-11-24', {'mxb-mods': {**_mm, 'files': [{'sha256': None}]}}) == [])
+
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)
