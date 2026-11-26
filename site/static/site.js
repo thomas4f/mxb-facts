@@ -219,6 +219,24 @@
   if (here && h1 && window.IntersectionObserver) {
     new IntersectionObserver(function (es) { here.hidden = es[0].isIntersecting || es[0].boundingClientRect.top > 0; }).observe(h1);
   }
+  // Motion, unless the reader asks for less: the score bars fill in once as each comes into view, and the home page's big
+  // wordmark plays its badge check once (the box pops in, then the check is cut). Without the script both are simply drawn.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.IntersectionObserver) {
+      var bo = new IntersectionObserver(function (es) {
+        es.forEach(function (e) {
+          if (!e.isIntersecting) return;
+          var i = e.target.firstElementChild; bo.unobserve(e.target);
+          setTimeout(function () { i.style.width = i.dataset.w; }, 80);
+        });
+      }, { threshold: .6 });
+      $$('.bar').forEach(function (b) {
+        var i = b.firstElementChild; if (!i) return;
+        i.dataset.w = i.style.width; i.style.width = '0%'; b.classList.add('fill'); bo.observe(b);
+      });
+    }
+    $$('.hlogo animate, .hlogo animateTransform').forEach(function (a) { try { a.beginElementAt(+a.dataset.d || 0); } catch { /* no SMIL: it stays drawn */ } });
+  }
   window.addEventListener('hashchange', openTarget);
   showPicked(); showTools(); openTarget();
 })();

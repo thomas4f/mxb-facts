@@ -11,7 +11,7 @@ import markdown
 from jinja2 import Environment, FileSystemLoader, StrictUndefined, select_autoescape
 from markupsafe import Markup, escape
 from icons import LICENCE as ICON_LICENCE, mask_url
-from brand import DARK, favicon
+from brand import DARK, favicon, hero_html, wordmark_html
 from preview import card_image, site_image, touch_icon
 
 HERE = os.path.dirname(os.path.abspath(__file__)) + '/'
@@ -138,7 +138,7 @@ def write_pages(SITE):
     ver = {f: digest(open(HERE + 'static/' + f, 'rb').read()) for f in ('site.css', 'site.js')}
     ver['icons.css'] = digest(icons_css.encode())
     env.globals['asset'] = lambda f: f'assets/{f}?v={ver[f]}'
-    env.globals.update(DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
+    env.globals.update(WORDMARK=Markup(wordmark_html()), HERO_LOGO=Markup(hero_html()), DARK=DARK, mark=mark, answer_mark=answer_mark, tag=tag, IX=IX, SITE=SITEJ, STATES=STATES, AREAS=AREAS,
                        area_name={a['id']: a['name'] for a in AREAS}, money={m['label']: m for m in IX['money']})
 
     out = SITE
@@ -215,7 +215,7 @@ def write_pages(SITE):
         if os.path.isdir(src): shutil.copytree(src, out + 'assets/' + f, dirs_exist_ok=True)
         else: shutil.copyfile(src, out + 'assets/' + f)
     open(out + 'assets/icons.css', 'w').write(icons_css)
-    # The favicon: the wordmark's slash on the pit board (brand.py).
+    # The favicon: the wordmark's badge check (brand.py).
     open(out + 'assets/favicon.svg', 'w').write(favicon() + '\n')
     open(out + 'assets/touch-icon.png', 'wb').write(touch_icon())
     open(out + 'assets/favicon.png', 'wb').write(touch_icon(96))  # for search results, which don't show an SVG icon

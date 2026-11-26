@@ -3,6 +3,7 @@
 {% block nav %}tools{% endblock %}
 {% block main %}
 <section class="hero">
+  <div class="hlogo" aria-hidden="true">{{ HERO_LOGO }}</div>
   {% set h = SITE.heading.split(SITE.heading_accent, 1) %}<h1>{{ h[0] }}<span>{{ SITE.heading_accent }}</span>{{ h[1] }}</h1>
   <p>{{ SITE.lede }}</p>
   <p class="ainote"><strong>Made by AI.</strong> {{ SITE.ai_short | mdi }}</p>
@@ -29,7 +30,7 @@
   data-search="{{ ([t.name, t.author, t.summary, t.category] + t.games + tg | map(attribute='label') | list) | join(' ') | lower }}">
   <div class="row1"><span class="cat">{{ t.games | join(' + ') }}</span>
     {% if r.kind == 'score' %}<span class="score num">{{ r.score }}{{ of100() }}</span>{% else %}<span class="score word">{{ mark(r.kind) }}</span>{% endif %}</div>
-  {% if r.kind == 'score' %}{{ bar(r.score) }}{% endif %}
+  {% if r.kind == 'score' %}{{ bar(r.score, SITE.closed_cap if tg | selectattr('question', 'equalto', 'T1') | rejectattr('kind', 'equalto', 'positive') | list else none) }}{% else %}<div class="bar off" aria-hidden="true"></div>{% endif %}
   <h3><a href="{{ root }}{{ t.id }}/">{{ t.name }}</a></h3>
   <div class="meta">{{ t.latest.version }} · by {{ t.author }}</div>
   <p class="sum">{{ t.summary }}</p>

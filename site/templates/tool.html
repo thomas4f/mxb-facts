@@ -9,7 +9,7 @@
 {# The tool's name and score in the sticky header once its own title has scrolled away (site.js; wide screens only, where the
    header sticks), as Wikipedia and GitHub do; it goes back to the top. #}
 {% block here %}<a class="here" href="#main" data-here hidden>{{ c.name }} {{ c.version }}<span class="muted"> · {{ r.label }}</span></a>{% endblock %}
-{% block title %}{{ c.name }} {{ c.version }}: {{ r.label }} · MXB Facts{% endblock %}
+{% block title %}{{ c.name }} · MXB Facts{% endblock %}
 {% block og_title %}{{ c.name }} {{ c.version }}: {{ r.label }}{% endblock %}
 {% block description %}{{ c.summary }}. {% for a in AREAS %}{{ a.name }} {{ (r.areas[a.id] if r.areas[a.id] is not none else '–') if a.scored else r.money }}{{ ' · ' if not loop.last else '. ' }}{% endfor %}Every answer links its evidence.{% endblock %}
 {% block image_alt %}{{ c.name }} {{ c.version }} on MXB Facts: {{ r.label }}, with a score for each area.{% endblock %}
