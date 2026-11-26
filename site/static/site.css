@@ -77,7 +77,8 @@ small.of { font-size: max(12px, .42em); font-weight: 600; color: var(--muted); l
 .wrap { max-width: 1180px; margin: 0 auto; padding: var(--s5) max(16px, env(safe-area-inset-right, 0px)) var(--s7) max(16px, env(safe-area-inset-left, 0px)); display: grid; gap: var(--s5) }
 .stack { display: grid; gap: var(--s5) }
 .hero { background: var(--hero); border: 1px solid var(--line); border-radius: 16px; padding: var(--s5); display: grid; gap: var(--s3) }
-.hero h1 { font: 600 clamp(30px, 5vw, 48px)/1.02 var(--f-display); letter-spacing: -.02em }
+/* Every title on the site, and on the link previews (preview.py), is the head face at 700; the hero's only differs in size. */
+.hero h1 { font: 700 clamp(32px, 5vw, 48px)/1.02 var(--f-head); letter-spacing: .005em }
 .hero h1 span { color: var(--accent) }
 .hero p { margin: 0; color: var(--muted); max-width: 60ch; font-size: 16.5px }
 /* On a phone the intro is plain text, not a panel, so the tools list starts on the first screen. */
@@ -121,7 +122,7 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .crumb { margin-bottom: var(--s2) } .crumb a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; display: inline-flex; align-items: center; min-height: 44px } .crumb a:hover { color: var(--accent) }
 .card .score { font: 700 34px/1 var(--f-head); text-align: right }
 .card .score.word { font-size: 16px; color: var(--grey) }
-.card h3 { font: 600 21px/1.2 var(--f-display) } .card h3 a { color: var(--ink); text-decoration: none }
+.card h3 { font: 700 24px/1.15 var(--f-head); letter-spacing: .01em } .card h3 a { color: var(--ink); text-decoration: none }
 .card .meta { color: var(--muted); font-size: 13.5px }
 .card .sum { margin: 0; font-size: 15px }
 .card .foot { margin-top: auto; padding-top: var(--s3); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: var(--s2) }
