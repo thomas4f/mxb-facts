@@ -3,7 +3,7 @@
 #
 #   pwsh run.ps1 -Plan plan.json -Release <release folder> -Installer <the demo's installer> -Out <evidence folder>
 #
-# The plan is the one lab/plugin-test-host/windows/run.ps1 reads (game, release files by URL and SHA-256), with its real-game
+# The plan is the one lab/plugin-test-host/windows/run.ps1 reads (game, game_version, release files by URL and SHA-256), with its real-game
 # runs under "realgame": [{"name": ..., "ride": <seconds>, "keys": [[<second>, "<key>"], ...]}]. The bare demo runs first,
 # as "baseline", ridden as long as the longest run, so the others can be read against it. Each run gets a fresh game
 # folder, an outbound firewall block on every program in it, and Process Monitor; the screen is clicked through to a track
@@ -13,7 +13,11 @@ param([Parameter(Mandatory)][string]$Plan, [Parameter(Mandatory)][string]$Releas
 $ErrorActionPreference = 'Stop'
 $cfg = Get-Content $Plan -Raw | ConvertFrom-Json
 $games = Get-Content (Join-Path $PSScriptRoot '..\games.json') -Raw | ConvertFrom-Json
-$g = $games.($cfg.game ?? 'mxbikes')
+# The demo the plan names (game_version, which the workflow sets with games.py), else the newest; its steps, else the game's.
+$gg = $games.($cfg.game ?? 'mxbikes')
+$v = if ($cfg.game_version) { $gg.versions | Where-Object version -eq $cfg.game_version } else { $gg.versions[0] }
+if (-not $v) { throw "games.json has no demo $($cfg.game_version) of $($cfg.game)" }
+$g = [pscustomobject]@{ name = $v.name; sha256 = $v.sha256; exe = $gg.exe; steps = $v.steps ?? $gg.steps }
 $work = Join-Path $env:RUNNER_TEMP 'realgame'
 New-Item -ItemType Directory -Force $work, $Out | Out-Null
 $Out = (Resolve-Path $Out).Path

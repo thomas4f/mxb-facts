@@ -298,6 +298,32 @@ def evidence_refused(ev):
 
 check('evidence without a link is refused', 'links no evidence' in evidence_refused('Its forum post'), evidence_refused('Its forum post'))
 check('a command without its output is refused', 'link its output' in evidence_refused('`objdump -p` on `x.dlo` [(here)](https://example.com/)'), evidence_refused('`objdump -p` on `x.dlo` [(here)](https://example.com/)'))
+
+
+# "Tested in" names exactly the demos the card's real-game runs used (the host.log under lab/results/<card>/), from games.json.
+GP = cards.GAMESPY
+def tested_refused(f, row):
+    d = made_up_card()
+    if row: d['header']['Tested in'] = row
+    try:
+        B['check_card'](f, d)
+        return ''
+    except AssertionError as e:
+        return str(e)
+
+
+_e = GP.pick('mxbikes', 'beta21e'); _row = '%s, installer SHA-256 `%s`' % (_e['name'], _e['sha256'])
+check('a card whose real-game runs used a demo needs its "Tested in" row', 'Tested in' in tested_refused('holeshot-0.24.2.yaml', None), tested_refused('holeshot-0.24.2.yaml', None))
+check('the "Tested in" row that names the demo the runs used passes', 'Tested in' not in tested_refused('holeshot-0.24.2.yaml', _row), tested_refused('holeshot-0.24.2.yaml', _row))
+_f = GP.pick('mxbikes'); _wrong = '%s, installer SHA-256 `%s`' % (_f['name'], _f['sha256'])
+check('a "Tested in" row naming another demo than the runs used is refused', _f['version'] == 'beta21e' or 'Tested in' in tested_refused('holeshot-0.24.2.yaml', _wrong))
+check('a card with no real-game run has no "Tested in" row', 'no "Tested in" row' in tested_refused('t.yaml', _row), tested_refused('t.yaml', _row))
+check('a run takes the newest demo unless one is asked for', GP.pick('mxbikes')['version'] == GP.versions('mxbikes')[0] and GP.choose('mxbikes', 'holeshot', 'beta21e') == ('beta21e', 'asked for'))
+try:
+    GP.pick('mxbikes', 'beta99'); _bad = False
+except AssertionError:
+    _bad = True
+check('a demo games.json doesn\'t list is refused', _bad)
 check('a command with its output passes', evidence_refused('`objdump -p` on `x.dlo`; output: `lab/evidence/README.md`') == '')
 
 

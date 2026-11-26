@@ -146,6 +146,6 @@ Add it to the card's `corrections` list (status `open`, its `kind` from the form
 | The identity: wordmark, colours, badges, link previews | the colour tokens in `site/static/site.css`; `tools/wordmark.py` (then run it) for the wordmark; `site/badges.py`, `site/preview.py` for their layout |
 | How an analysis runs | `prompts/analyse-tool.md`, `authors/mxb-facts-check/SKILL.md`, `CLAUDE.md` "How to analyse" |
 | What the test host does | `lab/plugin-test-host/src/` (extend it, don't start over) |
-| Which game demo runs, and how the run reaches a track | `lab/real-game/games.json` |
+| Which game demos there are (newest first), and how the run reaches a track | `lab/real-game/games.json`; a tool that needs an older one: `game_version` in `registry/tools.json` |
 | Which tools come next | `docs/QUEUE.md` |
 | A tool's links or its list of cards | `registry/tools.json` |

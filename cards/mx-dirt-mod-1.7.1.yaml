@@ -24,6 +24,7 @@ header:
     [5c300cccd92f533e415b7258ee084feb2d35fc97](https://github.com/kadenball/mx-dirt-mod/tree/5c300cccd92f533e415b7258ee084feb2d35fc97)
     ("MX Dirt Mod 1.7.1: stutter fix, no box around the bike", 16 Nov 2026), the commit tag `v1.7.1` points to.
   Analysed on: 23 Nov 2026
+  Tested in: 'MX Bikes beta21e (demo), installer SHA-256 `a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0`'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     Open source under GPL-3.0, which allows analysis. The source was read at the commit; every file in the zip except the two

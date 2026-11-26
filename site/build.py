@@ -10,7 +10,7 @@ import datetime, glob, json, os, re, shutil, subprocess, sys, yaml
 sys.path.insert(0,os.path.dirname(os.path.abspath(__file__)))  # rules.py, cards.py, feed.py, render.py and badges.py sit beside this file
 from rules import AREAN, CATS, CONCERN, D, RUBRICV, OUT, ROOT, SC, charges, scored, gtext, load_yaml, sround, stale_refs, tagsof, verdict
 from cards import check_card, games, glance, JUDGE, MM, pending_versions, REG, SITES, SLUG, strings, VT
-from cards import COMMIT
+from cards import COMMIT, GAMESPY
 from badges import BADGES, PENDING, badge_json, btitle, ptitle
 from feed import SITEURL
 CARDS=[  # (card file, tool in registry/tools.json), alphabetical
@@ -65,6 +65,9 @@ for f,t in CARDS: assert bool(load_yaml(D+f).get('by_maintainer'))==(t in MAINTA
 for s,e in REG.items():
     assert all(c.startswith(s+'-') for c in e['cards']), 'registry/tools.json: '+s+' lists a card of another tool'
     if e['github']: assert all('github.com/'+e['github']+')' in yaml.safe_load(open(D+c))['header']['GitHub'] for c in e['cards']), 'registry/tools.json: '+s+' GitHub differs from its card'
+    # A pinned demo (lab/real-game/README.md, "Which demo"): one games.json lists, with what the tool shows that needs it.
+    for g,pin in e.get('game_version',{}).items():
+        assert g in GAMESPY.GAMES and set(pin)=={'version','why'} and pin['why'] and pin['version'] in GAMESPY.versions(g), 'registry/tools.json: '+s+' game_version names a game of lab/real-game/games.json and, for it, {"version": <one it lists>, "why": <what the tool shows>}'
     # Each game a tool's cards name brings its mods site's entry ("mxb-mods" for MX Bikes, "gpb-mods" for GP Bikes), and no other.
     ks=[k for k,_ in SITES.values() if k in e]
     want={SITES[g][0] for c in e['cards'] for g in games(yaml.safe_load(open(D+c))['header'])}

@@ -25,6 +25,7 @@ header:
     lists only Microsoft's `vc_redist.x64.exe` from that topic, a prerequisite and not part of the tool. There are no tags or
     commits: the source isn't public.
   Analysed on: 23 Nov 2026
+  Tested in: 'MX Bikes beta21e (demo), installer SHA-256 `a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0`'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     Closed source, and neither the release, its manual nor its forum topic carries a licence or a clause against analysis, so the

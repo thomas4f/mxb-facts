@@ -23,6 +23,7 @@ header:
     [c5ed04c72bdbab7b00fd594ce7525e7a1914f797](https://github.com/FMilesi-Cloud/mx-dirt-mod-alt/tree/c5ed04c72bdbab7b00fd594ce7525e7a1914f797)
     (tag v1.7.1-alt.1, "Docs (ES/EN): README, NOTICE, development log, diagrams", 19 Nov 2026).
   Analysed on: 23 Nov 2026
+  Tested in: 'MX Bikes beta21e (demo), installer SHA-256 `a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0`'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     Open source under GPL-3.0, so nothing forbids analysis: the source and scripts were read at the commit, the two plugins

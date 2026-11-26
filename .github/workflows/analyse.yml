@@ -101,6 +101,9 @@ on:
       release:
         description: "Link to that release or its download page (leave empty together with version, for the same lookup)"
         default: ""
+      game_version:
+        description: "The game demo to run the plugins in, e.g. beta21e (lab/real-game/games.json; leave empty: the tool's pin in registry/tools.json, else the newest)"
+        default: ""
       upload:
         description: "Upload to VirusTotal the release files it has no record of: only when the tool's author agreed (the hash lookups always run)"
         type: boolean
@@ -179,6 +182,15 @@ jobs:
         run: |
           printf '%s' "$PROMPT" > "$RUNNER_TEMP/prompt.txt"
           python3 -I tools/agent_run.py "$RUNNER_TEMP/prompt.txt" "$RUNNER_TEMP/plan-output.json" 2
+      # The demo the plugins run in, set here rather than by Claude: the game_version input, else the tool's pin in
+      # registry/tools.json, else the newest in lab/real-game/games.json.
+      - name: Pick the game demo
+        env:
+          TOOL: ${{ inputs.tool }}
+          GAME_VERSION: ${{ inputs.game_version }}
+        run: |
+          set -o pipefail
+          python3 -I lab/real-game/games.py plan "$RUNNER_TEMP/plan.json" "$TOOL" $GAME_VERSION | tee -a "$GITHUB_STEP_SUMMARY"
       - name: Check the plan
         id: check
         run: |
@@ -310,7 +322,7 @@ jobs:
         id: game
         run: |
           $p = Get-Content "$env:RUNNER_TEMP\plan\plan.json" -Raw | ConvertFrom-Json
-          $g = (Get-Content lab/real-game/games.json -Raw | ConvertFrom-Json).($p.game)
+          $g = (Get-Content lab/real-game/games.json -Raw | ConvertFrom-Json).($p.game).versions | Where-Object version -eq $p.game_version
           "runs=$(if ($p.realgame) { 'yes' } else { 'no' })" >> $env:GITHUB_OUTPUT
           "host=$(if ($p.cases -or $p.apps) { 'yes' } else { 'no' })" >> $env:GITHUB_OUTPUT
           "url=$($g.url)" >> $env:GITHUB_OUTPUT; "sha=$($g.sha256)" >> $env:GITHUB_OUTPUT

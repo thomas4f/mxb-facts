@@ -20,6 +20,7 @@ header:
   Source commit: '[90740b49b5486f64e2b48abccc86dd61d1ace200](https://github.com/xAmped/mxbfix/tree/90740b49b5486f64e2b48abccc86dd61d1ace200) (the commit
     tag v0.1.8 points at, `lab/evidence/mxbfix-0.1.8/repo.txt`)'
   Analysed on: 23 Nov 2026
+  Tested in: 'MX Bikes beta21e (demo), installer SHA-256 `a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0`'
   Method: '100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md). Open source under the
     MIT licence, so nothing forbids analysis: the source was read at the commit, the plugin was rebuilt with Zig 0.13.0 as its build.sh says and compared
     byte for byte with the release, the update signature published beside it was checked with the key in the source, and its imports and text were listed

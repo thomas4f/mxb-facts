@@ -25,6 +25,7 @@ header:
     [dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3](https://github.com/cristianboni22/pitbox/tree/dc05ea0caf9d89b36ea6b23bb50c9ae2b33f5ac3)
     (tag v3.0.4; its only file is README.md)
   Analysed on: 24 Nov 2026
+  Tested in: 'GP Bikes beta22b (demo), installer SHA-256 `82941f66e66e96bdce56b0652e89b973da817915c0f2af5536698ea2467d2ea3`'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     No licence was found (the repository and the release hold none), so the release was examined: the app's Python code,

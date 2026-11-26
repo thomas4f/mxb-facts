@@ -24,6 +24,7 @@ header:
     [3ffdbf366023c19e1741178e39b5704a91728819](https://github.com/LeadingTrendTechnologies/HoleshotHUD/tree/3ffdbf366023c19e1741178e39b5704a91728819)
     ("Ship 0.24.0 so a practice fuel fill and a track guide stay behind Labs.", 26 Oct 2026), the commit tag `v0.24.0` points to.
   Analysed on: 23 Nov 2026
+  Tested in: 'MX Bikes beta21e (demo), installer SHA-256 `a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0`'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
     The repository has no licence file and its docs forbid no analysis. The source was read at the commit; the zip's scripts and

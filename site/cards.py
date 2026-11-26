@@ -3,7 +3,7 @@ as lines, their costs, its key answers, its corrections). No page is made here: 
 and render.py the pages from the feed. Also the data beside the cards: the registry (registry/*.json) and the VirusTotal
 lookups (vt/results.json).
 """
-import datetime, json, jsonschema, os, re, subprocess, urllib.parse
+import datetime, importlib.util, json, jsonschema, os, re, subprocess, urllib.parse
 from rules import (
     ANS, AREAN, DNA, HEADER, HELD, KEYS, KMODE, KNAMES, NOPARTLY, ONREQ, QIDS, QMARK, QTXT, RANK, ROOT, SECOND,
     SCHEMA, SECTIONS, SYM, WITHHELD_EV, WITHHELD_LIM, ans_md, charges, concern_span, heldq, money, verdict, withheld_error)
@@ -225,6 +225,11 @@ def check_card(f,raw):
     # privately by the maintainer, not in the repository, so the build doesn't read them.
     assert not h.get('Held back') or re.match(HELD,h['Held back']), f+': "Held back" must read "<n> item(s) (rule 9): <question IDs>"'
     held=heldq(h.get('Held back'))
+    # The game demos the card's real-game runs used (each run's host.log in lab/results/<card>/), named in its "Tested in" row.
+    demos=tested_in(f)
+    want='; '.join(f"{x['name']}, installer SHA-256 `{x['sha256']}`" for x in demos)
+    assert h.get('Tested in','')==want, f+(': its real-game runs used '+want+', so its "Tested in" row reads exactly that' if want else ': no real-game run in lab/results/ names a demo, so it has no "Tested in" row')
+    assert all(DEMO_GAME[x['game']] in games(h) for x in demos), f+': a real-game run used a demo of a game its Game row doesn\'t name'
     rows=answer_rows(f,d,held)
     for q in held: assert q in rows and not rows[q].startswith('{+}'), f+': '+q+' is touched by a held-back item, so it can\'t be Good'
     A={q:verdict(rows[q]) for q in rows}; SETS=charges(A,held)
@@ -262,8 +267,23 @@ def check_card(f,raw):
                 assert qs, f+': a Concern line or row names the questions it backs ('+(x.get('text') or x.get('What',''))[:50]+')'
                 assert all(q in QIDS for q in qs) and len(set(qs))==len(qs), f+': a Concern line names an unknown question, or one twice: '+', '.join(qs)
                 assert concern_span(qs,A,SETS,k), f+': a Concern line backs only answers that aren\'t Concerns: '+', '.join(qs)
-    return {'f':f,'raw':raw,'d':d,'h':h,'name':d['tool'],'ver':d['version'],'rows':rows,'A':A,'SETS':SETS,'held':held,'sections':sec,
+    return {'f':f,'raw':raw,'d':d,'h':h,'name':d['tool'],'ver':d['version'],'rows':rows,'A':A,'SETS':SETS,'held':held,'sections':sec,'demos':demos,
             'key':key_answers(f,d,rows,A,SETS,held),'corrections':corrections_md(f,d)}
+# The game demos (lab/real-game/games.json, read through its games.py) and the game each one is: its key there, as the Game row names it.
+_gs=importlib.util.spec_from_file_location('games',ROOT+'lab/real-game/games.py'); GAMESPY=importlib.util.module_from_spec(_gs); _gs.loader.exec_module(GAMESPY)
+DEMO_GAME={'mxbikes':'MX Bikes','gpbikes':'GP Bikes'}
+assert set(GAMESPY.GAMES)==set(DEMO_GAME), 'lab/real-game/games.json: name each game in DEMO_GAME (site/cards.py)'
+def tested_in(f):
+    # Each demo a card's real-game runs used, once, in the order of games.json: the "game:" line of every host.log under
+    # lab/results/<card>/ (lab/real-game/run.sh and windows/run.ps1 write it). Every demo a card used stays in games.json.
+    base=ROOT+'lab/results/'+f[:-len('.yaml')]+'/'; shas=set()
+    for run in sorted(os.listdir(base)) if os.path.isdir(base) else ():
+        p=base+run+'/host.log'
+        m=os.path.isfile(p) and re.match(r'game: .*installer SHA-256 ([0-9a-f]{64})\s*$',open(p,errors='replace').readline())
+        if m:
+            assert GAMESPY.by_sha(m.group(1)), p+': names a demo lab/real-game/games.json doesn\'t list; keep every demo a card used there'
+            shas.add(m.group(1))
+    return [GAMESPY.pick(k,v['version']) for k,g in GAMESPY.GAMES.items() for v in g['versions'] if v['sha256'] in shas]
 def lablinks(f,t):
     # Evidence from the test host is named by its path in this repository; the build checks it exists and links it at
     # the commit the site is built from, so the link keeps showing that file as it was.

@@ -1,9 +1,20 @@
 {
  "mxbikes": {
-  "name": "MX Bikes beta21e (demo)",
-  "url": "https://www.mx-bikes.com/downloads/mxbikes-beta21e.exe",
-  "sha256": "a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0",
   "exe": "mxbikes.exe",
+  "versions": [
+   {
+    "version": "beta21f",
+    "name": "MX Bikes beta21f (demo)",
+    "url": "https://www.mx-bikes.com/downloads/mxbikes-beta21f.exe",
+    "sha256": "76feb83746e785310e8858938dd50b5e0685d1b0004480d5d1c2d4fc21f11949"
+   },
+   {
+    "version": "beta21e",
+    "name": "MX Bikes beta21e (demo)",
+    "url": "https://www.mx-bikes.com/downloads/mxbikes-beta21e.exe",
+    "sha256": "a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0"
+   }
+  ],
   "steps": [
    {
     "name": "login",
@@ -51,10 +62,15 @@
   ]
  },
  "gpbikes": {
-  "name": "GP Bikes beta22b (demo)",
-  "url": "https://www.kartracing-pro.com/downloads/gpbikes/gpbikes-beta22b.exe",
-  "sha256": "82941f66e66e96bdce56b0652e89b973da817915c0f2af5536698ea2467d2ea3",
   "exe": "gpbikes.exe",
+  "versions": [
+   {
+    "version": "beta22b",
+    "name": "GP Bikes beta22b (demo)",
+    "url": "https://www.kartracing-pro.com/downloads/gpbikes/gpbikes-beta22b.exe",
+    "sha256": "82941f66e66e96bdce56b0652e89b973da817915c0f2af5536698ea2467d2ea3"
+   }
+  ],
   "steps": [
    {
     "name": "login",
