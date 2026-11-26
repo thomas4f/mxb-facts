@@ -27,6 +27,7 @@
 {% endfor %}
 </div></div></details>
 <label class="cmpl"><input type="checkbox" id="diff"> Show only differences</label>
+<p class="count">A mark shows what each tool was given; point at it for the answer, or open it for the full line on the tool's page.</p>
 <div class="ctw"><table class="cmp all" id="cmp">
 <thead><tr><th scope="col"><span class="vh">Question</span></th>{% for c in cards %}<th scope="col" data-c="{{ c.card }}"><a href="{{ root }}{{ c.tool }}/{% if not c.latest %}{{ c.version }}/{% endif %}">{{ c.name }}</a> <span class="muted">{{ c.version }}</span></th>{% endfor %}</tr></thead>
 <tbody>
@@ -39,7 +40,7 @@
 <tr class="grp"><th scope="colgroup" colspan="{{ cards | length + 1 }}">{{ a.name }}</th></tr>
 {% for x0 in cards[0].answers if x0.area == a.id %}
 <tr><th scope="row"><code>{{ x0.id }}</code> {{ x0.question }}</th>
-{% for c in cards %}{% set x = c.answers | selectattr('id', 'equalto', x0.id) | first %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ x.state }} {{ x.verdict }}"><a class="plain" href="{{ root }}{{ c.tool }}/{% if not c.latest %}{{ c.version }}/{% endif %}#q-{{ x.id }}">{{ answer_mark(x, c.result.kind == 'score', says=True) }}</a></td>{% endfor %}</tr>
+{% for c in cards %}{% set x = c.answers | selectattr('id', 'equalto', x0.id) | first %}<td data-c="{{ c.card }}" data-l="{{ c.name }} {{ c.version }}" data-k="{{ x.state }} {{ x.cost }}"><a class="plain" href="{{ root }}{{ c.tool }}/{% if not c.latest %}{{ c.version }}/{% endif %}#q-{{ x.id }}">{{ answer_mark(x, c.result.kind == 'score', says=True, word=False) }}</a></td>{% endfor %}</tr>
 {% endfor %}
 {% endfor %}
 </tbody></table></div>
