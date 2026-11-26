@@ -31,8 +31,8 @@
 <link rel="preload" href="{{ root }}assets/fonts/barlow-condensed-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ root }}assets/fonts/barlow-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{{ root }}assets/fonts/barlow-latin-800-italic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="{{ root }}assets/site.css">
-<link rel="stylesheet" href="{{ root }}assets/icons.css">
+<link rel="stylesheet" href="{{ root }}{{ asset('site.css') }}">
+<link rel="stylesheet" href="{{ root }}{{ asset('icons.css') }}">
 <script>try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t } catch {}</script>
 {% block head %}{% endblock %}
 </head>
@@ -63,7 +63,7 @@
   </div>
   <p class="fmeta"><span class="fl">Cards and data <a href="{{ IX.licence.url }}" rel="license">CC BY 4.0</a> · Code <a href="{{ SITE.repo }}blob/main/LICENSE">MIT</a></span> <span class="fl">Visits are counted with <a href="{{ SITE.links.visits }}">GoatCounter</a>: no cookies, no personal data</span> <span class="fl">Rubric {{ IX.rubric }} · Built from <a href="{{ SITE.repo }}commit/{{ IX.commit }}">{{ IX.commit[:7] }}</a></span></p>
 </div></footer>
-<script src="{{ root }}assets/site.js" defer></script>
+<script src="{{ root }}{{ asset('site.js') }}" defer></script>
 {% if count_visits %}<script data-goatcounter="{{ SITE.links.visits }}count" async src="https://gc.zgo.at/count.js"></script>
 {% endif %}{% block scripts %}{% endblock %}
 </body>
