@@ -1,0 +1,8 @@
+$ for f in MXRP_Ragdoll.dlo installer.exe MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini; do echo "== $f"; { strings -n 6 "$f"; strings -el -n 6 "$f"; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat|[Cc]offee'; done
+== MXRP_Ragdoll.dlo
+11854:https://
+== installer.exe
+12137:https://
+== MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt
+== MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini
+(exit 1)

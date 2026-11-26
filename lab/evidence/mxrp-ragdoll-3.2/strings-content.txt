@@ -1,0 +1,20 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE '\.hrc$|\.edf$|^bikes\\|\\bikes\\|gfx\.cfg lu|poignees prises|modele du pilote "|crypt|chiffr'
+921:steer.hrc
+992:helmet.hrc
+1041:moto : gfx.cfg lu dans %s.pkz
+1051:moto : poignees prises sur le modele 3D (guidon de %.2f m, noeuds de poignee : %s / %s)
+1483:\rider.hrc
+1484:\rider.edf
+1485:\c_rider.edf
+1486:rider.edf
+1500:  modele du pilote "%s" (type %d, %d noeuds) a %.1f m
+1512:bikes\
+1840:helmet.hrc
+1841:left_boot.hrc
+1842:right_boot.hrc
+1845:\bikes\
+3040:chassis.hrc
+3041:steer.hrc
+3051:steer.edf
+12313:bcrypt.dll
+(exit 0)

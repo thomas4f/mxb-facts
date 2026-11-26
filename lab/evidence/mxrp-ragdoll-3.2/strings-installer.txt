@@ -1,0 +1,37 @@
+$ strings -n 6 installer.exe | sed -n '1,200p' | grep -nE 'Steam|steamapps|libraryfolders|655500|plugins|MXRP_Ragdoll|mxb_ragdoll|Old versions|misc|installed|settings|Yes:|No:'
+92:%s\steamapps\appmanifest_655500.acf
+94:%s\steamapps\common\%s
+96:%s\steamapps\common\MX Bikes
+97:Old versions removed:
+98:NOT FOUND (misc.pkz missing?)
+99:SteamPath
+100:Software\Valve\Steam
+102:SOFTWARE\Valve\Steam
+104:SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App 655500
+106:The MX Bikes folder (Steam) was not found automatically.
+108:MX Bikes (Steam) was found here:
+109:Yes: install MXRP Beta 3.2 (1.8.177) in this folder
+110:No: choose another folder
+117:%s\plugins
+118:MXRP_Ragdoll.dlo
+119:%s\MXRP_Ragdoll.dlo
+122:%s\MXRP_Ragdoll_LISEZ-MOI_README.txt
+123:%s\MXRP_Ragdoll.ini
+124:%s\MXRP_Ragdoll.fnt
+125:%s\misc.pkz
+126:misc/misc.fnt
+127:MXRP Beta 3.2 (1.8.177) is installed!
+128:Your settings (MXRP_Ragdoll.ini) are kept.
+131:steamapps\libraryfolders.vdf
+132:config\libraryfolders.vdf
+133:%c:\Program Files (x86)\Steam
+134:%c:\Program Files\Steam
+135:%c:\Steam
+136:%c:\SteamLibrary
+137:%c:\Games\Steam
+138:%c:\Jeux\Steam
+139:MXRP_Ragdoll*.dlo
+140:MXRP_Ragdoll*.dlo.ancien
+141:MXRP_Ragdoll*.dlo.nouveau
+142:mxb_ragdoll*.dlo
+(exit 0)

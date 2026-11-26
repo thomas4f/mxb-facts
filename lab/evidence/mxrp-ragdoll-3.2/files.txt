@@ -1,0 +1,10 @@
+$ sha256sum MXRP_Beta_3.2.zip MXRP_Beta_3.2_manual.zip MXRP_Ragdoll_1.8.177.dlo MXRP_Ragdoll_Installer.exe 'MXRP Beta 3.2.exe'; find MXRP_Ragdoll -type f | LC_ALL=C sort | xargs -d '\n' sha256sum
+7f8e19f40c25ba56cce4c156aa1643756da7a39c96158fa3753f1a5ee45ef106  MXRP_Beta_3.2.zip
+624fd5ecca79c5251a7f044573e76d77c11106124eb98f581ea22dd2bbe9ba69  MXRP_Beta_3.2_manual.zip
+e023cfe20557dc96466bebe105abede5ec5b8b60ffc1cb1db2ddae9edb23de96  MXRP_Ragdoll_1.8.177.dlo
+6250ac54cb81ae5adcb8f588fe92649015b03381d25ac7c99b78b855c956d2ed  MXRP_Ragdoll_Installer.exe
+6250ac54cb81ae5adcb8f588fe92649015b03381d25ac7c99b78b855c956d2ed  MXRP Beta 3.2.exe
+a0c4ea85763508c6c98783541d53c7f3ae1a7b477a6ee347e525dafb5ac9d4de  MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt
+e023cfe20557dc96466bebe105abede5ec5b8b60ffc1cb1db2ddae9edb23de96  MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo
+c8179dbd9ab03b1c1ecb56421cd2b7e1c6b2cafbc2d9a828eb0dbc370bf3c0b1  MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini
+(exit 0)

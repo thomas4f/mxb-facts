@@ -1,0 +1,6 @@
+$ objdump -d MXRP_Ragdoll.dlo | grep -E '# 0x2e3fe2908$|# 0x2e3fe28a8$'
+   2e3a73f04:	8b 3d fe e9 56 00    	mov    0x56e9fe(%rip),%edi        # 0x2e3fe2908
+   2e3a750ce:	8b 05 d4 d7 56 00    	mov    0x56d7d4(%rip),%eax        # 0x2e3fe28a8
+   2e3a750f3:	44 8b 2d ae d7 56 00 	mov    0x56d7ae(%rip),%r13d        # 0x2e3fe28a8
+   2e3a75207:	44 8b 15 9a d6 56 00 	mov    0x56d69a(%rip),%r10d        # 0x2e3fe28a8
+(exit 0)

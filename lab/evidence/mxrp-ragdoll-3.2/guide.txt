@@ -1,0 +1,14 @@
+$ sed -n '1,90p' MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt | grep -nE 'removes old|Automatic:|UPDATES|downloads it|Ask before|kicked|ON/OFF button is not enough|plugin is still loaded|talk through|Every player needs|send Documents|Walking animation|FMX ramps:|RAGDOLL is added'
+12:A) Automatic: run "MXRP Beta 3.2.exe" (MXRP_Beta_3.2.zip). It finds MX Bikes (Steam) by
+13:   itself, shows the folder and lets you pick another one. It removes old versions
+44:UPDATES: when a new version is out, the plugin downloads it in the background and asks
+46:you start the game. Menu P: "Automatic updates" (ON / OFF) and "Ask before installing an
+68:  When you host with the button ON, RAGDOLL is added to the server name for you: on a
+70:- Nothing to set: plugins talk through the MX Bikes server connection and Steam.
+71:- Every player needs the plugin. On a RAGDOLL server, players without it get 60 s to
+72:  install it, then are kicked automatically.
+80:The ON/OFF button is not enough: the plugin is still loaded by the game.
+83:- Game crash or bug: send Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log BEFORE restarting
+87:Walking animation: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+88:FMX ramps: PROCworks FMX Ramp PACK (PROCworks - Proud Racers Of Canada). Landing: "FMX Ramps" pack (fmxLanding). Comp, Super kicker, 120 ft jump, quarter pipe: "thefluffygecko fmx ramps".
+(exit 0)

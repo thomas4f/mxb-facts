@@ -1,0 +1,29 @@
+$ objdump -h 'MXRP_Ragdoll.dlo'
+
+MXRP_Ragdoll.dlo:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         0008dd48  00000002e3a51000  00000002e3a51000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE, DATA
+  1 .data         00000730  00000002e3adf000  00000002e3adf000  0008e200  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .rdata        004cb530  00000002e3ae0000  00000002e3ae0000  0008ea00  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  3 .pdata        0000303c  00000002e3fac000  00000002e3fac000  0055a000  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .xdata        00004064  00000002e3fb0000  00000002e3fb0000  0055d200  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  5 .bss          01d74c40  00000002e3fb5000  00000002e3fb5000  00000000  2**4
+                  ALLOC
+  6 .edata        000001ca  00000002e5d2a000  00000002e5d2a000  00561400  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  7 .idata        00001e68  00000002e5d2b000  00000002e5d2b000  00561600  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  8 .CRT          00000058  00000002e5d2d000  00000002e5d2d000  00563600  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  9 .tls          00000010  00000002e5d2e000  00000002e5d2e000  00563800  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+ 10 .reloc        00000e20  00000002e5d2f000  00000002e5d2f000  00563a00  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)
