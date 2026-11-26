@@ -1,0 +1,64 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE 'api\.github|/repos/|vnd\.github|updater|browser_download_url|digest|sha256|SHA256|^https://$|mise a jour|%s\.(old|new)|Installer|Update available|Automatic updates|Ask before installing|installer will open|installateur|installe : actif|Enter / A|Entree / A'
+1071:MXRP Ragdoll %s disponible : l'installateur s'ouvrira quand tu quitteras le jeu
+1072:MXRP Ragdoll %s installe : actif au prochain lancement du jeu
+1078:Entree / A : fermer
+1079:Entree / A : suivant   -   Retour / B : fermer
+1119:mise a jour : fenetre ouverte (%s)
+1124:Entree / A : installer   -   Retour / B : plus tard
+1295:temps plugin (10 s) : RunTelemetry %d appels %.0f us, Draw %d appels %.0f us, bottes dans la physique %d fois %.0f us, mise a jour des objets %d fois %.0f us, menus/pose/port %.0f us
+1296:temps RunTelemetry par partie (us / 10 s) : debut %.0f, descente %.0f, marche/commandes %.0f, casque/camera/fondu %.0f, menus/pose/port %.0f, objets/physique %.0f, (suite) %.0f, freinage %.0f, mise a jour bottes/cones %.0f, (suite) %.0f, debout/moto/camera %.0f [recherche %.0f, roues %.0f, touche E %.0f, tenue %.0f], ragdoll/pilotage %.0f ; bottes qui bougent %d / %d
+1336:mise a jour : automatique desactivee (menu P)
+1545:pilotage : %d os reecrits par le jeu pendant sa mise a jour :%s
+1933:Demander avant d'installer une mise a jour
+2395:Entree / A : suivant   -   Retour / B : fermer
+2396:Enter / A: next   -   Backspace / B: close
+2398:Enter / A: weiter   -   Ruecktaste / B: schliessen
+2400:Entree / A : fermer
+2401:Enter / A: close
+2403:Enter / A: schliessen
+2547:Automatic updates
+2551:Demander avant d'installer une mise a jour
+2552:Ask before installing an update
+2557:Update available
+2571:Entree / A : installer   -   Retour / B : plus tard
+2572:Enter / A: install   -   Backspace / B: later
+2574:Enter / A: installieren   -   Ruecktaste / B: spaeter
+2581:MXRP Ragdoll %s installe : actif au prochain lancement du jeu
+2586:MXRP Ragdoll %s disponible : l'installateur s'ouvrira quand tu quitteras le jeu
+2587:MXRP Ragdoll %s available: the installer will open when you quit the game
+2589:MXRP Ragdoll %s verfuegbar: der Installer oeffnet sich beim Beenden des Spiels
+2935:Haut / Bas : choisir   Entree / A : valider   B : fermer
+2936:Up / Down: choose   Enter / A: select   B: close
+2938:Hoch / Runter: waehlen   Enter / A: ok   B: schliessen
+11847:mise a jour : reponse %lu
+11848:mise a jour : fichier trop gros
+11849:"browser_download_url":
+11851:browser_download_url
+11852:digest
+11853:sha256:
+11854:https://
+11855:mise a jour : telechargement rate
+11856:mise a jour : empreinte differente : fichier refuse
+11857:mise a jour : ce n'est pas un programme Windows : refuse
+11859:%s.old
+11860:%s.new
+11861:mise a jour : mode essai (pre-releases comprises)
+11862:mise a jour : pas de reponse de GitHub (hors ligne ?)
+11864:mise a jour : pas de plugin dans la derniere release
+11865:mise a jour : a jour (%s, derniere release %s)
+11866:mise a jour : %s disponible (installe : %s), telechargement
+11867:mise a jour : %s telechargee, en attente du choix du joueur
+11868:mise a jour : %s : plus tard (redemande au prochain lancement)
+11869:mise a jour : %s : installation acceptee
+11870:mise a jour : %s installee (au prochain lancement du jeu)
+11871:mise a jour : dossier plugins non modifiable (erreur %lu) : installateur
+11872:MXRP_Ragdoll_Installer
+11873:%sMXRP_Ragdoll_Installer_%s.exe
+11874:mise a jour : installateur %s pret, il s'ouvrira en quittant le jeu
+12325:MXRP-Ragdoll-updater
+12326:Accept: application/vnd.github+json
+12327:eSHA256
+12328:/repos/avare795/MXRP-ragdoll/releases?per_page=3
+12329:/repos/avare795/MXRP-ragdoll/releases/latest
+12330:wapi.github.com
+(exit 0)

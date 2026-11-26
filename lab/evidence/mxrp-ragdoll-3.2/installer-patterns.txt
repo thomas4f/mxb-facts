@@ -1,0 +1,6 @@
+$ ptrtable.py installer.exe 14000b660 4 8
+0x14000b660  0x14000b5f0 "MXRP_Ragdoll*.dlo"
+0x14000b668  0x14000b602 "MXRP_Ragdoll*.dlo.ancien"
+0x14000b670  0x14000b61b "MXRP_Ragdoll*.dlo.nouveau"
+0x14000b678  0x14000b635 "mxb_ragdoll*.dlo"
+(exit 0)

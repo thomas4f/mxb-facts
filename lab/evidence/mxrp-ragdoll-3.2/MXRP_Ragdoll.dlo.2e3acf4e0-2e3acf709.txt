@@ -1,0 +1,113 @@
+$ objdump -d 'MXRP_Ragdoll.dlo' | awk -v a=2e3acf4e0 -v b=2e3acf709 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   2e3acf4e0:	57                   	push   %rdi
+   2e3acf4e1:	53                   	push   %rbx
+   2e3acf4e2:	48 83 ec 28          	sub    $0x28,%rsp
+   2e3acf4e6:	31 c0                	xor    %eax,%eax
+   2e3acf4e8:	48 8d 79 08          	lea    0x8(%rcx),%rdi
+   2e3acf4ec:	48 89 cb             	mov    %rcx,%rbx
+   2e3acf4ef:	48 c7 01 00 00 00 00 	movq   $0x0,(%rcx)
+   2e3acf4f6:	48 c7 81 f0 01 00 00 	movq   $0x0,0x1f0(%rcx)
+   2e3acf4fd:	00 00 00 00 
+   2e3acf501:	48 83 e7 f8          	and    $0xfffffffffffffff8,%rdi
+   2e3acf505:	48 29 f9             	sub    %rdi,%rcx
+   2e3acf508:	81 c1 f8 01 00 00    	add    $0x1f8,%ecx
+   2e3acf50e:	c1 e9 03             	shr    $0x3,%ecx
+   2e3acf511:	f3 48 ab             	rep stos %rax,(%rdi)
+   2e3acf514:	48 89 d9             	mov    %rbx,%rcx
+   2e3acf517:	e8 74 d6 ff ff       	call   0x2e3accb90
+   2e3acf51c:	48 8b 05 ad a6 4d 00 	mov    0x4da6ad(%rip),%rax        # 0x2e3fa9bd0
+   2e3acf523:	0f 10 05 96 a6 4d 00 	movups 0x4da696(%rip),%xmm0        # 0x2e3fa9bc0
+   2e3acf52a:	48 c7 43 2c 01 00 00 	movq   $0x1,0x2c(%rbx)
+   2e3acf531:	00 
+   2e3acf532:	48 8b 15 f7 a6 4d 00 	mov    0x4da6f7(%rip),%rdx        # 0x2e3fa9c30
+   2e3acf539:	48 c7 43 54 01 00 00 	movq   $0x1,0x54(%rbx)
+   2e3acf540:	00 
+   2e3acf541:	48 89 43 44          	mov    %rax,0x44(%rbx)
+   2e3acf545:	48 b8 00 00 00 40 01 	movabs $0x140000000,%rax
+   2e3acf54c:	00 00 00 
+   2e3acf54f:	48 89 43 4c          	mov    %rax,0x4c(%rbx)
+   2e3acf553:	48 2d 00 00 80 00    	sub    $0x800000,%rax
+   2e3acf559:	48 89 43 64          	mov    %rax,0x64(%rbx)
+   2e3acf55d:	48 8b 05 74 a6 4d 00 	mov    0x4da674(%rip),%rax        # 0x2e3fa9bd8
+   2e3acf564:	0f 11 43 34          	movups %xmm0,0x34(%rbx)
+   2e3acf568:	f3 0f 6f 05 70 a6 4d 	movdqu 0x4da670(%rip),%xmm0        # 0x2e3fa9be0
+   2e3acf56f:	00 
+   2e3acf570:	48 89 43 6c          	mov    %rax,0x6c(%rbx)
+   2e3acf574:	48 b8 01 00 00 00 00 	movabs $0x3f00000000000001,%rax
+   2e3acf57b:	00 00 3f 
+   2e3acf57e:	48 89 43 74          	mov    %rax,0x74(%rbx)
+   2e3acf582:	48 b8 cd cc 4c 3e cd 	movabs $0x3dcccccd3e4ccccd,%rax
+   2e3acf589:	cc cc 3d 
+   2e3acf58c:	0f 11 83 8c 00 00 00 	movups %xmm0,0x8c(%rbx)
+   2e3acf593:	0f 11 83 9c 00 00 00 	movups %xmm0,0x9c(%rbx)
+   2e3acf59a:	0f 10 05 5f a6 4d 00 	movups 0x4da65f(%rip),%xmm0        # 0x2e3fa9c00
+   2e3acf5a1:	48 89 43 7c          	mov    %rax,0x7c(%rbx)
+   2e3acf5a5:	48 b8 00 00 80 3e 0a 	movabs $0xbda3d70a3e800000,%rax
+   2e3acf5ac:	d7 a3 bd 
+   2e3acf5af:	48 89 83 84 00 00 00 	mov    %rax,0x84(%rbx)
+   2e3acf5b6:	48 8b 05 33 a6 4d 00 	mov    0x4da633(%rip),%rax        # 0x2e3fa9bf0
+   2e3acf5bd:	0f 11 83 f8 00 00 00 	movups %xmm0,0xf8(%rbx)
+   2e3acf5c4:	f3 0f 6f 05 44 a6 4d 	movdqu 0x4da644(%rip),%xmm0        # 0x2e3fa9c10
+   2e3acf5cb:	00 
+   2e3acf5cc:	48 89 83 f0 00 00 00 	mov    %rax,0xf0(%rbx)
+   2e3acf5d3:	48 8b 05 06 a6 4d 00 	mov    0x4da606(%rip),%rax        # 0x2e3fa9be0
+   2e3acf5da:	0f 11 83 20 01 00 00 	movups %xmm0,0x120(%rbx)
+   2e3acf5e1:	f3 0f 6f 05 37 a6 4d 	movdqu 0x4da637(%rip),%xmm0        # 0x2e3fa9c20
+   2e3acf5e8:	00 
+   2e3acf5e9:	48 89 83 08 01 00 00 	mov    %rax,0x108(%rbx)
+   2e3acf5f0:	48 89 83 14 01 00 00 	mov    %rax,0x114(%rbx)
+   2e3acf5f7:	0f 11 83 30 01 00 00 	movups %xmm0,0x130(%rbx)
+   2e3acf5fe:	48 c7 43 5c 00 00 c0 	movq   $0x40c00000,0x5c(%rbx)
+   2e3acf605:	40 
+   2e3acf606:	c7 83 ac 00 00 00 00 	movl   $0x0,0xac(%rbx)
+   2e3acf60d:	00 00 00 
+   2e3acf610:	c6 83 b0 00 00 00 00 	movb   $0x0,0xb0(%rbx)
+   2e3acf617:	c7 83 1c 01 00 00 ec 	movl   $0x3d3851ec,0x11c(%rbx)
+   2e3acf61e:	51 38 3d 
+   2e3acf621:	48 89 93 40 01 00 00 	mov    %rdx,0x140(%rbx)
+   2e3acf628:	48 8b 15 09 a6 4d 00 	mov    0x4da609(%rip),%rdx        # 0x2e3fa9c38
+   2e3acf62f:	f3 0f 6f 05 19 a6 4d 	movdqu 0x4da619(%rip),%xmm0        # 0x2e3fa9c50
+   2e3acf636:	00 
+   2e3acf637:	48 89 83 a8 01 00 00 	mov    %rax,0x1a8(%rbx)
+   2e3acf63e:	48 89 93 4c 01 00 00 	mov    %rdx,0x14c(%rbx)
+   2e3acf645:	48 8b 05 fc a5 4d 00 	mov    0x4da5fc(%rip),%rax        # 0x2e3fa9c48
+   2e3acf64c:	48 8b 15 ed a5 4d 00 	mov    0x4da5ed(%rip),%rdx        # 0x2e3fa9c40
+   2e3acf653:	0f 11 83 bc 01 00 00 	movups %xmm0,0x1bc(%rbx)
+   2e3acf65a:	f3 0f 6f 05 fe a5 4d 	movdqu 0x4da5fe(%rip),%xmm0        # 0x2e3fa9c60
+   2e3acf661:	00 
+   2e3acf662:	c7 83 54 01 00 00 44 	movl   $0x44,0x154(%rbx)
+   2e3acf669:	00 00 00 
+   2e3acf66c:	c7 83 5c 01 00 00 11 	movl   $0x11,0x15c(%rbx)
+   2e3acf673:	00 00 00 
+   2e3acf676:	c7 83 d4 01 00 00 10 	movl   $0x10,0x1d4(%rbx)
+   2e3acf67d:	00 00 00 
+   2e3acf680:	c7 83 dc 01 00 00 80 	movl   $0x80,0x1dc(%rbx)
+   2e3acf687:	00 00 00 
+   2e3acf68a:	c7 83 64 01 00 00 45 	movl   $0x45,0x164(%rbx)
+   2e3acf691:	00 00 00 
+   2e3acf694:	c7 83 6c 01 00 00 45 	movl   $0x45,0x16c(%rbx)
+   2e3acf69b:	00 00 00 
+   2e3acf69e:	c7 83 74 01 00 00 46 	movl   $0x46,0x174(%rbx)
+   2e3acf6a5:	00 00 00 
+   2e3acf6a8:	c7 83 7c 01 00 00 50 	movl   $0x50,0x17c(%rbx)
+   2e3acf6af:	00 00 00 
+   2e3acf6b2:	c7 83 84 01 00 00 56 	movl   $0x56,0x184(%rbx)
+   2e3acf6b9:	00 00 00 
+   2e3acf6bc:	c7 83 8c 01 00 00 20 	movl   $0x20,0x18c(%rbx)
+   2e3acf6c3:	00 00 00 
+   2e3acf6c6:	c7 83 94 01 00 00 76 	movl   $0x76,0x194(%rbx)
+   2e3acf6cd:	00 00 00 
+   2e3acf6d0:	c7 83 9c 01 00 00 77 	movl   $0x77,0x19c(%rbx)
+   2e3acf6d7:	00 00 00 
+   2e3acf6da:	c7 83 b0 01 00 00 01 	movl   $0x1,0x1b0(%rbx)
+   2e3acf6e1:	00 00 00 
+   2e3acf6e4:	48 89 93 b4 01 00 00 	mov    %rdx,0x1b4(%rbx)
+   2e3acf6eb:	48 89 83 cc 01 00 00 	mov    %rax,0x1cc(%rbx)
+   2e3acf6f2:	c7 83 e4 01 00 00 cd 	movl   $0x3f4ccccd,0x1e4(%rbx)
+   2e3acf6f9:	cc 4c 3f 
+   2e3acf6fc:	0f 11 83 e8 01 00 00 	movups %xmm0,0x1e8(%rbx)
+   2e3acf703:	48 83 c4 28          	add    $0x28,%rsp
+   2e3acf707:	5b                   	pop    %rbx
+   2e3acf708:	5f                   	pop    %rdi
+   2e3acf709:	c3                   	ret
+(exit 0)

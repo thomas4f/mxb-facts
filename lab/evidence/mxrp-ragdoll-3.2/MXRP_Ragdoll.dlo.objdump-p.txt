@@ -1,0 +1,389 @@
+$ objdump -p 'MXRP_Ragdoll.dlo' | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'
+
+MXRP_Ragdoll.dlo:     file format pei-x86-64
+
+Characteristics 0x222e
+	executable
+	line numbers stripped
+	symbols stripped
+	large address aware
+	debugging information removed
+	DLL
+
+Time/Date		Wed Nov 25 18:18:32 2026
+Magic			020b	(PE32+)
+MajorLinkerVersion	2
+MinorLinkerVersion	41
+SizeOfCode		000000000008de00
+SizeOfInitializedData	0000000000564600
+SizeOfUninitializedData	0000000001d74e00
+AddressOfEntryPoint	0000000000001340
+BaseOfCode		0000000000001000
+ImageBase		00000002e3a50000
+SectionAlignment	00001000
+FileAlignment		00000200
+MajorOSystemVersion	4
+MinorOSystemVersion	0
+MajorImageVersion	0
+MinorImageVersion	0
+MajorSubsystemVersion	5
+MinorSubsystemVersion	2
+Win32Version		00000000
+SizeOfImage		022e0000
+SizeOfHeaders		00000400
+CheckSum		00569ecd
+Subsystem		00000003	(Windows CUI)
+DllCharacteristics	00000160
+					HIGH_ENTROPY_VA
+					DYNAMIC_BASE
+					NX_COMPAT
+SizeOfStackReserve	0000000000200000
+SizeOfStackCommit	0000000000001000
+SizeOfHeapReserve	0000000000100000
+SizeOfHeapCommit	0000000000001000
+LoaderFlags		00000000
+NumberOfRvaAndSizes	00000010
+
+The Data Directory
+Entry 0 00000000022da000 000001ca Export Directory [.edata (or where ever we found it)]
+Entry 1 00000000022db000 00001e68 Import Directory [parts of .idata]
+Entry 2 0000000000000000 00000000 Resource Directory [.rsrc]
+Entry 3 000000000055c000 0000303c Exception Directory [.pdata]
+Entry 4 0000000000000000 00000000 Security Directory
+Entry 5 00000000022df000 00000e20 Base Relocation Directory [.reloc]
+Entry 6 0000000000000000 00000000 Debug Directory
+Entry 7 0000000000000000 00000000 Description Directory
+Entry 8 0000000000000000 00000000 Special Directory
+Entry 9 0000000000559ca0 00000028 Thread Storage Directory [.tls]
+Entry a 0000000000000000 00000000 Load Configuration Directory
+Entry b 0000000000000000 00000000 Bound Import Directory
+Entry c 00000000022db7a0 000006c0 Import Address Table Directory
+Entry d 0000000000000000 00000000 Delay Import Directory
+Entry e 0000000000000000 00000000 CLR Runtime Header
+Entry f 0000000000000000 00000000 Reserved
+
+There is an import table in .idata at 0x2e5d2b000
+
+The Import Tables (interpreted .idata section contents)
+ vma:            Hint    Time      Forward  DLL       First
+                 Table   Stamp     Chain    Name      Thunk
+ 022db000	022db0e0 00000000 00000000 022dcac4 022db7a0
+
+	DLL Name: bcrypt.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022db7a0  <none>  0003  BCryptCloseAlgorithmProvider
+	022db7a8  <none>  0007  BCryptCreateHash
+	022db7b0  <none>  000e  BCryptDestroyHash
+	022db7b8  <none>  001c  BCryptFinishHash
+	022db7c0  <none>  0024  BCryptHashData
+	022db7c8  <none>  0028  BCryptOpenAlgorithmProvider
+
+ 022db014	022db118 00000000 00000000 022dcadc 022db7d8
+
+	DLL Name: GDI32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022db7d8  <none>  0040  CreateFontA
+	022db7e0  <none>  0184  DeleteObject
+	022db7e8  <none>  0366  SelectObject
+
+ 022db028	022db138 00000000 00000000 022dcaec 022db7f8
+
+	DLL Name: IPHLPAPI.DLL
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022db7f8  <none>  0055  GetAdaptersAddresses
+
+ 022db03c	022db148 00000000 00000000 022dcbf8 022db808
+
+	DLL Name: KERNEL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022db808  <none>  008d  CloseHandle
+	022db810  <none>  00b1  CopyFileA
+	022db818  <none>  00be  CreateDirectoryA
+	022db820  <none>  00c5  CreateEventA
+	022db828  <none>  00cc  CreateFileA
+	022db830  <none>  00fa  CreateThread
+	022db838  <none>  0103  CreateToolhelp32Snapshot
+	022db840  <none>  0119  DeleteCriticalSection
+	022db848  <none>  011b  DeleteFileA
+	022db850  <none>  013d  EnterCriticalSection
+	022db858  <none>  0183  FindClose
+	022db860  <none>  0187  FindFirstFileA
+	022db868  <none>  0198  FindNextFileA
+	022db870  <none>  01ad  FlushFileBuffers
+	022db878  <none>  01ae  FlushInstructionCache
+	022db880  <none>  0226  GetCurrentProcess
+	022db888  <none>  0227  GetCurrentProcessId
+	022db890  <none>  022b  GetCurrentThreadId
+	022db898  <none>  0254  GetFileAttributesA
+	022db8a0  <none>  0274  GetLastError
+	022db8a8  <none>  0287  GetModuleFileNameA
+	022db8b0  <none>  0289  GetModuleHandleA
+	022db8b8  <none>  028a  GetModuleHandleExA
+	022db8c0  <none>  02c4  GetProcAddress
+	022db8c8  <none>  02ca  GetProcessHeap
+	022db8d0  <none>  02cb  GetProcessHeaps
+	022db8d8  <none>  02f9  GetSystemInfo
+	022db8e0  <none>  030b  GetTempPathA
+	022db8e8  <none>  031d  GetTickCount
+	022db8f0  <none>  032b  GetUserDefaultLangID
+	022db8f8  <none>  032d  GetUserDefaultUILanguage
+	022db900  <none>  035d  HeapAlloc
+	022db908  <none>  0363  HeapFree
+	022db910  <none>  0364  HeapLock
+	022db918  <none>  036b  HeapUnlock
+	022db920  <none>  036e  HeapWalk
+	022db928  <none>  037a  InitializeCriticalSection
+	022db930  <none>  0395  IsDBCSLeadByteEx
+	022db938  <none>  03d6  LeaveCriticalSection
+	022db940  <none>  03fd  Module32First
+	022db948  <none>  03ff  Module32Next
+	022db950  <none>  0401  MoveFileA
+	022db958  <none>  0402  MoveFileExA
+	022db960  <none>  040a  MultiByteToWideChar
+	022db968  <none>  0469  QueryPerformanceCounter
+	022db970  <none>  046a  QueryPerformanceFrequency
+	022db978  <none>  0493  ReadProcessMemory
+	022db980  <none>  04ac  RemoveDirectoryA
+	022db988  <none>  0518  SetEvent
+	022db990  <none>  051d  SetFileAttributesA
+	022db998  <none>  0534  SetLastError
+	022db9a0  <none>  057f  Sleep
+	022db9a8  <none>  05a0  TlsAlloc
+	022db9b0  <none>  05a2  TlsGetValue
+	022db9b8  <none>  05a3  TlsSetValue
+	022db9c0  <none>  05cb  VirtualAlloc
+	022db9c8  <none>  05ce  VirtualFree
+	022db9d0  <none>  05d1  VirtualProtect
+	022db9d8  <none>  05d3  VirtualQuery
+	022db9e0  <none>  05dc  WaitForSingleObject
+	022db9e8  <none>  0608  WideCharToMultiByte
+	022db9f0  <none>  061c  WriteFile
+	022db9f8  <none>  0625  WriteProcessMemory
+
+ 022db050	022db348 00000000 00000000 022dcd20 022dba08
+
+	DLL Name: msvcrt.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022dba08  <none>  0040  ___lc_codepage_func
+	022dba10  <none>  0043  ___mb_cur_max_func
+	022dba18  <none>  0054  __iob_func
+	022dba20  <none>  0063  __setusermatherr
+	022dba28  <none>  0078  _amsg_exit
+	022dba30  <none>  00bc  _errno
+	022dba38  <none>  011d  _initterm
+	022dba40  <none>  0183  _lock
+	022dba48  <none>  0258  _setjmp
+	022dba50  <none>  0282  _stat64
+	022dba58  <none>  028a  _stricmp
+	022dba60  <none>  0293  _strnicmp
+	022dba68  <none>  02b3  _time64
+	022dba70  <none>  02ca  _unlock
+	022dba78  <none>  0387  abort
+	022dba80  <none>  038e  atan
+	022dba88  <none>  0393  atof
+	022dba90  <none>  0394  atoi
+	022dba98  <none>  0398  calloc
+	022dbaa0  <none>  03a9  fclose
+	022dbaa8  <none>  03ac  fflush
+	022dbab0  <none>  03ad  fgetc
+	022dbab8  <none>  03af  fgets
+	022dbac0  <none>  03b6  fopen
+	022dbac8  <none>  03bb  fputc
+	022dbad0  <none>  03bc  fputs
+	022dbad8  <none>  03bf  fread
+	022dbae0  <none>  03c0  free
+	022dbae8  <none>  03c7  fseek
+	022dbaf0  <none>  03c9  ftell
+	022dbaf8  <none>  03cd  fwrite
+	022dbb00  <none>  03d1  getc
+	022dbb08  <none>  03e1  isprint
+	022dbb10  <none>  03e3  isspace
+	022dbb18  <none>  03f2  isxdigit
+	022dbb20  <none>  03f6  localeconv
+	022dbb28  <none>  03fc  longjmp
+	022dbb30  <none>  03fd  malloc
+	022dbb38  <none>  0403  memchr
+	022dbb40  <none>  0404  memcmp
+	022dbb48  <none>  0405  memcpy
+	022dbb50  <none>  0406  memmove
+	022dbb58  <none>  0407  memset
+	022dbb60  <none>  0416  qsort
+	022dbb68  <none>  041a  realloc
+	022dbb70  <none>  041b  remove
+	022dbb78  <none>  0432  strcat
+	022dbb80  <none>  0434  strchr
+	022dbb88  <none>  0435  strcmp
+	022dbb90  <none>  0437  strcpy
+	022dbb98  <none>  0439  strcspn
+	022dbba0  <none>  043a  strerror
+	022dbba8  <none>  043c  strlen
+	022dbbb0  <none>  043d  strncat
+	022dbbb8  <none>  043f  strncmp
+	022dbbc0  <none>  0440  strncpy
+	022dbbc8  <none>  0442  strpbrk
+	022dbbd0  <none>  0443  strrchr
+	022dbbd8  <none>  0444  strspn
+	022dbbe0  <none>  0445  strstr
+	022dbbe8  <none>  0449  strtol
+	022dbbf0  <none>  044a  strtoul
+	022dbbf8  <none>  0453  tan
+	022dbc00  <none>  0459  tolower
+	022dbc08  <none>  045a  toupper
+	022dbc10  <none>  045d  ungetc
+	022dbc18  <none>  0460  vfprintf
+	022dbc20  <none>  047a  wcslen
+	022dbc28  <none>  04a5  _strtoui64
+	022dbc30  <none>  04aa  _strtoi64
+
+ 022db064	022db580 00000000 00000000 022dcd38 022dbc40
+
+	DLL Name: OPENGL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022dbc40  <none>  015f  wglGetCurrentContext
+	022dbc48  <none>  0164  wglGetProcAddress
+	022dbc50  <none>  016d  wglUseFontBitmapsA
+
+ 022db078	022db5a0 00000000 00000000 022dcd4c 022dbc60
+
+	DLL Name: SHELL32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022dbc60  <none>  0150  ShellExecuteA
+
+ 022db08c	022db5b0 00000000 00000000 022dcdcc 022dbc70
+
+	DLL Name: USER32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022dbc70  <none>  001f  CallNextHookEx
+	022dbc78  <none>  0020  CallWindowProcA
+	022dbc80  <none>  004c  ClientToScreen
+	022dbc88  <none>  00b9  DispatchMessageA
+	022dbc90  <none>  011e  GetAsyncKeyState
+	022dbc98  <none>  012a  GetClassLongPtrA
+	022dbca0  <none>  0130  GetClientRect
+	022dbca8  <none>  013b  GetCursor
+	022dbcb0  <none>  013d  GetCursorInfo
+	022dbcb8  <none>  013e  GetCursorPos
+	022dbcc0  <none>  0150  GetForegroundWindow
+	022dbcc8  <none>  017c  GetMessageA
+	022dbcd0  <none>  01a8  GetRawInputDeviceInfoA
+	022dbcd8  <none>  01aa  GetRawInputDeviceList
+	022dbce0  <none>  01d6  GetWindowLongPtrA
+	022dbce8  <none>  01e6  GetWindowThreadProcessId
+	022dbcf0  <none>  025c  MapVirtualKeyA
+	022dbcf8  <none>  0291  PostThreadMessageA
+	022dbd00  <none>  02e3  ScreenToClient
+	022dbd08  <none>  02ec  SendInput
+	022dbd10  <none>  02fa  SetClassLongPtrA
+	022dbd18  <none>  0302  SetCursor
+	022dbd20  <none>  0304  SetCursorPos
+	022dbd28  <none>  034c  SetWindowLongPtrA
+	022dbd30  <none>  0358  SetWindowsHookExA
+	022dbd38  <none>  035c  ShowCursor
+	022dbd40  <none>  0381  TranslateMessage
+	022dbd48  <none>  0385  UnhookWindowsHookEx
+	022dbd50  <none>  03b6  WindowFromDC
+
+ 022db0a0	022db6a0 00000000 00000000 022dce00 022dbd60
+
+	DLL Name: WINHTTP.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022dbd60  <none>  0009  WinHttpCloseHandle
+	022dbd68  <none>  000a  WinHttpConnect
+	022dbd70  <none>  0027  WinHttpOpen
+	022dbd78  <none>  0028  WinHttpOpenRequest
+	022dbd80  <none>  0039  WinHttpQueryDataAvailable
+	022dbd88  <none>  003a  WinHttpQueryHeaders
+	022dbd90  <none>  003c  WinHttpReadData
+	022dbd98  <none>  003f  WinHttpReceiveResponse
+	022dbda0  <none>  0042  WinHttpSendRequest
+	022dbda8  <none>  0048  WinHttpSetTimeouts
+
+ 022db0b4	022db6f8 00000000 00000000 022dce5c 022dbdb8
+
+	DLL Name: WS2_32.dll
+	vma:     Ordinal  Hint  Member-Name  Bound-To
+	022dbdb8  <none>  0020  WSACleanup
+	022dbdc0  <none>  0031  WSAGetLastError
+	022dbdc8  <none>  003c  WSAIoctl
+	022dbdd0  <none>  005a  WSAStartup
+	022dbdd8  <none>  00a4  bind
+	022dbde0  <none>  00a5  closesocket
+	022dbde8  <none>  00a7  freeaddrinfo
+	022dbdf0  <none>  00a8  getaddrinfo
+	022dbdf8  <none>  00b4  htonl
+	022dbe00  <none>  00b5  htons
+	022dbe08  <none>  00b8  inet_ntop
+	022dbe10  <none>  00b9  inet_pton
+	022dbe18  <none>  00ba  ioctlsocket
+	022dbe20  <none>  00bc  ntohl
+	022dbe28  <none>  00bd  ntohs
+	022dbe30  <none>  00bf  recvfrom
+	022dbe38  <none>  00c0  select
+	022dbe40  <none>  00c2  sendto
+	022dbe48  <none>  00c3  setsockopt
+	022dbe50  <none>  00c5  socket
+
+ 022db0c8	00000000 00000000 00000000 00000000 00000000
+
+There is an export table in .edata at 0x2e5d2a000
+
+The Export Tables (interpreted .edata section contents)
+
+Export Flags 			0
+Time/Date stamp 		6b072678
+Major/Minor 			0/0
+Name 				00000000022da0e6 MXRP_Ragdoll.dlo
+Ordinal Base 			1
+Number in:
+	Export Address Table 		00000013
+	[Name Pointer/Ordinal] Table	00000013
+Table Addresses
+	Export Address Table 		00000000022da028
+	Name Pointer Table 		00000000022da074
+	Ordinal Table 			00000000022da0c0
+
+Export Address Table -- Ordinal Base 1
+	          Ordinal  Address  Type
+	[   0] +base[   1] 000264a0 Export RVA
+	[   1] +base[   2] 000262f0 Export RVA
+	[   2] +base[   3] 00025900 Export RVA
+	[   3] +base[   4] 00024e20 Export RVA
+	[   4] +base[   5] 00023cd0 Export RVA
+	[   5] +base[   6] 00023cc0 Export RVA
+	[   6] +base[   7] 00023cb0 Export RVA
+	[   7] +base[   8] 00025be0 Export RVA
+	[   8] +base[   9] 00025ed0 Export RVA
+	[   9] +base[  10] 00025dd0 Export RVA
+	[  10] +base[  11] 00025a90 Export RVA
+	[  11] +base[  12] 000259a0 Export RVA
+	[  12] +base[  13] 00025fe0 Export RVA
+	[  13] +base[  14] 00025ff0 Export RVA
+	[  14] +base[  15] 00025f90 Export RVA
+	[  15] +base[  16] 00025fa0 Export RVA
+	[  16] +base[  17] 00026000 Export RVA
+	[  17] +base[  18] 00024d20 Export RVA
+	[  18] +base[  19] 00023ce0 Export RVA
+
+[Ordinal/Name Pointer] Table -- Ordinal Base 1
+	          Ordinal   Hint Name
+	[   0] +base[   1]  0000 Draw
+	[   1] +base[   2]  0001 DrawInit
+	[   2] +base[   3]  0002 EventDeinit
+	[   3] +base[   4]  0003 EventInit
+	[   4] +base[   5]  0004 GetInterfaceVersion
+	[   5] +base[   6]  0005 GetModDataVersion
+	[   6] +base[   7]  0006 GetModID
+	[   7] +base[   8]  0007 RaceAddEntry
+	[   8] +base[   9]  0008 RaceRemoveEntry
+	[   9] +base[  10]  0009 RaceTrackPosition
+	[  10] +base[  11]  000a RunDeinit
+	[  11] +base[  12]  000b RunInit
+	[  12] +base[  13]  000c RunLap
+	[  13] +base[  14]  000d RunSplit
+	[  14] +base[  15]  000e RunStart
+	[  15] +base[  16]  000f RunStop
+	[  16] +base[  17]  0010 RunTelemetry
+	[  17] +base[  18]  0011 Shutdown
+	[  18] +base[  19]  0012 Startup
+
+(exit 0)

@@ -1308,6 +1308,44 @@
         "permalink": "https://www.virustotal.com/gui/file/458e42de3a783cd33c61631de83243525793bf2968cba6f60e84faafcd9ebaeb"
       }
     },
+    "mxrp-ragdoll-3.2.yaml": {
+      "7f8e19f40c25ba56cce4c156aa1643756da7a39c96158fa3753f1a5ee45ef106": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45907155780",
+        "permalink": "https://www.virustotal.com/gui/file/7f8e19f40c25ba56cce4c156aa1643756da7a39c96158fa3753f1a5ee45ef106"
+      },
+      "6250ac54cb81ae5adcb8f588fe92649015b03381d25ac7c99b78b855c956d2ed": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45907155780",
+        "permalink": "https://www.virustotal.com/gui/file/6250ac54cb81ae5adcb8f588fe92649015b03381d25ac7c99b78b855c956d2ed"
+      },
+      "624fd5ecca79c5251a7f044573e76d77c11106124eb98f581ea22dd2bbe9ba69": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45907155780",
+        "permalink": "https://www.virustotal.com/gui/file/624fd5ecca79c5251a7f044573e76d77c11106124eb98f581ea22dd2bbe9ba69"
+      },
+      "e023cfe20557dc96466bebe105abede5ec5b8b60ffc1cb1db2ddae9edb23de96": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45907155780",
+        "permalink": "https://www.virustotal.com/gui/file/e023cfe20557dc96466bebe105abede5ec5b8b60ffc1cb1db2ddae9edb23de96"
+      },
+      "c8179dbd9ab03b1c1ecb56421cd2b7e1c6b2cafbc2d9a828eb0dbc370bf3c0b1": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45907155780",
+        "permalink": "https://www.virustotal.com/gui/file/c8179dbd9ab03b1c1ecb56421cd2b7e1c6b2cafbc2d9a828eb0dbc370bf3c0b1"
+      },
+      "a0c4ea85763508c6c98783541d53c7f3ae1a7b477a6ee347e525dafb5ac9d4de": {
+        "found": false,
+        "looked_up": "2026-11-26",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/45907155780",
+        "permalink": "https://www.virustotal.com/gui/file/a0c4ea85763508c6c98783541d53c7f3ae1a7b477a6ee347e525dafb5ac9d4de"
+      }
+    },
     "pitbox-3.0.4.yaml": {
       "4f58df6c82845d181779854aaddaf64f9af29e3b9d5b617e9bbe964f4675d776": {
         "found": true,

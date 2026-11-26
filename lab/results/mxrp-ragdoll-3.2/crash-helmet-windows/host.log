@@ -1,0 +1,94 @@
+host: D:\a\_temp\mxbfacts\run-crash-helmet\mxbikes.exe
+GL: Mesa | llvmpipe (LLVM 23.1.5, 256 bits) | 4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+== host import table check (before plugins)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+loaded plugins\MXRP_Ragdoll.dlo (mod id 'mxbikes')
+loaded victim.dlo (mod id 'victim')
+Startup(plugins\MXRP_Ragdoll.dlo) -> 0
+Startup(victim.dlo) -> -1
+== host import table check (after Startup)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+DrawInit(plugins\MXRP_Ragdoll.dlo) -> 0, 0 sprites, 0 fonts
+Draw(plugins\MXRP_Ragdoll.dlo): 0 quads, 0 strings
+direct HUD draw saw viewport 0,0 1280x720, draw FBO 0
+frames 1500, avg 15.84 ms, worst 149.24 ms
+== host import table check (after frames)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+== bystander plugin (victim.dlo) import table
+  import glOrtho    untouched
+  import glBegin    untouched
+  import glViewport untouched
+== bystander plugin (victim.dlo) pointer table
+  glOrtho          untouched
+  glFrustum        untouched
+  glLoadIdentity   untouched
+  glDrawElements   untouched
+  glViewport       untouched
+  glScissor        untouched
+  glReadPixels     untouched
+  glBegin          untouched
+FreeLibrary victim.dlo
+FreeLibrary plugins\MXRP_Ragdoll.dlo
+== host import table check (after unload)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+exit=-1073741819

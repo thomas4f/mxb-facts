@@ -1,0 +1,5 @@
+$ for f in MXRP_Ragdoll.dlo installer.exe; do echo "== $f"; iat.py $f | grep -E '!(listen|accept)$|RegSetValue|RegCreateKey|RegDeleteKey|CreateProcess|WinExec|CreateRemoteThread|AddVectoredExceptionHandler|SetUnhandledExceptionFilter|CreateFileMapping|wininet|urlmon'; done
+== MXRP_Ragdoll.dlo
+== installer.exe
+0x140010450  KERNEL32.dll!SetUnhandledExceptionFilter
+(exit 0)

@@ -1,0 +1,42 @@
+$ objdump -d 'installer.exe' | awk -v a=140001f69 -v b=140002016 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   140001f69:	48 8d 84 24 f0 02 00 	lea    0x2f0(%rsp),%rax
+   140001f70:	00 
+   140001f71:	49 89 e9             	mov    %rbp,%r9
+   140001f74:	4c 8d 05 c4 93 00 00 	lea    0x93c4(%rip),%r8        # 0x14000b33f
+   140001f7b:	ba 08 02 00 00       	mov    $0x208,%edx
+   140001f80:	48 89 c7             	mov    %rax,%rdi
+   140001f83:	48 89 c1             	mov    %rax,%rcx
+   140001f86:	48 89 44 24 50       	mov    %rax,0x50(%rsp)
+   140001f8b:	48 8d 35 ce 96 00 00 	lea    0x96ce(%rip),%rsi        # 0x14000b660
+   140001f92:	e8 e9 f4 ff ff       	call   0x140001480
+   140001f97:	48 89 f9             	mov    %rdi,%rcx
+   140001f9a:	31 d2                	xor    %edx,%edx
+   140001f9c:	48 8d bc 24 00 05 00 	lea    0x500(%rsp),%rdi
+   140001fa3:	00 
+   140001fa4:	ff 15 ee e3 00 00    	call   *0xe3ee(%rip)        # 0x140010398
+   140001faa:	c7 44 24 74 00 00 00 	movl   $0x0,0x74(%rsp)
+   140001fb1:	00 
+   140001fb2:	4c 8b 35 6f e5 00 00 	mov    0xe56f(%rip),%r14        # 0x140010528
+   140001fb9:	4c 8d ac 24 b0 01 00 	lea    0x1b0(%rsp),%r13
+   140001fc0:	00 
+   140001fc1:	4c 89 64 24 78       	mov    %r12,0x78(%rsp)
+   140001fc6:	48 89 ac 24 80 00 00 	mov    %rbp,0x80(%rsp)
+   140001fcd:	00 
+   140001fce:	48 8b 06             	mov    (%rsi),%rax
+   140001fd1:	4c 8b 4c 24 50       	mov    0x50(%rsp),%r9
+   140001fd6:	ba 0c 03 00 00       	mov    $0x30c,%edx
+   140001fdb:	48 89 f9             	mov    %rdi,%rcx
+   140001fde:	4c 8d 05 a1 90 00 00 	lea    0x90a1(%rip),%r8        # 0x14000b086
+   140001fe5:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   140001fea:	e8 91 f4 ff ff       	call   0x140001480
+   140001fef:	4c 89 ea             	mov    %r13,%rdx
+   140001ff2:	48 89 f9             	mov    %rdi,%rcx
+   140001ff5:	ff 15 d5 e3 00 00    	call   *0xe3d5(%rip)        # 0x1400103d0
+   140001ffb:	49 89 c7             	mov    %rax,%r15
+   140001ffe:	48 83 f8 ff          	cmp    $0xffffffffffffffff,%rax
+   140002002:	0f 85 40 01 00 00    	jne    0x140002148
+   140002008:	48 83 c6 08          	add    $0x8,%rsi
+   14000200c:	48 8d 05 6d 96 00 00 	lea    0x966d(%rip),%rax        # 0x14000b680
+   140002013:	48 39 c6             	cmp    %rax,%rsi
+   140002016:	75 b6                	jne    0x140001fce
+(exit 0)
