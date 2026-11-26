@@ -73,6 +73,8 @@
       h.hidden = !g.some(function (c) { return !c.hidden; });
     });
     $('#count').textContent = n + ' of ' + cards.length + ' tools';
+    // Clear, like Compare's, keeps its place and is off while the list is as it opened.
+    $('#clear').disabled = !S.q && !S.cat && !S.game && S.sort === 'name';
     $('#none').hidden = n > 0;
   }
 
@@ -168,6 +170,7 @@
       m.firstChild.textContent = open ? 'Fewer' : m.dataset.label;
       return;
     }
+    if (t.id === 'clear') { clearTools(); return; }
     if (t.closest('[data-cmp-clear]')) {
       picked = []; store.set('compare', picked); showPicked();
       if ($('#cmp')) { history.replaceState(null, '', location.pathname); $('#picker').open = true; }  // back to picking
@@ -198,6 +201,12 @@
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { say('Copied'); }, sel); else sel();
     }
   });
+  // Clear puts the search, the filters and the sort back as the list opened, and takes the filters out of the address.
+  function clearTools() {
+    S = { q: '', cat: '', game: '', sort: 'name' };
+    ['q', 'cat', 'game', 'sort'].forEach(function (k) { $('#' + k).value = S[k]; });
+    keepFilters(); showTools(); $('#q').focus();
+  }
   document.addEventListener('input', function (e) { if (e.target.id === 'q') { S.q = e.target.value; showTools(); } });
   document.addEventListener('change', function (e) {
     var t = e.target;

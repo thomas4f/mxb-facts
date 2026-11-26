@@ -150,6 +150,7 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .card .foot { margin-top: auto; padding-top: var(--s3); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: var(--s2) }
 .btn { display: inline-flex; align-items: center; gap: var(--s2); padding: var(--s2) var(--s4); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface); cursor: pointer; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 14.5px }
 .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
+.btn:disabled { opacity: .45; cursor: default }
 /* The compare tray stays one slim row at every width (its words wrap, its buttons don't), so on a phone it covers as little of
    the tools list as it can. */
 .cmpbar { position: sticky; bottom: max(12px, env(safe-area-inset-bottom, 0px)); display: flex; gap: var(--s3); align-items: center; justify-content: space-between;

@@ -24,6 +24,24 @@ test('search and category narrow the tools list and say how many are shown', asy
   await expect(page.locator('.ghead:visible')).toHaveText(['HUD']);
 });
 
+test('Clear is off until the list changes, then puts the search, filters, sort and address back', async ({ page }) => {
+  await page.goto('?game=MX+Bikes');
+  const clear = page.locator('#clear');
+  await expect(clear).toBeEnabled();
+  await page.fill('#q', 'holeshot');
+  await page.locator('#sort').selectOption('score');
+  await page.locator('#cat').selectOption('HUD');
+  await clear.click();
+  await expect(page.locator('#q')).toHaveValue('');
+  await expect(page.locator('#sort')).toHaveValue('name');
+  await expect(page.locator('#game')).toHaveValue('');
+  await expect(page.locator('#cat')).toHaveValue('');
+  await expect(page).not.toHaveURL(/\?/);
+  await expect(page.locator('#count')).toHaveText(/^(\d+) of \1 tools$/);
+  await expect(clear).toBeDisabled();
+  await expect(page.locator('#q')).toBeFocused();
+});
+
 test('the tools list stays grouped by category whatever the sort, each tool under its own category', async ({ page }) => {
   await page.goto('');
   await page.locator('#sort').selectOption('score');
