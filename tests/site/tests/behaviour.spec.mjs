@@ -21,6 +21,29 @@ test('search and category narrow the tools list and say how many are shown', asy
   await page.fill('#q', '');
   await page.locator('#cat').selectOption('HUD');
   for (const c of await page.locator('.card:visible').all()) await expect(c).toHaveAttribute('data-cat', 'HUD');
+  await expect(page.locator('.ghead:visible')).toHaveText(['HUD']);
+});
+
+test('the tools list stays grouped by category whatever the sort, each tool under its own category', async ({ page }) => {
+  await page.goto('');
+  await page.locator('#sort').selectOption('score');
+  const cats = await page.locator('#tools-grid > :visible').evaluateAll(els => {
+    let cur = null; const seen = [];
+    for (const e of els) {
+      if (e.classList.contains('ghead')) { cur = e.dataset.cat; seen.push(cur); } else if (e.dataset.cat !== cur) return ['misplaced ' + e.dataset.name];
+    }
+    return seen;
+  });
+  expect(new Set(cats).size).toBe(cats.length);
+  expect(cats.length).toBeGreaterThan(1);
+});
+
+test('Compare shows each answer as its mark, with the answer on hover and for screen readers', async ({ page }) => {
+  await page.goto('compare/?c=holeshot-0.24.2,pitbox-3.0.4');
+  const cell = page.locator('#cmp td:visible', { has: page.locator('.st') }).nth(2);
+  await expect(cell.locator('.vd')).toHaveCount(0);
+  const word = (await cell.locator('.vh').textContent()).trim();
+  expect(await cell.locator('.st').getAttribute('title')).toMatch(new RegExp('^' + word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[:.]?'));
 });
 
 test('Compare shows only the picked tools, and only the differences when asked', async ({ page }) => {

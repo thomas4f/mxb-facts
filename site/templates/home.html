@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% from "macros.html" import bar, of100, sep %}
+{% from "macros.html" import bar, of100 %}
 {% block nav %}tools{% endblock %}
 {% block main %}
 <section class="hero">
@@ -17,14 +17,17 @@
 </div>
 {# How many tools the filters show, and how to read their scores, on one line above the list. #}
 <div class="cntr"><p class="count" id="count" role="status">{{ IX.tools | length }} tools</p><p class="count">A score sums up what was found and what could be checked; with closed source, the most is {{ SITE.closed_cap }}.</p></div>
+{# Grouped by category, in the category filter's order, under the label the Compare picker uses; the sort orders each group. #}
 <div class="grid" id="tools-grid">
-{% for t in IX.tools %}
+{% for cat in IX.categories %}
+<p class="cat ghead" data-cat="{{ cat }}">{{ cat }}</p>
+{% for t in IX.tools if t.category == cat %}
 {% set r = t.latest.result %}
 {% set tg = t.latest.tags %}
 {% set shown = 4 %}
 <article class="card" data-name="{{ t.name | lower }}" data-score="{{ r.score if r.kind == 'score' else '' }}" data-date="{{ t.latest.analysed_iso }}" data-cat="{{ t.category }}" data-game="{{ t.games | join('|') }}"
   data-search="{{ ([t.name, t.author, t.summary, t.category] + t.games + tg | map(attribute='label') | list) | join(' ') | lower }}">
-  <div class="row1"><span class="cat">{{ t.games | join(' + ') }}{{ sep() }}{{ t.category }}</span>
+  <div class="row1"><span class="cat">{{ t.games | join(' + ') }}</span>
     {% if r.kind == 'score' %}<span class="score num">{{ r.score }}{{ of100() }}</span>{% else %}<span class="score word">{{ mark(r.kind) }}</span>{% endif %}</div>
   {% if r.kind == 'score' %}{{ bar(r.score) }}{% endif %}
   <h3><a href="{{ root }}{{ t.id }}/">{{ t.name }}</a></h3>
@@ -42,6 +45,7 @@
   </div>
   <div class="foot"><label class="cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare</label><a class="btn" href="{{ root }}{{ t.id }}/">View findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
 </article>
+{% endfor %}
 {% endfor %}
 </div>
 <p class="empty" id="none" hidden>No tool matches. Clear the search or pick another category.</p>

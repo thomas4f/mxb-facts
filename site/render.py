@@ -89,7 +89,7 @@ def write_pages(SITE):
         c = Markup(f' <span class="c">{escape(cost)}</span>') if cost else ''
         return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{escape(words or s["label"])}{c}</span>')
 
-    def answer_mark(x, scored, says=False):
+    def answer_mark(x, scored, says=False, word=True):
         # An answer's mark: its state's word in its colour, with what it costs where the tool has a score ("Concern −25", "in T1"
         # when another answer already counts the same behaviour, or "±0" when the cost is waived), then the verdict itself ("Yes").
         # The word is text, never only a colour or icon, and never only a hover, which a phone doesn't show.
@@ -98,10 +98,14 @@ def write_pages(SITE):
         elif scored and x['cost_note'] and x['counted_with']: cost = f'in {x["counted_with"]}'
         elif scored and x['cost_note']: cost = '±0'
         # Its hover: why it costs what it does where that needs saying, else what the mark means. Where the answer's own words
-        # aren't beside it (Compare, says=True), the hover is those words, so a reader sees what this tool does, not the legend.
+        # aren't beside it (says=True: Compare, a release's changes), the hover is those words, so a reader sees what this tool
+        # does, not the legend. Compare shows the mark alone (word=False): the marks are what a reader compares, the answer
+        # ("Partly", "Yes, not by default") opens the hover, and a screen reader still hears it; a tap opens the full answer.
         tip = x['cost_note'] or None
         if says: tip = x['text_plain'] + (f' ({x["cost_note"]}.)' if x['cost_note'] else '')
+        if not word: tip = f'{x["verdict"]}: {tip}' if tip else x['verdict']
         pill = mark(x['state'], None, cost, tip)
+        if not word: return pill + Markup(f'<span class="vh"> {escape(x["verdict"])}</span>')
         return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill
 
     TAGMEANS = {x['label']: x['means'] for x in IX['tags']}

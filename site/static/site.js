@@ -66,7 +66,12 @@
       'score-lo': function (a, b) { return (num(a) < 0) - (num(b) < 0) || num(a) - num(b) || by.name(a, b); },
       date: function (a, b) { return b.dataset.date.localeCompare(a.dataset.date) || by.name(a, b); }
     };
-    cards.sort(by[S.sort]).forEach(function (c) { grid.appendChild(c); });
+    // Each category keeps its place and its label; the sort orders the tools under it, and a label with none shown hides.
+    $$('.ghead', grid).forEach(function (h) {
+      var g = cards.filter(function (c) { return c.dataset.cat === h.dataset.cat; }).sort(by[S.sort]);
+      grid.appendChild(h); g.forEach(function (c) { grid.appendChild(c); });
+      h.hidden = !g.some(function (c) { return !c.hidden; });
+    });
     $('#count').textContent = n + ' of ' + cards.length + ' tools';
     $('#none').hidden = n > 0;
   }
