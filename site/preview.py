@@ -30,6 +30,16 @@ def fit(d, text, name, size, width, least):
     return text, f
 
 
+def slash(d, x, base, size, fill):
+    # The accent slash as the page sets it (site.css, .sl) beside text of this size: Saira ExtraBold Italic at .82 of it, stroked
+    # .02 of its own size and raised .075 of it, so it spans the capitals; its ink starts at x. Returns how far the next text starts after x (its ink
+    # and a small gap). With no fill it only measures.
+    fs = size * .82; sw = max(1, round(fs * .02)); f = font(MARK, round(fs)); y = base - round(fs * .075)
+    b = f.getbbox('/', anchor='ls', stroke_width=sw)
+    if fill: d.text((x - b[0], y), '/', font=f, fill=fill, anchor='ls', stroke_width=sw, stroke_fill=fill)
+    return b[2] - b[0] + size * .1
+
+
 def wordmark(d, x, y, size):
     # MXB and FACTS in ink with the badge check between them in the accent, as the header; y is the top of the capitals.
     f = font(MARK, size); b = f.getbbox('H'); s = (b[3] - b[1]) / WM['cap']; base = y + WM['cap'] * s
@@ -93,14 +103,13 @@ def card_image(c, IX, SITE, newer=(), pending=None):
     # grey, who made it and when it was analysed, and the score large on the right, the slash in the accent and 100 in grey.
     if r['kind'] == 'score':
         big = f'{r["score"]:g}'; fb = font(HEAD, 200); fo = font(HEAD, 60)
-        sl, hund = '/', '100'
-        wr = d.textlength(sl, font=fo) + d.textlength(hund, font=fo)
+        hund = '100'
+        wr = 8 + slash(d, 0, 0, 60, None) + d.textlength(hund, font=fo)
         xr = W - M - wr; ink = fb.getbbox(big, anchor='ls')  # the digits' ink, so the slash sits close as on the page
         bw0 = ink[2] - ink[0]
         d.text((xr - ink[2], 300), big, font=fb, fill=DARK['ink'], anchor='ls')
-        xs = xr - fo.getbbox(sl, anchor='ls')[0]  # the slash's ink, not its box, meets the digits
-        d.text((xs, 300), sl, font=fo, fill=DARK['accent'], anchor='ls')
-        d.text((xs + d.textlength(sl, font=fo), 300), hund, font=fo, fill=muted, anchor='ls')
+        xs = xr + 8 + slash(d, xr + 8, 300, 60, DARK['accent'])
+        d.text((xs, 300), hund, font=fo, fill=muted, anchor='ls')
         left = xr - bw0
     else:
         words = {'malware': 'Signs of malware', 'pending': 'Not analysed yet'}.get(r['kind'], 'Not scored')
@@ -111,7 +120,7 @@ def card_image(c, IX, SITE, newer=(), pending=None):
     path = f'{" + ".join(c["games"])} / {c["category"]}'.upper()
     fp = font(HEAD, 26); x = M
     for k, part in enumerate(path.split(' / ')):
-        if k: d.text((x + 6, 150), '/', font=fp, fill=DARK['accent'], anchor='ls'); x += d.textlength('/', font=fp) + 12
+        if k: x += 6 + slash(d, x + 6, 150, 26, DARK['accent']) + 6
         t, _ = fit(d, part, HEAD, 26, max(lw - (x - M), 40), 26); d.text((x, 150), t, font=fp, fill=muted, anchor='ls'); x += d.textlength(t, font=fp)
     name, f = fit(d, c['name'], HEAD, 96, lw - 120, 56); d.text((M, 240), name, font=f, fill=DARK['ink'], anchor='ls')
     vt, fv = fit(d, pending or c['version'], HEAD, 44, max(lw - d.textlength(name, font=f) - 16, 60), 28)
@@ -174,7 +183,7 @@ def site_image(IX, SITE):
     # The site, as the home page opens: the wordmark, its heading, its intro and how many tools have a card.
     im, d = canvas(); muted = DARK['muted']
     wordmark(d, M, 78, 64)
-    size = 132  # the home page's heading, its last word in the accent, as large as fits the width
+    size = 132  # the home page's heading, its accent word (content.yaml, heading_accent) in the accent, as large as fits the width
     while size > 72 and d.textlength(SITE['heading'], font=font(HEAD, size)) > W - 2 * M: size -= 2
     f = font(HEAD, size)
     assert d.textlength(SITE['heading'], font=f) <= W - 2 * M, 'preview.py: the home heading is too wide for the site image'

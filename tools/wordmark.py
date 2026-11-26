@@ -16,13 +16,14 @@ from fontTools.ttLib import TTFont
 from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 from fontTools.pens.boundsPen import BoundsPen
+from fontTools.pens.recordingPen import RecordingPen
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + '/'
 FONTS = ROOT + 'site/static/fonts/'
 CAP = 700      # the capitals' height the paths are drawn at
 TRACK = -10    # the header's letter-spacing, -.01em
 # The badge check, in a box CAP tall before the slant: the box's width and corner radius, and the check's spine (three points
-# from the box's left edge) and stroke width. The check is a polyline of that width, mitred at its corner, square at its ends.
+# from the box's left edge) and stroke width. The check is a polyline of that width, mitred at its corner, flat at its ends.
 BOX_W, BOX_R = 610, 120
 CHECK, CHECK_W = [(140, -370), (270, -225), (470, -500)], 105
 
@@ -47,6 +48,24 @@ def glyphs(font, chars):
         bp = BoundsPen(gs); gs[name].draw(TransformPen(bp, (s, 0, 0, -s, 0, 0)))
         out[ch] = {'d': pen.getCommands(), 'w': gs[name].width * s, 'b': bp.bounds}
     return out
+
+
+def slash():
+    # The accent slash as the site sets it (site.css, .sl): Saira ExtraBold Italic's slash (a parallelogram) with the page's
+    # .02em stroke around it (STROKE font units), scaled to span the capitals exactly, from the baseline to the cap height, and
+    # leaning with the wordmark. Its ink starts SIDE in from its origin and ends SIDE short of its advance, so it never touches the
+    # figures beside it.
+    f, gs, cmap, s = load('saira-latin-800-italic.woff2'); name = cmap[ord('/')]; SIDE, STROKE = 50, 20
+    rp = RecordingPen(); gs[name].draw(rp); pts = [v[0] for op, v in rp.value if v]
+    assert len(pts) == 4, 'tools/wordmark.py: the slash is no longer a parallelogram'
+    (bx0, by), (bx1, _) = sorted(sorted(pts, key=lambda q: q[1])[:2]); (tx0, ty), (tx1, _) = sorted(sorted(pts, key=lambda q: q[1])[2:])
+    e = STROKE * math.hypot(tx0 - bx0, ty - by) / (ty - by)  # the stroke, measured across: wider than STROKE on a slant
+    quad = [(bx0 - e, by - STROKE), (tx0 - e, ty + STROKE), (tx1 + e, ty + STROKE), (bx1 + e, by - STROKE)]
+    u = CAP / (ty - by + 2 * STROKE); x0 = bx0 - e; y0 = by - STROKE
+    xy = [(SIDE + (x - x0) * u, -(y - y0) * u) for x, y in quad]
+    d = 'M' + 'L'.join(f'{num(x)} {num(y)}' for x, y in xy) + 'Z'
+    xs = [x for x, _ in xy]
+    return {'d': d, 'w': max(xs) - min(xs) + 2 * SIDE, 'b': (min(xs), -CAP, max(xs), 0)}
 
 
 def setline(gl, text, x0=0):
@@ -127,8 +146,9 @@ brand = {
                  'spine': [list(p) for p in CHECK], 'stroke': CHECK_W},
         # How far the slant takes the box past its foot, so a box drawn around the mark alone can be centred on it.
         'lean': round(k * CAP, 1)},
-    # The score as the site shows it (Saira Bold, the head face): figures, "/", "?", the dash for no score, and "." for half points.
-    'figures': glyphs('saira-latin-700-normal.woff2', '0123456789/?.–'),
+    # The score as the site shows it (Saira Bold, the head face): figures, "?", the dash for no score, and "." for half points;
+    # its "/" is the accent slash, as tall as the capitals.
+    'figures': {**glyphs('saira-latin-700-normal.woff2', '0123456789?.–'), '/': slash()},
 }
 json.dump(brand, open(ROOT + 'site/brand.json', 'w'), separators=(',', ':'))
 open(ROOT + 'site/brand.json', 'a').write('\n')

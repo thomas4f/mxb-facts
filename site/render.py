@@ -39,6 +39,12 @@ def _post(h):
     h = re.sub(r'<th(?=[ >])(?![^>]*scope)', '<th scope="col"', h)
     # A dated table (its first header is "Date") keeps each date on one line, as the Card history does.
     h = re.sub(r'<table>\s*<thead>\s*<tr>\s*<th scope="col">Date</th>.*?</table>', lambda m: re.sub(r'<tr>\s*<td>', '<tr>\n<td class="nowrap">', m.group(0)), h, flags=re.S)
+    # A code block gets the Copy button every other code block on the site has (macros.html, snippet), named by its text so the
+    # same block keeps the same id.
+    h = re.sub(r'<pre><code([^>]*)>(.*?)</code></pre>', lambda m: (
+        f'<div class="copy"><pre><code id="code-{hashlib.sha256(m.group(2).encode()).hexdigest()[:8]}"{m.group(1)}>{m.group(2)}</code></pre>'
+        f'<button class="cpb" type="button" data-copy="code-{hashlib.sha256(m.group(2).encode()).hexdigest()[:8]}" title="Copy">'
+        '<span class="vh">Copy</span></button></div>'), h, flags=re.S)
     return h.replace('<table>', '<div class="tw"><table class="t">').replace('</table>', '</table></div>')
 
 

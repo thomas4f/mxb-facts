@@ -19,7 +19,7 @@
 {%- endmacro %}
 
 {# A score as a number and a bar, the same for the overall score and each area. #}
-{# The wordmark's slash, in the accent, where the site joins two parts: a label's parts (sep) and a score out of 100 (of100).
+{# The accent slash, in the wordmark's face, where the site joins two parts: a label's parts (sep) and a score out of 100 (of100).
    Screen readers hear ", " and "out of 100" in its place. #}
 {% macro sep() -%}<i class="sl" aria-hidden="true">/</i><span class="vh">, </span>{%- endmacro %}
 {% macro of100() -%}<small class="of" aria-hidden="true"><i class="sl">/</i>100</small><span class="vh"> out of 100</span>{%- endmacro %}

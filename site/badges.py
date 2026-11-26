@@ -10,7 +10,7 @@ from brand import DARK, RED, figures, figures_width, wordmark, wordmark_width
 # Badges (rules/scores.md, "Badge"): four shields in the shields.io styles (flat, plastic, flat-square, for-the-badge: same
 # sizes, padding, font, label grey and, on flat and plastic, the same sheen and text shadow), so they sit with a README's other
 # shields on a light or a dark page; a score tile and a card with the area scores, in the pit board's look like the card image.
-# The shields' label is the MXB/FACTS wordmark in white, drawn as shapes so it looks the same on any page; the score is on the
+# The shields' label is the MXB Facts wordmark in white, drawn as shapes so it looks the same on any page; the score is on the
 # site's accent. The message text is sized from DejaVu Sans widths, the shields.io fallback for Verdana, and pinned with
 # textLength so every viewer draws it the same width.
 LABEL='#555'  # the shields.io label grey: readable on GitHub's light and dark themes alike

@@ -7,6 +7,7 @@
    (?c=<card>,<card> or the Compare boxes on the tools list), so a mark never gets drawn a second way. #}
 {% block main %}
 <h1 class="sec-h">Compare</h1>
+{# site.js changes the hint's words but never hides it, so nothing below it moves. #}
 <p class="muted" data-cmp-hint>Tick two or more tools below, or from the tools list.</p>
 <noscript><p class="notice">Compare needs JavaScript to show only the tools you pick; without it, every tool is shown.</p></noscript>
 <details class="fold" id="picker" open><summary><span class="ft">Pick tools <span class="muted" data-cmp-n-label></span></span></summary><div class="body pad">
@@ -26,7 +27,7 @@
 </div></div>
 {% endfor %}
 </div></div></details>
-<label class="cmpl"><input type="checkbox" id="diff"> Show only differences</label>
+<div class="cmptools"><label class="cmpl"><input type="checkbox" id="diff"> Show only differences</label><button class="btn" type="button" data-cmp-clear disabled>Clear</button></div>
 <p class="count">A mark shows what each tool was given; point at it for the answer, or open it for the full line on the tool's page.</p>
 <div class="ctw"><table class="cmp all" id="cmp">
 <thead><tr><th scope="col"><span class="vh">Question</span></th>{% for c in cards %}<th scope="col" data-c="{{ c.card }}"><a href="{{ root }}{{ c.tool }}/{% if not c.latest %}{{ c.version }}/{% endif %}">{{ c.name }}</a> <span class="muted">{{ c.version }}</span></th>{% endfor %}</tr></thead>
