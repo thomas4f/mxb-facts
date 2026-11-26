@@ -117,7 +117,7 @@ areas:
   Creators' content: It reads mods' readable files and headers and installs mods from their authors' links; it decrypts nothing.
   Transparency: >-
     The app's code ships as Python source, but the plugins are closed, there is no licence or public history, and its README
-    says it updates itself when it asks first.
+    says it updates itself; it asks first.
   Money: Free; it links to a Ko-fi page for donations.
 sections:
   - title: Your PC and files
@@ -391,7 +391,7 @@ answers:
     text: >-
       You need a Steam account and a Discord account linked to it, and must stay in Pitbox's Discord server; signing in creates
       your rider profile on its server.
-    evidence: '`lab/evidence/pitbox-3.0.4/access.txt` (lines 1 to 10); `lab/evidence/pitbox-3.0.4/sends.txt` (line 14, `POST /v1/piloto`, and lines 61 to 63, the same profile on any PC).'
+    evidence: '`lab/evidence/pitbox-3.0.4/access.txt` (lines 1 to 10); `lab/evidence/pitbox-3.0.4/sends.txt` (line 13, `POST /v1/piloto`, and lines 61 to 63, the same profile on any PC).'
   D10:
     verdict: 'No'
     mark: good
@@ -580,4 +580,10 @@ history:
     change: First card, for 3.0.4.
   - date: 26 Nov 2026
     change: >-
-      K9 reads "No": it takes the best of P5, T3 and T4, which are all No; it read "Partly", counting signed updates, which P3 answers. D2 no longer lists weather among what a lap upload carries, which the evidence doesn't show. D9's evidence now points to the lines that show the rider profile. No score change.
+      K9 reads "No": it takes the best of P5, T3 and T4, which are all No; it read "Partly", counting signed updates, which P3 answers. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      D2 no longer lists weather among what a lap upload carries, which the evidence doesn't show. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      D9's evidence now points to the lines that show the rider profile. No score change.

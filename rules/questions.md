@@ -61,7 +61,7 @@ Areas, and the questions within each area, are listed most critical first: what 
 | P1 | Your PC and files | Do antivirus engines flag the release files (VirusTotal hash lookups)? | Concern | Good; Note if a file players download isn't on VirusTotal | Note |
 | P2 | Your PC and files | Does it install updates without asking? | Concern | Good | Note |
 | P3 | Your PC and files | Are updates checked before they are installed? | Good | Concern | Concern: the only check comes from the same place as the file |
-| P4 | Your PC and files | Can it delete or overwrite files that aren't its own? | Concern; Note if only on request | Good | Note: it only moves, renames or backs up such files, and each one, as it was just before the tool changed it, is kept beside it or in a folder the tool names, so it can be put back |
+| P4 | Your PC and files | Can it delete or overwrite files that aren't its own? | Concern; Note if only on request | Good | Note: it only moves, renames or backs up such files, and each one, as it was just before each time the tool changed it, is kept beside it or in a folder the tool names, so it can be put back (keeping only a first copy, so that a version the game or another tool wrote since is lost, isn't enough) |
 | P5 | Your PC and files | Are the release files code-signed? | Good | Concern; Note if the files can be traced to public source (T3 or T4 is Yes) | Note |
 | P6 | Your PC and files | Does it change Windows settings or the registry beyond its own entries? | Concern; Note if only on request | Good | Note |
 | P7 | Your PC and files | Does it write into the game's folders beyond its own plugin and settings? | Note; Concern if, by default, it adds content you didn't pick | Good | Note |
@@ -82,7 +82,7 @@ Areas, and the questions within each area, are listed most critical first: what 
 | G3 | Your game | Does it change the game while you're on online servers? | Concern | Good; Note if a tool it runs or installs by default does | Concern: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends |
 | G4 | Your game | Does it read the game's memory outside the plugin interface? | Note | Good | Note |
 | G5 | Your game | Does it take over the game window's input, or press keys for you? | Concern; Note if it only takes input for its own menu or for buttons you click | Good | Note |
-| G6 | Your game | Does it change other plugins or tools, their files or their memory? | Concern; Note if installing or updating that tool is its stated job | Good | Note: it only moves, renames or backs up their files, and each one, as it was just before the tool changed it, is kept beside it or in a folder the tool names, so it can be put back |
+| G6 | Your game | Does it change other plugins or tools, their files or their memory? | Concern; Note if installing or updating that tool is its stated job | Good | Note: it only moves, renames or backs up their files, and each one, as it was just before each time the tool changed it, is kept beside it or in a folder the tool names, so it can be put back (keeping only a first copy, so that a version the game or another tool wrote since is lost, isn't enough) |
 | G7 | Your game | Does it read the keyboard through Windows, also while the game isn't focused? | Note | Good | Note |
 | G8 | Your game | Does it install a crash handler for the whole game? | Note | Good | Note |
 | G9 | Your game | Does it start with Windows? | Concern | Good | Note |
@@ -122,27 +122,27 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 | From | Answer | Tag | Kind | Icon | What it means |
 |---|---|---|---|---|---|
 | P9 | Yes | Signs of malware | Critical | bug | The analysis found code that is hidden, disguised, or does something the tool doesn't show you, and a second check confirmed it. This replaces the score. |
-| P1 | Yes | Some antivirus engines flag it | Critical | shield-x | Enough antivirus engines on VirusTotal flag a release file to count; the answer gives the count. Unsigned hobby builds are often flagged by mistake. |
+| P1 | Yes | Some antivirus engines flag it | Critical | shield-x | Enough antivirus engines on VirusTotal flag a release file to count; the answer gives the count. Detections aren't proof of malware: packed and unsigned files are often flagged. |
 | P2 | Yes | Updates without asking | Critical | refresh-cw | New code can reach your PC without you choosing it, so what you run can change after this card was made. |
 | P3 | No | Unchecked updates | Critical | refresh-cw-off | Updates are installed without a check that they really come from the author, so a tampered download would not be caught. |
 | P3 | Partly | Updates partly checked | Critical | refresh-ccw-dot | Updates are checked in some ways but not all, so some tampering would not be caught; the answer says which part is missing. |
-| P4 | Yes | Deletes or overwrites others' files | Critical | trash-2 | Files that belong to the game, Windows or another tool can be lost or replaced, without a copy kept to put them back. |
+| P4 | Yes | Deletes or overwrites others' files | Critical | trash-2 | Files that belong to the game, Windows or another tool can be lost or replaced, without each one kept as it was to put it back. |
 | P5 | No | Not signed or traceable | Critical | badge-x | The files carry no signature and can't be traced to public source, so you can't confirm who built them or that they weren't changed on the way to you. |
 | P6 | Yes | Changes Windows settings | Critical | monitor-cog | It changes how Windows is set up beyond its own entries, which can affect other programs and may stay after you remove it. |
-| P7 | Yes | Changes game files | Critical | folder-pen | It writes into the game's folders beyond its own files, which can affect the game, other mods, or a reinstall. |
+| P7 | Yes | Changes game files | Critical | folder-pen | By default it adds content to the game's folders that you didn't pick. |
 | P8 | Yes | Leaves changes behind | Critical | footprints | Removing it doesn't undo everything it did; the answer lists what stays. |
 | D2 | Yes | Sends your data | Critical | send | Something about you or your game leaves your PC; the answer says what and to whom. |
 | D3 | Yes | Sends an identifier | Critical | fingerprint | An identifier is sent that can link your sessions together over time, beyond a random install ID the tool makes itself. |
 | D4 | Yes | Sends other players' data | Critical | users | Data about other riders in your session leaves your PC, without them having chosen this tool. |
 | D5 | Yes | Open local web server | Critical | server | Any website open in your browser can read what the local server shares while the tool runs. |
-| D6 | Yes | Reads other people's data | Critical | file-search | It reads files or data that belong to other programs on your PC. |
+| D6 | Yes | Reads other people's data | Critical | file-search | It reads other people's data on your PC, such as from other programs' files. |
 | D7 | Yes | Publishes riders' data | Critical | megaphone | Data about its users is made public, where anyone can see it. |
 | D8 | No | No off switch | Critical | power-off | At least one connection that carries something about you can't be turned off; you can only stop using the tool. |
-| D9 | Yes | Needs an online account | Critical | circle-user | You need an account with an online service to use it, which ties your use to that account. |
-| D10 | Yes | Shares game data locally | Critical | share-2 | It passes your game data to other programs on your PC, which can then use or send it. |
+| D9 | Yes | Needs an online account | Critical | circle-user | It needs, or creates, an account with an online service, which ties your use to that account. |
+| D10 | Yes | Shares identifiers locally | Critical | share-2 | Any program on your PC can read your identifiers or other riders' data from it. |
 | G1 | Yes | Injects into the game | Critical | syringe | Another program puts code into the running game, rather than the game loading it as a plugin. |
 | G2 | Yes | Changes game memory | Critical | memory-stick | It changes the game's own code or memory while it runs, beyond what the plugin interface offers. |
-| G3 | Yes | Changes the game online | Critical | globe | It changes how the game behaves on online servers, in physics, timing or what the game sends, which affects the other riders on the server. |
+| G3 | Yes | Changes the game online | Critical | globe | It changes how the game behaves on online servers, in physics, timing or what the game sends, which can affect the other riders on the server. |
 | G3 | Partly | Changes what you see online | Critical | scan-eye | It changes only what you see on your own screen while you're online, not physics, timing or what the game sends. |
 | G12 | Yes | Gets around a game check | Critical | shield-off | It gets around a check the game makes, such as a version or licence check or anti-cheat. |
 | G5 | Yes | Takes over game input | Critical | keyboard | It takes over the game's input or presses keys for you, so the game may do things you didn't press. |
@@ -152,7 +152,7 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 | C2 | Yes | Copies others' content | Critical | copy | It saves copies of other creators' models or textures as files on your PC. |
 | C3 | Yes | Shares unprotected content | Critical | lock-open | It shares other creators' content with its protection removed. |
 | T7 | No | No open-source licence (not when T1 is No) | Critical | scale | There is no open-source licence, so others may not be allowed to fix, fork or keep it alive if the author stops. |
-| T1 | No | Closed source | Critical | file-lock | The source isn't public, so nobody outside can read what the release does; the card relies on what the files themselves show. |
+| T1 | No | Closed source | Critical | file-lock | The source isn't public, so nobody outside can read it; the card relies on what the release files show. |
 | T2 | Yes | Docs contradict code | Critical | book-x | Its docs describe something its code doesn't do, on a point these questions ask about, so the docs aren't a reliable guide there. |
 | T3 | No | Not traced to source (not when T1 is No or T4 is Yes) | Critical | route-off | The release wasn't built in public from tagged source, so the files can't be tied to the source that is public. |
 | T4 | No | Covered by "Not traced to source", "Not signed or traceable" or "Closed source": the answer is also No when there is no public source to rebuild from | None |  |  |
@@ -161,5 +161,5 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 | T3 | Yes | Built from public source | Positive | workflow | The release was built in public from tagged source, so the files can be tied to that source. |
 | T4 | Yes | Rebuild matches source | Positive | git-compare | The release was rebuilt from its source and gave the same files. |
 | P5 | Yes | Code-signed | Positive | badge-check | The files are code-signed, so you can confirm who published them and that they weren't changed since. |
-| D1 | No | No internet connections | Positive | wifi-off | It makes no internet connections, so nothing leaves your PC through it. |
+| D1 | No | No internet connections | Positive | wifi-off | It sends nothing over the internet. |
 <!-- /rules/scoring.yaml -->

@@ -548,4 +548,4 @@ history:
       G3 is now Partly (it changes only what you see online), after the question gained that answer in rubric v2; score 69 to 78.
   - date: 26 Nov 2026
     change: >-
-      K1 ends at "No malware found" and the VirusTotal count; it also said nothing in the release files was hidden or disguised, which is more than a key answer should claim (rule 7). No score change.
+      K1 ends at "No malware found" and the VirusTotal count; it also said nothing in the release files was hidden or disguised, which is more than the analysis showed. No score change.

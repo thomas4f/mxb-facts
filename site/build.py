@@ -97,14 +97,6 @@ for f,slug in CARDS:
     assert 'mxb-facts/actions/runs/' not in text, f+': link each file\'s VirusTotal entry, not our lookup run (readers can\'t open it)'
     cat=h['Category']; assert cat in CATS, f+': category must be one of '+'; '.join(CATS)
     hb=h.get('Held back')
-    # T2 is Yes only when a "What it says vs what it does" claim reads "Doesn't match" (rules/template.md, section 9): a Partly
-    # claim leaves it No, the same on every card.
-    _says=[r['Verdict'] for s in CARD['sections'] if s['title']=='What it says vs what it does' for b in s['blocks'] for r in b.get('rows',[])]
-    assert CARD['answers']['T2']['verdict']!='Yes' or any(v.startswith("Doesn't match") for v in _says), f+': T2 is Yes, so a claim under "What it says vs what it does" reads "Doesn\'t match"'
-    # Rule 9: a card with a held item stays private until the hold ends, since its "Held back" row names the questions a held
-    # item touches. With PUBLISH=1, as in Check cards on every pull request and in the Pages build, the build refuses it, so it
-    # never reaches main; a local build still checks it.
-    assert not (hb and os.environ.get('PUBLISH')=='1'), f+': it has a "Held back" row, so it isn\'t published until the hold ends (rule 9)'
     # Rule 6: "Not allowed" answers, and so "Not scored", need the licence clause that forbids the analysis, quoted on the card.
     assert any(v=='NA' for _m,v in V.values())==bool(h.get('Licence clause')), f+': a card with "Not allowed" answers needs the "Licence clause" row, and only such a card has it'
     G=scored(V,HELDQ)

@@ -580,4 +580,10 @@ history:
     change: First card, for 1.0.
   - date: 26 Nov 2026
     change: >-
-      K1 ends at "No malware found" and the VirusTotal count; it also said nothing in the release files was hidden or disguised, which is more than the analysis showed. G5 and G3 now link the shipped settings' defaults (`get_back_on = 1`, `online = 0`, `lab/evidence/mxb-ragdoll-1.0/ini-defaults.txt`), and G3 the run's log for when the patches are made. C5 says the skeleton and animation reads come from its functions' names, since the ragdoll didn't run. No score change.
+      K1 ends at "No malware found" and the VirusTotal count; it also said nothing in the release files was hidden or disguised, which is more than the analysis showed. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      G5 and G3 now link the shipped settings' defaults (`get_back_on = 1`, `online = 0`, `lab/evidence/mxb-ragdoll-1.0/ini-defaults.txt`), and G3 the run's log for when the patches are made. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      C5 says the skeleton and animation reads come from its functions' names, since the ragdoll didn't run. No score change.

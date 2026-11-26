@@ -67,7 +67,7 @@ files_note: >-
   (`lab/results/suspension-tuner-1.4.1/app-direct-windows/machine.txt`), and the launcher's and app's the ones it started
   (`lab/results/suspension-tuner-1.4.1/app-direct-windows/plugins.sha256`).
 key:
-  K1: 'No malware found; some engines flag it: 9 of 66 flag the unsigned launcher and 4 of 71 the installer; the zip isn''t on VirusTotal.'
+  K1: 'No malware found; some engines flag it: 9 of 66 flag the launcher and 4 of 71 the installer; the zip isn''t on VirusTotal.'
   K2: 'No. It checks GitHub for a newer version and only tells you; it installs nothing.'
   K3: >-
     Partly. With its default settings, starting an analysis rewrites the game's `proxy_udp.ini` to switch the plugin on and
@@ -512,4 +512,10 @@ history:
       The launcher's decompiled code is now in `lab/evidence/suspension-tuner-1.4.1/launcher.txt`. The first run's output showed `ilspycmd` missing, so P9's line on the launcher ("starts `app\SuspensionTuner.exe` with the same arguments and exits") had no evidence; the decompile confirms it. The Method row now names the version used (9.1.0) and says which files' signing entries were read.
   - date: 26 Nov 2026
     change: >-
-      G6 is No: the proxy_udp plugin ships with the game, so changing its settings file is a change to the game's own files, counted under P4, as on MXB Ragdoll's card. P4 no longer says no code deletes other programs' files, only that no delete was found in its constants. K5 and the Your game line say it changes nothing in the game's code or memory, since it does change the game's `proxy_udp.ini`.
+      G6 is No: the proxy_udp plugin ships with the game, so changing its settings file is a change to the game's own files, counted under P4, as on MXB Ragdoll's card; before, G6 was a Concern. Score 80 to 83.
+  - date: 26 Nov 2026
+    change: >-
+      P4 no longer says no code deletes other programs' files, only that no delete was found in its constants. No score change.
+  - date: 26 Nov 2026
+    change: >-
+      K5 and the Your game line say it changes nothing in the game's code or memory, since it does change the game's `proxy_udp.ini`. No score change.
