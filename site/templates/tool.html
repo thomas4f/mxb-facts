@@ -150,9 +150,13 @@
   <p class="lead">Changes since {{ ch.version }}</p>
   <ul class="chg">
     <li>Score: {{ old.score if old.kind == 'score' else STATES[old.kind].label }} → {{ v.score if v.kind == 'score' else STATES[v.kind].label }}</li>
-    {% for x in ch.answers %}<li><a href="{{ vp }}#q-{{ x.question }}">{{ x.question }}</a> {{ answer_mark(x['from'], v.kind == 'score', says=True) }} <span aria-hidden="true">→</span><span class="vh">changed to</span> {{ answer_mark(x.to, v.kind == 'score', says=True) }}</li>{% endfor %}
+    {# Marks only, as Compare draws them: the answer opens on hover, a tap opens it on its release's page. #}
+    {% set op = root ~ t.id ~ '/' ~ ch.version ~ '/' %}
+    {% set cm = changed_marks(ch, old.kind == 'score', v.kind == 'score') %}
+    {% for x in cm.moved %}<li><a href="{{ vp }}#q-{{ x.question }}">{{ x.question }}</a> <a class="plain" href="{{ op }}#q-{{ x.question }}">{{ answer_mark(x['from'], old.kind == 'score', says=True, word=False) }}</a> <span aria-hidden="true">→</span><span class="vh">changed to</span> <a class="plain" href="{{ vp }}#q-{{ x.question }}">{{ answer_mark(x.to, v.kind == 'score', says=True, word=False) }}</a></li>{% endfor %}
     {% for x in ch.areas %}<li>{{ area_name[x.area] }}: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
-    <li class="muted">{{ ch.unchanged }} answers unchanged</li>
+    {% if cm.worded %}<li class="muted">Same mark, new answer: {% for x in cm.worded %}<a href="{{ vp }}#q-{{ x.question }}">{{ x.question }}</a> {{ x['from'].verdict }} → {{ x.to.verdict }}{{ ', ' if not loop.last }}{% endfor %}</li>{% endif %}
+    <li class="muted">{{ cm.unchanged }} answers unchanged</li>
   </ul>
 {% else %}
   <p class="lead">The first release of this tool analysed.</p>
