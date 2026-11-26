@@ -149,7 +149,7 @@
   <p class="lead">Changes since {{ ch.version }}</p>
   <ul class="chg">
     <li>Score: {{ old.score if old.kind == 'score' else STATES[old.kind].label }} → {{ v.score if v.kind == 'score' else STATES[v.kind].label }}</li>
-    {% for x in ch.answers %}<li><a href="{{ vp }}#q-{{ x.question }}">{{ x.question }}</a> {{ answer_mark(x['from'], v.kind == 'score') }} <span aria-hidden="true">→</span><span class="vh">changed to</span> {{ answer_mark(x.to, v.kind == 'score') }}</li>{% endfor %}
+    {% for x in ch.answers %}<li><a href="{{ vp }}#q-{{ x.question }}">{{ x.question }}</a> {{ answer_mark(x['from'], v.kind == 'score', says=True) }} <span aria-hidden="true">→</span><span class="vh">changed to</span> {{ answer_mark(x.to, v.kind == 'score', says=True) }}</li>{% endfor %}
     {% for x in ch.areas %}<li>{{ area_name[x.area] }}: {{ x['from'] }} → {{ x.to }}</li>{% endfor %}
     <li class="muted">{{ ch.unchanged }} answers unchanged</li>
   </ul>
