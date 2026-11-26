@@ -25,7 +25,7 @@
 {% endfor %}
 </div></div>
 {% endfor %}
-</div></div></div></details>
+</div></div></details>
 <label class="cmpl"><input type="checkbox" id="diff"> Show only differences</label>
 <div class="ctw"><table class="cmp all" id="cmp">
 <thead><tr><th scope="col"><span class="vh">Question</span></th>{% for c in cards %}<th scope="col" data-c="{{ c.card }}"><a href="{{ root }}{{ c.tool }}/{% if not c.latest %}{{ c.version }}/{% endif %}">{{ c.name }}</a> <span class="muted">{{ c.version }}</span></th>{% endfor %}</tr></thead>
