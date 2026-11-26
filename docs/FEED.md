@@ -12,7 +12,7 @@ GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a brows
 
 | File | What it holds | Size (Nov 2026) |
 |---|---|---|
-| `index.json` | Every tool: id, name, author, games (one or both), category, one-line summary, page, its mods-site posts (one per game that has one), every release with its score (newest first), and the newest release's full result, tags and badges. Also the areas, states and tags the other files refer to, and the AI note. | ~55 KB |
+| `index.json` | Every tool: id, name, author, games (one or both), category, one-line summary, page, card image, its mods-site posts (one per game that has one), every release with its score and card image (newest first), releases seen with no card yet (`not_analysed`), and the newest release's full result, tags and badges. Also the areas, states and tags the other files refer to, and the AI note. | ~55 KB |
 | `cards/<card>.json` | One card in full: result, tags, files with SHA-256, the ten key answers, every answer with its state and cost, the report sections, history and corrections. `<card>` is the card's file name without `.yaml`, as in `holeshot-0.24.2`. | 80–125 KB each |
 | `match.json` | Lookup keys to tools: GitHub repository (lower case), mods-site post (`mxb-mods:<id>` or `gpb-mods:<id>`), and the SHA-256 of every file a card lists. | ~70 KB |
 | `site.json` | Everything the site's own pages need beyond the cards: the questions with what earns a Good answer, the rules, the prompt, the authors' check, the site's text and links. The site's pages are made from this file and the three above alone, so anything a page shows, the feed has. | |
@@ -62,6 +62,34 @@ const tool = index.tools.find(t => t.id === id);
 console.log(tool.name, tool.latest.version, tool.latest.result.label, tool.latest.page);
 ```
 
-## Badges
+## Showing a card
 
-Each card also has five badge images, listed under `latest.badges`. A badge linked to `latest.page` needs no code; add the AI note beside it.
+Most places need no code at all: every card is also an image, and every tool has addresses that don't change.
+
+| What | Address | Feed field |
+|---|---|---|
+| Card page, newest | `…/mxb-facts/<tool>/` (an earlier release: `<tool>/<version>/`) | `page` |
+| Card image, newest | `…/mxb-facts/badge/<tool>/card.png` | tool's `card_image` |
+| Card image, one release | `…/mxb-facts/badge/<tool>/<version>-card.png` | a release's `card_image` |
+| Badges, one release | `…/mxb-facts/badge/<tool>/<version>.svg`, with `-flat-square`, `-for-the-badge`, `-score` or `-areas` before `.svg`; `.json` for the shields.io endpoint | `latest.badges` |
+
+- **The card image** is 1200 by 630, the same picture a chat app shows for the card's page. It names the tool, the release, the date of the analysis, the score and the area scores, and carries the AI note, so it meets the asks above on its own; link it to the card's page.
+- **`card.png` always shows the tool's newest card**, so a post or a plugins list never needs updating. When the weekly inventory has seen a newer release with no card yet (`not_analysed`), the image names it, so it never reads as that release's result. Use it where you show the tool rather than one release: a mods-site post, a forum thread, a tool list.
+- **`<version>-card.png` shows one release**, for a place that knows which release it means, such as an app that matched an installed file by its SHA-256. A release in `not_analysed` gets one saying "Not analysed yet", under its version as published and without its leading v, as its badges do; any other version without a card has none.
+- **A badge shows a score but not the release it belongs to**, so it is pinned to one release; move it to the new version on release. A badge linked to `latest.page` needs no code; add the AI note beside it.
+- **Chat apps** (Discord and others) show the card image under a pasted page address; nothing to embed.
+- Addresses are cached for 10 minutes here, and a site or chat app may keep its own copy of an image for longer.
+
+A mods site that shows a card on each post, with the post id it already has:
+
+```js
+const base = 'https://thomas4f.github.io/mxb-facts/api/v1/';
+const match = await fetch(base + 'match.json').then(r => r.json());
+const [id] = match.mods_post['mxb-mods:' + postId] || [];
+if (id) {   // no card yet for this post: show nothing
+  const page = `https://thomas4f.github.io/mxb-facts/${id}/`;
+  postEl.insertAdjacentHTML('beforeend', `<a href="${page}"><img src="https://thomas4f.github.io/mxb-facts/badge/${id}/card.png" width="600" alt="MXB Facts card"></a>`);
+}
+```
+
+An app that found a file: look its SHA-256 up in `match.json` → `sha256`, then show that card's `card_image` (from `cards/<card>.json`, or the release in `index.json`) and link its `page`. When the entry's `latest` is false, the tool has a newer card: say so, with the tool's `page`.

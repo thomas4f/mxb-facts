@@ -163,7 +163,8 @@ os.makedirs(SITE+'api',exist_ok=True)
 json.dump({'rubric':RUBRICV,'cards':[{'tool':_t,'name':_n,'version':_v,'page':f'{SITEURL}{_t}/' if _l else f'{SITEURL}#{_a}','score':gtext(_G),
            'number':None if _G['kind'] in ('notscored','malware') else sround(_G['score']),'open_answers':len(_G['open']),
            'areas':None if _G['kind'] in ('notscored','malware') else {ar:_G['areas'][ar][0] for ar in AREAN if ar in CONCERN},
-           'analysed':_d,'badges':{(_suf or '-flat').lstrip('-'):f'{SITEURL}badge/{_t}/{_v}{_suf}.svg' for _suf,_x,_y in BADGES}}
+           'analysed':_d,'badges':{(_suf or '-flat').lstrip('-'):f'{SITEURL}badge/{_t}/{_v}{_suf}.svg' for _suf,_x,_y in BADGES},
+           'card_image':f'{SITEURL}badge/{_t}/{_v}-card.png'}
           for _a,(_n,_v,_G,_d,_t,_l) in GR.items()]},open(SITE+'api/cards.json','w'),indent=1,ensure_ascii=False)
 # The versioned data feed, api/v1/ (site/feed.py, docs/FEED.md), checked against rules/feed.schema.json.
 from feed import write_feed, write_site

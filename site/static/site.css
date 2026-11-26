@@ -200,11 +200,11 @@ details.sub:last-child { border-bottom: 0 }
 @media (max-width: 620px) { .facts { grid-template-columns: 1fr } .facts dd { margin-bottom: var(--s2) } }
 
 /* Touch: every control at least 44px tall, and nothing that needs a hover. */
-.chip, .btn, .controls input, .controls select, .row details summary, details.fold > summary { min-height: 44px }
-.row details summary { cursor: pointer; display: flex; align-items: center; gap: var(--s2); color: var(--accent); font-weight: 600; width: max-content }
-.row details summary::before { content: ""; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 7px; border-color: transparent transparent transparent currentColor; transition: transform .15s }
-.row details[open] > summary::before { transform: rotate(90deg) }
-@media (prefers-reduced-motion: reduce) { .row details summary::before, .anc { transition: none } }
+.chip, .btn, .controls input, .controls select, .row details summary, .emb details summary, details.fold > summary { min-height: 44px }
+.row details summary, .emb details summary { cursor: pointer; display: flex; align-items: center; gap: var(--s2); color: var(--accent); font-weight: 600; width: max-content }
+.row details summary::before, .emb details summary::before { content: ""; width: 0; height: 0; border-style: solid; border-width: 5px 0 5px 7px; border-color: transparent transparent transparent currentColor; transition: transform .15s }
+.row details[open] > summary::before, .emb details[open] > summary::before { transform: rotate(90deg) }
+@media (prefers-reduced-motion: reduce) { .row details summary::before, .emb details summary::before, .anc { transition: none } }
 input[type=checkbox] { width: 20px; height: 20px; accent-color: var(--accent); margin: 0 }
 .skip { position: absolute; left: 8px; top: -60px; z-index: 50; background: var(--accent); color: var(--accent-ink); padding: var(--s3) var(--s4); border-radius: var(--r-ctl); font-weight: 700 }
 .skip:focus { top: 8px }
@@ -297,7 +297,11 @@ details.sub { margin: 0; padding: 0 var(--s4); border-bottom: 1px solid var(--li
 .nowrap { white-space: nowrap }
 code.hash { font-size: 12px }
 .files td .sm { display: block; color: var(--muted); font-size: 13px }
-.badges { display: grid; gap: var(--s3); padding: var(--s2) 0 var(--s4) } .bopt img { max-width: 100%; height: auto }
+.embeds { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s4); padding-top: var(--s2) } .emb { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s2) } .emb > p { margin: 0 }
+.embimg { display: block; max-width: 600px } .embimg img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: var(--r) }
+.emb details summary { width: auto }
+.snip { display: grid; gap: var(--s1); min-width: 0 } .snip pre { white-space: pre-wrap; overflow-wrap: anywhere }
+.badges { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s3) } .bopt { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s1) } .bopt img { max-width: 100%; height: auto }
 .lims.plain { list-style: none; padding-left: 0 }
 .measure { max-width: 78ch; margin: 0 }
 .nflinks { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s2) }

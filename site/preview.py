@@ -60,10 +60,12 @@ def wrap(d, text, f, width):
         else: lines[-1] = t
     return lines
 
-def card_image(c, IX, SITE):
+def card_image(c, IX, SITE, newer=(), pending=None):
     # A card, laid out as its page's header: wordmark and site address, the path, the name, the big score, a box per area with
-    # its bar, and the AI note.
-    im, d = canvas(); r = c['result']; muted = DARK['muted']
+    # its bar, and the AI note. newer: releases newer than this card that have none yet (the tool's newest-card image says so).
+    # pending: such a release's own image, drawn from the tool's newest card c with no score at all, as its badges are.
+    im, d = canvas(); muted = DARK['muted']
+    r = {'kind': 'pending', 'areas': {}, 'money': None} if pending else c['result']
     wordmark(d, M, 52, 34)
     addr = IX['site'].split('://', 1)[1].rstrip('/'); f = font(BODY, 22)
     d.text((W - M - d.textlength(addr, font=f), 52), addr, font=f, fill=muted)
@@ -81,7 +83,7 @@ def card_image(c, IX, SITE):
         d.text((xs + d.textlength(sl, font=fo), 300), hund, font=fo, fill=muted, anchor='ls')
         left = xr - bw0
     else:
-        words = 'Signs of malware' if r['kind'] == 'malware' else 'Not scored'
+        words = {'malware': 'Signs of malware', 'pending': 'Not analysed yet'}.get(r['kind'], 'Not scored')
         t, f = fit(d, words, HEAD, 64, 300, 40)
         d.text((W - M, 230), t, font=f, fill=RED if r['kind'] == 'malware' else muted, anchor='rs')
         left = W - M - d.textlength(t, font=f)
@@ -92,10 +94,14 @@ def card_image(c, IX, SITE):
         if k: d.text((x + 6, 150), '/', font=fp, fill=DARK['accent'], anchor='ls'); x += d.textlength('/', font=fp) + 12
         t, _ = fit(d, part, HEAD, 26, max(lw - (x - M), 40), 26); d.text((x, 150), t, font=fp, fill=muted, anchor='ls'); x += d.textlength(t, font=fp)
     name, f = fit(d, c['name'], HEAD, 96, lw - 120, 56); d.text((M, 240), name, font=f, fill=DARK['ink'], anchor='ls')
-    vt, fv = fit(d, c['version'], HEAD, 44, max(lw - d.textlength(name, font=f) - 16, 60), 28)
+    vt, fv = fit(d, pending or c['version'], HEAD, 44, max(lw - d.textlength(name, font=f) - 16, 60), 28)
     d.text((M + d.textlength(name, font=f) + 16, 240), vt, font=fv, fill=muted, anchor='ls')
-    meta, f = fit(d, f'by {c["author"]} · analysed {c["analysed"]}', BODY, 26, lw, 20)
+    meta = f'by {c["author"]} · ' + (f'the newest card is for {c["version"]}' if pending else f'analysed {c["analysed"]}')
+    meta, f = fit(d, meta, BODY, 26, lw, 20)
     d.text((M, 292), meta, font=f, fill=muted, anchor='ls')
+    if newer:  # in the accent, under the name, so a stable image never reads as the newest release's result
+        t, f = fit(d, f'{", ".join(newer)}: newer, not analysed yet', BOLD, 24, lw, 18)
+        d.text((M, 330), t, font=f, fill=DARK['accent'], anchor='ls')
     # One box per area, the Money label last, as on the tool page: three to a row, so they stay readable at chat-app sizes.
     areas = IX['areas']; gap = 14; cols = 3; bw = (W - 2 * M - gap * (cols - 1)) / cols; bh = 88
     ls = 26  # one size for every area's name: the largest at which the longest fits beside its value

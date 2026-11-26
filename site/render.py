@@ -112,8 +112,9 @@ def write_pages(SITE):
         # Every in-page link lands on an id that exists, once (the contents, tags, limits, "From" links).
         ids = re.findall(r'\bid="([^"]+)"', html)
         assert len(ids) == len(set(ids)), path + ': two elements share an id: ' + ', '.join(sorted({i for i in ids if ids.count(i) > 1}))
-        # No markup reaches a page as text: a tag escaped by the templates' autoescape means a string was pasted into HTML.
-        esc_tags = sorted(set(re.findall(r'&lt;/?(?:span|a|b|i|em|strong|code|div|p|br)\b', html)))
+        # No markup reaches a page as text: a tag escaped by the templates' autoescape means a string was pasted into HTML. Code
+        # shows its text on purpose (the HTML snippets authors copy), so what is inside <code> is left out of the check.
+        esc_tags = sorted(set(re.findall(r'&lt;/?(?:span|a|b|i|em|strong|code|div|p|br)\b', re.sub(r'<code\b[^>]*>.*?</code>', '', html, flags=re.S))))
         assert not esc_tags, path + ': markup shown as text (' + ', '.join(esc_tags) + '); pass markup from a template block, text through note='
         dead = sorted(set(re.findall(r'href="#([^"]+)"', html)) - set(ids))
         assert not dead, path + ': links to anchors that don\'t exist: ' + ', '.join(dead)
@@ -135,20 +136,31 @@ def write_pages(SITE):
     addr = {cid: card_path(c) for cid, c in CARDS.items()}
     addr.update({t['id']: t['id'] + '/' for t in IX['tools']})
 
-    # The link-preview images (preview.py): one per card and one for the site, named with their content's hash so a chat app
-    # that cached an older image fetches the new one.
+    # The card images (preview.py), beside each card's badges: <version>-card.png for each card, which is also its page's link
+    # preview; card.png for the tool's newest card, at an address that never changes; and a "Not analysed yet" one for each
+    # release the badges have one for. The site's own preview is preview/site.png. A page's preview address carries the image's
+    # hash, so a chat app that cached an older image fetches the new one.
     os.makedirs(out + 'preview', exist_ok=True)
-    def image(name, data_hash):
+    def image(path, data_hash):
         data, h = data_hash
-        open(out + f'preview/{name}.png', 'wb').write(data)
-        return f'{IX["site"]}preview/{name}.png?v={h}'
-    env.globals['og_image'] = image('site', site_image(IX, SITEJ))
+        open(out + path, 'wb').write(data)
+        return f'{IX["site"]}{path}?v={h}'
+    env.globals['og_image'] = image('preview/site.png', site_image(IX, SITEJ))
+    for t in IX['tools']:
+        newest = CARDS[t['releases'][0]['card']]
+        image(f'badge/{t["id"]}/card.png', card_image(newest, IX, SITEJ, newer=t['not_analysed']))
+        for v in t['not_analysed']:
+            for spelt in {v, v[1:] if v[:1] in 'vV' and v[1:2].isdigit() else v}:  # as published and without its v, as the badges
+                image(f'badge/{t["id"]}/{spelt}-card.png', card_image(newest, IX, SITEJ, pending=spelt))
 
     page('index.html', 'home.html', 0, addresses=addr)
     for t in IX['tools']:
         for r in t['releases']:
             c = CARDS[r['card']]
-            complete(c, page(card_path(c) + 'index.html', 'tool.html', card_path(c).count('/'), t=t, c=c, cards=CARDS, card_image=image(c['card'], card_image(c, IX, SITEJ))))
+            complete(c, page(card_path(c) + 'index.html', 'tool.html', card_path(c).count('/'), t=t, c=c, cards=CARDS, card_image=image(f'badge/{c["tool"]}/{c["version"]}-card.png', card_image(c, IX, SITEJ))))
+    # Every card image the feed names is on the site.
+    missing = [u for t in IX['tools'] for u in [t['card_image']] + [r['card_image'] for r in t['releases']] if not os.path.exists(out + u[len(IX['site']):])]
+    assert not missing, 'card images the feed names but the site lacks: ' + ', '.join(missing)
     page('compare/index.html', 'compare.html', 1, cards=[CARDS[r['card']] for t in IX['tools'] for r in t['releases']])
     page('how/index.html', 'how.html', 1)
     page('authors/index.html', 'authors.html', 1)
