@@ -89,7 +89,7 @@ def write_pages(SITE):
         c = Markup(f' <span class="c">{escape(cost)}</span>') if cost else ''
         return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{escape(words or s["label"])}{c}</span>')
 
-    def answer_mark(x, scored):
+    def answer_mark(x, scored, says=False):
         # An answer's mark: its state's word in its colour, with what it costs where the tool has a score ("Concern −25", "in T1"
         # when another answer already counts the same behaviour, or "±0" when the cost is waived), then the verdict itself ("Yes").
         # The word is text, never only a colour or icon, and never only a hover, which a phone doesn't show.
@@ -97,7 +97,11 @@ def write_pages(SITE):
         if scored and x['cost']: cost = f'−{x["cost"]}'
         elif scored and x['cost_note'] and x['counted_with']: cost = f'in {x["counted_with"]}'
         elif scored and x['cost_note']: cost = '±0'
-        pill = mark(x['state'], None, cost, x['cost_note'] or None)
+        # Its hover: why it costs what it does where that needs saying, else what the mark means. Where the answer's own words
+        # aren't beside it (Compare, says=True), the hover is those words, so a reader sees what this tool does, not the legend.
+        tip = x['cost_note'] or None
+        if says: tip = x['text_plain'] + (f' ({x["cost_note"]}.)' if x['cost_note'] else '')
+        pill = mark(x['state'], None, cost, tip)
         return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill
 
     TAGMEANS = {x['label']: x['means'] for x in IX['tags']}

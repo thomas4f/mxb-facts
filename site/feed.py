@@ -11,7 +11,7 @@ from cards import COMMIT, CORR, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, 
 from badges import BADGES
 
 
-FEED_VERSION='1.3'
+FEED_VERSION='1.4'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
@@ -149,7 +149,10 @@ def changes_since(f,card,A1):
         return {q:{'state':answer_state(q,A,S,C['held']),'verdict':VWORD.get(A[q][1],A[q][1]),'cost':answer_cost(q,A,S)[0],'counted_with':answer_cost(q,A,S)[1],'cost_note':cost_note(q,A,S)} for q in QIDS if q in A}
     M0,M1=marks(lst[i-1],old),marks(f,card)
     asked={'state':'dna','verdict':'Not asked','cost':0,'counted_with':None,'cost_note':''}
-    rows=[{'question':q,'from':M0.get(q,asked),'to':M1[q]} for q in QIDS if M0.get(q,asked)!=M1[q]]
+    # Each side also carries its answer's words (text_plain), for the mark's hover; a change of wording alone isn't listed.
+    said=lambda c,q:plain(c['answers'][q]['text']) if q in c['answers'] else ''
+    rows=[{'question':q,'from':{**M0.get(q,asked),'text_plain':said(old,q)},'to':{**M1[q],'text_plain':said(card,q)}}
+          for q in QIDS if M0.get(q,asked)!=M1[q]]
     A0={q:verdict(ans_md(old['answers'][q])) for q in QIDS if q in old['answers']}
     try: G0=scored(A0)
     except (KeyError,AssertionError): G0=None

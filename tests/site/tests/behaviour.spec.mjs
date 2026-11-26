@@ -31,6 +31,20 @@ test('Compare shows only the picked tools, and only the differences when asked',
   expect(await page.locator('#cmp tbody tr:visible').count()).toBeLessThan(all);
 });
 
+test("Compare's picker groups tools by category and opens a tool's earlier releases on request", async ({ page }) => {
+  await page.goto('compare/');
+  await expect(page.locator('#picker .pgrp .cat').first()).toBeVisible();
+  const older = page.locator('#picker input[data-cmp="holeshot-0.24.0"]');
+  await expect(older).toBeHidden();
+  await page.getByRole('button', { name: /earlier releases of HoleShot HUD/ }).click();
+  await expect(older).toBeVisible();
+  // A shared link that picks an earlier release opens that tool's earlier releases by itself.
+  await page.goto('compare/?c=holeshot-0.24.0,pitbox-3.0.4');
+  await expect(page.locator('#picker input[data-cmp="holeshot-0.24.0"]')).toBeChecked();
+  await page.locator('#picker').evaluate(d => { d.open = true; });
+  await expect(page.locator('#picker input[data-cmp="holeshot-0.24.0"]')).toBeVisible();
+});
+
 test('a link to an answer opens the fold it sits in', async ({ page }) => {
   await page.goto('pitbox/#q-D3');
   await expect(page.locator('#a-data')).toHaveAttribute('open', '');
