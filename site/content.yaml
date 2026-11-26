@@ -26,12 +26,15 @@ maintainer_notice: >-
   prompt, answers the same questions and is scored by the same fixed costs as every other tool, and every line links its
   evidence, so you can check it yourself. The maintainer directs and publishes every card, this one included. Like any author, the
   maintainer can run the For authors check on a release before it is out ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
-# What a tag is, in the Reading a card legend.
+# What a mark is, and what a tag is, in the Reading a card legend: one line each, above its list.
+marks: >-
+  Every answer has one mark, the same word, colour and icon on every card: what it means for you and, where the tool has a
+  score, what it costs
 tags: >-
-  A tag sums up one answer, in that answer's colour: orange, or red when Major, when it costs points; grey with a dashed
-  edge when it happens only after a choice you make; green when it is in the tool's favour. Hover a tag for what it means;
-  select it for the answer, which says what this tool does and links the evidence. A question that is a Note in some cases
-  has its tag only where it is a Concern
+  A tag on the tools list and a card sums up one answer, in its mark's colour: orange for a Concern, red for a Major, grey
+  and dashed when it happens only after a choice you make, green when it is in the tool's favour. Hover a tag for what it
+  means, as listed here; select it for the answer and its evidence. A question that can be a Note gets a tag only where it
+  is a Concern
 # What "Under review" means, in the Reading a card legend and on the mark's hover.
 under_review: >-
   Someone has sent a correction about this answer, or something it misses. It costs nothing, and no answer, mark or score
