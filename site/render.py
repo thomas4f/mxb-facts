@@ -169,7 +169,8 @@ def write_pages(SITE):
     for q in SITEJ['questions']:
         for v, cell in q['marks'].items():
             if not cell.startswith('Concern; Note if'): continue
-            hits = [c for c in CARDS.values() if any(a['id'] == q['id'] and a['verdict'] == v and a['state'] == 'note' for a in c['answers'])]
+            # "Yes, on request" and "Yes, not by default" are Yes answers too; on request is what P4's and P6's exception names.
+            hits = [c for c in CARDS.values() if any(a['id'] == q['id'] and a['verdict'].split(',')[0] == v and a['state'] in ('note', 'req') for a in c['answers'])]
             exc.append({'id': q['id'], 'question': q['question'], 'verdict': v, 'when': cell[len('Concern; '):],
                         'cards': sorted(hits, key=lambda c: (c['name'].lower(), c['analysed_iso']))})
     page('how/index.html', 'how.html', 1, exceptions=exc)

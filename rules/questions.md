@@ -61,7 +61,7 @@ Areas, and the questions within each area, are listed most critical first: what 
 | P1 | Your PC and files | Do antivirus engines flag the release files (VirusTotal hash lookups)? | Concern | Good; Note if a file players download isn't on VirusTotal | Note |
 | P2 | Your PC and files | Does it install updates without asking? | Concern | Good | Note |
 | P3 | Your PC and files | Are updates checked before they are installed? | Good | Concern | Concern: the only check comes from the same place as the file |
-| P4 | Your PC and files | Can it delete or overwrite files that aren't its own? | Concern; Note if only on request | Good | Note: it only moves, renames or backs up such files and keeps the original, beside it or in a folder it names, so they can be put back |
+| P4 | Your PC and files | Can it delete or overwrite files that aren't its own? | Concern; Note if only on request | Good | Note: it only moves, renames or backs up such files, and each one, as it was just before the tool changed it, is kept beside it or in a folder the tool names, so it can be put back |
 | P5 | Your PC and files | Are the release files code-signed? | Good | Concern; Note if the files can be traced to public source (T3 or T4 is Yes) | Note |
 | P6 | Your PC and files | Does it change Windows settings or the registry beyond its own entries? | Concern; Note if only on request | Good | Note |
 | P7 | Your PC and files | Does it write into the game's folders beyond its own plugin and settings? | Note; Concern if, by default, it adds content you didn't pick | Good | Note |
@@ -82,7 +82,7 @@ Areas, and the questions within each area, are listed most critical first: what 
 | G3 | Your game | Does it change the game while you're on online servers? | Concern | Good; Note if a tool it runs or installs by default does | Concern: it changes only what you see on your own screen, not physics, timing, lap data or what the game sends |
 | G4 | Your game | Does it read the game's memory outside the plugin interface? | Note | Good | Note |
 | G5 | Your game | Does it take over the game window's input, or press keys for you? | Concern; Note if it only takes input for its own menu or for buttons you click | Good | Note |
-| G6 | Your game | Does it change other plugins or tools, their files or their memory? | Concern; Note if installing or updating that tool is its stated job | Good | Note: it only moves, renames or backs up their files and keeps the original, beside it or in a folder it names, so they can be put back |
+| G6 | Your game | Does it change other plugins or tools, their files or their memory? | Concern; Note if installing or updating that tool is its stated job | Good | Note: it only moves, renames or backs up their files, and each one, as it was just before the tool changed it, is kept beside it or in a folder the tool names, so it can be put back |
 | G7 | Your game | Does it read the keyboard through Windows, also while the game isn't focused? | Note | Good | Note |
 | G8 | Your game | Does it install a crash handler for the whole game? | Note | Good | Note |
 | G9 | Your game | Does it start with Windows? | Concern | Good | Note |

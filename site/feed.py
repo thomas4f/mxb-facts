@@ -13,7 +13,7 @@ from badges import BADGES
 
 # The maintainer's Discord profile: a comment sent there is copied into an issue, so it is answered in public like the rest.
 DISCORD='https://discord.com/users/151767592514617344'
-FEED_VERSION='1.1'
+FEED_VERSION='1.2'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words

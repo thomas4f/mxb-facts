@@ -76,7 +76,7 @@ key:
   K5: 'No. It changes nothing in the game''s code or memory; it reads the data the game''s own proxy_udp plugin sends.'
   K6: 'No. It opens no one''s content.'
   K7: 'No. Only the compiled program is published, with no licence.'
-  K8: 'No; its settings say it switches on proxy_udp at first launch, but it does so when you start listening.'
+  K8: 'Yes, as far as checked.'
   K9: 'No. Not code-signed, and there is no public source to trace it to.'
   K10: 'Yes. Each start it asks GitHub for the tool''s release list.'
 areas:
@@ -187,7 +187,7 @@ sections:
           - text: >-
               The app is compiled to machine code by Nuitka; the analysis read the names, texts and defaults each module keeps,
               not the order its code runs them in. That `proxy_udp.ini` gets `enable = 1` and `ip = 127.0.0.1:<port>`, and that
-              the Download button opens the release page rather than fetching a file, rest on those constants: the update
+              that each rewrite copies the file to `proxy_udp.ini.bak` first, and that the Download button opens the release page rather than fetching a file, rest on those constants: the update
               module's only internet call reads the release list, and no module holds a download or write of a fetched file.
             questions: [P2, P4, G6]
           - text: >-
@@ -232,10 +232,11 @@ answers:
     verdict: Partly
     mark: note
     text: >-
-      It only backs up and rewrites one such file, keeping the original. With Configure MX Bikes automatically on, as it is by default, starting an analysis looks for the game (Steam's folder
+      It only backs up and rewrites one such file: the file as it was is kept as `proxy_udp.ini.bak`. With Configure MX Bikes automatically on, as it is by default, starting an analysis looks for the game (Steam's folder
       from the registry, Steam's `libraryfolders.vdf`, four fixed folders) and rewrites its `proxy_udp.ini` after copying it
       to `proxy_udp.ini.bak`, setting `enable = 1` and `ip = 127.0.0.1:<port>`. It writes its own `ST_*.stp` setups and
-      calibration test files; no delete of other programs' files was found in its constants.
+      calibration test files; no delete of other programs' files was found in its constants. A program that got the proxy_udp
+      data at another address gets none until you put the backup back.
     evidence: '`lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`, `lab/evidence/suspension-tuner-1.4.1/defaults.txt`, `lab/evidence/suspension-tuner-1.4.1/auto-plugin.txt`, `lab/evidence/suspension-tuner-1.4.1/file-writes.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`.'
   P5:
     verdict: 'No'
@@ -441,12 +442,11 @@ answers:
       unpacked).
     evidence: '`file` on each (`lab/evidence/suspension-tuner-1.4.1/file.txt`, `lab/evidence/suspension-tuner-1.4.1/bundled.txt`), `lab/evidence/suspension-tuner-1.4.1/versions.txt`, `lab/evidence/suspension-tuner-1.4.1/setup.txt`; [the repository at the tag](https://github.com/Lilian1134/Suspension-Tuner/tree/895a62d8dfdaba844a85878c4eae0cd2295fa3dc) (only README.md).'
   T2:
-    verdict: 'Yes'
-    mark: note
+    verdict: 'No'
+    mark: good
     text: >-
-      Only in your favour: its Settings say it switches on the game's UDP plugin "on first launch", but it rewrites
-      `proxy_udp.ini` only when you start listening. Its other claims match or say less than the code does; see "What it
-      says vs what it does".
+      Nothing its README, page or window says on these questions differs from what its code does; the claims are in "What
+      it says vs what it does".
     evidence: '`lab/evidence/suspension-tuner-1.4.1/ui-claims.txt`, `lab/evidence/suspension-tuner-1.4.1/strings-money.txt`, `lab/evidence/suspension-tuner-1.4.1/proxy-ini.txt`.'
   T3:
     verdict: 'No'
@@ -513,6 +513,3 @@ history:
   - date: 26 Nov 2026
     change: >-
       G6 is No: the proxy_udp plugin ships with the game, so changing its settings file is a change to the game's own files, counted under P4, as on MXB Ragdoll's card. P4 no longer says no code deletes other programs' files, only that no delete was found in its constants. K5 and the Your game line say it changes nothing in the game's code or memory, since it does change the game's `proxy_udp.ini`.
-  - date: 26 Nov 2026
-    change: >-
-      T2 is Yes, a Note (rubric v4): its Settings say it switches on proxy_udp at first launch, while it does so only when you start listening; before, T2 was No although that claim is rated Partly. K8 follows. No score change.

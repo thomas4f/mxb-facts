@@ -63,7 +63,7 @@ questions:
     yes_mark: Concern
     note_on_request: true   # "Yes, on request" is a Note, every other Yes a Concern; the build checks it
     no_mark: Good
-    partly_means: it only moves, renames or backs up such files and keeps the original, beside it or in a folder it names, so they can be put back
+    partly_means: it only moves, renames or backs up such files, and each one, as it was just before the tool changed it, is kept beside it or in a folder the tool names, so it can be put back
   P5:
     text: Are the release files code-signed?
     yes_mark: Good
@@ -154,7 +154,7 @@ questions:
     text: Does it change other plugins or tools, their files or their memory?
     yes_mark: Concern; Note if installing or updating that tool is its stated job
     no_mark: Good
-    partly_means: it only moves, renames or backs up their files and keeps the original, beside it or in a folder it names, so they can be put back
+    partly_means: it only moves, renames or backs up their files, and each one, as it was just before the tool changed it, is kept beside it or in a folder the tool names, so it can be put back
   G7:
     text: Does it read the keyboard through Windows, also while the game isn't focused?
     yes_mark: Note

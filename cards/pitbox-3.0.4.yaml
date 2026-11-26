@@ -101,7 +101,7 @@ key:
   K5: 'No. Its plugins use the plugin interface and change nothing in the game''s code or memory.'
   K6: 'No. It decrypts, copies and shares no one''s protected content; it reads mods'' readable files and headers.'
   K7: 'No. The app''s Python code ships in the release, but the two plugins have no public source and the repository holds only a README.'
-  K8: 'No; it is more careful than its README, which says it updates itself when you open it: it installs an update only when you click.'
+  K8: 'No. Its README says it updates itself when you open it; it installs an update only when you click.'
   K9: 'No. The release isn''t code-signed and can''t be traced to source; updates after you install it are signed and checked (P3).'
   K10: 'Yes. Its ranking server, gpb-mods.com, stats.gp-bikes.com and GitHub; nothing can be switched off.'
 areas:
@@ -529,7 +529,7 @@ answers:
     verdict: 'Yes'
     mark: note
     text: >-
-      Only in your favour: its README says "Pitbox updates itself when you open it"; the code asks first and installs only on your click (P2). See
+      Its docs describe riskier behaviour than the code has: its README says "Pitbox updates itself when you open it"; the code asks first and installs only on your click (P2). See
       "What it says vs what it does".
     evidence: '`lab/evidence/pitbox-3.0.4/readme-claims.txt`, `lab/evidence/pitbox-3.0.4/updater.txt`.'
   T3:
@@ -581,6 +581,3 @@ history:
   - date: 26 Nov 2026
     change: >-
       K9 reads "No": it takes the best of P5, T3 and T4, which are all No; it read "Partly", counting signed updates, which P3 answers. D2 no longer lists weather among what a lap upload carries, which the evidence doesn't show. D9's evidence now points to the lines that show the rider profile. No score change.
-  - date: 26 Nov 2026
-    change: >-
-      T2 is a Note (rubric v4): its README says it updates itself when you open it, while it asks first, so the docs describe riskier behaviour than the code has. K8 says so. Score 38 → 40.

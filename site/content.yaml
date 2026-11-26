@@ -19,8 +19,8 @@ ai_short: >-
 maintainer_notice: >-
   **Made by the maintainer of MXB Facts.** thomas4f, who runs this project, makes this tool. It is analysed from the same
   prompt, answers the same questions and is scored by the same fixed costs as every other tool, and every line links its
-  evidence, so you can check it yourself. Like any author, the maintainer can run the For authors check on a release before it
-  is out; no author, the maintainer included, sees a card before it is published ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
+  evidence, so you can check it yourself. The maintainer directs and publishes every card, this one included. Like any author, the
+  maintainer can run the For authors check on a release before it is out ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
 # What "Under review" means, in the Reading a card legend and on the mark's hover.
 under_review: >-
   Someone has sent a correction about this answer, or something it misses. It costs nothing, and no answer, mark or score

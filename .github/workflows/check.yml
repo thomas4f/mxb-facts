@@ -30,6 +30,7 @@ jobs:
       # On a pull request the build also lists what the change does to each card's scores, marks and tags (in the run's summary).
       - run: python3 -I site/build.py
         env:
+          PUBLISH: "1"  # rule 9: a card with a "Held back" row never reaches main, so it can't stop the Pages build
           CHANGES_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || 'HEAD' }}
       # Every open correction issue is on its card, and every open correction on a card is an open issue.
       - run: python3 -I tools/check_corrections.py
