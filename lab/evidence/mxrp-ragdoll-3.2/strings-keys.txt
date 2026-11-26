@@ -1,0 +1,25 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE '^clavier : crochet|Clavier prioritaire|^respawn :|moto : respawn|Respawn (non|pas) fait|manette simulee|installe \(touches'
+941:respawn : touche du clavier %d (profil %s)
+942:respawn : croix de la manette, direction %d (profil %s)
+943:respawn : bouton %d de la manette = %s si XInput (profil %s, manette %s)
+944:respawn : touche "%s" du profil non geree, croix vers le haut
+945:respawn : pas de touche de respawn dans le profil %s, croix vers le haut
+946:respawn : appui vu par le jeu : DirectInput %ld, XInput %ld, manette simulee %ld lecture(s)
+1088:respawn : touches du profil modifiees, relues
+1242:Clavier prioritaire a pied : OUI (souris pour la camera)
+1243:Clavier prioritaire a pied : NON (souris libre, le jeu voit les touches)
+1268:respawn : la touche de respawn du profil sert aussi au plugin : a pied, le jeu ne la voit plus (respawn par appui long ou en remontant sur la moto)
+1271:respawn : appui long (%.1f s), retour sur la piste
+1302:moto : respawn demande a %.2f s de la montee (touche de respawn du profil%s), vitesse %.2f m/s
+1303:moto : respawn par la manette coupe (pad_respawn = 0), fais-le toi-meme
+1305:Respawn non fait : appuie sur ta touche de respawn
+1306:Respawn pas fait : appuie toi-meme sur ta touche de respawn
+1809:moto : respawn a %.1f m de l'endroit releve, on laisse le jeu la placer
+1810:moto : respawn au bon endroit (%.1f m, %.0f deg), laissee au jeu
+2012:installe (touches du plugin prioritaires a pied)
+2014:clavier : crochet %s
+2082:Respawn pas fait : appuie toi-meme sur ta touche de respawn
+2087:Clavier prioritaire a pied : OUI (souris pour la camera)
+2092:Clavier prioritaire a pied : NON (souris libre, le jeu voit les touches)
+2431:Respawn non fait : appuie sur ta touche de respawn
+(exit 0)

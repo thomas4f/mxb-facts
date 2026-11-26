@@ -1,0 +1,35 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE '^reseau :|^\?reseau|steam_api64|SteamNetworking|ISteamNetworking|SteamAPI_|est a pied'
+924:reseau : pilote d'un autre joueur rendu au jeu
+1091:reseau : %s enregistre en direct pendant la rediffusion
+1140:reseau : pilote de %s retrouve a %.1f m de son corps de chute, pilote par son plugin
+1279:reseau : plugin d'un autre joueur en version %s (la mienne : %s)
+1374:reseau : canal Steam pas trouve
+1375:reseau : canal du jeu (port du serveur) %s
+1971:?reseau : plugin de "%s" recu
+1978:reseau : imports ws2_32 du jeu : noms %s, %d cases, sendto/recvfrom trouves %d, %d cases vers un autre module (%s)
+1979:reseau : %s est a pied (ou tombe) avec le plugin
+1981:reseau : premier paquet d'un autre plugin recu par le canal du jeu (%s)
+1984:reseau : %s %s:%d
+1986:reseau : canal du jeu : plugin envoye a %s (%s, socket %llu)
+1987:reseau : canal Steam : plugin envoye au joueur Steam %llu (%s)
+1989:reseau : canal du jeu : %ld paquets du jeu, %ld du plugin envoyes, %ld du plugin recus ; %d adresse(s) du jeu, %d avec le plugin
+1990:reseau : sendto du jeu : %ld appels, dont %ld en IPv6
+1991:reseau : canal Steam : %s, %ld paquets du jeu, %ld du plugin envoyes, %ld du plugin recus
+1992:reseau : recherche des autres plugins sur %s
+1993:reseau : premier paquet d'un autre plugin recu par Steam (joueur %llu)
+1994:reseau : premier envoi du jeu par sendto : famille %d, %d octets
+1996:reseau : canal du jeu %s (envoi %d, reception %d, essai %d)
+1997:steam_api64.dll
+1999:SteamAPI_GetHSteamUser
+2000:SteamAPI_GetHSteamPipe
+2001:SteamAPI_ISteamClient_GetISteamNetworking
+2002:SteamNetworking005
+2003:SteamNetworking006
+2004:reseau : canal Steam pret (ISteamNetworking, canal %d du plugin)
+2005:reseau : port UDP %d deja pris, port au hasard
+2006:reseau : port UDP %d deja pris (erreur %d)
+2007:reseau : adresse de l'hote "%s" incomprise
+2008:reseau : automatique (Radmin VPN / reseau local), port UDP %d
+2009:reseau : HOTE, en attente des joueurs sur le port UDP %d
+2010:reseau : envoi a l'hote %s port UDP %d
+(exit 0)

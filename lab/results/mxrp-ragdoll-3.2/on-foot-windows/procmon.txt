@@ -1,0 +1,207 @@
+    2  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Microsoft\Windows\Caches\{AFBF9F1A-8EE8-4C77-AF34-C647E37CA0D9}.1.ver0x0000000000000000.db  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\MXRP_Ragdoll_gfx.cfg  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache  SUCCESS
+    5  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\bikes  SUCCESS
+   12  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\bikes\350xf.ini  SUCCESS
+    4  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\boots  SUCCESS
+    6  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\boots\default.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default  SUCCESS
+   10  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default.ini  SUCCESS
+    8  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default\goggles.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx  NAME COLLISION
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx  SUCCESS
+   10  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\gloves.ini  SUCCESS
+   20  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\suit.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\0lrfzepb  SUCCESS
+    3  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\1z83ghwn  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\6hlzc6x2  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\98jzqbxg  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\9io913sj  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\bd7lwyf5  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\c2on3215  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\f0aqzxqt  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\ga3keodp  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\hhq57m57  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\iht3wew8  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\kbuv4nbi  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\l57wzehn  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\mvpklfh7  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\siusvg9e  SUCCESS
+    2  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\zx8yriap  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\bikes  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\misc  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\misc\fonts  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\misc\pitboard  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\animations  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\boots  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\fonts  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\helmetcams  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\helmets  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\protections  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders\default_mx  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders\default_mx\gloves  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\rider\riders\default_mx\paints  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\enduro  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\motocross  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\supercross  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tracks\supermoto  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\mods\tyres  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\mxbikes_image_6A21E814.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_1.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_2.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_3.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_4.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_hauteur_moto.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\english.str  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\hostsetup.mnu  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\testsetup.mnu  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\ui.pkz  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_relief  SUCCESS
+    2  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_relief\club.relief  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_replay  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\LISEZ-MOI_README.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1\profile.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\2  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\3  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\premiere  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\premiere\profile.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\premiere\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile  SUCCESS
+   41  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-on-foot\e3dlog.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-on-foot\plugins\MXRP_Ragdoll.dlo.new  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-on-foot\plugins\MXRP_Ragdoll.dlo.old  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\realgame\run-on-foot\sllog.txt  SUCCESS
+    2  mxbikes.exe  DeviceIoControl  C:\Users  FAST IO DISALLOWED
+    2  mxbikes.exe  DeviceIoControl  C:\Users  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\desktop.ini  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\desktop.ini  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents  INVALID PARAMETER
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  FAST IO DISALLOWED
+    1  mxbikes.exe  DeviceIoControl  C:\Users\runneradmin\Documents\desktop.ini  INVALID PARAMETER
+    4  mxbikes.exe  FileSystemControl  C:\Users  NOT REPARSE POINT
+    2  mxbikes.exe  FileSystemControl  C:\Users\runneradmin  NOT REPARSE POINT
+    2  mxbikes.exe  FileSystemControl  C:\Users\runneradmin\Documents  NOT REPARSE POINT
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    4  mxbikes.exe  RegCreateKey  HKCR\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}\Instance  SUCCESS
+    1  mxbikes.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Id  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\MostRecentStart  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Name  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Version  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+    2  mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume4\a\_temp\realgame\run-on-foot\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetBasicInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1\profile.ini  SUCCESS
+    1  mxbikes.exe  SetBasicInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  SetBasicInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\premiere\profile.ini  SUCCESS
+    1  mxbikes.exe  SetBasicInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\premiere\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1\profile.ini  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\1\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\premiere\profile.ini  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\unnamedProfile\premiere\profile.ini.bak  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-on-foot\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-on-foot\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\realgame\run-on-foot\plugins\MXRP_Ragdoll.dlo  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.ywgp2imo21luxe0qdw54wwlgfe.cx.internal.cloudapp.net:52052 -> lb-140-82-114-6-iad.github.com:https  SUCCESS
+  185  mxbikes.exe  UDP Send  runnervmop6rv:47731 -> 192.168.15.255:47731  SUCCESS
+  185  mxbikes.exe  UDP Send  runnervmop6rv.ywgp2imo21luxe0qdw54wwlgfe.cx.internal.cloudapp.net:47731 -> 10.1.15.255:47731  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\MXRP_Ragdoll_gfx.cfg  SUCCESS
+   12  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\bikes\350xf.ini  SUCCESS
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\boots\default.ini  SUCCESS
+   10  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default.ini  SUCCESS
+    8  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\helmets\default\goggles.ini  SUCCESS
+   10  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\gloves.ini  SUCCESS
+   20  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\paints\rider\riders\default_mx\suit.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\0lrfzepb  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\0lrfzepb  SUCCESS
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\1z83ghwn  FAST IO DISALLOWED
+   26  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\1z83ghwn  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\6hlzc6x2  FAST IO DISALLOWED
+   11  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\6hlzc6x2  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\98jzqbxg  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\98jzqbxg  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\9io913sj  FAST IO DISALLOWED
+    7  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\9io913sj  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\bd7lwyf5  FAST IO DISALLOWED
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\bd7lwyf5  SUCCESS
+    7  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\c2on3215  FAST IO DISALLOWED
+   60  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\c2on3215  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\f0aqzxqt  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\f0aqzxqt  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\ga3keodp  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\ga3keodp  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\hhq57m57  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\hhq57m57  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\iht3wew8  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\iht3wew8  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\kbuv4nbi  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\kbuv4nbi  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\l57wzehn  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\l57wzehn  SUCCESS
+    2  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\mvpklfh7  FAST IO DISALLOWED
+   11  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\mvpklfh7  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\siusvg9e  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\siusvg9e  SUCCESS
+    4  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\zx8yriap  FAST IO DISALLOWED
+   11  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\cache\textures\zx8yriap  SUCCESS
+  510  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\mxbikes_image_6A21E814.bin  FAST IO DISALLOWED
+ 4290  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\mxbikes_image_6A21E814.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_hauteur_moto.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\english.str  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\english.str  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\hostsetup.mnu  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\hostsetup.mnu  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\testsetup.mnu  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\testsetup.mnu  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\ui.pkz  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_menus\ui.pkz  SUCCESS
+    2  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_relief\club.relief  FAST IO DISALLOWED
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll_relief\club.relief  SUCCESS
+    6  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log  FAST IO DISALLOWED
+  272  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils\LISEZ-MOI_README.txt  SUCCESS
+   41  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  C:\Users\runneradmin\Documents\PiBoSo\MX Bikes\profiles\unnamedProfile\profile.ini.bak  SUCCESS
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-on-foot\e3dlog.txt  FAST IO DISALLOWED
+   13  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-on-foot\e3dlog.txt  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-on-foot\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-on-foot\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-on-foot\plugins\MXRP_Ragdoll.dlo  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-on-foot\sllog.txt  FAST IO DISALLOWED
+    2  mxbikes.exe  WriteFile  D:\a\_temp\realgame\run-on-foot\sllog.txt  SUCCESS

@@ -1,0 +1,24 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE 'expuls|Kick|ID_KICK|RAGDOLL - |serveur RAGDOLL|plugin active pour cette session|hostsetup_name|Official servers|Players collide|joueurs ont le plugin|cone d.un autre joueur'
+926:expulsion : %s utilise en jeu+0x%llX : %s
+927:expulsion : %d utilisation(s) des boutons trouvee(s)
+1022:prete (bouton Kick du jeu trouve)
+1024:expulsion automatique : %s
+1025:expulsion : %s (joueur %d) connecte, %.0f s pour que son plugin se signale
+1026:expulsion : %s a le plugin, pas d'expulsion
+1027:expulsion : %s n'a pas le plugin, expulse dans %.0f s
+1028:%.40s sans plugin : expulse dans %.0f s
+1029:expulsion : fonction du jeu introuvable, %s pas expulse
+1030:expulsion : %s (joueur %d) expulse : pas de plugin Ragdoll (mode %d)
+1031:%.40s expulse (pas de plugin)
+1034:cones : en ligne : cone d'un autre joueur recu (n %d)
+1080:tous les joueurs ont le plugin
+1131:RAGDOLL - %s
+1373:serveur RAGDOLL : plugin active pour cette session (le bouton reste COUPE pour le solo)
+1441:ID_KICK
+2165:Super-Kicker
+2221:Kicker
+2386:Official servers: move MXRP_Ragdoll.dlo out of the plugins folder first.
+2980:hostsetup_name
+11803:L=Kicker
+11821:jeu : version inconnue (date %08X) : squelette %s (+0x%X -> +0x%X), camera %s (+0x%X), expulsion auto coupee
+(exit 0)

@@ -1,0 +1,7 @@
+Machine: Microsoft Windows Server 2025 Datacenter, video: Microsoft Hyper-V Video (no GPU). Screen: 1280x720 (setting 1280x720 returned 0). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: 97330813853e0e514a11ee16a47d4c6fe90148fae834649839afb30487cc8b0b.
+Game: MX Bikes beta21e (demo), installer SHA-256 a4c688dab24ab5499171d1416649b109a39b8cd6e82892055db382ea852c0ab0.
+Release files (SHA-256):
+7f8e19f40c25ba56cce4c156aa1643756da7a39c96158fa3753f1a5ee45ef106  MXRP_Beta_3.2.zip
+624fd5ecca79c5251a7f044573e76d77c11106124eb98f581ea22dd2bbe9ba69  MXRP_Beta_3.2_manual.zip
+e023cfe20557dc96466bebe105abede5ec5b8b60ffc1cb1db2ddae9edb23de96  MXRP_Ragdoll_1.8.177.dlo
+6250ac54cb81ae5adcb8f588fe92649015b03381d25ac7c99b78b855c956d2ed  MXRP_Ragdoll_Installer.exe

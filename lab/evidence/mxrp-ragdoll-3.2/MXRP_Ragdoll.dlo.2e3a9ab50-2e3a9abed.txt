@@ -1,0 +1,47 @@
+$ objdump -d 'MXRP_Ragdoll.dlo' | awk -v a=2e3a9ab50 -v b=2e3a9abed '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   2e3a9ab50:	48 83 ec 58          	sub    $0x58,%rsp
+   2e3a9ab54:	89 c8                	mov    %ecx,%eax
+   2e3a9ab56:	87 05 0c fd ff 01    	xchg   %eax,0x1fffd0c(%rip)        # 0x2e5a9a868
+   2e3a9ab5c:	89 d0                	mov    %edx,%eax
+   2e3a9ab5e:	87 05 00 fd ff 01    	xchg   %eax,0x1fffd00(%rip)        # 0x2e5a9a864
+   2e3a9ab64:	45 85 c0             	test   %r8d,%r8d
+   2e3a9ab67:	0f 95 c0             	setne  %al
+   2e3a9ab6a:	41 0f 95 c1          	setne  %r9b
+   2e3a9ab6e:	0f b6 c0             	movzbl %al,%eax
+   2e3a9ab71:	87 05 f5 fc ff 01    	xchg   %eax,0x1fffcf5(%rip)        # 0x2e5a9a86c
+   2e3a9ab77:	83 f9 02             	cmp    $0x2,%ecx
+   2e3a9ab7a:	74 0c                	je     0x2e3a9ab88
+   2e3a9ab7c:	48 83 c4 58          	add    $0x58,%rsp
+   2e3a9ab80:	c3                   	ret
+   2e3a9ab81:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   2e3a9ab88:	85 c0                	test   %eax,%eax
+   2e3a9ab8a:	0f 95 c0             	setne  %al
+   2e3a9ab8d:	41 38 c1             	cmp    %al,%r9b
+   2e3a9ab90:	74 ea                	je     0x2e3a9ab7c
+   2e3a9ab92:	89 d0                	mov    %edx,%eax
+   2e3a9ab94:	66 0f ef c0          	pxor   %xmm0,%xmm0
+   2e3a9ab98:	c1 fa 07             	sar    $0x7,%edx
+   2e3a9ab9b:	48 8d 4c 24 20       	lea    0x20(%rsp),%rcx
+   2e3a9aba0:	83 e0 7f             	and    $0x7f,%eax
+   2e3a9aba3:	0f 11 44 24 24       	movups %xmm0,0x24(%rsp)
+   2e3a9aba8:	83 e2 01             	and    $0x1,%edx
+   2e3a9abab:	66 89 44 24 2a       	mov    %ax,0x2a(%rsp)
+   2e3a9abb0:	31 c0                	xor    %eax,%eax
+   2e3a9abb2:	45 85 c0             	test   %r8d,%r8d
+   2e3a9abb5:	41 b8 28 00 00 00    	mov    $0x28,%r8d
+   2e3a9abbb:	0f 94 c0             	sete   %al
+   2e3a9abbe:	c7 44 24 44 00 00 00 	movl   $0x0,0x44(%rsp)
+   2e3a9abc5:	00 
+   2e3a9abc6:	01 c0                	add    %eax,%eax
+   2e3a9abc8:	c7 44 24 20 01 00 00 	movl   $0x1,0x20(%rsp)
+   2e3a9abcf:	00 
+   2e3a9abd0:	09 c2                	or     %eax,%edx
+   2e3a9abd2:	0f 11 44 24 34       	movups %xmm0,0x34(%rsp)
+   2e3a9abd7:	83 ca 08             	or     $0x8,%edx
+   2e3a9abda:	89 54 24 2c          	mov    %edx,0x2c(%rsp)
+   2e3a9abde:	48 89 ca             	mov    %rcx,%rdx
+   2e3a9abe1:	b9 01 00 00 00       	mov    $0x1,%ecx
+   2e3a9abe6:	ff 15 1c 11 29 02    	call   *0x229111c(%rip)        # 0x2e5d2bd08
+   2e3a9abec:	90                   	nop
+   2e3a9abed:	48 83 c4 58          	add    $0x58,%rsp
+(exit 0)

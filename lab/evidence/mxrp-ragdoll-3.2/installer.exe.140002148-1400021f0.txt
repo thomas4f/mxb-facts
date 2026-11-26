@@ -1,0 +1,43 @@
+$ objdump -d 'installer.exe' | awk -v a=140002148 -v b=1400021f0 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   140002148:	48 89 74 24 60       	mov    %rsi,0x60(%rsp)
+   14000214d:	4c 8b 25 84 e2 00 00 	mov    0xe284(%rip),%r12        # 0x1400103d8
+   140002154:	48 8d ac 24 dc 01 00 	lea    0x1dc(%rsp),%rbp
+   14000215b:	00 
+   14000215c:	48 89 7c 24 68       	mov    %rdi,0x68(%rsp)
+   140002161:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   140002168:	48 8d 15 db 91 00 00 	lea    0x91db(%rip),%rdx        # 0x14000b34a
+   14000216f:	48 89 e9             	mov    %rbp,%rcx
+   140002172:	41 ff d6             	call   *%r14
+   140002175:	85 c0                	test   %eax,%eax
+   140002177:	74 57                	je     0x1400021d0
+   140002179:	48 89 6c 24 20       	mov    %rbp,0x20(%rsp)
+   14000217e:	4c 8b 4c 24 50       	mov    0x50(%rsp),%r9
+   140002183:	48 89 d9             	mov    %rbx,%rcx
+   140002186:	4c 8d 05 f9 8e 00 00 	lea    0x8ef9(%rip),%r8        # 0x14000b086
+   14000218d:	ba 0c 03 00 00       	mov    $0x30c,%edx
+   140002192:	e8 e9 f2 ff ff       	call   0x140001480
+   140002197:	48 89 d9             	mov    %rbx,%rcx
+   14000219a:	ff 15 18 e2 00 00    	call   *0xe218(%rip)        # 0x1400103b8
+   1400021a0:	85 c0                	test   %eax,%eax
+   1400021a2:	74 2c                	je     0x1400021d0
+   1400021a4:	48 8b 4c 24 58       	mov    0x58(%rsp),%rcx
+   1400021a9:	e8 1a 75 00 00       	call   0x1400096c8
+   1400021ae:	48 89 e9             	mov    %rbp,%rcx
+   1400021b1:	48 89 c6             	mov    %rax,%rsi
+   1400021b4:	e8 0f 75 00 00       	call   0x1400096c8
+   1400021b9:	48 8d 54 06 08       	lea    0x8(%rsi,%rax,1),%rdx
+   1400021be:	48 81 fa ff 03 00 00 	cmp    $0x3ff,%rdx
+   1400021c5:	76 41                	jbe    0x140002208
+   1400021c7:	83 44 24 74 01       	addl   $0x1,0x74(%rsp)
+   1400021cc:	0f 1f 40 00          	nopl   0x0(%rax)
+   1400021d0:	4c 89 ea             	mov    %r13,%rdx
+   1400021d3:	4c 89 f9             	mov    %r15,%rcx
+   1400021d6:	41 ff d4             	call   *%r12
+   1400021d9:	85 c0                	test   %eax,%eax
+   1400021db:	75 8b                	jne    0x140002168
+   1400021dd:	48 8b 74 24 60       	mov    0x60(%rsp),%rsi
+   1400021e2:	48 8b 7c 24 68       	mov    0x68(%rsp),%rdi
+   1400021e7:	4c 89 f9             	mov    %r15,%rcx
+   1400021ea:	ff 15 d8 e1 00 00    	call   *0xe1d8(%rip)        # 0x1400103c8
+   1400021f0:	e9 13 fe ff ff       	jmp    0x140002008
+(exit 0)

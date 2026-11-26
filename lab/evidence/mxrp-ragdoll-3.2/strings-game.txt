@@ -1,0 +1,25 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE 'impossible de modifier le code du jeu|le CALL vise|menus : |dossier ui du jeu|maillages de la piste|surfaces sous les roues interceptees|imports ws2_32 du jeu|image du jeu copiee|squelette|ODE world|monde ODE' | head -40
+1315:ragdoll 3D : squelette du pilote introuvable pres de la moto, simulation sans pilote 3D
+1343:jeu : version inconnue (date %08lX) : image du jeu copiee (%lu Ko, %u pages illisibles) dans %s
+1344:squelette : %s
+1345:squelette : verification = %s
+1347:squelette : interception %s (%s)
+1353:squelette : interception desactivee (skeleton_hook = 0)
+1398:image lente : %.0f ms (plugin : telemetrie %.1f ms (appel le plus long %.1f), squelette %.1f ms, dessin %.1f ms)
+1462:le CALL vise une autre fonction (autre version du jeu ou autre mod actif)
+1465:impossible de modifier le code du jeu
+1534:pilotage : point %d du squelette invalide
+1801:moto : monde ODE %p, premier corps %p, %d corps
+1978:reseau : imports ws2_32 du jeu : noms %s, %d cases, sendto/recvfrom trouves %d, %d cases vers un autre module (%s)
+3004:menus : le jeu ouvre %s (%s)%s
+3022:menus : copie %s pas ecrite
+3027:menus : %s illisible
+3028:menus : %s %s
+3032:menus : ui.pkz illisible
+3035:menus : %d copie(s) avec le bouton du plugin dans %s, dossier ui du jeu pas modifie (ouverture : fopen %d, CreateFileA %d)
+3039:menus : %ld fichier(s) de menu ouverts par le jeu depuis le lancement du plugin, %ld donne(s) avec le bouton
+11821:jeu : version inconnue (date %08X) : squelette %s (+0x%X -> +0x%X), camera %s (+0x%X), expulsion auto coupee
+11840:rampes : surfaces sous les roues interceptees (jeu+0x%llX, relief +0x%llX, matiere +0x%llX)
+11841:rampes : maillages de la piste remis d'origine
+11842:rampes : %d rampe(s) dans les maillages de la piste (%d triangles d'origine, %d noeuds -> %d, matiere %d/%d)
+(exit 0)
