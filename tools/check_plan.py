@@ -16,7 +16,7 @@ SAFE = re.compile(r'^[A-Za-z0-9 _.,:!+()\[\]\\/-]{1,200}$')
 # A Windows switch an installer takes (/VERYSILENT, /S): a slash and a word, no value, so it can't name a path.
 SWITCH = re.compile(r'^/[A-Za-z][A-Za-z0-9_-]{0,39}$')
 # The keys lab/real-game/windows/run.ps1 can press (xdotool's names; its $scan table), alone (ctrl too) or joined with + (ctrl+r).
-KEY = re.compile(r'^((ctrl|shift|alt)\+){0,2}(Up|Down|Left|Right|Escape|Return|space|Tab|BackSpace|Caps_Lock|Insert|Delete|Home|End|Prior|Next|F([1-9]|1[0-2])|[a-z0-9]|ctrl|shift|alt)$')
+KEY = re.compile(r'^((ctrl|shift|alt)\+){0,2}(Up|Down|Left|Right|Escape|Return|space|Tab|BackSpace|Caps_Lock|grave|Insert|Delete|Home|End|Prior|Next|F([1-9]|1[0-2])|[a-z0-9]|ctrl|shift|alt)$')
 KEYS = {'game', 'game_version', 'licence', 'files', 'realgame', 'cases', 'apps', 'note'}
 LICENCE = ('allows', 'forbids', 'unclear')
 # The demos each game can run in (lab/real-game/games.json); the workflow writes the plan's game_version (games.py plan).
