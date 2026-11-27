@@ -1,0 +1,8 @@
+$ objdump -s -j .rdata --start-address=0x38c5e5bd0 --stop-address=0x38c5e5c30 overhaul64.dlo | tail -n +5
+ 38c5e5bd0 6f635f61 7070656e 64002e64 6c6f004f  oc_append..dlo.O
+ 38c5e5be0 76657268 61756c48 6f6f6b46 6f720000  verhaulHookFor..
+ 38c5e5bf0 20286166 74657220 616e6f74 68657220   (after another 
+ 38c5e5c00 6f766572 6861756c 20706c75 67696e29  overhaul plugin)
+ 38c5e5c10 0000686f 6f6b2025 733a206e 6f742061  ..hook %s: not a
+ 38c5e5c20 7661696c 61626c65 00000000 00000000  vailable........
+(exit 0)

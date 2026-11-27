@@ -1,0 +1,13 @@
+$ for f in overhaul64.dlo README.txt plugins/overhaul/sounds/CREDITS.txt plugins/presets/Low-end.ini; do echo "== $f"; { strings -n 6 $f; strings -el -n 6 $f; } | grep -nE 'https?://|www\.' | grep -v 'gcc.gnu.org'; done
+== overhaul64.dlo
+1575:https://discord.com/channels/1567518817272467537/1567959154906239006
+1635:https://discord.gg/WVRms6MzBA
+1639:https://graphicsoverhaul.com/
+== README.txt
+== plugins/overhaul/sounds/CREDITS.txt
+3:https://commons.wikimedia.org/wiki/File:Calm_rain.wav
+4:License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+8:https://commons.wikimedia.org/wiki/File:Falling_Rain_SFX_1_2016-11-19.oga
+9:License: CC BY 3.0 (https://creativecommons.org/licenses/by/3.0/)
+== plugins/presets/Low-end.ini
+(exit 1)

@@ -1,0 +1,24 @@
+$ { strings -n 6 overhaul64.dlo; } | grep -iE 'GCC: |mingw-w64-libraries|winpthreads|libgcc|copyright|licen[cs]e|zlib|stb_|imgui|miniz|lodepng|nlohmann|Jimenez|FXAA' | sort | uniq -c
+      1 *GNU C23 16.2.0 -march=nocona -msahf -mtune=generic -g -g -g -O2 -O2 -O2 -fbuilding-libgcc -fno-stack-protector -fexceptions
+      3 ../../../libgcc
+      2 ../../../libgcc/../gcc/config/i386
+      1 ../../../libgcc/config/i386
+      1 ../../../libgcc/config/i386/cygwin.S
+      1 ../../../libgcc/emutls.c
+      1 ../../../libgcc/libgcc2.c
+      1 ../../../libgcc/unwind-seh.c
+      1 ../../../mingw-w64-libraries/winpthreads/src/nanosleep.c
+      1 ../../../mingw-w64-libraries/winpthreads/src/rwlock.c
+      1 .weak.__deregister_frame_info.hmod_libgcc
+      1 .weak.__register_frame_info.hmod_libgcc
+      3 D:/Temp/_/gcc-16.2.0/build_mingw/x86_64-w64-mingw32/libgcc
+      5 D:\Temp\_\gcc-16.2.0\build_mingw\x86_64-w64-mingw32\libgcc
+     61 GCC: (MinGW-W64 x86_64-ucrt-posix-seh, built by Brecht Sanders, r3) 16.2.0
+      1 GNU C23 16.2.0 -march=nocona -msahf -mtune=generic -g -g -g -O2 -O2 -O2 -fbuilding-libgcc -fno-stack-protector
+      1 GNU C23 16.2.0 -march=nocona -msahf -mtune=generic -g -g -g -O2 -O2 -O2 -fbuilding-libgcc -fno-stack-protector -fexceptions
+      1 fxaa.frag
+      1 hmod_libgcc
+      3 libgcc2.c
+      1 libgcc_s_dw2-1.dll
+      1 winpthreads_init
+(exit 0)

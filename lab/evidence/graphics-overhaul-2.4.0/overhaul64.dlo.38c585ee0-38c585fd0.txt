@@ -1,0 +1,60 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c585ee0 -v b=38c585fd0 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c585ee0:	55                   	push   %rbp
+   38c585ee1:	57                   	push   %rdi
+   38c585ee2:	56                   	push   %rsi
+   38c585ee3:	53                   	push   %rbx
+   38c585ee4:	48 83 ec 58          	sub    $0x58,%rsp
+   38c585ee8:	48 8b 35 f9 b1 0d 00 	mov    0xdb1f9(%rip),%rsi        # 38c6610e8 <_Z9g_dataDirB5cxx11+0x8>
+   38c585eef:	48 8b 2d ea b1 0d 00 	mov    0xdb1ea(%rip),%rbp        # 38c6610e0 <_Z9g_dataDirB5cxx11>
+   38c585ef6:	48 89 cb             	mov    %rcx,%rbx
+   38c585ef9:	48 83 fe 09          	cmp    $0x9,%rsi
+   38c585efd:	0f 86 e5 00 00 00    	jbe    38c585fe8 <_Z11presets_dirB5cxx11v+0x108>
+   38c585f03:	48 83 ee 09          	sub    $0x9,%rsi
+   38c585f07:	48 8d 7c 24 40       	lea    0x40(%rsp),%rdi
+   38c585f0c:	48 8d 4c 24 30       	lea    0x30(%rsp),%rcx
+   38c585f11:	48 89 7c 24 30       	mov    %rdi,0x30(%rsp)
+   38c585f16:	48 89 74 24 28       	mov    %rsi,0x28(%rsp)
+   38c585f1b:	48 83 fe 0f          	cmp    $0xf,%rsi
+   38c585f1f:	0f 87 43 01 00 00    	ja     38c586068 <_Z11presets_dirB5cxx11v+0x188>
+   38c585f25:	48 83 fe 01          	cmp    $0x1,%rsi
+   38c585f29:	0f 85 09 01 00 00    	jne    38c586038 <_Z11presets_dirB5cxx11v+0x158>
+   38c585f2f:	0f b6 45 00          	movzbl 0x0(%rbp),%eax
+   38c585f33:	c6 44 24 41 00       	movb   $0x0,0x41(%rsp)
+   38c585f38:	48 89 fd             	mov    %rdi,%rbp
+   38c585f3b:	48 c7 44 24 38 01 00 	movq   $0x1,0x38(%rsp)
+   38c585f42:	00 00 
+   38c585f44:	88 44 24 40          	mov    %al,0x40(%rsp)
+   38c585f48:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   38c585f4f:	00 
+   38c585f50:	48 8d 43 10          	lea    0x10(%rbx),%rax
+   38c585f54:	c6 43 10 00          	movb   $0x0,0x10(%rbx)
+   38c585f58:	48 8d 56 08          	lea    0x8(%rsi),%rdx
+   38c585f5c:	48 89 d9             	mov    %rbx,%rcx
+   38c585f5f:	48 89 03             	mov    %rax,(%rbx)
+   38c585f62:	48 c7 43 08 00 00 00 	movq   $0x0,0x8(%rbx)
+   38c585f69:	00 
+   38c585f6a:	e8 a1 b2 03 00       	call   38c5c1210 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEy>
+   38c585f6f:	48 b8 fe ff ff ff ff 	movabs $0x7ffffffffffffffe,%rax
+   38c585f76:	ff ff 7f 
+   38c585f79:	48 2b 43 08          	sub    0x8(%rbx),%rax
+   38c585f7d:	48 39 f0             	cmp    %rsi,%rax
+   38c585f80:	0f 82 66 7a 04 00    	jb     38c5cd9ec <_Z11presets_dirB5cxx11v.cold+0xc>
+   38c585f86:	49 89 f0             	mov    %rsi,%r8
+   38c585f89:	48 89 ea             	mov    %rbp,%rdx
+   38c585f8c:	48 89 d9             	mov    %rbx,%rcx
+   38c585f8f:	e8 ac b3 03 00       	call   38c5c1340 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   38c585f94:	48 b8 09 00 00 00 00 	movabs $0x8000000000000009,%rax
+   38c585f9b:	00 00 80 
+   38c585f9e:	48 03 43 08          	add    0x8(%rbx),%rax
+   38c585fa2:	48 83 f8 07          	cmp    $0x7,%rax
+   38c585fa6:	0f 86 34 7a 04 00    	jbe    38c5cd9e0 <_Z11presets_dirB5cxx11v.cold>
+   38c585fac:	41 b8 08 00 00 00    	mov    $0x8,%r8d
+   38c585fb2:	48 8d 15 af 03 06 00 	lea    0x603af(%rip),%rdx        # 38c5e6368 <.rdata+0x18>
+   38c585fb9:	48 89 d9             	mov    %rbx,%rcx
+   38c585fbc:	e8 7f b3 03 00       	call   38c5c1340 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcy>
+   38c585fc1:	48 8b 4c 24 30       	mov    0x30(%rsp),%rcx
+   38c585fc6:	48 39 f9             	cmp    %rdi,%rcx
+   38c585fc9:	74 0e                	je     38c585fd9 <_Z11presets_dirB5cxx11v+0xf9>
+   38c585fcb:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+   38c585fd0:	48 8d 50 01          	lea    0x1(%rax),%rdx
+(exit 0)

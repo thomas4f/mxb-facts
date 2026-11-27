@@ -1,0 +1,18 @@
+$ objdump -d overhaul64.dlo | awk '/^000000038c516340 <Startup>:/{p=1} p&&/^$/{exit} p' | grep -E 'call' | grep -oE '<[^>]+>' | c++filt | grep -vE 'basic_string|operator|chkstk' | uniq
+<__imp_GetModuleHandleExA>
+<__imp_GetModuleFileNameA>
+<strlen>
+<__imp_CreateDirectoryA>
+<make_presets_dir()>
+<logf(char const*, ...)>
+<__imp_AddVectoredExceptionHandler>
+<__imp_CreateThread>
+<config_load()>
+<__imp_QueryPerformanceFrequency>
+<__imp_QueryPerformanceCounter>
+<hooks_register(HookSlot*, int)>
+<hooks_install(HookSlot*, int)>
+<logf(char const*, ...)>
+<__imp_MoveFileExA>
+<logf(char const*, ...)>
+(exit 0)

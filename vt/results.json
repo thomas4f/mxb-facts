@@ -124,6 +124,82 @@
         "permalink": "https://www.virustotal.com/gui/file/04ee15cf9897b596342cf5529499c13e0664bba09ef880ca03f667ecebef1031"
       }
     },
+    "graphics-overhaul-2.4.0.yaml": {
+      "6f0cf878eaa3198177f45c7382efd2c0026323fb34eb8a8dad3b9be10b053510": {
+        "found": true,
+        "flagged": 0,
+        "engines": 66,
+        "flagged_by": [],
+        "last_scanned": "2026-11-17",
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/6f0cf878eaa3198177f45c7382efd2c0026323fb34eb8a8dad3b9be10b053510"
+      },
+      "085db6b786b47f9695b4583a820f15eb9d817bfbe47dc6d0e67574d5896d46c3": {
+        "found": true,
+        "flagged": 0,
+        "engines": 70,
+        "flagged_by": [],
+        "last_scanned": "2026-11-24",
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/085db6b786b47f9695b4583a820f15eb9d817bfbe47dc6d0e67574d5896d46c3"
+      },
+      "d965e4359c1b4cd4a109ce9d3e40097c777a74196b0c1eb0f91a2ec8dbf9e40c": {
+        "found": false,
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/d965e4359c1b4cd4a109ce9d3e40097c777a74196b0c1eb0f91a2ec8dbf9e40c"
+      },
+      "53830a7173e21744a770d2e64e9338977e781bc5174214984a720bc5f5ed4fe9": {
+        "found": false,
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/53830a7173e21744a770d2e64e9338977e781bc5174214984a720bc5f5ed4fe9"
+      },
+      "3769834ffad20828793910ec4e99b844e1ddbf06715c45cbc0cae2a21b17b6a0": {
+        "found": false,
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/3769834ffad20828793910ec4e99b844e1ddbf06715c45cbc0cae2a21b17b6a0"
+      },
+      "a362a5c2c154c556e51bd58b42bcc155d656f7bd42f53c01d5fa353288666091": {
+        "found": false,
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/a362a5c2c154c556e51bd58b42bcc155d656f7bd42f53c01d5fa353288666091"
+      },
+      "80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e": {
+        "found": true,
+        "flagged": 0,
+        "engines": 59,
+        "flagged_by": [],
+        "last_scanned": "2026-11-05",
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e"
+      },
+      "4a1ad5591eea717e12d68fcd1894622f170da86998b4bf1b6e2d2aeeac3698af": {
+        "found": true,
+        "flagged": 0,
+        "engines": 60,
+        "flagged_by": [],
+        "last_scanned": "2026-11-26",
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/4a1ad5591eea717e12d68fcd1894622f170da86998b4bf1b6e2d2aeeac3698af"
+      },
+      "31e4b1dd3ed7d40d11cabd3a4c3b0891151e084855114cfe24e7bfcc9e9496ab": {
+        "found": true,
+        "flagged": 0,
+        "engines": 58,
+        "flagged_by": [],
+        "last_scanned": "2026-11-17",
+        "looked_up": "2026-11-27",
+        "run": "https://github.com/thomas4f/mxb-facts/actions/runs/46076203986",
+        "permalink": "https://www.virustotal.com/gui/file/31e4b1dd3ed7d40d11cabd3a4c3b0891151e084855114cfe24e7bfcc9e9496ab"
+      }
+    },
     "heightmap-studio-26.11.7.yaml": {
       "787220208773078061a85caba7ba860665502af2b16528a34471856500418004": {
         "found": true,

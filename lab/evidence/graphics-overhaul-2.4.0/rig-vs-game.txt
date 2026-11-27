@@ -1,0 +1,26 @@
+$ sha256sum mxbikes-beta21f.exe; 7z x -y -o$W mxbikes-beta21f.exe rider.pkz > /dev/null; (cd $W && sha256sum rider.pkz); echo "encrypted entries: $(7z l -slt $W/rider.pkz | grep -c 'Encrypted = +')"; 7z x -y -o$W/r $W/rider.pkz 'rider/riders/default_mx/*.edf' > /dev/null; (cd $W/r && sha256sum rider/riders/default_mx/*.edf && rigcmp.py "$OLDPWD/plugins/overhaul/rig_default_mx.bin" rider/riders/default_mx/rider.edf rider/riders/default_mx/c_rider.edf rider/riders/default_mx/rider_s.edf)
+76feb83746e785310e8858938dd50b5e0685d1b0004480d5d1c2d4fc21f11949  mxbikes-beta21f.exe
+3a3d62b6e9e6b4ce14cec8e01c2b17c8d42046db7313e83acad4bd5557e0f8e8  rider.pkz
+encrypted entries: 0
+bc87f6f5e17f5f879612f1a7128bee7463dbfb7250dd5437d0beabefeebca198  rider/riders/default_mx/c_rider.edf
+720bff374b30d31f0c77c642f51cccf18bb36a9b70ec82f7d8edf08826c679f5  rider/riders/default_mx/rider.edf
+f71efb4742fce17d4413b306f9af9bb99a4e8ca5c1aef0d19e85fe618fa9470d  rider/riders/default_mx/rider_s.edf
+== rider/riders/default_mx/rider.edf
+lod0: 4379 vertices; position found: 4379; position and normal found: 4379
+lod1: 2124 vertices; position found: 2124; position and normal found: 2124
+lod2: 1306 vertices; position found: 1306; position and normal found: 1306
+cockpit: 3280 vertices; position found: 1; position and normal found: 1
+shadow: 762 vertices; position found: 16; position and normal found: 0
+== rider/riders/default_mx/c_rider.edf
+lod0: 4379 vertices; position found: 0; position and normal found: 0
+lod1: 2124 vertices; position found: 0; position and normal found: 0
+lod2: 1306 vertices; position found: 0; position and normal found: 0
+cockpit: 3280 vertices; position found: 3280; position and normal found: 1
+shadow: 762 vertices; position found: 16; position and normal found: 0
+== rider/riders/default_mx/rider_s.edf
+lod0: 4379 vertices; position found: 0; position and normal found: 0
+lod1: 2124 vertices; position found: 0; position and normal found: 0
+lod2: 1306 vertices; position found: 1306; position and normal found: 0
+cockpit: 3280 vertices; position found: 1; position and normal found: 1
+shadow: 762 vertices; position found: 0; position and normal found: 0
+(exit 0)

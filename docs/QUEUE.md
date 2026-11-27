@@ -58,7 +58,6 @@ Tools that wait for something before they are analysed or published.
 | Tool | Game | Author | Page | Registry | Why |
 |---|---|---|---|---|---|
 | CoreMX | MX Bikes | rare621 | [mxb-mods.com](https://mxb-mods.com/coremx-your-mx-bikes-companion-app-2/) | `coremx` | Waits for the maintainer's go |
-| Graphics Overhaul | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/graphics-overhaul-2/) | `graphics-overhaul` | Paused (the maintainer's choice) |
 | GameFX+ | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/gamefx-2/) | `gamefx-plus` | Paused (the maintainer's choice) |
 | Rider POV+ | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/rider-pov-2/) | `rider-pov-plus` | Paused (the maintainer's choice) |
 | MXBMRP3 | MX Bikes | thomas4f | [mxb-mods.com](https://mxb-mods.com/mxbmrp3/) | `mxbmrp3` | The maintainer's own tool; waits for its next release (the maintainer's choice) |

@@ -1,0 +1,30 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c54e3f0 -v b=38c54e46f '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c54e3f0:	48 83 ec 78          	sub    $0x78,%rsp
+   38c54e3f4:	80 3d f5 1f 11 00 00 	cmpb   $0x0,0x111ff5(%rip)        # 38c6603f0 <_ZZN5panel12_GLOBAL__N_1L3busEvE5tried>
+   38c54e3fb:	74 13                	je     38c54e410 <_ZN5panel12_GLOBAL__N_1L3busEv+0x20>
+   38c54e3fd:	48 8b 05 f4 1f 11 00 	mov    0x111ff4(%rip),%rax        # 38c6603f8 <_ZZN5panel12_GLOBAL__N_1L3busEvE1b>
+   38c54e404:	48 83 c4 78          	add    $0x78,%rsp
+   38c54e408:	c3                   	ret
+   38c54e409:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   38c54e410:	c6 05 d9 1f 11 00 01 	movb   $0x1,0x111fd9(%rip)        # 38c6603f0 <_ZZN5panel12_GLOBAL__N_1L3busEvE5tried>
+   38c54e417:	ff 15 83 57 11 00    	call   *0x115783(%rip)        # 38c663ba0 <__imp_GetCurrentProcessId>
+   38c54e41d:	48 8d 4c 24 30       	lea    0x30(%rsp),%rcx
+   38c54e422:	ba 40 00 00 00       	mov    $0x40,%edx
+   38c54e427:	4c 8d 05 5c d7 08 00 	lea    0x8d75c(%rip),%r8        # 38c5dbb8a <.rdata+0xa>
+   38c54e42e:	41 89 c1             	mov    %eax,%r9d
+   38c54e431:	e8 2a ed 04 00       	call   38c59d160 <__mingw_snprintf>
+   38c54e436:	48 8d 4c 24 30       	lea    0x30(%rsp),%rcx
+   38c54e43b:	45 31 c9             	xor    %r9d,%r9d
+   38c54e43e:	31 d2                	xor    %edx,%edx
+   38c54e440:	48 89 4c 24 28       	mov    %rcx,0x28(%rsp)
+   38c54e445:	41 b8 04 00 00 00    	mov    $0x4,%r8d
+   38c54e44b:	48 c7 c1 ff ff ff ff 	mov    $0xffffffffffffffff,%rcx
+   38c54e452:	c7 44 24 20 20 00 00 	movl   $0x20,0x20(%rsp)
+   38c54e459:	00 
+   38c54e45a:	ff 15 d8 56 11 00    	call   *0x1156d8(%rip)        # 38c663b38 <__imp_CreateFileMappingA>
+   38c54e460:	48 85 c0             	test   %rax,%rax
+   38c54e463:	74 98                	je     38c54e3fd <_ZN5panel12_GLOBAL__N_1L3busEv+0xd>
+   38c54e465:	45 31 c9             	xor    %r9d,%r9d
+   38c54e468:	45 31 c0             	xor    %r8d,%r8d
+   38c54e46b:	ba 1f 00 0f 00       	mov    $0xf001f,%edx
+(exit 0)

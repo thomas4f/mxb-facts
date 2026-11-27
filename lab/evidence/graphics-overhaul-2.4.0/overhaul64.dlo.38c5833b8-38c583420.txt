@@ -1,0 +1,32 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c5833b8 -v b=38c583420 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c5833b8:	81 3b 4f 56 50 31    	cmpl   $0x3150564f,(%rbx)
+   38c5833be:	0f 85 32 01 00 00    	jne    38c5834f6 <_ZL10pak_lookupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RS4_+0x1a6>
+   38c5833c4:	41 b8 04 00 00 00    	mov    $0x4,%r8d
+   38c5833ca:	31 d2                	xor    %edx,%edx
+   38c5833cc:	48 8d 4c 24 30       	lea    0x30(%rsp),%rcx
+   38c5833d1:	e8 da de 03 00       	call   38c5c12b0 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEyy>
+   38c5833d6:	48 8b 5c 24 30       	mov    0x30(%rsp),%rbx
+   38c5833db:	48 8b 4c 24 38       	mov    0x38(%rsp),%rcx
+   38c5833e0:	48 01 d9             	add    %rbx,%rcx
+   38c5833e3:	48 39 d9             	cmp    %rbx,%rcx
+   38c5833e6:	74 9d                	je     38c583385 <_ZL10pak_lookupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RS4_+0x35>
+   38c5833e8:	b8 2a 1f ed 5e       	mov    $0x5eed1f2a,%eax
+   38c5833ed:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   38c5833f4:	00 
+   38c5833f5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   38c5833fc:	00 00 00 00 
+   38c583400:	89 c2                	mov    %eax,%edx
+   38c583402:	c1 e2 0d             	shl    $0xd,%edx
+   38c583405:	31 d0                	xor    %edx,%eax
+   38c583407:	89 c2                	mov    %eax,%edx
+   38c583409:	c1 ea 11             	shr    $0x11,%edx
+   38c58340c:	31 c2                	xor    %eax,%edx
+   38c58340e:	89 d0                	mov    %edx,%eax
+   38c583410:	c1 e0 05             	shl    $0x5,%eax
+   38c583413:	31 d0                	xor    %edx,%eax
+   38c583415:	30 03                	xor    %al,(%rbx)
+   38c583417:	48 83 c3 01          	add    $0x1,%rbx
+   38c58341b:	48 39 d9             	cmp    %rbx,%rcx
+   38c58341e:	75 e0                	jne    38c583400 <_ZL10pak_lookupRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_RS4_+0xb0>
+   38c583420:	48 8b 6c 24 38       	mov    0x38(%rsp),%rbp
+(exit 0)
