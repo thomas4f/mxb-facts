@@ -287,6 +287,8 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
 .prose th, .prose td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 .prose th { color: var(--muted); font-weight: 600 }
 .prose h2, .prose h3 { font: var(--t-sub); margin-top: var(--s2) }
+/* The ten rules as one line each on How it works; the full text folds below them. */
+.rules { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s1) }
 .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s3) }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, var(--w-text)); gap: var(--s3); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s4) }
 .steps li::before { content: counter(s); font: var(--t-sub); color: var(--accent) }
@@ -385,7 +387,7 @@ details.fold > summary h3.ft { font: inherit }
 
 /* Width (the tokens are in :root): running text stops at --w-text wherever it stands; what it sits in still spans the page. A
    table, a grid of cards and a picture are not running text and keep the full width; a legend is (a term, then its sentence). */
-:is(.hero p, .thead .sum, .wrap > p:not(.ainote, .notice), .fabout, .measure, .prose > :not(table), .box > p:not(.lead), .pad > p:not(.lead), .legend, .row .rb, .also p, .lims li, .chg li, .facts dd, .emb > p, .copy) { max-width: var(--w-text) }
+:is(.hero p, .thead .sum, .wrap > p:not(.ainote, .notice), .fabout, .measure, .prose > :not(table), .box > p:not(.lead), .pad > p:not(.lead), .legend, .row .rb, .also p, .lims li, .rules li, .chg li, .facts dd, .emb > p, .copy) { max-width: var(--w-text) }
 /* A lead line and a note are framed across the page (a rule under it, a box round it), so their text stops at the measure
    through their padding instead. tests/site/tests/layout.spec.mjs fails on running text wider than --w-text on any page. */
 .lead, .notice, .wrap > .ainote { padding-right: max(var(--s4), calc(100% - var(--w-text))) }

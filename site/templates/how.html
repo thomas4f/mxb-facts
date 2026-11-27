@@ -11,7 +11,8 @@
 <h2 class="h2" id="steps">How a card is made</h2>
 <ol class="steps">{% for s in SITE.how_a_card_is_made %}<li><div>{{ s | mdi }}</div></li>{% endfor %}</ol>
 <h2 class="h2" id="rules">The rules</h2>
-<div class="box pad"><div class="prose">{{ tpl['Rules'] | md }}</div></div>
+<div class="box pad"><ol class="rules">{% for t in tpl['Rules'] | rule_titles %}<li>{{ t | mdi }}</li>{% endfor %}</ol></div>
+<div class="stack tight">{% call fold('rules-full', 'The rules in full') %}<div class="prose pad">{{ tpl['Rules'] | md }}</div>{% endcall %}</div>
 <h2 class="h2" id="marks">Reading a card</h2>
 <div class="box pad"><div class="prose"><h3>Marks</h3><p>{{ SITE.marks_legend }}.</p></div>
 <dl class="legend">
@@ -21,13 +22,14 @@
   <dt><span class="st rv">Under review</span></dt><dd>{{ SITE.under_review }}.</dd>
   <dt><span class="tag nw">1.2.0 out, not analysed</span></dt><dd>{{ SITE.newer_release }}.</dd>
 </dl>
-<div class="prose"><h3 id="tags">Tags</h3><p>{{ SITE.tags_legend }}.</p></div>
+</div>
+<div class="stack tight">{% call fold('tags', 'Tags', note=(IX.tags | length) ~ ' tags') %}<div class="prose pad"><p>{{ SITE.tags_legend }}.</p></div>
 {# Three columns, as the site's other tables: the tag, what it means for a player, and the answer it comes from. On a phone each row stacks. #}
-<div class="tw"><table class="t"><thead><tr><th scope="col">Tag</th><th scope="col">What it means for you</th><th scope="col" class="nowrap">From the answer</th></tr></thead><tbody>
+<div class="pad"><div class="tw"><table class="t"><thead><tr><th scope="col">Tag</th><th scope="col">What it means for you</th><th scope="col" class="nowrap">From the answer</th></tr></thead><tbody>
   {% for x in (IX.tags | selectattr('kind', 'equalto', 'critical') | list) + (IX.tags | selectattr('kind', 'equalto', 'positive') | list) %}
   <tr><td><span class="tag {{ ('concern malware' if x.get('malware') else 'concern major' if x.major else 'concern') if x.kind == 'critical' else 'positive' }}">{{ x.label }}</span></td><td>{{ x.means }}</td><td class="muted nowrap">{{ x.question }} {{ x.answer }}</td></tr>
   {% endfor %}
-</tbody></table></div></div>
+</tbody></table></div></div>{% endcall %}</div>
 <h2 class="h2">In detail</h2>
 <div class="stack tight">
 {% call fold('marks-and-scores', 'Marks and scores') %}<div class="prose pad">{{ tpl['Marks and scores'] | md }}</div>{% endcall %}

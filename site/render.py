@@ -52,6 +52,11 @@ def _post(h):
     return h.replace('<table>', '<div class="tw"><table class="t">').replace('</table>', '</table></div>')
 
 
+def rule_titles(text):
+    # The numbered rules' bold titles alone ("1. **Only provable facts.** …" gives "Only provable facts"), for the one-line list.
+    return [t.rstrip('.') for t in re.findall(r'^\d+\. \*\*(.+?)\*\*', text or '', re.M)]
+
+
 def md(text):
     _MD.reset()
     return Markup(_post(_MD.convert(text or '')))
@@ -91,7 +96,7 @@ def write_pages(SITE):
 
     env = Environment(loader=FileSystemLoader(HERE + 'templates'), autoescape=select_autoescape(['html']), undefined=StrictUndefined,
                       trim_blocks=True, lstrip_blocks=True)
-    env.filters.update(md=md, mdi=mdi)
+    env.filters.update(md=md, mdi=mdi, rule_titles=rule_titles)
 
     def mark(state, words=None, cost=None, tip=None):
         # One mark: the state's colour and icon, and its words. The state always comes from the feed; nothing is mapped here.

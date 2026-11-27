@@ -5,14 +5,14 @@
 {% block description %}What earns a Good answer on MXB Facts, and the check authors can run before a release.{% endblock %}
 {% block main %}
 <h1 class="sec-h">For authors</h1>
-<div class="prose"><p>MXB Facts answers the same questions about every tool, with evidence for each answer, from <a href="{{ root }}how/#prompt">a published prompt</a>. The questions and the rules are public, so you can see what your tool would get, and change it if you want to, before anyone checks it. Authors aren't told before a card is published, except about a security problem (rule 9), and from 26 Nov 2026 no author is shown a card before it is published, except the maintainer, who publishes every card, the maintainer's own tool's included. When your card is published, the maintainer sends you a short note with its link, if you have a public contact. Anyone, you included, can correct a card afterwards, on GitHub (<a href="{{ root }}how/#rules">how a card is made</a>).</p><p>A licence that forbids analysis gets a card of public facts only, and no score ("Not scored"): what couldn't be checked counts neither for your tool nor against it, but players see that nothing inside it could be checked. A clause added in a later release applies from that release on; earlier cards keep their score.</p></div>
+<div class="prose"><p>Every tool gets the same questions, answered with evidence from <a href="{{ root }}how/#prompt">a published prompt</a>. Below is what earns a Good answer, and a check you can run on your tool before a release.</p><p>No author sees a card before it is published, the maintainer's own tool included; then you get a short note with its link if you have a public contact, and anyone can correct it on GitHub. A licence that forbids analysis gets a card of public facts only, and no score.</p></div>
 
 <h2 class="h2" id="good">What earns a Good answer</h2>
 <p class="measure">The answer each question needs for a Good mark. A Note or a Concern can be the honest answer for what a tool is for: a mark says what a player should know, and what to change, if anything, is up to you. The cost is what a Concern takes off its area, at most (<a href="{{ root }}how/#scores">how scores are worked out</a>).</p>
 <div class="stack tight">
 {% for a in AREAS %}
 {% set qs = SITE.questions | selectattr('area', 'equalto', a.id) | list %}
-{% call fold('good-' ~ a.id, a.name ~ ' · ' ~ qs | length ~ ' questions') %}
+{% call fold('good-' ~ a.id, a.name ~ ' · ' ~ qs | length ~ ' questions', open=True) %}
 <div class="tw"><table class="t"><thead><tr><th scope="col">Question</th><th scope="col">Good when</th><th scope="col">Cost at most</th></tr></thead><tbody>
 {% for q in qs %}<tr><td><code>{{ q.id }}</code> {{ q.question }}</td><td>{{ q.good_when }}</td><td class="num">{{ '−' ~ q.max_cost if q.max_cost else '–' }}</td></tr>{% endfor %}
 </tbody></table></div>
@@ -38,8 +38,7 @@
   <li><div><b>Show the card on your pages:</b> the card image for a mods-site post, a forum or your site (it always shows your newest card), the page's address for Discord, which draws the same image, or a badge for a README, pinned to one release. Each comes ready to copy as HTML, Markdown or BBCode.</div></li>
 </ol>
 
-<h2 class="h2" id="embed">Show cards on a mods site or in an app</h2>
-<p class="measure">Every card can be shown without asking us, under <a href="{{ SITE.licence.url }}">{{ SITE.licence.data | replace('-', ' ') }}</a>: credit MXB Facts with a link to the card. Wherever you show a score, show the release it covers and the AI note; the card image has both. The same addresses work for every tool, and the tool's id is the last part of its page's address.</p>
+<div class="stack tight">{% call fold('embed', 'Show cards on a mods site or in an app', note='for site and app makers', h='h2') %}<div class="pad"><p class="measure">Every card can be shown without asking us, under <a href="{{ SITE.licence.url }}">{{ SITE.licence.data | replace('-', ' ') }}</a>: credit MXB Facts with a link to the card. Wherever you show a score, show the release it covers and the AI note; the card image has both. The same addresses work for every tool, and the tool's id is the last part of its page's address.</p>
 {% set base = IX.site %}
 <div class="tw"><table class="t"><thead><tr><th scope="col">What</th><th scope="col">Address</th><th scope="col">Shows</th></tr></thead><tbody>
 <tr><td>Card page</td><td><code>{{ base }}&lt;tool&gt;/</code></td><td>The tool's newest card; an earlier release's is at <code>&lt;tool&gt;/&lt;version&gt;/</code>. Chat apps show the card image under it.</td></tr>
@@ -48,5 +47,5 @@
 <tr><td>Badges, one release</td><td><code>{{ base }}badge/&lt;tool&gt;/&lt;version&gt;.svg</code></td><td>The score as a shield; <code>-plastic</code>, <code>-flat-square</code>, <code>-for-the-badge</code>, <code>-score</code> and <code>-areas</code> before <code>.svg</code> give the other styles, <code>.json</code> the shields.io endpoint.</td></tr>
 <tr><td>Data feed</td><td><code>{{ base }}api/v1/index.json</code></td><td>Every tool with its newest result and all of the addresses above. <code>match.json</code> finds a tool by its mods-site post, its GitHub repository or the SHA-256 of a file a player has.</td></tr>
 </tbody></table></div>
-<p class="measure">A mods site can look a post up in <code>match.json</code> and show that tool's card image beside it; an app can hash the files it finds and show the card for the exact release installed. <a href="{{ SITE.repo }}blob/main/docs/FEED.md#showing-a-card">The feed's documentation</a> has the details and an example.</p>
+<p class="measure">A mods site can look a post up in <code>match.json</code> and show that tool's card image beside it; an app can hash the files it finds and show the card for the exact release installed. <a href="{{ SITE.repo }}blob/main/docs/FEED.md#showing-a-card">The feed's documentation</a> has the details and an example.</p></div>{% endcall %}</div>
 {% endblock %}
