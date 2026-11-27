@@ -53,3 +53,6 @@ ev settings "grep -nE '^(enabled|use_telemetry|use_bike_tyres|record_ghosts|ghos
 ev thirdparty "cd \"\$SRC\" && grep -rniE 'copyright|licen[cs]e|public domain|kadenball' NOTICE.md src tests | cut -c1-200; grep -niE 'kadenball|GPL' README.md | head -8 | cut -c1-200"
 # What the README says on the points the card checks.
 ev readme-claims "grep -nE 'SUPPORTED_EXE|se apaga solo|stays inactive|switch|memoria del juego|game.s memory|reverse engineering|Online|online|launcher|Install.cmd|backup|Nothing is ever deleted|Zig' README.txt SUPPORTED_EXE.txt | cut -c1-260"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py MX-Dirt-Mod-Alt-1.7.1-alt.1.zip"

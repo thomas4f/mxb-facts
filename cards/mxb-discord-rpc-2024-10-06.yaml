@@ -208,6 +208,14 @@ answers:
       No malware found. The plugin's exports are the game's plugin functions, its only import beyond Windows' basics and the C++
       runtime is `DiscordCreate`, and its text is the status words in its source.
     evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/discord-rpc.dlo.objdump-p.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/imports-dlls.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/strings-status.txt`, `lab/evidence/mxb-discord-rpc-2024-10-06/strings-urls.txt`.'
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The release has no program of its own, only the game plugin (`discord-rpc.dlo`) and its files (Discord's `discord_game_sdk.dll`, which it loads): the plugin
+      runs inside the game with the game's rights, nothing in the release asks for administrator rights, and it
+      installs no service or driver.
+    evidence: '`lab/evidence/mxb-discord-rpc-2024-10-06/privileges.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

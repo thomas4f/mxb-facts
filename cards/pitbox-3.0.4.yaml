@@ -317,6 +317,14 @@ answers:
     evidence: >-
       `lab/evidence/pitbox-3.0.4/urls.txt`, `lab/evidence/pitbox-3.0.4/processes.txt`, `lab/evidence/pitbox-3.0.4/imports-absent.txt`,
       `lab/evidence/pitbox-3.0.4/strings-plugins.txt`, `lab/evidence/pitbox-3.0.4/strings-urls.txt`.
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its programs (the bundled `python.exe` and `pythonw.exe`, and `7z.exe`) request `asInvoker`, its Python code and
+      start scripts hold no `runas` or admin check, and the plugins run inside the game with the game's rights;
+      nothing installs a service or driver.
+    evidence: '`lab/evidence/pitbox-3.0.4/privileges.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

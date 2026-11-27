@@ -87,6 +87,12 @@ questions:
     # A Yes here replaces the whole score, so a second check with another method must confirm it before the card is published.
     second_check: true
     no_mark: Good
+  P10:
+    text: Does it ask Windows for administrator rights, or install a service or driver?
+    yes_mark: Concern
+    note_on_request: true   # "Yes, on request" is a Note, every other Yes a Concern; the build checks it
+    no_mark: Good
+    partly_means: only its installer or uninstaller asks, while it installs or removes the tool
   D1:
     text: Does it connect to the internet?
     yes_mark: Note
@@ -275,6 +281,7 @@ tags:
   - {from: P6, answer: "Yes", tag: Changes Windows settings, kind: Critical, icon: monitor-cog, means: "It changes how Windows is set up beyond its own entries, which can affect other programs and may stay after you remove it."}
   - {from: P7, answer: "Yes", tag: Changes game files, kind: Critical, icon: folder-pen, means: "By default it adds content to the game's folders that you didn't pick."}
   - {from: P8, answer: "Yes", tag: Leaves changes behind, kind: Critical, icon: footprints, means: "Removing it doesn't undo everything it did; the answer lists what stays."}
+  - {from: P10, answer: "Yes", tag: Runs as administrator, kind: Critical, icon: user-cog, means: "Each time it starts it asks Windows for administrator rights, or it installs a service or driver that runs with them, so what it does can reach all of Windows, beyond your own files and settings."}
   - {from: D2, answer: "Yes", tag: Sends your data, kind: Critical, icon: send, means: "Something about you or your game leaves your PC; the answer says what and to whom."}
   - {from: D3, answer: "Yes", tag: Sends an identifier, kind: Critical, icon: fingerprint, means: "An identifier is sent that can link your sessions together over time, beyond a random install ID the tool makes itself."}
   - {from: D4, answer: "Yes", tag: Sends other players' data, kind: Critical, icon: users, means: "Data about other riders in your session leaves your PC, without them having chosen this tool."}
@@ -312,7 +319,7 @@ tags:
 # in a group counts. A change to any number here is a new version: it rescores every card at once, and rules/scores.md,
 # "Changes to this rubric", gets a row.
 scores:
-  version: v4
+  version: v5
   # The tiers, set first; every cost below is one of them.
   tiers: {small: 5, low: 10, medium: 15, large: 25, severe: 40, malware: 100}
   # What a Concern by default costs, by question (by verdict where it differs). Every question that can be a Concern has one.
@@ -326,6 +333,7 @@ scores:
     P7: low
     P8: small
     P9: malware
+    P10: medium
     D2: medium
     D3: severe
     D4: severe

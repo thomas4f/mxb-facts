@@ -1,0 +1,10 @@
+$ privileges.py SuspensionTuner.zip SuspensionTuner_Setup.exe
+SuspensionTuner.zip > SuspensionTuner/SuspensionTuner.exe
+  manifest: requestedExecutionLevel asInvoker
+SuspensionTuner.zip > SuspensionTuner/app/SuspensionTuner.exe
+  manifest: requestedExecutionLevel asInvoker
+SuspensionTuner_Setup.exe
+  manifest: requestedExecutionLevel asInvoker
+  an Inno Setup installer that innoextract can't read; innosetup.py reads its rights
+974 files read
+(exit 0)

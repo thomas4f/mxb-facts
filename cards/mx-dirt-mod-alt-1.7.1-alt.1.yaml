@@ -267,6 +267,13 @@ answers:
       No malware found. The code that patches the game is in the public source, described in its docs, and the release is that
       source rebuilt; the plugins have no network code and start no program by default.
     evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/rebuild.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-absent.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/imports-notable.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/src-codewrites.txt`, `lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/readme-claims.txt`.'
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its install, uninstall and launcher scripts ask for no administrator rights (no `-Verb RunAs`, no admin check)
+      and the plugin runs inside the game with the game's rights; nothing installs a service or driver.
+    evidence: '`lab/evidence/mx-dirt-mod-alt-1.7.1-alt.1/privileges.txt`.'
   D1:
     verdict: 'No'
     mark: good

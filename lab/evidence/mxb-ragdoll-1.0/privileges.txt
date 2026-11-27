@@ -1,0 +1,6 @@
+$ privileges.py MXB-Ragdoll-v1.0.zip
+MXB-Ragdoll-v1.0.zip > MXB-Ragdoll-v1.0/Auto Install/MXB-Ragdoll-Setup.exe
+  manifest: requestedExecutionLevel asInvoker
+  text: runas
+23 files read
+(exit 0)

@@ -1,0 +1,9 @@
+$ privileges.py MXRP_Beta_3.2.zip MXRP_Beta_3.2_manual.zip MXRP_Ragdoll_1.8.177.dlo MXRP_Ragdoll_Installer.exe
+MXRP_Beta_3.2.zip > MXRP Beta 3.2.exe
+  manifest: requestedExecutionLevel requireAdministrator
+  text: <security><requestedPrivileges><requestedExecutionLevel level="requireAdministrator" uiAccess="false"/></requestedPrivileges></security>
+MXRP_Ragdoll_Installer.exe
+  manifest: requestedExecutionLevel requireAdministrator
+  text: <security><requestedPrivileges><requestedExecutionLevel level="requireAdministrator" uiAccess="false"/></requestedPrivileges></security>
+8 files read
+(exit 0)

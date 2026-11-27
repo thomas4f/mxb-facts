@@ -50,3 +50,6 @@ dis mxb_ragdoll.dlo 18007b9f0 18007ba54
 dis mxb_ragdoll.dlo 18007c0f7 18007c10c
 # The shipped settings' defaults that G3 and G5 name: online use off, get back on (the respawn hold-back) on.
 ev ini-defaults "grep -nE '^(online|get_back_on) =' 'MXB-Ragdoll-v1.0/Manual Install/plugins/mxb_ragdoll.ini'"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py MXB-Ragdoll-v1.0.zip"

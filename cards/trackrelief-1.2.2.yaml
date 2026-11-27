@@ -284,6 +284,15 @@ answers:
       what its window shows: search places, download elevation, roads and imagery for the area you draw, write the terrain
       files, and check GitHub for a version; they hold no code to start other programs, open other processes or press keys.
     evidence: '`lab/evidence/trackrelief-1.2.2/launcher.txt`, `lab/evidence/trackrelief-1.2.2/absent.txt`, `lab/evidence/trackrelief-1.2.2/urls.txt`, `lab/evidence/trackrelief-1.2.2/blocks.txt`; `lab/results/trackrelief-1.2.2/trackrelief-zip-windows/procmon.txt`.'
+  P10:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Only if you pick "Install for all users". The Inno Setup installer asks for no rights by default
+      (`PrivilegesRequired=lowest`) and its first dialog lets you choose an install for all users instead
+      (`PrivilegesRequiredOverridesAllowed=dialog`), which Windows asks administrator rights for. Both
+      `TrackRelief.exe` files request `asInvoker`; nothing installs a service or driver.
+    evidence: '`lab/evidence/trackrelief-1.2.2/privileges.txt`, `lab/evidence/trackrelief-1.2.2/setup-rights.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

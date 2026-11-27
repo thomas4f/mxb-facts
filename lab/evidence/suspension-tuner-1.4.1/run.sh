@@ -68,3 +68,8 @@ ev telemetry "nuitka.py consts $A suspension_tuner | grep -nE '^a(steer|throttle
 ev strings-money "$ALL | grep -niE 'gumroad|donat|support|paypal|ko-?fi|patreon|buy|price|premium|free|licen[cs]e key|unlock|discord\\.gg'"
 # Its own texts that the card quotes (settings, reset, support).
 ev ui-claims "nuitka.py consts $A __main__ | grep -nE 'untouched|100% free|nothing to unlock|Entirely optional|first launch|Join the Discord|15 seconds|Open the setups folder'"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py SuspensionTuner.zip SuspensionTuner_Setup.exe"
+# The installer's own setup header (Inno Setup 6.7, which innoextract can't read): its default folder and the rights it asks for.
+ev setup-rights "innosetup.py SuspensionTuner_Setup.exe"

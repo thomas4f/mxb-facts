@@ -1,0 +1,10 @@
+$ privileges.py TrackRelief.zip TrackRelief_Setup.exe
+TrackRelief.zip > TrackRelief/TrackRelief.exe
+  manifest: requestedExecutionLevel asInvoker
+TrackRelief.zip > TrackRelief/app/TrackRelief.exe
+  manifest: requestedExecutionLevel asInvoker
+TrackRelief_Setup.exe
+  manifest: requestedExecutionLevel asInvoker
+  an Inno Setup installer that innoextract can't read; innosetup.py reads its rights
+1422 files read
+(exit 0)

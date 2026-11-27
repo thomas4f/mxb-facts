@@ -86,3 +86,6 @@ ev deps "cd \"\$SRC\" && cat source/requirements.txt build/requirements-build.tx
 ev release-page "curl -sSL https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/tag/v1.2.0 | python3 -I -c 'import re,sys; d=sys.stdin.read(); t=re.sub(r\"<[^>]+>|\\s+\", \" \", d); i=t.find(\"released this\"); print(t[i-60:i+40].strip()); print(sorted(set(re.findall(r\"/commit/[0-9a-f]{40}\", d)))); '; curl -sSL https://github.com/Dirt-Graphic-Studios/Dirt-Gear/releases/expanded_assets/v1.2.0 | grep -oE 'releases/download/v1\\.2\\.0/[^\"]+' | sort -u"
 # The public history up to the commit.
 ev history "cd \"\$SRC\" && git log --format='%h %ad %s' --date=short 0433b042c553d0cdac6558b747807248964e41e8 | cat; git log --format=%ad --date=short 0433b042c553d0cdac6558b747807248964e41e8 | sort -u | wc -l; git rev-list --count 0433b042c553d0cdac6558b747807248964e41e8"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py Dirt-Gear-Setup-1.2.0.exe"

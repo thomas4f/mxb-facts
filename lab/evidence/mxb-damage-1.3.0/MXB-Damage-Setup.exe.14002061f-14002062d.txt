@@ -1,0 +1,6 @@
+$ objdump -d 'MXB-Damage-Setup.exe' | awk -v a=14002061f -v b=14002062d '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   14002061f:	2d 00 02 00 00       	sub    $0x200,%eax
+   140020624:	0f 84 32 01 00 00    	je     0x14002075c
+   14002062a:	83 e8 02             	sub    $0x2,%eax
+   14002062d:	0f 84 d5 00 00 00    	je     0x140020708
+(exit 0)

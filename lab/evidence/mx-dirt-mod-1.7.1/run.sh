@@ -57,3 +57,6 @@ ev runs "for r in ride ride-launcher-key default launcher-key crash; do echo \"=
 # Files written outside the game folder: the ride runs against the bare demo (only the game's own texture cache
 # names, which are random, and the screenshots the game saves when F10 is pressed differ).
 ev outside "for r in ride ride-launcher-key; do echo \"== \$r against the baseline\"; diff <(sed -E 's/textures\\\\[a-z0-9]{8}/textures\\\\<random>/' \"\$RES/baseline-windows/outside.txt\" | sort -u) <(sed -E 's/textures\\\\[a-z0-9]{8}/textures\\\\<random>/' \"\$RES/\$r-windows/outside.txt\" | sort -u); done"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py MX-Dirt-Mod-1.7.1.zip"

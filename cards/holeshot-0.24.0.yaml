@@ -345,6 +345,16 @@ answers:
       `lab/evidence/holeshot-0.24.0/imports-dlo.txt`, `lab/evidence/holeshot-0.24.0/virtualprotect.txt`,
       `lab/evidence/holeshot-0.24.0/imports-exe.txt`, `lab/evidence/holeshot-0.24.0/strings-urls.txt`,
       `lab/evidence/holeshot-0.24.0/runs.txt`.
+  P10:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Only if you pick "Install for all users". The Inno Setup installer asks for no rights by default
+      (`PrivilegesRequired=lowest`, into `{localappdata}\Holeshot HUD`), and its first dialog lets you choose an
+      install for all users instead (`PrivilegesRequiredOverridesAllowed=dialog`), which Windows asks administrator
+      rights for. `Holeshot-HUD.exe` has no manifest, so it runs with your own rights; its install scripts don't ask
+      for more, and nothing installs a service or driver.
+    evidence: '`lab/evidence/holeshot-0.24.0/privileges.txt`, `lab/evidence/holeshot-0.24.0/setup-rights.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

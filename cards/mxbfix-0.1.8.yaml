@@ -266,6 +266,14 @@ answers:
     text: 'No malware found. The release is the public source rebuilt (T4), and everything that source does is in its README: the patches, trainer repair,
       update check, signed updates, crash reports and counts.'
     evidence: '`lab/evidence/mxbfix-0.1.8/rebuild.txt`; [the source at the commit](https://github.com/xAmped/mxbfix/tree/90740b49b5486f64e2b48abccc86dd61d1ace200/src).'
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The release has no program of its own, only the game plugin (`mxbfix.dlo`) and its files: the plugin runs inside
+      the game with the game's rights, nothing in the release asks for administrator rights, and it installs no
+      service or driver.
+    evidence: '`lab/evidence/mxbfix-0.1.8/privileges.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

@@ -203,6 +203,10 @@ answers:
     verdict: Not allowed
     text: Looking inside the release for signs of malware isn't allowed (licence).
     evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
+  P10:
+    verdict: Not allowed
+    text: What rights it asks Windows for can't be looked at (licence).
+    evidence: '`lab/evidence/mxb-studio-1.0.1/licence.txt`.'
   D1:
     verdict: Not allowed
     text: >-

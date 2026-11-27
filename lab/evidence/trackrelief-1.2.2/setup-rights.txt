@@ -1,0 +1,10 @@
+$ innosetup.py TrackRelief_Setup.exe
+setup data at 99293150: Inno Setup Setup Data (6.7.0)
+header block: 24056 bytes stored, 500441 unpacked, every CRC matches
+AppName: 'TrackRelief'
+AppVersion: '1.2.2'
+DefaultDirName: '{autopf}\\TrackRelief'
+UsePreviousAppDir: 'yes'
+PrivilegesRequired: lowest (byte 733 of the header: 3)
+PrivilegesRequiredOverridesAllowed: commandline, dialog (byte 734: 3)
+(exit 0)

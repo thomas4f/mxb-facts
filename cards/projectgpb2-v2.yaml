@@ -399,6 +399,14 @@ answers:
     evidence: >-
       `lab/evidence/projectgpb2-v2/ProjectGPB2_core64.dlo.iat.txt`, `lab/evidence/projectgpb2-v2/imports-absent.txt`, `lab/evidence/projectgpb2-v2/gpb2tx-strings.txt`, `lab/evidence/projectgpb2-v2/callsites.txt`,
       `lab/evidence/projectgpb2-v2/strings-files.txt`.
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The release has no program of its own, only its three game plugins (`ProjectGPB2_core64.dlo`, `ProjectGPB2_cam64.dlo`, `ProjectGPB2_fx64.dlo`) and their files: they run
+      inside the game with the game's rights, nothing in the release asks for administrator rights, and it installs no
+      service or driver.
+    evidence: '`lab/evidence/projectgpb2-v2/privileges.txt`.'
   D1:
     verdict: 'No'
     mark: good

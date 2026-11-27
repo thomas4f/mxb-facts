@@ -1,0 +1,17 @@
+$ privileges.py KneeDown-preset.exe
+KneeDown-preset.exe
+  manifest: requestedExecutionLevel asInvoker
+KneeDown-preset.exe > $PLUGINSDIR/UAC.dll
+  text: runas
+KneeDown-preset.exe > $PLUGINSDIR/app-64.7z > KneeDown.exe
+  manifest: requestedExecutionLevel asInvoker
+  text: runas
+KneeDown-preset.exe > $PLUGINSDIR/app-64.7z > resources/elevate.exe
+  manifest: requestedExecutionLevel asInvoker
+  text: runas
+KneeDown-preset.exe > $R0/Uninstall KneeDown.exe
+  manifest: requestedExecutionLevel asInvoker
+KneeDown-preset.exe > $R0/Uninstall KneeDown.exe > $PLUGINSDIR/UAC.dll
+  text: runas
+20666 files read
+(exit 0)

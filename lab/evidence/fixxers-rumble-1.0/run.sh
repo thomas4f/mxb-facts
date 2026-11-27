@@ -45,3 +45,6 @@ ev crash-filter "objdump -d FIXXER_RUMBLE_GPB64.dlo | grep -B3 -A3 '# 0x1800200c
 # What the READ ME says, and the settings it ships.
 ev readme-claims "grep -nE 'Version|Ctrl|SAVE|Settings live|falls back|crash|XInput|Credits|SDK' 'READ ME.md'"
 ev settings "cat settings.txt"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py FIXXER_s_Rumble.zip"
