@@ -277,22 +277,28 @@ answers:
     mark: concern
     text: The download must come from a GitHub address and match the SHA-256 that GitHub's release API gives for it; that check comes
       from the same place as the file. A release without that digest is installed on the HTTPS connection alone. The updater checks
-      no signature of its own.
+      no signature of its own. Fixed in 1.36.0, where a release without that digest stops the update.
     evidence: '[update_checker.cpp lines 483-487](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_checker.cpp#L483-L487),
       [update_downloader.cpp lines 438-478](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader.cpp#L438-L478),
       [update_downloader.cpp lines 574-581](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader.cpp#L574-L581);
-      `lab/evidence/mxbmrp3-1.35.0/src-update.txt`.'
+      `lab/evidence/mxbmrp3-1.35.0/src-update.txt`. The fix: [1.36.0''s update_downloader.cpp lines 443-445](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_downloader.cpp#L443-L445).'
   P4:
-    verdict: 'No'
-    mark: good
-    text: It deletes and overwrites only its own files. An update moves its own plugin and `mxbmrp3_data` to `plugins\mxbmrp3_update_backup\`
-      (replacing the previous backup) and unpacks the new ones, refusing names with `..`; Setup's "fresh install" choice deletes its
-      own settings folder after a warning, and the uninstaller deletes its own plugin, data folder and uninstaller.
-    evidence: '[update_downloader_install.cpp lines 180-213](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader_install.cpp#L180-L213),
+    verdict: 'Yes'
+    mark: concern
+    text: An update clears the previous backup, `plugins\mxbmrp3_update_backup\`, with a folder delete that follows junctions and
+      folder links, so a link inside `mxbmrp3_data` (which the update moves there) gets the folder it points to emptied on the next
+      update. Otherwise it deletes and overwrites only its own files. An update moves its own plugin and `mxbmrp3_data` to that backup
+      folder and unpacks the new ones, refusing names with `..`; Setup's "fresh install" choice deletes its own settings folder after
+      a warning, and the uninstaller deletes its own plugin, data folder and uninstaller. Fixed in 1.36.0, which removes a link
+      without entering it.
+    evidence: '[update_downloader_install.cpp lines 37-39](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader_install.cpp#L37-L39),
+      [update_downloader_install.cpp lines 124-150](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader_install.cpp#L124-L150),
+      [update_downloader_install.cpp lines 180-213](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader_install.cpp#L180-L213),
       [update_downloader_install.cpp line 393](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader_install.cpp#L393),
       [update_downloader_install.cpp line 461](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/update_downloader_install.cpp#L461),
       [mxbmrp3.nsi lines 1661-1696](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/packaging/mxbmrp3.nsi#L1661-L1696);
-      `lab/evidence/mxbmrp3-1.35.0/src-update.txt`, `lab/evidence/mxbmrp3-1.35.0/src-installer.txt`.'
+      `lab/evidence/mxbmrp3-1.35.0/src-update.txt`, `lab/evidence/mxbmrp3-1.35.0/src-installer.txt`. The fix: [1.36.0''s update_downloader_install.cpp
+      lines 138-182](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_downloader_install.cpp#L138-L182).'
   P5:
     verdict: Partly
     mark: note
@@ -380,11 +386,11 @@ answers:
     mark: concern
     text: 'With the web overlay on (off by default), it runs a server on `127.0.0.1:8080` whose answers carry `Access-Control-Allow-Origin:
       *`, so any website open in your browser can read its live session data: standings with riders'' names and race numbers, times
-      and gaps.'
+      and gaps. Fixed in 1.36.0, which answers only requests whose Host and Origin are its own.'
     evidence: '[http_server.cpp line 53](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/http_server.cpp#L53),
       [http_server.cpp lines 418-428](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/http_server.cpp#L418-L428),
       [http_server.h lines 187-188](https://github.com/thomas4f/mxbmrp3/blob/64f3f33db2bb3e0df41649159bceae309a2a0b68/mxbmrp3/core/http_server.h#L187-L188);
-      `lab/evidence/mxbmrp3-1.35.0/src-network.txt`.'
+      `lab/evidence/mxbmrp3-1.35.0/src-network.txt`. The fix: [1.36.0''s http_server.cpp lines 355-363](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server.cpp#L355-L363).'
   D6:
     verdict: 'Yes'
     mark: concern
