@@ -172,7 +172,7 @@ def write_pages(SITE):
     def page(path, tpl, depth, **kw):
         os.makedirs(os.path.dirname(out + path), exist_ok=True)
         root = kw.pop('root', '../' * depth)
-        html = anchors(env.get_template(tpl).render(root=root, path=path, **kw))
+        html = stack_tables(anchors(env.get_template(tpl).render(root=root, path=path, **kw)))
         # Every in-page link lands on an id that exists, once (the contents, tags, limits, "From" links).
         ids = re.findall(r'\bid="([^"]+)"', html)
         assert len(ids) == len(set(ids)), path + ': two elements share an id: ' + ', '.join(sorted({i for i in ids if ids.count(i) > 1}))
@@ -184,6 +184,23 @@ def write_pages(SITE):
         assert not dead, path + ': links to anchors that don\'t exist: ' + ', '.join(dead)
         open(out + path, 'w').write(html.rstrip() + '\n')
         return html
+
+    def stack_tables(html):
+        # A table of three columns or more stacks on a phone, as Compare does (site.css, t-stack): each row becomes a panel that
+        # reads top to bottom, its first cell as the title and every other cell under its column's heading, which each cell
+        # carries as data-l. Two columns (a date and its change) still fit side by side and stay a table.
+        def one(m):
+            t = m.group(0)
+            heads = [re.sub(r'<[^>]+>', '', h).strip() for h in re.findall(r'<th\b[^>]*>(.*?)</th>', (re.search(r'<thead>(.*?)</thead>', t, re.S) or [None, ''])[1], re.S)]
+            if len(heads) < 3:
+                return t
+            t = re.sub(r'<table class="t\b', '<table class="t t-stack', t, count=1) if 't-stack' not in t[:80] else t
+            def row(r):
+                i = iter(heads)
+                return re.sub(r'<td\b', lambda c: f'<td data-l="{escape(next(i, ""))}"', r.group(0))
+            head, body = t.split('</thead>', 1)
+            return head + '</thead>' + re.sub(r'<tr\b.*?</tr>', row, body, flags=re.S)
+        return re.sub(r'<table class="t\b.*?</table>', one, html, flags=re.S)
 
     def anchors(html):
         # Every section heading with an id gets a link to itself beside it, as on GitHub (site.js copies its address when

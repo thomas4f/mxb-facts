@@ -23,7 +23,7 @@
 </dl>
 <div class="prose"><h3 id="tags">Tags</h3><p>{{ SITE.tags_legend }}.</p></div>
 {# Three columns, as the site's other tables: the tag, what it means for a player, and the answer it comes from. On a phone each row stacks. #}
-<div class="tw"><table class="t t-stack tags-t"><thead><tr><th scope="col">Tag</th><th scope="col">What it means for you</th><th scope="col" class="nowrap">From the answer</th></tr></thead><tbody>
+<div class="tw"><table class="t"><thead><tr><th scope="col">Tag</th><th scope="col">What it means for you</th><th scope="col" class="nowrap">From the answer</th></tr></thead><tbody>
   {% for x in (IX.tags | selectattr('kind', 'equalto', 'critical') | list) + (IX.tags | selectattr('kind', 'equalto', 'positive') | list) %}
   <tr><td><span class="tag {{ ('concern malware' if x.get('malware') else 'concern major' if x.major else 'concern') if x.kind == 'critical' else 'positive' }}">{{ x.label }}</span></td><td>{{ x.means }}</td><td class="muted nowrap">{{ x.question }} {{ x.answer }}</td></tr>
   {% endfor %}

@@ -217,14 +217,15 @@ details.fold > .body { border-top: 1px solid var(--line) }
 table.t { border-collapse: collapse; width: 100%; font-size: 14px }
 table.t th, table.t td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 table.t th { color: var(--muted); font-weight: 600; font-size: 13px }
-/* A table whose middle column holds long addresses stacks on a phone: each row reads top to bottom (what, address, what it
-   shows), so an address gets the full width instead of breaking every few letters in a narrow column. */
+/* A table of three columns or more stacks on a phone, as Compare does: each row reads top to bottom, its first cell as the
+   title and every other cell under its column's heading (data-l, set by the build), so a long address or hash gets the full
+   width instead of breaking every few letters in a narrow column. */
 @media (max-width: 640px) {
   table.t.t-stack, table.t.t-stack tbody { display: block } table.t.t-stack thead { display: none }
-  table.t.t-stack tr { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.t-stack tbody tr:last-child { border-bottom: 0 }
+  table.t.t-stack tr { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s2); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.t-stack tbody tr:last-child { border-bottom: 0 }
   table.t.t-stack td { padding: 0; border: 0 } table.t.t-stack td:first-child { font-weight: 600 }
-  /* With the headings hidden, a tag's last cell says what it is. */
-  .tags-t td:last-child::before { content: "From the answer " }
+  table.t.t-stack td:not(:first-child)::before { content: attr(data-l); display: block; color: var(--muted); font-size: 13px; font-weight: 600 }
+  table.t.t-stack td:empty { display: none }
 }
 /* The table's box draws the last line; a row's own line there would double it. */
 table.t tbody tr:last-child > *, table.cmp tbody tr:last-child > * { border-bottom: 0 }
