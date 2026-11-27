@@ -1,0 +1,13 @@
+Internet connections the run's processes tried (Process Monitor), then the firewall's drops for them. Every program in the run folder was blocked by the firewall, so this shows attempts, not traffic.
+6:18:37.8066311 PM  mxbikes.exe (6060)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54049 -> cdn-185-199-110-133.github.com:https  SUCCESS
+6:18:37.8069556 PM  mxbikes.exe (6060)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54050 -> cdn-185-199-111-133.github.com:https  SUCCESS
+6:18:37.8071638 PM  mxbikes.exe (6060)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54051 -> cdn-185-199-108-133.github.com:https  SUCCESS
+6:18:37.8073618 PM  mxbikes.exe (6060)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54052 -> cdn-185-199-109-133.github.com:https  SUCCESS
+6:18:37.8374579 PM  mxbikes.exe (6060)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54053 -> 152-233-50-2.bunnyinfra.net:https  SUCCESS
+6:18:37.8842949 PM  mxbikes.exe (6060)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54054 -> www.goatcounter.com:https  SUCCESS
+2026-11-27 18:18:37 DROP TCP 10.1.0.150 185.199.110.133 54049 443 0 - 0 0 0 - - - SEND 6060
+2026-11-27 18:18:37 DROP TCP 10.1.0.150 185.199.111.133 54050 443 0 - 0 0 0 - - - SEND 6060
+2026-11-27 18:18:37 DROP TCP 10.1.0.150 185.199.108.133 54051 443 0 - 0 0 0 - - - SEND 6060
+2026-11-27 18:18:37 DROP TCP 10.1.0.150 185.199.109.133 54052 443 0 - 0 0 0 - - - SEND 6060
+2026-11-27 18:18:37 DROP TCP 10.1.0.150 152.233.50.2 54053 443 0 - 0 0 0 - - - SEND 6060
+2026-11-27 18:18:37 DROP TCP 10.1.0.150 65.21.71.180 54054 443 0 - 0 0 0 - - - SEND 6060

@@ -1,0 +1,21 @@
+$ objdump -h zip/mxbmrp3.dlo
+
+zip/mxbmrp3.dlo:     file format pei-x86-64
+
+Sections:
+Idx Name          Size      VMA               LMA               File off  Algn
+  0 .text         002fd504  0000000180001000  0000000180001000  00000400  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .rdata        000bd81e  00000001802ff000  00000001802ff000  002fda00  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  2 .data         0002b000  00000001803bd000  00000001803bd000  003bb400  2**4
+                  CONTENTS, ALLOC, LOAD, DATA
+  3 .pdata        000181c8  0000000180411000  0000000180411000  003e6400  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .fptable      00000100  000000018042a000  000000018042a000  003fe600  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  5 .rsrc         000005c8  000000018042b000  000000018042b000  003fe800  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  6 .reloc        00006b0c  000000018042c000  000000018042c000  003fee00  2**2
+                  CONTENTS, LOAD, READONLY, DATA
+(exit 0)

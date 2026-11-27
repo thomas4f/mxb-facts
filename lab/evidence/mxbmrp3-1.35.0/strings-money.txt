@@ -1,0 +1,29 @@
+$ { strings -n 6 zip/mxbmrp3.dlo zip/README.txt; strings -el -n 6 zip/mxbmrp3.dlo zip/README.txt; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat'
+2982:https://H
+6022:AnalyticsManager: POST https://%s%s (%zu bytes): %s
+7479:MXBMRP3 is open source (MIT). Source for this build: https://github.com/thomas4f/mxbmrp3/tree/v1.35.0 - before changing or forking it, read https://github.com/thomas4f/mxbmrp3/blob/v1.35.0/CONTRIBUTING.md#building-on-mxbmrp3
+7486:https://mxb-ranked.com/pub-api/stats/GetTrackFastestLapsByBikeCategory
+7488:https://server.cbrservers.com/api/records/top
+7570:  quad, fullscreen, textured    %8.3f us  (+%.3f = textured fill premium)
+8228:DEBUG: alpha of the probe's quads (0-255, default 64). Sweep 64 vs 0 at the same N to find out whether the engine charges full price for a FULLY TRANSPARENT quad -- HUDs emit their background quad even at zero opacity, which is 27 invisible quads per themed panel
+9248:http://
+9249:https://
+9257:premium
+9321:\mxbmrp3\donation_nudge_pending
+10891:https://thomas4f.github.io/mxbmrp3
+10893:http://localhost:
+10894:https://github.com/thomas4f/mxbmrp3/releases
+10896:donate
+10897:https://mxb-mods.com/mxbmrp3
+10899:https://ko-fi.com/thomas4f
+10901:https://github.com/thomas4f/mxbmrp3
+11434:kofistreambot
+11440:twitch_premium
+13074:- Documentation:         https://thomas4f.github.io/mxbmrp3
+13075:- Community discussion:  https://mxb-mods.com/mxbmrp3
+13076:- Source & issues:       https://github.com/thomas4f/mxbmrp3
+13077:- Say thanks:            https://ko-fi.com/thomas4f
+13293:www.youtube.com
+13298:Origin: https://www.youtube.com
+13309:Open source (MIT). Source: https://github.com/thomas4f/mxbmrp3/tree/v1.35.0
+(exit 0)

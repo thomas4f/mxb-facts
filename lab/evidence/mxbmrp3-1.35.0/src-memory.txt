@@ -1,0 +1,7 @@
+$ cd "$SRC/mxbmrp3" && grep -rnE 'WriteProcessMemory|ReadProcessMemory|VirtualProtect|VirtualAllocEx|CreateRemoteThread|SetWindowsHookEx|SendInput|keybd_event|mouse_event|SetWindowLongPtr|RegSetValue|RegCreateKey|CreateProcess' --include=*.cpp --include=*.h . | grep -v '^./vendor/' | grep -vE ':[0-9]+:\s*//' || echo 'none outside comments'; echo '--- OpenProcess (media player name only) and the camera list, which comes from the SpectateCameras callback:'; grep -n 'OpenProcess(' core/media_manager.cpp; grep -n 'SpectateCameras' handlers/camera_resolve.h | head -2
+none outside comments
+--- OpenProcess (media player name only) and the camera list, which comes from the SpectateCameras callback:
+82:    HANDLE process = OpenProcess(PROCESS_QUERY_LIMITED_INFORMATION, FALSE, pid);
+3:// Pure camera-name resolution for the SpectateCameras callback: walk the opaque
+14:// The blob is opaque. SpectateCameras passes no element size, so the buffer's
+(exit 0)

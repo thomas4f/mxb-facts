@@ -1,0 +1,16 @@
+$ sha256sum mxbmrp3.zip mxbmrp3-Setup.exe mxbmrp3.cdx.json zip/mxbmrp3.dlo zip/mxbmrp3_gpb.dlo zip/mxbmrp3_krp.dlo zip/README.txt zip/LICENSE zip/THIRD_PARTY_LICENSES.md setup/mxbmrp3_uninstall.exe 'setup/$PLUGINSDIR/System.dll' 'setup/$PLUGINSDIR/nsDialogs.dll'; echo '--- files in the zip:'; unzip -l mxbmrp3.zip | tail -1
+0b2d7654d3e830cc192fd3e1cc8eb71342b9ce3e03f73eb62b7918959abebe80  mxbmrp3.zip
+4a30fbd20b01b1c22b962c8ea16e6bc4617ac1e42447b668edc174dcb3324dc9  mxbmrp3-Setup.exe
+107fa04299487cbd9e0259648759d67152769f6bbc61e5539eb790089744b90c  mxbmrp3.cdx.json
+2991d3733c981c83c4d1ce3312e55a0d4c3b383ded237be8f77c9f3e4cd07e90  zip/mxbmrp3.dlo
+2c69dc59b8758d6c203079120022f3b1c4c530ab8906dfd729a972bf1553a466  zip/mxbmrp3_gpb.dlo
+5884ea41708910b86152f1f7818c98f2c8b8fb9e28168b5f8e09cc9bb8e11cb6  zip/mxbmrp3_krp.dlo
+3d15d053bd5dced413c267f16dc873b17ede328d355715b2079e33589d72a6af  zip/README.txt
+7b458f0a37c5318168f4d82f9e786dea982e512a3d835b7affbc14fc2030f828  zip/LICENSE
+ce7312be16492df1fb2e4c372795c918e0f5425c1d905eede55f8411fd8b00cb  zip/THIRD_PARTY_LICENSES.md
+62807897d890110032e27036b27c3135a6a980d2953009a4555be0714bf182cb  setup/mxbmrp3_uninstall.exe
+54420efa0eb605bab7f691cb636380b9a566f7a7b735592631f1387984cb0718  setup/$PLUGINSDIR/System.dll
+80a4a6980cbef7df15f973c10dd00a93b1d8cac7cae6687932073eafcfcd5714  setup/$PLUGINSDIR/nsDialogs.dll
+--- files in the zip:
+ 46947242                     751 files
+(exit 0)

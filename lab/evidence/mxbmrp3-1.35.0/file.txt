@@ -1,0 +1,72 @@
+$ file mxbmrp3-Setup.exe zip/*.dlo setup/mxbmrp3_uninstall.exe setup/\$PLUGINSDIR/*.dll; echo '--- every other file in the zip is data (fonts, images, text, web page):'; find zip -type f ! -name '*.dlo' -exec file -b {} + | sed 's/,.*//' | sort | uniq -c
+mxbmrp3-Setup.exe:               PE32+ executable for MS Windows 5.02 (GUI), x86-64 (stripped to external PDB), 9 sections
+zip/mxbmrp3.dlo:                 PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+zip/mxbmrp3_gpb.dlo:             PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+zip/mxbmrp3_krp.dlo:             PE32+ executable for MS Windows 6.00 (DLL), x86-64, 7 sections
+setup/mxbmrp3_uninstall.exe:     PE32+ executable for MS Windows 5.02 (GUI), x86-64 (stripped to external PDB), 9 sections
+setup/$PLUGINSDIR/System.dll:    PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 11 sections
+setup/$PLUGINSDIR/nsDialogs.dll: PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 9 sections
+--- every other file in the zip is data (fonts, images, text, web page):
+     33 ASCII text
+      3 GNU gettext message catalogue
+      9 Generic INItialization configuration [Cues]
+      1 Generic INItialization configuration [art]
+      9 Generic INItialization configuration [offset]
+      1 Generic INItialization configuration [pack]
+      1 Generic INItialization configuration [tacho]
+      1 HTML document
+     12 JavaScript source
+      2 PNG image data
+      4 SVG Scalable Vector Graphics image
+    198 Targa image data - RGB 64 x 64 x 32 - top
+      1 Targa image data - RGBA - RLE 171 x 63 x 32 - 8-bit alpha 26-12-2025 15:18:15 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 171 x 63 x 32 - 8-bit alpha 26-12-2025 15:19:17 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 1920 x 1278 x 32 - 8-bit alpha 25-4-2026 14:44:52 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 1920 x 1278 x 32 - 8-bit alpha 25-4-2026 14:45:36 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 1920 x 1279 x 32 - 8-bit alpha 25-4-2026 14:44:32 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 1920 x 1279 x 32 - 8-bit alpha 25-4-2026 14:45:10 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 256 x 256 x 32 - 8-bit alpha
+      1 Targa image data - RGBA - RLE 27 x 45 x 32 - 8-bit alpha 27-12-2025 16:40:41 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 32 x 45 x 32 - 8-bit alpha 27-12-2025 16:40:12 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 32 x 53 x 32 - 8-bit alpha 27-12-2025 0:42:34 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 33 x 33 x 32 - 8-bit alpha 26-12-2025 22:15:03 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      4 Targa image data - RGBA - RLE 512 x 512 x 32 - 8-bit alpha
+      1 Targa image data - RGBA - RLE 52 x 52 x 32 - 8-bit alpha 27-12-2025 0:45:21 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 52 x 52 x 32 - 8-bit alpha 27-12-2025 16:45:09 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 53 x 53 x 32 - 8-bit alpha 17-1-2026 14:44:23 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 53 x 53 x 32 - 8-bit alpha 17-1-2026 14:44:50 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 53 x 53 x 32 - 8-bit alpha 17-1-2026 14:45:05 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 53 x 53 x 32 - 8-bit alpha 17-1-2026 14:45:22 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 53 x 53 x 32 - 8-bit alpha 17-1-2026 15:11:58 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      2 Targa image data - RGBA - RLE 53 x 53 x 32 - 8-bit alpha 17-1-2026 15:11:59 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 53 x 53 x 32 - 8-bit alpha 17-1-2026 15:12:00 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 56 x 56 x 32 - 8-bit alpha 17-1-2026 14:56:29 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 56 x 56 x 32 - 8-bit alpha 17-1-2026 14:58:17 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 56 x 56 x 32 - 8-bit alpha 17-1-2026 14:58:30 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 56 x 56 x 32 - 8-bit alpha 17-1-2026 15:01:19 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 56 x 56 x 32 - 8-bit alpha 17-1-2026 15:11:56 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      2 Targa image data - RGBA - RLE 56 x 56 x 32 - 8-bit alpha 17-1-2026 15:11:57 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 56 x 56 x 32 - 8-bit alpha 17-1-2026 15:15:13 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 64 x 64 x 32 - 8-bit alpha 23-11-2025 10:20:15 - Paint.NET 5.1.2 0.0 - aspect 1/1 - gamma 1/1
+      9 Targa image data - RGBA - RLE 750 x 630 x 32 - 8-bit alpha
+      1 Targa image data - RGBA - RLE 750 x 630 x 32 - 8-bit alpha 17-1-2026 10:04:43 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      9 Targa image data - RGBA - RLE 806 x 599 x 32 - 8-bit alpha
+      1 Targa image data - RGBA - RLE 806 x 599 x 32 - 8-bit alpha 17-1-2026 10:05:03 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 83 x 83 x 32 - 8-bit alpha 26-12-2025 15:33:33 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 89 x 61 x 32 - 8-bit alpha 26-12-2025 15:26:48 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 89 x 61 x 32 - 8-bit alpha 26-12-2025 15:27:04 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 94 x 94 x 32 - 8-bit alpha 26-12-2025 23:16:49 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+     10 Targa image data - RGBA - RLE 960 x 540 x 32 - 8-bit alpha
+      1 Targa image data - RGBA - RLE 99 x 22 x 32 - 8-bit alpha 26-12-2025 22:05:02 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 99 x 22 x 32 - 8-bit alpha 26-12-2025 22:05:28 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 99 x 91 x 32 - 8-bit alpha 26-12-2025 22:13:45 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      1 Targa image data - RGBA - RLE 99 x 91 x 32 - 8-bit alpha 26-12-2025 22:14:01 - Paint.NET 5.1.11 0.0 - aspect 1/1 - gamma 1/1
+      4 Targa image data - RGBA 128 x 128 x 32 - 8-bit alpha
+      3 Targa image data - RGBA 256 x 256 x 32 - 8-bit alpha
+      3 Targa image data - RGBA 512 x 512 x 32 - 8-bit alpha
+    230 Targa image data - RGBA 64 x 64 x 32 - 8-bit alpha
+     40 TrueType Font data
+     18 Unicode text
+     40 data
+      1 empty
+(exit 0)

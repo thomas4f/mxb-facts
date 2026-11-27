@@ -1,0 +1,85 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\fonts  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\gamepads  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\gauges  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\icons  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\pitboards  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\spotters  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\textures  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\themes  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\web  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\web\fonts  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\web\icons  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\web\js  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3_data\web\logos  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save  SUCCESS
+   12  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3  NAME COLLISION
+    6  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\fonts  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\gamepads  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\gauges  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\icons  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_analytics.json.8048-7ffdb6fcf218-0.tmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_log.txt  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_settings.ini.8048-7ffdb6fcf218-4.tmp  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-1.tmp  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-2.tmp  SUCCESS
+    2  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-3.tmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\pitboards  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\spotters  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\textures  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\themes  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\web  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\web\fonts  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\web\icons  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\web\js  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\web\logos  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0100.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0230.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0398.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech_OneCore\Voices  SUCCESS
+    1  mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech\Voices  SUCCESS
+    4  mxbikes.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Connections  SUCCESS
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-helmet-view\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3.dlo  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_analytics.json.8048-7ffdb6fcf218-0.tmp  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_settings.ini.8048-7ffdb6fcf218-4.tmp  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-1.tmp  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-2.tmp  SUCCESS
+    1  mxbikes.exe  SetRenameInformationFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-3.tmp  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54376 -> cdn-185-199-110-133.github.com:https  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54377 -> cdn-185-199-109-133.github.com:https  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54378 -> cdn-185-199-108-133.github.com:https  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54379 -> cdn-185-199-111-133.github.com:https  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54380 -> 152-233-50-1.bunnyinfra.net:https  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54381 -> www.goatcounter.com:https  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54384 -> 152-233-50-1.bunnyinfra.net:https  SUCCESS
+ 2409  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+ 2384  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\helmet-view\host.log  FAST IO DISALLOWED
+ 4770  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\helmet-view\host.log  SUCCESS
+    4  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\plugins\mxbmrp3.dlo  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_analytics.json.8048-7ffdb6fcf218-0.tmp  SUCCESS
+   10  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_log.txt  FAST IO DISALLOWED
+   21  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_log.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_settings.ini.8048-7ffdb6fcf218-4.tmp  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-1.tmp  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-2.tmp  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\save\mxbmrp3\mxbmrp3_stats.json.8048-7ffdb6fcf218-3.tmp  SUCCESS
+   47  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0100.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0100.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0230.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0230.bmp  SUCCESS
+   50  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0398.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-helmet-view\shot_0398.bmp  SUCCESS

@@ -1,0 +1,34 @@
+$ grep -nE '^#+ ' zip/THIRD_PARTY_LICENSES.md | head -40; for f in THIRD_PARTY_LICENSES.md LICENSE; do cmp -s <(tr -d '\r' < zip/$f) <(tr -d '\r' < "$SRC/$f") && echo "zip/$f = $f at the commit, apart from line endings" || echo "DIFFERENT: $f"; done
+1:# Third Party Licenses
+17:## Gamepad Viewer
+48:## JSON for Modern C++ (nlohmann/json)
+79:## miniz
+114:## cpp-httplib
+146:## stb_truetype
+204:## doctest
+236:## Font Awesome
+257:## IBM Plex Sans
+274:## IBM Plex Mono
+291:## Roboto Mono
+309:## Fuzzy Bubbles
+327:## Tiny5
+345:## Theme UI fonts (Geist, Geist Mono, Inter, Manrope, Open Sans, Outfit, Sora, Space Grotesk)
+374:## VT323
+391:## DSEG
+413:## Doto
+431:## Chakra Petch
+448:## Quantico
+466:## Tomorrow
+483:## Enter Sansman
+526:## Audiowide
+544:## Permanent Marker
+563:## Rock Salt
+582:## Caveat Brush
+599:## Reenie Beanie
+616:## Gloria Hallelujah
+633:# Full license texts
+641:## SIL Open Font License, Version 1.1
+740:## Apache License, Version 2.0
+zip/THIRD_PARTY_LICENSES.md = THIRD_PARTY_LICENSES.md at the commit, apart from line endings
+zip/LICENSE = LICENSE at the commit, apart from line endings
+(exit 0)

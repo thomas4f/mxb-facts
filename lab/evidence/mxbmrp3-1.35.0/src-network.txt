@@ -1,0 +1,24 @@
+$ cd "$SRC/mxbmrp3/core" && grep -nE 'GITHUB_API_HOST|records/top|mxb-ranked.com|irc-ws.chat.twitch.tv|youtube.com/|discord-ipc' *.cpp *.h | grep -v test | cut -c1-160 | head -20; echo '--- web overlay:'; grep -nE 'm_enabled\(false\)|Access-Control-Allow-Origin|set_mount_point|listen\(bindAddr' http_server.cpp; grep -nE 'DEFAULT_BIND_ADDRESS = |DEFAULT_PORT = ' http_server.h; echo '--- off by default: Discord, Records HUD, Stream Chat HUD:'; grep -n 'm_enabled(false)' discord_manager.cpp; grep -n 'm_bVisible = false;' ../hud/records_hud.cpp ../hud/stream_chat_hud.cpp
+discord_manager.cpp:189:    // Try connecting to discord-ipc-0 through discord-ipc-9
+discord_manager.cpp:192:        snprintf(pipeName, sizeof(pipeName), "\\\\.\\pipe\\discord-ipc-%d", i);
+records_fetcher.cpp:64:            return "https://server.cbrservers.com/api/records/top";
+twitch_chat_manager.cpp:21:constexpr const wchar_t* TWITCH_HOST = L"irc-ws.chat.twitch.tv";
+update_checker.cpp:283:    std::wstring wHost(GITHUB_API_HOST, GITHUB_API_HOST + strlen(GITHUB_API_HOST));
+twitch_chat_manager.h:6:// (wss://irc-ws.chat.twitch.tv, NICK justinfanNNNNN, no token) to the configured
+update_checker.h:274:    static constexpr const char* GITHUB_API_HOST = "api.github.com";
+youtube_chat.h:18://   1. GET https://www.youtube.com/@handle/live (or /channel/UC.../live).
+youtube_chat.h:49://   "@handle"      from @handle, handle, youtube.com/@handle[/live|/streams...]
+youtube_chat.h:50://   "UC..."        from youtube.com/channel/UC... (or a bare 24-character UC id)
+youtube_chat.h:84:    const bool hadHost = stripPrefixCI("youtube.com/");
+--- web overlay:
+53:    : m_enabled(false)
+410:            auto ret = m_server->set_mount_point("/", m_webRoot);
+426:            {"Access-Control-Allow-Origin", "*"},
+586:        m_server->listen(bindAddr.c_str(), port);
+187:    static constexpr const char* DEFAULT_BIND_ADDRESS = "127.0.0.1";
+188:    static constexpr int DEFAULT_PORT = 8080;
+--- off by default: Discord, Records HUD, Stream Chat HUD:
+34:    : m_enabled(false)
+../hud/records_hud.cpp:1090:    m_bVisible = false;
+../hud/stream_chat_hud.cpp:45:    m_bVisible = false;
+(exit 0)
