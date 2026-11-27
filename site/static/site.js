@@ -34,7 +34,7 @@
 
   // The tools list: search, category, game and sort, all on the cards' own data; nothing is drawn here.
   var grid = $('#tools-grid');
-  var S = { q: '', cat: '', game: '', sort: 'name' };
+  var S = { q: '', cat: '', game: '', sort: 'date' };
   // The game and category filters live in the address too (?game=…&cat=…), so a tool page's path can link to them and a
   // filtered list can be shared. A value the list doesn't offer is ignored.
   if (grid) {
@@ -74,7 +74,7 @@
     });
     $('#count').textContent = n + ' of ' + cards.length + ' tools';
     // Clear, like Compare's, keeps its place and is off while the list is as it opened.
-    $('#clear').disabled = !S.q && !S.cat && !S.game && S.sort === 'name';
+    $('#clear').disabled = !S.q && !S.cat && !S.game && S.sort === 'date';
     $('#none').hidden = n > 0;
   }
 
@@ -203,7 +203,7 @@
   });
   // Clear puts the search, the filters and the sort back as the list opened, and takes the filters out of the address.
   function clearTools() {
-    S = { q: '', cat: '', game: '', sort: 'name' };
+    S = { q: '', cat: '', game: '', sort: 'date' };
     ['q', 'cat', 'game', 'sort'].forEach(function (k) { $('#' + k).value = S[k]; });
     keepFilters(); showTools(); $('#q').focus();
   }
