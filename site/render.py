@@ -98,11 +98,16 @@ def write_pages(SITE):
                       trim_blocks=True, lstrip_blocks=True)
     env.filters.update(md=md, mdi=mdi, rule_titles=rule_titles)
 
-    def mark(state, words=None, cost=None, tip=None):
+    def mark(state, words=None, cost=None, tip=None, said=False, icon_only=False):
         # One mark: the state's colour and icon, and its words. The state always comes from the feed; nothing is mapped here.
+        # said: the words are an answer's verdict, so the mark's own word ("Concern") goes to screen readers and the hover only.
         s = STATES[state]
         c = Markup(f' <span class="c">{escape(cost)}</span>') if cost else ''
-        return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{escape(words or s["label"])}{c}</span>')
+        # icon_only: a key answer, whose text already opens with its verdict; the mark is its colour and icon, its word for screen readers.
+        if icon_only and state in VERDICT_STATES and state != 'malware':
+            return Markup(f'<span class="st {state} io" title="{escape(tip or s["label"] + ": " + s["meaning"])}"><span class="vh">{escape(s["label"])}</span></span>')
+        lab = Markup(f'<span class="vh">{escape(s["label"])}: </span>') if said else ''
+        return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{lab}{escape(words or s["label"])}{c}</span>')
 
     def mark_cost(x, scored):
         # What a mark shows of its cost, where the tool has a score: "−25", "in T1", "±0", or nothing.
@@ -133,7 +138,13 @@ def write_pages(SITE):
         # ("Partly", "Yes, not by default") opens the hover, and a screen reader still hears it; a tap opens the full answer.
         tip = x['cost_note'] or None
         if says: tip = x['text_plain'] + (f' ({x["cost_note"]}.)' if x['cost_note'] else '')
-        if not word: tip = f'{x["verdict"]}: {tip}' if tip else x['verdict']
+        # The chip says the verdict ("No −25") in the mark's colour and icon; the mark's word ("Concern") is for screen readers
+        # and the hover, and stays in the legend. Grey states and Signs of malware keep their own words, which say more.
+        said = x['state'] in VERDICT_STATES and x['state'] != 'malware'
+        lab = STATES[x['state']]['label']; plain_tip = tip
+        tip = f'{lab}: {tip}' if tip else f'{lab}: {STATES[x["state"]]["meaning"]}'
+        if said: return mark(x['state'], x['verdict'], cost, tip, said=True)
+        if not word: tip = f'{x["verdict"]}: {plain_tip}' if plain_tip else x['verdict']
         pill = mark(x['state'], None, cost, tip)
         if not word: return pill + Markup(f'<span class="vh"> {escape(x["verdict"])}</span>')
         return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill

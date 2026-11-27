@@ -28,8 +28,8 @@ maintainer_notice: >-
   maintainer can run the For authors check on a release before it is out ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
 # What a mark is, and what a tag is, in the Reading a card legend: one line each, above its list.
 marks: >-
-  Every answer has one mark, the same word, colour and icon on every card: what it means for you and, where the tool has a
-  score, what it costs
+  Every answer has one mark, the same colour and icon on every card: what it means for you and, where the tool has a score,
+  what it costs. An answer shows its own words ("No −25") in its mark's colour; the grey marks show their name
 tags: >-
   A tag on the tools list and a card sums up one answer, in its mark's colour: orange for a Concern, red for a Major, grey
   and dashed when it happens only after a choice you make, green when it is in the tool's favour. Hover a tag for what it

@@ -52,7 +52,7 @@
 <h2 class="h2" id="key">Ten key answers</h2>
 <div class="keys">
 {% for k in c.key_answers %}
-  <div class="key"><div class="hd"><span class="q">{{ k.question }}</span>{{ mark(k.state) }}</div>
+  <div class="key"><div class="hd"><span class="q">{{ k.question }}</span>{{ mark(k.state, icon_only=True) }}</div>
     <p>{{ k.text | mdi }}</p>
     <p class="from">{% if k.claims is defined %}<a href="#says">{{ k.claims }} claim{{ 's' if k.claims > 1 }}, one by one</a> · {% endif %}From {% for q in k['from'] %}<a href="#q-{{ q }}">{{ q }}</a>{{ ', ' if not loop.last }}{% endfor %}</p></div>
 {% endfor %}
