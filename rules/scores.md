@@ -117,7 +117,7 @@ The tiers were set first, from what an answer means for you: whether it changes 
 
 ## Versions
 
-The rubric has a version, shown with every score and badge. A change to a tier, a cost, a group or how the score is combined is a new version: it rescores every card at once, and is recorded once in the table below with every card's old and new score. Cards get no history row for it: a rubric change says nothing new about any tool, and every score names its version.
+The rubric has a version, shown with every score and badge. A change to a tier, a cost, a group or how the score is combined is a new version: it rescores every card at once, and is recorded once in the table below with every card's old and new score. The build adds a Card history row to each card it moved (`rules/rescores.yaml`), and every score names its version.
 
 ## Badge
 

@@ -33,10 +33,9 @@
 <h2 class="h2">In detail</h2>
 <div class="stack tight">
 {% call fold('marks-and-scores', 'Marks and scores') %}<div class="prose pad">{{ tpl['Marks and scores'] | md }}</div>{% endcall %}
-{% call fold('scores', 'How scores are worked out', note='rubric ' ~ SITE.rubric ~ '') %}<div class="prose pad">{% for s in SITE.scores %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}</div>{% endcall %}
+{% call fold('scores', 'How scores are worked out', note='rubric ' ~ SITE.rubric ~ '') %}<div class="prose pad">{% for s in SITE.scores if s.title not in ('Versions', 'Badge', 'Changes to this rubric') %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}<p>Rubric versions, the badges and every change to the rubric, with each card's old and new score: <a href="{{ SITE.repo }}blob/main/rules/scores.md#changes-to-this-rubric">rules/scores.md</a>.</p></div>{% endcall %}
 {% call fold('ai', 'How AI is used') %}<div class="prose pad">{{ tpl['How AI is used'] | md }}</div>{% endcall %}
-{% call fold('prompt', 'The analysis prompt', note='every card starts from it') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}{{ SITE.prompt.text | md }}</div>{% endcall %}
-{% call fold('writers', 'For card writers', note='what a card holds and how it is written') %}<div class="prose pad"><h3>Sections</h3>{{ tpl['Sections'] | md }}<h3>Wording</h3>{{ tpl['Wording'] | md }}</div>{% endcall %}
-{% call fold('changes', 'Changes to these rules') %}<div class="prose pad">{{ tpl['Changes to these rules'] | md }}</div>{% endcall %}
+{% call fold('prompt', 'The analysis prompt', note='every card starts from it') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}<p><a href="{{ SITE.repo }}blob/main/prompts/analyse-tool.md#the-prompt">Read the prompt</a> (prompts/analyse-tool.md).</p></div>{% endcall %}
 </div>
+<p class="measure">In the repository: <a href="{{ SITE.repo }}blob/main/rules/template.md#sections">what a card holds and how it is written</a>, and <a href="{{ SITE.repo }}blob/main/rules/template.md#changes-to-these-rules">changes to these rules</a>.</p>
 {% endblock %}
