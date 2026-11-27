@@ -111,6 +111,8 @@ small.of { font-size: max(12px, .42em); font-weight: 700; color: var(--muted); l
 .st.concern { color: var(--concern); background: var(--concern-bg) } .st.major { color: var(--major); background: var(--major-bg) }
 .st.malware { color: var(--danger); background: var(--danger-bg) }
 .st.off, .st.req, .st.nc, .st.held, .st.na, .st.dna, .st.notscored { color: var(--grey); background: var(--grey-bg); border-color: var(--line) }
+/* Off by default and On request cost nothing (rule 5): dashed, like their tags, so they don't read as Not checked, which counts in full. */
+.st.off, .st.req { border-style: dashed }
 .st .c { font: 600 12px var(--f-mono) }
 .tag { display: inline-flex; align-items: center; gap: var(--s1); padding: var(--s0) var(--s2); border-radius: 6px; font-size: 13px; border: 1px solid var(--line); color: var(--muted); background: var(--sunk); white-space: nowrap; text-decoration: none }
 .tag.concern { color: var(--concern); border-color: color-mix(in srgb, var(--concern) 40%, transparent); background: var(--concern-bg) }
