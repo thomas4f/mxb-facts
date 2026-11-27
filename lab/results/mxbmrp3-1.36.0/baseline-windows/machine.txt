@@ -1,0 +1,6 @@
+Machine: Microsoft Windows Server 2025 Datacenter, video: Microsoft Hyper-V Video (no GPU). Screen: 1280x720 (setting 1280x720 returned 0). OpenGL: Mesa 26.3.0 llvmpipe (software). Process Monitor SHA-256: 97330813853e0e514a11ee16a47d4c6fe90148fae834649839afb30487cc8b0b.
+Game: MX Bikes beta21f (demo), installer SHA-256 76feb83746e785310e8858938dd50b5e0685d1b0004480d5d1c2d4fc21f11949.
+Release files (SHA-256):
+3bd964d6d93a263be950c2719944a6543de21a8d996f01df4d310664bbee12e9  mxbmrp3.zip
+7de7744fb563d075a1996ce4e3be71ee7e311f3ef059d5bbd3797ac9332d381d  mxbmrp3-Setup.exe
+87f81c9fc083b90bccbc4d04e24d33813223b8c9d09fdef1d9e077b6db20e4b1  mxbmrp3-Setup.msi

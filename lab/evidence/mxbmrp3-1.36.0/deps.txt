@@ -1,0 +1,67 @@
+$ cd "$SRC" && grep -nE 'workflow_dispatch|runs-on|uses:|tool install|wix extension|install_deps.sh|cmake --build|git tag|attest|makensis "' .github/workflows/release.yml; grep -nE 'nsis' tools/install_deps.sh | head -5; grep -nE '"(name|version|shipped)"' mxbmrp3/vendor/vendored.json
+6:#   build-release (windows-2022, VS 2022 / v143 toolset — see its runs-on):
+35:#   • DRY RUN  — "Run workflow" (workflow_dispatch) with "Create draft release"
+60:  workflow_dispatch:
+88:    uses: ./.github/workflows/tests.yml
+111:    runs-on: windows-2022
+114:    # restated. The other two are the build provenance attestation's (see the
+116:    # attestations to store it. No artifact-metadata: that is only for
+117:    # push-to-registry, which a file attestation does not use.
+121:      attestations: write
+134:      - uses: actions/checkout@v7
+142:        uses: microsoft/setup-msbuild@30375c66a4eea26614e0d39710365f22f8b0af57  # v3.0.0
+165:            if (git tag -l $tag) {
+193:          cmake --build build/msvc --config Release -- /m /v:minimal
+344:      # check it with `gh attestation verify mxbmrp3.dlo -R thomas4f/mxbmrp3`, so
+347:      # attested as well as the zip because the auto-updater and manual installs put
+349:      # The two installers are attested in the package job, which publishes them.
+355:      # REAL RELEASES ONLY: a dry-run artifact never ships, and attesting it would
+357:      # REPO ONLY: attestations on a private repo need GitHub Enterprise Cloud, so
+361:        uses: actions/attest@v4
+405:        uses: actions/upload-artifact@v7
+415:        uses: actions/upload-artifact@v7
+425:        uses: actions/upload-artifact@v7
+447:    runs-on: windows-2022
+455:      - uses: actions/checkout@v7
+458:        uses: actions/download-artifact@v8
+471:              dotnet tool install --global wix --version 5.0.2
+474:              wix extension add -g WixToolset.UI.wixext/5.0.2 WixToolset.Util.wixext/5.0.2
+489:        uses: actions/upload-artifact@v7
+495:        uses: actions/upload-artifact@v7
+531:    runs-on: ubuntu-latest
+534:    # restated. The other two are the build provenance attestation's (see the
+536:    # attestations to store it. No artifact-metadata: that is only for
+537:    # push-to-registry, which a file attestation does not use.
+541:      attestations: write
+543:      - uses: actions/checkout@v7
+546:        run: ./tools/install_deps.sh nsis
+563:        uses: actions/download-artifact@v8
+569:        uses: actions/download-artifact@v8
+576:        uses: actions/download-artifact@v8
+597:          makensis "-DPLUGIN_VERSION=$ver" \
+604:      # Same provenance as the build-release job's attestation, for the two
+608:        uses: actions/attest@v4
+616:      # Same two conditions as the attestations: a dry-run file never ships, and
+637:      # what makes a manual (workflow_dispatch) run on a branch a real DRY RUN: it
+641:        uses: actions/upload-artifact@v7
+755:                  "attestation. To check that a copy came from this build, run "
+756:                  "`gh attestation verify <file> -R %s` (GitHub CLI, signed in)."
+792:        uses: softprops/action-gh-release@8a0cd651e5b2365bd640854a3fa5dfc70e4875f3  # v3.0.4
+13:#   ./tools/install_deps.sh mingw wine nsis   # install selected groups
+49:    "nsis|nsis||makensis"
+5:      "name": "nlohmann/json",
+7:      "version": "3.12.0",
+9:      "shipped": true
+12:      "name": "stb_truetype",
+14:      "version": "1.26",
+16:      "shipped": false,
+21:      "name": "cpp-httplib",
+23:      "version": "0.67.0",
+25:      "shipped": true
+28:      "name": "miniz",
+30:      "version": "3.1.2",
+32:      "shipped": true,
+36:      "name": "doctest",
+38:      "version": "2.5.3",
+40:      "shipped": false
+(exit 0)

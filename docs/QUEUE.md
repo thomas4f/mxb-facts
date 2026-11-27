@@ -61,7 +61,6 @@ Tools that wait for something before they are analysed or published.
 | Graphics Overhaul | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/graphics-overhaul-2/) | `graphics-overhaul` | Paused (the maintainer's choice) |
 | GameFX+ | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/gamefx-2/) | `gamefx-plus` | Paused (the maintainer's choice) |
 | Rider POV+ | MX Bikes | Finner24 | [mxb-mods.com](https://mxb-mods.com/rider-pov-2/) | `rider-pov-plus` | Paused (the maintainer's choice) |
-| MXBMRP3 | MX Bikes | thomas4f | [mxb-mods.com](https://mxb-mods.com/mxbmrp3/) | `mxbmrp3` | The maintainer's own tool; waits for its next release (the maintainer's choice) |
 
 ## Not allowed
 

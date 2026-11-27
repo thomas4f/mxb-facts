@@ -1,0 +1,13 @@
+mxbmrp3-Setup.exe  CreateFile  C:\Users  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp  SUCCESS
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp\LangDLL.dll  SUCCESS
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsp42BC.tmp  SUCCESS
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsu428C.tmp  SUCCESS
+mxbmrp3-Setup.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp\LangDLL.dll  SUCCESS
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp\LangDLL.dll  SUCCESS
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsp42BC.tmp  FAST IO DISALLOWED
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsp42BC.tmp  SUCCESS

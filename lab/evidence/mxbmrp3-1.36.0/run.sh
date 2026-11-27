@@ -1,0 +1,66 @@
+#!/usr/bin/env bash
+# MXBMRP3 1.36.0 (source public on GitHub under the MIT licence: the release files and the source).
+# The folder holds the three files of https://github.com/thomas4f/mxbmrp3/releases/tag/v1.36.0 that players download, by
+# their names: mxbmrp3.zip, mxbmrp3-Setup.exe and mxbmrp3-Setup.msi (the release's mxbmrp3.cdx.json is a software bill
+# of materials, not a download for players). This script unpacks the zip into zip/, Setup.exe into exe/ (7-Zip reads
+# NSIS) and the MSI's cabinet into msi/ and its streams into msi-streams/.
+# The second argument is a checkout of https://github.com/thomas4f/mxbmrp3 at
+# bab7bfa6d547527b8f95af2dde654afdb9dea111 (tag v1.36.0), with its history.
+# Needs GNU binutils, file, unzip, 7z (p7zip 16.02), python3, and for release-api the network.
+. "$(dirname "$0")/../ev.sh"
+RES="$(cd "$OUT/../../results/mxbmrp3-1.36.0" && pwd)"; export RES
+(cd "$R" && rm -rf zip exe msi msi-streams && mkdir zip exe msi msi-streams && unzip -q -d zip mxbmrp3.zip \
+  && 7z x -y -oexe mxbmrp3-Setup.exe >/dev/null && 7z x -y -omsi mxbmrp3-Setup.msi >/dev/null \
+  && 7z x -y -tCompound -omsi-streams mxbmrp3-Setup.msi >/dev/null)
+ev files "sha256sum mxbmrp3.zip mxbmrp3-Setup.exe mxbmrp3-Setup.msi zip/mxbmrp3.dlo zip/mxbmrp3_gpb.dlo zip/mxbmrp3_krp.dlo zip/README.txt zip/LICENSE zip/THIRD_PARTY_LICENSES.md 'exe/\$PLUGINSDIR/System.dll' 'exe/\$PLUGINSDIR/nsDialogs.dll' 'exe/\$PLUGINSDIR/LangDLL.dll' msi-streams/Binary.MxbCa msi-streams/Binary.Wix4UtilCA_X64"
+# Every program file in the three downloads (the rest of the 833 files in the zip are fonts, textures, icons, themes,
+# web pages, texts and sounds).
+ev file "unzip -l mxbmrp3.zip | tail -1; file mxbmrp3-Setup.exe mxbmrp3-Setup.msi; find zip exe msi msi-streams -type f -exec file {} + | grep -E 'PE32|MS-DOS|ELF|script' | sed 's/,.*//'"
+# The three plugins are the same files byte for byte in the zip, in Setup.exe and in the MSI.
+ev same-dlo "sha256sum zip/*.dlo exe/*/*.dlo msi/MXBDlo msi/GPBDlo msi/KRPDlo | sort"
+# Setup.exe is NSIS (built with makensis on Ubuntu); the MSI is WiX 5.0.2, with its custom-action DLL (MxbCa, from
+# packaging/msi/ca) and WiX's own (Wix4UtilCA_X64).
+ev setup "strings -n 8 mxbmrp3-Setup.exe | grep -m1 -oE 'Nullsoft Install System v[0-9.-]+'; file mxbmrp3-Setup.msi | tr ',' '\n' | grep -E 'Creating Application|Author'; 7z l -tCompound mxbmrp3-Setup.msi | grep -E 'Binary\\.|DigitalSignature|cab1'"
+ev mxbmrp3.dlo.objdump-p "objdump -p zip/mxbmrp3.dlo | awk '/^The Function Table|^PE File Base Relocations/{exit} 1'"
+ev mxbmrp3.dlo.objdump-h "objdump -h zip/mxbmrp3.dlo"
+ev mxbmrp3.dlo.iat "iat.py zip/mxbmrp3.dlo"
+ev signature "objdump -p zip/mxbmrp3.dlo zip/mxbmrp3_gpb.dlo zip/mxbmrp3_krp.dlo mxbmrp3-Setup.exe msi-streams/Binary.MxbCa | grep -E 'file format|Security Directory'; echo '--- MSI signature stream:'; 7z l -tCompound mxbmrp3-Setup.msi | grep -c DigitalSignature"
+# What the plugin imports: the crash handler and dump writer, the window-procedure swap for the mouse wheel, the key
+# and clipboard reads, the web requests, registry reads; and what it doesn't import.
+ev imports-dlo "objdump -p zip/mxbmrp3.dlo | grep 'DLL Name'; iat.py zip/mxbmrp3.dlo | grep -E 'SetUnhandledExceptionFilter|MiniDumpWriteDump|SetWindowLongPtr|GetAsyncKeyState|GetForegroundWindow|GetClipboardData|WinHttpOpen\\b|WinHttpConnect|RegOpenKeyExA|RegGetValueA|RegQueryValueExA|OpenProcess|QueryFullProcessImageNameW|K32EnumProcessModules|ShellExecuteA|LoadLibraryW|GetProcAddress|VirtualProtect|XInputGetState|WSAStartup'; echo '--- absent:'; iat.py zip/mxbmrp3.dlo | grep -E 'RegSetValue|RegCreateKey|RegDeleteValue|WriteProcessMemory|ReadProcessMemory|VirtualAllocEx|CreateRemoteThread|SetWindowsHookEx|SendInput|keybd_event|mouse_event|CreateProcess|WinExec|AddVectoredExceptionHandler|SetClipboardData' || echo 'none of: registry writes, Read/WriteProcessMemory, VirtualAllocEx, CreateRemoteThread, SetWindowsHookEx, SendInput, keybd_event, mouse_event, CreateProcess, WinExec, AddVectoredExceptionHandler, SetClipboardData'"
+# The plugin's three VirtualProtect calls (IAT slot 0x18033e348) all take its own .fptable section (0x18047b000, 0x100
+# bytes), a table of the statically linked MSVC C runtime, not the game's code.
+ev virtualprotect "objdump -h zip/mxbmrp3.dlo | grep -E 'fptable'; objdump -d zip/mxbmrp3.dlo | grep -E '# 0x18033e348|# 0x18047b000'"
+# Web addresses and host names in the plugin.
+ev strings-urls "strings -n 6 zip/mxbmrp3.dlo | grep -oE 'https?://[A-Za-z0-9./{}_?=%-]+|[a-z0-9.-]+\\.(com|tv|net|io|gg)\\b' | sort -u; echo '--- wide:'; strings -el -n 6 zip/mxbmrp3.dlo | grep -oE '[a-z0-9.-]+\\.(com|tv|net|io|gg)\\b' | sort -u"
+# The release on GitHub: who uploaded each file, its digest, and the build provenance attestations GitHub keeps for the
+# files (the workflow, the run and the commit they name; the Sigstore signatures themselves weren't checked here).
+ev release-api "curl -sf https://api.github.com/repos/thomas4f/mxbmrp3/releases/tags/v1.36.0 | python3 -I -c 'import json,sys; d=json.load(sys.stdin); print(d[\"tag_name\"], d[\"target_commitish\"], \"author:\", d[\"author\"][\"login\"], \"created\", d[\"created_at\"], \"published\", d[\"published_at\"]); [print(a[\"name\"], a[\"uploader\"][\"login\"], a[\"digest\"], a[\"created_at\"]) for a in d[\"assets\"]]'; echo '--- attestations:'; for h in \$(sha256sum mxbmrp3.zip mxbmrp3-Setup.exe mxbmrp3-Setup.msi zip/mxbmrp3.dlo | cut -c1-64); do curl -sf https://api.github.com/repos/thomas4f/mxbmrp3/attestations/sha256:\$h | python3 -I -c 'import json,sys,base64; d=json.load(sys.stdin); a=d[\"attestations\"][0][\"bundle\"][\"dsseEnvelope\"]; p=json.loads(base64.b64decode(a[\"payload\"])); b=p[\"predicate\"][\"buildDefinition\"]; print(sys.argv[1][:12], [s[\"name\"] for s in p[\"subject\"]], b[\"externalParameters\"][\"workflow\"][\"path\"], b[\"externalParameters\"][\"workflow\"][\"ref\"], b[\"resolvedDependencies\"][0][\"digest\"][\"gitCommit\"], p[\"predicate\"][\"runDetails\"][\"metadata\"][\"invocationId\"])' \$h; done"
+# Prebuilt program files in the repository (none), its licence, and the public history.
+ev repo-files "cd \"\$SRC\" && git rev-parse HEAD && git ls-files | wc -l && (git ls-files -z | xargs -0 file | grep -E 'PE32|ELF|Mach-O|WebAssembly|byte-compiled' | grep -v script || echo 'no prebuilt program file in the repository'); head -3 LICENSE; git log --format=%ad --date=short | sort | sed -n '1p;\$p'; echo \"commits: \$(git rev-list --count HEAD), named for a release: \$(git log --format=%s | grep -c '^Release v'), days: \$(git log --format=%ad --date=short | sort -u | wc -l)\""
+# How the release is built: a manual run of release.yml on main, which tags the commit and publishes a draft; the
+# toolchain and how it is pinned; the vendored libraries.
+ev deps "cd \"\$SRC\" && grep -nE 'workflow_dispatch|runs-on|uses:|tool install|wix extension|install_deps.sh|cmake --build|git tag|attest|makensis \"' .github/workflows/release.yml; grep -nE 'nsis' tools/install_deps.sh | head -5; grep -nE '\"(name|version|shipped)\"' mxbmrp3/vendor/vendored.json"
+# The updater: when it checks (at load, once a settings file exists; Off or Notify, Notify by default, never installs on
+# its own), what it trusts (GitHub's digest from the same API answer), and the backup of its own files.
+ev src-update "cd \"\$SRC\" && grep -nE 'enum class UpdateMode|OFF|NOTIFY' mxbmrp3/core/update_checker.h | head -6; grep -nE 'm_mode\\(UpdateMode::NOTIFY\\)|GITHUB_API_HOST|/releases\\?per_page|browser_download_url|\"digest\"|sha256:' mxbmrp3/core/update_checker.cpp mxbmrp3/core/update_checker.h; grep -nE 'Trigger update check on startup|isEnabled\\(\\)\\) \\{|checkForUpdates\\(\\);|return;\$|No settings file found' mxbmrp3/core/settings_manager.cpp | sed -n '1,12p'; grep -nE 'checksumError|m_expectedSize|https://github.com' mxbmrp3/core/update_downloader.cpp | head -8; grep -nE 'backupDir \\+ GAME_DLO_NAME|MXB_DATA_DIR_NAME;|find\\(\"\\.\\.\"\\)|shouldSkipFile\\(const' mxbmrp3/core/update_downloader_install.cpp; grep -rn 'mxbmrp3_update_backup' mxbmrp3/core/plugin_constants.h mxbmrp3/core/update_downloader*.h | head -3"
+# The usage survey: on by default in the plugin, off on the first start of a zip install, off when Setup's box is
+# unticked; what each ping carries; the random install ID; where it goes; the remote file that can only lower it.
+ev src-analytics "cd \"\$SRC\" && grep -nE 'm_enabled\\(true\\)' mxbmrp3/core/analytics_manager.cpp; grep -nE 'optOutWithoutSetup|setEnabled\\(false\\)' mxbmrp3/core/settings_manager.cpp; grep -nE 'analyticsOptOut \"0\"|NSD_Check|analyticsOptOut=1' packaging/mxbmrp3.nsi | head -5; grep -nE 'define GAME_HAS_ANALYTICS' -B2 mxbmrp3/game/game_config.h; grep -nE 'sys\\[\"|props\\[\"|hit\\[\"' mxbmrp3/core/analytics_manager.cpp | head -70; grep -nE 'generateUuidV4|BCryptGenRandom' mxbmrp3/core/analytics_manager_identity.cpp mxbmrp3/core/analytics_identity.h | head -4; grep -nE 'aptabase.com|goatcounter.com|ANALYTICS_CONFIG_HOST|GOATCOUNTER_CODE =' mxbmrp3/core/analytics_endpoint.h mxbmrp3/core/analytics_manager.cpp mxbmrp3/core/plugin_constants.h; grep -n 'return' mxbmrp3/core/analytics_remote_config.h; cat analytics_config.json; grep -n 'analytics_disabled' mxbmrp3/hud/settings/settings_tab_general.cpp"
+# Everything else that goes online or shares data, and its default: Steam presence, Discord, records, stream chat, the
+# local web server (127.0.0.1:8080, Host and Origin checks), media controls, spotter.
+ev src-network "cd \"\$SRC\" && grep -nE 'm_enabled(\\(|\\{) ?false' mxbmrp3/core/steam_friends_manager.cpp mxbmrp3/core/discord_manager.cpp mxbmrp3/core/http_server.cpp mxbmrp3/core/media_manager.h mxbmrp3/core/companion_window.h mxbmrp3/core/spotter_manager.h; grep -nE 'SetRichPresence, m_friends' mxbmrp3/core/steam_friends_manager.cpp; grep -nE 'GetModuleHandle|SteamAPI_Init' mxbmrp3/core/steam_friends_manager.cpp | head -3; grep -nE 'm_bAutoFetch = false' mxbmrp3/hud/records_hud.h; grep -nE 'url \\+= \"&(track|category)=|trackname' mxbmrp3/core/records_fetcher.cpp; grep -nE 'DEFAULT_BIND_ADDRESS =|DEFAULT_PORT =' mxbmrp3/core/http_server.h; grep -nE 'isAllowedHost\\(host\\)|isSameOrigin\\(req|res.status = 403' mxbmrp3/core/http_server.cpp; grep -nE 'return origin == ' mxbmrp3/core/http_server_internal.h; grep -rn 'Access-Control-Allow' mxbmrp3/core || echo 'no Access-Control-Allow header'; grep -n 'out += \",\\\\\"name\\\\\":\";' mxbmrp3/core/http_server_snapshot.cpp"
+# Input: keys are read only while a window of the game's process is in front; the mouse-wheel handler on the game
+# window; the clipboard read; nothing presses keys.
+ev src-input "cd \"\$SRC\" && grep -nE 'GetAsyncKeyState|m_bKeyboardFocus = (true|false)|mouseButton \\? m_bCursorEnabled' mxbmrp3/core/input_manager.cpp; grep -nE 'WM_MOUSEWHEEL|return 0;|CallWindowProc|SetWindowLongPtr|GetCurrentProcessId' mxbmrp3/core/mouse_wheel.cpp; grep -n 'OpenClipboard' mxbmrp3/core/hotkey_manager.cpp; grep -rnE 'SendInput|keybd_event|mouse_event|SetWindowsHookEx' mxbmrp3 --include=*.cpp --include=*.h || echo 'none of: SendInput, keybd_event, mouse_event, SetWindowsHookEx'"
+# The crash handler: set at load for the whole game, writes a minidump to its own folder, then passes the crash on.
+ev src-crash "cd \"\$SRC\" && grep -nE 'SetUnhandledExceptionFilter|MiniDumpWriteDump\\(|return s_previousFilter|EXCEPTION_CONTINUE_SEARCH' mxbmrp3/core/crash_handler.cpp; grep -n 'CrashHandler::install' mxbmrp3/core/plugin_manager.cpp"
+# Registry and files: what the plugin reads; what Setup and the MSI write and delete; what the uninstallers remove and
+# leave; the voice list read at load (Windows' speech library).
+ev src-registry "cd \"\$SRC\" && grep -rnE 'Reg(OpenKeyEx|GetValue|QueryValueEx|SetValueEx|CreateKeyEx)' mxbmrp3 --include=*.cpp | grep -v test_; grep -nE 'WriteReg|DeleteReg' packaging/mxbmrp3.nsi | head -20; grep -nE 'RegistryValue|RemoveRegistry' packaging/msi/mxbmrp3.wxs packaging/msi/game.wxi; grep -nE 'enumerateTtsVoicesViaSapi|SPCAT_VOICES,' mxbmrp3/core/spotter_manager_audio.cpp"
+ev src-files "cd \"\$SRC\" && grep -nE '^\\s*(Delete|RMDir)|SetOutPath \"\\\$\\{InstallPath\\}\"|WriteUninstaller|Setup writes files and never deletes' packaging/mxbmrp3.nsi; grep -nE 'RemoveFolderEx|RemoveFile ' packaging/msi/game.wxi; grep -rnE 'DeleteFileA|RemoveDirectoryA|MoveFileExA' mxbmrp3 --include=*.cpp | grep -v test_; grep -n 'mxbmrp3_update_backup' README.md"
+money zip/mxbmrp3.dlo
+ev strings-thirdparty "grep -nE '^#+ ' zip/THIRD_PARTY_LICENSES.md | head -40"
+# The Windows runs, read against the bare demo: connections, files written in the game folder, registry writes beyond
+# the baseline's, and the bystander plugin's checks in the test host.
+ev runs "cd \"\$RES\" && for d in baseline-windows ride-defaults-windows ride-hotkeys-windows hotkeys-crash-windows helmet-windows installer-windows; do echo \"== \$d\"; cat \$d/network.txt; echo; cat \$d/files.diff; grep -oE 'mxbikes.exe +Reg(SetValue|CreateKey|DeleteValue) +HKCU[^ ]*Speech[^ ]*' \$d/registry.txt; grep -E 'mxbmrp3|MXBMRP3' \$d/outside.txt \$d/registry.txt | grep -vE 'PiBoSo.MX Bikes.mxbmrp3' | head -12; grep -cE 'untouched' \$d/host.log 2>/dev/null; grep -E 'changed|PATCHED|hooked' \$d/host.log | head -3; done"

@@ -1,0 +1,11 @@
+$ cd "$SRC" && git rev-parse HEAD && git ls-files | wc -l && (git ls-files -z | xargs -0 file | grep -E 'PE32|ELF|Mach-O|WebAssembly|byte-compiled' | grep -v script || echo 'no prebuilt program file in the repository'); head -3 LICENSE; git log --format=%ad --date=short | sort | sed -n '1p;$p'; echo "commits: $(git rev-list --count HEAD), named for a release: $(git log --format=%s | grep -c '^Release v'), days: $(git log --format=%ad --date=short | sort -u | wc -l)"
+bab7bfa6d547527b8f95af2dde654afdb9dea111
+2330
+no prebuilt program file in the repository
+MIT License
+
+Copyright (c) 2025-2026 thomas4f
+2025-11-29
+2026-11-27
+commits: 74, named for a release: 51, days: 52
+(exit 0)

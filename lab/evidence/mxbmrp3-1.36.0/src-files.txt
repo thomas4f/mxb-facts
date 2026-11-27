@@ -1,0 +1,50 @@
+$ cd "$SRC" && grep -nE '^\s*(Delete|RMDir)|SetOutPath "\$\{InstallPath\}"|WriteUninstaller|Setup writes files and never deletes' packaging/mxbmrp3.nsi; grep -nE 'RemoveFolderEx|RemoveFile ' packaging/msi/game.wxi; grep -rnE 'DeleteFileA|RemoveDirectoryA|MoveFileExA' mxbmrp3 --include=*.cpp | grep -v test_; grep -n 'mxbmrp3_update_backup' README.md
+87:    RMDir /r "$userDocuments\PiBoSo\${DocsFolder}\${PLUGIN_NAME_LC}"
+99:; Setup writes files and never deletes any. It briefly pruned each pack's
+111:  SetOutPath "${InstallPath}"
+272:    DeleteRegValue HKLM64 "Software\${PLUGIN_NAME}" "_wtest"
+273:    DeleteRegKey /ifempty HKLM64 "Software\${PLUGIN_NAME}"
+288:    Delete "${Folder}\.mxbmrp3_wtest.tmp"
+327:    DeleteRegKey ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}"
+1398:  WriteUninstaller "$INSTDIR\${PLUGIN_NAME_LC}_uninstall.exe"
+1768:    Delete "$MXBikesInstallPath\${MXBIKES_DLO}"
+1769:    RMDir /r "$MXBikesInstallPath\mxbmrp3_data"
+1776:    Delete /REBOOTOK "$MXBikesInstallPath\${PLUGIN_NAME_LC}_uninstall.exe"
+1778:    DeleteRegValue HKLM64 "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "MXBikesPath"
+1779:    DeleteRegValue HKCU64 "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "MXBikesPath"
+1787:    Delete "$GPBikesInstallPath\${GPBIKES_DLO}"
+1788:    RMDir /r "$GPBikesInstallPath\mxbmrp3_data"
+1789:    Delete /REBOOTOK "$GPBikesInstallPath\${PLUGIN_NAME_LC}_uninstall.exe"  ; see the MX Bikes note
+1791:    DeleteRegValue HKLM64 "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "GPBikesPath"
+1792:    DeleteRegValue HKCU64 "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "GPBikesPath"
+1800:    Delete "$KRPInstallPath\${KRP_DLO}"
+1801:    RMDir /r "$KRPInstallPath\mxbmrp3_data"
+1802:    Delete /REBOOTOK "$KRPInstallPath\${PLUGIN_NAME_LC}_uninstall.exe"  ; see the MX Bikes note
+1804:    DeleteRegValue HKLM64 "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "KRPPath"
+1805:    DeleteRegValue HKCU64 "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "KRPPath"
+118:  <!-- Paths the util:RemoveFolderEx entries below delete. Each is set ONLY when
+119:       that removal was asked for, and each RemoveFolderEx row is conditioned on its
+122:       the RemoveFolderEx action (which runs before CostInitialize). -->
+159:      <RemoveFile Id="$(var.G)OldPrefs" Directory="$(var.G)DATA" Name="install_prefs.ini" On="install" />
+166:      <RemoveFile Id="$(var.G)NsisUninst" Name="mxbmrp3_uninstall.exe" On="install" />
+171:      <util:RemoveFolderEx Id="$(var.G)PayloadWipe" Property="$(var.G)_PAYLOAD" Condition="$(var.G)_PAYLOAD" On="uninstall" />
+174:      <util:RemoveFolderEx Id="$(var.G)DataWipeUn" Property="$(var.G)_WIPE_UN" Condition="$(var.G)_WIPE_UN" On="uninstall" />
+175:      <util:RemoveFolderEx Id="$(var.G)DataWipeFresh" Property="$(var.G)_WIPE_FRESH" Condition="$(var.G)_WIPE_FRESH" On="install" />
+mxbmrp3/hud/benchmark_widget_report.cpp:132:    // file + MoveFileExA replace) — the same path every persisted file uses. snprintf per line
+mxbmrp3/core/analytics_manager.cpp:698:    DeleteFileA(m_pendingCrashPath.c_str());
+mxbmrp3/core/stats_manager_persistence.cpp:730:            DeleteFileA(pbPath.c_str());
+mxbmrp3/core/stats_manager_persistence.cpp:731:            DeleteFileA(odomPath.c_str());
+mxbmrp3/core/atomic_file_writer.cpp:326:    if (!MoveFileExA(temp.c_str(), path.c_str(),
+mxbmrp3/core/update_downloader_install.cpp:149:                RemoveDirectoryA(self.c_str());
+mxbmrp3/core/update_downloader_install.cpp:171:            RemoveDirectoryA(path.c_str());   // the link, not what it points to
+mxbmrp3/core/update_downloader_install.cpp:175:            DeleteFileA(path.c_str());
+mxbmrp3/core/update_downloader_install.cpp:180:    RemoveDirectoryA(dir.c_str());
+mxbmrp3/core/update_downloader_install.cpp:257:        DeleteFileA(filePath.c_str());
+mxbmrp3/core/update_downloader_install.cpp:273:        DeleteFileA(dloDst.c_str());
+mxbmrp3/core/update_downloader_install.cpp:308:        DeleteFileA(filePath.c_str());
+mxbmrp3/core/update_downloader.cpp:282:    if (DeleteFileA(oldFile.c_str())) {
+mxbmrp3/core/update_downloader.cpp:299:        DeleteFileA((std::string(savePath) + "\\" MXB_USER_DIR_NAME "\\donation_nudge_pending").c_str());
+mxbmrp3/core/update_downloader.cpp:312:        DeleteFileA(nudgePath.c_str());
+490:If you used the installer, remove the plugin like any other Windows app: open **Settings > Apps > Installed apps** (or **Control Panel > Programs and Features**), find **MXBMRP3**, and choose **Uninstall**. You can also run `mxbmrp3_uninstall.exe` directly from any game's `plugins\` folder. The uninstaller lets you pick which games to remove from, then deletes the plugin DLO, the `mxbmrp3_data\` folder, and the registry entry. If you've ever updated from inside the plugin, also delete `plugins\mxbmrp3_update_backup\`; the uninstaller leaves it.
+500:- the `mxbmrp3_update_backup\` folder, if you've ever updated from inside the plugin
+(exit 0)

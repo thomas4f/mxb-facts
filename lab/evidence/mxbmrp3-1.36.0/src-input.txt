@@ -1,0 +1,16 @@
+$ cd "$SRC" && grep -nE 'GetAsyncKeyState|m_bKeyboardFocus = (true|false)|mouseButton \? m_bCursorEnabled' mxbmrp3/core/input_manager.cpp; grep -nE 'WM_MOUSEWHEEL|return 0;|CallWindowProc|SetWindowLongPtr|GetCurrentProcessId' mxbmrp3/core/mouse_wheel.cpp; grep -n 'OpenClipboard' mxbmrp3/core/hotkey_manager.cpp; grep -rnE 'SendInput|keybd_event|mouse_event|SetWindowsHookEx' mxbmrp3 --include=*.cpp --include=*.h || echo 'none of: SendInput, keybd_event, mouse_event, SetWindowsHookEx'
+37:    m_bKeyboardFocus = false;
+60:    m_bKeyboardFocus = false;
+176:    m_bKeyboardFocus = false;   // set below only while one of our windows is in front
+201:        m_bKeyboardFocus = true;
+355:    if (!(mouseButton ? m_bCursorEnabled : m_bKeyboardFocus)) return false;
+360:    return (GetAsyncKeyState(vk) & 0x8000) != 0;  // banned-ok: the one key read, gated on focus above
+18:    if (msg == WM_MOUSEWHEEL && GetTickCount64() < g_claimUntil.load(std::memory_order_acquire)) {
+20:        return 0;   // handled: the game never sees this tick
+24:    return g_unicode.load() ? CallWindowProcW(prev, hwnd, msg, wp, lp) : CallWindowProcA(prev, hwnd, msg, wp, lp);
+32:    return IsWindowUnicode(w) ? SetWindowLongPtrW(w, GWLP_WNDPROC, proc) : SetWindowLongPtrA(w, GWLP_WNDPROC, proc);
+45:    if (pid != GetCurrentProcessId()) return;
+80:    if (!over) return 0;
+500:    if (!OpenClipboard(nullptr)) return;
+none of: SendInput, keybd_event, mouse_event, SetWindowsHookEx
+(exit 0)

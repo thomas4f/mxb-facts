@@ -448,10 +448,16 @@
     "author": "thomas4f",
     "github": "thomas4f/mxbmrp3",
     "homepage": "https://thomas4f.github.io/mxbmrp3/",
-    "cards": [],
+    "cards": [
+      "mxbmrp3-1.36.0.yaml"
+    ],
     "mxb-mods": {
       "post": 170597,
       "tied_by": "github.com/thomas4f/mxbmrp3"
+    },
+    "gpb-mods": {
+      "post": null,
+      "note": "No gpb-mods.com post found by a search of the site for MXBMRP3, 27 Nov 2026"
     }
   },
   "mxbtt": {

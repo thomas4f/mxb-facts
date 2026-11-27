@@ -1,0 +1,667 @@
+tool: MXBMRP3
+version: 1.36.0
+by_maintainer: true
+summary: >-
+  A HUD plugin that draws standings, timing, a map, widgets and decks inside MX Bikes and GP Bikes through the plugin
+  interface, with optional extras such as a local web overlay, Steam and Discord presence, stream chat and a spotter voice.
+  Its source is on GitHub under the MIT licence and the release is built by GitHub Actions; with Setup's default it sends an
+  anonymous usage survey, and it checks GitHub for updates, which it installs only when you click.
+header:
+  What it is: >-
+    A game plugin (`mxbmrp3.dlo` for MX Bikes, `mxbmrp3_gpb.dlo` for GP Bikes, plus one for Kart Racing Pro) with its
+    `mxbmrp3_data` folder, put in the game's `plugins` folder by Setup (`.exe` or `.msi`) or by hand from the zip. It draws
+    its HUDs, widgets and menus through the plugin interface and keeps its settings, stats and logs in
+    `Documents\PiBoSo\<game>\mxbmrp3`.
+  In one line: An in-game HUD plugin with standings, timing, map, widgets and optional online extras
+  Category: HUD
+  Author: thomas4f (GitHub [thomas4f](https://github.com/thomas4f))
+  Game: MX Bikes; GP Bikes
+  mxb-mods.com: '[MXBMRP3](https://mxb-mods.com/mxbmrp3/)'
+  gpb-mods.com: None found (a search of gpb-mods.com for MXBMRP3 found no post, 27 Nov 2026)
+  Homepage: '[thomas4f.github.io/mxbmrp3](https://thomas4f.github.io/mxbmrp3/)'
+  GitHub: '[thomas4f/mxbmrp3](https://github.com/thomas4f/mxbmrp3)'
+  Version analysed: >-
+    [v1.36.0](https://github.com/thomas4f/mxbmrp3/releases/tag/v1.36.0) (tag `v1.36.0`, published 27 Nov 2026), the tool's
+    latest GitHub release when this run started.
+  Source commit: >-
+    [bab7bfa6d547527b8f95af2dde654afdb9dea111](https://github.com/thomas4f/mxbmrp3/tree/bab7bfa6d547527b8f95af2dde654afdb9dea111)
+    ("Release v1.36.0", 27 Nov 2026), the commit tag `v1.36.0` points to.
+  Analysed on: 27 Nov 2026
+  Tested in: 'MX Bikes beta21f (demo), installer SHA-256 `76feb83746e785310e8858938dd50b5e0685d1b0004480d5d1c2d4fc21f11949`'
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    The licence is MIT, which allows the analysis. The source was read at the commit (the updater, the usage survey, input,
+    the crash handler, the web server, the online features, Setup's NSIS script and the MSI's WiX files); the plugins were
+    found byte for byte the same in the zip, Setup.exe and the MSI; the MX Bikes plugin's imports, VirtualProtect call sites,
+    code-signing entry and text were read with `objdump` and `strings`; the release's uploader and GitHub's build attestations
+    were read from GitHub's API. The release wasn't rebuilt (T4). Every command is in `lab/evidence/mxbmrp3-1.36.0/run.sh`.
+    A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU) and no keys
+    ran the zip's MX Bikes plugin in the MX Bikes demo (beta21f), offline behind a firewall block, under Process Monitor: the
+    bare demo as baseline, a 90 s ride, and a 120 s ride with the backtick key, Page Down and Page Up pressed; all three
+    reached the track. Then the plugin test host with the bystander plugin (keys and the crash flag, and the helmet view),
+    and Setup.exe for 90 s without clicking through it. The GP Bikes plugin wasn't run. VirusTotal: hash lookups made
+    before the analysis (27 Nov 2026); nothing was uploaded.
+files:
+  - name: mxbmrp3-Setup.exe
+    sha256: 7de7744fb563d075a1996ce4e3be71ee7e311f3ef059d5bbd3797ac9332d381d
+    note: The installer (NSIS 3.10), the first download the README links.
+  - name: mxbmrp3-Setup.msi
+    sha256: 87f81c9fc083b90bccbc4d04e24d33813223b8c9d09fdef1d9e077b6db20e4b1
+    note: The same installer as a Windows Installer package (WiX 5.0.2).
+  - name: mxbmrp3.zip
+    sha256: 3bd964d6d93a263be950c2719944a6543de21a8d996f01df4d310664bbee12e9
+    note: The zip for a manual install (833 files); also the file the in-game updater downloads.
+  - name: mxbmrp3.dlo
+    inside: mxbmrp3.zip
+    sha256: f06929a2616d7183a5b19a6aa8f9a752cb488cbf7b66ec0af0fb5336a7bc1768
+    note: The MX Bikes plugin; the same file is in Setup.exe and the MSI.
+  - name: mxbmrp3_gpb.dlo
+    inside: mxbmrp3.zip
+    sha256: 4ac71f3bfea796070baa23a4a6a186c5a77c66867be7301ef14d8cfe820a81f2
+    note: The GP Bikes plugin; the same file is in Setup.exe and the MSI.
+  - name: mxbmrp3_krp.dlo
+    inside: mxbmrp3.zip
+    sha256: 156cd0537ded408fc4ed64dc59020ad804e7cf652763beada4a7c6c8e5f8295b
+    note: The Kart Racing Pro plugin (not a game these cards cover); the same file is in Setup.exe and the MSI.
+  - name: README.txt
+    inside: mxbmrp3.zip
+    sha256: e1660f3e57b5bb4d4d9da398f4cd2f8435e519b2f87410009803ed4d6d0e7382
+  - name: LICENSE
+    inside: mxbmrp3.zip
+    sha256: 7b458f0a37c5318168f4d82f9e786dea982e512a3d835b7affbc14fc2030f828
+  - name: THIRD_PARTY_LICENSES.md
+    inside: mxbmrp3.zip
+    sha256: 4fde2138ff0f73b2c962a1074b0b20089957241b89b51480c6243d0712c3b067
+  - name: System.dll
+    inside: mxbmrp3-Setup.exe
+    sha256: 51815942c614424480d2e4f0e1fe0122b1b4201c4cfe0ef273c4bb22d14de24a
+    note: An NSIS plugin Setup uses while it runs.
+  - name: nsDialogs.dll
+    inside: mxbmrp3-Setup.exe
+    sha256: 86b26a9b93e4ba5fc59454228515d13b9b30593d3f194dc1d168e15a9be63ede
+    note: An NSIS plugin Setup uses while it runs.
+  - name: LangDLL.dll
+    inside: mxbmrp3-Setup.exe
+    sha256: 85a60644cd508ddc83c206b373f1bf7f07193df03268fd1a3842592c83de00b6
+    note: An NSIS plugin Setup uses while it runs.
+  - name: Binary.MxbCa
+    inside: mxbmrp3-Setup.msi
+    sha256: ee0e08f18fbbca8357c41b4e7f81b51fc8ae73f3aa7944e0584a30288efbe933
+    note: The MSI's own custom-action DLL (source `packaging/msi/ca`), which checks the picked game folders.
+  - name: Binary.Wix4UtilCA_X64
+    inside: mxbmrp3-Setup.msi
+    sha256: 7aacd4c18710e9bc4ff2034895a0a0c8f80f21809fb177d520e93f7688216e6d
+    note: WiX 5.0.2's own custom-action DLL (its RemoveFolderEx).
+files_note: >-
+  No program file carries a Windows code signature, and the MSI has no signature stream
+  (`lab/evidence/mxbmrp3-1.36.0/signature.txt`). The three plugins are the same in the zip, Setup.exe and the MSI
+  (`lab/evidence/mxbmrp3-1.36.0/same-dlo.txt`). GitHub keeps a build attestation for each of the three downloads and the
+  plugins, naming the release workflow, its run and the commit (`lab/evidence/mxbmrp3-1.36.0/release-api.txt`). The hashes
+  match the files the Windows machine ran (`lab/results/mxbmrp3-1.36.0/ride-defaults-windows/machine.txt`,
+  `lab/results/mxbmrp3-1.36.0/ride-defaults-windows/plugins.sha256`).
+key:
+  K1: No malware found. 3 of 68 engines flagged Setup.exe and 1 of 68 an NSIS plugin inside it; none flagged the zip, the MSI or the plugins.
+  K2: 'No, it asks; it checks GitHub at game start, but the only check on the download is the hash GitHub lists beside it.'
+  K3: 'Only its own files; listing the speech voices at load had Windows write its default voice to the registry, which stays.'
+  K4: 'Yes, by Setup''s default; an anonymous usage survey with a random install ID, your OS, region format and features.'
+  K5: No. It uses the plugin interface and draws its own HUD; it reads the game window's mouse wheel over its lists.
+  K6: No. It doesn't unlock, copy or share other people's content.
+  K7: Yes. The full source is public, under the MIT licence.
+  K8: No. Its claims that were checked match the code.
+  K9: Yes. The release is built from the tag's commit by GitHub Actions, with GitHub build attestations; not code-signed.
+  K10: 'Yes. GitHub for updates at game start, and the usage survey when it is on; the rest only on your choice.'
+areas:
+  Your PC and files: >-
+    Asks before installing updates from GitHub but checks them only against GitHub's own hash; touches only its own files,
+    though Windows' speech library writes a default voice when it loads; not code-signed, but built by CI.
+  Your data: >-
+    An anonymous usage survey, on with Setup's default and off for a zip install, and the update check; both can be turned
+    off, and every other connection is opt-in; aggregate survey results are published.
+  Your game: >-
+    A plugin that uses the plugin interface, catches the game's crashes and reads keys only while the game is in front; it
+    takes mouse-wheel messages only over its own lists.
+  Creators' content: Doesn't touch other people's content; it credits the libraries, fonts and icons it ships.
+  Transparency: >-
+    Full source public under the MIT licence; the release is built by GitHub Actions at the tagged commit, with build
+    attestations, not rebuilt here; the public history is mostly one commit per release.
+  Money: Free; the About page links to the author's Ko-fi.
+sections:
+  - title: Your PC and files
+    blocks: []
+  - title: Your data
+    blocks:
+      - table: [What, Where to, When, Switch]
+        rows:
+          - What: A request for the newest releases (user agent `MXBMRP3/1.36.0`); after you click Install, the zip
+            Where to: '`api.github.com`, then `github.com`'
+            When: At every game start once its settings file exists (not the very first start)
+            Switch: '"Update" mode Off (Notify by default), under Updates'
+          - What: >-
+              Usage survey: random install ID, session ID, version, game, OS and version, Windows region format, which
+              features, HUDs and themes are on, achievement tiers, launch count, days since install, session length, and a
+              summary of the last crash (module, offset, code)
+            Where to: '`eu.aptabase.com` or `us.aptabase.com` (by the key built in), and `mxbmrp3.goatcounter.com` (a launch count grouped by install ID)'
+            When: At game start and at a clean exit, and on some clicks, while the survey is on
+            Switch: '"Usage survey" (on with Setup''s default; off on the first start of a zip install), Settings > General'
+          - What: A file that can only lower how much of the survey is sent
+            Where to: '`raw.githubusercontent.com`'
+            When: At game start, while the survey is on
+            Switch: '"Usage survey"'
+          - What: Your track, server, session, state and progress as Steam rich presence; your friends' presence back
+            Where to: Your Steam friends, through the game's own Steam connection
+            When: While "Steam" is on
+            Switch: '"Steam" (off on a new install)'
+          - What: Your status in the game
+            Where to: The Discord app on your PC
+            When: While Discord is on (MX Bikes)
+            Switch: Discord (off)
+          - What: The track name and bike category
+            Where to: '`server.cbrservers.com` or `mxb-ranked.com`'
+            When: When the Records HUD fetches records
+            Switch: Records HUD, auto-fetch off
+          - What: Reads your channel's chat (anonymous on Twitch)
+            Where to: '`irc-ws.chat.twitch.tv`, `www.youtube.com`'
+            When: While Stream Chat is on
+            Switch: Stream Chat (off)
+          - What: The HUD data, riders' names included, as web pages and JSON
+            Where to: '`127.0.0.1:8080` (a server on your PC)'
+            When: While the web overlay is on
+            Switch: Web overlay (off)
+  - title: Your game
+    blocks: []
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: >-
+              "Two go online by default: the update check, and the anonymous usage survey (the installer asks first; a ZIP
+              install starts with it off)." (README)
+            Verdict: Matches
+            Evidence: >-
+              [analytics_manager.cpp line 229](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_manager.cpp#L229),
+              [settings_manager.cpp lines 930-974](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/settings_manager.cpp#L930-L974),
+              [mxbmrp3.nsi lines 954-958](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/packaging/mxbmrp3.nsi#L954-L958).
+              The update check doesn't run on the very first start, before a settings file exists (D1).
+          - Claim: >-
+              "Will an update install itself? No. ... The download is checked against the SHA-256 checksum GitHub publishes
+              for it, and nothing is installed without one." (docs/what-it-does.md)
+            Verdict: Matches
+            Evidence: >-
+              [update_checker.cpp lines 482-495](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_checker.cpp#L482-L495),
+              [update_downloader.cpp lines 436-453](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_downloader.cpp#L436-L453); `lab/evidence/mxbmrp3-1.36.0/src-update.txt`.
+          - Claim: >-
+              "Settings menu, dragging, hotkeys: Reads mouse and keyboard state from Windows ... the keyboard only while the
+              game is in front ... It never sends input." (docs/what-it-does.md)
+            Verdict: Matches
+            Evidence: >-
+              [input_manager.cpp lines 351-361](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/input_manager.cpp#L351-L361);
+              `lab/evidence/mxbmrp3-1.36.0/src-input.txt`, `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`.
+          - Claim: >-
+              "Web overlay: A small web server on this PC (`127.0.0.1:8080`) ... Only the pages it serves can read its data, so
+              other websites open in your browser cannot" (docs/what-it-does.md)
+            Verdict: Matches
+            Evidence: >-
+              [http_server.cpp lines 355-366](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server.cpp#L355-L366),
+              [http_server_internal.h lines 140-144](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server_internal.h#L140-L144). Not run.
+          - Claim: >-
+              "It never changes the game's files. ... Apart from its own files there, ... everything the plugin writes goes
+              under `Documents\PiBoSo\[Game]\mxbmrp3\`." (docs/what-it-does.md)
+            Verdict: Matches
+            Evidence: >-
+              Both rides wrote nothing in the game folder beyond the bare demo's two logs
+              (`lab/evidence/mxbmrp3-1.36.0/runs.txt`); `lab/evidence/mxbmrp3-1.36.0/src-files.txt`.
+          - Claim: >-
+              "When the usage survey is on, the plugin may also fetch a small config file from this repository that can only
+              ever reduce what's sent, never add to it." (README)
+            Verdict: Matches
+            Evidence: >-
+              [analytics_remote_config.h lines 35-58](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_remote_config.h#L35-L58): it reads only a
+              fraction from 0 to 1 of launches that send the full set.
+          - Claim: >-
+              "The uninstaller ... deletes the plugin DLO, the `mxbmrp3_data\` folder, and the registry entry. If you've ever
+              updated from inside the plugin, also delete `plugins\mxbmrp3_update_backup\`; the uninstaller leaves it." (README)
+            Verdict: Matches
+            Evidence: >-
+              [mxbmrp3.nsi lines 1768-1805](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/packaging/mxbmrp3.nsi#L1768-L1805). Not run.
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX
+              Bikes demo, offline.
+            questions: []
+          - text: >-
+              The runs were the first start of a zip install, offline: the usage survey starts off on a zip install and the
+              update check doesn't run before a settings file exists, so neither connection was seen; what they send rests
+              on the source, which the release is built from by CI but wasn't rebuilt here.
+            questions: [D1, D2, D3, D8]
+          - text: >-
+              Setup ran 90 s without being clicked through, so it installed nothing; the MSI and the uninstallers weren't run.
+              What they write and remove rests on their NSIS and WiX sources.
+            questions: [P4, P6, P8]
+          - text: >-
+              No setting was changed in the plugin: Steam, Discord, the Records HUD, Stream Chat, the web overlay, Now playing,
+              the spotter, Direct GL and the in-game updater rest on the source.
+            questions: [P3, D4, D5, D10, G2]
+          - text: >-
+              The GP Bikes plugin (`mxbmrp3_gpb.dlo`) wasn't run in the GP Bikes demo; it is built from the same source.
+            questions: [G2, G5, G6]
+          - text: >-
+              No crash happened in the runs (the test host's crash case sets the bike's crash flag, not a program crash), so the
+              crash handler wasn't seen at work; it rests on the source and the plugin's imports.
+            questions: [G8]
+          - text: >-
+              Not rebuilt: the plugins are built with Visual Studio 2022 on Windows, which this setup doesn't have. GitHub's
+              build attestations were read from its API, but their Sigstore signatures weren't checked here.
+            questions: [T4]
+          - text: >-
+              The two MSI custom-action DLLs weren't looked up on VirusTotal, and only the first 40 of the release's files
+              were looked up.
+            questions: [P1]
+answers:
+  P1:
+    verdict: Partly
+    mark: note
+    text: >-
+      3 of 68 engines flagged `mxbmrp3-Setup.exe` (APEX, Google, Ikarus) and 1 of 68 its NSIS plugin `System.dll` (Cynet,
+      last scanned 26 Jul 2026); 0 flagged `mxbmrp3-Setup.msi` (of 61), `mxbmrp3.zip` (66), the three plugins (68 each),
+      `nsDialogs.dll` (71), `LangDLL.dll` (71) or `LICENSE` (62), on the hash lookup of 27 Nov 2026. The three downloads were
+      already on VirusTotal and nothing was uploaded. `README.txt` and `THIRD_PARTY_LICENSES.md` from the zip aren't on
+      VirusTotal (hash lookup on 27 Nov 2026); the MSI's two custom-action DLLs weren't looked up.
+    evidence: >-
+      [mxbmrp3-Setup.exe](https://www.virustotal.com/gui/file/7de7744fb563d075a1996ce4e3be71ee7e311f3ef059d5bbd3797ac9332d381d),
+      [mxbmrp3-Setup.msi](https://www.virustotal.com/gui/file/87f81c9fc083b90bccbc4d04e24d33813223b8c9d09fdef1d9e077b6db20e4b1),
+      [mxbmrp3.zip](https://www.virustotal.com/gui/file/3bd964d6d93a263be950c2719944a6543de21a8d996f01df4d310664bbee12e9),
+      [mxbmrp3.dlo](https://www.virustotal.com/gui/file/f06929a2616d7183a5b19a6aa8f9a752cb488cbf7b66ec0af0fb5336a7bc1768),
+      [mxbmrp3_gpb.dlo](https://www.virustotal.com/gui/file/4ac71f3bfea796070baa23a4a6a186c5a77c66867be7301ef14d8cfe820a81f2),
+      [mxbmrp3_krp.dlo](https://www.virustotal.com/gui/file/156cd0537ded408fc4ed64dc59020ad804e7cf652763beada4a7c6c8e5f8295b),
+      [LICENSE](https://www.virustotal.com/gui/file/7b458f0a37c5318168f4d82f9e786dea982e512a3d835b7affbc14fc2030f828),
+      [System.dll](https://www.virustotal.com/gui/file/51815942c614424480d2e4f0e1fe0122b1b4201c4cfe0ef273c4bb22d14de24a),
+      [nsDialogs.dll](https://www.virustotal.com/gui/file/86b26a9b93e4ba5fc59454228515d13b9b30593d3f194dc1d168e15a9be63ede),
+      [LangDLL.dll](https://www.virustotal.com/gui/file/85a60644cd508ddc83c206b373f1bf7f07193df03268fd1a3842592c83de00b6),
+      [README.txt](https://www.virustotal.com/gui/file/e1660f3e57b5bb4d4d9da398f4cd2f8435e519b2f87410009803ed4d6d0e7382),
+      [THIRD_PARTY_LICENSES.md](https://www.virustotal.com/gui/file/4fde2138ff0f73b2c962a1074b0b20089957241b89b51480c6243d0712c3b067)
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The update setting has only Off and Notify (Notify by default). With Notify it checks GitHub at game start and tells you
+      a new version is there; it downloads and installs only when you click Install, and the new version loads at the next
+      game start.
+    evidence: >-
+      [update_checker.h lines 28-31](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_checker.h#L28-L31),
+      [update_checker.cpp line 27](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_checker.cpp#L27),
+      [settings_manager.cpp lines 754-768](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/settings_manager.cpp#L754-L768);
+      `lab/evidence/mxbmrp3-1.36.0/src-update.txt`.
+  P3:
+    verdict: Partly
+    mark: concern
+    text: >-
+      The only check comes from the same place as the file: the zip's size and SHA-256 must equal what GitHub's API lists for
+      that file in the same answer, and nothing is installed without a digest. Nothing is signed; GitHub's build attestations
+      for the release aren't checked by the updater.
+    evidence: >-
+      [update_checker.cpp lines 482-495](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_checker.cpp#L482-L495),
+      [update_downloader.cpp lines 416-453](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_downloader.cpp#L416-L453);
+      `lab/evidence/mxbmrp3-1.36.0/src-update.txt`.
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It deletes and overwrites only its own files: an update moves its plugin and `mxbmrp3_data` to
+      `plugins\mxbmrp3_update_backup` before unpacking (rejecting names with `..`), Setup's fresh-install choice and the
+      uninstaller's "remove data" option delete its own `Documents\PiBoSo\<game>\mxbmrp3` folder, and the uninstallers delete
+      its plugin, data folder and uninstaller.
+    evidence: >-
+      [update_downloader_install.cpp lines 211-248](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_downloader_install.cpp#L211-L248),
+      [update_downloader_install.cpp lines 425-432](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/update_downloader_install.cpp#L425-L432),
+      [mxbmrp3.nsi lines 84-88](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/packaging/mxbmrp3.nsi#L84-L88),
+      [mxbmrp3.nsi lines 1768-1805](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/packaging/mxbmrp3.nsi#L1768-L1805);
+      `lab/evidence/mxbmrp3-1.36.0/src-files.txt`.
+  P5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      No file carries a Windows code signature: not Setup.exe, the MSI, the plugins or the MSI's own DLL. They are built from
+      the tag's commit by GitHub Actions, which keeps a build attestation for each (T3).
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/signature.txt`, `lab/evidence/mxbmrp3-1.36.0/release-api.txt`.'
+  P6:
+    verdict: Partly
+    mark: note
+    text: >-
+      It sets no Windows setting itself: the plugin only reads the registry (Windows' version), and Setup and the MSI write
+      only their own `MXBMRP3` keys and uninstall entry. But at load it lists the installed speech voices, and in the rides
+      Windows' speech library then wrote the voice it uses by default to `DefaultTokenId` under
+      `HKCU\SOFTWARE\Microsoft\Speech\Voices` and `Speech_OneCore\Voices`, where none was set; the bare demo didn't.
+    evidence: >-
+      [spotter_manager_audio.cpp lines 89-107](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/spotter_manager_audio.cpp#L89-L107),
+      [mxbmrp3.nsi lines 297-313](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/packaging/mxbmrp3.nsi#L297-L313);
+      `lab/evidence/mxbmrp3-1.36.0/src-registry.txt`, `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`,
+      `lab/evidence/mxbmrp3-1.36.0/runs.txt`; `lab/results/mxbmrp3-1.36.0/ride-defaults-windows/registry.txt`.
+  P7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      In the game folder it puts only its plugin, its `mxbmrp3_data` folder and its uninstaller in `plugins` (and, after an
+      in-game update, its backup folder there); its settings go to Documents. The rides wrote nothing in the game folder beyond
+      the bare demo's logs.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/src-files.txt`, `lab/evidence/mxbmrp3-1.36.0/runs.txt`.'
+  P8:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      Uninstalling removes the plugin, `mxbmrp3_data`, its uninstaller and its registry entries, and keeps your settings
+      folder unless you tick the option to delete it. It leaves `plugins\mxbmrp3_update_backup` (its own, after an in-game
+      update) and the default speech voice Windows wrote when the plugin listed the voices (P6).
+    evidence: >-
+      [mxbmrp3.nsi lines 1768-1805](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/packaging/mxbmrp3.nsi#L1768-L1805);
+      `lab/evidence/mxbmrp3-1.36.0/src-files.txt`, `lab/evidence/mxbmrp3-1.36.0/src-registry.txt`,
+      `lab/evidence/mxbmrp3-1.36.0/runs.txt`.
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The release files were uploaded by the GitHub Actions run that built the commit, the three downloads
+      carry the same plugins, and the plugin's imports (no registry writes, no other process's memory, no key presses; its
+      VirtualProtect calls take only its own C runtime table) and web addresses match the source; the runs showed nothing the
+      source doesn't do.
+    evidence: >-
+      `lab/evidence/mxbmrp3-1.36.0/release-api.txt`, `lab/evidence/mxbmrp3-1.36.0/same-dlo.txt`,
+      `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`, `lab/evidence/mxbmrp3-1.36.0/virtualprotect.txt`,
+      `lab/evidence/mxbmrp3-1.36.0/strings-urls.txt`, `lab/evidence/mxbmrp3-1.36.0/runs.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      By default it asks `api.github.com` for new releases at every game start once its settings file exists (not on the very
+      first start), and with the usage survey on (Setup's default) it sends the survey and fetches its config file. Everything
+      else goes online only on your choice (table above). The rides, the first start of a zip install, offline, tried no
+      connection.
+    evidence: >-
+      [settings_manager.cpp lines 140-155](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/settings_manager.cpp#L140-L155),
+      [settings_manager.cpp lines 754-768](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/settings_manager.cpp#L754-L768),
+      [analytics_manager.cpp lines 779-866](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_manager.cpp#L779-L866);
+      `lab/evidence/mxbmrp3-1.36.0/strings-urls.txt`, `lab/evidence/mxbmrp3-1.36.0/src-network.txt`,
+      `lab/evidence/mxbmrp3-1.36.0/runs.txt`.
+  D2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      With Setup's default (its Privacy page's box is ticked), the usage survey sends at each game start your OS and version,
+      Windows' region format, the game, plugin version, which features, HUDs, widgets, theme, language and spotter voice you
+      use, your achievement tiers, how often and how long you have used it, and on the next start a summary of the last crash
+      (faulting module and offset, error code, a short backtrace); at a clean exit, how long you played. Unticking the box,
+      or a zip install, starts with it off.
+    evidence: >-
+      [analytics_manager.cpp lines 288-330](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_manager.cpp#L288-L330),
+      [analytics_manager.cpp line 229](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_manager.cpp#L229),
+      [mxbmrp3.nsi lines 954-958](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/packaging/mxbmrp3.nsi#L954-L958),
+      [settings_manager.cpp lines 930-974](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/settings_manager.cpp#L930-L974);
+      `lab/evidence/mxbmrp3-1.36.0/src-analytics.txt`.
+  D3:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The survey carries a random install ID the plugin makes itself (a UUID kept in `mxbmrp3_analytics.json`; GoatCounter gets
+      it as its session) and a random ID per launch; no Steam ID or machine ID. With "Steam" on (off by default), your presence
+      goes to your friends under your Steam account.
+    evidence: >-
+      [analytics_manager.cpp lines 263-286](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_manager.cpp#L263-L286),
+      [analytics_manager.cpp lines 288-310](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_manager.cpp#L288-L310);
+      `lab/evidence/mxbmrp3-1.36.0/src-analytics.txt`.
+  D4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The survey carries nothing about other riders, and the Steam presence (off by default) carries your server's name but
+      not who is on it; other riders' names go only to the web overlay on your own PC (D10).
+    evidence: >-
+      [steam_friends_manager.cpp lines 633-639](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/steam_friends_manager.cpp#L633-L639);
+      `lab/evidence/mxbmrp3-1.36.0/src-analytics.txt`, `lab/evidence/mxbmrp3-1.36.0/src-network.txt`.
+  D5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      With the web overlay on (off by default), it serves `127.0.0.1:8080`. It answers another website in your browser with
+      403: a request whose Host isn't `localhost` or an IP address, or whose Origin isn't the server's own, is refused, and its
+      answers carry no header that lets another site read them.
+    evidence: >-
+      [http_server.cpp lines 355-366](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server.cpp#L355-L366),
+      [http_server_internal.h lines 84-144](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server_internal.h#L84-L144),
+      [http_server.h lines 187-188](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server.h#L187-L188);
+      `lab/evidence/mxbmrp3-1.36.0/src-network.txt`.
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads Windows' version from the registry and, for its log, the file names of the DLLs loaded in the game; Setup reads
+      Steam's uninstall entries to find the games. With Now playing on (off), it reads what your media player is playing and
+      the player's program name; with Steam on (off), your friends' presence. None of it is read by default from other people.
+    evidence: >-
+      [system_info.cpp line 115](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/diagnostics/system_info.cpp#L115),
+      [environment_report.cpp lines 90-100](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/diagnostics/environment_report.cpp#L90-L100),
+      [media_manager.cpp lines 70-72](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/media_manager.cpp#L70-L72);
+      `lab/evidence/mxbmrp3-1.36.0/src-registry.txt`, `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`.
+  D7:
+    verdict: Partly
+    mark: note
+    text: >-
+      The author publishes the usage survey's totals (installs, launches, games, versions, countries, features, crashes by
+      module) as a page and in the repository; no single install's data is published.
+    evidence: '[usage_survey/REPORT.md](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/usage_survey/REPORT.md).'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      "Update" mode Off stops the update check, and "Usage survey" off stops the survey and its config file (turning it off
+      sends one last opt-out event); every other connection is off until you turn it on.
+    evidence: >-
+      [settings_tab_general.cpp lines 123-130](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/hud/settings/settings_tab_general.cpp#L123-L130),
+      [analytics_manager.cpp lines 779-789](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/analytics_manager.cpp#L779-L789);
+      `lab/evidence/mxbmrp3-1.36.0/src-update.txt`, `lab/evidence/mxbmrp3-1.36.0/src-network.txt`.
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account is needed or created; Twitch chat is read anonymously.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/strings-urls.txt`, `lab/evidence/mxbmrp3-1.36.0/src-network.txt`.'
+  D10:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      With the web overlay on (off by default), the server on `127.0.0.1:8080` gives the HUD data, riders' names included, to
+      any program on your PC that asks; its Host and Origin checks only keep websites out. By default it shares nothing.
+    evidence: >-
+      [http_server.h lines 187-188](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server.h#L187-L188),
+      [http_server_snapshot.cpp line 450](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/http_server_snapshot.cpp#L450);
+      `lab/evidence/mxbmrp3-1.36.0/src-network.txt`.
+  G1:
+    verdict: 'No'
+    mark: good
+    text: The game loads the plugin from `plugins`; nothing else puts code into the game.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt` (no WriteProcessMemory, VirtualAllocEx or CreateRemoteThread).'
+  G2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It uses the plugin interface; its VirtualProtect calls all take its own `.fptable` section (the C runtime's), and the
+      test host's checks of the game's and the bystander plugin's tables stayed untouched. Direct GL (off) draws with OpenGL
+      inside the plugin's own draw call and restores what it changes. The mouse-wheel handler is G5.
+    evidence: >-
+      `lab/evidence/mxbmrp3-1.36.0/virtualprotect.txt`, `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`;
+      `lab/results/mxbmrp3-1.36.0/hotkeys-crash-windows/host.log`, `lab/results/mxbmrp3-1.36.0/helmet-windows/host.log`.
+  G3:
+    verdict: 'No'
+    mark: good
+    text: It draws its own HUD over the game, online too, and changes nothing in the game.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`, `lab/evidence/mxbmrp3-1.36.0/virtualprotect.txt`.'
+  G4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads the game only through the plugin interface; it opens no process to read memory. With "Steam" on (off), it calls
+      the Steam library the game has loaded.
+    evidence: >-
+      `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt` (no ReadProcessMemory), `lab/evidence/mxbmrp3-1.36.0/src-network.txt`.
+  G5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It takes input only for its own menu and lists: it puts a handler in front of the game window's own (swapping its window
+      procedure) that keeps a mouse-wheel message only while the pointer is over one of its lists and passes the rest on, and
+      it reads the mouse for its menus. It presses no keys.
+    evidence: >-
+      [mouse_wheel.cpp lines 18-32](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/mouse_wheel.cpp#L18-L32);
+      `lab/evidence/mxbmrp3-1.36.0/src-input.txt`, `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt` (no SendInput or keybd_event).
+  G6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It leaves other plugins alone: it deletes only its own files, and the bystander plugin's tables stayed untouched in the
+      test host.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/src-files.txt`; `lab/results/mxbmrp3-1.36.0/hotkeys-crash-windows/host.log`.'
+  G7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads keys with GetAsyncKeyState only while a window of the game's process is in front; otherwise every key reads as
+      up.
+    evidence: >-
+      [input_manager.cpp lines 351-361](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/input_manager.cpp#L351-L361),
+      [input_manager.cpp lines 172-201](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/input_manager.cpp#L172-L201);
+      `lab/evidence/mxbmrp3-1.36.0/src-input.txt`.
+  G8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      At load, the plugin sets a crash handler for the whole game (SetUnhandledExceptionFilter) that writes a minidump to
+      `Documents\PiBoSo\<game>\mxbmrp3\crashes`, then passes the crash on to the handler that was there before.
+    evidence: >-
+      [crash_handler.cpp line 459](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/crash_handler.cpp#L459),
+      [crash_handler.cpp lines 382-389](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/crash_handler.cpp#L382-L389),
+      [plugin_manager.cpp line 157](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/core/plugin_manager.cpp#L157);
+      `lab/evidence/mxbmrp3-1.36.0/src-crash.txt`, `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`.
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing starts with Windows; neither Setup nor the plugin adds a start-up entry.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/src-registry.txt`; `lab/results/mxbmrp3-1.36.0/installer-windows/registry.txt`.'
+  G10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No separate program runs next to the game; the companion window (off) is a window the plugin opens inside the game's
+      process.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/file.txt`, `lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt` (no CreateProcess).'
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`mxbmrp3.dlo` (or `mxbmrp3_gpb.dlo`) is a game plugin, loaded by the game from `plugins`.'
+    evidence: >-
+      It exports Startup, Draw and the other plugin functions (`lab/evidence/mxbmrp3-1.36.0/mxbmrp3.dlo.objdump-p.txt`);
+      `lab/results/mxbmrp3-1.36.0/ride-defaults-windows/loaded.txt`.
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No check or protection of the game is got around; it uses the plugin interface.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`, `lab/evidence/mxbmrp3-1.36.0/virtualprotect.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: It decrypts nothing.
+    evidence: '[The source at the commit](https://github.com/thomas4f/mxbmrp3/tree/bab7bfa6d547527b8f95af2dde654afdb9dea111).'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: It saves no copy of other people's models or textures.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/src-files.txt`.'
+  C3:
+    verdict: 'No'
+    mark: good
+    text: It shares no one's content.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/src-network.txt`.'
+  C4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The release carries `THIRD_PARTY_LICENSES.md`, which names the libraries built in (nlohmann/json, cpp-httplib, miniz),
+      the fonts and the icons with their licences.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/strings-thirdparty.txt`, `lab/evidence/mxbmrp3-1.36.0/deps.txt`.'
+  C5:
+    verdict: 'No'
+    mark: good
+    text: It opens no one's mods, paints, tracks or models; it gets the track's shape through the plugin interface.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/imports-dlo.txt`, `lab/evidence/mxbmrp3-1.36.0/src-files.txt`.'
+  T1:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The three plugins (PE32+ x86-64) and the MSI's custom-action DLL are built from the source at the commit by GitHub
+      Actions (T3). Setup.exe is NSIS 3.10 (the Ubuntu package) with its plugins `System.dll`, `nsDialogs.dll` and
+      `LangDLL.dll`; the MSI is WiX 5.0.2 with its `Wix4UtilCA_X64`. The repository holds no prebuilt program file.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/file.txt`, `lab/evidence/mxbmrp3-1.36.0/setup.txt`, `lab/evidence/mxbmrp3-1.36.0/repo-files.txt`.'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      What its docs say about going online, updates, input, the web overlay, the game's files and uninstalling matches the
+      code (see "What it says vs what it does").
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/src-update.txt`, `lab/evidence/mxbmrp3-1.36.0/src-analytics.txt`, `lab/evidence/mxbmrp3-1.36.0/src-input.txt`.'
+  T3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The release workflow, started by hand on `main`, builds the plugins, the zip, Setup and the MSI, tags the commit and
+      publishes a draft; all four release files were uploaded by `github-actions[bot]`, and GitHub's build attestations name
+      run 46074015683 of `release.yml` at the commit `v1.36.0` points to.
+    evidence: >-
+      [release.yml lines 59-60](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/.github/workflows/release.yml#L59-L60),
+      [release.yml lines 155-193](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/.github/workflows/release.yml#L155-L193);
+      `lab/evidence/mxbmrp3-1.36.0/release-api.txt`, `lab/evidence/mxbmrp3-1.36.0/deps.txt`.
+  T4:
+    verdict: Not checked
+    text: >-
+      Not rebuilt: the plugins are built with Visual Studio 2022 (v143) on Windows, which this setup doesn't have.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/deps.txt`.'
+  T5:
+    verdict: Partly
+    mark: note
+    text: >-
+      The public history has 74 commits, from 29 Nov 2025 to 27 Nov 2026, on 52 days; 51 are named "Release v…", so the work
+      between releases is mostly not in it.
+    evidence: '[Commits up to the commit](https://github.com/thomas4f/mxbmrp3/commits/bab7bfa6d547527b8f95af2dde654afdb9dea111); `lab/evidence/mxbmrp3-1.36.0/repo-files.txt`.'
+  T6:
+    verdict: Partly
+    mark: note
+    text: >-
+      The libraries are copied into the repository at named versions, and WiX is pinned (5.0.2); the rest isn't: the runners
+      (`windows-2022`, `ubuntu-latest`), NSIS from Ubuntu's packages, and some actions by version tag.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/deps.txt`.'
+  T7:
+    verdict: 'Yes'
+    mark: good
+    text: The repository and the release carry the MIT licence (`LICENSE`).
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/repo-files.txt`, `lab/evidence/mxbmrp3-1.36.0/files.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: Free to download and use; no payment or key is asked for.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold, and no shop is linked.
+    evidence: '`lab/evidence/mxbmrp3-1.36.0/strings-money.txt`.'
+  M3:
+    verdict: 'Yes'
+    mark: note
+    text: The About page in the settings has a Ko-fi link (`ko-fi.com/thomas4f`) that opens in your browser; it unlocks nothing.
+    evidence: '[settings_tab_about.cpp line 128](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/hud/settings/settings_tab_about.cpp#L128), [settings_links.cpp line 54](https://github.com/thomas4f/mxbmrp3/blob/bab7bfa6d547527b8f95af2dde654afdb9dea111/mxbmrp3/hud/settings/settings_links.cpp#L54); `lab/evidence/mxbmrp3-1.36.0/strings-urls.txt`.'
+history:
+  - date: 27 Nov 2026
+    change: First card, for release v1.36.0.

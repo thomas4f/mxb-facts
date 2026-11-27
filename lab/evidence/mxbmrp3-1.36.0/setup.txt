@@ -1,0 +1,14 @@
+$ strings -n 8 mxbmrp3-Setup.exe | grep -m1 -oE 'Nullsoft Install System v[0-9.-]+'; file mxbmrp3-Setup.msi | tr ',' '\n' | grep -E 'Creating Application|Author'; 7z l -tCompound mxbmrp3-Setup.msi | grep -E 'Binary\.|DigitalSignature|cab1'
+Nullsoft Install System v3.10-2
+ Author: thomas4f
+ Name of Creating Application: WiX Toolset (5.0.2.0)
+                    .....     16085212     16089088  cab1.cab
+                    .....       108032       110592  Binary.MxbCa
+                    .....          318          320  Binary.WixUI_Bmp_New
+                    .....          318          320  Binary.WixUI_Bmp_Up
+                    .....         1078         1088  Binary.WixUI_Ico_Info
+                    .....       400144       401408  Binary.Wix4UtilCA_X64
+                    .....         2746         2752  Binary.WixUI_Bmp_Banner
+                    .....        68468        69632  Binary.WixUI_Bmp_Dialog
+                    .....          766          768  Binary.WixUI_Ico_Exclam
+(exit 0)

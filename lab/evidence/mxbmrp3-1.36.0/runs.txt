@@ -1,0 +1,71 @@
+$ cd "$RES" && for d in baseline-windows ride-defaults-windows ride-hotkeys-windows hotkeys-crash-windows helmet-windows installer-windows; do echo "== $d"; cat $d/network.txt; echo; cat $d/files.diff; grep -oE 'mxbikes.exe +Reg(SetValue|CreateKey|DeleteValue) +HKCU[^ ]*Speech[^ ]*' $d/registry.txt; grep -E 'mxbmrp3|MXBMRP3' $d/outside.txt $d/registry.txt | grep -vE 'PiBoSo.MX Bikes.mxbmrp3' | head -12; grep -cE 'untouched' $d/host.log 2>/dev/null; grep -E 'changed|PATCHED|hooked' $d/host.log | head -3; done
+== baseline-windows
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+
+> .\e3dlog.txt
+> .\sllog.txt
+0
+== ride-defaults-windows
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+
+> .\e3dlog.txt
+> .\sllog.txt
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech_OneCore\Voices
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech\Voices
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Speech_OneCore\Voices\DefaultTokenId
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Speech\Voices\DefaultTokenId
+0
+== ride-hotkeys-windows
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+
+> .\e3dlog.txt
+> .\sllog.txt
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech_OneCore\Voices
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech\Voices
+0
+== hotkeys-crash-windows
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+
+> .\save\mxbmrp3\mxbmrp3_log.txt
+> .\save\mxbmrp3\mxbmrp3_settings.ini
+> .\save\mxbmrp3\mxbmrp3_stats.json
+> .\shot_0140.bmp
+> .\shot_0225.bmp
+> .\shot_0320.bmp
+> .\shot_0420.bmp
+> .\shot_0480.bmp
+> .\shot_0520.bmp
+> .\shot_0898.bmp
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech_OneCore\Voices
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech\Voices
+75
+== helmet-windows
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+
+> .\save\mxbmrp3\mxbmrp3_log.txt
+> .\save\mxbmrp3\mxbmrp3_settings.ini
+> .\save\mxbmrp3\mxbmrp3_stats.json
+> .\shot_0150.bmp
+> .\shot_0330.bmp
+> .\shot_0598.bmp
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech_OneCore\Voices
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech\Voices
+75
+== installer-windows
+No internet connections (TCP or UDP) by the run's processes in Process Monitor, and none dropped by the firewall. Every program in the run folder was blocked, so this shows attempts, not traffic.
+
+
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users  NAME COLLISION
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData  NAME COLLISION
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local  NAME COLLISION
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp  NAME COLLISION
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp  SUCCESS
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp\LangDLL.dll  SUCCESS
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsp42BC.tmp  SUCCESS
+installer-windows/outside.txt:mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsu428C.tmp  SUCCESS
+installer-windows/outside.txt:mxbmrp3-Setup.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp\LangDLL.dll  SUCCESS
+installer-windows/outside.txt:mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nse42CC.tmp\LangDLL.dll  SUCCESS
+installer-windows/outside.txt:mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsp42BC.tmp  FAST IO DISALLOWED
+0
+(exit 0)

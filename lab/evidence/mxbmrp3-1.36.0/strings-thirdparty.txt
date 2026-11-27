@@ -1,0 +1,36 @@
+$ grep -nE '^#+ ' zip/THIRD_PARTY_LICENSES.md | head -40
+1:# Third Party Licenses
+17:## Gamepad Viewer
+48:## JSON for Modern C++ (nlohmann/json)
+79:## miniz
+114:## cpp-httplib
+146:## NSIS (Nullsoft Scriptable Install System)
+197:## WiX Toolset
+268:## stb_truetype
+326:## doctest
+358:## Font Awesome
+379:## IBM Plex Sans
+396:## IBM Plex Mono
+413:## Roboto Mono
+431:## Fuzzy Bubbles
+449:## Tiny5
+467:## Theme UI fonts (Geist, Geist Mono, Inter, Manrope, Open Sans, Outfit, Sora, Space Grotesk)
+496:## VT323
+513:## Press Start 2P
+531:## Silkscreen
+549:## DSEG
+571:## Doto
+589:## Chakra Petch
+606:## Quantico
+624:## Tomorrow
+641:## Enter Sansman
+684:## Audiowide
+702:## Permanent Marker
+721:## Rock Salt
+740:## Caveat Brush
+757:## Reenie Beanie
+774:## Gloria Hallelujah
+791:# Full license texts
+799:## SIL Open Font License, Version 1.1
+898:## Apache License, Version 2.0
+(exit 0)

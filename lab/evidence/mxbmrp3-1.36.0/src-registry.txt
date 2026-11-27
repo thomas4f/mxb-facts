@@ -1,0 +1,42 @@
+$ cd "$SRC" && grep -rnE 'Reg(OpenKeyEx|GetValue|QueryValueEx|SetValueEx|CreateKeyEx)' mxbmrp3 --include=*.cpp | grep -v test_; grep -nE 'WriteReg|DeleteReg' packaging/mxbmrp3.nsi | head -20; grep -nE 'RegistryValue|RemoveRegistry' packaging/msi/mxbmrp3.wxs packaging/msi/game.wxi; grep -nE 'enumerateTtsVoicesViaSapi|SPCAT_VOICES,' mxbmrp3/core/spotter_manager_audio.cpp
+mxbmrp3/diagnostics/system_info.cpp:115:    if (RegOpenKeyExA(HKEY_LOCAL_MACHINE,
+mxbmrp3/diagnostics/system_info.cpp:121:            if (RegQueryValueExA(hKey, name, nullptr, &type,
+mxbmrp3/diagnostics/system_info.cpp:128:        if (RegQueryValueExA(hKey, "CurrentMajorVersionNumber", nullptr, &type,
+mxbmrp3/diagnostics/system_info.cpp:153:    if (RegGetValueA(HKEY_LOCAL_MACHINE, "HARDWARE\\DESCRIPTION\\System\\CentralProcessor\\0",
+268:  WriteRegStr HKLM64 "Software\${PLUGIN_NAME}" "_wtest" "1"
+272:    DeleteRegValue HKLM64 "Software\${PLUGIN_NAME}" "_wtest"
+273:    DeleteRegKey /ifempty HKLM64 "Software\${PLUGIN_NAME}"
+297:  WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "DisplayName" "${PLUGIN_NAME}"
+298:  WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "UninstallString" "$INSTDIR\${PLUGIN_NAME_LC}_uninstall.exe"
+299:  WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "InstallLocation" "$INSTDIR"
+300:  WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "Publisher" "${PLUGIN_PUBLISHER}"
+301:  WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "DisplayVersion" "${PLUGIN_VERSION}"
+302:  WriteRegDWORD ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "NoModify" 1
+303:  WriteRegDWORD ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "NoRepair" 1
+305:  WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "Language" "$LANGUAGE"
+307:    WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "MXBikesPath" "$MXBikesInstallPath"
+310:    WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "GPBikesPath" "$GPBikesInstallPath"
+313:    WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "KRPPath" "$KRPInstallPath"
+327:    DeleteRegKey ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}"
+331:      WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "InstallLocation" "$R0"
+332:      WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "UninstallString" "$R0\${PLUGIN_NAME_LC}_uninstall.exe"
+334:      WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "InstallLocation" "$R1"
+335:      WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "UninstallString" "$R1\${PLUGIN_NAME_LC}_uninstall.exe"
+337:      WriteRegStr ${ROOT} "${REG_UNINSTALL_KEY_PATH}\${PLUGIN_NAME}" "InstallLocation" "$R2"
+packaging/msi/mxbmrp3.wxs:130:        <RegistryValue Root="HKLM" Key="Software\MXBMRP3" Name="Version" Type="string" Value="$(var.Version)" KeyPath="yes" />
+packaging/msi/mxbmrp3.wxs:131:        <RemoveRegistryKey Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Action="removeOnInstall" />
+packaging/msi/mxbmrp3.wxs:132:        <RemoveRegistryKey Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Action="removeOnInstall" />
+packaging/msi/mxbmrp3.wxs:158:        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Name="InstallLocation" Type="string" Value="[NSIS_KEEP_LM]" KeyPath="yes" />
+packaging/msi/mxbmrp3.wxs:159:        <RegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Name="UninstallString" Type="string" Value="[NSIS_KEEP_LM]\mxbmrp3_uninstall.exe" />
+packaging/msi/mxbmrp3.wxs:163:        <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Name="InstallLocation" Type="string" Value="[NSIS_KEEP_CU]" KeyPath="yes" />
+packaging/msi/mxbmrp3.wxs:164:        <RegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Name="UninstallString" Type="string" Value="[NSIS_KEEP_CU]\mxbmrp3_uninstall.exe" />
+packaging/msi/game.wxi:144:      <RegistryValue Root="HKLM" Key="Software\MXBMRP3" Name="$(var.G)Plugins" Type="string" Value="[$(var.G)PLUGINS]" KeyPath="yes" />
+packaging/msi/game.wxi:150:      <RemoveRegistryValue Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Name="$(var.NsisValue)" />
+packaging/msi/game.wxi:151:      <RemoveRegistryValue Root="HKCU" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\MXBMRP3" Name="$(var.NsisValue)" />
+packaging/msi/game.wxi:183:      <RegistryValue Root="HKLM" Key="Software\MXBMRP3" Name="$(var.G)OptOut" Type="integer" Value="1" KeyPath="yes" />
+54:// enumerateTtsVoicesViaSapi.
+89:std::vector<std::pair<std::string, std::string>> enumerateTtsVoicesViaSapi() {
+96:    for (const wchar_t* category : { SPCAT_VOICES,
+288:    for (const wchar_t* category : { SPCAT_VOICES,
+332:    auto viaSapi = enumerateTtsVoicesViaSapi();
+(exit 0)

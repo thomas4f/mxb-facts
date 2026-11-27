@@ -1,0 +1,16 @@
+$ sha256sum mxbmrp3.zip mxbmrp3-Setup.exe mxbmrp3-Setup.msi zip/mxbmrp3.dlo zip/mxbmrp3_gpb.dlo zip/mxbmrp3_krp.dlo zip/README.txt zip/LICENSE zip/THIRD_PARTY_LICENSES.md 'exe/$PLUGINSDIR/System.dll' 'exe/$PLUGINSDIR/nsDialogs.dll' 'exe/$PLUGINSDIR/LangDLL.dll' msi-streams/Binary.MxbCa msi-streams/Binary.Wix4UtilCA_X64
+3bd964d6d93a263be950c2719944a6543de21a8d996f01df4d310664bbee12e9  mxbmrp3.zip
+7de7744fb563d075a1996ce4e3be71ee7e311f3ef059d5bbd3797ac9332d381d  mxbmrp3-Setup.exe
+87f81c9fc083b90bccbc4d04e24d33813223b8c9d09fdef1d9e077b6db20e4b1  mxbmrp3-Setup.msi
+f06929a2616d7183a5b19a6aa8f9a752cb488cbf7b66ec0af0fb5336a7bc1768  zip/mxbmrp3.dlo
+4ac71f3bfea796070baa23a4a6a186c5a77c66867be7301ef14d8cfe820a81f2  zip/mxbmrp3_gpb.dlo
+156cd0537ded408fc4ed64dc59020ad804e7cf652763beada4a7c6c8e5f8295b  zip/mxbmrp3_krp.dlo
+e1660f3e57b5bb4d4d9da398f4cd2f8435e519b2f87410009803ed4d6d0e7382  zip/README.txt
+7b458f0a37c5318168f4d82f9e786dea982e512a3d835b7affbc14fc2030f828  zip/LICENSE
+4fde2138ff0f73b2c962a1074b0b20089957241b89b51480c6243d0712c3b067  zip/THIRD_PARTY_LICENSES.md
+51815942c614424480d2e4f0e1fe0122b1b4201c4cfe0ef273c4bb22d14de24a  exe/$PLUGINSDIR/System.dll
+86b26a9b93e4ba5fc59454228515d13b9b30593d3f194dc1d168e15a9be63ede  exe/$PLUGINSDIR/nsDialogs.dll
+85a60644cd508ddc83c206b373f1bf7f07193df03268fd1a3842592c83de00b6  exe/$PLUGINSDIR/LangDLL.dll
+ee0e08f18fbbca8357c41b4e7f81b51fc8ae73f3aa7944e0584a30288efbe933  msi-streams/Binary.MxbCa
+7aacd4c18710e9bc4ff2034895a0a0c8f80f21809fb177d520e93f7688216e6d  msi-streams/Binary.Wix4UtilCA_X64
+(exit 0)

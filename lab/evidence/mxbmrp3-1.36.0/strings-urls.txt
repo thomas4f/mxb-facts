@@ -1,0 +1,28 @@
+$ strings -n 6 zip/mxbmrp3.dlo | grep -oE 'https?://[A-Za-z0-9./{}_?=%-]+|[a-z0-9.-]+\.(com|tv|net|io|gg)\b' | sort -u; echo '--- wide:'; strings -el -n 6 zip/mxbmrp3.dlo | grep -oE '[a-z0-9.-]+\.(com|tv|net|io|gg)\b' | sort -u
+.github.com
+.githubusercontent.com
+api.github.com
+github.com
+http://localhost
+https://%s%s
+https://H
+https://github.com/thomas4f/mxbmrp3
+https://github.com/thomas4f/mxbmrp3/blob/v1.36.0/CONTRIBUTING.md
+https://github.com/thomas4f/mxbmrp3/tree/v1.36.0
+https://ko-fi.com/thomas4f
+https://mxb-mods.com/mxbmrp3
+https://mxb-ranked.com/pub-api/stats/GetTrackFastestLapsByBikeCategory
+https://server.cbrservers.com/api/records/top
+https://thomas4f.github.io/mxbmrp3
+raw.githubusercontent.com
+tmi.twitch.tv
+twitch.tv
+youtube.com
+--- wide:
+.goatcounter.com
+dirc-ws.chat.twitch.tv
+eu.aptabase.com
+github.com
+us.aptabase.com
+www.youtube.com
+(exit 0)
