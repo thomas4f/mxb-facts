@@ -1,0 +1,49 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\keybinds.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\overhaul.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\overhaul.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\race_offset.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\presets  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0140.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0150.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0260.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0320.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0330.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0440.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0598.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-hotkeys\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo  SUCCESS
+   83  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   79  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\hotkeys\host.log  FAST IO DISALLOWED
+  160  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\hotkeys\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\keybinds.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\overhaul.ini  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\overhaul.ini  SUCCESS
+   13  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\overhaul.log  FAST IO DISALLOWED
+  120  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\overhaul.log  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul\race_offset.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo  SUCCESS
+   72  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0140.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0140.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0150.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0150.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0260.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0260.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0320.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0320.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0330.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0330.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0440.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0440.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0598.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-hotkeys\shot_0598.bmp  SUCCESS

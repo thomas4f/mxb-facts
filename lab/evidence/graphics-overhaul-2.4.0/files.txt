@@ -1,0 +1,11 @@
+$ sha256sum 1794860747-graphics-overhaul.zip; find README.txt plugins -type f | LC_ALL=C sort | xargs -d '\n' sha256sum
+6f0cf878eaa3198177f45c7382efd2c0026323fb34eb8a8dad3b9be10b053510  1794860747-graphics-overhaul.zip
+31e4b1dd3ed7d40d11cabd3a4c3b0891151e084855114cfe24e7bfcc9e9496ab  README.txt
+53830a7173e21744a770d2e64e9338977e781bc5174214984a720bc5f5ed4fe9  plugins/overhaul/rig_default_mx.bin
+d965e4359c1b4cd4a109ce9d3e40097c777a74196b0c1eb0f91a2ec8dbf9e40c  plugins/overhaul/shaders.pak
+80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e  plugins/overhaul/sounds/CREDITS.txt
+3769834ffad20828793910ec4e99b844e1ddbf06715c45cbc0cae2a21b17b6a0  plugins/overhaul/sounds/rain_heavy.wav
+a362a5c2c154c556e51bd58b42bcc155d656f7bd42f53c01d5fa353288666091  plugins/overhaul/sounds/rain_light.wav
+085db6b786b47f9695b4583a820f15eb9d817bfbe47dc6d0e67574d5896d46c3  plugins/overhaul64.dlo
+4a1ad5591eea717e12d68fcd1894622f170da86998b4bf1b6e2d2aeeac3698af  plugins/presets/Low-end.ini
+(exit 0)

@@ -1,0 +1,116 @@
+[22:50:08.539] Graphics Overhaul 2.4.0 loaded (MX Bikes Overhaul)
+[22:50:08.577] ragdoll: rig loaded, 71 bones, 5 meshes, 40 collision spheres
+[22:50:08.577]   mesh lod0: 4379 verts
+[22:50:08.577]   mesh lod1: 2124 verts
+[22:50:08.577]   mesh lod2: 1306 verts
+[22:50:08.577]   mesh cockpit: 3280 verts
+[22:50:08.577]   mesh shadow: 762 verts
+[22:50:08.577]   joint pelvis-abdomen at (0.000 0.973 -0.012)
+[22:50:08.577]   joint abdomen-chest at (-0.000 1.095 -0.009)
+[22:50:08.577]   joint chest-head at (-0.005 1.446 0.013)
+[22:50:08.577]   joint chest-l_upperarm at (-0.176 1.297 -0.045)
+[22:50:08.577]   joint l_upperarm-l_forearm at (-0.254 1.117 -0.047)
+[22:50:08.577]   joint l_forearm-l_hand at (-0.294 0.872 -0.032)
+[22:50:08.577]   joint chest-r_upperarm at (0.176 1.298 -0.045)
+[22:50:08.577]   joint r_upperarm-r_forearm at (0.254 1.117 -0.047)
+[22:50:08.577]   joint r_forearm-r_hand at (0.294 0.872 -0.032)
+[22:50:08.577]   joint pelvis-l_thigh at (-0.057 0.809 -0.031)
+[22:50:08.577]   joint l_thigh-l_shin at (-0.142 0.488 0.025)
+[22:50:08.577]   joint pelvis-r_thigh at (0.058 0.808 -0.030)
+[22:50:08.577]   joint r_thigh-r_shin at (0.142 0.488 0.025)
+[22:50:08.577] hook glMatrixMode: 1 pointer(s) swapped
+[22:50:08.579] hook glLoadIdentity: 2 pointer(s) swapped
+[22:50:08.579] hook glLoadMatrixf: 1 pointer(s) swapped
+[22:50:08.579] hook glFrustum: 2 pointer(s) swapped
+[22:50:08.579] hook glOrtho: 2 pointer(s) swapped
+[22:50:08.579] hook glDrawElements: 2 pointer(s) swapped
+[22:50:08.579] hook wglGetProcAddress: 1 pointer(s) swapped
+[22:50:08.579] hook SwapBuffers: 1 pointer(s) swapped
+[22:50:08.579] hook glBlendFunc: 1 pointer(s) swapped
+[22:50:08.579] hook glColorMask: 0 pointer(s) swapped
+[22:50:08.579] hook glClear: 1 pointer(s) swapped
+[22:50:08.579] hook glReadPixels: 2 pointer(s) swapped
+[22:50:08.579] hook glPopAttrib: 0 pointer(s) swapped
+[22:50:08.579] hook glLightfv: 0 pointer(s) swapped
+[22:50:08.579] hook glDrawArrays: 0 pointer(s) swapped
+[22:50:08.581] hook glBegin: 2 pointer(s) swapped
+[22:50:08.581] hook glViewport: 2 pointer(s) swapped
+[22:50:08.581] hook glScissor: 2 pointer(s) swapped
+[22:50:08.581] hook glGetIntegerv: 0 pointer(s) swapped
+[22:50:08.581] hook glEnable: 1 pointer(s) swapped
+[22:50:08.581] hook glDisable: 1 pointer(s) swapped
+[22:50:08.581] graphics on (hdr 1, materials 1, shadows 0, taa 0)
+[22:50:09.420] post: HDR scene target 1280x720, 0 sample(s): ok
+[22:50:09.589] post: effect targets ready at 1280x720 (shown at 1280x720)
+[22:50:09.717] graphics card: llvmpipe (LLVM 23.1.5, 256 bits) - the full effects
+[22:50:10.234] post: shader versions build in the background (the driver's own threads)
+[22:50:19.509] hook glDrawRangeElements: 1 pointer(s) swapped
+[22:50:19.509] hook glDrawRangeElementsEXT: 0 pointer(s) swapped
+[22:50:19.509] hook glDrawElementsBaseVertex: 0 pointer(s) swapped
+[22:50:19.510] hook glDrawRangeElementsBaseVertex: 0 pointer(s) swapped
+[22:50:19.510] hook glUseProgramObjectARB: 0 pointer(s) swapped
+[22:50:19.510] hook glUseProgram: 0 pointer(s) swapped
+[22:50:19.511] hook glBindFramebuffer: 0 pointer(s) swapped
+[22:50:19.511] hook glBindFramebufferEXT: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform1fARB: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform2fARB: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform3fARB: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform4fARB: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform1iARB: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform1fvARB: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform2fvARB: 0 pointer(s) swapped
+[22:50:19.511] hook glUniform3fvARB: 0 pointer(s) swapped
+[22:50:19.512] hook glUniform4fvARB: 0 pointer(s) swapped
+[22:50:19.512] hook glUniform1ivARB: 0 pointer(s) swapped
+[22:50:19.512] hook glUniformMatrix3fvARB: 0 pointer(s) swapped
+[22:50:19.512] hook glUniformMatrix4fvARB: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform1f: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform2f: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform3f: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform4f: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform1i: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform1fv: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform2fv: 0 pointer(s) swapped
+[22:50:19.513] hook glUniform3fv: 0 pointer(s) swapped
+[22:50:19.514] hook glUniform4fv: 0 pointer(s) swapped
+[22:50:19.514] hook glUniform1iv: 0 pointer(s) swapped
+[22:50:19.514] hook glUniformMatrix3fv: 0 pointer(s) swapped
+[22:50:19.514] hook glUniformMatrix4fv: 0 pointer(s) swapped
+[22:50:19.514] hook glBufferSubData: 0 pointer(s) swapped
+[22:50:19.515] hook glBufferSubDataARB: 0 pointer(s) swapped
+[22:50:19.515] hook glBufferData: 0 pointer(s) swapped
+[22:50:19.515] hook glBufferDataARB: 0 pointer(s) swapped
+[22:50:19.515] hook glCreateProgramObjectARB: 0 pointer(s) swapped
+[22:50:19.515] hook glCreateProgram: 0 pointer(s) swapped
+[22:50:19.515] hook glDeleteObjectARB: 0 pointer(s) swapped
+[22:50:19.515] hook glDeleteProgram: 0 pointer(s) swapped
+[22:50:19.577] post: composite version 0 ready
+[22:50:22.664] post: composite version 1 ready
+[22:50:23.460] post: composite version 16 ready
+[22:50:24.269] post: composite version 64 ready
+[22:50:29.798] status 1/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:50:29.798]   shadow capture: 
+[22:50:29.798]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[22:50:29.798]   after the effects: 0 3D draws (0 blended) last frame
+[22:50:39.871] status 2/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:50:39.871]   shadow capture: 
+[22:50:39.871]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[22:50:39.871]   after the effects: 0 3D draws (0 blended) last frame
+[22:50:49.773] status 3/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:50:49.773]   shadow capture: 
+[22:50:49.773]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[22:50:49.773]   after the effects: 0 3D draws (0 blended) last frame
+[22:50:59.834] status 4/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:50:59.834]   shadow capture: 
+[22:50:59.834]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[22:50:59.834]   after the effects: 0 3D draws (0 blended) last frame
+[22:51:00.424] bike: telemetry acceleration looks like g (median 1.17)
+[22:51:09.897] status 5/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:51:09.897]   shadow capture: 
+[22:51:09.897]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[22:51:09.897]   after the effects: 0 3D draws (0 blended) last frame
+[22:51:19.839] status 6/6: 1 3D passes (1 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:51:19.839]   shadow capture: 
+[22:51:19.839]   leaves: 0 alpha-to-coverage draws, 0 see-through draws last frame
+[22:51:19.839]   after the effects: 0 3D draws (0 blended) last frame
+[22:51:47.570] Shutdown

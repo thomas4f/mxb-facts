@@ -1,0 +1,4 @@
+$ objdump -p overhaul64.dlo | grep -E 'file format|Security Directory'
+overhaul64.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

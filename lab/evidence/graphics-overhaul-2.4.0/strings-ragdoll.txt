@@ -1,0 +1,16 @@
+$ { strings -n 6 overhaul64.dlo; } | grep -nE '^ragdoll: |rider rig|rig file'
+735:no rider rig file: riders found by movement only
+1103:ragdoll: active (pelvis v=%.1f m/s, %d self-collision pairs, floor %.2f)
+1104:ragdoll: simulation blew up, restarting from the game pose
+1105:ragdoll: crash detected
+1106:ragdoll: rider back on the bike, ragdoll off
+1109:ragdoll: couldn't find the player's rider mesh within 1 s of the crash - staying vanilla
+1112:ragdoll: VBO %u (count %d) doesn't match the rig (best fit error %.3f m) - ignored
+1113:ragdoll: VBO %u is rider mesh '%s' (fit error %.1f mm, stride %d, normals %s, tangents %s)
+1114:ragdoll: VBO %u (%s) %s the player's rider (pelvis %.2f m from bike, fit %.1f mm)
+1115:ragdoll: draw (count %d) attached to %s
+1116:ragdoll: can't open %s
+1126:ragdoll: body %s has no vertices in %s
+1127:ragdoll: %s is not a valid rig file
+1128:ragdoll: rig loaded, %d bones, %d meshes, %d collision spheres
+(exit 0)

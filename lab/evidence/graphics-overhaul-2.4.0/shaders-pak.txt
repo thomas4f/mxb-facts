@@ -1,0 +1,45 @@
+$ ovpak.py plugins/overhaul/shaders.pak
+41 entries
+adapt.frag	639	5b544fef74f0ffd8ea1347458d90787a5d313d634610e54f94574bcd13740b3a	// Eye adaptation: moves the exposure toward the target a little each 
+bloom_down.frag	1226	097458a2e1669d35f67f5a043aa92bf221c46d608d60e2ea7792ac4d010ec77d	// 13-tap downsample (Jimenez 2014) of the linear HDR image. The first
+bloom_up.frag	689	5bce0e6cad38a9b8173b3113899aae3492764dc57cb7da31a680ed505b89dcdc	// 3x3 tent upsample, added onto the next larger level.
+blur.frag	1180	fd0117872646faec76d7354b76c81ed686e87bf42a01d50f46bb730e34b79348	// Separable depth-aware blur for AO / shadows / bounce light.
+bolt.frag	1074	4d5f40166222f87d7dcfa54e6ec176f952c8ee23dbb3459a02f8d1151ac16f73	// A lightning bolt: a white-hot core and a blue-white glow either sid
+bolt.vert	1898	3a0b1edc98b62ed33358daf79ccba36e2c763294442a7b70b0b29491e2a89678	// A lightning bolt (Advanced): one quad per segment (6 vertices, no b
+burst.frag	2738	3beb52a241d8152ac5fa37d2946f4a8d2d8dd8f2dc2d499292b252edf16c363d	// (Advanced) The lightning's ground hit. Premultiplied alpha into the
+burst.vert	3787	a67a1c16344b8ed9ed1eaa30b5a89299318c0f8c8e6e5741323e0bac9c6de1bf	// (Advanced) Where lightning hits the ground. One particle per 6 vert
+clouds.frag	3450	a579a7a5f8029f11c75b026d1211031b16e4bc53c30d728c90b9628009eb7718	// Volumetric cumulus, ray marched at half resolution for sky pixels.
+common.glsl	5734	b3d13ec8b71c1e7991043894e87dc6fce5941c014b3a3e3e4438a65b83b6e1a3	// Shared by every pass of the MX Bikes Overhaul shader pack.
+composite.frag	83054	046e9c46492bbb9fe5618c01fe7cdc1a3cc539e379f517af33108ec4b1e1ff9c	// Which optional parts this build has (post.cpp compiles a version pe
+dof.frag	5401	a6eb27ae7680a62e9e0458185d52915ed5c57f6fa0d7f8503339ccb3e015c882	// Depth of field (post.cpp, after the motion blur, before the bloom),
+final.frag	39527	6032b04ad851860a838b35f48f3599710b225459ee3f1ae7d9dc9303059f71c7	// Exposure, bloom, ACES filmic tone mapping, colour grade, sharpening
+flarevis.frag	1154	1dd0970a5884bfdd1b7a775c3bf1e1646e60ae3dfc9b1cbb9049507ecb30948f	// How much of the sun shows, for the lens flare (1x1). It's the same 
+fullscreen.vert	216	1ca1f1bc1c4cf5709d3ae4eb7cf0319c31751c9db38da64a45948241931f17be	// Fullscreen triangle; no vertex buffers needed.
+fxaa.frag	3863	b57a3da8be9434e68ee34641e7bf7805a60c14b9d6880c3eb1e1de0d2379a7b5	// FXAA (quality): finds each edge, walks along it both ways to see ho
+hail.frag	1251	e14a79e80dcb08af28c8c345f535a22bdbff46abcfd9462b8038dded2f24a95e	// A hailstone: a lumpy ball of ice - cloudy white, a bright side wher
+hail.vert	2042	6be35b4743185e2850262e74ebbc38e8ce1bbab7632dfde9ca877fd74f44e56d	// Hail (Advanced): lumps of ice, 6 vertices each (no buffers), in a b
+hud.frag	2665	3136f8c31c12c02291013122f6011df71c9f3df361e0d8894be8da978f72407b	// Overhaul HUD shapes, all antialiased with distance fields:
+hud.vert	669	7667a95c5ae39c3c106ace03c955b6d7264eb0d5783c0e8e4d698b512ceadde7	// Overhaul HUD: batched quads in pixel coordinates (origin top left).
+leaves.frag	2324	1503b2526ce605005cddf5b1c010e5140e447ae52f19ab38c20c42026c71a040	// A falling leaf (Advanced): one of three shapes - a narrow pointed l
+leaves.vert	2166	6a840b1df0e5ef53271efd4f978de90c16c00d7524d72135a5f8a71d04395312	// Falling leaves (Advanced): one leaf per 6 vertices. Where each one 
+lighting.frag	10551	9b8578691afe0ebac5b16cb7e334ae2e7765f5869760f0339ab5a88b9de8a796	// Half resolution: ambient occlusion, one-bounce colour bleed and
+linearize.frag	236	97adeaa88d1a1150ac22c1405cc58d7d7cb7d6be74a12efbd908fc75462cffb6	// Depth buffer -> linear metres (1e6 where there is no geometry).
+luminance.frag	436	77bbec8c2b035dd8e3d0021d59426576eff9a1c76ed95dc884eede4aadd8126b	// Log luminance for auto exposure (averaged by mipmapping). The centr
+motionblur.frag	5297	1eaf30c6a8bb160e4cc63edd6a7f9d9f89c512d2bd9665fb1b5b7aff261109b5	// Camera motion blur from depth reprojection. Things within a few met
+ownmask.frag	195	e1fe7618fcbdc212ea9e2a47179d1c86aaf2cec2aba8435ba282ac1fb870919a	// Your bike and rider: drawn only where the scene's stencil has their
+prepare.frag	1865	f2ecbea046f3e348add67c39a9434af3f8802ebd5794488116ba9c8680053e51	// Half resolution: view-space normal (from depth) + linear depth.
+rain.frag	1786	03ed5c38a1104dc03f448ca913a5b0180604a84e4c77508c7dd1982a1121e2e6	// A rain streak: a thin bright line, brightest at the falling drop's 
+rain.vert	2682	31aae1b1d2696a2d98ac8c88f7db46dc6bd0ae07d98ead00cdc9849b0c3a8f55	// Falling rain: one streak per drop (6 vertices, no buffers), in a bo
+skylut.frag	2439	e59aa79ce1e4585f25b6bf4fce6c28360cc60ed7058cd85c7df9b42703c66948	// Bakes the physical sky (single scattering, Rayleigh + Mie) into a s
+snow.frag	1498	0a5e53f0ae7f193a3545cc249451afcfe25644f843a95c63fe2c006f734f1097	// A snowflake: a soft white disc, lit by the sky (and a little sun).
+snow.vert	2032	04d512abbf78ba2358e1768aa1ebbac7f370615126eebfe7869b4a64e55931fa	// Falling snow: one soft flake per 6 vertices (no buffers), in a box 
+splash.frag	3767	7837ecafd7e639202bad8f86c74a4b81fbcd7caf861c9ac53b4331e8b6d08051	// A raindrop's splash: a quick flash where it hits, then a crown of 4
+splash.vert	4659	dc0b70baaa886bb0cc2c93130e0524e1da63e5390a0eeef320c39b4e492817f5	// Rain splashes: one camera-facing quad per splash (6 vertices, no bu
+sunprobe.frag	1208	89c1a471798dbb127f192e16ac3d694a48f6c6acd3493a085af97cc982a584ff	// Small map of the sky (64x36). r: the brightest sky pixel in its pat
+sunshafts.frag	1162	4797883c2324e086e267256afff28ea8933b5943b11f3670bcb25bd96e2f06b0	// Quarter resolution radial light shafts from bright sky around the s
+taa.frag	8885	9623e7811d1cf8550879da568b603a87e6f35df03958726a7aabe3ed686dbe54	// Temporal anti-aliasing: reproject last frame (camera motion from de
+taau.frag	5945	648a0709919b5675fbf6a65655cf9b9b4e2fd89a49fc4690c660ba293715363d	// Temporal upscaling (render_scale < 1): each frame is rendered small
+treeprobe.frag	2962	255604852e69b5161eaa941629f63db20fc23c77a17b7bae2e4b903897d720f3	// (Advanced) Where the trees are, for the falling leaves: a small map
+volumetric.frag	2055	93ecd5e2cea5ee37ccef91274678379327d8363511866b7448cb8684f56652ca	// Half resolution: sunlight scattered by the air between the camera a
+end at 227193 of 227193 bytes
+(exit 0)

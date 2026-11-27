@@ -1,0 +1,536 @@
+tool: Graphics Overhaul
+version: 2.4.0
+summary: >-
+  An MX Bikes plugin that redraws the game with its own lighting, weather and camera effects, by swapping the game's OpenGL
+  function pointers for its own, also inside other loaded plugins. It makes no internet connection; its effects run the same on
+  online servers, and its menu links to a paid "Advanced" version.
+header:
+  What it is: >-
+    A closed-source plugin (`overhaul64.dlo`) for the game's `plugins` folder, with its shader pack, a rider rig file and two rain
+    sounds in `plugins\overhaul\`, and one preset in `plugins\presets\`, in a zip from its mxb-mods.com page. In the game it replaces
+    the game's material shaders and adds lighting, shadows, sky, rain, puddles, fog and camera effects, with a settings menu on F5
+    and an on/off key on F9.
+  In one line: Plugin that redraws the game's lighting and weather by redirecting its OpenGL calls
+  Category: Gameplay and visuals
+  Author: Finner24 (the name in its menu and on its mxb-mods.com page)
+  Game: MX Bikes
+  mxb-mods.com: '[Graphics Overhaul](https://mxb-mods.com/graphics-overhaul-2/), published 3 Nov 2026, updated 16 Nov 2026'
+  Homepage: '[graphicsoverhaul.com](https://graphicsoverhaul.com/), the author''s site for its paid Advanced version, linked from the menu'
+  GitHub: None found
+  Version analysed: >-
+    Graphics Overhaul 2.4.0 (the version in its README and its log): `1794860747-graphics-overhaul.zip`, the file on its mxb-mods.com
+    page; the newest release in the inventory (`registry/releases.json`, from that page, dated 16 Nov 2026). There are no tags or
+    commits: the source isn't public.
+  Analysed on: 27 Nov 2026
+  Tested in: 'MX Bikes beta21f (demo), installer SHA-256 `76feb83746e785310e8858938dd50b5e0685d1b0004480d5d1c2d4fc21f11949`'
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    Closed source, and the release carries no licence or clause against analysis, so the release files were examined without running
+    them here: imports, exports and code-signing entries (`objdump -p`), text (`strings`, `strings -el`), the plugin's own function
+    names (it ships with them) and chosen call sites (`objdump -d`), and its shader pack decoded entry by entry
+    (`lab/evidence/ovpak.py`); every command is in `lab/evidence/graphics-overhaul-2.4.0/run.sh`. The release was not rebuilt (no
+    public source). A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not Windows on a real GPU) and
+    no keys ran the plugin in the MX Bikes demo (beta21f), offline behind a firewall block, under Process Monitor: the bare demo as
+    baseline, a 90 s run with the default settings and a 120 s run pressing F5, Escape, F5, F9, F9 and Ctrl+F9; then the plugin test
+    host (a hotkey case pressing F5 and F9, and a crash and helmet-camera case, both with the bystander plugin's checks). In the real
+    game the runs with the plugin stayed in the main menu and never reached the track. The real game online and the Steam build were
+    not run. The rig file it ships was compared vertex by vertex (`lab/evidence/rigcmp.py`) with the game's own default rider model, from the `rider.pkz` of the public MX Bikes demo installer (beta21f, pinned in `lab/real-game/games.json`); no game file is in the repository. VirusTotal: hash lookups made before the analysis (27 Nov 2026), nothing uploaded (no licence was found,
+    so the run uploads nothing).
+files:
+  - name: 1794860747-graphics-overhaul.zip
+    sha256: 6f0cf878eaa3198177f45c7382efd2c0026323fb34eb8a8dad3b9be10b053510
+    note: The only download.
+  - name: overhaul64.dlo
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: 085db6b786b47f9695b4583a820f15eb9d817bfbe47dc6d0e67574d5896d46c3
+    note: The plugin, in `plugins\`.
+  - name: shaders.pak
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: d965e4359c1b4cd4a109ce9d3e40097c777a74196b0c1eb0f91a2ec8dbf9e40c
+    note: Its 41 shaders, encoded, in `plugins\overhaul\`.
+  - name: rig_default_mx.bin
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: 53830a7173e21744a770d2e64e9338977e781bc5174214984a720bc5f5ed4fe9
+    note: A rider skeleton with five meshes, for its ragdoll, in `plugins\overhaul\`; four of the meshes are the game's default rider (C2).
+  - name: rain_heavy.wav
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: 3769834ffad20828793910ec4e99b844e1ddbf06715c45cbc0cae2a21b17b6a0
+    note: In `plugins\overhaul\sounds\`.
+  - name: rain_light.wav
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: a362a5c2c154c556e51bd58b42bcc155d656f7bd42f53c01d5fa353288666091
+    note: In `plugins\overhaul\sounds\`.
+  - name: CREDITS.txt
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: 80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e
+    note: The rain sounds' sources and licences.
+  - name: Low-end.ini
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: 4a1ad5591eea717e12d68fcd1894622f170da86998b4bf1b6e2d2aeeac3698af
+    note: A preset, in `plugins\presets\`.
+  - name: README.txt
+    inside: 1794860747-graphics-overhaul.zip
+    sha256: 31e4b1dd3ed7d40d11cabd3a4c3b0891151e084855114cfe24e7bfcc9e9496ab
+files_note: >-
+  The plugin isn't code-signed (`lab/evidence/graphics-overhaul-2.4.0/signature.txt`). The zip's hash is the one the Windows machine
+  ran (`lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/machine.txt`), and every hash is in
+  `lab/evidence/graphics-overhaul-2.4.0/files.txt`.
+key:
+  K1: 'No malware found. No engine flagged the zip or the plugin.'
+  K2: 'No updater. The plugin has no network code, so nothing is updated.'
+  K3: 'No. It writes only its own files, in `plugins\overhaul\` and `plugins\presets\`.'
+  K4: 'No. It makes no internet connection.'
+  K5: 'Yes, changes game memory; it swaps the game''s OpenGL function pointers for its own at start-up, and its effects run the same on servers, where they change only what you see.'
+  K6: 'Yes, copies; its release ships meshes of the game''s own default rider, copied from the game''s model files. It decrypts and shares nothing.'
+  K7: 'No. The plugin has no public source.'
+  K8: 'Yes. No line of its README or mxb-mods.com page was found that its code contradicts.'
+  K9: 'No. Not code-signed, and there is no public source to trace it to.'
+  K10: 'No. No network code, and no connection was tried in any run.'
+areas:
+  Your PC and files: No updater; writes only its own files in the game's `plugins` folder, and deleting the plugin, as its README says, leaves its folder and presets; not code-signed.
+  Your data: Makes no internet connection; its preset browser lists your folders and reads a file you pick.
+  Your game: Swaps the game's OpenGL function pointers for its own at start-up, also in other loaded plugins' memory, replaces the game's material shaders, takes keys for its menu and adds a crash logger for the whole game.
+  Creators' content: Ships meshes copied from the game's own default rider model; reads the vertex data of rider models and rewrites the game's shaders while it draws.
+  Transparency: Closed source with no licence; its docs' claims that could be checked match its code.
+  Money: Free; its menu's "Get Advanced" button opens the store for a paid version, Graphics Overhaul Advanced.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: its shaders are stored encoded in `shaders.pak` (each byte XORed with a fixed number sequence, the plugin's
+          `pak_lookup`); decoded, the file holds 41 GLSL shaders with their comments, and nothing else
+          (`lab/evidence/graphics-overhaul-2.4.0/shaders-pak.txt`, the decode loop in
+          `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c5833b8-38c583420.txt`).
+        mark: note
+  - title: Your data
+    blocks: []
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: when another loaded plugin exports `RutsDrive` and `RutsGetMap` (a ruts plugin, not in this release), it calls them
+          each frame, to light that plugin's ruts ("ruts plugin found: ruts are lit by the graphics overhaul"). The settings it writes
+          include `physical=0`, "EXPERIMENTAL, offline testing sessions only: physical=1 digs the ruts into the game's own track
+          deformation"; no code in this plugin writes the game's track (`lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c54df40-38c54e14a.txt`,
+          `lab/evidence/graphics-overhaul-2.4.0/ruts-strings.txt`, `lab/evidence/graphics-overhaul-2.4.0/strings-ini.txt`).
+        mark: note
+      - text: >-
+          Also found: when the game unloads it, the game's import-table entries it redirected still point into it ("after unload" in
+          `lab/results/graphics-overhaul-2.4.0/hotkeys-windows/host.log`). The game unloads plugins only as it exits.
+        mark: note
+      - text: >-
+          Also found: by default, when you crash, it draws your rider as its own ragdoll (`ragdoll=1`), pulled along the game's own crash
+          path; it finds your rider's mesh among the vertex data the game uploads and matches it against its rig file
+          (`lab/evidence/graphics-overhaul-2.4.0/strings-ini.txt`, `lab/evidence/graphics-overhaul-2.4.0/strings-ragdoll.txt`). It didn't
+          run here (see Limits).
+        mark: note
+      - text: >-
+          Also found: the settings file it writes has sections for four other plugins named in it (`camera64.dlo`, `exhaust64.dlo`,
+          `soundplus64.dlo`, `injuries64.dlo`), none of them in this release, and its menu has Spotify and lyrics settings that need
+          "the internet to find them"; this plugin has no network code (`lab/evidence/graphics-overhaul-2.4.0/strings-ini.txt`,
+          `lab/evidence/graphics-overhaul-2.4.0/strings-money.txt`, `lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`).
+        mark: note
+  - title: Creators' content
+    blocks: []
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"Rain only changes the look so no slipping" (mxb-mods.com page)'
+            Verdict: Matches
+            Evidence: 'Its only writes into the game are OpenGL function pointers, and the rain is its own drawing (`rain::draw`); no write into the game''s physics was found (`lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c582330-38c5823d0.txt`, `lab/evidence/graphics-overhaul-2.4.0/symbols.txt`; G2).'
+          - Claim: '"Puddles are off in multiplayer for the time being" (mxb-mods.com page)'
+            Verdict: Not checked
+            Evidence: 'No online run is possible here, and no multiplayer condition was traced in its code; it has no text about servers or online play (`lab/evidence/graphics-overhaul-2.4.0/strings-online.txt`).'
+          - Claim: '"F9 effects on / off (compare with the normal game)" (README.txt)'
+            Verdict: Matches
+            Evidence: 'F9 logged "graphics off", then "graphics on" (`lab/results/graphics-overhaul-2.4.0/ride-menu-toggle-windows/overhaul-overhaul.log`, `lab/results/graphics-overhaul-2.4.0/hotkeys-windows/overhaul-overhaul.log`).'
+          - Claim: '"F5 settings (change them while you ride)" (README.txt)'
+            Verdict: Partly
+            Evidence: 'F5 opened and closed its menu ("panel: font 14px", "0 changed setting(s) saved to overhaul.ini", `lab/results/graphics-overhaul-2.4.0/hotkeys-windows/overhaul-overhaul.log`); no screenshot shows it, and no ride was reached in the real game.'
+          - Claim: '"Ctrl+F9 reload settings" (README.txt)'
+            Verdict: Not checked
+            Evidence: 'Ctrl+F9 was pressed in the real game, but its log has no "config + shaders reloaded" line (`lab/results/graphics-overhaul-2.4.0/ride-menu-toggle-windows/overhaul-overhaul.log`); whether the key reached it isn''t known.'
+          - Claim: '"UNINSTALL: Delete plugins\overhaul64.dlo" (README.txt)'
+            Verdict: Partly
+            Evidence: 'That stops it, but leaves `plugins\overhaul\` (its settings, log, shaders and sounds) and `plugins\presets\` (P8; `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/files.diff`).'
+          - Claim: '"It isn''t a filter over the finished picture like ReShade, so the lighting looks real and your HUD and menus stay crisp" (mxb-mods.com page)'
+            Verdict: Matches
+            Evidence: 'It redirects the game''s OpenGL calls and swaps the game''s material shaders for patched ones while the game draws ("materials: game program 3 -> patched program 219", `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/overhaul-overhaul.log`).'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX Bikes
+              demo, offline. Frame times say nothing about real performance.
+            questions: []
+          - text: >-
+              In the real game, with the plugin loaded, both runs stayed in the main menu: the clicks that start a session timed out, so no
+              track was ridden. Its effects on a track, the rain, puddles and ruts, the ragdoll and its reads of rider meshes were read
+              from its text, function names and settings, not seen; the test host's scene has no rider model.
+            questions: [G2, C5]
+          - text: >-
+              The real game on an online server can't be reached here (the demo has no online play). That its hooks and effects run the
+              same there rests on the code: they are made at start-up, and no text or check about servers or online play was found.
+            questions: [G3]
+          - text: >-
+              The key reads in its frame hook and menu were traced to the check in front of them that the window in front is the game's;
+              the one in its menu drawing (for the open menu) wasn't traced through every path.
+            questions: [G7]
+          - text: >-
+              The menu's preset browser, import, export, rename, delete and Discord share, and the "Get Advanced" button, weren't clicked;
+              what they do was read from their code and texts.
+            questions: [P4, D6, G5]
+answers:
+  P1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No engine flagged the zip (0 of 66), `overhaul64.dlo` (0 of 70), `README.txt` (0 of 58), `Low-end.ini` (0 of 60) or
+      `CREDITS.txt` (0 of 59). Not on VirusTotal: `shaders.pak`, `rig_default_mx.bin` and the two rain sounds, inside the zip.
+      Hash lookups on 27 Nov 2026; nothing uploaded.
+    evidence: '[1794860747-graphics-overhaul.zip](https://www.virustotal.com/gui/file/6f0cf878eaa3198177f45c7382efd2c0026323fb34eb8a8dad3b9be10b053510), [overhaul64.dlo](https://www.virustotal.com/gui/file/085db6b786b47f9695b4583a820f15eb9d817bfbe47dc6d0e67574d5896d46c3), [README.txt](https://www.virustotal.com/gui/file/31e4b1dd3ed7d40d11cabd3a4c3b0891151e084855114cfe24e7bfcc9e9496ab), [Low-end.ini](https://www.virustotal.com/gui/file/4a1ad5591eea717e12d68fcd1894622f170da86998b4bf1b6e2d2aeeac3698af), [CREDITS.txt](https://www.virustotal.com/gui/file/80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e)'
+  P2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      There is no updater: the plugin imports no network function, and its only web addresses are two Discord links and its store page,
+      which its menu opens in your browser when you click them.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`, `lab/evidence/graphics-overhaul-2.4.0/strings-urls.txt`.'
+  P3:
+    verdict: Doesn't apply
+    text: There is no updater.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/strings-urls.txt`.'
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      In the runs it wrote only its own files in `plugins\overhaul\` (`overhaul.ini`, `keybinds.ini`, `overhaul.log`,
+      `race_offset.txt`). At start-up it renames an old `plugins\overhaul\shaders` folder, from an earlier version, to
+      `shaders_old_unused`, and moves presets from `plugins\overhaul\presets\` to `plugins\presets\` without replacing any file there.
+      The menu deletes or renames a preset in `plugins\presets\` only when you pick that.
+    evidence: >-
+      `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/files.diff` against
+      `lab/results/graphics-overhaul-2.4.0/baseline-windows/files.diff`; `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/outside.txt`;
+      `lab/evidence/graphics-overhaul-2.4.0/callers.txt` (MoveFileExA, DeleteFileA, RemoveDirectoryA),
+      `lab/evidence/graphics-overhaul-2.4.0/strings-files.txt`, `lab/evidence/graphics-overhaul-2.4.0/startup-calls.txt`,
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c585ee0-38c585fd0.txt` (the presets folder).
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: The plugin carries no code signature, and it can't be traced to public source.
+    evidence: Empty Security Directory (`lab/evidence/graphics-overhaul-2.4.0/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugin imports no registry function (no `advapi32.dll`), and the runs wrote no registry value the bare demo didn't.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`; `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/registry.txt`
+      against `lab/results/graphics-overhaul-2.4.0/baseline-windows/registry.txt`.
+  P7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Everything it writes in the game folder is its own, in `plugins\overhaul\` (its settings, key bindings, log, a position file,
+      and, when you ask for them, comparison screenshots in `compare\`) and `plugins\presets\` (the presets you save or import).
+    evidence: >-
+      `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/files.diff`, `lab/results/graphics-overhaul-2.4.0/hotkeys-windows/files.diff`;
+      `lab/evidence/graphics-overhaul-2.4.0/strings-files.txt`.
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Its README's uninstall is "Delete plugins\overhaul64.dlo": that leaves `plugins\overhaul\` (its settings, log, shaders, sounds and
+      rig) and `plugins\presets\`. They are its own files; nothing in Windows is changed.
+    evidence: >-
+      `README.txt` (SHA-256 31e4b1dd3ed7d40d11cabd3a4c3b0891151e084855114cfe24e7bfcc9e9496ab), "UNINSTALL";
+      `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/files.diff`.
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. The plugin ships with its function names, and its imports and text match what it shows and logs (its OpenGL
+      hooks, effects, menu, ragdoll and crash log); its encoded shader pack decodes to 41 GLSL shaders and nothing else; it has no network
+      code.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.iat.txt`, `lab/evidence/graphics-overhaul-2.4.0/callers.txt`,
+      `lab/evidence/graphics-overhaul-2.4.0/symbols.txt`, `lab/evidence/graphics-overhaul-2.4.0/shaders-pak.txt`,
+      `lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`.
+  D1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The plugin imports no network function, and no connection was tried in any run. Its web addresses (a Discord invite, a Discord
+      channel and graphicsoverhaul.com) are opened in your browser when you click them in its menu.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`, `lab/evidence/graphics-overhaul-2.4.0/strings-urls.txt`,
+      `lab/evidence/graphics-overhaul-2.4.0/callers.txt` (ShellExecuteA); `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/network.txt`,
+      `lab/results/graphics-overhaul-2.4.0/ride-menu-toggle-windows/network.txt`, `lab/results/graphics-overhaul-2.4.0/hotkeys-windows/network.txt`.
+  D2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing is sent; there is no network code. "Share" on a preset copies its settings to your clipboard and opens the Discord
+      channel, where you paste it yourself.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`; `lab/evidence/graphics-overhaul-2.4.0/strings-money.txt` ("copied: paste it in #presets").'
+  D3:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent, so no identifier is.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`.'
+  D4:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sent. Other riders' positions, read through the plugin interface, are used for effects on your screen only.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`; exports RaceVehicleData and RaceTrackPosition (`lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.objdump-p.txt`).'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: It imports no Winsock or other network library, so it can't listen for connections.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`, `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.objdump-p.txt`.'
+  D6:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Its preset browser, when you open it, lists your drives, `Documents`, `OneDrive` and their folders, and copies an `.ini` you pick
+      into `plugins\presets\`; Ctrl+V in its menu reads text from your clipboard as a preset. It reads no other program's files by
+      default.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/callers.txt` (GetLogicalDrives in `fb_list`, CopyFileA, GetClipboardData in
+      `import_clipboard`); `lab/evidence/graphics-overhaul-2.4.0/strings-files.txt`.
+  D7:
+    verdict: 'No'
+    mark: good
+    text: Nothing about its users is sent, so nothing is published.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: It makes no connection, so there is nothing to switch off.
+    evidence: '`lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/network.txt`, `lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`.'
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; it makes no connection.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It shares no game data. It makes one 32-byte shared memory block, `Local\OverhaulPanels_<process id>`, which other programs in
+      your session could open; it holds its menu's tab number, a counter, times and a flag, so the author's plugins show one menu at a
+      time.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c54e3f0-38c54e46f.txt` (CreateFileMappingA, size 0x20),
+      `lab/evidence/graphics-overhaul-2.4.0/bus-uses.txt` (every use).
+  G1:
+    verdict: 'No'
+    mark: good
+    text: It runs as a plugin the game loads; it imports nothing that writes into another process.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`.'
+  G2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      At start-up, and again when the game asks for more OpenGL functions, it looks for the pointers to 61 OpenGL functions in the
+      game's import table and writable memory and overwrites those it finds (32 in the demo) with its own (`VirtualProtect`, `swap_pointers`), so every draw call
+      goes through it. Through those hooks it swaps the game's material shaders for patched copies while the game draws. In the test host
+      15 of the game's 16 checked OpenGL entries were redirected to it.
+    evidence: >-
+      Log "hook glDrawElements: 1 pointer(s) swapped" and "materials: game program 3 -> patched program 219"
+      (`lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/overhaul-overhaul.log`); "REDIRECTED to overhaul64.dlo"
+      (`lab/results/graphics-overhaul-2.4.0/hotkeys-windows/host.log`); `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c5824a0-38c5829d0.txt`
+      (which memory it scans), `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c582330-38c5823d0.txt` (the swap).
+  G3:
+    verdict: Partly
+    mark: concern
+    text: >-
+      Its hooks are made at start-up with no online condition, and no text or check about servers or online play was found, so on a
+      server it changes what you see as it does offline: lighting, sky, weather, effects and the ragdoll. No write into the game's
+      physics, timing or what the game sends was found. Not seen online (see Limits).
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/startup-calls.txt` (hooks_install in Startup), `lab/evidence/graphics-overhaul-2.4.0/strings-online.txt`;
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c582330-38c5823d0.txt`.
+  G4:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads the game's writable memory and import table to find the OpenGL pointers it swaps. When no new frame comes for 2 s, its
+      freeze watch pauses the game's render thread and reads its registers and stack, to log where it is.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c5824a0-38c5829d0.txt`; `lab/evidence/graphics-overhaul-2.4.0/callers.txt`
+      (SuspendThread, GetThreadContext, ReadProcessMemory in `hang_watch`); log "FREEZE: no new frame for 2.2 s - render thread 6328 is in
+      the game's own code" (`lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/overhaul-overhaul.log`).
+  G5:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      While its menu is open it takes the game window's messages (typing, Esc, Enter) for the menu, through a window hook that hands
+      them on when the menu is closed. Clicking the arrows of the Spotify player in its menu presses Windows' media keys (next,
+      previous, play/pause). It presses no key in the game.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c560330-38c56034a.txt` (the window hook checks that the menu is open);
+      `lab/evidence/graphics-overhaul-2.4.0/callers.txt` (SetWindowLongPtrA in `panel::on_swap`, keybd_event in the menu);
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c569838-38c56986c.txt`, `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c56b350-38c56b3b8.txt`
+      (keys 0xB0, 0xB1, 0xB3).
+  G6:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      Its pointer swap also covers every other loaded plugin (`.dlo`) that isn't one of the author's own (those export
+      `OverhaulHookFor`): it overwrites the OpenGL pointers in their writable memory. In the test host, the bystander plugin's pointers
+      to glOrtho, glFrustum, glLoadIdentity, glDrawElements, glViewport, glScissor, glReadPixels and glBegin were all redirected to it.
+    evidence: >-
+      "bystander plugin (victim.dlo) pointer table … REDIRECTED to …overhaul64.dlo" (`lab/results/graphics-overhaul-2.4.0/hotkeys-windows/host.log`,
+      `lab/results/graphics-overhaul-2.4.0/crash-helmet-windows/host.log`); `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c5824a0-38c5829d0.txt`
+      (the `.dlo` and `OverhaulHookFor` checks), `lab/evidence/graphics-overhaul-2.4.0/hook-strings.txt`.
+  G7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It reads keys with GetAsyncKeyState, but its frame hook and its menu do so only after checking that the window in front belongs to
+      the game.
+    evidence: >-
+      Every use (`lab/evidence/graphics-overhaul-2.4.0/keys-callsites.txt`); the checks
+      (`lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c519bb9-38c519c0e.txt`,
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c56bf0b-38c56bf3d.txt`).
+  G8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It adds a vectored exception handler for the whole game process. For an access violation it writes the fault and a call stack to
+      `overhaul.log`, then returns 0, so the crash goes on as it would without it. A thread of its own also logs the render thread's
+      place when the game stops drawing for 2 s.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/startup-calls.txt` (AddVectoredExceptionHandler in Startup),
+      `lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.38c51b120-38c51b14b.txt` (access violations only, returns 0);
+      `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/overhaul-overhaul.log` ("FREEZE").
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; it doesn't write the registry.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`; `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/registry.txt`.'
+  G10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It starts no program; its only ShellExecuteA calls open its web links in your browser when you click them in its menu.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt` (no CreateProcess), `lab/evidence/graphics-overhaul-2.4.0/callers.txt`;
+      `lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/procmon.txt`.
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`overhaul64.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: 'Exports Startup, EventInit, RunTelemetry, RaceVehicleData and the other plugin functions (`lab/evidence/graphics-overhaul-2.4.0/overhaul64.dlo.objdump-p.txt`).'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: No integrity, licence or anti-cheat check was found being got around; its changes are to OpenGL calls and the shaders the game draws with.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/symbols.txt`, `lab/evidence/graphics-overhaul-2.4.0/strings-online.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It decrypts no one else's content. The only file it decodes is its own shader pack.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/shaders-pak.txt`, `lab/evidence/graphics-overhaul-2.4.0/strings-files.txt`.'
+  C2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      It saves no model or texture as it runs, but its release ships one: `rig_default_mx.bin` holds the game's own default MX rider
+      as meshes. Every vertex position and normal of its three detail levels is in the game's `rider/riders/default_mx/rider.edf`, and
+      every vertex position of its first-person mesh in `c_rider.edf`, byte for byte; its fifth mesh (shadow) wasn't found. Installing
+      the plugin puts that copy in `plugins\overhaul\`.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/rig-vs-game.txt` (the comparison with the MX Bikes demo's `rider.pkz`);
+      `lab/evidence/graphics-overhaul-2.4.0/rig.txt`; what it writes as it runs (`lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/files.diff`,
+      `lab/evidence/graphics-overhaul-2.4.0/strings-files.txt`).
+  C3:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It shares nothing over a network. The rider meshes it ships come from the game's `rider.pkz`, which has no encrypted entries, so no
+      protection was removed; the copy itself is C2.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/imports-absent.txt`; "encrypted entries: 0" (`lab/evidence/graphics-overhaul-2.4.0/rig-vs-game.txt`).'
+  C4:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The release credits the two rain sounds, with their sources and licences, but no code. The plugin carries the GCC 16.2 MinGW-w64
+      runtime (libgcc, libstdc++, winpthreads) built in, which isn't named; no other library's name was found.
+    evidence: >-
+      `CREDITS.txt` (SHA-256 80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e); `lab/evidence/graphics-overhaul-2.4.0/strings-thirdparty.txt`.
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Through its OpenGL hooks it reads the vertex data the game uploads for every rider model, third-party ones included, to find your
+      rider's mesh for its ragdoll, and it rewrites the game's material shaders. Neither is through the plugin interface.
+    evidence: >-
+      `lab/evidence/graphics-overhaul-2.4.0/strings-ragdoll.txt` ("VBO %u is rider mesh"); log "hook glBufferData: 1 pointer(s) swapped",
+      "materials: game program 3 -> patched program 219" (`lab/results/graphics-overhaul-2.4.0/ride-defaults-windows/overhaul-overhaul.log`).
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Prebuilt program file: `overhaul64.dlo` (64-bit plugin); no source is public for it. Its shaders, in `shaders.pak`, are readable once
+      decoded.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/file.txt`, `lab/evidence/graphics-overhaul-2.4.0/shaders-pak.txt`.'
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No line of its README or mxb-mods.com page was found that its code contradicts; two claims couldn't be checked, see "What it says
+      vs what it does".
+    evidence: '`README.txt` (SHA-256 31e4b1dd3ed7d40d11cabd3a4c3b0891151e084855114cfe24e7bfcc9e9496ab); `lab/results/graphics-overhaul-2.4.0/ride-menu-toggle-windows/overhaul-overhaul.log`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: There is no public repository or build workflow; the zip is a file on the mxb-mods.com page.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/file.txt`; its [mxb-mods.com page](https://mxb-mods.com/graphics-overhaul-2/) links only the download.'
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: There is no public source to rebuild from.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/file.txt`.'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: No development history is public.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/file.txt`; no repository is named in the README, the plugin or its mxb-mods.com page.'
+  T6:
+    verdict: Not checked
+    text: No source or build files are public, so its dependencies can't be read.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/file.txt`.'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The zip has no licence file and its README names none; the only licences in it are the two rain sounds' (CC BY-SA 4.0 and CC BY
+      3.0).
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/file.txt`; `CREDITS.txt` (SHA-256 80fd6d1137af7964e9cf7b51f654430b8e1dd56ba38610eb714c052fcde2ec3e).'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: This plugin costs nothing to download or use; nothing in it asks for payment or a key.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/strings-money.txt`.'
+  M2:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      Its menu shows "MORE WITH ADVANCED" with a "Get Advanced" button that opens graphicsoverhaul.com ("Opening the store in your
+      browser..."), the author's store for Graphics Overhaul Advanced, a paid version.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/strings-money.txt`; [graphicsoverhaul.com](https://graphicsoverhaul.com/).'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: No donation link or request was found in the plugin or its text files.
+    evidence: '`lab/evidence/graphics-overhaul-2.4.0/strings-money.txt`, `lab/evidence/graphics-overhaul-2.4.0/strings-urls.txt`.'
+history:
+  - date: 27 Nov 2026
+    change: First card, for 2.4.0.

@@ -1,0 +1,8 @@
+$ objdump -s -j .rdata --start-address=0x38c5dbb00 --stop-address=0x38c5dbb58 overhaul64.dlo | tail -n +5
+ 38c5dbb00 52757473 44726976 65005275 74734765  RutsDrive.RutsGe
+ 38c5dbb10 744d6170 00000000 72757473 20706c75  tMap....ruts plu
+ 38c5dbb20 67696e20 666f756e 643a2072 75747320  gin found: ruts 
+ 38c5dbb30 61726520 6c697420 62792074 68652067  are lit by the g
+ 38c5dbb40 72617068 69637320 6f766572 6861756c  raphics overhaul
+ 38c5dbb50 00000000 00000000                    ........        
+(exit 0)

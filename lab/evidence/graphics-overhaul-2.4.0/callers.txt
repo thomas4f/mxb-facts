@@ -1,0 +1,82 @@
+$ for i in VirtualProtect K32EnumProcessModules ReadProcessMemory SuspendThread GetThreadContext AddVectoredExceptionHandler keybd_event SetWindowLongPtrA GetAsyncKeyState GetForegroundWindow ShellExecuteA CreateFileMappingA MoveFileExA DeleteFileA CopyFileA RemoveDirectoryA CreateDirectoryA GetLogicalDrives GetClipboardData SetClipboardData; do echo "== $i"; objdump -d overhaul64.dlo | awk -v i="<__imp_$i>" '/^[0-9a-f]+ <.*>:$/{fn=$2} index($0, i){print fn}' | c++filt | sort | uniq -c; done
+== VirtualProtect
+      1 <(anonymous namespace)::swap_pointers(std::vector<(anonymous namespace)::Range, std::allocator<(anonymous namespace)::Range> > const&, void*, void*)>:
+      1 <VirtualProtect>:
+      1 <mark_section_writable>:
+      1 <restore_modified_sections>:
+== K32EnumProcessModules
+      1 <K32EnumProcessModules>:
+== ReadProcessMemory
+      1 <ReadProcessMemory>:
+      1 <crash_catcher.part.0>:
+      1 <hang_watch>:
+== SuspendThread
+      1 <SuspendThread>:
+      1 <hang_watch>:
+      1 <pthread_cancel>:
+== GetThreadContext
+      1 <GetThreadContext>:
+      1 <hang_watch>:
+      1 <pthread_cancel>:
+== AddVectoredExceptionHandler
+      1 <AddVectoredExceptionHandler>:
+      1 <Startup>:
+== keybd_event
+      1 <keybd_event>:
+      3 <panel::(anonymous namespace)::draw(int, int, bool)>:
+== SetWindowLongPtrA
+      1 <SetWindowLongPtrA>:
+      1 <panel::on_swap()>:
+== GetAsyncKeyState
+      1 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+      1 <GetAsyncKeyState>:
+      1 <panel::(anonymous namespace)::draw(int, int, bool)>:
+      1 <panel::(anonymous namespace)::pressed(int, bool)>:
+      2 <panel::on_swap()>:
+== GetForegroundWindow
+      1 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+      1 <GetForegroundWindow>:
+      1 <panel::on_swap()>:
+== ShellExecuteA
+      1 <ShellExecuteA>:
+      2 <panel::(anonymous namespace)::share_preset(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)>:
+== CreateFileMappingA
+      1 <CreateFileMappingA>:
+      1 <panel::(anonymous namespace)::bus()>:
+== MoveFileExA
+      1 <MoveFileExA>:
+      1 <Startup>:
+      1 <make_presets_dir()>:
+      1 <panel::(anonymous namespace)::rename_commit()>:
+== DeleteFileA
+      1 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+      1 <DeleteFileA>:
+      1 <panel::(anonymous namespace)::draw(int, int, bool)>:
+== CopyFileA
+      1 <CopyFileA>:
+      1 <panel::(anonymous namespace)::import_clipboard()>:
+      1 <panel::on_swap()>:
+== RemoveDirectoryA
+      1 <RemoveDirectoryA>:
+      1 <make_presets_dir()>:
+== CreateDirectoryA
+      1 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+      1 <CreateDirectoryA>:
+      1 <Startup>:
+      1 <make_presets_dir()>:
+      1 <panel::(anonymous namespace)::browse_start()>:
+      1 <panel::(anonymous namespace)::export_preset()>:
+      1 <panel::(anonymous namespace)::import_clipboard()>:
+      1 <panel::on_swap()>:
+== GetLogicalDrives
+      1 <GetLogicalDrives>:
+      1 <panel::(anonymous namespace)::fb_list()>:
+== GetClipboardData
+      1 <GetClipboardData>:
+      1 <panel::(anonymous namespace)::import_clipboard()>:
+      1 <panel::(anonymous namespace)::panel_proc(HWND__*, unsigned int, unsigned long long, long long)>:
+== SetClipboardData
+      1 <SetClipboardData>:
+      1 <panel::(anonymous namespace)::export_preset()>:
+      1 <panel::(anonymous namespace)::share_preset(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)>:
+(exit 0)

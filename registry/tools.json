@@ -130,8 +130,8 @@
     "name": "Graphics Overhaul",
     "author": "Finner24",
     "github": null,
-    "homepage": null,
-    "cards": [],
+    "homepage": "https://graphicsoverhaul.com/",
+    "cards": ["graphics-overhaul-2.4.0.yaml"],
     "mxb-mods": {
       "post": 195566,
       "tied_by": "1794860747-graphics-overhaul.zip"
