@@ -1,0 +1,5 @@
+$ python3 -I -c 'import sys; f=open(sys.argv[1],"rb").read(); [print(p, "found at offset", f.find(open(p,"rb").read())) for p in sys.argv[2:]]' installer.exe MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini
+MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo found at offset 51528
+MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt found at offset 8431432
+MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini found at offset 8459440
+(exit 0)

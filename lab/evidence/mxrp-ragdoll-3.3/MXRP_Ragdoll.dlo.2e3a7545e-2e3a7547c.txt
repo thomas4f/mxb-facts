@@ -1,0 +1,9 @@
+$ objdump -d 'MXRP_Ragdoll.dlo' | awk -v a=2e3a7545e -v b=2e3a7547c '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   2e3a7545e:	8b 0d f4 64 80 00    	mov    0x8064f4(%rip),%ecx        # 0x2e427b958
+   2e3a75464:	e8 57 96 05 00       	call   0x2e3aceac0
+   2e3a75469:	8b 0d dd 64 80 00    	mov    0x8064dd(%rip),%ecx        # 0x2e427b94c
+   2e3a7546f:	e8 5c 96 05 00       	call   0x2e3acead0
+   2e3a75474:	8b 3d ce 64 80 00    	mov    0x8064ce(%rip),%edi        # 0x2e427b948
+   2e3a7547a:	85 ff                	test   %edi,%edi
+   2e3a7547c:	0f 84 1e 06 00 00    	je     0x2e3a75aa0
+(exit 0)

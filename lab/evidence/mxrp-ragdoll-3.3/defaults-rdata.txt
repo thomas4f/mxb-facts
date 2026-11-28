@@ -1,0 +1,7 @@
+$ objdump -s -j .rdata --start-address=0x2e423e7a0 --stop-address=0x2e423e7b0 MXRP_Ragdoll.dlo
+
+MXRP_Ragdoll.dlo:     file format pei-x86-64
+
+Contents of section .rdata:
+ 2e423e7a0 01000000 01000000 01000000 01000000  ................
+(exit 0)

@@ -1,0 +1,60 @@
+$ objdump -d 'MXRP_Ragdoll.dlo' | awk -v a=2e3ad2eb0 -v b=2e3ad2fc7 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   2e3ad2eb0:	57                   	push   %rdi
+   2e3ad2eb1:	53                   	push   %rbx
+   2e3ad2eb2:	48 83 ec 28          	sub    $0x28,%rsp
+   2e3ad2eb6:	31 c0                	xor    %eax,%eax
+   2e3ad2eb8:	48 8d 79 08          	lea    0x8(%rcx),%rdi
+   2e3ad2ebc:	48 89 cb             	mov    %rcx,%rbx
+   2e3ad2ebf:	48 c7 01 00 00 00 00 	movq   $0x0,(%rcx)
+   2e3ad2ec6:	48 c7 81 f8 01 00 00 	movq   $0x0,0x1f8(%rcx)
+   2e3ad2ecd:	00 00 00 00 
+   2e3ad2ed1:	48 83 e7 f8          	and    $0xfffffffffffffff8,%rdi
+   2e3ad2ed5:	48 29 f9             	sub    %rdi,%rcx
+   2e3ad2ed8:	81 c1 00 02 00 00    	add    $0x200,%ecx
+   2e3ad2ede:	c1 e9 03             	shr    $0x3,%ecx
+   2e3ad2ee1:	f3 48 ab             	rep stos %rax,(%rdi)
+   2e3ad2ee4:	48 89 d9             	mov    %rbx,%rcx
+   2e3ad2ee7:	e8 74 d6 ff ff       	call   0x2e3ad0560
+   2e3ad2eec:	48 8b 05 9d b8 76 00 	mov    0x76b89d(%rip),%rax        # 0x2e423e790
+   2e3ad2ef3:	0f 10 05 86 b8 76 00 	movups 0x76b886(%rip),%xmm0        # 0x2e423e780
+   2e3ad2efa:	48 c7 43 2c 01 00 00 	movq   $0x1,0x2c(%rbx)
+   2e3ad2f01:	00 
+   2e3ad2f02:	48 8b 15 e7 b8 76 00 	mov    0x76b8e7(%rip),%rdx        # 0x2e423e7f0
+   2e3ad2f09:	48 c7 43 54 01 00 00 	movq   $0x1,0x54(%rbx)
+   2e3ad2f10:	00 
+   2e3ad2f11:	48 89 43 44          	mov    %rax,0x44(%rbx)
+   2e3ad2f15:	48 b8 00 00 00 40 01 	movabs $0x140000000,%rax
+   2e3ad2f1c:	00 00 00 
+   2e3ad2f1f:	48 89 43 4c          	mov    %rax,0x4c(%rbx)
+   2e3ad2f23:	48 2d 00 00 80 00    	sub    $0x800000,%rax
+   2e3ad2f29:	48 89 43 64          	mov    %rax,0x64(%rbx)
+   2e3ad2f2d:	48 8b 05 64 b8 76 00 	mov    0x76b864(%rip),%rax        # 0x2e423e798
+   2e3ad2f34:	0f 11 43 34          	movups %xmm0,0x34(%rbx)
+   2e3ad2f38:	f3 0f 6f 05 60 b8 76 	movdqu 0x76b860(%rip),%xmm0        # 0x2e423e7a0
+   2e3ad2f3f:	00 
+   2e3ad2f40:	48 89 43 6c          	mov    %rax,0x6c(%rbx)
+   2e3ad2f44:	48 b8 01 00 00 00 00 	movabs $0x3f00000000000001,%rax
+   2e3ad2f4b:	00 00 3f 
+   2e3ad2f4e:	48 89 43 74          	mov    %rax,0x74(%rbx)
+   2e3ad2f52:	48 b8 cd cc 4c 3e cd 	movabs $0x3dcccccd3e4ccccd,%rax
+   2e3ad2f59:	cc cc 3d 
+   2e3ad2f5c:	0f 11 83 8c 00 00 00 	movups %xmm0,0x8c(%rbx)
+   2e3ad2f63:	0f 11 83 9c 00 00 00 	movups %xmm0,0x9c(%rbx)
+   2e3ad2f6a:	0f 10 05 4f b8 76 00 	movups 0x76b84f(%rip),%xmm0        # 0x2e423e7c0
+   2e3ad2f71:	48 89 43 7c          	mov    %rax,0x7c(%rbx)
+   2e3ad2f75:	48 b8 00 00 80 3e 0a 	movabs $0xbda3d70a3e800000,%rax
+   2e3ad2f7c:	d7 a3 bd 
+   2e3ad2f7f:	48 89 83 84 00 00 00 	mov    %rax,0x84(%rbx)
+   2e3ad2f86:	48 8b 05 23 b8 76 00 	mov    0x76b823(%rip),%rax        # 0x2e423e7b0
+   2e3ad2f8d:	0f 11 83 f8 00 00 00 	movups %xmm0,0xf8(%rbx)
+   2e3ad2f94:	f3 0f 6f 05 34 b8 76 	movdqu 0x76b834(%rip),%xmm0        # 0x2e423e7d0
+   2e3ad2f9b:	00 
+   2e3ad2f9c:	48 89 83 f0 00 00 00 	mov    %rax,0xf0(%rbx)
+   2e3ad2fa3:	48 8b 05 f6 b7 76 00 	mov    0x76b7f6(%rip),%rax        # 0x2e423e7a0
+   2e3ad2faa:	0f 11 83 28 01 00 00 	movups %xmm0,0x128(%rbx)
+   2e3ad2fb1:	f3 0f 6f 05 27 b8 76 	movdqu 0x76b827(%rip),%xmm0        # 0x2e423e7e0
+   2e3ad2fb8:	00 
+   2e3ad2fb9:	48 89 83 08 01 00 00 	mov    %rax,0x108(%rbx)
+   2e3ad2fc0:	48 89 83 1c 01 00 00 	mov    %rax,0x11c(%rbx)
+   2e3ad2fc7:	0f 11 83 38 01 00 00 	movups %xmm0,0x138(%rbx)
+(exit 0)

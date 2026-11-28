@@ -1,0 +1,638 @@
+tool: MXRP Ragdoll
+version: '3.3'
+summary: >-
+  An MX Bikes plugin that turns your crash into a physics ragdoll and lets you walk back to the bike, place cones, bales, furniture
+  and FMX ramps, and play this on RAGDOLL servers with other users of the plugin, by patching the game's code and its network calls.
+  By default it checks GitHub for updates at every start, asks before installing one and checks it against the author's signature,
+  and on a RAGDOLL server it sends your walking and crashes to other plugin users.
+header:
+  What it is: >-
+    A closed-source plugin (`MXRP_Ragdoll.dlo`, with its settings `MXRP_Ragdoll.ini`) for the game's `plugins` folder, released on
+    GitHub as a manual zip, an installer (`MXRP Beta 3.3.exe`, which carries the same plugin, settings and guide) and the plugin and
+    installer as single files with their signatures for its own updates; the source of the installer and of the update code is
+    published in the repository. In the game it throws your rider off as a ragdoll when you crash, lets you get up, walk, crouch, sit
+    and jump, lift the bike and ride again, place cones, hay bales, a table and chairs and FMX ramps, and shares all of it with other
+    riders who have the plugin on servers named RAGDOLL; it has a settings menu on P.
+  In one line: Plugin that adds a crash ragdoll, walking and track objects by patching the game
+  Category: Gameplay and visuals
+  Author: GitHub user [avare795](https://github.com/avare795)
+  Game: MX Bikes
+  mxb-mods.com: >-
+    None found (no post for it on 26 Nov 2026; the one ragdoll post there is MXB Ragdoll, another tool)
+  Homepage: None found
+  GitHub: '[avare795/MXRP-ragdoll](https://github.com/avare795/MXRP-ragdoll)'
+  Version analysed: >-
+    MXRP Beta 3.3 (plugin version 1.8.203), tag [v3.3](https://github.com/avare795/MXRP-ragdoll/releases/tag/v3.3), published
+    28 Nov 2026: the tool's latest GitHub release when this analysis started.
+  Source commit: >-
+    [abafb8cd42af04b2c79460fecd5f757305e55166](https://github.com/avare795/MXRP-ragdoll/tree/abafb8cd42af04b2c79460fecd5f757305e55166)
+    (the commit tag v3.3 points at; it holds the README, the roadmap and, in `source`, the installer and the update code, not the rest
+    of the plugin)
+  Analysed on: 28 Nov 2026
+  Earlier reports: '[3.2](https://thomas4f.github.io/mxb-facts/mxrp-ragdoll/3.2/) (26 Nov 2026)'
+  Tested in: 'MX Bikes beta21f (demo), installer SHA-256 `76feb83746e785310e8858938dd50b5e0685d1b0004480d5d1c2d4fc21f11949`'
+  Method: >-
+    100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).
+    The plugin is closed source; the installer and update source at the commit carries a read-only licence that allows reading it and
+    building it to compare, and nothing forbids analysis. So the published source was read, the installer was rebuilt from it with
+    MinGW-w64 GCC 13 and compared (it didn't match byte for byte), the author's signatures were checked with the key in the source,
+    and the release files were examined: imports, exports and code-signing entries (`objdump -p`), text (`strings`, `strings -el`),
+    the plugin's settings tables and the code that sets its defaults, and chosen call sites (`objdump -d`); every command is in
+    `lab/evidence/mxrp-ragdoll-3.3/run.sh`. A throwaway Windows Server 2025 machine with no GPU (Mesa llvmpipe software OpenGL, not
+    Windows on a real GPU) and no keys ran the plugin in the MX Bikes demo (beta21f), offline behind a firewall block, under Process
+    Monitor: the bare demo as baseline, a 180 s ride, a 120 s ride pressing F, E, W, Ctrl, V, Shift, Space, B and Escape, a 120 s ride
+    pressing F, B, Enter, W, Shift twice, Escape and E (the furniture), and a 60 s ride pressing P, Enter, Backspace, Escape, F7 and
+    F8; then the plugin test host (a crash case, a crash case with the on-foot keys, a menu-keys case and a helmet-camera case, with
+    the bystander plugin's checks) and the installer started alone for 90 s with no clicks. The real game online, a server, another
+    rider with the plugin and an update were not run. VirusTotal: hash lookups made before the analysis (28 Nov 2026); that run
+    uploaded the three files listed on P1.
+files:
+  - name: MXRP_Beta_3.3.zip
+    sha256: c75ecaecd02e6c8e3bf4d5d7bf6881f491dc96104c39dc5a5179e451f30b0ba0
+    note: The automatic install the release notes recommend.
+  - name: MXRP Beta 3.3.exe
+    inside: MXRP_Beta_3.3.zip
+    sha256: d039feb7d1e1199d20cffbb49e9bee55281d5fc3f260c68f4ebe57a8ec81a181
+    note: The installer; it carries the plugin, the settings file and the guide of the manual zip, byte for byte.
+  - name: MXRP_Beta_3.3_manual.zip
+    sha256: 0b684f730424a75674da45c64db7b2237a9b19e5f76abf0a8024e88e227f92f0
+    note: The manual install.
+  - name: MXRP_Ragdoll.dlo
+    inside: MXRP_Beta_3.3_manual.zip
+    sha256: ffd37b695d9700a6460d13dff6e06e9c60a2d4fa147777c61f6f4492d47f0572
+    note: The plugin, in `MXRP_Ragdoll\plugins\`.
+  - name: MXRP_Ragdoll.ini
+    inside: MXRP_Beta_3.3_manual.zip
+    sha256: 4f9c7c78cdecfaab29990ef278d458dc92ac53a603b486c4cf0ffef576dccaa1
+    note: The default settings (keys and network).
+  - name: MXRP_Ragdoll_LISEZ-MOI_README.txt
+    inside: MXRP_Beta_3.3_manual.zip
+    sha256: 5e9119b223d8bf513cc758e3a2ff6f30ed36d1030875f300bbd6b4ec424ec97e
+    note: The guide, in five languages.
+  - name: MXRP_Ragdoll_1.8.203.dlo
+    sha256: ffd37b695d9700a6460d13dff6e06e9c60a2d4fa147777c61f6f4492d47f0572
+    note: The plugin as a single download, the file its automatic update fetches; the same bytes as `MXRP_Ragdoll.dlo`.
+  - name: MXRP_Ragdoll_1.8.203.dlo.sig
+    sha256: fbbc8811697a5d30b9fa1b655b038e18652580b7d1a76f9936ed9120e381f207
+    note: The author's signature of the plugin (64 bytes), which the update checks.
+  - name: MXRP_Ragdoll_Installer.exe
+    sha256: d039feb7d1e1199d20cffbb49e9bee55281d5fc3f260c68f4ebe57a8ec81a181
+    note: The installer as a single download, the one the update opens when it can't write `plugins`; the same bytes as `MXRP Beta 3.3.exe`.
+  - name: MXRP_Ragdoll_Installer.exe.sig
+    sha256: 3c2ba58355abd804934057bf23d35a01680b5329429d6f2aca18d142c0627800
+    note: The author's signature of the installer (64 bytes), which the update checks.
+files_note: >-
+  Neither program file is code-signed (`lab/evidence/mxrp-ragdoll-3.3/signature.txt`). The hashes are the ones the Windows machine ran
+  (`lab/results/mxrp-ragdoll-3.3/ride-long-windows/machine.txt`; it didn't fetch the installer's signature, which was downloaded for
+  this card), and every hash is in `lab/evidence/mxrp-ragdoll-3.3/files.txt`.
+key:
+  K1: 'No malware found. 2 of 67 engines flagged the installer zip; the plugin and the installer aren''t on VirusTotal.'
+  K2: 'No, it asks; it checks GitHub at every start and checks each download against the author''s signature as well as GitHub''s hash.'
+  K3: 'No. Its installer deletes only this plugin''s old files, and the plugin writes only its own.'
+  K4: 'Yes. On RAGDOLL servers your walking and crashes go to other plugin users, with your Steam ID through Steam.'
+  K5: 'Yes, patches the game; it hooks the game''s network calls and file reads, adds its ramps to the track and works online.'
+  K6: 'No. It decrypts and shares nothing of other people''s; it reads bike and rider models.'
+  K7: 'No. Only the installer and the update code are public; the rest of the plugin isn''t.'
+  K8: 'Yes, as far as checked.'
+  K9: 'No. Not code-signed, the installer''s rebuild from its source didn''t match, and the plugin has no public source.'
+  K10: 'Yes. GitHub at every start, and other riders on RAGDOLL servers.'
+areas:
+  Your PC and files: Asks before installing updates from GitHub and checks them against the author's signature; its installer deletes only this plugin's old files; not code-signed.
+  Your data: On RAGDOLL servers sends your walking and crashes to other riders through the game's connection, Steam and your local network; each can be switched off.
+  Your game: Patches the game's code, network calls and menu file reads, presses its respawn key, hooks the keyboard system-wide and works on RAGDOLL servers.
+  Creators' content: Reads bike and rider models, and a bike's `gfx.cfg` in its `.pkz`; ships ramp and furniture models it credits; decrypts nothing.
+  Transparency: The plugin is closed source; only the installer and update code are public, under a read-only licence.
+  Money: Free; no shop and no donation links.
+sections:
+  - title: Your PC and files
+    blocks:
+      - text: >-
+          Also found: by default, at every game start the plugin copies your game profile into
+          `Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\sauvegarde_profils` when it has changed, keeping the newest three and the very first,
+          with a readme on how to put one back; its text says it "never writes to the profile"
+          (`lab/evidence/mxrp-ragdoll-3.3/strings-files.txt`; the copies in `lab/results/mxrp-ragdoll-3.3/ride-long-windows/outside.txt`).
+        mark: good
+      - text: >-
+          Also found: the plugin renames its own files of an older name in a folder, `mxb_ragdoll_relief`, `_replay`, `_menu.ini`,
+          `_touches.ini` and `_equipement.ini`, to `MXRP_Ragdoll_…` (`lab/evidence/mxrp-ragdoll-3.3/rename-old-names.txt`,
+          `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3a752b0-2e3a75332.txt`); MXB Ragdoll 1.0, the other tool that uses the
+          `mxb_ragdoll` name, ships none of these names (`lab/evidence/mxb-ragdoll-1.0/files.txt`).
+        mark: note
+      - text: >-
+          Also found: in the test host, the process ended with an access violation (exit -1073741819) after the plugin was unloaded, in
+          all four cases (`lab/results/mxrp-ragdoll-3.3/crash-windows/host.log`); the real game's runs weren't stopped that way.
+        mark: note
+  - title: Your data
+    blocks:
+      - text: >-
+          Also found: in the demo, which has no game version it knows, it saved a copy of the game's program image from memory,
+          `mxbikes_image_6B032EBD.bin`, in its folder ("image du jeu copiee", `lab/evidence/mxrp-ragdoll-3.3/strings-game.txt`;
+          `lab/results/mxrp-ragdoll-3.3/ride-long-windows/outside.txt`). It stays on your PC.
+        mark: note
+      - text: >-
+          Also found: the guide asks you to send its log, `Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log`, when something goes
+          wrong (`lab/evidence/mxrp-ragdoll-3.3/guide.txt`). It stays on your PC unless you send it.
+        mark: note
+  - title: Your game
+    blocks:
+      - text: >-
+          Also found: when you host with the plugin on, it adds RAGDOLL to your server's name ("RAGDOLL - %s"), and on a server whose name
+          has RAGDOLL it turns itself on for that session even when its button is off ("plugin active pour cette session (le bouton reste
+          COUPE pour le solo)", `lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`).
+        mark: note
+      - text: >-
+          Also found: when you host a RAGDOLL server it can kick riders without the plugin after 60 s and a 30 s warning; this is off by
+          default ("Kick players without the plugin (my server)" in menu P, `expulsion_auto = 0`), and it tells you so the first time
+          you start it and the first time you host (`lab/evidence/mxrp-ragdoll-3.3/ini-defaults.txt`,
+          `lab/evidence/mxrp-ragdoll-3.3/settings-table.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`).
+        mark: note
+      - text: >-
+          Also found: its menus button comes from a copy of the game's `ui.pkz` that it writes into its own folder with its button added;
+          the game then read `ui.pkz` from there, 127 times in the 180 s ride, and its own `ui.pkz` twice ("dossier ui du jeu pas
+          modifie", `lab/evidence/mxrp-ragdoll-3.3/strings-game.txt`;
+          `lab/results/mxrp-ragdoll-3.3/ride-long-windows/raw/procmon.csv.gz`).
+        mark: note
+  - title: Creators' content
+    blocks:
+      - text: >-
+          Also found: its FMX ramps are models from named packs (PROCworks FMX Ramp PACK, the "FMX Ramps" pack, "thefluffygecko fmx
+          ramps"), its furniture comes from a chair by lpfeffer (CC-BY-4.0) and a table by Innerscene (CC0), and its walking animation
+          from the CMU Graphics Lab Motion Capture Database; the guide names each (`lab/evidence/mxrp-ragdoll-3.3/guide.txt`). Whether
+          the ramp packs' makers allow it wasn't checked.
+        mark: note
+  - title: Transparency
+    blocks: []
+  - title: Money
+    blocks: []
+  - title: What it says vs what it does
+    blocks:
+      - table: [Claim, Verdict, Evidence]
+        rows:
+          - Claim: '"It removes old versions (mxb_ragdoll.dlo, duplicate copies)" (the guide, automatic install)'
+            Verdict: Matches
+            Evidence: 'The installer deletes a `mxb_ragdoll*.dlo` only when the file holds both `mxb_ragdoll.fnt` and `plugins\mxb_ragdoll.ini`, the names its own old plugin used ([installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L272-L302), `lab/evidence/mxrp-ragdoll-3.3/installer.exe.140002547-140002596.txt`); MXB Ragdoll 1.0''s plugin holds only the first (`lab/evidence/mxrp-ragdoll-3.3/mxb-ragdoll-check.txt`) (P4, G6).'
+          - Claim: '"the plugin downloads it in the background and asks you on the track (Enter / A: install, Backspace / B: later)" (the guide)'
+            Verdict: Matches
+            Evidence: 'Automatic updates and "Ask before installing an update" are both on by default (`lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3ad2eb0-2e3ad2fc7.txt`, `lab/evidence/mxrp-ragdoll-3.3/defaults-rdata.txt`); the wait for your answer in [update.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L377-L394). No update was offered in the runs.'
+          - Claim: '"automatic updates are now also checked against the author''s signature (`.sig` files below), not only GitHub''s SHA-256" (the release notes)'
+            Verdict: Matches
+            Evidence: 'A download is refused unless its `.sig` verifies with the public key written in the plugin ([update.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L276-L320); the key in the compiled plugin, `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3ace283-2e3ace3ef.txt`); both release signatures verify (`lab/evidence/mxrp-ragdoll-3.3/sig-verify.txt`) (P3).'
+          - Claim: '"Local network: only while you are on a RAGDOLL server, and with `reseau = 1` (default), it looks for other players'' plugins on your local network" (README)'
+            Verdict: Matches
+            Evidence: 'No UDP packet was sent in any of the four offline rides (`lab/results/mxrp-ragdoll-3.3/ride-long-windows/network.txt`); the same ride with Beta 3.2 broadcast 476 (`lab/results/mxrp-ragdoll-3.2/ride-long-windows/network.txt`). Not run on a server.'
+          - Claim: '"When you host, your plugin forwards these messages between the other players." (README)'
+            Verdict: Not checked
+            Evidence: 'Needs a server with several riders using the plugin, which can''t be reached here; the packets weren''t decoded (D4).'
+          - Claim: '"its own messages carry your rider name and a random number that changes at every launch, not your Steam ID" (README)'
+            Verdict: Not checked
+            Evidence: 'The packets weren''t decoded, and none was sent in the offline runs (D3).'
+          - Claim: '"Every connection can be switched off in menu P or with `reseau = 0`." (README)'
+            Verdict: Matches
+            Evidence: '"Automatic updates" in menu P skips the update check, and `reseau = 0` leaves the game channel unused (D8).'
+          - Claim: '"Files: the installer only writes its own files (`MXRP_Ragdoll*` in the game''s `plugins` folder)" and "No registry changes, nothing starts with Windows." (README)'
+            Verdict: Matches
+            Evidence: 'Its writes and registry reads in [installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L413-L426); the rides wrote no registry value the bare demo didn''t (P6, P7, G9).'
+          - Claim: '"The ON/OFF button is not enough: the plugin is still loaded by the game." (the guide, official servers)'
+            Verdict: Matches
+            Evidence: 'On a RAGDOLL server it turns itself on with the button off (`lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`).'
+  - title: Limits of this analysis
+    blocks:
+      - limits:
+          - text: >-
+              The runs were on a Windows Server machine with software OpenGL (Mesa llvmpipe), not Windows on a real GPU, in the MX Bikes
+              demo, offline behind a firewall block. Frame times say nothing about real performance.
+            questions: []
+          - text: >-
+              The real game online can't be reached here (the demo has no online play), and no RAGDOLL server or other rider with the
+              plugin was there. What it sends through the game's server connection, Steam and the local network, whether a host's plugin
+              passes on other riders' data, the server name and the shared objects were read from its text and README, not seen.
+            questions: [D2, D3, D4, G3]
+          - text: >-
+              No newer release was out, so no update was downloaded, offered or installed: the signature and hash checks, the question on
+              the track and the installer it opens were read from the published update source and the plugin's code and text, not seen.
+              That source was tied to the plugin by its key, texts and imports, not by a rebuild.
+            questions: [P2, P3, D8, G10]
+          - text: >-
+              The installer was started alone for 90 s and nothing was clicked, so its install and removal of old versions were read from
+              its source and its compiled code, not seen; no `mxb_ragdoll.dlo` was in the run's `plugins`.
+            questions: [P4, P7, P8, G6]
+          - text: >-
+              The plugin's logs (`Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log`) weren't among the evidence the Windows machine
+              handed back, so which of its patches took hold in the demo wasn't read from them.
+            questions: [G2, G4, G5, C5]
+          - text: >-
+              The copy of the game's `ui.pkz` it writes wasn't among the evidence, so whether it also holds the game's menu images wasn't
+              looked at.
+            questions: [C2]
+          - text: >-
+              Its keyboard hook was read where it is installed and in its hook procedure, not through every path that uses the key states
+              it records.
+            questions: [G7]
+answers:
+  P1:
+    verdict: Partly
+    mark: note
+    text: >-
+      2 of 67 engines flagged `MXRP_Beta_3.3.zip` on 28 Nov 2026 (Bkav, Elastic), and 1 of 66 flagged `MXRP_Beta_3.3_manual.zip`
+      (Bkav); 0 of 60 flagged `MXRP_Ragdoll_1.8.203.dlo.sig`. Those three were uploaded to VirusTotal by the analysis run on
+      28 Nov 2026, as it had no record of them. The installer (`MXRP Beta 3.3.exe` and `MXRP_Ragdoll_Installer.exe`, the same bytes),
+      the plugin (`MXRP_Ragdoll.dlo` and `MXRP_Ragdoll_1.8.203.dlo`, the same bytes), the settings file and the guide were not on
+      VirusTotal (hash lookups on 28 Nov 2026). `MXRP_Ragdoll_Installer.exe.sig` wasn't looked up.
+    evidence: '[MXRP_Beta_3.3.zip](https://www.virustotal.com/gui/file/c75ecaecd02e6c8e3bf4d5d7bf6881f491dc96104c39dc5a5179e451f30b0ba0), [MXRP_Beta_3.3_manual.zip](https://www.virustotal.com/gui/file/0b684f730424a75674da45c64db7b2237a9b19e5f76abf0a8024e88e227f92f0), [MXRP_Ragdoll_1.8.203.dlo.sig](https://www.virustotal.com/gui/file/fbbc8811697a5d30b9fa1b655b038e18652580b7d1a76f9936ed9120e381f207), [MXRP Beta 3.3.exe](https://www.virustotal.com/gui/file/d039feb7d1e1199d20cffbb49e9bee55281d5fc3f260c68f4ebe57a8ec81a181), [MXRP_Ragdoll.dlo](https://www.virustotal.com/gui/file/ffd37b695d9700a6460d13dff6e06e9c60a2d4fa147777c61f6f4492d47f0572), [MXRP_Ragdoll.ini](https://www.virustotal.com/gui/file/4f9c7c78cdecfaab29990ef278d458dc92ac53a603b486c4cf0ffef576dccaa1), [MXRP_Ragdoll_LISEZ-MOI_README.txt](https://www.virustotal.com/gui/file/5e9119b223d8bf513cc758e3a2ff6f30ed36d1030875f300bbd6b4ec424ec97e)'
+  P2:
+    verdict: Yes, not by default
+    mark: concern
+    text: >-
+      By default ("Mises a jour automatiques" and "Demander avant d'installer une mise a jour" both on) the plugin asks GitHub for the
+      latest release at every game start, downloads a newer plugin in the background and asks you on the track (Enter / A to install,
+      Backspace / B for later); it is used from the next start. With the second turned off in menu P, it installs without asking.
+    evidence: >-
+      The menu entries (`lab/evidence/mxrp-ragdoll-3.3/settings-table.txt`: `mises_a_jour_auto` at +0x108, `maj_demander` at +0x10c),
+      the default-setting function, called on the settings before the file is read
+      (`lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3a75356-2e3a75395.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3ad2eb0-2e3ad2fc7.txt`, which copies the 1s at 0x2e423e7a0 in
+      `lab/evidence/mxrp-ragdoll-3.3/defaults-rdata.txt` to +0x108 and +0x10c); the ask in
+      [update.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L377-L394);
+      the request to GitHub at start in every run (`lab/results/mxrp-ragdoll-3.3/ride-long-windows/network.txt`).
+  P3:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      Before it installs a downloaded plugin or installer, it checks the file's SHA-256 against the `digest` GitHub lists, that it is a
+      Windows program, and the author's ECDSA P-256 signature (the `.sig` file beside it in the release) against a public key built into
+      the plugin; a file without a valid signature is refused. Both signatures in this release verify with that key.
+    evidence: >-
+      [update.c, the key](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L22-L26),
+      [the signature check](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L171-L194)
+      and [its use on every download](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L276-L320);
+      the same key and BCryptImportKeyPair and BCryptVerifySignature in the compiled plugin
+      (`lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3ace283-2e3ace3ef.txt`, `lab/evidence/mxrp-ragdoll-3.3/bcrypt-thunks.txt`); its
+      texts (`lab/evidence/mxrp-ragdoll-3.3/strings-update.txt`); `p256.py verify` on both files (`lab/evidence/mxrp-ragdoll-3.3/sig-verify.txt`).
+  P4:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The installer deletes in `plugins` only files with this plugin's names: `MXRP_Ragdoll*.dlo` (but `MXRP_Ragdoll.dlo`, which it
+      replaces), `MXRP_Ragdoll*.dlo.ancien` and `.nouveau`, and a `mxb_ragdoll*.dlo` only when the file holds both names its old plugin
+      used (`mxb_ragdoll.fnt` and `plugins\mxb_ragdoll.ini`). MXB Ragdoll 1.0's `mxb_ragdoll.dlo`, another tool's plugin, holds only the
+      first, so it is left alone. It keeps an existing `MXRP_Ragdoll.ini`. The plugin's update replaces only its own file.
+    evidence: >-
+      [installer.c, the patterns and the loop](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L385-L411)
+      and [the check](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L272-L302);
+      the same in the compiled installer (`lab/evidence/mxrp-ragdoll-3.3/installer-patterns.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/installer.exe.140002040-1400021f0.txt`, `lab/evidence/mxrp-ragdoll-3.3/installer.exe.140002547-140002596.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/installer-iat-names.txt`); the test on MXB Ragdoll 1.0's plugin
+      (`lab/evidence/mxrp-ragdoll-3.3/mxb-ragdoll-check.txt`); the update's renames in
+      [update.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L395-L412);
+      the plugin's runs (`lab/results/mxrp-ragdoll-3.3/ride-long-windows/files.diff`).
+  P5:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Neither the plugin nor the installer carries a code signature, and they can't be traced to public source (T3, T4). The update's
+      own signature check (P3) isn't a code signature Windows can show.
+    evidence: Empty Security Directory in both (`lab/evidence/mxrp-ragdoll-3.3/signature.txt`).
+  P6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The rides wrote no registry value the bare demo didn't. The plugin imports no registry function, and the installer only reads
+      (Steam's path and its uninstall entry for MX Bikes).
+    evidence: >-
+      `lab/results/mxrp-ragdoll-3.3/ride-long-windows/registry.txt` against `lab/results/mxrp-ragdoll-3.3/baseline-windows/registry.txt`;
+      `lab/results/mxrp-ragdoll-3.3/installer-windows/registry.txt`; `lab/evidence/mxrp-ragdoll-3.3/imports-present.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/imports-absent.txt`;
+      [installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L122-L135).
+  P7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      In the game folder it writes only its own files in `plugins`: the plugin, its settings and guide, `MXRP_Ragdoll.fnt` (a font the
+      installer copies out of the game's `misc.pkz`), and an update as `MXRP_Ragdoll.dlo.new` / `.old`. The rides changed nothing in the
+      game folder that the bare demo didn't; its other files go to `Documents\PiBoSo\MX Bikes\MXRP_Ragdoll`.
+    evidence: >-
+      `lab/results/mxrp-ragdoll-3.3/ride-long-windows/files.diff` against `lab/results/mxrp-ragdoll-3.3/baseline-windows/files.diff`;
+      [installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L413-L426),
+      [update.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L395-L412).
+  P8:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      There is no uninstaller; the guide and README say to move or delete `MXRP_Ragdoll*` from `plugins`. Its folder in
+      `Documents\PiBoSo\MX Bikes\MXRP_Ragdoll` (logs, profile copies, its menus copy, track and bike data, the game image copy) and
+      `MXRP_Ragdoll_gfx.cfg` in your Temp folder stay. All are its own files; nothing in Windows is changed.
+    evidence: >-
+      `lab/results/mxrp-ragdoll-3.3/ride-long-windows/outside.txt`; `lab/evidence/mxrp-ragdoll-3.3/guide.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/readme.txt`; `lab/evidence/mxrp-ragdoll-3.3/strings-files.txt`.
+  P9:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No malware found. Its imports and text match what it shows, logs and documents (the ragdoll, the walking, the objects, the network
+      play, the updates, the kick); the installer's published source matches its compiled code where read, and its payload is the manual
+      zip's plugin, settings file and guide, byte for byte. Its keyboard hook and game image copy are described under G7 and "Also found".
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.iat.txt`, `lab/evidence/mxrp-ragdoll-3.3/installer.exe.iat.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/payload.txt`, `lab/evidence/mxrp-ragdoll-3.3/rebuild.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/strings-update.txt`.
+  D1:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      In every run it tried an HTTPS connection to GitHub (`api.github.com`) at start, and nothing else: no packet on the local network
+      in the offline rides. On a RAGDOLL server it also sends through the game's own server connection, Steam networking and, to find
+      other plugins, your local network (UDP port 47731).
+    evidence: >-
+      `lab/results/mxrp-ragdoll-3.3/ride-long-windows/network.txt`, `lab/results/mxrp-ragdoll-3.3/on-foot-windows/network.txt`,
+      `lab/results/mxrp-ragdoll-3.3/furniture-windows/network.txt`, `lab/results/mxrp-ragdoll-3.3/settings-menu-windows/network.txt`
+      against `lab/results/mxrp-ragdoll-3.3/baseline-windows/network.txt`; `lab/evidence/mxrp-ragdoll-3.3/strings-update.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`, `lab/evidence/mxrp-ragdoll-3.3/readme.txt`.
+  D2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      By default (`reseau = 1`), on a RAGDOLL server, including your own when you host with the button on, it shares your walking and
+      crashes with other users of the plugin ("échange la marche et les chutes avec les autres plugins") through the game's connection,
+      Steam and your local network, with your plugin version, the objects you place, and, by its README, your rider name. In solo and
+      on other servers the offline runs saw nothing sent but the update check.
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/ini-defaults.txt`; texts "plugin d'un autre joueur en version %s", "%s est a pied (ou tombe) avec le
+      plugin", "recherche des autres plugins sur %s" (`lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`), "cone d'un autre joueur recu"
+      (`lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`); `lab/evidence/mxrp-ragdoll-3.3/readme.txt`;
+      `lab/results/mxrp-ragdoll-3.3/ride-long-windows/network.txt`.
+  D3:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      On a RAGDOLL server its Steam channel sends its packets to each rider's Steam ID through Steam networking (ISteamNetworking), which
+      hands the receiver your Steam ID with them; the plugin logs the Steam ID of a rider it hears from. Its README says its own messages
+      carry your rider name and a random number made at each launch; they weren't decoded.
+    evidence: >-
+      Texts "plugin envoye au joueur Steam %llu", "premier paquet d'un autre plugin recu par Steam (joueur %llu)", "ISteamNetworking"
+      (`lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`); `lab/evidence/mxrp-ragdoll-3.3/readme.txt`.
+  D4:
+    verdict: Not checked
+    text: >-
+      It receives other riders' walking, crashes and objects, and its README says a hosting plugin forwards them between the other
+      players; whether it does needs a server with several riders using the plugin (the real game online), which can't be reached here,
+      and the packet layout wasn't decoded.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`, `lab/evidence/mxrp-ragdoll-3.3/readme.txt`.'
+  D5:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It listens only on UDP port 47731 for other plugins, which a website can't reach; it imports no TCP `listen` or `accept`.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/imports-present.txt`, `lab/evidence/mxrp-ragdoll-3.3/imports-absent.txt`; `lab/evidence/mxrp-ragdoll-3.3/ini-defaults.txt`.'
+  D6:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      The plugin reads your game profile (`profile.ini`, `controls.txt`) for the respawn binding and to copy it, a bike's `gfx.cfg`, the
+      list of your network adapters (to find each local network's broadcast address), and `plugins\mxb_ragdoll.ini` as its settings
+      under an old name, which is also MXB Ragdoll's settings file. The installer reads Steam's registry keys, `libraryfolders.vdf` and
+      app manifest to find the game, and reads a `mxb_ragdoll*.dlo` to check whether it is its own old plugin. None of it is other
+      people's data.
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/strings-files.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-keys.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/imports-present.txt` (GetAdaptersAddresses);
+      [installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L144-L255).
+  D7:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Nothing about its users is published by the tool; what it sends goes to other riders' plugins. Hosting with it adds RAGDOLL to your
+      server's name ("Also found", Your game).
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`.'
+  D8:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      "Mises a jour automatiques" in menu P switches off the update check (the check at start reads that setting), and `reseau = 0` in
+      `MXRP_Ragdoll.ini` switches off the exchange with other plugins (the game channel is logged "non utilise" without it).
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3a7545e-2e3a7547c.txt`, `lab/evidence/mxrp-ragdoll-3.3/settings-reads.txt`
+      (update check), `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3a76678-2e3a766b9.txt` (game channel);
+      `lab/evidence/mxrp-ragdoll-3.3/ini-defaults.txt`.
+  D9:
+    verdict: 'No'
+    mark: good
+    text: No account; it uses GitHub's public API without signing in, and Steam only through the game's own login.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-update.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`.'
+  D10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It offers nothing for other programs on your PC to read: no shared memory and no local server; what it sends goes to the network
+      (D2).
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/imports-absent.txt` (no CreateFileMapping, no listen).'
+  G1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It runs as a plugin the game loads. The installer only lists running processes, to wait for the game to close, and imports
+      nothing that writes into another process.
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/installer.exe.iat.txt`, `lab/evidence/mxrp-ragdoll-3.3/imports-absent.txt`;
+      [installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L304-L319).
+  G2:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      It finds code in the game by byte patterns and patches it (VirtualProtect and WriteProcessMemory): calls in the rider skeleton and
+      camera, the game's `sendto` and `recvfrom`, its file opening (so the game reads its menus copy), and the wheels' surface lookup, so
+      its ramps join the track's collision meshes. It writes your rider's bones and physics, and calls the game's own kick.
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/strings-game.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`; `lab/evidence/mxrp-ragdoll-3.3/imports-present.txt`; the game reading
+      `ui.pkz` from the plugin's folder (`lab/results/mxrp-ragdoll-3.3/ride-long-windows/raw/procmon.csv.gz`).
+  G3:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      By default it works online when its button is on, and on a server named RAGDOLL even when it is off. There it adds its own packets
+      to the game's server connection, makes riders collide on foot and on bikes, and adds ramps and objects riders' bikes hit and ride
+      on. Its kick of riders without the plugin is off by default ("Also found", Your game).
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/strings-game.txt`; defaults `online_full` and `online_visual` 1
+      (`lab/evidence/mxrp-ragdoll-3.3/settings-table.txt`, `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3ad2eb0-2e3ad2fc7.txt`,
+      `lab/evidence/mxrp-ragdoll-3.3/defaults-rdata.txt`); `lab/evidence/mxrp-ragdoll-3.3/guide.txt`.
+  G4:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It searches the game's code and memory outside the plugin interface: byte patterns in the game's code, the game's heap (HeapWalk),
+      rider and bike models, the physics world and the track's collision objects, and the replay clock.
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/imports-present.txt` (HeapWalk, ReadProcessMemory, Module32First);
+      `lab/evidence/mxrp-ragdoll-3.3/strings-game.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-content.txt`.
+  G5:
+    verdict: 'Yes'
+    mark: concern
+    text: >-
+      By default, once you are down or on foot it blocks the game's respawn (`marche_forcee = 1`, a 20 s hold still respawns), and when
+      you get back on the bike it presses the game's respawn for you: SendInput sends keyboard presses by scan code, and its texts name
+      the profile's respawn key and a simulated gamepad. On foot its keys go to it and not to the game (`clavier_prio = 1`).
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/ini-defaults.txt`; `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3a9d2c0-2e3a9d330.txt`
+      (SendInput, `lab/evidence/mxrp-ragdoll-3.3/user32-names.txt`); `lab/evidence/mxrp-ragdoll-3.3/strings-keys.txt`.
+  G6:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its installer no longer deletes another tool's `mxb_ragdoll*.dlo`: it checks that the file is its own old plugin first, and MXB
+      Ragdoll 1.0's plugin doesn't pass that check (P4). In the test host the bystander plugin's import and pointer tables stayed
+      untouched.
+    evidence: >-
+      [installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L272-L302);
+      `lab/evidence/mxrp-ragdoll-3.3/installer.exe.140002547-140002596.txt`, `lab/evidence/mxrp-ragdoll-3.3/mxb-ragdoll-check.txt`;
+      `lab/results/mxrp-ragdoll-3.3/crash-windows/host.log`.
+  G7:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It installs a low-level keyboard hook for the whole system (SetWindowsHookExA, type 13). Its hook procedure records the state of
+      every key, whichever window is in front; only its own keys are held back from the game, and only while the game's window is in
+      front.
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3aa94f0-2e3aa9518.txt` (the hook),
+      `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.2e3aa95c0-2e3aa96f0.txt` (the procedure: the key table written first, then
+      GetForegroundWindow and GetWindowThreadProcessId against GetCurrentProcessId); `lab/evidence/mxrp-ragdoll-3.3/user32-names.txt`;
+      `lab/evidence/mxrp-ragdoll-3.3/strings-keys.txt`.
+  G8:
+    verdict: 'No'
+    mark: good
+    text: The plugin imports no exception handler function (the installer's is for its own process).
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/imports-absent.txt`.'
+  G9:
+    verdict: 'No'
+    mark: good
+    text: Nothing is added to Windows start-up; neither program writes the registry.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/imports-absent.txt`; `lab/results/mxrp-ragdoll-3.3/ride-long-windows/registry.txt`.'
+  G10:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      After you accept an update, when it can't write the `plugins` folder, it downloads the release's installer (checked like the
+      plugin, P3) and opens it with ShellExecuteA as the game closes. No other program is started.
+    evidence: >-
+      [update.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L413-L428),
+      [at shutdown](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/src/update.c#L472-L476);
+      `lab/evidence/mxrp-ragdoll-3.3/strings-update.txt`; `lab/results/mxrp-ragdoll-3.3/ride-long-windows/procmon.txt`.
+  G11:
+    verdict: 'Yes'
+    mark: note
+    text: '`MXRP_Ragdoll.dlo` is a game plugin, loaded by the game from `plugins`.'
+    evidence: 'Exports Startup, EventInit, RunTelemetry, Draw and the other plugin functions (`lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.objdump-p.txt`).'
+  G12:
+    verdict: 'No'
+    mark: good
+    text: >-
+      No integrity, licence or anti-cheat check was found being got around. On a game version it doesn't know, it switches parts off ("le
+      CALL vise une autre fonction (autre version du jeu ou autre mod actif)").
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-game.txt`.'
+  C1:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It decrypts nothing: it has no decryption text or import, and it reads a bike's `gfx.cfg` from its `.pkz` and falls back to
+      estimates when it can't ("archive .pkz ?").
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-content.txt` (no crypt or chiffr match), `lab/evidence/mxrp-ragdoll-3.3/MXRP_Ragdoll.dlo.iat.txt`.'
+  C2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It saves no rider, bike or track model or texture. The game files it copies into its own folder are the game's `ui.pkz` (with its
+      button added), menu files and the game's program image; the installer copies one font out of the game's `misc.pkz`.
+    evidence: >-
+      `lab/results/mxrp-ragdoll-3.3/ride-long-windows/outside.txt`; `lab/evidence/mxrp-ragdoll-3.3/strings-game.txt`;
+      [installer.c](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/installer/installer.c#L82-L105).
+  C3:
+    verdict: 'No'
+    mark: good
+    text: >-
+      It shares no one's content: what it sends is its own state and the objects it ships (cones, bales, furniture, ramps).
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-network.txt`, `lab/evidence/mxrp-ragdoll-3.3/strings-online.txt`.'
+  C4:
+    verdict: 'Yes'
+    mark: good
+    text: >-
+      The README credits the MinGW-w64 (GCC) runtime built into the plugin, and the installer source credits its deflate decompressor as
+      written after Mark Adler's puff; no other library's name was found in the programs. The guide credits the walking animation, the
+      ramp models and the furniture.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-thirdparty.txt`; `lab/evidence/mxrp-ragdoll-3.3/guide.txt`.'
+  C5:
+    verdict: 'Yes'
+    mark: note
+    text: >-
+      It reads the models of the bike and rider you ride, third-party ones included (their `.hrc` and `.edf` and the game's copy in
+      memory, for the handlebar and the skeleton), and a bike's `gfx.cfg` inside its `.pkz`.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-content.txt`.'
+  T1:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      Prebuilt program files: `MXRP_Ragdoll.dlo` (64-bit plugin) and `MXRP Beta 3.3.exe` (64-bit Windows installer; the single downloads
+      are the same bytes). The installer's source (`source/installer`, `source/src/inflate.c`) and the plugin's update code
+      (`source/src/update.c`) are public at the commit; the rest of the plugin isn't ("The rest of the plugin (ragdoll, walking, objects,
+      online play) is not published.").
+    evidence: >-
+      `lab/evidence/mxrp-ragdoll-3.3/file.txt`;
+      [source/README.md at the commit](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/README.md#L1-L11).
+  T2:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its claims that were checked match the code; see "What it says vs what it does".
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/guide.txt`, `lab/evidence/mxrp-ragdoll-3.3/readme.txt`, `lab/evidence/mxrp-ragdoll-3.3/sig-verify.txt`.'
+  T3:
+    verdict: 'No'
+    mark: concern
+    text: The release files were uploaded to the release; the repository has no build workflow.
+    evidence: "[Repository at the tag's commit](https://github.com/avare795/MXRP-ragdoll/tree/abafb8cd42af04b2c79460fecd5f757305e55166)."
+  T4:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The installer was rebuilt from the source at the commit with MinGW-w64 GCC 13-win32 (the compiler both name), with the release's
+      own plugin, guide and settings file as payload: the payload and manifest come out identical, but the code doesn't (other section
+      sizes, and a `.CRT` section the rebuild lacks: another MinGW-w64 runtime build). The plugin has no public source to rebuild from.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/rebuild.txt`.'
+  T5:
+    verdict: 'No'
+    mark: note
+    text: >-
+      The public history has 18 commits up to the tag: the README and the roadmap, and the installer and update source added in one
+      commit for this release.
+    evidence: '[Commits up to the tag](https://github.com/avare795/MXRP-ragdoll/commits/abafb8cd42af04b2c79460fecd5f757305e55166).'
+  T6:
+    verdict: Not checked
+    text: >-
+      The plugin's source and build files aren't public, so its dependencies can't be read; the published installer source uses only
+      Windows libraries and its build command names no versions.
+    evidence: '[source/README.md at the commit](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/README.md#L15-L22).'
+  T7:
+    verdict: 'No'
+    mark: concern
+    text: >-
+      The published source's licence is "All rights reserved": it may be read, and built to compare, but not copied, modified or
+      redistributed. The plugin and the release carry no licence.
+    evidence: '[source/LICENSE.txt at the commit](https://github.com/avare795/MXRP-ragdoll/blob/abafb8cd42af04b2c79460fecd5f757305e55166/source/LICENSE.txt#L1-L7); `lab/evidence/mxrp-ragdoll-3.3/file.txt`.'
+  M1:
+    verdict: 'No'
+    mark: good
+    text: It costs nothing; nothing in the programs, the guide or the README asks for payment.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-money.txt`.'
+  M2:
+    verdict: 'No'
+    mark: good
+    text: Nothing is sold, and it links to no shop.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-money.txt`.'
+  M3:
+    verdict: 'No'
+    mark: good
+    text: It asks for no donation; the README's only other links are its Discord and the issues page.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.3/strings-money.txt`.'
+history:
+  - date: 28 Nov 2026
+    change: First card, for Beta 3.3 (v3.3).

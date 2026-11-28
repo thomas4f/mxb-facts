@@ -1,0 +1,9 @@
+$ ptrtable.py MXRP_Ragdoll.dlo 2e3ae9e00 5 8; iat.py MXRP_Ragdoll.dlo | grep -E '0x2e5fcb(8d0|990) '
+0x2e3ae9e00  0x2e3ae9db0 "_relief"
+0x2e3ae9e08  0x2e3ae9db8 "_replay"
+0x2e3ae9e10  0x2e3ae9dc0 "_menu.ini"
+0x2e3ae9e18  0x2e3ae9dca "_touches.ini"
+0x2e3ae9e20  0x2e3ae9dd7 "_equipement.ini"
+0x2e5fcb8d0  KERNEL32.dll!GetFileAttributesA
+0x2e5fcb990  KERNEL32.dll!MoveFileA
+(exit 0)

@@ -1,0 +1,36 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE '^reseau :|^\?reseau|steam_api64|SteamNetworking|ISteamNetworking|SteamAPI_|est a pied|serveur RAGDOLL'
+952:reseau : pilote d'un autre joueur rendu au jeu
+1137:reseau : %s enregistre en direct pendant la rediffusion
+1187:reseau : pilote de %s retrouve a %.1f m de son corps de chute, pilote par son plugin
+1334:reseau : plugin d'un autre joueur en version %s (la mienne : %s)
+1428:serveur RAGDOLL : plugin active pour cette session (le bouton reste COUPE pour le solo)
+1429:reseau : canal Steam pas trouve
+1430:reseau : canal du jeu (port du serveur) %s
+2036:?reseau : plugin de "%s" recu
+2043:reseau : imports ws2_32 du jeu : noms %s, %d cases, sendto/recvfrom trouves %d, %d cases vers un autre module (%s)
+2044:reseau : %s est a pied (ou tombe) avec le plugin
+2046:reseau : premier paquet d'un autre plugin recu par le canal du jeu (%s)
+2049:reseau : %s %s:%d
+2051:reseau : canal du jeu : plugin envoye a %s (%s, socket %llu)
+2052:reseau : canal Steam : plugin envoye au joueur Steam %llu (%s)
+2053:reseau : premier envoi du jeu par sendto : famille %d, %d octets
+2055:reseau : canal du jeu : %ld paquets du jeu, %ld du plugin envoyes, %ld du plugin recus ; %d adresse(s) du jeu, %d avec le plugin
+2056:reseau : sendto du jeu : %ld appels, dont %ld en IPv6
+2057:reseau : canal Steam : %s, %ld paquets du jeu, %ld du plugin envoyes, %ld du plugin recus
+2058:reseau : recherche des autres plugins sur %s
+2059:reseau : premier paquet d'un autre plugin recu par Steam (joueur %llu)
+2061:reseau : canal du jeu %s (envoi %d, reception %d, essai %d)
+2062:steam_api64.dll
+2064:SteamAPI_GetHSteamUser
+2065:SteamAPI_GetHSteamPipe
+2066:SteamAPI_ISteamClient_GetISteamNetworking
+2067:SteamNetworking005
+2068:SteamNetworking006
+2069:reseau : canal Steam pret (ISteamNetworking, canal %d du plugin)
+2070:reseau : port UDP %d deja pris, port au hasard
+2071:reseau : port UDP %d deja pris (erreur %d)
+2072:reseau : adresse de l'hote "%s" incomprise
+2073:reseau : automatique (Radmin VPN / reseau local), port UDP %d
+2074:reseau : HOTE, en attente des joueurs sur le port UDP %d
+2075:reseau : envoi a l'hote %s port UDP %d
+(exit 0)

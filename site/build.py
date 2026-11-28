@@ -36,6 +36,7 @@ CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('mxbmrp3-1.35.0.yaml', 'mxbmrp3'),
     ('mxbmrp3-1.36.0.yaml', 'mxbmrp3'),
     ('mxrp-ragdoll-3.2.yaml', 'mxrp-ragdoll'),
+    ('mxrp-ragdoll-3.3.yaml', 'mxrp-ragdoll'),
     ('pitbox-3.0.4.yaml', 'pitbox'),
     ('projectgpb2-v2.yaml', 'projectgpb2'),
     ('setup-duper-0.1.8674.29660.yaml', 'setup-duper'),

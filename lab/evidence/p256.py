@@ -4,8 +4,8 @@
 usage: p256.py find <hex start of the key> <file>...     every place a raw 64-byte public key (X then Y) starting
                                                          with those bytes sits in each file, and the whole key
        p256.py verify <key hex> <signature file> <signed file>
-                                                         verifies a raw r||s signature (written as hex) of the file's
-                                                         SHA-256, as Windows BCryptVerifySignature does
+                                                         verifies a raw r||s signature (64 bytes, or written as hex)
+                                                         of the file's SHA-256, as Windows BCryptVerifySignature does
        p256.py verify-der <key hex> <DER signature file> <text>
                                                          verifies a DER-encoded signature of the SHA-256 of the text
                                                          (written to a temporary file as it is, with no newline)
@@ -39,7 +39,9 @@ elif sys.argv[1] == 'verify-der':
     print((r.stdout + r.stderr).strip())
     sys.exit(r.returncode)
 else:
-    key, sig, msg = bytes.fromhex(sys.argv[2]), bytes.fromhex(open(sys.argv[3]).read().strip()), sys.argv[4]
+    raw = open(sys.argv[3], 'rb').read()
+    key, msg = bytes.fromhex(sys.argv[2]), sys.argv[4]
+    sig = raw if len(raw) == 64 else bytes.fromhex(raw.decode().strip())
     assert len(key) == 64 and len(sig) == 64, 'a P-256 key and signature are 64 bytes each'
     spki = bytes.fromhex('3059301306072a8648ce3d020106082a8648ce3d030107034200') + b'\x04' + key
     body = der_int(sig[:32]) + der_int(sig[32:])

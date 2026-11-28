@@ -1,0 +1,22 @@
+$ cd "$SRC" && grep -nE 'static const char \*pat\[\]|old_dlo_is_ours|mem_has\(buf|DeleteFileA\(from\)|_stricmp\(fd.cFileName|res_write\([123]|install_font\(dir|RegOpenKeyExA|reg_str\(HKEY|misc/misc.fnt|requireAdministrator' source/installer/installer.c source/installer/installer.manifest
+source/installer/installer.c:82:/* police du plugin : la police du jeu (misc/misc.fnt), prise dans le misc.pkz du joueur */
+source/installer/installer.c:95:    if ((t = pkz_extract(z, zl, "misc/misc.fnt", &l)) != NULL) {
+source/installer/installer.c:122:static int reg_str(HKEY root, const char *key, const char *val, char *out, DWORD n, REGSAM extra)
+source/installer/installer.c:126:    if (RegOpenKeyExA(root, key, 0, KEY_READ | extra, &h) != ERROR_SUCCESS)
+source/installer/installer.c:228:    if (reg_str(HKEY_CURRENT_USER, "Software\\Valve\\Steam", "SteamPath", s, sizeof(s), 0) && (fix_slashes(s), try_steam(s, out)))
+source/installer/installer.c:230:    if (reg_str(HKEY_LOCAL_MACHINE, "SOFTWARE\\Valve\\Steam", "InstallPath", s, sizeof(s), KEY_WOW64_32KEY) && try_steam(s, out))
+source/installer/installer.c:232:    if (reg_str(HKEY_LOCAL_MACHINE, "SOFTWARE\\Valve\\Steam", "InstallPath", s, sizeof(s), KEY_WOW64_64KEY) && try_steam(s, out))
+source/installer/installer.c:234:    if (reg_str(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 655500",
+source/installer/installer.c:237:    if (reg_str(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 655500",
+source/installer/installer.c:286:static int old_dlo_is_ours(const char *path)
+source/installer/installer.c:297:            ok = mem_has(buf, size, "mxb_ragdoll.fnt") && mem_has(buf, size, "plugins\\mxb_ragdoll.ini");
+source/installer/installer.c:387:        static const char *pat[] = { "MXRP_Ragdoll*.dlo", "MXRP_Ragdoll*.dlo.ancien", "MXRP_Ragdoll*.dlo.nouveau", "mxb_ragdoll*.dlo" };
+source/installer/installer.c:395:            if (_stricmp(fd.cFileName, "MXRP_Ragdoll.dlo") == 0)
+source/installer/installer.c:398:            if (pi == 3 && !old_dlo_is_ours(from))
+source/installer/installer.c:400:            if (DeleteFileA(from)) {
+source/installer/installer.c:414:    if (!res_write(1, p)) {
+source/installer/installer.c:421:    res_write(2, p);
+source/installer/installer.c:424:        res_write(3, p); /* réglages de base, seulement s'il n'en a pas */
+source/installer/installer.c:426:    font_ok = install_font(dir, p);
+source/installer/installer.manifest:5:    <security><requestedPrivileges><requestedExecutionLevel level="requireAdministrator" uiAccess="false"/></requestedPrivileges></security>
+(exit 0)

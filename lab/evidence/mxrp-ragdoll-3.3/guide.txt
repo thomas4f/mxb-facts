@@ -1,0 +1,15 @@
+$ sed -n '1,100p' MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt | grep -nE 'removes old|old versions|UPDATES|downloads it|Ask before|kick|ON/OFF button is not enough|plugin is still loaded|talk through|Every player needs|send Documents|Walking animation|FMX ramps:|Furniture:|RAGDOLL is added'
+13:   itself, shows the folder and lets you pick another one. It removes old versions
+19:   MXRP_Ragdoll.ini if you already have one. Remove old versions (mxb_ragdoll.dlo,
+44:UPDATES: when a new version is out, the plugin downloads it in the background and asks
+46:you start the game. Menu P: "Automatic updates" (ON / OFF) and "Ask before installing an
+60:  Comp 8 ft, Super kicker, 120 ft jump, Quarter pipe), 4 colours. Place them anywhere:
+70:  When you host with the button ON, RAGDOLL is added to the server name for you: on a
+72:- Nothing to set: plugins talk through the MX Bikes server connection and Steam.
+73:- Every player needs the plugin. Hosting a RAGDOLL server, you can kick players without
+82:The ON/OFF button is not enough: the plugin is still loaded by the game.
+85:- Game crash or bug: send Documents\PiBoSo\MX Bikes\MXRP_Ragdoll\MXRP_Ragdoll.log BEFORE restarting
+89:Walking animation: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+90:FMX ramps: PROCworks FMX Ramp PACK (PROCworks - Proud Racers Of Canada). Landing: "FMX Ramps" pack (fmxLanding). Comp, Super kicker, 120 ft jump, quarter pipe: "thefluffygecko fmx ramps".
+91:Furniture: green camping chair by lpfeffer (CC-BY-4.0), folding table by Innerscene (CC0).
+(exit 0)

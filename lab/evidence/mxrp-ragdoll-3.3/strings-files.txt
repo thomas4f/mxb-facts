@@ -1,0 +1,41 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE 'mxb_ragdoll|MXRP_Ragdoll_(sauvegarde|menus|relief|replay|gfx)|sauvegarde_profils|profils : |COPIES your profile|never writes|gfx\.cfg|controls\.txt|profile\.ini|misc\.pkz|autre\(s\) copie'
+957:ATTENTION : %d autre(s) copie(s) du plugin chargee(s) : "%s" ; supprime-la du dossier plugins et garde seulement MXRP_Ragdoll.dlo (sinon la marche, le ragdoll et le reseau ne marchent pas)
+962:%s\profiles\%s\controls.txt
+1084:moto : mains apprises pas sur la moto tenue (%.2f m du cadre, hauteur %+.2f), poignees du gfx.cfg a la place
+1086:%s\gfx.cfg
+1087:gfx.cfg
+1088:moto : gfx.cfg lu dans %s.pkz
+1091:moto : poignees du gfx.cfg (%s) : gauche %.3f %.3f %.3f, droite %.3f %.3f %.3f
+1092:moto : pas de poignees lisibles dans %s\gfx.cfg (archive .pkz ?), poignees estimees
+1093:moto : poignees du gfx.cfg loin des leviers (%.2f m), on garde les leviers
+1379:plugins\mxb_ragdoll.ini (ancien nom, a renommer en MXRP_Ragdoll.ini)
+1382:%s%smxb_ragdoll%s
+1386:plugins\mxb_ragdoll.ini
+1387:%sMXRP_Ragdoll_replay\horloge.txt
+1392:%sMXRP_Ragdoll_relief
+1396:nom : %d fichier(s) / dossier(s) mxb_ragdoll_* renommes en MXRP_Ragdoll_*
+1446:mxb_ragdoll.fnt
+1450:plugins\mxb_ragdoll.fnt
+1451:police %s : copiee depuis misc.pkz du jeu
+1482:MXRP_Ragdoll_menus
+1484:MXRP_Ragdoll_relief
+1485:MXRP_Ragdoll_replay
+1489:sauvegarde_profils
+1490:mxb_ragdoll.log
+1491:MXRP_Ragdoll_sauvegarde_profils
+2016:%s%sMXRP_Ragdoll_replay
+3179:%sprofiles\%s\profile.ini
+3195:serveur : %d autre(s) copie(s) du nom dans le jeu
+3225:%s%sMXRP_Ragdoll_menus
+3237:%s\misc.pkz
+3242:%s\gfx.cfg
+3243:gfx.cfg
+16994:%s\profile.ini
+16996:profils : premiere copie de "%s" (%d fichiers, %.1f Mo)
+16997:profils : copie de "%s" sauvegardee (%d fichiers, %.1f Mo) dans %s
+17007:EN: every time the game starts, the plugin COPIES your profile here (it never writes to the profile).
+17014:%.*s\sauvegarde_profils
+17015:%s\MXRP_Ragdoll_sauvegarde_profils
+17016:profile.ini
+17017:controls.txt
+(exit 0)

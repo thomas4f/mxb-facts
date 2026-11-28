@@ -489,7 +489,8 @@
     "github": "avare795/MXRP-ragdoll",
     "homepage": null,
     "cards": [
-      "mxrp-ragdoll-3.2.yaml"
+      "mxrp-ragdoll-3.2.yaml",
+      "mxrp-ragdoll-3.3.yaml"
     ],
     "mxb-mods": {
       "post": null,

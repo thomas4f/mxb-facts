@@ -1,0 +1,17 @@
+$ objdump -d 'MXRP_Ragdoll.dlo' | awk -v a=2e3a76678 -v b=2e3a766b9 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   2e3a76678:	8b 05 6a 52 80 00    	mov    0x80526a(%rip),%eax        # 0x2e427b8e8
+   2e3a7667e:	31 c9                	xor    %ecx,%ecx
+   2e3a76680:	85 c0                	test   %eax,%eax
+   2e3a76682:	0f 95 c1             	setne  %cl
+   2e3a76685:	e8 76 1c 03 00       	call   0x2e3aa8300
+   2e3a7668a:	44 8b 35 d7 24 80 00 	mov    0x8024d7(%rip),%r14d        # 0x2e4278b68
+   2e3a76691:	48 8d 15 db 2a 07 00 	lea    0x72adb(%rip),%rdx        # 0x2e3ae9173
+   2e3a76698:	45 85 f6             	test   %r14d,%r14d
+   2e3a7669b:	74 15                	je     0x2e3a766b2
+   2e3a7669d:	44 8b 2d 44 52 80 00 	mov    0x805244(%rip),%r13d        # 0x2e427b8e8
+   2e3a766a4:	48 8d 05 c0 2a 07 00 	lea    0x72ac0(%rip),%rax        # 0x2e3ae916b
+   2e3a766ab:	45 85 ed             	test   %r13d,%r13d
+   2e3a766ae:	48 0f 45 d0          	cmovne %rax,%rdx
+   2e3a766b2:	48 8d 0d f7 2c 07 00 	lea    0x72cf7(%rip),%rcx        # 0x2e3ae93b0
+   2e3a766b9:	e8 c2 b6 fd ff       	call   0x2e3a51d80
+(exit 0)

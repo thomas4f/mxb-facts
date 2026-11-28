@@ -1,0 +1,42 @@
+$ cp -r "$SRC/source" $W/s && mkdir -p $W/s/build $W/s/config && cp MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo $W/s/build/ && cp MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini $W/s/config/ && cp MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt $W/s/ && H=$PWD && cd $W/s/installer && x86_64-w64-mingw32-gcc --version | head -1 && x86_64-w64-mingw32-windres -DRC_PLUGIN='\"1.8.203\"' -DRC_NAME='\"MXRP Beta 3.3\"' installer.rc -O coff -o ../build/installer.res && cd .. && x86_64-w64-mingw32-gcc -O2 -Wall -s -mwindows -static -DVER='"1.8.203"' -DTITLE_NAME='"MXRP Beta 3.3 (1.8.203)"' installer/installer.c src/inflate.c build/installer.res -o build/MXRP_Ragdoll_Installer.exe -lshell32 -lole32 -ladvapi32 && cd "$H" && sha256sum MXRP_Ragdoll_Installer.exe $W/s/build/MXRP_Ragdoll_Installer.exe && stat -c '%s %n' MXRP_Ragdoll_Installer.exe $W/s/build/MXRP_Ragdoll_Installer.exe; echo '== sections (name, size): release, then rebuild'; objdump -h MXRP_Ragdoll_Installer.exe | awk '/^ +[0-9]/{print $2,$3}'; objdump -h $W/s/build/MXRP_Ragdoll_Installer.exe | awk '/^ +[0-9]/{print $2,$3}'; echo '== resources: release, then rebuild'; rsrc.py MXRP_Ragdoll_Installer.exe | grep -v RT_VERSION; rsrc.py $W/s/build/MXRP_Ragdoll_Installer.exe | grep -v RT_VERSION; echo '== the payload of each: the plugin, guide and settings file of the manual zip'; for f in MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini; do sha256sum "$f"; done
+x86_64-w64-mingw32-gcc (GCC) 13-win32
+d039feb7d1e1199d20cffbb49e9bee55281d5fc3f260c68f4ebe57a8ec81a181  MXRP_Ragdoll_Installer.exe
+e3cfb52f1cf9e79ea66b6c9d7c17d6c740a8284ece610def8c9490c30d8d2b03  /tmp/tmp.F0hSUePiNg/s/build/MXRP_Ragdoll_Installer.exe
+8465408 MXRP_Ragdoll_Installer.exe
+8467456 /tmp/tmp.F0hSUePiNg/s/build/MXRP_Ragdoll_Installer.exe
+== sections (name, size): release, then rebuild
+.text 00008b08
+.data 000000d0
+.rdata 00001630
+.pdata 000004e0
+.xdata 000005dc
+.bss 00000ea0
+.idata 00000d44
+.CRT 00000060
+.tls 00000010
+.rsrc 008061b8
+.reloc 000000ac
+.text 00009560
+.data 00000110
+.rdata 00001758
+.pdata 000004ec
+.xdata 000005bc
+.bss 00000ea0
+.idata 00000d28
+.tls 00000010
+.rsrc 008061b8
+.reloc 000000a0
+== resources: release, then rebuild
+10                1 lang  1033 8379904 bytes  ffd37b695d9700a6460d13dff6e06e9c60a2d4fa147777c61f6f4492d47f0572
+10                2 lang  1033   28007 bytes  5e9119b223d8bf513cc758e3a2ff6f30ed36d1030875f300bbd6b4ec424ec97e
+10                3 lang  1033    4070 bytes  4f9c7c78cdecfaab29990ef278d458dc92ac53a603b486c4cf0ffef576dccaa1
+RT_MANIFEST       1 lang  1033     611 bytes  f862287711202e1553541dddc644f725463cb3df833a64042f46de86dc741de2
+10                1 lang  1033 8379904 bytes  ffd37b695d9700a6460d13dff6e06e9c60a2d4fa147777c61f6f4492d47f0572
+10                2 lang  1033   28007 bytes  5e9119b223d8bf513cc758e3a2ff6f30ed36d1030875f300bbd6b4ec424ec97e
+10                3 lang  1033    4070 bytes  4f9c7c78cdecfaab29990ef278d458dc92ac53a603b486c4cf0ffef576dccaa1
+RT_MANIFEST       1 lang  1033     611 bytes  f862287711202e1553541dddc644f725463cb3df833a64042f46de86dc741de2
+== the payload of each: the plugin, guide and settings file of the manual zip
+ffd37b695d9700a6460d13dff6e06e9c60a2d4fa147777c61f6f4492d47f0572  MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo
+5e9119b223d8bf513cc758e3a2ff6f30ed36d1030875f300bbd6b4ec424ec97e  MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt
+4f9c7c78cdecfaab29990ef278d458dc92ac53a603b486c4cf0ffef576dccaa1  MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini
+(exit 0)

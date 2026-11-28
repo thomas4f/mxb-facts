@@ -1,0 +1,39 @@
+$ unzip -l MXRP_Beta_3.3.zip; unzip -l MXRP_Beta_3.3_manual.zip; file MXRP_Ragdoll_1.8.203.dlo MXRP_Ragdoll_Installer.exe 'MXRP Beta 3.3.exe' MXRP_Ragdoll_1.8.203.dlo.sig MXRP_Ragdoll_Installer.exe.sig; find MXRP_Ragdoll -type f | LC_ALL=C sort | xargs -d '\n' file; cmp MXRP_Ragdoll_1.8.203.dlo MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo && cmp MXRP_Ragdoll_Installer.exe 'MXRP Beta 3.3.exe' && echo 'the two single downloads are byte for byte the plugin and the installer in the zips'; echo '== source files at the commit'; cd "$SRC" && git ls-files | xargs file
+Archive:  MXRP_Beta_3.3.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+  8465408  2026-11-28 01:09   MXRP Beta 3.3.exe
+---------                     -------
+  8465408                     1 file
+Archive:  MXRP_Beta_3.3_manual.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+        0  2026-11-28 01:09   MXRP_Ragdoll/
+    28007  2026-11-28 01:09   MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt
+        0  2026-11-28 01:09   MXRP_Ragdoll/plugins/
+  8379904  2026-11-28 01:09   MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo
+     4070  2026-11-28 01:09   MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini
+---------                     -------
+  8411981                     5 files
+MXRP_Ragdoll_1.8.203.dlo:       PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 11 sections
+MXRP_Ragdoll_Installer.exe:     PE32+ executable for MS Windows 5.02 (GUI), x86-64 (stripped to external PDB), 11 sections
+MXRP Beta 3.3.exe:              PE32+ executable for MS Windows 5.02 (GUI), x86-64 (stripped to external PDB), 11 sections
+MXRP_Ragdoll_1.8.203.dlo.sig:   data
+MXRP_Ragdoll_Installer.exe.sig: data
+MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt: ASCII text
+MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo:          PE32+ executable for MS Windows 5.02 (DLL), x86-64 (stripped to external PDB), 11 sections
+MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini:          Unicode text, UTF-8 text
+the two single downloads are byte for byte the plugin and the installer in the zips
+== source files at the commit
+README.md:                           Unicode text, UTF-8 text, with very long lines (647)
+ROADMAP.md:                          Unicode text, UTF-8 text
+source/LICENSE.txt:                  Unicode text, UTF-8 text
+source/README.md:                    Unicode text, UTF-8 text, with very long lines (322)
+source/installer/installer.c:        C source, Unicode text, UTF-8 text
+source/installer/installer.manifest: XML 1.0 document, ASCII text
+source/installer/installer.rc:       C source, Unicode text, UTF-8 text
+source/src/inflate.c:                C source, Unicode text, UTF-8 text
+source/src/inflate.h:                C source, Unicode text, UTF-8 text
+source/src/update.c:                 C source, Unicode text, UTF-8 text
+source/src/update.h:                 C source, Unicode text, UTF-8 text
+(exit 0)

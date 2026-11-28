@@ -1,0 +1,8 @@
+$ iat.py installer.exe | grep -E '0x1400103(b8|d0|e8|f0) |0x140010410 |0x140010470 '
+0x1400103b8  KERNEL32.dll!CreateFileA
+0x1400103d0  KERNEL32.dll!DeleteFileA
+0x1400103e8  KERNEL32.dll!FindFirstFileA
+0x1400103f0  KERNEL32.dll!FindNextFileA
+0x140010410  KERNEL32.dll!GetFileSize
+0x140010470  KERNEL32.dll!ReadFile
+(exit 0)

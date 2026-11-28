@@ -1,0 +1,29 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE '^clavier : crochet|Clavier prioritaire|^respawn :|moto : respawn|Respawn (non|pas) fait|manette simulee|installe \(touches|DirectInput'
+971:respawn : touche du clavier %d (profil %s)
+972:respawn : croix de la manette, direction %d (profil %s)
+973:respawn : bouton %d de la manette = %s si XInput (profil %s, manette %s)
+975:respawn : %s %d d'une manette DirectInput (profil %s, manette %s)
+976:respawn : touche "%s" du profil non geree, croix vers le haut
+977:respawn : pas de touche de respawn dans le profil %s, croix vers le haut
+978:respawn : appui vu par le jeu : DirectInput %ld, XInput %ld, manette simulee %ld lecture(s)
+1134:respawn : touches du profil modifiees, relues
+1297:Clavier prioritaire a pied : OUI (souris pour la camera)
+1298:Clavier prioritaire a pied : NON (souris libre, le jeu voit les touches)
+1323:respawn : la touche de respawn du profil sert aussi au plugin : a pied, le jeu ne la voit plus (respawn par appui long ou en remontant sur la moto)
+1326:respawn : appui long (%.1f s), retour sur la piste
+1357:moto : respawn demande a %.2f s de la montee (touche de respawn du profil%s), vitesse %.2f m/s
+1358:moto : respawn par la manette coupe (pad_respawn = 0), fais-le toi-meme
+1360:Respawn non fait : appuie sur ta touche de respawn
+1361:Respawn pas fait : appuie toi-meme sur ta touche de respawn
+1867:moto : respawn a %.1f m de l'endroit releve, on laisse le jeu la placer
+1868:moto : respawn au bon endroit (%.1f m, %.0f deg), laissee au jeu
+1873:DirectInput8Create
+1874:manette : lecture DirectInput %s interceptee
+1875:manette : DirectInput suivie (appareil %p ; axes X %ld Y %ld Z %ld Rx %ld Ry %ld Rz %ld)
+2077:installe (touches du plugin prioritaires a pied)
+2079:clavier : crochet %s
+2147:Respawn pas fait : appuie toi-meme sur ta touche de respawn
+2152:Clavier prioritaire a pied : OUI (souris pour la camera)
+2157:Clavier prioritaire a pied : NON (souris libre, le jeu voit les touches)
+2496:Respawn non fait : appuie sur ta touche de respawn
+(exit 0)

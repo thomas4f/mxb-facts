@@ -1,0 +1,12 @@
+$ for f in MXRP_Ragdoll.dlo installer.exe MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini "$SRC/README.md"; do echo "== $f"; { strings -n 6 "$f"; strings -el -n 6 "$f"; } | grep -nE 'https?://|www\.|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat|[Cc]offee'; done
+== MXRP_Ragdoll.dlo
+20972:https://
+== installer.exe
+21264:https://
+== MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt
+== MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini
+== /tmp/src/repo/README.md
+7:Get the latest version from the [Releases](https://github.com/avare795/MXRP-ragdoll/releases/latest) page and choose how to install:
+60:- **Discord:** https://discord.gg/XcEYYrB6CX
+61:- Or open an [issue](https://github.com/avare795/MXRP-ragdoll/issues) describing the problem (plugin version, solo or online, and a clip if possible).
+(exit 0)

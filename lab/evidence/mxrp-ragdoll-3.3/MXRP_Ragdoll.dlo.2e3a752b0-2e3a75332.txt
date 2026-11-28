@@ -1,0 +1,33 @@
+$ objdump -d 'MXRP_Ragdoll.dlo' | awk -v a=2e3a752b0 -v b=2e3a75332 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   2e3a752b0:	4c 8b 36             	mov    (%rsi),%r14
+   2e3a752b3:	4c 89 6c 24 20       	mov    %r13,0x20(%rsp)
+   2e3a752b8:	49 89 d9             	mov    %rbx,%r9
+   2e3a752bb:	ba 58 02 00 00       	mov    $0x258,%edx
+   2e3a752c0:	4c 8d 05 6d 3a 07 00 	lea    0x73a6d(%rip),%r8        # 0x2e3ae8d34
+   2e3a752c7:	48 89 f9             	mov    %rdi,%rcx
+   2e3a752ca:	4c 89 74 24 28       	mov    %r14,0x28(%rsp)
+   2e3a752cf:	e8 fc c7 fd ff       	call   0x2e3a51ad0
+   2e3a752d4:	4c 89 74 24 28       	mov    %r14,0x28(%rsp)
+   2e3a752d9:	48 89 e9             	mov    %rbp,%rcx
+   2e3a752dc:	49 89 d9             	mov    %rbx,%r9
+   2e3a752df:	4c 89 6c 24 20       	mov    %r13,0x20(%rsp)
+   2e3a752e4:	4c 8d 05 5b 3a 07 00 	lea    0x73a5b(%rip),%r8        # 0x2e3ae8d46
+   2e3a752eb:	ba 58 02 00 00       	mov    $0x258,%edx
+   2e3a752f0:	e8 db c7 fd ff       	call   0x2e3a51ad0
+   2e3a752f5:	48 89 e9             	mov    %rbp,%rcx
+   2e3a752f8:	41 ff d4             	call   *%r12
+   2e3a752fb:	83 f8 ff             	cmp    $0xffffffff,%eax
+   2e3a752fe:	0f 84 0c 05 00 00    	je     0x2e3a75810
+   2e3a75304:	48 83 c6 08          	add    $0x8,%rsi
+   2e3a75308:	48 8d 05 19 4b 07 00 	lea    0x74b19(%rip),%rax        # 0x2e3ae9e28
+   2e3a7530f:	48 39 c6             	cmp    %rax,%rsi
+   2e3a75312:	0f 84 38 05 00 00    	je     0x2e3a75850
+   2e3a75318:	41 0f b6 07          	movzbl (%r15),%eax
+   2e3a7531c:	3c 5c                	cmp    $0x5c,%al
+   2e3a7531e:	74 0b                	je     0x2e3a7532b
+   2e3a75320:	4c 8d 2d 77 39 07 00 	lea    0x73977(%rip),%r13        # 0x2e3ae8c9e
+   2e3a75327:	3c 2f                	cmp    $0x2f,%al
+   2e3a75329:	75 85                	jne    0x2e3a752b0
+   2e3a7532b:	4c 8d 2d 5a f1 06 00 	lea    0x6f15a(%rip),%r13        # 0x2e3ae448c
+   2e3a75332:	e9 79 ff ff ff       	jmp    0x2e3a752b0
+(exit 0)
