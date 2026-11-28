@@ -33,13 +33,36 @@ test('Clear is off until the list changes, then puts the search, filters, sort a
   await page.locator('#cat').selectOption('HUD');
   await clear.click();
   await expect(page.locator('#q')).toHaveValue('');
-  await expect(page.locator('#sort')).toHaveValue('name');
+  await expect(page.locator('#sort')).toHaveValue('date');
   await expect(page.locator('#game')).toHaveValue('');
   await expect(page.locator('#cat')).toHaveValue('');
   await expect(page).not.toHaveURL(/\?/);
   await expect(page.locator('#count')).toHaveText(/^(\d+) of \1 tools$/);
   await expect(clear).toBeDisabled();
   await expect(page.locator('#q')).toBeFocused();
+});
+
+test('the tools list opens newest analysis first, its categories too, with or without the script', async ({ browser }) => {
+  for (const javaScriptEnabled of [true, false]) {
+    const page = await (await browser.newContext({ javaScriptEnabled })).newPage();
+    await page.goto('');
+    if (javaScriptEnabled) await expect(page.locator('#sort')).toHaveValue('date');
+    const late = await page.locator('#tools-grid > *').evaluateAll(els => {
+      const newest = h => els.filter(e => !e.classList.contains('ghead') && e.dataset.cat === h.dataset.cat).map(e => e.dataset.date).sort().pop();
+      let cat = null, prev = null, last = null;
+      for (const e of els) {
+        if (e.classList.contains('ghead')) {
+          if (last !== null && newest(e) > last) return 'category ' + e.dataset.cat + ' after an older one';
+          cat = e.dataset.cat; last = newest(e); prev = null; continue;
+        }
+        if (prev && (prev.dataset.date < e.dataset.date || prev.dataset.date === e.dataset.date && prev.dataset.name > e.dataset.name)) return e.dataset.name + ' in ' + cat;
+        prev = e;
+      }
+      return null;
+    });
+    expect(late).toBeNull();
+    await page.context().close();
+  }
 });
 
 test('the tools list stays grouped by category whatever the sort, each tool under its own category', async ({ page }) => {
