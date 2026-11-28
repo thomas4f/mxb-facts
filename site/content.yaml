@@ -22,10 +22,8 @@ ai_short: >-
   An AI analyses each tool from a public prompt, and no person checks each answer, so one can be wrong.
   [How it works](https://thomas4f.github.io/mxb-facts/how/)
 maintainer_notice: >-
-  **Made by the maintainer of MXB Facts.** thomas4f, who runs this project, makes this tool. It is analysed from the same
-  prompt, answers the same questions and is scored by the same fixed costs as every other tool, and every line links its
-  evidence, so you can check it yourself. The maintainer directs and publishes every card, this one included. Like any author, the
-  maintainer can run the For authors check on a release before it is out ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
+  **Made by thomas4f, who runs MXB Facts and publishes its cards, this one included.** It gets the same prompt, questions and
+  fixed costs as every other tool ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
 # What a mark is, and what a tag is, in the Reading a card legend: one line each, above its list.
 marks: >-
   Every answer has one mark, the same colour and icon on every card: what it means for you and, where the tool has a score,
