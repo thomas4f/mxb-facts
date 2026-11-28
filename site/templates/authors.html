@@ -14,7 +14,7 @@
 {% set qs = SITE.questions | selectattr('area', 'equalto', a.id) | list %}
 {% call fold('good-' ~ a.id, a.name ~ ' · ' ~ qs | length ~ ' questions', open=True) %}
 <div class="tw"><table class="t"><thead><tr><th scope="col">Question</th><th scope="col">Good when</th><th scope="col">Cost at most</th></tr></thead><tbody>
-{% for q in qs %}<tr><td><code>{{ q.id }}</code> {{ q.question }}</td><td>{{ q.good_when }}</td><td class="num">{{ '−' ~ q.max_cost if q.max_cost else '–' }}</td></tr>{% endfor %}
+{% for q in qs %}<tr><td class="qt"><code>{{ q.id }}</code> <span>{{ q.question }}</span></td><td>{{ q.good_when }}</td><td class="num">{{ '−' ~ q.max_cost if q.max_cost else '–' }}</td></tr>{% endfor %}
 </tbody></table></div>
 {% endcall %}
 {% endfor %}

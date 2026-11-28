@@ -227,6 +227,10 @@ table.t th { color: var(--muted); font-weight: 600; font-size: 13px }
   table.t.t-stack td { padding: 0; border: 0 } table.t.t-stack td:first-child { font-weight: 600 }
   table.t.t-stack td:not(:first-child)::before { content: attr(data-l); display: block; color: var(--muted); font-size: 13px; font-weight: 600 }
   table.t.t-stack td:empty { display: none }
+  /* A table that sits straight in a fold, against its border, keeps the fold's inset, as its title does. */
+  details.fold > .body > .tw > table.t.t-stack tr, details.fold > .body > div:not([class]) > .tw > table.t.t-stack tr { padding-inline: var(--s4) }
+  /* A question's ID sits beside it, and the question wraps under itself, not under the ID. */
+  table.t.t-stack td.qt { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: var(--s2); align-items: baseline }
 }
 /* The table's box draws the last line; a row's own line there would double it. */
 table.t tbody tr:last-child > *, table.cmp tbody tr:last-child > * { border-bottom: 0 }
