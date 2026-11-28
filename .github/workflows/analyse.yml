@@ -21,7 +21,7 @@ name: Analyse a tool
 # untrusted files (releases, READMEs, pages) in a job that can only read the repository, with no git credentials kept in the
 # checkout and a spending limit (tools/agent_run.py). VirusTotal hash lookups of the release files and what they unpack
 # to are made beside the Windows run ("vt-hash", "vt-lookup"), for the analysis to answer P1 from; the files players download
-# that VirusTotal has no record of are uploaded there only when "upload" is set, for a tool whose author agreed, and the
+# that VirusTotal has no record of are uploaded there only when "upload" is set and the
 # plan's licence read is "allows" (rule 6; CLAUDE.md, "VirusTotal"). A last job, which runs
 # nothing from the analysis, applies its changes (never to workflow files), writes vt/results.json from those lookups,
 # opens the draft pull request and starts "Check cards" on it.
@@ -105,7 +105,7 @@ on:
         description: "The game demo to run the plugins in, e.g. beta21e (lab/real-game/games.json; leave empty: the tool's pin in registry/tools.json, else the newest)"
         default: ""
       upload:
-        description: "Upload to VirusTotal the release files it has no record of: only when the tool's author agreed (the hash lookups always run)"
+        description: "Upload to VirusTotal the public release files it has no record of (the hash lookups always run)"
         type: boolean
         default: false
 permissions: {}
