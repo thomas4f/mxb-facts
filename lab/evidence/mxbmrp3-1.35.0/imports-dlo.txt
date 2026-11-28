@@ -1,0 +1,49 @@
+$ objdump -p zip/mxbmrp3.dlo | grep 'DLL Name'; iat.py zip/mxbmrp3.dlo | grep -E 'SetUnhandledExceptionFilter|OpenProcess|VirtualProtect|GetAsyncKeyState|GetForegroundWindow|ShellExecuteA|RegGetValueA|RegQueryValueExA|RegOpenKeyExA|WinHttpOpen$|WinHttpConnect|WinHttpWebSocketCompleteUpgrade|WS2_32.dll!(bind|listen|accept)$|XInputSetState|MiniDumpWriteDump|GetProcAddress$|GetModuleHandleA$'; echo '--- absent:'; iat.py zip/mxbmrp3.dlo | grep -E 'RegSetValue|RegCreateKey|RegDeleteKey|WriteProcessMemory|ReadProcessMemory|VirtualAllocEx|CreateRemoteThread|SetWindowsHookEx|SendInput|keybd_event|mouse_event|CreateProcess|WinExec|AddVectoredExceptionHandler|SetWindowLongPtr' || echo 'none of: registry writes, Read/WriteProcessMemory, VirtualAllocEx, CreateRemoteThread, SetWindowsHookEx, SendInput, keybd_event, mouse_event, CreateProcess, WinExec, AddVectoredExceptionHandler, SetWindowLongPtr'; echo '--- the GP Bikes and Kart Racing Pro plugins import the same:'; for f in zip/mxbmrp3_gpb.dlo zip/mxbmrp3_krp.dlo; do diff <(objdump -p zip/mxbmrp3.dlo | grep 'DLL Name') <(objdump -p $f | grep 'DLL Name') > /dev/null && echo "$f: same DLLs"; done
+	DLL Name: XINPUT1_4.dll
+	DLL Name: WINMM.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: USER32.dll
+	DLL Name: GDI32.dll
+	DLL Name: SHELL32.dll
+	DLL Name: ole32.dll
+	DLL Name: ADVAPI32.dll
+	DLL Name: WINHTTP.dll
+	DLL Name: bcrypt.dll
+	DLL Name: dwmapi.dll
+	DLL Name: dbghelp.dll
+	DLL Name: WS2_32.dll
+	DLL Name: api-ms-win-core-synch-l1-2-0.dll
+	DLL Name: api-ms-win-core-localization-l1-2-0.dll
+	DLL Name: api-ms-win-core-synch-l1-1-0.dll
+	DLL Name: api-ms-win-core-processthreads-l1-1-0.dll
+	DLL Name: api-ms-win-core-rtlsupport-l1-1-0.dll
+	DLL Name: api-ms-win-core-errorhandling-l1-1-0.dll
+	DLL Name: api-ms-win-core-util-l1-1-0.dll
+	DLL Name: api-ms-win-core-processthreads-l1-1-1.dll
+	DLL Name: api-ms-win-core-string-l1-1-0.dll
+	DLL Name: api-ms-win-core-debug-l1-1-0.dll
+	DLL Name: api-ms-win-core-interlocked-l1-1-0.dll
+	DLL Name: OLEAUT32.dll
+	DLL Name: api-ms-win-core-winrt-error-l1-1-1.dll
+	DLL Name: api-ms-win-core-winrt-l1-1-0.dll
+0x1802ff100  KERNEL32.dll!GetModuleHandleA
+0x1802ff118  KERNEL32.dll!SetUnhandledExceptionFilter
+0x1802ff188  KERNEL32.dll!GetProcAddress
+0x1802ff1b0  KERNEL32.dll!OpenProcess
+0x1802ff388  KERNEL32.dll!VirtualProtect
+0x1802ff5a0  USER32.dll!GetAsyncKeyState
+0x1802ff5c0  USER32.dll!GetForegroundWindow
+0x1802ff4f0  SHELL32.dll!ShellExecuteA
+0x1802ff000  ADVAPI32.dll!RegGetValueA
+0x1802ff008  ADVAPI32.dll!RegQueryValueExA
+0x1802ff010  ADVAPI32.dll!RegOpenKeyExA
+0x1802ff630  WINHTTP.dll!WinHttpConnect
+0x1802ff650  WINHTTP.dll!WinHttpOpen
+0x1802ff668  WINHTTP.dll!WinHttpWebSocketCompleteUpgrade
+0x1802ff910  dbghelp.dll!MiniDumpWriteDump
+--- absent:
+none of: registry writes, Read/WriteProcessMemory, VirtualAllocEx, CreateRemoteThread, SetWindowsHookEx, SendInput, keybd_event, mouse_event, CreateProcess, WinExec, AddVectoredExceptionHandler, SetWindowLongPtr
+--- the GP Bikes and Kart Racing Pro plugins import the same:
+zip/mxbmrp3_gpb.dlo: same DLLs
+zip/mxbmrp3_krp.dlo: same DLLs
+(exit 0)

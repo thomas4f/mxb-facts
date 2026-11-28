@@ -1,0 +1,22 @@
+$ cd "$SRC" && git ls-files usage_survey/rollup; echo '--- installs.csv.gz: header columns 1-7, rows:'; zcat usage_survey/rollup/installs.csv.gz | head -1 | cut -d, -f1-7; zcat usage_survey/rollup/installs.csv.gz | tail -n +2 | wc -l; echo '--- 2026-11.csv.gz: header, rows:'; zcat usage_survey/rollup/2026-11.csv.gz | head -1; zcat usage_survey/rollup/2026-11.csv.gz | tail -n +2 | wc -l; echo '--- how the install column is made:'; grep -nE 'blake2s|REPLACED by' tools/analytics_rollup.py; echo '--- what the README says is published:'; grep -nE 'aggregate results are published' README.md | cut -c1-200
+usage_survey/rollup/2026-06.csv.gz
+usage_survey/rollup/2026-07.csv.gz
+usage_survey/rollup/2026-08.csv.gz
+usage_survey/rollup/2026-09.csv.gz
+usage_survey/rollup/2026-10.csv.gz
+usage_survey/rollup/2026-11.csv.gz
+usage_survey/rollup/installs.csv.gz
+usage_survey/rollup/manifest.json
+--- installs.csv.gz: header columns 1-7, rows:
+install,timestamp,game,version,country,os_version,s
+27479
+--- 2026-11.csv.gz: header, rows:
+event,hour,install,game,version,cov,secs,host,fault,code,av_type,game_build,crash_plugin_version,seq,n
+5261
+--- how the install column is made:
+35:#   `install_id` is REPLACED by a blake2s digest of itself (iid()), so the
+111:    """Stable, one-way id for an install. 16 hex chars of blake2s: collision
+116:    return hashlib.blake2s(str(raw).encode("utf-8"), digest_size=8).hexdigest()
+--- what the README says is published:
+435:**What the data actually adds up to:** the aggregate results are published as an [interactive page](https://thomas4f.github.io/mxbmrp3/usage_survey/) (also [`usage_survey/REPORT.md`](usage_survey/
+(exit 0)

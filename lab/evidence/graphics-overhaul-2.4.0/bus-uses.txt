@@ -1,0 +1,40 @@
+$ objdump -d overhaul64.dlo | grep -A10 'call.*L3busEv>' | grep -E 'call.*L3busEv>|\(%r[a-z0-9]+\)|0x[0-9a-f]+\(%r(ax|bx|si)\)' | head -40; strings -n 6 overhaul64.dlo | grep -n 'OverhaulPanels'
+   38c54fd0a:	e8 e1 e6 ff ff       	call   38c54e3f0 <_ZN5panel12_GLOBAL__N_1L3busEv>
+   38c54fd19:	8b 5e 18             	mov    0x18(%rsi),%ebx
+   38c54fd1c:	48 8b 3d 0d 3f 11 00 	mov    0x113f0d(%rip),%rdi        # 38c663c30 <__imp_GetTickCount>
+   38c563605:	e8 e6 ad fe ff       	call   38c54e3f0 <_ZN5panel12_GLOBAL__N_1L3busEv>
+   38c563616:	80 3d 43 c4 0f 00 00 	cmpb   $0x0,0xfc443(%rip)        # 38c65fa60 <_ZZN5panel12_GLOBAL__N_1L14panel_expandedEvE6loaded>
+   38c563623:	44 8b 56 1c          	mov    0x1c(%rsi),%r10d
+   38c563634:	f3 0f 10 05 90 f7 07 	movss  0x7f790(%rip),%xmm0        # 38c5e2dcc <_ZN5panel12_GLOBAL__N_1L9kAdvLinesE+0x78c>
+   38c5639e2:	e8 09 aa fe ff       	call   38c54e3f0 <_ZN5panel12_GLOBAL__N_1L3busEv>
+   38c5639e7:	f3 0f 10 2d c1 f4 07 	movss  0x7f4c1(%rip),%xmm5        # 38c5e2eb0 <_ZN5panel12_GLOBAL__N_1L9kAdvLinesE+0x870>
+   38c5639ef:	f3 0f 10 05 bd f4 07 	movss  0x7f4bd(%rip),%xmm0        # 38c5e2eb4 <_ZN5panel12_GLOBAL__N_1L9kAdvLinesE+0x874>
+   38c5639f7:	f3 0f 11 74 24 50    	movss  %xmm6,0x50(%rsp)
+   38c5639fd:	f3 44 0f 10 35 76 f4 	movss  0x7f476(%rip),%xmm14        # 38c5e2e7c <_ZN5panel12_GLOBAL__N_1L9kAdvLinesE+0x83c>
+   38c56a3da:	e8 11 40 fe ff       	call   38c54e3f0 <_ZN5panel12_GLOBAL__N_1L3busEv>
+   38c56a3e4:	44 89 38             	mov    %r15d,(%rax)
+   38c56a3ec:	f0 0f c1 50 04       	lock xadd %edx,0x4(%rax)
+   38c56a3f4:	89 15 f2 5f 0f 00    	mov    %edx,0xf5ff2(%rip)        # 38c6603ec <_ZN5panel12_GLOBAL__N_1L8s_busSeqE>
+   38c56a3fa:	c6 05 e7 5f 0f 00 00 	movb   $0x0,0xf5fe7(%rip)        # 38c6603e8 <_ZN5panel12_GLOBAL__N_1L6s_openE>
+   38c56a401:	c6 05 f8 58 0f 00 00 	movb   $0x0,0xf58f8(%rip)        # 38c65fd00 <_ZN5panel12_GLOBAL__N_1L4s_fbE>
+   38c56a41c:	e8 cf 3f fe ff       	call   38c54e3f0 <_ZN5panel12_GLOBAL__N_1L3busEv>
+   38c56a42a:	89 50 1c             	mov    %edx,0x1c(%rax)
+   38c56a42d:	48 8b 05 9c 28 08 00 	mov    0x8289c(%rip),%rax        # 38c5eccd0 <.refptr._Z9g_dataDirB5cxx11>
+   38c56a434:	48 8b 74 24 38       	mov    0x38(%rsp),%rsi
+   38c56a439:	4c 8d 0d 43 18 07 00 	lea    0x71843(%rip),%r9        # 38c5dbc83 <.rdata+0x103>
+   38c56a440:	48 8b 10             	mov    (%rax),%rdx
+   38c56a443:	4c 8b 40 08          	mov    0x8(%rax),%r8
+   38c56bf43:	e8 a8 24 fe ff       	call   38c54e3f0 <_ZN5panel12_GLOBAL__N_1L3busEv>
+   38c56bf50:	ff 15 da 7c 0f 00    	call   *0xf7cda(%rip)        # 38c663c30 <__imp_GetTickCount>
+   38c56bf59:	89 43 0c             	mov    %eax,0xc(%rbx)
+   38c56bf5c:	8b 05 8a 44 0f 00    	mov    0xf448a(%rip),%eax        # 38c6603ec <_ZN5panel12_GLOBAL__N_1L8s_busSeqE>
+   38c56bf62:	39 43 04             	cmp    %eax,0x4(%rbx)
+   38c56bf67:	8b 43 04             	mov    0x4(%rbx),%eax
+   38c56c6bd:	e8 2e 1d fe ff       	call   38c54e3f0 <_ZN5panel12_GLOBAL__N_1L3busEv>
+   38c56c6cb:	c7 00 01 00 00 00    	movl   $0x1,(%rax)
+   38c56c6d6:	f0 0f c1 50 04       	lock xadd %edx,0x4(%rax)
+   38c56c6de:	89 15 08 3d 0f 00    	mov    %edx,0xf3d08(%rip)        # 38c6603ec <_ZN5panel12_GLOBAL__N_1L8s_busSeqE>
+   38c56c6e9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
+   38c56c6f0:	89 1d 0a 3b 06 00    	mov    %ebx,0x63b0a(%rip)        # 38c5d0200 <_ZN5panel12_GLOBAL__N_1L5s_keyE>
+1535:Local\OverhaulPanels_%lu
+(exit 0)

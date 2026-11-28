@@ -1,0 +1,9 @@
+Internet connections the run's processes tried (Process Monitor), then the firewall's drops for them. Every program in the run folder was blocked by the firewall, so this shows attempts, not traffic.
+6:29:59.8804422 PM  mxbikes.exe (8048)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54376 -> cdn-185-199-110-133.github.com:https  SUCCESS
+6:29:59.8806397 PM  mxbikes.exe (8048)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54377 -> cdn-185-199-109-133.github.com:https  SUCCESS
+6:29:59.8808149 PM  mxbikes.exe (8048)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54378 -> cdn-185-199-108-133.github.com:https  SUCCESS
+6:29:59.8809656 PM  mxbikes.exe (8048)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54379 -> cdn-185-199-111-133.github.com:https  SUCCESS
+6:29:59.9318161 PM  mxbikes.exe (8048)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54380 -> 152-233-50-1.bunnyinfra.net:https  SUCCESS
+6:29:59.9339063 PM  mxbikes.exe (8048)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54381 -> www.goatcounter.com:https  SUCCESS
+6:30:06.9222322 PM  mxbikes.exe (8048)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54384 -> 152-233-50-1.bunnyinfra.net:https  SUCCESS
+2026-11-27 18:29:59 DROP TCP 10.1.0.150 185.199.110.133 54376 443 0 - 0 0 0 - - - SEND 8048

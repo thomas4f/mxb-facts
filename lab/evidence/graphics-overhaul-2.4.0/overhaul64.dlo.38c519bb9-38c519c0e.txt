@@ -1,0 +1,21 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c519bb9 -v b=38c519c0e '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c519bb9:	ff 15 89 a7 14 00    	call   *0x14a789(%rip)        # 38c664348 <__imp_GetForegroundWindow>
+   38c519bbf:	c7 84 24 8c 00 00 00 	movl   $0x0,0x8c(%rsp)
+   38c519bc6:	00 00 00 00 
+   38c519bca:	48 8d 94 24 8c 00 00 	lea    0x8c(%rsp),%rdx
+   38c519bd1:	00 
+   38c519bd2:	48 89 c1             	mov    %rax,%rcx
+   38c519bd5:	ff 15 7d a7 14 00    	call   *0x14a77d(%rip)        # 38c664358 <__imp_GetWindowThreadProcessId>
+   38c519bdb:	ff 15 bf 9f 14 00    	call   *0x149fbf(%rip)        # 38c663ba0 <__imp_GetCurrentProcessId>
+   38c519be1:	3b 84 24 8c 00 00 00 	cmp    0x8c(%rsp),%eax
+   38c519be8:	0f 85 a2 fc ff ff    	jne    38c519890 <_ZN12_GLOBAL__N_1L14hk_SwapBuffersEP5HDC__+0x8b0>
+   38c519bee:	48 8b 2d 33 a7 14 00 	mov    0x14a733(%rip),%rbp        # 38c664328 <__imp_GetAsyncKeyState>
+   38c519bf5:	b9 78 00 00 00       	mov    $0x78,%ecx
+   38c519bfa:	ff d5                	call   *%rbp
+   38c519bfc:	41 89 c5             	mov    %eax,%r13d
+   38c519bff:	b9 79 00 00 00       	mov    $0x79,%ecx
+   38c519c04:	ff d5                	call   *%rbp
+   38c519c06:	41 89 c6             	mov    %eax,%r14d
+   38c519c09:	b9 11 00 00 00       	mov    $0x11,%ecx
+   38c519c0e:	ff d5                	call   *%rbp
+(exit 0)

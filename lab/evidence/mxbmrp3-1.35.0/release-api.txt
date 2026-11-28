@@ -1,0 +1,7 @@
+$ curl -sS https://api.github.com/repos/thomas4f/mxbmrp3/releases/tags/v1.35.0 | python3 -I -c 'import json,sys; d=json.load(sys.stdin); print("release", d["tag_name"], "author", d["author"]["login"], "published", d["published_at"]); [print(a["name"], "uploaded by", a["uploader"]["login"], a["digest"], a["updated_at"]) for a in d["assets"]]'; curl -sS 'https://api.github.com/repos/thomas4f/mxbmrp3/actions/runs?head_sha=64f3f33db2bb3e0df41649159bceae309a2a0b68' | python3 -I -c 'import json,sys; [print(r["name"], r["event"], r["head_branch"], r["head_sha"], r["conclusion"], r["created_at"], r["html_url"]) for r in json.load(sys.stdin)["workflow_runs"] if r["name"] == "release"]'
+release v1.35.0 author github-actions[bot] published 2026-11-08T13:37:40Z
+mxbmrp3-Setup.exe uploaded by github-actions[bot] sha256:4a30fbd20b01b1c22b962c8ea16e6bc4617ac1e42447b668edc174dcb3324dc9 2026-11-08T13:37:09Z
+mxbmrp3.cdx.json uploaded by github-actions[bot] sha256:107fa04299487cbd9e0259648759d67152769f6bbc61e5539eb790089744b90c 2026-11-08T13:37:08Z
+mxbmrp3.zip uploaded by github-actions[bot] sha256:0b2d7654d3e830cc192fd3e1cc8eb71342b9ce3e03f73eb62b7918959abebe80 2026-11-08T13:37:09Z
+release workflow_dispatch main 64f3f33db2bb3e0df41649159bceae309a2a0b68 success 2026-11-08T12:46:50Z https://github.com/thomas4f/mxbmrp3/actions/runs/42481831950
+(exit 0)

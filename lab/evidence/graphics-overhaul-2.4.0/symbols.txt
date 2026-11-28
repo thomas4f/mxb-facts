@@ -1,0 +1,82 @@
+$ objdump -d overhaul64.dlo | grep -E '^[0-9a-f]+ <' | sed 's/^[0-9a-f]* <\(.*\)>:/\1/' | c++filt | grep -E '^((\(anonymous namespace\)::)?(swap_pointers|scan_ranges|sibling_hooks|hk_[A-Za-z]+)|hooks_|OverhaulHookFor|rutlink::|ragdoll::(load_rig|before_draw|after_draw|active|set_telemetry)|materials::on_use_program|panel::\(anonymous namespace\)::(bus|panel_proc|share_preset|export_preset|import_clipboard|fb_list|browse_start|user_dir|rename_commit|list_presets)|panel::on_swap|crash_catcher|hang_watch|make_presets_dir|presets_dir|Startup|Shutdown)' | sort -u
+(anonymous namespace)::hk_SwapBuffers(HDC__*)
+(anonymous namespace)::hk_SwapBuffers(HDC__*) [clone .cold]
+(anonymous namespace)::hk_glBegin(unsigned int)
+(anonymous namespace)::hk_glBlendFunc(unsigned int, unsigned int)
+(anonymous namespace)::hk_glClear(unsigned int)
+(anonymous namespace)::hk_glColorMask(unsigned char, unsigned char, unsigned char, unsigned char)
+(anonymous namespace)::hk_glDisable(unsigned int)
+(anonymous namespace)::hk_glDrawArrays(unsigned int, int, int)
+(anonymous namespace)::hk_glDrawElements(unsigned int, int, unsigned int, void const*)
+(anonymous namespace)::hk_glDrawElementsBaseVertex(unsigned int, int, unsigned int, void const*, int)
+(anonymous namespace)::hk_glDrawRangeElements(unsigned int, unsigned int, unsigned int, int, unsigned int, void const*)
+(anonymous namespace)::hk_glDrawRangeElementsBaseVertex(unsigned int, unsigned int, unsigned int, int, unsigned int, void const*, int)
+(anonymous namespace)::hk_glDrawRangeElementsEXT(unsigned int, unsigned int, unsigned int, int, unsigned int, void const*)
+(anonymous namespace)::hk_glEnable(unsigned int)
+(anonymous namespace)::hk_glFrustum(double, double, double, double, double, double)
+(anonymous namespace)::hk_glGetIntegerv(unsigned int, int*)
+(anonymous namespace)::hk_glLightfv(unsigned int, unsigned int, float const*)
+(anonymous namespace)::hk_glLoadIdentity()
+(anonymous namespace)::hk_glLoadMatrixf(float const*)
+(anonymous namespace)::hk_glLoadMatrixf(float const*) [clone .cold]
+(anonymous namespace)::hk_glMatrixMode(unsigned int)
+(anonymous namespace)::hk_glOrtho(double, double, double, double, double, double)
+(anonymous namespace)::hk_glPopAttrib()
+(anonymous namespace)::hk_glReadPixels(int, int, int, int, unsigned int, unsigned int, void*)
+(anonymous namespace)::hk_glScissor(int, int, int, int)
+(anonymous namespace)::hk_glViewport(int, int, int, int)
+(anonymous namespace)::hk_wglGetProcAddress(char const*)
+(anonymous namespace)::scan_ranges(bool) [clone .constprop.0]
+(anonymous namespace)::scan_ranges(bool) [clone .constprop.0] [clone .cold]
+(anonymous namespace)::sibling_hooks(char const*)
+(anonymous namespace)::sibling_hooks(char const*) [clone .cold]
+(anonymous namespace)::swap_pointers(std::vector<(anonymous namespace)::Range, std::allocator<(anonymous namespace)::Range> > const&, void*, void*)
+OverhaulHookFor
+Shutdown
+Startup
+Startup.cold
+crash_catcher
+crash_catcher.part.0
+hang_watch
+hang_watch.cold
+hooks_install(HookSlot*, int)
+hooks_install(HookSlot*, int) [clone .cold]
+hooks_redirect(HookSlot*, int, char const*, void*)
+hooks_register(HookSlot*, int)
+make_presets_dir()
+make_presets_dir() [clone .cold]
+materials::on_use_program(unsigned int)
+materials::on_use_program(unsigned int) [clone .cold]
+panel::(anonymous namespace)::browse_start()
+panel::(anonymous namespace)::browse_start() [clone .cold]
+panel::(anonymous namespace)::bus()
+panel::(anonymous namespace)::export_preset()
+panel::(anonymous namespace)::export_preset() [clone .cold]
+panel::(anonymous namespace)::fb_list()
+panel::(anonymous namespace)::fb_list() [clone .cold]
+panel::(anonymous namespace)::import_clipboard()
+panel::(anonymous namespace)::import_clipboard() [clone .cold]
+panel::(anonymous namespace)::list_presets()
+panel::(anonymous namespace)::list_presets() [clone .cold]
+panel::(anonymous namespace)::panel_proc(HWND__*, unsigned int, unsigned long long, long long)
+panel::(anonymous namespace)::rename_commit()
+panel::(anonymous namespace)::rename_commit() [clone .cold]
+panel::(anonymous namespace)::share_preset(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+panel::(anonymous namespace)::share_preset(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [clone .cold]
+panel::(anonymous namespace)::user_dir(char const*)
+panel::(anonymous namespace)::user_dir(char const*) [clone .cold]
+panel::on_swap()
+panel::on_swap() [clone .cold]
+presets_dir[abi:cxx11]()
+presets_dir[abi:cxx11]() [clone .cold]
+ragdoll::active()
+ragdoll::after_draw()
+ragdoll::before_draw(int, void const*, bool, M4 const*)
+ragdoll::before_draw(int, void const*, bool, M4 const*) [clone .cold]
+ragdoll::load_rig(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
+ragdoll::load_rig(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) [clone .cold]
+ragdoll::set_telemetry(Telemetry const&)
+rutlink::(anonymous namespace)::find()
+rutlink::drive(M4 const&, M4 const&, unsigned int, int, int, float)
+rutlink::map()
+(exit 0)

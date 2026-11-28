@@ -1,0 +1,14 @@
+$ cd "$SRC/mxbmrp3/core" && grep -nE 'SetUnhandledExceptionFilter|return s_previousFilter\(info\)|EXCEPTION_CONTINUE_SEARCH;|crashes\\\\mxbmrp3_crash|MiniDumpWriteDump\(' crash_handler.cpp | head -12
+115:        if (s_previousFilter) return s_previousFilter(info);
+116:        return EXCEPTION_CONTINUE_SEARCH;
+134:        if (s_previousFilter) return s_previousFilter(info);
+135:        return EXCEPTION_CONTINUE_SEARCH;
+141:        if (s_previousFilter) return s_previousFilter(info);
+142:        return EXCEPTION_CONTINUE_SEARCH;
+147:        "%s\\" MXB_USER_DIR_NAME "\\crashes\\mxbmrp3_crash_%04d%02d%02d_%02d%02d%02d_%lu.dmp",
+153:        if (s_previousFilter) return s_previousFilter(info);
+154:        return EXCEPTION_CONTINUE_SEARCH;
+181:        BOOL dumpOk = MiniDumpWriteDump(GetCurrentProcess(), GetCurrentProcessId(),
+219:        "%s\\" MXB_USER_DIR_NAME "\\crashes\\mxbmrp3_crash_%04d%02d%02d_%02d%02d%02d_%lu.log",
+396:        return s_previousFilter(info);
+(exit 0)

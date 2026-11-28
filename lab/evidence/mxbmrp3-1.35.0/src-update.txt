@@ -1,0 +1,23 @@
+$ cd "$SRC/mxbmrp3/core" && grep -nE 'm_mode\(UpdateMode::NOTIFY\)' update_checker.cpp; grep -nE 'checking for updates on startup|checkForUpdates\(\);' settings_manager.cpp; grep -nE '/releases\?per_page|"digest"|sha256:' update_checker.cpp; grep -nE 'host == "github.com"|githubusercontent.com"|SHA256 checksum mismatch|installing on TLS trust alone' update_downloader.cpp; grep -nE 'dloDst = backupDir|dataDst = backupDir|find\("\.\."\)|deleteDirectoryRecursive\(backupDir\)' update_downloader_install.cpp; grep -rnE 'UPDATE_BACKUP_DIR|mxbmrp3_update_backup' . | grep -v test | head -3
+27:    , m_mode(UpdateMode::NOTIFY)  // Notify by default (stable channel); notify-only, never auto-installs
+756:        DEBUG_INFO("Update check enabled, checking for updates on startup");
+766:        UpdateChecker::getInstance().checkForUpdates();
+280:    apiPath += "/releases?per_page=15";
+483:                // Extract SHA256 from digest field (format: "sha256:abc123...")
+484:                if (asset.contains("digest") && asset["digest"].is_string()) {
+485:                    std::string digest = asset["digest"].get<std::string>();
+486:                    if (digest.substr(0, 7) == "sha256:") {
+464:                    m_errorMessage = N_("SHA256 checksum mismatch");
+478:            DEBUG_WARN("UpdateDownloader: release API provided no SHA256 digest - installing on TLS trust alone");
+579:    return host == "github.com" ||
+581:           endsWith(host, ".githubusercontent.com");
+39:    deleteDirectoryRecursive(backupDir);
+187:    std::string dloDst = backupDir + GAME_DLO_NAME;
+199:    std::string dataDst = backupDir + MXB_DATA_DIR_NAME;
+270:    deleteDirectoryRecursive(backupDir);
+393:        if (filename.find("..") != std::string::npos ||
+511:        if (filename.find("..") != std::string::npos ||
+./update_downloader_install.cpp:461:        backupDir = pluginDir + "mxbmrp3_update_backup\\";
+./update_downloader_install.cpp:569:            // recover from mxbmrp3_update_backup\ rather than assuming a clean revert.
+./update_downloader_install.cpp:571:            outError = extractError + " (rollback incomplete - recover from mxbmrp3_update_backup)";
+(exit 0)

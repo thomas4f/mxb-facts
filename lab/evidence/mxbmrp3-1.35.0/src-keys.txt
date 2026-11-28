@@ -1,0 +1,44 @@
+$ cd "$SRC/mxbmrp3/core" && grep -nE 'GetAsyncKeyState|isCursorEnabled\(\)\) \{|Always update previous input|foregroundPid == m_processId|if \(m_bCursorEnabled\) \{' hotkey_manager.cpp input_manager.cpp | head -40; grep -nE 'VK_OEM_3|VK_NEXT|VK_PRIOR' hotkey_config.h | head -5
+hotkey_manager.cpp:63:        m_prevKeyStates[i] = (GetAsyncKeyState(i) & 0x8000) != 0;
+hotkey_manager.cpp:112:    if (InputManager::getInstance().isCursorEnabled()) {
+hotkey_manager.cpp:133:    // Always update previous input states (even when unfocused) to prevent
+hotkey_manager.cpp:137:    // 256 GetAsyncKeyState syscalls per frame are measurable at 480fps.
+hotkey_manager.cpp:140:            m_prevKeyStates[i] = (GetAsyncKeyState(i) & 0x8000) != 0;
+hotkey_manager.cpp:146:                m_prevKeyStates[vk] = (GetAsyncKeyState(vk) & 0x8000) != 0;
+hotkey_manager.cpp:215:        m_prevKeyStates[i] = (GetAsyncKeyState(i) & 0x8000) != 0;
+hotkey_manager.cpp:240:        m_prevKeyStates[i] = (GetAsyncKeyState(i) & 0x8000) != 0;
+hotkey_manager.cpp:310:    if ((GetAsyncKeyState(VK_CONTROL) & 0x8000) != 0) {
+hotkey_manager.cpp:313:    if ((GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0) {
+hotkey_manager.cpp:316:    if ((GetAsyncKeyState(VK_MENU) & 0x8000) != 0) {
+hotkey_manager.cpp:405:    return (GetAsyncKeyState(vkCode) & 0x8000) != 0;
+hotkey_manager.cpp:409:    const bool ctrl = (GetAsyncKeyState(VK_CONTROL) & 0x8000) != 0;
+hotkey_manager.cpp:410:    const bool shift = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+hotkey_manager.cpp:411:    const bool alt = (GetAsyncKeyState(VK_MENU) & 0x8000) != 0;
+hotkey_manager.cpp:521:    bool isPressed = (GetAsyncKeyState(vkCode) & 0x8000) != 0;
+input_manager.cpp:123:    if (m_bCursorEnabled) {
+input_manager.cpp:172:            if (m_bCursorEnabled) {
+input_manager.cpp:184:    if (foregroundPid == m_processId) {
+input_manager.cpp:258:                if (m_bCursorEnabled) {
+input_manager.cpp:341:    m_leftButton.isPressed = (GetAsyncKeyState(VK_LBUTTON) & 0x8000) != 0;
+input_manager.cpp:342:    m_rightButton.isPressed = (GetAsyncKeyState(VK_RBUTTON) & 0x8000) != 0;
+input_manager.cpp:346:    m_f1Key.isPressed = (GetAsyncKeyState(VK_F1) & 0x8000) != 0;
+input_manager.cpp:347:    m_f2Key.isPressed = (GetAsyncKeyState(VK_F2) & 0x8000) != 0;
+input_manager.cpp:348:    m_f3Key.isPressed = (GetAsyncKeyState(VK_F3) & 0x8000) != 0;
+input_manager.cpp:349:    m_f4Key.isPressed = (GetAsyncKeyState(VK_F4) & 0x8000) != 0;
+input_manager.cpp:350:    m_f5Key.isPressed = (GetAsyncKeyState(VK_F5) & 0x8000) != 0;
+input_manager.cpp:351:    m_f6Key.isPressed = (GetAsyncKeyState(VK_F6) & 0x8000) != 0;
+input_manager.cpp:352:    m_f7Key.isPressed = (GetAsyncKeyState(VK_F7) & 0x8000) != 0;
+input_manager.cpp:353:    m_f8Key.isPressed = (GetAsyncKeyState(VK_F8) & 0x8000) != 0;
+input_manager.cpp:354:    m_f9Key.isPressed = (GetAsyncKeyState(VK_F9) & 0x8000) != 0;
+input_manager.cpp:355:    m_oem3Key.isPressed = (GetAsyncKeyState(VK_OEM_3) & 0x8000) != 0;  // `~ on US, § on some EU
+input_manager.cpp:356:    m_oem5Key.isPressed = (GetAsyncKeyState(VK_OEM_5) & 0x8000) != 0;  // \| on US
+input_manager.cpp:372:            if (foregroundPid == m_processId) {
+input_manager.cpp:522:    bool shiftPressed = (GetAsyncKeyState(VK_SHIFT) & 0x8000) != 0;
+input_manager.cpp:523:    bool ctrlPressed = (GetAsyncKeyState(VK_CONTROL) & 0x8000) != 0;
+input_manager.cpp:524:    bool altPressed = (GetAsyncKeyState(VK_MENU) & 0x8000) != 0;
+288:    // VK_OEM_3 is ` on US keyboards, § on some EU layouts
+289:    if (action == HotkeyAction::TOGGLE_SETTINGS) return HotkeyBinding(VK_OEM_3);
+291:    if (action == HotkeyAction::DASH_NEXT) return HotkeyBinding(VK_NEXT);    // Page Down
+292:    if (action == HotkeyAction::DASH_PREV) return HotkeyBinding(VK_PRIOR);   // Page Up
+379:        case VK_PRIOR:      return "Page Up";
+(exit 0)

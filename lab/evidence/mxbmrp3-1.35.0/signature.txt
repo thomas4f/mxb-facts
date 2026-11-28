@@ -1,0 +1,12 @@
+$ objdump -p mxbmrp3-Setup.exe zip/mxbmrp3.dlo zip/mxbmrp3_gpb.dlo zip/mxbmrp3_krp.dlo setup/mxbmrp3_uninstall.exe | grep -E 'file format|Security Directory'
+mxbmrp3-Setup.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+zip/mxbmrp3.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+zip/mxbmrp3_gpb.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+zip/mxbmrp3_krp.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+setup/mxbmrp3_uninstall.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+(exit 0)

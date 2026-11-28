@@ -1,0 +1,15 @@
+Internet connections the run's processes tried (Process Monitor), then the firewall's drops for them. Every program in the run folder was blocked by the firewall, so this shows attempts, not traffic.
+6:29:18.0337564 PM  mxbikes.exe (800)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54350 -> cdn-185-199-110-133.github.com:https  SUCCESS
+6:29:18.0340299 PM  mxbikes.exe (800)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54351 -> cdn-185-199-109-133.github.com:https  SUCCESS
+6:29:18.0342235 PM  mxbikes.exe (800)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54352 -> cdn-185-199-108-133.github.com:https  SUCCESS
+6:29:18.0344143 PM  mxbikes.exe (800)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54353 -> cdn-185-199-111-133.github.com:https  SUCCESS
+6:29:18.0783907 PM  mxbikes.exe (800)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54354 -> 37-19-207-37.bunnyinfra.net:https  SUCCESS
+6:29:18.1150995 PM  mxbikes.exe (800)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54355 -> www.goatcounter.com:https  SUCCESS
+6:29:29.2950298 PM  mxbikes.exe (800)  TCP Disconnect  runnervmop6rv.uzasezkk2dbupaglgfpaijdz0g.bx.internal.cloudapp.net:54362 -> 37-19-207-37.bunnyinfra.net:https  SUCCESS
+2026-11-27 18:29:18 DROP TCP 10.1.0.150 185.199.110.133 54350 443 0 - 0 0 0 - - - SEND 800
+2026-11-27 18:29:18 DROP TCP 10.1.0.150 185.199.109.133 54351 443 0 - 0 0 0 - - - SEND 800
+2026-11-27 18:29:18 DROP TCP 10.1.0.150 185.199.108.133 54352 443 0 - 0 0 0 - - - SEND 800
+2026-11-27 18:29:18 DROP TCP 10.1.0.150 185.199.111.133 54353 443 0 - 0 0 0 - - - SEND 800
+2026-11-27 18:29:18 DROP TCP 10.1.0.150 37.19.207.37 54354 443 0 - 0 0 0 - - - SEND 800
+2026-11-27 18:29:18 DROP TCP 10.1.0.150 65.21.71.180 54355 443 0 - 0 0 0 - - - SEND 800
+2026-11-27 18:29:29 DROP TCP 10.1.0.150 37.19.207.37 54362 443 0 - 0 0 0 - - - SEND 800

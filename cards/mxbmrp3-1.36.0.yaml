@@ -27,6 +27,7 @@ header:
     [bab7bfa6d547527b8f95af2dde654afdb9dea111](https://github.com/thomas4f/mxbmrp3/tree/bab7bfa6d547527b8f95af2dde654afdb9dea111)
     ("Release v1.36.0", 27 Nov 2026), the commit tag `v1.36.0` points to.
   Analysed on: 27 Nov 2026
+  Earlier reports: '[1.35.0](https://thomas4f.github.io/mxb-facts/mxbmrp3/1.35.0/) (27 Nov 2026)'
   Tested in: 'MX Bikes beta21f (demo), installer SHA-256 `76feb83746e785310e8858938dd50b5e0685d1b0004480d5d1c2d4fc21f11949`'
   Method: >-
     100% AI-assisted: Claude Code with `claude-opus-5-5`, medium effort, from the published prompt (prompts/analyse-tool.md).

@@ -1,0 +1,7 @@
+$ cd "$SRC" && cat .github/FUNDING.yml; grep -nE 'ko-fi.com' mxbmrp3/hud/settings/settings_links.cpp README.md; grep -nE 'no paid tier|thanks links on the About page' docs/what-it-does.md | cut -c1-220
+github: thomas4f
+ko_fi: thomas4f
+mxbmrp3/hud/settings/settings_links.cpp:54:            ShellExecuteA(nullptr, "open", "https://ko-fi.com/thomas4f", nullptr, nullptr, SW_SHOWNORMAL);
+README.md:517:A comment or rating on [mxb-mods](https://mxb-mods.com/mxbmrp3), a star on [GitHub](https://github.com/thomas4f/mxbmrp3) or a coffee on [Ko-fi](https://ko-fi.com/thomas4f) helps. All optional.
+13:- **It never asks you to pay to use it.** There's no paid tier, no locked features and no ads: every copy has every feature, and the MIT license leaves it free to use, change and share. The thanks links on the About p
+(exit 0)

@@ -1,0 +1,15 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c51b120 -v b=38c51b14b '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c51b120:	48 83 ec 28          	sub    $0x28,%rsp
+   38c51b124:	48 8b 01             	mov    (%rcx),%rax
+   38c51b127:	81 38 05 00 00 c0    	cmpl   $0xc0000005,(%rax)
+   38c51b12d:	74 11                	je     38c51b140 <crash_catcher+0x20>
+   38c51b12f:	31 c0                	xor    %eax,%eax
+   38c51b131:	48 83 c4 28          	add    $0x28,%rsp
+   38c51b135:	c3                   	ret
+   38c51b136:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   38c51b13d:	00 00 00 
+   38c51b140:	e8 db fc ff ff       	call   38c51ae20 <crash_catcher.part.0>
+   38c51b145:	31 c0                	xor    %eax,%eax
+   38c51b147:	48 83 c4 28          	add    $0x28,%rsp
+   38c51b14b:	c3                   	ret
+(exit 0)

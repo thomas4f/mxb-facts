@@ -1,0 +1,10 @@
+$ objdump -h zip/mxbmrp3.dlo | grep -E 'fptable'; objdump -d zip/mxbmrp3.dlo | grep -E '# 0x1802ff388|# 0x18042a000'
+  4 .fptable      00000100  000000018042a000  000000018042a000  003fe600  2**2
+   1802d4263:	48 8d 35 96 5d 15 00 	lea    0x155d96(%rip),%rsi        # 0x18042a000
+   1802d427d:	ff 15 05 b1 02 00    	call   *0x2b105(%rip)        # 0x1802ff388
+   1802d42ae:	ff 15 d4 b0 02 00    	call   *0x2b0d4(%rip)        # 0x1802ff388
+   1802d43d0:	48 8b 05 29 5c 15 00 	mov    0x155c29(%rip),%rax        # 0x18042a000
+   1802d4b8c:	48 8b 05 6d 54 15 00 	mov    0x15546d(%rip),%rax        # 0x18042a000
+   1802d4d43:	48 8d 0d b6 52 15 00 	lea    0x1552b6(%rip),%rcx        # 0x18042a000
+   1802d4d50:	ff 15 32 a6 02 00    	call   *0x2a632(%rip)        # 0x1802ff388
+(exit 0)

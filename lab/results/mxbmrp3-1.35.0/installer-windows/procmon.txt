@@ -1,0 +1,28 @@
+    1  mxbmrp3-Setup.exe  CreateFile  C:\Users  NAME COLLISION
+    1  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+    1  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData  NAME COLLISION
+    1  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local  NAME COLLISION
+    2  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp  NAME COLLISION
+    3  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp  SUCCESS
+    3  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\modern-wizard.bmp  SUCCESS
+    5  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  NAME COLLISION
+    1  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  SUCCESS
+    2  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsrB9E0.tmp  SUCCESS
+    2  mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nswB9B0.tmp  SUCCESS
+    1  mxbmrp3-Setup.exe  Process Exit    SUCCESS
+    1  mxbmrp3-Setup.exe  Process Start    SUCCESS
+    1  mxbmrp3-Setup.exe  RegCreateKey  HKLM\Software\MXBMRP3  SUCCESS
+    1  mxbmrp3-Setup.exe  RegDeleteKey  HKLM\SOFTWARE\MXBMRP3  SUCCESS
+    1  mxbmrp3-Setup.exe  RegDeleteValue  HKLM\SOFTWARE\MXBMRP3\_wtest  SUCCESS
+    1  mxbmrp3-Setup.exe  RegSetValue  HKLM\SOFTWARE\MXBMRP3\_wtest  SUCCESS
+    1  mxbmrp3-Setup.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-installer\release\mxbmrp3-Setup.exe\mxbmrp3-Setup.exe  SUCCESS
+    3  mxbmrp3-Setup.exe  SetBasicInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\modern-wizard.bmp  SUCCESS
+    1  mxbmrp3-Setup.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp  SUCCESS
+    1  mxbmrp3-Setup.exe  SetDispositionInformationEx  C:\Users\runneradmin\AppData\Local\Temp\nswB9B0.tmp  SUCCESS
+    1  mxbmrp3-Setup.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  SUCCESS
+    1  mxbmrp3-Setup.exe  WriteFile  C:\$LogFile  SUCCESS
+    2  mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\modern-wizard.bmp  FAST IO DISALLOWED
+    4  mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\modern-wizard.bmp  SUCCESS
+    2  mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  SUCCESS
+    2  mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsrB9E0.tmp  FAST IO DISALLOWED
+    8  mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsrB9E0.tmp  SUCCESS

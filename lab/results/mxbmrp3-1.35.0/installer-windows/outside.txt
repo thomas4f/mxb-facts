@@ -1,0 +1,17 @@
+mxbmrp3-Setup.exe  CreateFile  C:\Users  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp  SUCCESS
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\modern-wizard.bmp  SUCCESS
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  NAME COLLISION
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  SUCCESS
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nsrB9E0.tmp  SUCCESS
+mxbmrp3-Setup.exe  CreateFile  C:\Users\runneradmin\AppData\Local\Temp\nswB9B0.tmp  SUCCESS
+mxbmrp3-Setup.exe  SetEndOfFileInformationFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  SUCCESS
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\modern-wizard.bmp  FAST IO DISALLOWED
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\modern-wizard.bmp  SUCCESS
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsgB9F0.tmp\nsDialogs.dll  SUCCESS
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsrB9E0.tmp  FAST IO DISALLOWED
+mxbmrp3-Setup.exe  WriteFile  C:\Users\runneradmin\AppData\Local\Temp\nsrB9E0.tmp  SUCCESS

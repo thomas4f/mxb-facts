@@ -1,0 +1,8 @@
+$ objdump -d overhaul64.dlo | awk '/^[0-9a-f]+ <.*>:$/{fn=$2} /<__imp_GetAsyncKeyState>|<__imp_GetForegroundWindow>|L7pressedEib>/{print fn}' | c++filt | sort | uniq -c
+      2 <(anonymous namespace)::hk_SwapBuffers(HDC__*)>:
+      1 <GetAsyncKeyState>:
+      1 <GetForegroundWindow>:
+      1 <panel::(anonymous namespace)::draw(int, int, bool)>:
+      2 <panel::(anonymous namespace)::pressed(int, bool)>:
+     15 <panel::on_swap()>:
+(exit 0)

@@ -1,0 +1,27 @@
+$ cd "$SRC" && grep -nE 'runs-on:|uses: |install_deps.sh nsis|APTABASE_KEY: |GOATCOUNTER_TOKEN: |workflow_dispatch:|actions/attest' .github/workflows/release.yml; python3 -I -c 'import json,sys; [print(d["name"], d["version"], "shipped" if d["shipped"] else "not shipped") for d in json.load(open(sys.argv[1]))["deps"]]' mxbmrp3/vendor/vendored.json; grep -nE 'error "Release build is missing analytics keys' mxbmrp3/core/plugin_constants.h
+56:  workflow_dispatch:
+84:    uses: ./.github/workflows/tests.yml
+107:    runs-on: windows-2022
+130:      - uses: actions/checkout@v7
+138:        uses: microsoft/setup-msbuild@30375c66a4eea26614e0d39710365f22f8b0af57  # v3.0.0
+175:          APTABASE_KEY: ${{ secrets.APTABASE_KEY }}
+176:          GOATCOUNTER_TOKEN: ${{ secrets.GOATCOUNTER_TOKEN }}
+357:        uses: actions/attest@v4
+401:        uses: actions/upload-artifact@v7
+411:        uses: actions/upload-artifact@v7
+421:        uses: actions/upload-artifact@v7
+458:    runs-on: ubuntu-latest
+470:      - uses: actions/checkout@v7
+473:        run: ./tools/install_deps.sh nsis
+490:        uses: actions/download-artifact@v8
+496:        uses: actions/download-artifact@v8
+528:        uses: actions/attest@v4
+537:        uses: actions/upload-artifact@v7
+646:        uses: softprops/action-gh-release@efb35369e0ad2afab669f228072c1b0d510eae64  # v3.0.3
+nlohmann/json 3.12.0 shipped
+stb_truetype 1.26 not shipped
+cpp-httplib 0.64.0 shipped
+miniz 3.1.2 shipped
+doctest 2.5.3 not shipped
+105:    #error "Release build is missing analytics keys. Set the APTABASE_KEY and GOATCOUNTER_TOKEN environment variables (see mxbmrp3/CMakeLists.txt), or define MXBMRP3_ALLOW_NO_ANALYTICS to build a keyless release on purpose. (GOATCOUNTER_CODE is hardcoded — it's public.)"
+(exit 0)

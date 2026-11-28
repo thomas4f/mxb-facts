@@ -1,0 +1,37 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\keybinds.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\overhaul.ini  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\overhaul.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\race_offset.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\presets  NAME COLLISION
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0150.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0330.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0598.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-crash-helmet\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-helmet\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-helmet\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul64.dlo  SUCCESS
+   83  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   79  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash-helmet\host.log  FAST IO DISALLOWED
+  160  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash-helmet\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\keybinds.ini  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\overhaul.ini  FAST IO DISALLOWED
+    3  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\overhaul.ini  SUCCESS
+   13  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\overhaul.log  FAST IO DISALLOWED
+  116  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\overhaul.log  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul\race_offset.txt  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\plugins\overhaul64.dlo  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0150.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0150.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0330.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0330.bmp  SUCCESS
+   47  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0598.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-helmet\shot_0598.bmp  SUCCESS

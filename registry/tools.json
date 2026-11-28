@@ -130,8 +130,8 @@
     "name": "Graphics Overhaul",
     "author": "Finner24",
     "github": null,
-    "homepage": null,
-    "cards": [],
+    "homepage": "https://graphicsoverhaul.com/",
+    "cards": ["graphics-overhaul-2.4.0.yaml"],
     "mxb-mods": {
       "post": 195566,
       "tied_by": "1794860747-graphics-overhaul.zip"
@@ -449,6 +449,7 @@
     "github": "thomas4f/mxbmrp3",
     "homepage": "https://thomas4f.github.io/mxbmrp3/",
     "cards": [
+      "mxbmrp3-1.35.0.yaml",
       "mxbmrp3-1.36.0.yaml"
     ],
     "mxb-mods": {
@@ -457,7 +458,7 @@
     },
     "gpb-mods": {
       "post": null,
-      "note": "No gpb-mods.com post found by a search of the site for MXBMRP3, 27 Nov 2026"
+      "note": "No page found (a search of gpb-mods.com for MXBMRP3 and MXBMRP found nothing on 27 Nov 2026)"
     }
   },
   "mxbtt": {

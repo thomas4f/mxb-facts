@@ -1,0 +1,30 @@
+$ { strings -n 4 overhaul64.dlo; strings -el -n 4 overhaul64.dlo; } | grep -nE '^(overhaul\\|shaders|shaders\.pak|shaders_old_unused|overhaul\.log|overhaul\.ini|keybinds\.ini|race_offset\.txt|presets\\|\*\.ini|shot\.req|shot\.bmp|compare\\|_vanilla\.bmp|_overhaul\.bmp|shader_dump_%02d\.txt|rig_default_mx\.bin|Documents|OneDrive|USERPROFILE|::drives|Deleted "|Renamed to "|Imported |Export failed.*)$'
+6937:overhaul\
+6938:shaders
+6939:shaders.pak
+6940:shaders_old_unused
+6941:overhaul.log
+6944:rig_default_mx.bin
+7025:compare\
+7026:_vanilla.bmp
+7027:_overhaul.bmp
+7049:shot.req
+7050:shot.bmp
+7597:shader_dump_%02d.txt
+7898:race_offset.txt
+7926:overhaul.ini
+7952:Documents
+7957:USERPROFILE
+7965:keybinds.ini
+7970:OneDrive
+7973:::drives
+7977:*.ini
+7982:Renamed to "
+7991:Export failed: can't write plugins\presets
+7992:Imported 
+8048:Deleted "
+9057:shaders.pak
+9062:presets\
+9063:*.ini
+9065:overhaul.ini
+(exit 0)

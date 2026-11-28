@@ -34,7 +34,7 @@
 
   // The tools list: search, category, game and sort, all on the cards' own data; nothing is drawn here.
   var grid = $('#tools-grid');
-  var S = { q: '', cat: '', game: '', sort: 'name' };
+  var S = { q: '', cat: '', game: '', sort: 'date' };
   // The game and category filters live in the address too (?game=…&cat=…), so a tool page's path can link to them and a
   // filtered list can be shared. A value the list doesn't offer is ignored.
   if (grid) {
@@ -66,15 +66,21 @@
       'score-lo': function (a, b) { return (num(a) < 0) - (num(b) < 0) || num(a) - num(b) || by.name(a, b); },
       date: function (a, b) { return b.dataset.date.localeCompare(a.dataset.date) || by.name(a, b); }
     };
-    // Each category keeps its place and its label; the sort orders the tools under it, and a label with none shown hides.
-    $$('.ghead', grid).forEach(function (h) {
+    // Each category keeps its label; the sort orders the tools under it, and a label with none shown hides. The categories
+    // keep the category filter's order (data-i), except under "Newest analysis", which puts the one with the newest card first.
+    var groups = $$('.ghead', grid).map(function (h) {
       var g = cards.filter(function (c) { return c.dataset.cat === h.dataset.cat; }).sort(by[S.sort]);
-      grid.appendChild(h); g.forEach(function (c) { grid.appendChild(c); });
-      h.hidden = !g.some(function (c) { return !c.hidden; });
+      return { h: h, g: g, newest: g.reduce(function (m, c) { return c.dataset.date > m ? c.dataset.date : m; }, '') };
+    }).sort(function (a, b) {
+      return (S.sort === 'date' ? b.newest.localeCompare(a.newest) : 0) || a.h.dataset.i - b.h.dataset.i;
+    });
+    groups.forEach(function (x) {
+      grid.appendChild(x.h); x.g.forEach(function (c) { grid.appendChild(c); });
+      x.h.hidden = !x.g.some(function (c) { return !c.hidden; });
     });
     $('#count').textContent = n + ' of ' + cards.length + ' tools';
     // Clear, like Compare's, keeps its place and is off while the list is as it opened.
-    $('#clear').disabled = !S.q && !S.cat && !S.game && S.sort === 'name';
+    $('#clear').disabled = !S.q && !S.cat && !S.game && S.sort === 'date';
     $('#none').hidden = n > 0;
   }
 
@@ -203,7 +209,7 @@
   });
   // Clear puts the search, the filters and the sort back as the list opened, and takes the filters out of the address.
   function clearTools() {
-    S = { q: '', cat: '', game: '', sort: 'name' };
+    S = { q: '', cat: '', game: '', sort: 'date' };
     ['q', 'cat', 'game', 'sort'].forEach(function (k) { $('#' + k).value = S[k]; });
     keepFilters(); showTools(); $('#q').focus();
   }

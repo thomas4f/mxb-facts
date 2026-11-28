@@ -1,0 +1,25 @@
+$ iat.py overhaul64.dlo | grep -E 'VirtualProtect|K32EnumProcessModules|ReadProcessMemory|SuspendThread|GetThreadContext|AddVectoredExceptionHandler|keybd_event|SetWindowLongPtrA|GetAsyncKeyState|GetForegroundWindow|ShellExecuteA|CreateFileMappingA|MapViewOfFile|MoveFileExA|DeleteFileA|CopyFileA|RemoveDirectoryA|CreateDirectoryA|GetLogicalDrives|GetClipboardData|SetClipboardData|LoadLibraryA|GetEnvironmentVariableA'
+0x38c663b10  KERNEL32.dll!AddVectoredExceptionHandler
+0x38c663b20  KERNEL32.dll!CopyFileA
+0x38c663b28  KERNEL32.dll!CreateDirectoryA
+0x38c663b38  KERNEL32.dll!CreateFileMappingA
+0x38c663b58  KERNEL32.dll!DeleteFileA
+0x38c663bb8  KERNEL32.dll!GetEnvironmentVariableA
+0x38c663bd8  KERNEL32.dll!GetLogicalDrives
+0x38c663c20  KERNEL32.dll!GetThreadContext
+0x38c663c70  KERNEL32.dll!K32EnumProcessModules
+0x38c663c88  KERNEL32.dll!LoadLibraryA
+0x38c663c98  KERNEL32.dll!MapViewOfFile
+0x38c663ca0  KERNEL32.dll!MoveFileExA
+0x38c663ce0  KERNEL32.dll!ReadProcessMemory
+0x38c663cf0  KERNEL32.dll!RemoveDirectoryA
+0x38c663d60  KERNEL32.dll!SuspendThread
+0x38c663d88  KERNEL32.dll!VirtualProtect
+0x38c6642f8  SHELL32.dll!ShellExecuteA
+0x38c664328  USER32.dll!GetAsyncKeyState
+0x38c664338  USER32.dll!GetClipboardData
+0x38c664348  USER32.dll!GetForegroundWindow
+0x38c664378  USER32.dll!SetClipboardData
+0x38c664380  USER32.dll!SetWindowLongPtrA
+0x38c664390  USER32.dll!keybd_event
+(exit 0)
