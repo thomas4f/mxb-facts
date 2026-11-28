@@ -1,0 +1,5 @@
+WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\ReportArchive  SUCCESS
+WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\ReportQueue  SUCCESS
+WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\Temp  SUCCESS
+WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\Temp\3a21deca-54d5-4f80-870a-500c3b61bb32  SUCCESS
+WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\Temp\c5e20827-0e91-45f1-983c-f75b50facaf4  SUCCESS

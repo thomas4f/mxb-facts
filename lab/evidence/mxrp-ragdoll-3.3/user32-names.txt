@@ -1,0 +1,9 @@
+$ iat.py MXRP_Ragdoll.dlo | grep -E '0x2e5fcb(d70|cb0|d00|d28|d48|8c0|8e8) '
+0x2e5fcb8c0  KERNEL32.dll!GetCurrentProcessId
+0x2e5fcb8e8  KERNEL32.dll!GetModuleHandleA
+0x2e5fcbcb0  USER32.dll!CallNextHookEx
+0x2e5fcbd00  USER32.dll!GetForegroundWindow
+0x2e5fcbd28  USER32.dll!GetWindowThreadProcessId
+0x2e5fcbd48  USER32.dll!SendInput
+0x2e5fcbd70  USER32.dll!SetWindowsHookExA
+(exit 0)

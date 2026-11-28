@@ -1,0 +1,31 @@
+mxbikes.exe  RegCreateKey  HKCR\CLSID\{A8CDFF1C-4878-43be-B5FD-F8091C1C60D0}\Instance  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\Software\Microsoft\DirectInput  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\DirectInput\MXBIKES.EXE6B032EBD003B3400  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput  NAME NOT FOUND
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\Calibration  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\Calibration\0  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\DeviceInstances  SUCCESS
+mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Id  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\MostRecentStart  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Name  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MostRecentApplication\Version  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MXBIKES.EXE6B032EBD003B3400\Name  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\DirectInput\MXBIKES.EXE6B032EBD003B3400\UsesMapper  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\AutoDetect  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\IntranetName  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\ProxyBypass  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\UNCAsIntranet  SUCCESS
+mxbikes.exe  RegSetValue  HKCU\System\CurrentControlSet\Control\MediaProperties\PrivateProperties\DirectInput\{CFA8B69E-5B4A-4CC0-B98B-8BA1A1F3F95A}\Calibration\0\GUID  SUCCESS
+mxbikes.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC1C75  SUCCESS
+mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume5\a\_temp\realgame\run-baseline\mxbikes.exe  SUCCESS

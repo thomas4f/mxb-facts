@@ -1,0 +1,44 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE 'api\.github|/repos/|vnd\.github|updater|browser_download_url|digest|sha256|SHA256|%s\.sig|signature|mise a jour : |%s\.(old|new)|Installer|Automatic updates|Ask before installing|installateur'
+1117:MXRP Ragdoll %s disponible : l'installateur s'ouvrira quand tu quitteras le jeu
+1165:mise a jour : fenetre ouverte (%s)
+1391:mise a jour : automatique desactivee (menu P)
+2612:Automatic updates
+2637:Ask before installing an update
+2671:MXRP Ragdoll %s disponible : l'installateur s'ouvrira quand tu quitteras le jeu
+2674:MXRP Ragdoll %s verfuegbar: der Installer oeffnet sich beim Beenden des Spiels
+20970:mise a jour : reponse %lu
+20971:mise a jour : fichier trop gros
+20973:"browser_download_url":
+20975:browser_download_url
+20976:digest
+20977:sha256:
+20978:%s.sig
+20979:mise a jour : pas de signature (%s) : fichier refuse
+20980:mise a jour : signature pas telechargee : fichier refuse
+20981:mise a jour : telechargement rate
+20982:mise a jour : empreinte differente : fichier refuse
+20983:mise a jour : ce n'est pas un programme Windows : refuse
+20984:mise a jour : signature de l'auteur invalide : fichier refuse
+20985:mise a jour : signature de l'auteur verifiee
+20987:%s.old
+20988:%s.new
+20989:mise a jour : mode essai (pre-releases comprises)
+20990:mise a jour : pas de reponse de GitHub (hors ligne ?)
+20992:mise a jour : pas de plugin dans la derniere release
+20993:mise a jour : a jour (%s, derniere release %s)
+20994:mise a jour : %s disponible (installe : %s), telechargement
+20995:mise a jour : %s telechargee, en attente du choix du joueur
+20996:mise a jour : %s : plus tard (redemande au prochain lancement)
+20997:mise a jour : %s : installation acceptee
+20998:mise a jour : %s installee (au prochain lancement du jeu)
+20999:mise a jour : dossier plugins non modifiable (erreur %lu) : installateur
+21000:MXRP_Ragdoll_Installer
+21001:%sMXRP_Ragdoll_Installer_%s.exe
+21002:mise a jour : installateur %s pret, il s'ouvrira en quittant le jeu
+21475:MXRP-Ragdoll-updater
+21476:Accept: application/vnd.github+json
+21477:eSHA256
+21480:/repos/avare795/MXRP-ragdoll/releases?per_page=3
+21481:/repos/avare795/MXRP-ragdoll/releases/latest
+21482:wapi.github.com
+(exit 0)

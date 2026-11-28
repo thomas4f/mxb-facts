@@ -1,0 +1,39 @@
+$ { strings -n 6 MXRP_Ragdoll.dlo; strings -el -n 6 MXRP_Ragdoll.dlo; } | grep -nE 'expuls|Kick|ID_KICK|RAGDOLL - |plugin active pour cette session|hostsetup_name|Official servers|Players collide|joueurs ont le plugin|cone d.un autre joueur'
+954:expulsion : %s utilise en jeu+0x%llX : %s
+955:expulsion : %d utilisation(s) des boutons trouvee(s)
+1064:prete (bouton Kick du jeu trouve)
+1066:Tu heberges : les joueurs sans plugin seront expulses apres 90 s (menu P pour couper).
+1067:Tu heberges : expulsion auto des joueurs sans plugin COUPEE (menu P pour l'activer).
+1069:expulsion : message du premier lancement montre (expulsion %s)
+1070:expulsion automatique : %s
+1071:expulsion : premier serveur heberge, message montre (expulsion %s)
+1072:expulsion : %s (joueur %d) connecte, %.0f s pour que son plugin se signale
+1073:expulsion : %s a le plugin, pas d'expulsion
+1074:expulsion : %s n'a pas le plugin, expulse dans %.0f s
+1075:%.40s sans plugin : expulse dans %.0f s
+1076:expulsion : fonction du jeu introuvable, %s pas expulse
+1077:expulsion : %s (joueur %d) expulse : pas de plugin Ragdoll (mode %d)
+1078:%.40s expulse (pas de plugin)
+1081:cones : en ligne : cone d'un autre joueur recu (n %d)
+1126:tous les joueurs ont le plugin
+1177:RAGDOLL - %s
+1428:serveur RAGDOLL : plugin active pour cette session (le bouton reste COUPE pour le solo)
+1497:ID_KICK
+1892:expulsion_info = %d
+1999:expulsion_auto
+2230:Super-Kicker
+2286:Kicker
+2451:Official servers: move MXRP_Ragdoll.dlo out of the plugins folder first.
+2617:Kick players without the plugin (my server)
+2624:Auto-Kick von Spielern ohne Plugin: AUS. Im Menue P einschalten, wenn du hostest.
+2626:Tu heberges : expulsion auto des joueurs sans plugin COUPEE (menu P pour l'activer).
+2628:Estas alojando: expulsion automatica de jugadores sin el plugin DESACTIVADA (activala en el menu P).
+2629:Du hostest: Auto-Kick von Spielern ohne Plugin ist AUS (im Menue P einschalten).
+2631:Tu heberges : les joueurs sans plugin seront expulses apres 90 s (menu P pour couper).
+2633:Estas alojando: los jugadores sin el plugin seran expulsados tras 90 s (desactivalo en el menu P).
+3180:hostsetup_name
+20926:L=Kicker
+20944:jeu : version inconnue (date %08X) : squelette %s (+0x%X -> +0x%X), camera %s (+0x%X), expulsion auto coupee
+21065:expulsion_auto
+21066:expulsion_info
+(exit 0)

@@ -1,0 +1,24 @@
+$ for f in MXRP_Ragdoll.dlo installer.exe; do echo "== $f"; { strings -n 6 $f; strings -el -n 6 $f; } | grep -iE 'copyright|licen[cs]e|zlib|miniz|stb_|lodepng|nlohmann|imgui|lz4|zstd|GCC:|mingw|cmu|procworks|fluffygecko|mocap|lpfeffer|innerscene' | sort | uniq -c; done; echo '== credits at the commit'; grep -nE 'MinGW|puff|Adler|CMU|lpfeffer|Innerscene' "$SRC/README.md" "$SRC/source/README.md" "$SRC/source/src/inflate.c"
+== MXRP_Ragdoll.dlo
+     98 GCC: (GNU) 13-win32
+      1 Mingw-w64 runtime failure:
+== installer.exe
+      1 Animacion de andar: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+      1 Animation de marche : CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+      1 Animazione della camminata: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+      1 FMX ramps: PROCworks FMX Ramp PACK (PROCworks - Proud Racers Of Canada). Landing: "FMX Ramps" pack (fmxLanding). Comp, Super kicker, 120 ft jump, quarter pipe: "thefluffygecko fmx ramps".
+      1 Furniture: green camping chair by lpfeffer (CC-BY-4.0), folding table by Innerscene (CC0).
+    140 GCC: (GNU) 13-win32
+      1 Geh-Animation: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+      2 Mingw-w64 runtime failure:
+      1 Mobilier : chaise de camping verte par lpfeffer (CC-BY-4.0), table pliante par Innerscene (CC0).
+      1 Rampes FMX : PROCworks FMX Ramp PACK (PROCworks - Proud Racers Of Canada). Reception : pack "FMX Ramps" (fmxLanding). Comp, Super kicker, Saut 120 ft, Quarter pipe : "thefluffygecko fmx ramps".
+      1 Walking animation: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+== credits at the commit
+/tmp/src/repo/README.md:74:Walking animation: CMU Graphics Lab Motion Capture Database (mocap.cs.cmu.edu).
+/tmp/src/repo/README.md:75:Furniture: green camping chair by lpfeffer (CC-BY-4.0), folding table by Innerscene (CC0).
+/tmp/src/repo/README.md:77:Built with MinGW-w64 (GCC); its runtime is included in the plugin.
+/tmp/src/repo/source/README.md:7:- `src/inflate.c`, `src/inflate.h` — small "deflate" decompressor used by the installer (written after Mark Adler's *puff*).
+/tmp/src/repo/source/README.md:15:With MinGW-w64 (the plugin file `build/MXRP_Ragdoll.dlo` is embedded in the installer, so the installer needs it next to the sources):
+/tmp/src/repo/source/src/inflate.c:3: * Écrit d'après l'algorithme de puff (Mark Adler) : simple, sans table précalculée.
+(exit 0)

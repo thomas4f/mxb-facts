@@ -1,0 +1,5 @@
+$ sha256sum mxb_ragdoll.dlo; for s in 'mxb_ragdoll.fnt' 'plugins\mxb_ragdoll.ini'; do printf '%s: ' "$s"; grep -c -a -F "$s" mxb_ragdoll.dlo; done
+82592eff97a2836635930f8d513c875b7d1dbaf17fd4196e3df686a4057fd3c9  mxb_ragdoll.dlo
+mxb_ragdoll.fnt: 1
+plugins\mxb_ragdoll.ini: 0
+(exit 1)

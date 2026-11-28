@@ -1,0 +1,11 @@
+$ grep -nE '^(reseau|reseau_hote|reseau_ip|reseau_port|expulsion_auto|marche_forcee|respawn_appui_long|clavier_prio|manette_prio) *=' MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini
+26:clavier_prio = 1       ; au départ : clavier prioritaire à pied
+27:manette_prio = 1       ; au départ : manette prioritaire à pied
+28:marche_forcee = 1      ; 1 = tombé ou à pied, le respawn du jeu est bloqué (il faut marcher jusqu'à la moto)
+29:respawn_appui_long = 20 ; appui long sur la touche de respawn (s) : retour sur la piste quand même
+53:reseau = 1             ; 1 = échange la marche et les chutes avec les autres plugins
+54:reseau_hote = 0        ; 1 = c'est moi l'hôte
+55:reseau_ip =            ; adresse de l'hôte (vide si c'est moi l'hôte)
+56:reseau_port = 47731    ; port UDP (le même pour tout le monde ; à ouvrir chez l'hôte sans Radmin)
+57:expulsion_auto = 0     ; 1 = sur MON serveur RAGDOLL, expulser les joueurs sans plugin (60 s + 30 s d'avertissement)
+(exit 0)

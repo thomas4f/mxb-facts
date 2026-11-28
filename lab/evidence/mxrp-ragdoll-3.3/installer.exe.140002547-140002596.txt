@@ -1,0 +1,21 @@
+$ objdump -d 'installer.exe' | awk -v a=140002547 -v b=140002596 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   140002547:	48 8b 94 24 80 00 00 	mov    0x80(%rsp),%rdx
+   14000254e:	00 
+   14000254f:	4c 8d 05 05 8e 00 00 	lea    0x8e05(%rip),%r8        # 0x14000b35b
+   140002556:	48 89 f9             	mov    %rdi,%rcx
+   140002559:	e8 22 ef ff ff       	call   0x140001480
+   14000255e:	85 c0                	test   %eax,%eax
+   140002560:	0f 84 62 ff ff ff    	je     0x1400024c8
+   140002566:	48 8b 94 24 80 00 00 	mov    0x80(%rsp),%rdx
+   14000256d:	00 
+   14000256e:	4c 8d 05 f6 8d 00 00 	lea    0x8df6(%rip),%r8        # 0x14000b36b
+   140002575:	48 89 f9             	mov    %rdi,%rcx
+   140002578:	e8 03 ef ff ff       	call   0x140001480
+   14000257d:	85 c0                	test   %eax,%eax
+   14000257f:	0f 84 43 ff ff ff    	je     0x1400024c8
+   140002585:	48 89 f9             	mov    %rdi,%rcx
+   140002588:	e8 bb 72 00 00       	call   0x140009848
+   14000258d:	48 89 f1             	mov    %rsi,%rcx
+   140002590:	ff 15 12 de 00 00    	call   *0xde12(%rip)        # 0x1400103a8
+   140002596:	e9 45 fc ff ff       	jmp    0x1400021e0
+(exit 0)

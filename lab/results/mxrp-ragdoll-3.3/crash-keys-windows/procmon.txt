@@ -1,0 +1,93 @@
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\plugins\MXRP_Ragdoll.dlo.new  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\plugins\MXRP_Ragdoll.dlo.old  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\mxbikes_image_6B055B36.bin  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll_1.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll_2.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll_3.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll_4.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll_menus  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll_relief  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll_replay  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll.log  NAME NOT FOUND
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll.log  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\sauvegarde_profils  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\sauvegarde_profils\LISEZ-MOI_README.txt  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_0450.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_0930.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1020.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1120.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1220.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1320.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1420.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1520.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1620.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1720.bmp  SUCCESS
+    1  mxbikes.exe  CreateFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1798.bmp  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\System32\Conhost.exe  SUCCESS
+    1  mxbikes.exe  Process Create  C:\Windows\system32\WerFault.exe  SUCCESS
+    1  mxbikes.exe  Process Exit    SUCCESS
+    1  mxbikes.exe  Process Start    SUCCESS
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+    7  mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+    1  mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-crash-keys\mxbikes.exe  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-keys\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-keys\opengl32.dll  SUCCESS
+    1  mxbikes.exe  SetEndOfFileInformationFile  D:\a\_temp\mxbfacts\run-crash-keys\plugins\MXRP_Ragdoll.dlo  SUCCESS
+    1  mxbikes.exe  TCP Disconnect  runnervmop6rv.knnfo43iljsehoiz42okvprqzh.gx.internal.cloudapp.net:60245 -> lb-140-82-112-6-iad.github.com:https  SUCCESS
+   83  mxbikes.exe  WriteFile  D:\$LogFile  SUCCESS
+   18  mxbikes.exe  WriteFile  D:\$Mft  SUCCESS
+   80  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash-keys\host.log  FAST IO DISALLOWED
+  162  mxbikes.exe  WriteFile  D:\a\_temp\evidence\test-host\crash-keys\host.log  SUCCESS
+    8  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\libgallium_wgl.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\opengl32.dll  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\plugins\MXRP_Ragdoll.dlo  SUCCESS
+   14  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\mxbikes_image_6B055B36.bin  FAST IO DISALLOWED
+  105  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\mxbikes_image_6B055B36.bin  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll.log  FAST IO DISALLOWED
+   15  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\MXRP_Ragdoll.log  SUCCESS
+    1  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\save\MXRP_Ragdoll\sauvegarde_profils\LISEZ-MOI_README.txt  SUCCESS
+   49  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_0450.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_0450.bmp  SUCCESS
+   52  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_0930.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_0930.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1020.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1020.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1120.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1120.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1220.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1220.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1320.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1320.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1420.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1420.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1520.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1520.bmp  SUCCESS
+   45  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1620.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1620.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1720.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1720.bmp  SUCCESS
+   48  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1798.bmp  FAST IO DISALLOWED
+  676  mxbikes.exe  WriteFile  D:\a\_temp\mxbfacts\run-crash-keys\shot_1798.bmp  SUCCESS
+    2  WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\ReportArchive  SUCCESS
+    2  WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\ReportQueue  SUCCESS
+    6  WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\Temp  SUCCESS
+    1  WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\Temp\6198dfca-1156-4625-983d-a37136b9d0db  SUCCESS
+    1  WerFault.exe  CreateFile  C:\ProgramData\Microsoft\Windows\WER\Temp\64c8b97f-30cd-4ae1-88b1-8ded9220add0  SUCCESS
+    1  WerFault.exe  FileSystemControl  C:\ProgramData\Microsoft\Windows\WER\ReportArchive  SUCCESS
+    1  WerFault.exe  FileSystemControl  C:\ProgramData\Microsoft\Windows\WER\ReportQueue  SUCCESS
+    1  WerFault.exe  Process Exit    SUCCESS
+    1  WerFault.exe  Process Start    SUCCESS
+   28  WerFault.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS  SUCCESS
+   14  WerFault.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\DevicePolicy\AllowTelemetry  SUCCESS
+    8  WerFault.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Edition\DevicePolicy\AllowTelemetry  SUCCESS
+    4  WerFault.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store  SUCCESS
+    4  WerFault.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\CPSS\Store\AllowTelemetry  SUCCESS
+    8  WerFault.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\DeviceAccess  SUCCESS
+    4  WerFault.exe  RegCreateKey  HKLM\Software\Microsoft\Windows\CurrentVersion\Policies\DataCollection  SUCCESS
+    2  WerFault.exe  SetSecurityFile  C:\ProgramData\Microsoft\Windows\WER\Temp  SUCCESS
+    1  WerFault.exe  SetStorageReservedIdInformation  C:\ProgramData\Microsoft\Windows\WER\ReportArchive  SUCCESS
+    1  WerFault.exe  SetStorageReservedIdInformation  C:\ProgramData\Microsoft\Windows\WER\ReportQueue  SUCCESS
+    2  WerFault.exe  SetStorageReservedIdInformation  C:\ProgramData\Microsoft\Windows\WER\Temp  SUCCESS

@@ -1,0 +1,3 @@
+    1  MXRP_Ragdoll_Installer.exe  Process Exit    SUCCESS
+    1  MXRP_Ragdoll_Installer.exe  Process Start    SUCCESS
+    1  MXRP_Ragdoll_Installer.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume5\a\_temp\mxbfacts\run-installer\release\MXRP_Ragdoll_Installer.exe\MXRP_Ragdoll_Installer.exe  SUCCESS

@@ -1,0 +1,87 @@
+$ objdump -d 'MXRP_Ragdoll.dlo' | awk -v a=2e3ace283 -v b=2e3ace3ef '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   2e3ace283:	48 8b 05 ce ea 76 00 	mov    0x76eace(%rip),%rax        # 0x2e423cd58
+   2e3ace28a:	45 31 c9             	xor    %r9d,%r9d
+   2e3ace28d:	45 31 c0             	xor    %r8d,%r8d
+   2e3ace290:	48 8d 4c 24 68       	lea    0x68(%rsp),%rcx
+   2e3ace295:	48 ba 10 31 91 8a 96 	movabs $0xc21135968a913110,%rdx
+   2e3ace29c:	35 11 c2 
+   2e3ace29f:	48 89 84 24 f0 00 00 	mov    %rax,0xf0(%rsp)
+   2e3ace2a6:	00 
+   2e3ace2a7:	48 b8 60 d7 8d be 23 	movabs $0x63fb9723be8dd760,%rax
+   2e3ace2ae:	97 fb 63 
+   2e3ace2b1:	48 89 94 24 00 01 00 	mov    %rdx,0x100(%rsp)
+   2e3ace2b8:	00 
+   2e3ace2b9:	48 ba 97 dc 7a d5 25 	movabs $0xb5073a25d57adc97,%rdx
+   2e3ace2c0:	3a 07 b5 
+   2e3ace2c3:	48 89 84 24 f8 00 00 	mov    %rax,0xf8(%rsp)
+   2e3ace2ca:	00 
+   2e3ace2cb:	48 b8 5c 8f fe bc 61 	movabs $0xe9750361bcfe8f5c,%rax
+   2e3ace2d2:	03 75 e9 
+   2e3ace2d5:	48 89 94 24 10 01 00 	mov    %rdx,0x110(%rsp)
+   2e3ace2dc:	00 
+   2e3ace2dd:	48 ba 31 7e 47 3a ba 	movabs $0x51b1d3ba3a477e31,%rdx
+   2e3ace2e4:	d3 b1 51 
+   2e3ace2e7:	48 89 84 24 08 01 00 	mov    %rax,0x108(%rsp)
+   2e3ace2ee:	00 
+   2e3ace2ef:	48 b8 73 48 71 81 44 	movabs $0x3edc9d4481714873,%rax
+   2e3ace2f6:	9d dc 3e 
+   2e3ace2f9:	48 89 94 24 20 01 00 	mov    %rdx,0x120(%rsp)
+   2e3ace300:	00 
+   2e3ace301:	48 ba d6 02 03 fc 17 	movabs $0x24854617fc0302d6,%rdx
+   2e3ace308:	46 85 24 
+   2e3ace30b:	48 89 84 24 18 01 00 	mov    %rax,0x118(%rsp)
+   2e3ace312:	00 
+   2e3ace313:	48 b8 b6 80 11 87 ab 	movabs $0x4405f7ab871180b6,%rax
+   2e3ace31a:	f7 05 44 
+   2e3ace31d:	48 89 94 24 30 01 00 	mov    %rdx,0x130(%rsp)
+   2e3ace324:	00 
+   2e3ace325:	48 8d 15 96 e5 76 00 	lea    0x76e596(%rip),%rdx        # 0x2e423c8c2
+   2e3ace32c:	48 89 84 24 28 01 00 	mov    %rax,0x128(%rsp)
+   2e3ace333:	00 
+   2e3ace334:	e8 ff 51 00 00       	call   0x2e3ad3538
+   2e3ace339:	85 c0                	test   %eax,%eax
+   2e3ace33b:	0f 85 0f fe ff ff    	jne    0x2e3ace150
+   2e3ace341:	48 8b 44 24 50       	mov    0x50(%rsp),%rax
+   2e3ace346:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%rsp)
+   2e3ace34d:	00 
+   2e3ace34e:	31 d2                	xor    %edx,%edx
+   2e3ace350:	4c 8d 4c 24 70       	lea    0x70(%rsp),%r9
+   2e3ace355:	c7 44 24 28 48 00 00 	movl   $0x48,0x28(%rsp)
+   2e3ace35c:	00 
+   2e3ace35d:	48 8b 4c 24 68       	mov    0x68(%rsp),%rcx
+   2e3ace362:	4c 8d 05 6f e5 76 00 	lea    0x76e56f(%rip),%r8        # 0x2e423c8d8
+   2e3ace369:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   2e3ace36e:	e8 cd 51 00 00       	call   0x2e3ad3540
+   2e3ace373:	85 c0                	test   %eax,%eax
+   2e3ace375:	74 24                	je     0x2e3ace39b
+   2e3ace377:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   2e3ace37c:	48 85 c9             	test   %rcx,%rcx
+   2e3ace37f:	0f 84 8d 00 00 00    	je     0x2e3ace412
+   2e3ace385:	e8 ce 51 00 00       	call   0x2e3ad3558
+   2e3ace38a:	48 8b 4c 24 68       	mov    0x68(%rsp),%rcx
+   2e3ace38f:	31 d2                	xor    %edx,%edx
+   2e3ace391:	e8 da 51 00 00       	call   0x2e3ad3570
+   2e3ace396:	e9 b5 fd ff ff       	jmp    0x2e3ace150
+   2e3ace39b:	c7 44 24 30 00 00 00 	movl   $0x0,0x30(%rsp)
+   2e3ace3a2:	00 
+   2e3ace3a3:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   2e3ace3a8:	41 b9 20 00 00 00    	mov    $0x20,%r9d
+   2e3ace3ae:	31 d2                	xor    %edx,%edx
+   2e3ace3b0:	c7 44 24 28 40 00 00 	movl   $0x40,0x28(%rsp)
+   2e3ace3b7:	00 
+   2e3ace3b8:	4c 8b 44 24 58       	mov    0x58(%rsp),%r8
+   2e3ace3bd:	48 89 6c 24 20       	mov    %rbp,0x20(%rsp)
+   2e3ace3c2:	e8 69 51 00 00       	call   0x2e3ad3530
+   2e3ace3c7:	48 8b 4c 24 70       	mov    0x70(%rsp),%rcx
+   2e3ace3cc:	89 c3                	mov    %eax,%ebx
+   2e3ace3ce:	48 85 c9             	test   %rcx,%rcx
+   2e3ace3d1:	74 05                	je     0x2e3ace3d8
+   2e3ace3d3:	e8 80 51 00 00       	call   0x2e3ad3558
+   2e3ace3d8:	48 8b 4c 24 68       	mov    0x68(%rsp),%rcx
+   2e3ace3dd:	31 d2                	xor    %edx,%edx
+   2e3ace3df:	e8 8c 51 00 00       	call   0x2e3ad3570
+   2e3ace3e4:	85 db                	test   %ebx,%ebx
+   2e3ace3e6:	0f 85 64 fd ff ff    	jne    0x2e3ace150
+   2e3ace3ec:	48 89 e9             	mov    %rbp,%rcx
+   2e3ace3ef:	e8 1c 3e 01 00       	call   0x2e3ae2210
+(exit 0)

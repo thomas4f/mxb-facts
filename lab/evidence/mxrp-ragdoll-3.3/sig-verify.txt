@@ -1,0 +1,8 @@
+$ grep -A1 -E 'k_pub_[xy]\[32\]' "$SRC/source/src/update.c" | head -4; echo "key: 60d78dbe2397fb631031918a963511c25c8ffebc610375e997dc7ad5253a07b573487181449ddc3e317e473abad3b151b6801187abf70544d60203fc17468524"; p256.py verify 60d78dbe2397fb631031918a963511c25c8ffebc610375e997dc7ad5253a07b573487181449ddc3e317e473abad3b151b6801187abf70544d60203fc17468524 MXRP_Ragdoll_1.8.203.dlo.sig MXRP_Ragdoll_1.8.203.dlo; p256.py verify 60d78dbe2397fb631031918a963511c25c8ffebc610375e997dc7ad5253a07b573487181449ddc3e317e473abad3b151b6801187abf70544d60203fc17468524 MXRP_Ragdoll_Installer.exe.sig MXRP_Ragdoll_Installer.exe
+static const unsigned char k_pub_x[32] = { 0x60, 0xd7, 0x8d, 0xbe, 0x23, 0x97, 0xfb, 0x63, 0x10, 0x31, 0x91, 0x8a, 0x96, 0x35, 0x11, 0xc2, 0x5c, 0x8f, 0xfe, 0xbc, 0x61, 0x03, 0x75, 0xe9, 0x97, 0xdc, 0x7a, 0xd5, 0x25, 0x3a, 0x07, 0xb5 };
+static const unsigned char k_pub_y[32] = { 0x73, 0x48, 0x71, 0x81, 0x44, 0x9d, 0xdc, 0x3e, 0x31, 0x7e, 0x47, 0x3a, 0xba, 0xd3, 0xb1, 0x51, 0xb6, 0x80, 0x11, 0x87, 0xab, 0xf7, 0x05, 0x44, 0xd6, 0x02, 0x03, 0xfc, 0x17, 0x46, 0x85, 0x24 };
+
+key: 60d78dbe2397fb631031918a963511c25c8ffebc610375e997dc7ad5253a07b573487181449ddc3e317e473abad3b151b6801187abf70544d60203fc17468524
+Verified OK
+Verified OK
+(exit 0)
