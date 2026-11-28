@@ -3,3 +3,9 @@ contact_links:
   - name: Something that shouldn't be public
     url: https://github.com/thomas4f/mxb-facts/security/advisories/new
     about: A security problem here, or a card that shows a secret, personal data or an unfixed security problem.
+  - name: Talk about a tool
+    url: https://github.com/thomas4f/mxb-facts/discussions/categories/tools
+    about: One discussion per tool, for players and its author. To say an answer is wrong, use "Comment on a card" above.
+  - name: Talk about the site, its questions or rules
+    url: https://github.com/thomas4f/mxb-facts/discussions/categories/general
+    about: Ideas, questions, or something broken on the site.

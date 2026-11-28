@@ -30,6 +30,14 @@
   <tr><td><span class="tag {{ ('concern malware' if x.get('malware') else 'concern major' if x.major else 'concern') if x.kind == 'critical' else 'positive' }}">{{ x.label }}</span></td><td>{{ x.means }}</td><td class="muted nowrap">{{ x.question }} {{ x.answer }}</td></tr>
   {% endfor %}
 </tbody></table></div></div>{% endcall %}</div>
+<h2 class="h2" id="talk">Where to say what</h2>
+{# Two verbs for players: Comment when something needs a decision (an issue, answered in public), Discuss when it is talk. #}
+<div class="box pad"><dl class="legend">
+  <dt><b>Comment</b></dt><dd>An answer is wrong, something is missing, or you are the author and want to add context: use "Comment" beside the answer, or the <a href="{{ SITE.links.comment }}">comment form</a>. It opens a GitHub issue, the answer shows "Under review" while it is open, and it is closed in public as fixed, declined or noted, with the reason; a fix adds a dated line to the card's history.</dd>
+  <dt><b>Discuss a tool</b></dt><dd>Talk with other players and the author: each tool has one discussion for all its releases, linked from its page and its card in the tools list (<a href="{{ SITE.links.discussions }}">all of them</a>). What is said there changes no card until it comes in as a comment.</dd>
+  <dt><b>Discuss the site</b></dt><dd>The questions, the rules, how cards are made, an idea, or something broken on the site: <a href="{{ SITE.links.discuss_site }}">the site's discussion</a>. An idea that is taken becomes an issue, and a change to the rules is listed in "Changes to these rules".</dd>
+  <dt><b>Ask for something</b></dt><dd>A tool analysed, or a new question for every tool: <a href="{{ SITE.links.request }}">request a tool</a> or <a href="{{ SITE.links.question }}">suggest a question</a>. Each is an issue, closed with a decision and its reason.</dd>
+</dl></div>
 <h2 class="h2">In detail</h2>
 <div class="stack tight">
 {% call fold('marks-and-scores', 'Marks and scores') %}<div class="prose pad">{{ tpl['Marks and scores'] | md }}</div>{% endcall %}
