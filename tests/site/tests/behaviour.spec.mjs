@@ -42,15 +42,19 @@ test('Clear is off until the list changes, then puts the search, filters, sort a
   await expect(page.locator('#q')).toBeFocused();
 });
 
-test('the tools list opens newest analysis first in each category, with or without the script', async ({ browser }) => {
+test('the tools list opens newest analysis first, its categories too, with or without the script', async ({ browser }) => {
   for (const javaScriptEnabled of [true, false]) {
     const page = await (await browser.newContext({ javaScriptEnabled })).newPage();
     await page.goto('');
     if (javaScriptEnabled) await expect(page.locator('#sort')).toHaveValue('date');
     const late = await page.locator('#tools-grid > *').evaluateAll(els => {
-      let cat = null, prev = null;
+      const newest = h => els.filter(e => !e.classList.contains('ghead') && e.dataset.cat === h.dataset.cat).map(e => e.dataset.date).sort().pop();
+      let cat = null, prev = null, last = null;
       for (const e of els) {
-        if (e.classList.contains('ghead')) { cat = e.dataset.cat; prev = null; continue; }
+        if (e.classList.contains('ghead')) {
+          if (last !== null && newest(e) > last) return 'category ' + e.dataset.cat + ' after an older one';
+          cat = e.dataset.cat; last = newest(e); prev = null; continue;
+        }
         if (prev && (prev.dataset.date < e.dataset.date || prev.dataset.date === e.dataset.date && prev.dataset.name > e.dataset.name)) return e.dataset.name + ' in ' + cat;
         prev = e;
       }
