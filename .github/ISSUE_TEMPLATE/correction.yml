@@ -1,6 +1,6 @@
-name: Comment on an answer
+name: Suggest a correction
 description: Say an answer is wrong or out of date, point out something missing, or add context as the tool's author.
-title: "Comment: <card> "
+title: "Correction: <card> "
 labels: ["correction"]
 body:
   - type: markdown

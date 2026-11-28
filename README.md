@@ -19,7 +19,7 @@ If you think a card is unfair, comment on the answer (the form below): it will b
 ## Ask for a tool, or correct a card
 
 - [Request an analysis](../../issues/new?template=analyse-tool.yml) of a tool or a newer release.
-- [Comment on an answer](../../issues/new?template=correction.yml): a correction, something missing, or the author's context. Name the card, the answer and your evidence.
+- [Suggest a correction](../../issues/new?template=correction.yml): a correction, something missing, or the author's context. Name the card, the answer and your evidence.
 - [Suggest a question](../../issues/new?template=question.yml) the cards don't ask yet; it is asked of every tool.
 
 Authors are welcome to use all three, and can check a release before anyone else does: the site's "For authors" page shows what earns a Good answer on each question, with a check their agent runs ([`authors/`](authors/mxb-facts-check/SKILL.md)). Publishing your source, or allowing analysis in your licence, lets a card cover more.

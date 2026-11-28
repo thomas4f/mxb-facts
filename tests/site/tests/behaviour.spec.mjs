@@ -268,7 +268,7 @@ test('the home page says how scores read beside the count, and points to the mar
 test('the footer has its two groups of links and the licence line', async ({ page }) => {
   await page.goto('');
   const f = page.locator('footer');
-  for (const n of ['Comment on a card', 'Request a tool', 'Suggest a question', 'Source on GitHub', 'Data feed']) await expect(f.getByRole('link', { name: n })).toBeVisible();
+  for (const n of ['Suggest a correction', 'Request a tool', 'Suggest a question', 'Source on GitHub', 'Data feed']) await expect(f.getByRole('link', { name: n })).toBeVisible();
   await expect(f).toContainText('Cards and data CC BY 4.0');
 });
 

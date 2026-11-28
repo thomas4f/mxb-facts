@@ -141,7 +141,7 @@ def correction_link(card,q,ans=''):
     a=re.sub(r'^\{([+~!])\} ',lambda m:{'+':'Good','~':'Note','!':'Concern'}[m.group(1)]+': ',ans)
     a=re.sub(r'\[([^\]]+)\]\(([^)]+)\)',r'\1 (\2)',a).replace('`','')
     if len(a)>1500: a=a[:1497].rsplit(' ',1)[0]+'…'
-    return CORRFORM+'&'+urllib.parse.urlencode({'title':f'Comment: {card} {q}','card':card,'line':f'{q}: {QTXT[q]}'+(f'\n\nThe answer now: {a}' if a else '')})
+    return CORRFORM+'&'+urllib.parse.urlencode({'title':f'Correction: {card} {q}','card':card,'line':f'{q}: {QTXT[q]}'+(f'\n\nThe answer now: {a}' if a else '')})
 CORRTIP='A comment about this answer is under review. Nothing on the card changes until it is decided.'
 CKIND={'correction':'Correction','missing':'Something missing','context':'Author\'s context'}
 def corrections_md(f,d):
@@ -169,7 +169,7 @@ def corrections_md(f,d):
             # A comment that changes the card ("fixed") has its history row, linking the issue; "noted" changes nothing.
             if c['status']=='fixed': assert any(f'issues/{n})' in r['change'] for r in d['history']), f+': correction #'+str(n)+' is fixed, so a Card history row links its issue'
             out.append(f'- {link}, about {qs}: {c["status"]} on {c["closed"]}. {c["reason"]}')
-    out.append(('' if out else 'No correction has been sent about this card. ')+f'Something wrong, missing, or context to add? [Comment on an answer]({CORRFORM}), with its evidence; it shows here, and on the answer it names, until it is decided. If you made this tool, see [For authors](#authors).')
+    out.append(('' if out else 'No correction has been sent about this card. ')+f'Something wrong, missing, or context to add? [Suggest a correction]({CORRFORM}), with its evidence; it shows here, and on the answer it names, until it is decided. If you made this tool, see [For authors](#authors).')
     return '\n'.join(out[:-1])+('\n\n' if len(out)>1 else '')+out[-1]
 def no_html(f,d,p='card'):
     # Card text is Markdown without HTML, and its links go to https addresses: it comes partly from releases and authors'

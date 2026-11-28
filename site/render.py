@@ -173,7 +173,7 @@ def write_pages(SITE):
     css.append(f'.nw::before {{ -webkit-mask-image: {mask_url("refresh-cw")}; mask-image: {mask_url("refresh-cw")} }}')
     css.append(f'.cx::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
     css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}',
-            f'.ic.cmt {{ --i: {mask_url("message-square-plus")} }}', f'.ic.dsc {{ --i: {mask_url("messages-square")} }}',
+            f'.ic.cmt {{ --i: {mask_url("pencil")} }}', f'.ic.dsc {{ --i: {mask_url("messages-square")} }}',
             f'.theme {{ --i: {mask_url("sun-moon")} }}', f'.theme[data-t="light"] {{ --i: {mask_url("sun")} }}', f'.theme[data-t="dark"] {{ --i: {mask_url("moon")} }}']
     css.append('/*\n' + ICON_LICENCE + '*/')
     icons_css = '\n'.join(css) + '\n'

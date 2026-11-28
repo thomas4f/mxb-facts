@@ -370,7 +370,7 @@ code.hash { font-size: 12px }
 .cmptools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s3) }
 .cmpl { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; color: var(--muted); font-size: 14px }
 /* A tool card's three actions, Compare, Discuss and View findings, as three buttons of one size sharing the row. */
-.card .foot .btn { flex: 1 1 auto; justify-content: center; gap: var(--s1); padding-inline: var(--s1); white-space: nowrap }
+.card .foot .btn { flex: 1 1 auto; justify-content: center; gap: var(--s2); padding-inline: var(--s2); white-space: nowrap }
 .card .foot .cmpl { color: var(--ink); font-size: 14.5px } .card .foot .cmpl:has(input:checked) { border-color: var(--accent) }
 /* Where a card is too narrow for the three in a row (a 360px phone), View findings takes a row of its own under the other two. */
 @container (max-width: 310px) { .card .foot { flex-wrap: wrap } .card .foot .btn:last-child { flex-basis: 100% } }
