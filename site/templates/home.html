@@ -51,7 +51,7 @@
     {% for x in ordered %}{{ tag(x, loop.index > shown, root ~ t.id ~ '/') }}{% endfor %}
     {% if ordered | length > shown %}<button type="button" class="tag more" data-more aria-expanded="false" data-label="+{{ ordered | length - shown }} more">+{{ ordered | length - shown }} more<span class="vh"> tags for {{ t.name }}</span></button>{% endif %}
   </div>
-  <div class="foot"><label class="cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare</label><a class="btn" href="{{ root }}{{ t.id }}/">View findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
+  <div class="foot"><label class="cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare</label><a class="dsc" href="{{ t.discussion or SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener">Discuss<span class="vh"> {{ t.name }}</span></a><a class="btn" href="{{ root }}{{ t.id }}/">View findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
 </article>
 {% endfor %}
 {% endfor %}
@@ -60,6 +60,6 @@
 <div class="cmpbar" id="cmpbar" hidden><span><b data-cmp-n></b> picked to compare</span><span class="links"><button class="btn" type="button" data-cmp-clear>Clear</button><a class="btn primary" href="{{ root }}compare/" data-cmp-go>Compare</a></span></div>
 
 {# What each mark means lives once, on How it works; the list points there. #}
-<p class="count">New to the marks? <a href="{{ root }}how/#marks">Reading a card</a> explains each one. Something wrong or missing on a card? Every answer has a "Comment" link, and every tool has <a href="{{ SITE.links.discussions }}">its own discussion</a>, open to authors and players alike.</p>
+<p class="count">New to the marks? <a href="{{ root }}how/#marks">Reading a card</a> explains each one.</p>
 <script type="application/json" id="addresses">{{ addresses | tojson }}</script>
 {% endblock %}
