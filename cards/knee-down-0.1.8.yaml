@@ -185,6 +185,10 @@ sections:
               seen; what it does rests on reading its code.
             questions: [P4, P7, D1, D2, D3, D6, D8]
           - text: >-
+              The installer ran silently, so whether its window offers an install for all users, which would ask for
+              administrator rights, wasn't seen.
+            questions: [P10]
+          - text: >-
               The uninstaller wasn't run, and 7-Zip doesn't show its script, so what uninstalling removes (its settings, the
               files it wrote into the mods and game folders) wasn't seen.
             questions: [P8]
@@ -281,6 +285,15 @@ answers:
       are `reg query`, `tasklist` and Steam; it has no code that loads code from the internet or opens other processes.
       In the install run, the installer started only `cmd.exe` (with `tasklist` and `findstr`) and PowerShell.
     evidence: '`lab/evidence/knee-down-0.1.8/absent.txt`, `lab/evidence/knee-down-0.1.8/urls.txt`, `lab/evidence/knee-down-0.1.8/network.txt`; `lab/results/knee-down-0.1.8/install-and-start-windows/procmon.txt`.'
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      The installer, the uninstaller and `KneeDown.exe` request `asInvoker`, and in the run the installer installed
+      for the Windows user only (its Installed apps entry under `HKCU`) and started no `elevate.exe`. It carries
+      NSIS's UAC plugin and electron-builder's `elevate.exe`, the helpers an install for all users would use; nothing
+      installs a service or driver.
+    evidence: '`lab/evidence/knee-down-0.1.8/privileges.txt`, `lab/results/knee-down-0.1.8/install-and-start-windows/registry.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

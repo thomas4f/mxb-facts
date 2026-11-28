@@ -235,6 +235,13 @@ answers:
       `lab/evidence/setup-duper-0.1.8674.29660/rebuild.txt`, `lab/evidence/setup-duper-0.1.8674.29660/apphost.txt`,
       `lab/evidence/setup-duper-0.1.8674.29660/nuget-libs.txt`, `lab/evidence/setup-duper-0.1.8674.29660/src-absent.txt`,
       `lab/evidence/setup-duper-0.1.8674.29660/src-network.txt`.
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      `MX_Bikes_Setup_Duper.exe` requests `asInvoker` and its code holds no `runas` or admin check; nothing installs a
+      service or driver.
+    evidence: '`lab/evidence/setup-duper-0.1.8674.29660/privileges.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

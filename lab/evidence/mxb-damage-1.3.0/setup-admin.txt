@@ -1,0 +1,9 @@
+$ strings -el -n 6 MXB-Damage-Setup.exe | grep -nE 'administrator|protected|Could not write'; strings -el -n 5 MXB-Damage-Setup.exe | grep -n -x runas
+78: is protected: press Retry as administrator.
+120:Windows needs administrator rights
+121:This folder is protected. Nothing was changed.
+127:Retry as administrator
+175:\plugins\gamefx64.dlo is protected: press Retry as administrator.
+181:Could not write 
+162:runas
+(exit 0)

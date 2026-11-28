@@ -1,0 +1,13 @@
+$ objdump -d 'MXB-Damage-Setup.exe' | awk -v a=140016c28 -v b=140016c5e '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   140016c28:	4c 8d 4d 08          	lea    0x8(%rbp),%r9
+   140016c2c:	48 83 7d 20 07       	cmpq   $0x7,0x20(%rbp)
+   140016c31:	4c 0f 47 4d 08       	cmova  0x8(%rbp),%r9
+   140016c36:	c7 44 24 28 01 00 00 	movl   $0x1,0x28(%rsp)
+   140016c3d:	00 
+   140016c3e:	48 89 7c 24 20       	mov    %rdi,0x20(%rsp)
+   140016c43:	4c 8d 85 b0 00 00 00 	lea    0xb0(%rbp),%r8
+   140016c4a:	48 8d 15 cf 55 03 00 	lea    0x355cf(%rip),%rdx        # 0x14004c220
+   140016c51:	48 8b 0d 40 a6 04 00 	mov    0x4a640(%rip),%rcx        # 0x140061298
+   140016c58:	ff 15 aa 17 03 00    	call   *0x317aa(%rip)        # 0x140048408
+   140016c5e:	48 83 f8 20          	cmp    $0x20,%rax
+(exit 0)

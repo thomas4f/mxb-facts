@@ -82,3 +82,6 @@ ev strings-dlo "strings -n 6 pkg/hud_plugin/mxbds_hud64.dlo | grep -iE 'mxb|hud|
 ev crash-filter "objdump -d pkg/hud_plugin/mxbds_hud64.dlo | grep -nE '# 0x180010078|# 0x180010000'; objdump -d pkg/hud_plugin/mxbds_hud64.dlo | awk -v a=180006cf7 -v b=180006d12 '\$1 ~ /^[0-9a-f]+:\$/ { x = substr(\$1, 1, length(\$1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'"
 # What stopping the mod (closing the window) does: both triggers back to normal (dsx.normal), the HUD hidden.
 ev core-stop "pyinst.py pyzcode pkg/PYZ.pyz mxbds.core ModCore.stop; pyinst.py pyzcode pkg/PYZ.pyz mxbds.gui.api ControlApi.shutdown ControlApi.stop"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py 1795198224-mxb-dualsense-support-1.1.0.zip"

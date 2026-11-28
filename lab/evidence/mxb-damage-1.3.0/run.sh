@@ -43,3 +43,12 @@ dis mxb_damage.dlo 1800925d0 180092658
 dis mxb_damage.dlo 180090b60 180090bf4
 # Crash handler: every call of SetUnhandledExceptionFilter (0x180110208) passes 0, right before UnhandledExceptionFilter.
 ev crash-filter "objdump -d mxb_damage.dlo | grep -B3 '# 0x180110208'"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py MXB-Damage-Setup.exe mxb_damage_1.3.0.zip mxb_damage_1.3.0.pkg"
+# The setup's "Retry as administrator": its text, the one ShellExecuteW call with the runas verb (0x14004c220 holds
+# L"runas"), and the window procedure's left-button-up branch that calls the function holding it, after a hit test.
+ev setup-admin "strings -el -n 6 MXB-Damage-Setup.exe | grep -nE 'administrator|protected|Could not write'; strings -el -n 5 MXB-Damage-Setup.exe | grep -n -x runas"
+dis MXB-Damage-Setup.exe 140016c28 140016c5e
+dis MXB-Damage-Setup.exe 14002061f 14002062d
+dis MXB-Damage-Setup.exe 140020708 140020730

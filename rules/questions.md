@@ -67,6 +67,7 @@ Areas, and the questions within each area, are listed most critical first: what 
 | P7 | Your PC and files | Does it write into the game's folders beyond its own plugin and settings? | Note; Concern if, by default, it adds content you didn't pick | Good | Note |
 | P8 | Your PC and files | Does uninstalling leave changes behind? | Note; Concern if changes to Windows or to files that aren't its own stay | Good | Note |
 | P9 | Your PC and files | Did the analysis find signs of malware: code that is hidden, disguised, or does something the tool doesn't show you? | Concern; a second check must confirm it | Good | Note |
+| P10 | Your PC and files | Does it ask Windows for administrator rights, or install a service or driver? | Concern; Note if only on request | Good | Note: only its installer or uninstaller asks, while it installs or removes the tool |
 | D1 | Your data | Does it connect to the internet? | Note | Good | None |
 | D2 | Your data | Is anything about you or your game sent (not counting a plain update check)? | Concern | Good | Note |
 | D3 | Your data | Is an identifier sent (install ID, machine ID, Steam ID, GUID)? | Concern; Note if the only identifier is a random install ID the tool makes itself | Good | Note |
@@ -131,6 +132,7 @@ The front page shows each tool as a row of tags instead of its ten answers, so a
 | P6 | Yes | Changes Windows settings | Critical | monitor-cog | It changes how Windows is set up beyond its own entries, which can affect other programs and may stay after you remove it. |
 | P7 | Yes | Changes game files | Critical | folder-pen | By default it adds content to the game's folders that you didn't pick. |
 | P8 | Yes | Leaves changes behind | Critical | footprints | Removing it doesn't undo everything it did; the answer lists what stays. |
+| P10 | Yes | Runs as administrator | Critical | user-cog | Each time it starts it asks Windows for administrator rights, or it installs a service or driver that runs with them, so what it does can reach all of Windows, beyond your own files and settings. |
 | D2 | Yes | Sends your data | Critical | send | Something about you or your game leaves your PC; the answer says what and to whom. |
 | D3 | Yes | Sends an identifier | Critical | fingerprint | An identifier is sent that can link your sessions together over time, beyond a random install ID the tool makes itself. |
 | D4 | Yes | Sends other players' data | Critical | users | Data about other riders in your session leaves your PC, without them having chosen this tool. |

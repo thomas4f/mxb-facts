@@ -64,3 +64,6 @@ ev strings-files "for f in $P; do echo \"== \$f\"; { strings -n 5 \$f; strings -
 money $P README.txt
 # The rider ragdoll: it looks for the player's rider among the vertex buffers the game draws.
 ev strings-ragdoll "strings -n 6 ProjectGPB2_core64.dlo | grep -E '^ragdoll: |rider rig|riders found'"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py 1794501261-projectgpb2-v2.zip"

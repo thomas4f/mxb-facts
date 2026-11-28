@@ -40,3 +40,6 @@ ev launch "pyinst.py code pkg/main.pyc_raw App.launch App.is_game_running 'App.i
 ev game-find "pyinst.py code pkg/main.pyc_raw candidate_game_dirs find_game App.scan App.choose_game"
 ev ui-text "pyinst.py code pkg/main.pyc_raw App._ui | grep -E 'LOAD_CONST .[A-Z][A-Za-z ]'"
 
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py MXB_FPS_Booster_V1.zip"

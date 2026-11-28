@@ -1,0 +1,9 @@
+$ privileges.py Pitbox-Windows-3.0.4.zip
+Pitbox-Windows-3.0.4.zip > Pitbox/python/python.exe
+  manifest: requestedExecutionLevel asInvoker
+Pitbox-Windows-3.0.4.zip > Pitbox/python/pythonw.exe
+  manifest: requestedExecutionLevel asInvoker
+Pitbox-Windows-3.0.4.zip > Pitbox/vendor/7z/7z.exe
+  manifest: requestedExecutionLevel asInvoker
+1435 files read
+(exit 0)

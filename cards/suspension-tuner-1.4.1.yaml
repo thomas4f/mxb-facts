@@ -280,6 +280,15 @@ answers:
       `proxy_udp.ini`, and check GitHub for a version; they hold no code to start programs, open other processes or press
       keys.
     evidence: '`lab/evidence/suspension-tuner-1.4.1/launcher.txt`, `lab/evidence/suspension-tuner-1.4.1/absent.txt`, `lab/evidence/suspension-tuner-1.4.1/network.txt`, `lab/evidence/suspension-tuner-1.4.1/blocks.txt`; `lab/results/suspension-tuner-1.4.1/launcher-windows/procmon.txt`.'
+  P10:
+    verdict: Yes, on request
+    mark: note
+    text: >-
+      Only if you pick "Install for all users". The Inno Setup installer asks for no rights by default
+      (`PrivilegesRequired=lowest`) and its first dialog lets you choose an install for all users instead
+      (`PrivilegesRequiredOverridesAllowed=dialog`), which Windows asks administrator rights for. Both
+      `SuspensionTuner.exe` files request `asInvoker`; nothing installs a service or driver.
+    evidence: '`lab/evidence/suspension-tuner-1.4.1/privileges.txt`, `lab/evidence/suspension-tuner-1.4.1/setup-rights.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

@@ -50,3 +50,6 @@ ev run-writes "for r in ride-pause ride-long; do echo \"== \$r\"; grep -E 'mxbfi
 # The one write on mxbfix.dlo itself in each run is Windows' paging I/O as it maps the plugin, just before "Load Image";
 # the plugin's hash after the runs is the release's (plugins.sha256).
 ev dlo-load "for r in ride-pause ride-long; do echo \"== \$r\"; zcat \"\$RES/\$r-windows/raw/procmon.csv.gz\" | grep -E '(WriteFile|Load Image)\",\"[^\"]*plugins.mxbfix.dlo' | cut -d, -f1,4,6- | sed -E 's/D:.a._temp.realgame.run-[a-z-]+.//'; grep mxbfix \"\$RES/\$r-windows/plugins.sha256\"; done"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py mxbfix.dlo"

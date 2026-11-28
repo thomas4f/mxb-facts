@@ -214,6 +214,13 @@ answers:
       imports no network or registry module, and the bundled modules are Python's standard library, tkinter and psutil.
     evidence: >-
       `lab/evidence/mxb-fps-booster-v1/main.txt`, `lab/evidence/mxb-fps-booster-v1/main-imports.txt`, `lab/evidence/mxb-fps-booster-v1/main-absent.txt`, `lab/evidence/mxb-fps-booster-v1/pyz.txt`, `lab/evidence/mxb-fps-booster-v1/carchive.txt`.
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      `MXB FPS Booster.exe` requests `asInvoker` and its code holds no `runas`; switching the power plan (P6) needs no
+      administrator rights. Nothing installs a service or driver (its bundled `psutil` can only read services).
+    evidence: '`lab/evidence/mxb-fps-booster-v1/privileges.txt`.'
   D1:
     verdict: 'No'
     mark: good

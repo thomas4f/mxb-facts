@@ -1,0 +1,7 @@
+$ privileges.py Dirt-Gear-Setup-1.1.1.exe
+Dirt-Gear-Setup-1.1.1.exe
+  manifest: requestedExecutionLevel asInvoker
+Dirt-Gear-Setup-1.1.1.exe > payload.zip > Dirt Gear.exe
+  manifest: requestedExecutionLevel asInvoker
+1966 files read
+(exit 0)

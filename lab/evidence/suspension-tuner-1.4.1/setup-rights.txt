@@ -1,0 +1,10 @@
+$ innosetup.py SuspensionTuner_Setup.exe
+setup data at 14958044: Inno Setup Setup Data (6.7.0)
+header block: 27904 bytes stored, 395969 unpacked, every CRC matches
+AppName: 'Suspension Tuner'
+AppVersion: '1.4.1'
+DefaultDirName: '{autopf}\\Suspension Tuner'
+UsePreviousAppDir: 'yes'
+PrivilegesRequired: lowest (byte 781 of the header: 3)
+PrivilegesRequiredOverridesAllowed: commandline, dialog (byte 782: 3)
+(exit 0)

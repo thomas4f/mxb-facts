@@ -62,3 +62,6 @@ ev strings-plugins "for f in $HUD $AS; do echo \"== \$f\"; strings -n 6 \$f | gr
 ev strings-urls "for f in $HUD $AS; do { strings -n 5 \$f; strings -el -n 5 \$f; } | grep -niE 'https?://|www\\.|\\.(com|net|org|io)\\b|ws2_32|wininet|winhttp|socket'; done"
 # «Mi sala» (your own online room, on request): the router is asked through UPnP to forward the room's port.
 ev upnp "grep -n -i 'upnp' $G/sala_propia.py | head -20"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py Pitbox-Windows-3.0.4.zip"

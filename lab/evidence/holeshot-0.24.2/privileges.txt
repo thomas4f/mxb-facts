@@ -1,0 +1,8 @@
+$ privileges.py Holeshot-HUD-0.24.2-windows-x64.zip HoleshotHUD-Setup.exe
+Holeshot-HUD-0.24.2-windows-x64.zip > Holeshot-HUD.exe
+  manifest: none (asInvoker)
+HoleshotHUD-Setup.exe
+  manifest: requestedExecutionLevel asInvoker
+  an Inno Setup installer that innoextract can't read; innosetup.py reads its rights
+13 files read
+(exit 0)

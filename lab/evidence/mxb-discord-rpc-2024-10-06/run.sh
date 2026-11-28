@@ -49,3 +49,6 @@ ev sdk-not-found "for r in ride bystander; do echo \"== \$r\"; zcat \"\$RES/\$r-
 # The MEGA mirror on the mxb-mods.com page gives the same zip as the MediaFire link (needs the network).
 export TOOLS="$OUT/../../../tools"
 ev mirror "python3 -I \"\$TOOLS/fetch_release.py\" get 'https://mega.nz/file/dBQyVZwQ#03Ulu8DFr9K4OLXU3jWlD9_oFeviupIKLOGlEmv7V-0' \"\$W\" 2>&1 | tail -n 1; sha256sum 'MXB Discord RPC.zip'"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py 'MXB Discord RPC.zip'"

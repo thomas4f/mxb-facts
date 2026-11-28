@@ -338,6 +338,13 @@ answers:
       No malware found. A rebuild from the public source gives the release's code byte for byte; the plugins' imports and text
       match that source, and the scripts are the same files as in the repository.
     evidence: '`lab/evidence/mx-dirt-mod-1.7.1/rebuild.txt`, `lab/evidence/mx-dirt-mod-1.7.1/same-as-source.txt`, `lab/evidence/mx-dirt-mod-1.7.1/mx_dirt.dlo.iat.txt`, `lab/evidence/mx-dirt-mod-1.7.1/mx_dirt_render.dlo.iat.txt`.'
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      Its install, uninstall and launcher scripts ask for no administrator rights (no `-Verb RunAs`, no admin check)
+      and the plugin runs inside the game with the game's rights; nothing installs a service or driver.
+    evidence: '`lab/evidence/mx-dirt-mod-1.7.1/privileges.txt`.'
   D1:
     verdict: 'No'
     mark: good

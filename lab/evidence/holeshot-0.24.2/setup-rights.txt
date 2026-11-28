@@ -1,0 +1,10 @@
+$ innosetup.py HoleshotHUD-Setup.exe
+setup data at 13581097: Inno Setup Setup Data (6.7.0)
+header block: 21362 bytes stored, 52196 unpacked, every CRC matches
+AppName: 'Holeshot HUD'
+AppVersion: '0.24.2'
+DefaultDirName: '{localappdata}\\Holeshot HUD'
+UsePreviousAppDir: 'yes'
+PrivilegesRequired: lowest (byte 5821 of the header: 3)
+PrivilegesRequiredOverridesAllowed: commandline, dialog (byte 5822: 3)
+(exit 0)

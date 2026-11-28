@@ -1,0 +1,8 @@
+$ privileges.py MXB-Damage-Setup.exe mxb_damage_1.3.0.zip mxb_damage_1.3.0.pkg
+MXB-Damage-Setup.exe
+  manifest: requestedExecutionLevel asInvoker
+  text: runas
+mxb_damage_1.3.0.zip > mxb_damage/mxb_damage_updater.exe
+  manifest: none (asInvoker)
+48 files read
+(exit 0)

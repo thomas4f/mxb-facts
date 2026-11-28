@@ -348,6 +348,13 @@ answers:
     evidence: >-
       `lab/evidence/maxhud-2.2.7/MaxHUD_MXB64.dlo.iat.txt`, `lab/evidence/maxhud-2.2.7/imports-absent.txt`,
       `lab/evidence/maxhud-2.2.7/strings-files.txt`, `lab/evidence/maxhud-2.2.7/MaxStopRumble.exe.iat.txt`.
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      `MaxStopRumble.exe` requests `asInvoker` and the plugin runs inside the game with the game's rights; nothing in
+      the release asks for administrator rights or installs a service or driver.
+    evidence: '`lab/evidence/maxhud-2.2.7/privileges.txt`.'
   D1:
     verdict: 'No'
     mark: good

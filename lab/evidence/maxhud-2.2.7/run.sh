@@ -58,3 +58,6 @@ ev file-names "objdump -s --start-address=0x18003ab60 --stop-address=0x18003ab70
 ev crash-filter "objdump -d MaxHUD_MXB64.dlo | grep -B3 -A3 '# 0x180035108'"
 # MaxStopRumble.exe: all its text.
 ev stoprumble-strings "strings -n 6 MaxStopRumble.exe | grep -E '[a-z]{3}'"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py 'MaXHUD - v2.2.7.zip'"

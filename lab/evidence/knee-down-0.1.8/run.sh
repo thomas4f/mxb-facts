@@ -59,3 +59,6 @@ ev repo "curl -sS https://api.github.com/repos/gsv-r/knee-down/git/refs/tags/v0.
 ev readme "curl -sS https://raw.githubusercontent.com/gsv-r/knee-down/27abfcc757fcbc726678b50ea8c6240fa6863203/README.md"
 # Its gpb-mods.com page, tags removed, the lines the card quotes.
 ev gpb-mods "curl -sSL https://gpb-mods.com/knee-down-launcher/ | python3 -I -c \"import html,re,sys;t=sys.stdin.read();t=re.sub(r'(?s)<(script|style).*?</\\\\1>','',t);t=re.sub(r'<br\\\\s*/?>|</p>|</li>|</h[0-9]>|</div>','\\\\n',t);t=re.sub(r'<[^>]+>','',t);[print(l.strip()) for l in html.unescape(t).splitlines() if l.strip()]\" | sed -n '/^Installation Guide/,/^Mod Rating/p'"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py KneeDown-preset.exe"

@@ -298,6 +298,15 @@ answers:
       `lab/evidence/mxrp-ragdoll-3.2/MXRP_Ragdoll.dlo.iat.txt`, `lab/evidence/mxrp-ragdoll-3.2/installer.exe.iat.txt`,
       `lab/evidence/mxrp-ragdoll-3.2/payload.txt`, `lab/evidence/mxrp-ragdoll-3.2/strings-network.txt`,
       `lab/evidence/mxrp-ragdoll-3.2/strings-update.txt`.
+  P10:
+    verdict: Partly
+    mark: note
+    text: >-
+      Its installer (`MXRP Beta 3.2.exe`, the same file as `MXRP_Ragdoll_Installer.exe`) requests
+      `requireAdministrator`, so Windows asks for administrator rights each time it runs, also when the plugin's
+      update opens it because it can't write `plugins`. The plugin runs inside the game with the game's rights, and
+      nothing installs a service or driver.
+    evidence: '`lab/evidence/mxrp-ragdoll-3.2/privileges.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

@@ -200,6 +200,10 @@ answers:
     verdict: Not allowed
     text: Looking inside the release for signs of malware isn't allowed (licence, section 4).
     evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
+  P10:
+    verdict: Not allowed
+    text: What rights it asks Windows for can't be looked at (licence, section 4).
+    evidence: '`lab/evidence/heightmap-studio-26.11.7/terms.txt`.'
   D1:
     verdict: Not allowed
     text: >-

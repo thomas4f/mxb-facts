@@ -60,3 +60,6 @@ ev deps "cd \"\$SRC\" && grep -nE 'PackageReference|TargetFramework' MXBikesSetu
 ev release-page "curl -sSL https://api.github.com/repos/dmkrtz/MXBikesSetupDuperWPF/releases/tags/0.1.8674.29660 | python3 -I -c 'import json,sys; r=json.load(sys.stdin); print(r[\"tag_name\"], r[\"published_at\"], \"by\", r[\"author\"][\"login\"], \"target\", r[\"target_commitish\"]); print([(a[\"name\"], a[\"size\"], a[\"uploader\"][\"login\"]) for a in r[\"assets\"]]); print(r[\"body\"])'; curl -sSL https://api.github.com/repos/dmkrtz/MXBikesSetupDuperWPF/git/refs/tags/0.1.8674.29660 | grep -E '\"sha\"|\"type\"'; curl -sSL https://api.github.com/repos/dmkrtz/MXBikesSetupDuperWPF | grep -E '\"license\"'"
 # The public history up to the commit.
 ev history "cd \"\$SRC\" && git log --format='%h %ad %s' --date=short 2e030e0873b043e5eab485ce9902761f999b9edf | cat; git log --format=%ad --date=short 2e030e0873b043e5eab485ce9902761f999b9edf | sort -u | wc -l"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py MX_Bikes_Setup_Duper.exe"

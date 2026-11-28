@@ -1,0 +1,7 @@
+$ privileges.py MX_Bikes_Setup_Duper.exe
+MX_Bikes_Setup_Duper.exe
+  manifest: requestedExecutionLevel asInvoker
+MX_Bikes_Setup_Duper.exe > MX_Bikes_Setup_Duper.dll
+  manifest: requestedExecutionLevel asInvoker
+133 files read
+(exit 0)

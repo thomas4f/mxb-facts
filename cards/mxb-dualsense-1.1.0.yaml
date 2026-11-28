@@ -269,6 +269,13 @@ answers:
     evidence: >-
       `lab/evidence/mxb-dualsense-1.1.0/imports.txt`, `lab/evidence/mxb-dualsense-1.1.0/absent.txt`, `lab/evidence/mxb-dualsense-1.1.0/network.txt`,
       `lab/evidence/mxb-dualsense-1.1.0/pyz.txt`, `lab/evidence/mxb-dualsense-1.1.0/carchive.txt`, `lab/evidence/mxb-dualsense-1.1.0/mxbds_hud64.dlo.iat.txt`.
+  P10:
+    verdict: 'No'
+    mark: good
+    text: >-
+      `MXB-DualSense-Support.exe` requests `asInvoker` and its code holds no `runas`; the HUD plugin runs inside the
+      game with the game's rights, and nothing installs a service or driver.
+    evidence: '`lab/evidence/mxb-dualsense-1.1.0/privileges.txt`.'
   D1:
     verdict: 'Yes'
     mark: note

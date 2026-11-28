@@ -60,3 +60,6 @@ ev strings-money "for f in MXRP_Ragdoll.dlo installer.exe MXRP_Ragdoll/MXRP_Ragd
 ev guide "sed -n '1,90p' MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt | grep -nE 'removes old|Automatic:|UPDATES|downloads it|Ask before|kicked|ON/OFF button is not enough|plugin is still loaded|talk through|Every player needs|send Documents|Walking animation|FMX ramps:|RAGDOLL is added'"
 # The installer's payload: the plugin, the guide and the settings file of the manual zip are inside it, byte for byte (offsets).
 ev payload "python3 -I -c 'import sys; f=open(sys.argv[1],\"rb\").read(); [print(p, \"found at offset\", f.find(open(p,\"rb\").read())) for p in sys.argv[2:]]' installer.exe MXRP_Ragdoll/plugins/MXRP_Ragdoll.dlo MXRP_Ragdoll/MXRP_Ragdoll_LISEZ-MOI_README.txt MXRP_Ragdoll/plugins/MXRP_Ragdoll.ini"
+# P10: what the release asks of Windows in rights: each program's manifest, the service and driver calls, and every place a file asks
+# for administrator rights or checks for them (privileges.py unpacks the release files itself, into a scratch folder).
+ev privileges "privileges.py MXRP_Beta_3.2.zip MXRP_Beta_3.2_manual.zip MXRP_Ragdoll_1.8.177.dlo MXRP_Ragdoll_Installer.exe"
