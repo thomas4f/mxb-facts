@@ -51,7 +51,7 @@
     {% for x in ordered %}{{ tag(x, loop.index > shown, root ~ t.id ~ '/') }}{% endfor %}
     {% if ordered | length > shown %}<button type="button" class="tag more" data-more aria-expanded="false" data-label="+{{ ordered | length - shown }} more">+{{ ordered | length - shown }} more<span class="vh"> tags for {{ t.name }}</span></button>{% endif %}
   </div>
-  <div class="foot"><label class="btn cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare<span class="vh"> {{ t.name }}</span></label><a class="btn" href="{{ t.discussion.url if t.discussion else SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener">Discuss<span class="vh"> {{ t.name }}</span>{% if t.discussion and t.discussion.comments %}<span class="num"> · {{ t.discussion.comments }}</span><span class="vh"> comments</span>{% endif %}</a><a class="btn" href="{{ root }}{{ t.id }}/">View findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
+  <div class="foot"><label class="btn cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare<span class="vh"> {{ t.name }}</span></label><a class="btn" href="{{ t.discussion.url if t.discussion else SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener"><span>Discuss{% if t.discussion and t.discussion.comments %} · <span class="num">{{ t.discussion.comments }}</span>{% endif %}</span><span class="vh"> {{ t.name }}{{ ', ' ~ t.discussion.comments ~ ' comments' if t.discussion and t.discussion.comments }}</span></a><a class="btn" href="{{ root }}{{ t.id }}/">View findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
 </article>
 {% endfor %}
 {% endfor %}
