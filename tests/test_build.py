@@ -540,5 +540,20 @@ _mm = {'version': None, 'date': '2026-11-30', 'url': 'https://www.mediafire.com/
 check('a mods-site download with a new file is named as a newer download, linking its post', [(n['version'], n['where'], n['url']) for n in _nr({'1.0'}, {'cd' * 32}, '2026-11-24', {'mxb-mods': _mm})] == [(None, 'mxb-mods.com', 'https://mxb-mods.com/x/')])
 check('a mods-site download with no hash (Mega, Drive) gets no notice', _nr({'1.0'}, set(), '2026-11-24', {'mxb-mods': {**_mm, 'files': [{'sha256': None}]}}) == [])
 
+# A tool's discussion (discussions.tool_threads): the oldest Tools thread titled with its name, comments and replies counted.
+import discussions  # noqa: E402
+_th = [{'title': 'Pitbox', 'url': 'u1', 'category': {'slug': 'tools'}, 'comments': {'totalCount': 2, 'nodes': [{'replies': {'totalCount': 3}}, {'replies': {'totalCount': 0}}]}},
+       {'title': 'pitbox ', 'url': 'u2', 'category': {'slug': 'tools'}, 'comments': {'totalCount': 9, 'nodes': []}},
+       {'title': 'MaXHUD', 'url': 'u3', 'category': {'slug': 'general'}, 'comments': {'totalCount': 1, 'nodes': []}}]
+discussions._post = lambda token, v: {'discussions': {'nodes': _th, 'pageInfo': {'hasNextPage': False, 'endCursor': None}}}
+os.environ['GITHUB_TOKEN'] = 'x'
+check('a tool\'s thread is the oldest Tools one with its title, counting comments and replies; another category is not its thread',
+      discussions.tool_threads('https://github.com/o/r/', ['Pitbox', 'MaXHUD']) == {'Pitbox': {'url': 'u1', 'comments': 5}})
+def _fail(token, v): raise OSError('down')
+discussions._post = _fail
+check('when GitHub does not answer, no tool has a thread and the build goes on', discussions.tool_threads('https://github.com/o/r/', ['Pitbox']) == {})
+del os.environ['GITHUB_TOKEN']
+check('without a token, discussions are not read', discussions.tool_threads('https://github.com/o/r/', ['Pitbox']) == {})
+
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)

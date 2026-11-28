@@ -9,6 +9,7 @@ from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, 
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
 from cards import COMMIT, CORR, DEMO_GAME, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games, newer_releases, pending_versions
 from badges import BADGES
+from discussions import tool_threads
 
 
 FEED_VERSION='1.9'
@@ -186,6 +187,7 @@ def write_feed(SITE,CARDS):
     note=ai_note()
     out=SITE+'api/v1/'; os.makedirs(out+'cards',exist_ok=True)
     tools={}; hashes={}; found={'github':{},'mods_post':{},'sha256':{}}
+    THREADS=tool_threads(REPO,[e['name'] for e in REG.values()])  # read from GitHub at build time, so not fixed by the commit
     for f,slug in CARDS:
         raw=load_yaml(D+f); C=check_card(f,raw); d=C['d']; h=C['h']; A=C['A']; held=C['held']; SETS=C['SETS']
         G=scored(A,held); crit,opt,pos=tagsof(raw)
@@ -239,7 +241,7 @@ def write_feed(SITE,CARDS):
         # one release (docs/FEED.md, "Showing a card").
         t=tools.setdefault(slug,{'id':slug,'name':C['name'],'author':reg['author'],'games':games(h),'github':reg['github'],'homepage':reg['homepage'],
                                  'mods_sites':mods,'card_image':f'{SITEURL}badge/{slug}/card.png','releases':[None]*len(order),
-                                 'discussion':REPO+f"discussions/{reg['discussion']}" if reg.get('discussion') else None})
+                                 'discussion':THREADS.get(C['name'])})
         # Newest release first, in the registry's order (rule 2: every card stays).
         t['releases'][len(order)-1-order.index(f)]=rel
         # How many answers are still open, by why, and how many comments are under review: the counts the tools list shows beside the tags.

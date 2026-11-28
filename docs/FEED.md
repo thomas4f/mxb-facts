@@ -6,7 +6,7 @@ Static JSON files that any site or app can read: the same data the MXB Facts pag
 https://thomas4f.github.io/mxb-facts/api/v1/
 ```
 
-GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a browser page, an app or a WordPress site can fetch it directly. Files are cached for 10 minutes. Every file starts with the same fields: `feed_version`, the commit it was built from (`commit`) and that commit's date (`built_at`), the rubric (`rubric`) and the licence (`licence`), so the same commit always gives the same files.
+GitHub Pages serves every file with `Access-Control-Allow-Origin: *`, so a browser page, an app or a WordPress site can fetch it directly. Files are cached for 10 minutes. Every file starts with the same fields: `feed_version`, the commit it was built from (`commit`) and that commit's date (`built_at`), the rubric (`rubric`) and the licence (`licence`), so the same commit always gives the same files, except each tool's `discussion` (its thread in Discussions and how many comments it has), which is read from GitHub when the site is built.
 
 ## Files
 

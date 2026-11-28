@@ -332,7 +332,8 @@ footer p { margin: 0 }
 /* Rows: answers and claims, one shape (templates/macros.html, row). */
 .row .rb { min-width: 0 }
 .row .t p { margin: 0 0 var(--s2) } .row .t p:last-child { margin: 0 }
-.row .cmtp { margin-left: auto } .row .cmt { font-size: 13px; display: inline-flex; align-items: center; min-height: 44px }
+/* Comment sits last on the mark line, after Limit and Under review, in the same small type. */
+.row .cmt { font-size: 13px; display: inline-flex; align-items: center; min-height: 44px }
 .row .vd { font-weight: 700; font-size: 14px }
 .row .sm.rv { display: inline-flex; align-items: center; gap: var(--s1); border: 1px solid color-mix(in srgb, var(--info) 40%, transparent); border-radius: 6px; padding: 0 var(--s2); color: var(--info) }
 @media (max-width: 520px) { .row { grid-template-columns: 34px minmax(0, 1fr) } }

@@ -69,7 +69,6 @@ MAINTAINER_TOOLS={'mxbmrp3'}
 for f,t in CARDS: assert bool(load_yaml(D+f).get('by_maintainer'))==(t in MAINTAINER_TOOLS), 'cards/'+f+': by_maintainer: true goes on the cards of '+', '.join(sorted(MAINTAINER_TOOLS))+' and nowhere else'
 for s,e in REG.items():
     assert all(c.startswith(s+'-') for c in e['cards']), 'registry/tools.json: '+s+' lists a card of another tool'
-    assert isinstance(e.get('discussion',0),int) and e.get('discussion',1)>0, 'registry/tools.json: '+s+' discussion is the number of its thread in Discussions'
     if e['github']: assert all('github.com/'+e['github']+')' in yaml.safe_load(open(D+c))['header']['GitHub'] for c in e['cards']), 'registry/tools.json: '+s+' GitHub differs from its card'
     # A pinned demo (lab/real-game/README.md, "Which demo"): one games.json lists, with what the tool shows that needs it.
     for g,pin in e.get('game_version',{}).items():

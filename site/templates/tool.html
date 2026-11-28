@@ -90,7 +90,7 @@
   <p class="lead">{{ summary | mdi }}{% if not a.scored %} <span class="muted">({{ r.money }}: {{ money[r.money].means }}.)</span>{% endif %}</p>
   {% for x in list %}
   {% set notes %}{{ answer_mark(x, scored) }}{{ answer_notes(x, scored) }}{% endset %}
-  {% set cmt %}<a class="cmt" href="{{ x.comment }}" target="_blank" rel="noopener">Comment<span class="vh"> on {{ x.id }}</span></a>{% endset %}
+  {% set cmt %}<a class="sm cmt" href="{{ x.comment }}" target="_blank" rel="noopener">Comment<span class="vh"> on {{ x.id }}</span></a>{% endset %}
   {{ row(x.id, 'q-' ~ x.id, x.question, notes, x.text | md, x.evidence | md if x.evidence.strip() != '-' else '', x.second_check | md if x.second_check is defined else None, cmt) }}
   {% if x.id == IX.says_question and says %}{{ claims() }}{% endif %}
   {% endfor %}
@@ -182,7 +182,7 @@
 </ul>
 {% else %}<p>No comment has been sent about this card.</p>{% endif %}
 <p>Something wrong, missing, or context to add? Use "Comment" beside any answer, Good ones included, or the comment form; a correction shows here, and on the answer it names, until it is decided. To talk about {{ t.name }} with other players and its author, use its discussion: what is said there changes no card until it comes in as a comment.</p>
-<p class="links"><a class="btn" href="{{ SITE.links.comment }}&amp;{{ {'title': 'Comment: ' ~ c.name ~ ' ' ~ c.version, 'card': c.name ~ ' ' ~ c.version} | urlencode }}" target="_blank" rel="noopener">Comment on this card</a><a class="btn" href="{{ t.discussion or SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener">{{ 'Discuss ' ~ t.name if t.discussion else 'Start a discussion about ' ~ t.name }}</a></p>
+<p class="links"><a class="btn" href="{{ SITE.links.comment }}&amp;{{ {'title': 'Comment: ' ~ c.name ~ ' ' ~ c.version, 'card': c.name ~ ' ' ~ c.version} | urlencode }}" target="_blank" rel="noopener">Comment on this card</a><a class="btn" href="{{ t.discussion.url if t.discussion else SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener">{{ 'Discuss ' ~ t.name ~ (' · ' ~ t.discussion.comments if t.discussion.comments else '') if t.discussion else 'Start a discussion about ' ~ t.name }}</a></p>
 </div>
 
 {# A section like the others on the page: its heading, then its fold, so every section title looks the same. #}
