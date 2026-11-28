@@ -333,7 +333,12 @@ footer p { margin: 0 }
 .row .rb { min-width: 0 }
 .row .t p { margin: 0 0 var(--s2) } .row .t p:last-child { margin: 0 }
 /* Comment sits last on the mark line, after Limit and Under review, in the same small type. */
-.row .cmt { font-size: 13px; display: inline-flex; align-items: center; min-height: 44px }
+.row .cmt { font-size: 13px; display: inline-flex; align-items: center; gap: var(--s1); min-height: 44px }
+/* Comment and Discuss carry a speech-bubble icon; a tool's discussion count sits in the button as a small pill. */
+.ic::before { content: ''; width: 16px; height: 16px; flex: none; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat }
+.row .ic::before, .meta .ic::before { width: 14px; height: 14px }
+.meta .ic { display: inline-flex; align-items: center; gap: var(--s1); vertical-align: bottom }
+.cnt { min-width: 20px; padding: 0 var(--s1); border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 12px; line-height: 18px; text-align: center }
 .row .vd { font-weight: 700; font-size: 14px }
 .row .sm.rv { display: inline-flex; align-items: center; gap: var(--s1); border: 1px solid color-mix(in srgb, var(--info) 40%, transparent); border-radius: 6px; padding: 0 var(--s2); color: var(--info) }
 @media (max-width: 520px) { .row { grid-template-columns: 34px minmax(0, 1fr) } }
@@ -365,7 +370,7 @@ code.hash { font-size: 12px }
 .cmptools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s3) }
 .cmpl { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; color: var(--muted); font-size: 14px }
 /* A tool card's three actions, Compare, Discuss and View findings, as three buttons of one size sharing the row. */
-.card .foot .btn { flex: 1 1 0; justify-content: center; padding-inline: var(--s2); white-space: nowrap }
+.card .foot .btn { flex: 1 1 auto; justify-content: center; gap: var(--s1); padding-inline: var(--s1); white-space: nowrap }
 .card .foot .cmpl { color: var(--ink); font-size: 14.5px } .card .foot .cmpl:has(input:checked) { border-color: var(--accent) }
 /* Where a card is too narrow for the three in a row (a 360px phone), View findings takes a row of its own under the other two. */
 @container (max-width: 310px) { .card .foot { flex-wrap: wrap } .card .foot .btn:last-child { flex-basis: 100% } }
