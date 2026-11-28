@@ -18,10 +18,22 @@ function Save-Raw($o, $name, [string[]]$lines) {
   $w.Dispose()
 }
 
+# Converting Process Monitor's log to CSV can take minutes (an installer's run logs millions of events): wait until Procmon
+# has exited and the CSV is there, up to $minutes.
+function Wait-ProcmonCsv($csv, $minutes = 15) {
+  $until = (Get-Date).AddMinutes($minutes)
+  while ((Get-Date) -lt $until -and ((Get-Process Procmon* -ErrorAction SilentlyContinue) -or -not (Test-Path $csv))) { Start-Sleep 5 }
+}
+
 function Write-Evidence($name, $run, $o, $rootPid, $csv) {
   $diff = Compare-Object (Get-Content "$o\before.lst") (Get-Content "$o\after.lst")
   ($diff | ForEach-Object { "$(if ($_.SideIndicator -eq '=>') { '>' } else { '<' }) .\$($_.InputObject)" }) -join "`n" | Set-Content "$o\files.diff"
   Remove-Item "$o\before.lst", "$o\after.lst"
+  # No CSV (Process Monitor couldn't convert its log in time): say so in this run's evidence, and the next run still goes ahead.
+  if (-not (Test-Path $csv)) {
+    "Process Monitor's log could not be converted to CSV, so this run has no process, network, file or registry evidence." | Set-Content "$o\procmon.txt"
+    return
+  }
   # The run's processes: the one started and every process it started, by PID, from Process Monitor's Process Create events.
   $rows = @(Import-Csv $csv)
   $pids = [Collections.Generic.HashSet[string]]::new(); [void]$pids.Add([string]$rootPid)

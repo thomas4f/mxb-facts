@@ -194,7 +194,7 @@ function Invoke-RealGame($run) {
   Get-ChildItem $dir -Recurse -File | ForEach-Object { $_.FullName.Substring($dir.Length + 1) } | Sort-Object | Set-Content "$o\after.lst"
   Write-Host "${name}: saving the Process Monitor log"
   & $pm /AcceptEula /Quiet /OpenLog "$work\$name.pml" /SaveAs "$work\$name.csv"
-  Get-Process Procmon* -ErrorAction SilentlyContinue | Wait-Process -Timeout 300 -ErrorAction SilentlyContinue
+  Wait-ProcmonCsv "$work\$name.csv"
   @("game: $($g.name), $($g.exe), installer SHA-256 $($g.sha256)", 'steps (unix time, step):') + (Get-Content "$o\steps.log") | Set-Content "$o\host.log"
   Remove-Item "$o\steps.log"
   Write-Evidence $name $dir $o $p.Id "$work\$name.csv"

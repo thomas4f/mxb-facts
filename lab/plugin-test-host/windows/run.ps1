@@ -97,7 +97,7 @@ function Invoke-Run($name, $exe, [string[]]$exeArgs, $seconds) {
   & $pm /Terminate; Start-Sleep 5
   Get-ChildItem $run -Recurse -File | ForEach-Object { $_.FullName.Substring($run.Length + 1) } | Sort-Object | Set-Content "$o\after.lst"
   & $pm /AcceptEula /Quiet /OpenLog "$work\$name.pml" /SaveAs "$work\$name.csv"
-  Get-Process Procmon* -ErrorAction SilentlyContinue | Wait-Process -Timeout 180 -ErrorAction SilentlyContinue
+  Wait-ProcmonCsv "$work\$name.csv"
   Write-Evidence $name $run $o $p.Id "$work\$name.csv"
 }
 
