@@ -1,0 +1,91 @@
+$ cd "$SRC" && grep -n 'm_enabled(true)' mxbmrp3/core/analytics_manager.cpp; grep -nE '(props|sys|p|r)\["[a-z_A-Z]+"\] =' mxbmrp3/core/analytics_manager.cpp | cut -c1-140; grep -nE 'hit\["(path|session)"\]' mxbmrp3/core/analytics_manager.cpp; grep -nE 'aptabase.com' mxbmrp3/core/analytics_endpoint.h; grep -nE 'ANALYTICS_CONFIG_(HOST|FILE)|ONLY if analytics' mxbmrp3/core/plugin_constants.h; grep -nE 'POST", L"/api/v0/(events|count)' mxbmrp3/core/analytics_manager_transport.cpp; grep -nE 'analyticsOptOut "0"|NSD_CreateCheckbox.*usage survey|NSD_Check \$analyticsCheckbox' packaging/mxbmrp3.nsi
+226:    : m_enabled(true)   // opt-out: on by default
+290:    sys["locale"] = userLocale();
+291:    sys["osName"] = osName();
+292:    if (!m_osVersion.empty()) sys["osVersion"] = m_osVersion;  // shim-proof, incl. Wine
+294:    sys["isDebug"] = true;
+296:    sys["isDebug"] = s_testCaptureMode;   // capture mode → debug bucket (belt-and-suspenders)
+298:    sys["isDebug"] = false;
+300:    sys["appVersion"] = PluginConstants::PLUGIN_VERSION;  // version distribution
+301:    sys["sdkVersion"] = ANALYTICS_SDK_VERSION;
+304:    props["install_id"] = m_installId;
+305:    props["game"] = GAME_NAME;  // dimension for per-game charts (MXB/GPB/KRP)
+309:    props["version_status"] = m_versionStatus;
+310:    props["prev_version"] = m_prevVersion;
+312:    props["update_channel"] = UpdateChecker::getInstance().isPrereleaseChannel() ? "prerelease" : "stable";
+316:    props["launch_count"] = static_cast<long long>(m_launchCount);
+322:        props["identity_repair"] = m_identityRepair == IdentityRepair::RECOVERED ? 1 : 2;
+327:        props["install_age_days"] = static_cast<long long>(ageSec / 86400ULL);
+332:    props["steam_runtime"] = SteamFriendsManager::isSteamRuntimeAvailable() ? 1 : 0;
+357:        props["hud_stream_chat"] = shown ? 1 : 0;
+360:    props["hud_count"] = hudCount;
+361:    props["widget_count"] = widgetCount;
+365:    props["feat_discord"] = DiscordManager::getInstance().isEnabled() ? 1 : 0;
+368:    props["feat_steam"] = SteamFriendsManager::getInstance().isEnabled() ? 1 : 0;
+374:    props["feat_overlay"] = HttpServer::getInstance().isEnabled() ? 1 : 0;
+376:    props["feat_rumble"] = XInputReader::getInstance().getRumbleConfig().enabled ? 1 : 0;
+377:    props["feat_helmet"] = HudManager::getInstance().getHelmetOverlayHud().isVisible() ? 1 : 0;
+379:    props["feat_director"] = DirectorManager::getInstance().isEnabled() ? 1 : 0;
+382:    props["feat_twitch"] = (TwitchChatManager::getInstance().isEnabled() &&
+385:    props["feat_youtube"] = (YouTubeChatManager::getInstance().isEnabled() &&
+388:    props["feat_autoswitch"] = ProfileManager::getInstance().isAutoSwitchEnabled() ? 1 : 0;
+389:    props["feat_updates"] = UpdateChecker::getInstance().isEnabled() ? 1 : 0;
+391:    props["feat_widgets"] = HudManager::getInstance().areWidgetsEnabled() ? 1 : 0;
+394:    props["feat_achievements"] = AchievementManager::getInstance().isToastsEnabled() ? 1 : 0;
+407:        props["ach_pct"] = static_cast<long long>(tiers > 0 ? (ach.earnedUnits() * 100) / tiers : 0);
+408:        props["ach_unlocked"] = static_cast<long long>(ach.earnedAchievements());
+409:        props["ach_bonus"] = static_cast<long long>(ach.bonusAchievements());
+419:    props["feat_companion"] = (UiConfig::getInstance().getDisplayTarget() != DisplayTarget::IN_GAME) ? 1 : 0;
+421:    props["feat_thread"] = UiConfig::getInstance().getPluginThread() ? 1 : 0;
+426:    props["feat_hwaccel"] = CompanionWindow::getInstance().getHwAccel() ? 1 : 0;
+430:    props["feat_glingame"] = UiConfig::getInstance().getGlInGame() ? 1 : 0;
+433:    props["feat_devmode"] = SettingsManager::getInstance().isDeveloperMode() ? 1 : 0;
+447:        props["panel_theme"] = AnalyticsTheme::label(themeName, installed);
+463:        props["spotter"] =
+471:    props["language"] = AnalyticsLanguage::label(I18n::activeFolder());
+472:    props["language_system"] = (I18n::languageFolder() == I18n::kSystemLanguage) ? 1 : 0;
+491:    sys["osName"] = osName();
+492:    if (!m_osVersion.empty()) sys["osVersion"] = m_osVersion;
+494:    sys["isDebug"] = true;
+496:    sys["isDebug"] = false;
+498:    sys["appVersion"] = PluginConstants::PLUGIN_VERSION;
+499:    sys["sdkVersion"] = ANALYTICS_SDK_VERSION;
+502:    p["install_id"] = m_installId;   // same identity context as app_started
+503:    p["game"] = GAME_NAME;
+523:    sys["osName"] = osName();
+524:    if (!m_osVersion.empty()) sys["osVersion"] = m_osVersion;
+526:    sys["isDebug"] = true;
+528:    sys["isDebug"] = false;
+530:    sys["appVersion"] = PluginConstants::PLUGIN_VERSION;   // reporting-launch version
+531:    sys["sdkVersion"] = ANALYTICS_SDK_VERSION;
+534:    p["install_id"] = m_installId;   // same identity context as app_started
+535:    p["game"] = GAME_NAME;
+537:    if (durationSec >= 0) p["duration_seconds"] = durationSec;
+584:    r["errorType"] = type;
+585:    r["errorMessage"] = message;
+586:    r["stackTrace"] = trace;
+587:    r["timestamp"] = isoTimestamp();
+588:    r["platform"] = "Windows";
+589:    r["osName"] = osName();
+596:        r["osVersion"] = m_osVersion.compare(0, prefix.size(), prefix) == 0
+600:    r["appVersion"] = pluginVer.empty() ? std::string(PluginConstants::PLUGIN_VERSION) : pluginVer;
+601:    r["sdkVersion"] = ANALYTICS_SDK_VERSION;
+602:    r["sessionId"] = m_sessionId;
+603:    r["severity"] = "fatal";
+604:    r["kind"] = "crash";
+606:    r["isDebug"] = true;
+608:    r["isDebug"] = false;
+267:    hit["path"] = std::string("/launch/") + GAME_SHORT_NAME + "/" + PluginConstants::PLUGIN_VERSION;
+276:        hit["session"] = m_installId;
+18:    if (key.find("-EU-") != std::string::npos) return L"eu.aptabase.com";
+19:    if (key.find("-US-") != std::string::npos) return L"us.aptabase.com";
+86:    // file (ONLY if analytics is enabled) and reads `aptabase_full_sample` ∈ [0,1] — the
+93:    constexpr const char* ANALYTICS_CONFIG_HOST = "raw.githubusercontent.com";
+95:    constexpr const char* ANALYTICS_CONFIG_FILE = "analytics_config.json";
+110:        HINTERNET hRequest = WinHttpOpenRequest(hConnect, L"POST", L"/api/v0/events",
+199:    HINTERNET hRequest = WinHttpOpenRequest(hConnect, L"POST", L"/api/v0/count",
+464:  StrCpy $analyticsOptOut "0"      ; analytics ships ON; the Privacy page can only turn it off
+615:    StrCpy $analyticsOptOut "0"
+874:  ${NSD_CreateCheckbox} 0 78u 300u 12u "Participate in the anonymous usage survey"
+916:    StrCpy $analyticsOptOut "0"
+(exit 0)

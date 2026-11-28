@@ -1,0 +1,2398 @@
+host: D:\a\_temp\mxbfacts\run-helmet-view\mxbikes.exe
+GL: Mesa | llvmpipe (LLVM 23.1.5, 256 bits) | 4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+== host import table check (before plugins)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+loaded plugins\mxbmrp3.dlo (mod id 'mxbikes')
+loaded victim.dlo (mod id 'victim')
+Startup(plugins\mxbmrp3.dlo) -> 0
+Startup(victim.dlo) -> -1
+== host import table check (after Startup)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+DrawInit(plugins\mxbmrp3.dlo) -> 0, 798 sprites, 40 fonts
+  sprite mxbmrp3_data\textures\badge_1.tga
+  sprite mxbmrp3_data\textures\badge_2.tga
+  sprite mxbmrp3_data\textures\badge_3.tga
+  sprite mxbmrp3_data\textures\badge_4.tga
+  sprite mxbmrp3_data\textures\gear_circle_1.tga
+  sprite mxbmrp3_data\textures\glow_1.tga
+  sprite mxbmrp3_data\textures\helmet_lens_1.tga
+  sprite mxbmrp3_data\textures\helmet_lens_2.tga
+  sprite mxbmrp3_data\textures\helmet_lower_1.tga
+  sprite mxbmrp3_data\textures\helmet_lower_2.tga
+  sprite mxbmrp3_data\textures\helmet_upper_1.tga
+  sprite mxbmrp3_data\textures\helmet_upper_2.tga
+  sprite mxbmrp3_data\textures\impact_vignette_1.tga
+  sprite mxbmrp3_data\textures\impact_vignette_2.tga
+  sprite mxbmrp3_data\textures\impact_vignette_3.tga
+  sprite mxbmrp3_data\textures\pointer_widget_1.tga
+  sprite mxbmrp3_data\textures\prestige_widget_1.tga
+  sprite mxbmrp3_data\textures\radar_hud_1.tga
+  sprite mxbmrp3_data\textures\radar_sector_1.tga
+  sprite mxbmrp3_data\textures\twitch_1.tga
+  sprite mxbmrp3_data\textures\youtube_1.tga
+  sprite mxbmrp3_data\icons\angle-up.tga
+  sprite mxbmrp3_data\icons\angles-up.tga
+  sprite mxbmrp3_data\icons\arrow-right-arrow-left.tga
+  sprite mxbmrp3_data\icons\arrow-right.tga
+  sprite mxbmrp3_data\icons\arrow-rotate-left.tga
+  sprite mxbmrp3_data\icons\arrow-rotate-right.tga
+  sprite mxbmrp3_data\icons\arrow-trend-up.tga
+  sprite mxbmrp3_data\icons\arrows-left-right-to-line.tga
+  sprite mxbmrp3_data\icons\arrows-left-right.tga
+  sprite mxbmrp3_data\icons\award.tga
+  sprite mxbmrp3_data\icons\ban.tga
+  sprite mxbmrp3_data\icons\bars.tga
+  sprite mxbmrp3_data\icons\beer-mug-empty.tga
+  sprite mxbmrp3_data\icons\bell-slash.tga
+  sprite mxbmrp3_data\icons\bolt-lightning.tga
+  sprite mxbmrp3_data\icons\bomb.tga
+  sprite mxbmrp3_data\icons\border-top-left.tga
+  sprite mxbmrp3_data\icons\bread-slice.tga
+  sprite mxbmrp3_data\icons\bullseye.tga
+  sprite mxbmrp3_data\icons\cake-candles.tga
+  sprite mxbmrp3_data\icons\calendar-days.tga
+  sprite mxbmrp3_data\icons\camera.tga
+  sprite mxbmrp3_data\icons\campground.tga
+  sprite mxbmrp3_data\icons\caret-up.tga
+  sprite mxbmrp3_data\icons\certificate.tga
+  sprite mxbmrp3_data\icons\chart-line.tga
+  sprite mxbmrp3_data\icons\chart-simple.tga
+  sprite mxbmrp3_data\icons\circle-arrow-up.tga
+  sprite mxbmrp3_data\icons\circle-check.tga
+  sprite mxbmrp3_data\icons\circle-chevron-up.tga
+  sprite mxbmrp3_data\icons\circle-dot.tga
+  sprite mxbmrp3_data\icons\circle-exclamation.tga
+  sprite mxbmrp3_data\icons\circle-play.tga
+  sprite mxbmrp3_data\icons\circle-up.tga
+  sprite mxbmrp3_data\icons\circle-user.tga
+  sprite mxbmrp3_data\icons\circle-xmark.tga
+  sprite mxbmrp3_data\icons\circle.tga
+  sprite mxbmrp3_data\icons\clapperboard.tga
+  sprite mxbmrp3_data\icons\clipboard-check.tga
+  sprite mxbmrp3_data\icons\clipboard.tga
+  sprite mxbmrp3_data\icons\clock.tga
+  sprite mxbmrp3_data\icons\clone.tga
+  sprite mxbmrp3_data\icons\cloud-showers-heavy.tga
+  sprite mxbmrp3_data\icons\cloud.tga
+  sprite mxbmrp3_data\icons\code-branch.tga
+  sprite mxbmrp3_data\icons\code.tga
+  sprite mxbmrp3_data\icons\compass.tga
+  sprite mxbmrp3_data\icons\couch.tga
+  sprite mxbmrp3_data\icons\crown.tga
+  sprite mxbmrp3_data\icons\cubes.tga
+  sprite mxbmrp3_data\icons\diamond.tga
+  sprite mxbmrp3_data\icons\display.tga
+  sprite mxbmrp3_data\icons\door-open.tga
+  sprite mxbmrp3_data\icons\download.tga
+  sprite mxbmrp3_data\icons\endo.tga
+  sprite mxbmrp3_data\icons\equals.tga
+  sprite mxbmrp3_data\icons\exclamation.tga
+  sprite mxbmrp3_data\icons\explosion.tga
+  sprite mxbmrp3_data\icons\eye-slash.tga
+  sprite mxbmrp3_data\icons\eye.tga
+  sprite mxbmrp3_data\icons\face-sad-cry.tga
+  sprite mxbmrp3_data\icons\face-tired.tga
+  sprite mxbmrp3_data\icons\file-pen.tga
+  sprite mxbmrp3_data\icons\fire-flame-curved.tga
+  sprite mxbmrp3_data\icons\fire.tga
+  sprite mxbmrp3_data\icons\flag-checkered.tga
+  sprite mxbmrp3_data\icons\flag.tga
+  sprite mxbmrp3_data\icons\floppy-disk.tga
+  sprite mxbmrp3_data\icons\gamepad.tga
+  sprite mxbmrp3_data\icons\gas-pump.tga
+  sprite mxbmrp3_data\icons\gauge-high.tga
+  sprite mxbmrp3_data\icons\gavel.tga
+  sprite mxbmrp3_data\icons\gear.tga
+  sprite mxbmrp3_data\icons\gem.tga
+  sprite mxbmrp3_data\icons\ghost.tga
+  sprite mxbmrp3_data\icons\globe.tga
+  sprite mxbmrp3_data\icons\grip.tga
+  sprite mxbmrp3_data\icons\hand-peace.tga
+  sprite mxbmrp3_data\icons\hand-sparkles.tga
+  sprite mxbmrp3_data\icons\hand.tga
+  sprite mxbmrp3_data\icons\hat-wizard.tga
+  sprite mxbmrp3_data\icons\headset.tga
+  sprite mxbmrp3_data\icons\heart-crack.tga
+  sprite mxbmrp3_data\icons\heart.tga
+  sprite mxbmrp3_data\icons\hexagon.tga
+  sprite mxbmrp3_data\icons\hourglass-half.tga
+  sprite mxbmrp3_data\icons\hourglass.tga
+  sprite mxbmrp3_data\icons\hud-achievements.tga
+  sprite mxbmrp3_data\icons\hud-angle.tga
+  sprite mxbmrp3_data\icons\hud-appearance.tga
+  sprite mxbmrp3_data\icons\hud-chat.tga
+  sprite mxbmrp3_data\icons\hud-clock.tga
+  sprite mxbmrp3_data\icons\hud-close.tga
+  sprite mxbmrp3_data\icons\hud-confirm.tga
+  sprite mxbmrp3_data\icons\hud-dash.tga
+  sprite mxbmrp3_data\icons\hud-deltatrace.tga
+  sprite mxbmrp3_data\icons\hud-eventlog.tga
+  sprite mxbmrp3_data\icons\hud-find.tga
+  sprite mxbmrp3_data\icons\hud-flatmap.tga
+  sprite mxbmrp3_data\icons\hud-fmx.tga
+  sprite mxbmrp3_data\icons\hud-friends.tga
+  sprite mxbmrp3_data\icons\hud-fuel.tga
+  sprite mxbmrp3_data\icons\hud-gapbar.tga
+  sprite mxbmrp3_data\icons\hud-gauge.tga
+  sprite mxbmrp3_data\icons\hud-general.tga
+  sprite mxbmrp3_data\icons\hud-helmet-mx.tga
+  sprite mxbmrp3_data\icons\hud-helmet.tga
+  sprite mxbmrp3_data\icons\hud-hotkeys.tga
+  sprite mxbmrp3_data\icons\hud-ideallap.tga
+  sprite mxbmrp3_data\icons\hud-laplog.tga
+  sprite mxbmrp3_data\icons\hud-map.tga
+  sprite mxbmrp3_data\icons\hud-media-next.tga
+  sprite mxbmrp3_data\icons\hud-media-pause.tga
+  sprite mxbmrp3_data\icons\hud-media-play.tga
+  sprite mxbmrp3_data\icons\hud-media-prev.tga
+  sprite mxbmrp3_data\icons\hud-media-volume.tga
+  sprite mxbmrp3_data\icons\hud-menu.tga
+  sprite mxbmrp3_data\icons\hud-more.tga
+  sprite mxbmrp3_data\icons\hud-notices.tga
+  sprite mxbmrp3_data\icons\hud-nowplaying.tga
+  sprite mxbmrp3_data\icons\hud-performance.tga
+  sprite mxbmrp3_data\icons\hud-pitboard.tga
+  sprite mxbmrp3_data\icons\hud-radar.tga
+  sprite mxbmrp3_data\icons\hud-records.tga
+  sprite mxbmrp3_data\icons\hud-riders.tga
+  sprite mxbmrp3_data\icons\hud-rumble.tga
+  sprite mxbmrp3_data\icons\hud-session.tga
+  sprite mxbmrp3_data\icons\hud-sessioncharts.tga
+  sprite mxbmrp3_data\icons\hud-spotter.tga
+  sprite mxbmrp3_data\icons\hud-standings.tga
+  sprite mxbmrp3_data\icons\hud-stats.tga
+  sprite mxbmrp3_data\icons\hud-telemetry.tga
+  sprite mxbmrp3_data\icons\hud-timing.tga
+  sprite mxbmrp3_data\icons\hud-updates.tga
+  sprite mxbmrp3_data\icons\hud-video.tga
+  sprite mxbmrp3_data\icons\hud-widgets.tga
+  sprite mxbmrp3_data\icons\industry.tga
+  sprite mxbmrp3_data\icons\keyboard.tga
+  sprite mxbmrp3_data\icons\layer-group.tga
+  sprite mxbmrp3_data\icons\link-slash.tga
+  sprite mxbmrp3_data\icons\link.tga
+  sprite mxbmrp3_data\icons\list-check.tga
+  sprite mxbmrp3_data\icons\list-ol.tga
+  sprite mxbmrp3_data\icons\list.tga
+  sprite mxbmrp3_data\icons\location-arrow.tga
+  sprite mxbmrp3_data\icons\location-dot.tga
+  sprite mxbmrp3_data\icons\location-pin.tga
+  sprite mxbmrp3_data\icons\lock.tga
+  sprite mxbmrp3_data\icons\magnifying-glass.tga
+  sprite mxbmrp3_data\icons\map.tga
+  sprite mxbmrp3_data\icons\mask.tga
+  sprite mxbmrp3_data\icons\medal.tga
+  sprite mxbmrp3_data\icons\meteor.tga
+  sprite mxbmrp3_data\icons\microphone-lines.tga
+  sprite mxbmrp3_data\icons\moon.tga
+  sprite mxbmrp3_data\icons\motorcycle.tga
+  sprite mxbmrp3_data\icons\mug-hot.tga
+  sprite mxbmrp3_data\icons\octagon.tga
+  sprite mxbmrp3_data\icons\paintbrush.tga
+  sprite mxbmrp3_data\icons\palette.tga
+  sprite mxbmrp3_data\icons\paper-plane.tga
+  sprite mxbmrp3_data\icons\parachute-box.tga
+  sprite mxbmrp3_data\icons\peace.tga
+  sprite mxbmrp3_data\icons\pen-ruler.tga
+  sprite mxbmrp3_data\icons\pentagon.tga
+  sprite mxbmrp3_data\icons\people-group.tga
+  sprite mxbmrp3_data\icons\person-digging.tga
+  sprite mxbmrp3_data\icons\person-hiking.tga
+  sprite mxbmrp3_data\icons\person-running.tga
+  sprite mxbmrp3_data\icons\person-walking.tga
+  sprite mxbmrp3_data\icons\plane-up.tga
+  sprite mxbmrp3_data\icons\play.tga
+  sprite mxbmrp3_data\icons\poo.tga
+  sprite mxbmrp3_data\icons\radiation.tga
+  sprite mxbmrp3_data\icons\ranking-star.tga
+  sprite mxbmrp3_data\icons\record-vinyl.tga
+  sprite mxbmrp3_data\icons\rectangle-list.tga
+  sprite mxbmrp3_data\icons\repeat.tga
+  sprite mxbmrp3_data\icons\right-from-bracket.tga
+  sprite mxbmrp3_data\icons\road-barrier.tga
+  sprite mxbmrp3_data\icons\road.tga
+  sprite mxbmrp3_data\icons\robot.tga
+  sprite mxbmrp3_data\icons\rocket.tga
+  sprite mxbmrp3_data\icons\route.tga
+  sprite mxbmrp3_data\icons\ruler-horizontal.tga
+  sprite mxbmrp3_data\icons\ruler-vertical.tga
+  sprite mxbmrp3_data\icons\satellite-dish.tga
+  sprite mxbmrp3_data\icons\scissors.tga
+  sprite mxbmrp3_data\icons\seedling.tga
+  sprite mxbmrp3_data\icons\server.tga
+  sprite mxbmrp3_data\icons\shield.tga
+  sprite mxbmrp3_data\icons\shirt.tga
+  sprite mxbmrp3_data\icons\shuffle.tga
+  sprite mxbmrp3_data\icons\signature.tga
+  sprite mxbmrp3_data\icons\skull-crossbones.tga
+  sprite mxbmrp3_data\icons\skull.tga
+  sprite mxbmrp3_data\icons\snowflake.tga
+  sprite mxbmrp3_data\icons\square-poll-horizontal.tga
+  sprite mxbmrp3_data\icons\star-of-life.tga
+  sprite mxbmrp3_data\icons\star.tga
+  sprite mxbmrp3_data\icons\stopwatch.tga
+  sprite mxbmrp3_data\icons\suitcase.tga
+  sprite mxbmrp3_data\icons\swatchbook.tga
+  sprite mxbmrp3_data\icons\temperature-low.tga
+  sprite mxbmrp3_data\icons\thumbs-up.tga
+  sprite mxbmrp3_data\icons\tornado.tga
+  sprite mxbmrp3_data\icons\tower-broadcast.tga
+  sprite mxbmrp3_data\icons\triangle-exclamation.tga
+  sprite mxbmrp3_data\icons\trophy.tga
+  sprite mxbmrp3_data\icons\truck-medical.tga
+  sprite mxbmrp3_data\icons\turn-down.tga
+  sprite mxbmrp3_data\icons\turn-up.tga
+  sprite mxbmrp3_data\icons\user-group.tga
+  sprite mxbmrp3_data\icons\user-injured.tga
+  sprite mxbmrp3_data\icons\user-tag.tga
+  sprite mxbmrp3_data\icons\video.tga
+  sprite mxbmrp3_data\icons\wand-magic-sparkles.tga
+  sprite mxbmrp3_data\icons\water.tga
+  sprite mxbmrp3_data\icons\wave-square.tga
+  sprite mxbmrp3_data\icons\web-awesome.tga
+  sprite mxbmrp3_data\icons\weight-hanging.tga
+  sprite mxbmrp3_data\icons\wheelie.tga
+  sprite mxbmrp3_data\icons\whip-left.tga
+  sprite mxbmrp3_data\icons\whip-right.tga
+  sprite mxbmrp3_data\icons\wind.tga
+  sprite mxbmrp3_data\icons\wrench.tga
+  sprite mxbmrp3_data\icons\xmark.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_center.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_corner_tl.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_edge_top.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_corner_tr.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_edge_bottom.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_corner_bl.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_edge_left.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_corner_br.tga
+  sprite mxbmrp3_data\themes\carbon-dark\frame_edge_right.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_center.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_corner_tl.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_edge_top.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_corner_tr.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_edge_bottom.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_corner_bl.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_edge_left.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_corner_br.tga
+  sprite mxbmrp3_data\themes\carbon-dark\card_edge_right.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_center.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_corner_tl.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_edge_top.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_corner_tr.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_edge_bottom.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_corner_bl.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_edge_left.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_corner_br.tga
+  sprite mxbmrp3_data\themes\carbon-dark\button_edge_right.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_center.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_corner_tl.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_edge_top.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_corner_tr.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_edge_bottom.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_corner_bl.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_edge_left.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_corner_br.tga
+  sprite mxbmrp3_data\themes\carbon-light\frame_edge_right.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_center.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_corner_tl.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_edge_top.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_corner_tr.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_edge_bottom.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_corner_bl.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_edge_left.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_corner_br.tga
+  sprite mxbmrp3_data\themes\carbon-light\card_edge_right.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_center.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_corner_tl.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_edge_top.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_corner_tr.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_edge_bottom.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_corner_bl.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_edge_left.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_corner_br.tga
+  sprite mxbmrp3_data\themes\carbon-light\button_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_center.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-dark\frame_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_center.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-dark\card_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_center.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-dark\button_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_center.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-dark\title_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_center.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-light\frame_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-light\card_center.tga
+  sprite mxbmrp3_data\themes\modern-light\card_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-light\card_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-light\card_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-light\card_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-light\card_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-light\card_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-light\card_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-light\card_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-light\button_center.tga
+  sprite mxbmrp3_data\themes\modern-light\button_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-light\button_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-light\button_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-light\button_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-light\button_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-light\button_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-light\button_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-light\button_edge_right.tga
+  sprite mxbmrp3_data\themes\modern-light\title_center.tga
+  sprite mxbmrp3_data\themes\modern-light\title_corner_tl.tga
+  sprite mxbmrp3_data\themes\modern-light\title_edge_top.tga
+  sprite mxbmrp3_data\themes\modern-light\title_corner_tr.tga
+  sprite mxbmrp3_data\themes\modern-light\title_edge_bottom.tga
+  sprite mxbmrp3_data\themes\modern-light\title_corner_bl.tga
+  sprite mxbmrp3_data\themes\modern-light\title_edge_left.tga
+  sprite mxbmrp3_data\themes\modern-light\title_corner_br.tga
+  sprite mxbmrp3_data\themes\modern-light\title_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_center.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-dark\frame_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_center.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-dark\card_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_center.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-dark\button_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_center.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-dark\title_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_center.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-light\frame_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-light\card_center.tga
+  sprite mxbmrp3_data\themes\retro-light\card_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-light\card_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-light\card_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-light\card_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-light\card_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-light\card_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-light\card_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-light\card_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-light\button_center.tga
+  sprite mxbmrp3_data\themes\retro-light\button_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-light\button_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-light\button_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-light\button_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-light\button_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-light\button_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-light\button_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-light\button_edge_right.tga
+  sprite mxbmrp3_data\themes\retro-light\title_center.tga
+  sprite mxbmrp3_data\themes\retro-light\title_corner_tl.tga
+  sprite mxbmrp3_data\themes\retro-light\title_edge_top.tga
+  sprite mxbmrp3_data\themes\retro-light\title_corner_tr.tga
+  sprite mxbmrp3_data\themes\retro-light\title_edge_bottom.tga
+  sprite mxbmrp3_data\themes\retro-light\title_corner_bl.tga
+  sprite mxbmrp3_data\themes\retro-light\title_edge_left.tga
+  sprite mxbmrp3_data\themes\retro-light\title_corner_br.tga
+  sprite mxbmrp3_data\themes\retro-light\title_edge_right.tga
+  sprite mxbmrp3_data\gamepads\ds4\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-crimson\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-cyan\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-graphite\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-lime\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-navy\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-orange\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-royal\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-silver\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4-yellow\background.tga
+  sprite mxbmrp3_data\gamepads\ds4\stick.tga
+  sprite mxbmrp3_data\gamepads\ds4\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\menu_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\ds4\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\ds4\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-crimson\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-cyan\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-graphite\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-lime\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-navy\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-orange\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-royal\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-silver\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox-yellow\background.tga
+  sprite mxbmrp3_data\gamepads\xbox\stick.tga
+  sprite mxbmrp3_data\gamepads\xbox\dpad_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\menu_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\trigger_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_l.tga
+  sprite mxbmrp3_data\gamepads\xbox\bumper_button_r.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_1_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_2_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_3_pressed.tga
+  sprite mxbmrp3_data\gamepads\xbox\face_button_4_pressed.tga
+  sprite mxbmrp3_data\pitboards\classic\background.tga
+  sprite mxbmrp3_data\pitboards\crimson\background.tga
+  sprite mxbmrp3_data\pitboards\cyan\background.tga
+  sprite mxbmrp3_data\pitboards\graphite\background.tga
+  sprite mxbmrp3_data\pitboards\lime\background.tga
+  sprite mxbmrp3_data\pitboards\navy\background.tga
+  sprite mxbmrp3_data\pitboards\orange\background.tga
+  sprite mxbmrp3_data\pitboards\royal\background.tga
+  sprite mxbmrp3_data\pitboards\silver\background.tga
+  sprite mxbmrp3_data\pitboards\yellow\background.tga
+  sprite mxbmrp3_data\gauges\classic\tacho.tga
+  sprite mxbmrp3_data\gauges\classic\speedo.tga
+  font mxbmrp3_data\fonts\Audiowide-Regular.fnt
+  font mxbmrp3_data\fonts\CaveatBrush-Regular.fnt
+  font mxbmrp3_data\fonts\ChakraPetch-BoldItalic.fnt
+  font mxbmrp3_data\fonts\ChakraPetch-SemiBoldItalic.fnt
+  font mxbmrp3_data\fonts\Doto-Bold.fnt
+  font mxbmrp3_data\fonts\Doto-Regular.fnt
+  font mxbmrp3_data\fonts\EnterSansman-Italic.fnt
+  font mxbmrp3_data\fonts\FuzzyBubbles-Regular.fnt
+  font mxbmrp3_data\fonts\Geist-Regular.fnt
+  font mxbmrp3_data\fonts\Geist-SemiBold.fnt
+  font mxbmrp3_data\fonts\GeistMono-Regular.fnt
+  font mxbmrp3_data\fonts\GloriaHallelujah-Regular.fnt
+  font mxbmrp3_data\fonts\IBMPlexMono-Regular.fnt
+  font mxbmrp3_data\fonts\IBMPlexSans-Regular.fnt
+  font mxbmrp3_data\fonts\IBMPlexSans-SemiBold.fnt
+  font mxbmrp3_data\fonts\Inter-Regular.fnt
+  font mxbmrp3_data\fonts\Inter-SemiBold.fnt
+  font mxbmrp3_data\fonts\LCD14-Bold.fnt
+  font mxbmrp3_data\fonts\LCD14-Regular.fnt
+  font mxbmrp3_data\fonts\LCD7-BoldItalic.fnt
+  font mxbmrp3_data\fonts\Manrope-Regular.fnt
+  font mxbmrp3_data\fonts\Manrope-SemiBold.fnt
+  font mxbmrp3_data\fonts\OpenSans-Regular.fnt
+  font mxbmrp3_data\fonts\OpenSans-SemiBold.fnt
+  font mxbmrp3_data\fonts\Outfit-Regular.fnt
+  font mxbmrp3_data\fonts\Outfit-SemiBold.fnt
+  font mxbmrp3_data\fonts\PermanentMarker-Regular.fnt
+  font mxbmrp3_data\fonts\Quantico-BoldItalic.fnt
+  font mxbmrp3_data\fonts\ReenieBeanie-Regular.fnt
+  font mxbmrp3_data\fonts\RobotoMono-Bold.fnt
+  font mxbmrp3_data\fonts\RobotoMono-Regular.fnt
+  font mxbmrp3_data\fonts\RockSalt-Regular.fnt
+  font mxbmrp3_data\fonts\Sora-Regular.fnt
+  font mxbmrp3_data\fonts\Sora-SemiBold.fnt
+  font mxbmrp3_data\fonts\SpaceGrotesk-Regular.fnt
+  font mxbmrp3_data\fonts\SpaceGrotesk-SemiBold.fnt
+  font mxbmrp3_data\fonts\Tiny5-Regular.fnt
+  font mxbmrp3_data\fonts\Tomorrow-BoldItalic.fnt
+  font mxbmrp3_data\fonts\Tomorrow-SemiBoldItalic.fnt
+  font mxbmrp3_data\fonts\VT323-Regular.fnt
+Draw(plugins\mxbmrp3.dlo): 94 quads, 24 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "-" at 0.492,0.029
+  string "-" at 0.491,0.028
+  string "-" at 0.492,0.067
+  string "-" at 0.491,0.066
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 94 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 95 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 96 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 97 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 98 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 99 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 98 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 97 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 96 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 95 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 94 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 93 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 92 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 91 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 90 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 89 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 90 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 91 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 92 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 93 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 94 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 95 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 96 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 97 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 98 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 99 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 98 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 97 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 96 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 95 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 35 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 34 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 33 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 32 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 31 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 30 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 29 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 30 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 31 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 32 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 33 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 30 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 31 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 32 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 33 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 34 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 35 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 36 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 35 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 34 quads, 20 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "DEFAULT SETUP" at 0.492,0.041
+  string "DEFAULT SETUP" at 0.491,0.040
+Draw(plugins\mxbmrp3.dlo): 32 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 31 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 30 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 29 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 28 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 27 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 26 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 25 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 26 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 27 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 28 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 29 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 30 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 31 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 32 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 33 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+Draw(plugins\mxbmrp3.dlo): 34 quads, 22 strings
+  string "Standings" at 0.028,0.292
+  string "Standings" at 0.027,0.291
+  string "Testing: 00:00" at 0.012,0.331
+  string "Testing: 00:00" at 0.011,0.330
+  string "Lap" at 0.105,0.022
+  string "Lap" at 0.104,0.021
+  string "-" at 0.106,0.046
+  string "-" at 0.104,0.045
+  string "Position" at 0.012,0.022
+  string "Position" at 0.011,0.021
+  string "-" at 0.012,0.046
+  string "-" at 0.011,0.045
+  string "34" at 0.953,0.827
+  string "34" at 0.951,0.826
+  string "mph" at 0.952,0.870
+  string "mph" at 0.951,0.869
+  string "3" at 0.914,0.805
+  string "3" at 0.913,0.803
+  string "WELCOME" at 0.492,0.029
+  string "WELCOME" at 0.491,0.028
+  string "The key under Esc opens settings" at 0.492,0.069
+  string "The key under Esc opens settings" at 0.491,0.068
+direct HUD draw saw viewport 0,0 1280x720, draw FBO 0
+frames 400, avg 16.86 ms, worst 162.22 ms
+== host import table check (after frames)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+== bystander plugin (victim.dlo) import table
+  import glOrtho    untouched
+  import glBegin    untouched
+  import glViewport untouched
+== bystander plugin (victim.dlo) pointer table
+  glOrtho          untouched
+  glFrustum        untouched
+  glLoadIdentity   untouched
+  glDrawElements   untouched
+  glViewport       untouched
+  glScissor        untouched
+  glReadPixels     untouched
+  glBegin          untouched
+FreeLibrary victim.dlo
+FreeLibrary plugins\mxbmrp3.dlo
+== host import table check (after unload)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+host: clean exit
+exit=0

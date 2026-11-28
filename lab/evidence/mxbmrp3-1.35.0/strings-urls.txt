@@ -1,0 +1,21 @@
+$ for f in zip/mxbmrp3.dlo; do strings -n 6 $f | grep -oE 'https?://[A-Za-z0-9./{}_?=%-]+' | sort -u; strings -n 6 $f | grep -oE '[a-z0-9.-]+\.(goatcounter|aptabase|githubusercontent|github)\.com|api\.github\.com|[a-z.]*twitch\.tv|youtube\.com|cbrservers\.com|mxb-ranked\.com' | sort -u; done
+http://localhost
+https://%s%s
+https://H
+https://github.com/thomas4f/mxbmrp3
+https://github.com/thomas4f/mxbmrp3/blob/v1.35.0/CONTRIBUTING.md
+https://github.com/thomas4f/mxbmrp3/releases
+https://github.com/thomas4f/mxbmrp3/tree/v1.35.0
+https://ko-fi.com/thomas4f
+https://mxb-mods.com/mxbmrp3
+https://mxb-ranked.com/pub-api/stats/GetTrackFastestLapsByBikeCategory
+https://server.cbrservers.com/api/records/top
+https://thomas4f.github.io/mxbmrp3
+api.github.com
+cbrservers.com
+mxb-ranked.com
+raw.githubusercontent.com
+tmi.twitch.tv
+twitch.tv
+youtube.com
+(exit 0)

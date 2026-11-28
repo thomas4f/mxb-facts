@@ -1,0 +1,21 @@
+$ strings -n 8 mxbmrp3-Setup.exe | grep -o 'Nullsoft Install System v[0-9.-]*' | head -1; 7z l mxbmrp3-Setup.exe | grep -E '\.(dlo|exe|dll)$'; sha256sum zip/*.dlo setup/\$_2*_/*.dlo; diff -r 'setup/$_21_/mxbmrp3_data' zip/mxbmrp3_data
+Nullsoft Install System v3.09-4
+Listing archive: mxbmrp3-Setup.exe
+Path = mxbmrp3-Setup.exe
+                    .....        14336               $PLUGINSDIR/nsDialogs.dll
+                    .....        25088               $PLUGINSDIR/System.dll
+2026-11-08 13:36:36 .....      4217344               $_21_/mxbmrp3.dlo
+2026-11-08 13:36:36 .....      4187648               $_24_/mxbmrp3_gpb.dlo
+2026-11-08 13:36:36 .....      4112896               $_27_/mxbmrp3_krp.dlo
+                    .....                            mxbmrp3_uninstall.exe
+2991d3733c981c83c4d1ce3312e55a0d4c3b383ded237be8f77c9f3e4cd07e90  zip/mxbmrp3.dlo
+2c69dc59b8758d6c203079120022f3b1c4c530ab8906dfd729a972bf1553a466  zip/mxbmrp3_gpb.dlo
+5884ea41708910b86152f1f7818c98f2c8b8fb9e28168b5f8e09cc9bb8e11cb6  zip/mxbmrp3_krp.dlo
+2991d3733c981c83c4d1ce3312e55a0d4c3b383ded237be8f77c9f3e4cd07e90  setup/$_21_/mxbmrp3.dlo
+2c69dc59b8758d6c203079120022f3b1c4c530ab8906dfd729a972bf1553a466  setup/$_24_/mxbmrp3_gpb.dlo
+5884ea41708910b86152f1f7818c98f2c8b8fb9e28168b5f8e09cc9bb8e11cb6  setup/$_27_/mxbmrp3_krp.dlo
+Only in 'setup/$_21_/mxbmrp3_data': LICENSE
+Only in zip/mxbmrp3_data: README.txt
+Only in 'setup/$_21_/mxbmrp3_data': THIRD_PARTY_LICENSES.md
+Only in zip/mxbmrp3_data/web/logos: .gitkeep
+(exit 1)

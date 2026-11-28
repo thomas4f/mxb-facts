@@ -1,0 +1,61 @@
+$ cd "$SRC" && git ls-files | grep -iE '^LICENSE|THIRD_PARTY'; head -3 LICENSE; echo '--- prebuilt program files:'; git ls-files | grep -iE '\.(dll|lib|exe|dlo|so|wasm|pyc|o|obj|node|jar)$' || echo none; echo '--- history:'; git log --oneline 64f3f33db2bb3e0df41649159bceae309a2a0b68 | wc -l; git log --format='%ad %s' --date=short 64f3f33db2bb3e0df41649159bceae309a2a0b68 | sed -n '1,3p;$p'; git log --format='%s' 64f3f33db2bb3e0df41649159bceae309a2a0b68 | sed 's/ v[0-9.]*$//' | sort | uniq -c; grep -nE 'squashed tree|as ONE commit' .github/workflows/mirror.yml usage_survey/README.md | head -3
+LICENSE
+THIRD_PARTY_LICENSES.md
+MIT License
+
+Copyright (c) 2025-2026 thomas4f
+--- prebuilt program files:
+none
+--- history:
+69
+2026-11-08 Release v1.35.0
+2026-11-04 Release v1.34.3
+2026-11-03 Release v1.34.3
+2025-11-29 Initial public release
+      1 Add analytics dashboard and report generator (tooling/docs) [skip ci]
+      1 Add files via upload
+      1 Add fuel calculator widget for race simulation (#2)
+      1 Add gap bar HUD, real-time lap timer, relative position colors, quad rendering, granular reset options, update checker, and documentation updates
+      1 Add web interface for MX Bikes Trainer Repair
+      1 Bump version number to 1.13.3.0
+      1 Clarify plugin installation instructions further
+      1 Controller rumble, forces HUD, centralized lap timer, streamlined defaults
+      1 Create Lap Records HUD with HTTP data provider (#3)
+      1 Create radar HUD with adjustable distance view (#1)
+      1 Do not remove xinput64.dli
+      1 Fix CodeQL alerts; harden the CodeQL gate; build the release installer on Linux
+      1 Fix player identification on servers that alter rider names
+      1 Fix release CI: MSVC ASan job broken by the CMake migration
+      1 Fix the CodeQL SARIF upload; add an eslint gate, asset-parser and overlay data-contract tests
+      1 Initial public release
+      1 Map zoom mode, Qualify profile, Apply to All, UI improvements
+      1 Partly fix player identification on servers that alter Rider Name
+      1 Records HUD, Radar HUD, Fuel Widget, Colors
+     27 Release
+      1 Release v1.10.0: Personal bests, proximity arrows, gamepad widget, click-to-spectate
+      1 Release v1.11.0: Auto-update, tooltip system, user asset overrides, MXB-Ranked integration, lean angle widget
+      1 Release v1.12.0: Live gap in lap log, drap shadow, bug fixes and performance improvements
+      1 Release v1.13.3: GP Bikes support, Gap Bar color/flat modes, UI improvements and bug fixes
+      1 Release v1.14.0: Discord integration, tyre temps, odometer/rumble profiles, Session HUD refactor
+      1 Release v1.15.0: FMX/trick and Consistency HUDs, power-user settings and bug fixes/improvements
+      1 Release v1.16.1: Stats HUD, split gear widget, PB notices, and fuel/FMX fixes
+      1 Release v1.16.6: Clock widget, pitboard compare modes, hold-to-repeat controls, and UI/UX fixes
+      1 Release v1.17.0: Default setup warning notice, workaround for tracks with broken timing
+      1 Release v1.18: Animated standings, live position updates, DNS filtering, and UI/UX improvements
+      1 Release v1.19: Hazard detection, alternating gaps, status icons, compact times, and spectator records
+      1 Release v1.20: Add Event Log HUD, update hazard icons, clean up placeholder rows
+      1 Release v1.21.2: Add web overlay and bike/category PB scope
+      1 Release v1.21.4: Overlay loads offline in OBS and a pile of web UX polish
+      1 Release v1.22.0: First-person helmet overlay, web logo slideshow, and bug fixes
+      1 Release v1.23.10: Kart Racing Pro support, new ECU and G-Force widgets, and bug fixes
+      1 Release v1.24.0.0: Steam Friends HUD, expanded web overlay and performance improvements
+      1 Release v1.25.0.0: Segment Timer training tool, HUD identity icons, Last Lap column and Compass Widget
+      1 Release v1.26.0.0: Lapper Ahead notice, ride-only cursor, accelerated sliders and anonymous usage analytics
+      1 Remove 'Supported Games' section from README
+      1 Revise README for clarity on installation and assets
+      1 Sync remaining v1.11.0 files: docs, tooltips, remove copyrighted assets
+      1 Tracked riders, customizable hotkeys, dynamic assets, live gap coloring, timing improvements
+.github/workflows/mirror.yml:2:# Publish the current default-branch tree to the release repo as ONE commit.
+.github/workflows/mirror.yml:54:        description: "Push the squashed tree to public/main. Off = dry run (print the diff only)."
+usage_survey/README.md:34:The public mirror gets `usage_survey/` as part of `mirror.yml`'s squashed tree, so the daily
+(exit 0)

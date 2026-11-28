@@ -1,0 +1,8 @@
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech_OneCore\Voices  SUCCESS
+mxbikes.exe  RegCreateKey  HKCU\SOFTWARE\Microsoft\Speech\Voices  SUCCESS
+mxbikes.exe  RegCreateKey  HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\Connections  SUCCESS
+mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  REPARSE
+mxbikes.exe  RegCreateKey  HKLM\System\CurrentControlSet\Services\Tcpip\Parameters  SUCCESS
+mxbikes.exe  RegSetValue  HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Notifications\Data\418A073AA3BC1C75  SUCCESS
+mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume3\Windows\System32\conhost.exe  SUCCESS
+mxbikes.exe  RegSetValue  HKLM\System\CurrentControlSet\Services\bam\State\UserSettings\S-1-5-21-2315611937-1800655502-2561009274-500\\Device\HarddiskVolume4\a\_temp\mxbfacts\run-hotkeys-crash\mxbikes.exe  SUCCESS

@@ -33,6 +33,7 @@ CARDS=[  # (card file, tool in registry/tools.json), alphabetical
     ('mxb-ragdoll-1.0.yaml', 'mxb-ragdoll'),
     ('mxb-studio-1.0.1.yaml', 'mxb-studio'),
     ('mxbfix-0.1.8.yaml', 'mxbfix'),
+    ('mxbmrp3-1.35.0.yaml', 'mxbmrp3'),
     ('mxrp-ragdoll-3.2.yaml', 'mxrp-ragdoll'),
     ('pitbox-3.0.4.yaml', 'pitbox'),
     ('projectgpb2-v2.yaml', 'projectgpb2'),
