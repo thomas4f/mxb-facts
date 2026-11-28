@@ -135,8 +135,8 @@ def write_pages(SITE):
         cost = mark_cost(x, scored)
         # Its hover: why it costs what it does where that needs saying, else what the mark means. Where the answer's own words
         # aren't beside it (says=True: Compare, a release's changes), the hover is those words, so a reader sees what this tool
-        # does, not the legend. Compare shows the mark alone (word=False): the marks are what a reader compares, the answer
-        # ("Partly", "Yes, not by default") opens the hover, and a screen reader still hears it; a tap opens the full answer.
+        # does, not the legend. Compare shows the answer's own words too ("No", "Partly"), as every other view does; the hover holds
+        # the full answer, and a tap opens it.
         tip = x['cost_note'] or None
         if says: tip = x['text_plain'] + (f' ({x["cost_note"]}.)' if x['cost_note'] else '')
         # The chip says the verdict ("No −25") in the mark's colour and icon; the mark's word ("Concern") is for screen readers

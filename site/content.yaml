@@ -54,4 +54,4 @@ how_a_card_is_made:
   - >-
     **The build sets the marks, tags and scores** from the answers, by fixed rules; nobody picks one by hand.
   - >-
-    **Anyone can comment** on GitHub, the author included. A fix gets a dated line in the card's history; a new release gets a new card. A security problem is first told to the author privately (rule 9).
+    **Anyone can suggest a correction** on GitHub, the author included. A fix gets a dated line in the card's history; a new release gets a new card. A security problem is first told to the author privately (rule 9).

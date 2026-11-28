@@ -22,9 +22,12 @@ permissions:
   discussions: read
   pages: write
   id-token: write
-concurrency: { group: pages, cancel-in-progress: true }
+# Never cancelled: a run of comments would otherwise keep stopping a push's deploy part way; a newer run waits its turn.
+concurrency: { group: pages, cancel-in-progress: false }
 jobs:
   build:
+    # Only a Tools thread changes what the site shows; talk under General publishes nothing.
+    if: (github.event_name != 'discussion' && github.event_name != 'discussion_comment') || github.event.discussion.category.slug == 'tools'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4

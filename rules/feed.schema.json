@@ -258,7 +258,8 @@
               "latest",
               "card_image",
               "not_analysed",
-              "newer"
+              "newer",
+              "discussion"
             ],
             "properties": {
               "id": {

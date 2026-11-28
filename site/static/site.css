@@ -204,7 +204,7 @@ details.fold > .body { border-top: 1px solid var(--line) }
    on a touch screen. Clicking it copies the address (site.js), and a tick shows it did. */
 .anc { display: inline-grid; place-items: center; width: 28px; height: 28px; margin-left: var(--s1); vertical-align: middle; color: var(--muted); border-radius: var(--r-ctl); opacity: 0; transition: opacity .15s }
 .anc::before { content: ''; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat }
-:is(h2, .fw):hover .anc, .anc:focus-visible, .anc.done { opacity: 1 } .anc:hover { color: var(--accent) } .anc.done { color: var(--good) }
+:is(h2, .fw, .ghead):hover .anc, .anc:focus-visible, .anc.done { opacity: 1 } .anc:hover { color: var(--accent) } .anc.done { color: var(--good) }
 @media (hover: none) { .anc { opacity: .85 } }
 .fw { position: relative; min-width: 0 } .fw > details.fold > summary { padding-right: var(--s7) } .anc.fa { position: absolute; top: var(--s3); right: var(--s1); margin: 0 }
 .row .q { font-weight: 600 } .row .v { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap; margin: var(--s1) 0 }
@@ -312,8 +312,9 @@ footer p { margin: 0 }
 @media (min-width: 760px) { .fgrid { grid-template-columns: 2fr 1fr 1fr } .fabout { grid-column: auto } }
 .flinks { display: grid; align-content: start; gap: 0 } .fh { margin: 0 0 var(--s1) }
 .flinks a { color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; min-height: 36px; justify-self: start } .flinks a:hover { color: var(--accent); text-decoration: underline }
-/* Footer lines that break between their parts, not inside one: each part is its own line on a phone, side by side when there is room. */
+/* Footer lines that break between their parts, not inside one: side by side when all fit, else one part per line (never two and one). */
 .fl { display: inline-block } .fmeta .fl { margin-right: var(--s3) }
+@media (max-width: 700px) { .fmeta .fl { display: block; margin-right: 0 } }
 .fmeta { font-size: 13px; border-top: 1px solid var(--line); padding-top: var(--s3); margin-top: var(--s2) }
 @media (prefers-reduced-motion: no-preference) { .card, .area { transition: border-color .15s, background .15s } }
 
@@ -376,7 +377,7 @@ code.hash { font-size: 12px }
 @container (max-width: 310px) { .card .foot { flex-wrap: wrap } .card .foot .btn:last-child { flex-basis: 100% } }
 /* The Compare picker: a category's label over its tools; a tool's chips flow with the others (its wrapper draws no box). */
 /* The tools list: a category's label spans the grid above its cards, as in the Compare picker. */
-.ghead { grid-column: 1 / -1; margin: var(--s4) 0 0 } .ghead:first-child { margin-top: 0 }
+.ghead { grid-column: 1 / -1; margin: var(--s4) 0 0; scroll-margin-top: 80px } .ghead .anc { width: 22px; height: 22px } .ghead:first-child { margin-top: 0 }
 .pgrp { display: grid; gap: var(--s2) } .pgrp > .cat { margin: 0 }
 @media (min-width: 641px) { .pgrp { grid-template-columns: 12rem minmax(0, 1fr); align-items: center; gap: var(--s4) } } .tchips { display: contents } .chip.more { font: inherit; font-size: 13px; color: var(--muted); border-style: dashed }
 .theme { border: 1px solid var(--line); background: var(--surface); border-radius: var(--r-ctl); width: 44px; height: 44px; padding: 0; display: grid; place-items: center; cursor: pointer; color: var(--ink) }

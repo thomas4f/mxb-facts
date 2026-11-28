@@ -23,7 +23,7 @@
   <h1>{{ c.name }} <small>{{ c.version }}</small></h1>
   {# The score, N/100 (of100) or the word for no score: as tall as the header beside it on a wide screen, on the name's line on a phone. #}
   <p class="big{% if not scored %} word{% endif %}">{% if scored %}<b class="num">{{ r.score }}{{ of100() }}</b>{% else %}{{ mark(r.kind) }}{% endif %}</p>
-  <div class="meta">by {{ c.author }} · analysed {{ c.analysed }} · <a class="ic dsc" href="#corrections">Corrections and discussion{% if t.discussion and t.discussion.comments %}<span class="cnt num" aria-hidden="true">{{ t.discussion.comments }}</span><span class="vh">, {{ t.discussion.comments }} comments in its discussion</span>{% endif %}</a></div>
+  <div class="meta">by {{ c.author }} · analysed {{ c.analysed }} · <a class="ic dsc" href="#corrections">Corrections and discussion{% if t.discussion and t.discussion.comments %}<span class="cnt num" aria-hidden="true">{{ t.discussion.comments }}</span><span class="vh">, {{ t.discussion.comments }} comment{{ 's' if t.discussion.comments != 1 }} in its discussion</span>{% endif %}</a></div>
   <p class="sum">{{ c.summary }}</p>
 </div>
 {% if c.latest and newer_of(t.id) %}{{ newer_notice(newer_of(t.id), c) }}{% endif %}
@@ -182,7 +182,7 @@
 </ul>
 {% else %}<p>No correction has been suggested for this card.</p>{% endif %}
 <p>Something wrong or missing, or context to add as its author? Use "Correct" beside any answer, Good ones included, or "Suggest a correction": it shows here, and on the answer it names, until it is decided, and if it holds, the card changes. To talk about {{ t.name }} with other players and its author, use "Discuss {{ t.name }}": what is said there changes nothing on the card.</p>
-<p class="links"><a class="btn ic cmt" href="{{ SITE.links.comment }}&amp;{{ {'title': 'Correction: ' ~ c.name ~ ' ' ~ c.version, 'card': c.name ~ ' ' ~ c.version} | urlencode }}" target="_blank" rel="noopener">Suggest a correction</a><a class="btn ic dsc" href="{{ t.discussion.url if t.discussion else SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener">Discuss {{ t.name }}{% if t.discussion and t.discussion.comments %}<span class="cnt num" aria-hidden="true">{{ t.discussion.comments }}</span><span class="vh">, {{ t.discussion.comments }} comments</span>{% endif %}</a></p>
+<p class="links"><a class="btn ic cmt" href="{{ SITE.links.comment }}&amp;{{ {'title': 'Correction: ' ~ c.name ~ ' ' ~ c.version, 'card': c.name ~ ' ' ~ c.version} | urlencode }}" target="_blank" rel="noopener">Suggest a correction</a><a class="btn ic dsc" href="{{ t.discussion.url if t.discussion else SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener">Discuss {{ t.name }}{% if t.discussion and t.discussion.comments %}<span class="cnt num" aria-hidden="true">{{ t.discussion.comments }}</span><span class="vh">, {{ t.discussion.comments }} comment{{ 's' if t.discussion.comments != 1 }}</span>{% endif %}</a></p>
 </div>
 
 {# A section like the others on the page: its heading, then its fold, so every section title looks the same. #}

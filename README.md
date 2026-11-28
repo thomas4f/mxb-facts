@@ -14,7 +14,7 @@ This project is run by Thomas (GitHub [thomas4f](https://github.com/thomas4f)), 
 - The analysis is done by an AI assistant (Claude) working under [`CLAUDE.md`](CLAUDE.md), which tells it to treat MXBMRP3 like any other tool and to refuse requests that would break that. Every analysis starts from one published prompt, [`prompts/analyse-tool.md`](prompts/analyse-tool.md), so anyone can rerun it.
 - This repository is separate from MXBMRP3's, and shares no code with it.
 
-If you think a card is unfair, comment on the answer (the form below): it will be answered in public.
+If you think a card is unfair, suggest a correction (the form below): it will be answered in public.
 
 ## Ask for a tool, or correct a card
 

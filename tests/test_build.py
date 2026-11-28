@@ -551,9 +551,12 @@ check('a tool\'s thread is the oldest Tools one with its title, counting comment
       discussions.tool_threads('https://github.com/o/r/', ['Pitbox', 'MaXHUD']) == {'Pitbox': {'url': 'u1', 'comments': 5}})
 def _fail(token, v): raise OSError('down')
 discussions._post = _fail
-check('when GitHub does not answer, no tool has a thread and the build goes on', discussions.tool_threads('https://github.com/o/r/', ['Pitbox']) == {})
+check('when GitHub does not answer, the threads are unread (None, so "Discuss" links the list) and the build goes on', discussions.tool_threads('https://github.com/o/r/', ['Pitbox']) is None)
+_pages = {None: {'nodes': [_th[2]], 'pageInfo': {'hasNextPage': True, 'endCursor': 'c1'}}, 'c1': {'nodes': [_th[1]], 'pageInfo': {'hasNextPage': False, 'endCursor': None}}}
+discussions._post = lambda token, v: {'discussions': _pages[v['after']]}
+check('threads are read page by page, so one on a later page is found', discussions.tool_threads('https://github.com/o/r/', ['Pitbox']) == {'Pitbox': {'url': 'u2', 'comments': 9}})
 del os.environ['GITHUB_TOKEN']
-check('without a token, discussions are not read', discussions.tool_threads('https://github.com/o/r/', ['Pitbox']) == {})
+check('without a token, discussions are not read', discussions.tool_threads('https://github.com/o/r/', ['Pitbox']) is None)
 
 print(f'{len(FAILED)} failed' if FAILED else 'all passed')
 sys.exit(1 if FAILED else 0)

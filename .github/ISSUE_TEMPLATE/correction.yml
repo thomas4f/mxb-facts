@@ -14,7 +14,7 @@ body:
     validations: { required: true }
   - type: textarea
     id: line
-    attributes: { label: The answer, description: "The question (e.g. D3) and the answer as the card gives it now; the comment icon on the page fills this in. Say which part you mean." }
+    attributes: { label: The answer, description: "The question (e.g. D3) and the answer as the card gives it now; the "Correct" link beside the answer fills this in. Say which part you mean." }
     validations: { required: true }
   - type: dropdown
     id: kind
