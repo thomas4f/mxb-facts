@@ -150,7 +150,7 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .card h3 { font: var(--t-heading) } .card h3 a { color: var(--ink); text-decoration: none }
 .card .meta { color: var(--muted); font-size: 13.5px }
 .card .sum { margin: 0; font-size: 15px }
-.card .foot { margin-top: auto; padding-top: var(--s3); border-top: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; gap: var(--s2) }
+.card .foot { margin-top: auto; padding-top: var(--s3); border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: var(--s2) }
 .btn { display: inline-flex; align-items: center; gap: var(--s2); padding: var(--s2) var(--s4); border-radius: var(--r-ctl); border: 1px solid var(--line); background: var(--surface); cursor: pointer; text-decoration: none; color: var(--ink); font-weight: 600; font-size: 14.5px }
 .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent) }
 .btn:disabled { opacity: .45; cursor: default }
@@ -371,7 +371,7 @@ code.hash { font-size: 12px }
 .cmptools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s3) }
 .cmpl { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; color: var(--muted); font-size: 14px }
 /* A tool card's three actions, Compare, Discuss and Findings, as three buttons of one size sharing the row. */
-.card .foot { flex-wrap: wrap } .card .foot .btn { flex: 1 1 auto; justify-content: center; gap: var(--s2); padding-inline: var(--s2); white-space: nowrap }
+.card .foot .btn { flex: 1 1 auto; justify-content: center; gap: var(--s2); padding-inline: var(--s2); white-space: nowrap }
 .card .foot .cmpl { color: var(--ink); font-size: 14.5px } .card .foot .cmpl:has(input:checked) { border-color: var(--accent) }
 /* A narrow card (most phones) keeps the three on one row: Discuss drops its word for its icon (the word stays for screen
    readers), then the buttons tighten. The row still wraps if nothing else helps (very large text), so nothing spills out of the card. */
