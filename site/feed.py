@@ -11,7 +11,7 @@ from cards import COMMIT, CORR, DEMO_GAME, CORRFORM, REQFORM, SITEURL, FOLDNAME,
 from badges import BADGES
 
 
-FEED_VERSION='1.8'
+FEED_VERSION='1.9'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
@@ -238,7 +238,8 @@ def write_feed(SITE,CARDS):
         # card_image: the tool's newest card as one image, at an address that never changes, for a page that shows the tool, not
         # one release (docs/FEED.md, "Showing a card").
         t=tools.setdefault(slug,{'id':slug,'name':C['name'],'author':reg['author'],'games':games(h),'github':reg['github'],'homepage':reg['homepage'],
-                                 'mods_sites':mods,'card_image':f'{SITEURL}badge/{slug}/card.png','releases':[None]*len(order)})
+                                 'mods_sites':mods,'card_image':f'{SITEURL}badge/{slug}/card.png','releases':[None]*len(order),
+                                 'discussion':REPO+f"discussions/{reg['discussion']}" if reg.get('discussion') else None})
         # Newest release first, in the registry's order (rule 2: every card stays).
         t['releases'][len(order)-1-order.index(f)]=rel
         # How many answers are still open, by why, and how many comments are under review: the counts the tools list shows beside the tags.
@@ -331,6 +332,6 @@ def write_site(SITE,skill,agents_line):
           'questions':[{'id':i,'area':QAREA[i],'question':qt,'good_when':goodwhen(i),'marks':QCELL[i],'max_cost':maxcost(i) if i in GCOST else 0} for i,_a,qt in QS],
           'key_questions':[{'id':k,'question':q,'short':s,'from':src} for k,q,s,src in KEYS],
           'authors_check':{'path':'.claude/skills/mxb-facts-check/SKILL.md','download':SITEURL+'authors/mxb-facts-check/SKILL.md','text':skill,'agents_line':agents_line},
-          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f','visits':'https://mxb-facts.goatcounter.com/'}}
+          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','discuss':REPO+'discussions/new?category=cards','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f','visits':'https://mxb-facts.goatcounter.com/'}}
     check(data,'site')
     json.dump(data,open(SITE+'api/v1/site.json','w'),indent=1,ensure_ascii=False)

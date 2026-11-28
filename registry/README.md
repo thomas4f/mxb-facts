@@ -10,6 +10,7 @@
 | `homepage` | A URL, or `null` |
 | `cards` | Its card files in `cards/`, oldest first; empty while the tool waits in `docs/QUEUE.md` |
 | `downloads` | Optional: other places the author publishes its files (a Mega, MediaFire or Google Drive link, a forum topic, a homepage download), for the release check. GitHub and the mods-site page are looked at anyway |
+| `discussion` | Optional: the number of the tool's thread in the repository's Discussions, "Cards" category, once one is started. Its tool page links it; without it, the page offers to start one, titled with the tool's name |
 | `game_version` | Optional: the demo its plugins run in when it needs an older one than the newest, per game, as `{"mxbikes": {"version": "beta21e", "why": "<what its readme, page or code shows>"}}`, from `lab/real-game/games.json` ([its README](../lab/real-game/README.md), "Which demo") |
 | `mxb-mods` | `post` (the mxb-mods.com post ID) and `tied_by` (text on that page that ties it to the tool: its GitHub link, the file name or hash of the file checked), or, when nothing on the page ties it, `confirmed` saying who confirmed it and what the page is; or `post: null` with a `note` saying why not. A page that matches by name only is not tied. `tied_by` is looked for in the post's body, its attached files and its public page (download buttons are only on the page) |
 
