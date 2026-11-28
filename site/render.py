@@ -103,8 +103,9 @@ def write_pages(SITE):
         # said: the words are an answer's verdict, so the mark's own word ("Concern") goes to screen readers and the hover only.
         s = STATES[state]
         c = Markup(f' <span class="c">{escape(cost)}</span>') if cost else ''
-        # icon_only: a key answer, whose text already opens with its verdict; the mark is its colour and icon, its word for screen readers.
-        if icon_only and state in VERDICT_STATES and state != 'malware':
+        # icon_only: a key answer, whose text already opens with its verdict or its state ("Not allowed."); every mark there is its
+        # colour and icon alone, its word for screen readers and the hover.
+        if icon_only:
             return Markup(f'<span class="st {state} io" title="{escape(tip or s["label"] + ": " + s["meaning"])}"><span class="vh">{escape(s["label"])}</span></span>')
         lab = Markup(f'<span class="vh">{escape(s["label"])}: </span>') if said else ''
         return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{lab}{escape(words or s["label"])}{c}</span>')
