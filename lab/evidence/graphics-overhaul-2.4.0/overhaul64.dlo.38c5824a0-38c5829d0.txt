@@ -1,0 +1,325 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c5824a0 -v b=38c5829d0 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c5824a0:	41 57                	push   %r15
+   38c5824a2:	b8 d8 11 00 00       	mov    $0x11d8,%eax
+   38c5824a7:	41 56                	push   %r14
+   38c5824a9:	41 55                	push   %r13
+   38c5824ab:	41 54                	push   %r12
+   38c5824ad:	55                   	push   %rbp
+   38c5824ae:	57                   	push   %rdi
+   38c5824af:	56                   	push   %rsi
+   38c5824b0:	53                   	push   %rbx
+   38c5824b1:	e8 fa 72 01 00       	call   38c5997b0 <___chkstk_ms>
+   38c5824b6:	48 29 c4             	sub    %rax,%rsp
+   38c5824b9:	66 0f ef c0          	pxor   %xmm0,%xmm0
+   38c5824bd:	48 c7 41 10 00 00 00 	movq   $0x0,0x10(%rcx)
+   38c5824c4:	00 
+   38c5824c5:	48 89 cf             	mov    %rcx,%rdi
+   38c5824c8:	c7 44 24 54 00 00 00 	movl   $0x0,0x54(%rsp)
+   38c5824cf:	00 
+   38c5824d0:	0f 11 01             	movups %xmm0,(%rcx)
+   38c5824d3:	ff 15 bf 16 0e 00    	call   *0xe16bf(%rip)        # 38c663b98 <__imp_GetCurrentProcess>
+   38c5824d9:	4c 8d 4c 24 54       	lea    0x54(%rsp),%r9
+   38c5824de:	41 b8 00 10 00 00    	mov    $0x1000,%r8d
+   38c5824e4:	48 8d 94 24 d0 01 00 	lea    0x1d0(%rsp),%rdx
+   38c5824eb:	00 
+   38c5824ec:	48 89 c1             	mov    %rax,%rcx
+   38c5824ef:	e8 9c 6f 02 00       	call   38c5a9490 <K32EnumProcessModules>
+   38c5824f4:	85 c0                	test   %eax,%eax
+   38c5824f6:	75 18                	jne    38c582510 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x70>
+   38c5824f8:	48 89 f8             	mov    %rdi,%rax
+   38c5824fb:	48 81 c4 d8 11 00 00 	add    $0x11d8,%rsp
+   38c582502:	5b                   	pop    %rbx
+   38c582503:	5e                   	pop    %rsi
+   38c582504:	5f                   	pop    %rdi
+   38c582505:	5d                   	pop    %rbp
+   38c582506:	41 5c                	pop    %r12
+   38c582508:	41 5d                	pop    %r13
+   38c58250a:	41 5e                	pop    %r14
+   38c58250c:	41 5f                	pop    %r15
+   38c58250e:	c3                   	ret
+   38c58250f:	90                   	nop
+   38c582510:	8b 5c 24 54          	mov    0x54(%rsp),%ebx
+   38c582514:	b8 00 10 00 00       	mov    $0x1000,%eax
+   38c582519:	39 c3                	cmp    %eax,%ebx
+   38c58251b:	0f 47 d8             	cmova  %eax,%ebx
+   38c58251e:	31 c9                	xor    %ecx,%ecx
+   38c582520:	ff 15 c2 16 0e 00    	call   *0xe16c2(%rip)        # 38c663be8 <__imp_GetModuleHandleA>
+   38c582526:	48 89 c5             	mov    %rax,%rbp
+   38c582529:	4c 8d 84 24 c0 00 00 	lea    0xc0(%rsp),%r8
+   38c582530:	00 
+   38c582531:	48 c7 84 24 c0 00 00 	movq   $0x0,0xc0(%rsp)
+   38c582538:	00 00 00 00 00 
+   38c58253d:	48 8d 15 bc fd ff ff 	lea    -0x244(%rip),%rdx        # 38c582300 <_ZN12_GLOBAL__N_1L11self_moduleEv>
+   38c582544:	b9 06 00 00 00       	mov    $0x6,%ecx
+   38c582549:	ff 15 a1 16 0e 00    	call   *0xe16a1(%rip)        # 38c663bf0 <__imp_GetModuleHandleExA>
+   38c58254f:	c1 eb 03             	shr    $0x3,%ebx
+   38c582552:	4c 8b a4 24 c0 00 00 	mov    0xc0(%rsp),%r12
+   38c582559:	00 
+   38c58255a:	74 9c                	je     38c5824f8 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x58>
+   38c58255c:	8d 43 ff             	lea    -0x1(%rbx),%eax
+   38c58255f:	4c 8b 35 7a 16 0e 00 	mov    0xe167a(%rip),%r14        # 38c663be0 <__imp_GetModuleFileNameA>
+   38c582566:	48 8d b4 24 d0 01 00 	lea    0x1d0(%rsp),%rsi
+   38c58256d:	00 
+   38c58256e:	4c 8d ac c4 d8 01 00 	lea    0x1d8(%rsp,%rax,8),%r13
+   38c582575:	00 
+   38c582576:	e9 92 00 00 00       	jmp    38c58260d <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x16d>
+   38c58257b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   38c582580:	4c 8d bc 24 b0 00 00 	lea    0xb0(%rsp),%r15
+   38c582587:	00 
+   38c582588:	48 8d 8c 24 c0 00 00 	lea    0xc0(%rsp),%rcx
+   38c58258f:	00 
+   38c582590:	4c 89 bc 24 a0 00 00 	mov    %r15,0xa0(%rsp)
+   38c582597:	00 
+   38c582598:	e8 bb 6b 02 00       	call   38c5a9158 <strlen>
+   38c58259d:	48 89 44 24 58       	mov    %rax,0x58(%rsp)
+   38c5825a2:	49 89 c1             	mov    %rax,%r9
+   38c5825a5:	48 83 f8 0f          	cmp    $0xf,%rax
+   38c5825a9:	0f 87 a1 01 00 00    	ja     38c582750 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x2b0>
+   38c5825af:	48 83 f8 01          	cmp    $0x1,%rax
+   38c5825b3:	74 4b                	je     38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c5825b5:	48 85 c0             	test   %rax,%rax
+   38c5825b8:	0f 85 ff 03 00 00    	jne    38c5829bd <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x51d>
+   38c5825be:	c6 84 24 b0 00 00 00 	movb   $0x0,0xb0(%rsp)
+   38c5825c5:	00 
+   38c5825c6:	48 8b 8c 24 a0 00 00 	mov    0xa0(%rsp),%rcx
+   38c5825cd:	00 
+   38c5825ce:	4c 39 f9             	cmp    %r15,%rcx
+   38c5825d1:	74 2d                	je     38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c5825d3:	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
+   38c5825da:	00 
+   38c5825db:	48 8d 50 01          	lea    0x1(%rax),%rdx
+   38c5825df:	e8 bc 61 04 00       	call   38c5c87a0 <_ZdlPvy>
+   38c5825e4:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   38c5825ea:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   38c5825f1:	00 00 00 00 
+   38c5825f5:	66 66 2e 0f 1f 84 00 	data16 cs nopw 0x0(%rax,%rax,1)
+   38c5825fc:	00 00 00 00 
+   38c582600:	48 83 c6 08          	add    $0x8,%rsi
+   38c582604:	4c 39 ee             	cmp    %r13,%rsi
+   38c582607:	0f 84 eb fe ff ff    	je     38c5824f8 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x58>
+   38c58260d:	48 8b 1e             	mov    (%rsi),%rbx
+   38c582610:	4c 39 e3             	cmp    %r12,%rbx
+   38c582613:	74 eb                	je     38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c582615:	41 b8 04 01 00 00    	mov    $0x104,%r8d
+   38c58261b:	48 8d 94 24 c0 00 00 	lea    0xc0(%rsp),%rdx
+   38c582622:	00 
+   38c582623:	48 89 d9             	mov    %rbx,%rcx
+   38c582626:	41 ff d6             	call   *%r14
+   38c582629:	48 39 dd             	cmp    %rbx,%rbp
+   38c58262c:	0f 85 4e ff ff ff    	jne    38c582580 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0xe0>
+   38c582632:	48 8d 15 a6 35 06 00 	lea    0x635a6(%rip),%rdx        # 38c5e5bdf <.rdata+0x1f>
+   38c582639:	48 89 d9             	mov    %rbx,%rcx
+   38c58263c:	ff 15 c6 15 0e 00    	call   *0xe15c6(%rip)        # 38c663c08 <__imp_GetProcAddress>
+   38c582642:	48 85 c0             	test   %rax,%rax
+   38c582645:	75 b9                	jne    38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c582647:	4c 63 53 3c          	movslq 0x3c(%rbx),%r10
+   38c58264b:	49 01 da             	add    %rbx,%r10
+   38c58264e:	41 8b 82 e8 00 00 00 	mov    0xe8(%r10),%eax
+   38c582655:	45 8b 9a ec 00 00 00 	mov    0xec(%r10),%r11d
+   38c58265c:	48 01 d8             	add    %rbx,%rax
+   38c58265f:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   38c582664:	49 01 c3             	add    %rax,%r11
+   38c582667:	66 41 83 7a 06 00    	cmpw   $0x0,0x6(%r10)
+   38c58266d:	0f 84 95 01 00 00    	je     38c582808 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x368>
+   38c582673:	41 0f b7 42 14       	movzwl 0x14(%r10),%eax
+   38c582678:	45 31 c9             	xor    %r9d,%r9d
+   38c58267b:	49 8d 44 02 18       	lea    0x18(%r10,%rax,1),%rax
+   38c582680:	eb 60                	jmp    38c5826e2 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x242>
+   38c582682:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   38c582688:	85 c9                	test   %ecx,%ecx
+   38c58268a:	79 40                	jns    38c5826cc <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x22c>
+   38c58268c:	41 8b 8a ec 00 00 00 	mov    0xec(%r10),%ecx
+   38c582693:	85 c9                	test   %ecx,%ecx
+   38c582695:	41 0f 95 c7          	setne  %r15b
+   38c582699:	4c 39 da             	cmp    %r11,%rdx
+   38c58269c:	0f 92 c1             	setb   %cl
+   38c58269f:	41 84 cf             	test   %cl,%r15b
+   38c5826a2:	74 0b                	je     38c5826af <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x20f>
+   38c5826a4:	4c 39 44 24 20       	cmp    %r8,0x20(%rsp)
+   38c5826a9:	0f 82 a1 01 00 00    	jb     38c582850 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x3b0>
+   38c5826af:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+   38c5826b3:	48 3b 4f 10          	cmp    0x10(%rdi),%rcx
+   38c5826b7:	0f 84 cb 01 00 00    	je     38c582888 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x3e8>
+   38c5826bd:	48 89 11             	mov    %rdx,(%rcx)
+   38c5826c0:	48 83 c1 10          	add    $0x10,%rcx
+   38c5826c4:	4c 89 41 f8          	mov    %r8,-0x8(%rcx)
+   38c5826c8:	48 89 4f 08          	mov    %rcx,0x8(%rdi)
+   38c5826cc:	41 0f b7 52 06       	movzwl 0x6(%r10),%edx
+   38c5826d1:	41 83 c1 01          	add    $0x1,%r9d
+   38c5826d5:	48 83 c0 28          	add    $0x28,%rax
+   38c5826d9:	41 39 d1             	cmp    %edx,%r9d
+   38c5826dc:	0f 8d 26 01 00 00    	jge    38c582808 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x368>
+   38c5826e2:	8b 50 0c             	mov    0xc(%rax),%edx
+   38c5826e5:	44 8b 40 08          	mov    0x8(%rax),%r8d
+   38c5826e9:	8b 48 24             	mov    0x24(%rax),%ecx
+   38c5826ec:	48 01 da             	add    %rbx,%rdx
+   38c5826ef:	49 01 d0             	add    %rdx,%r8
+   38c5826f2:	48 39 dd             	cmp    %rbx,%rbp
+   38c5826f5:	75 91                	jne    38c582688 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x1e8>
+   38c5826f7:	85 c9                	test   %ecx,%ecx
+   38c5826f9:	79 d1                	jns    38c5826cc <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x22c>
+   38c5826fb:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+   38c5826ff:	48 3b 4f 10          	cmp    0x10(%rdi),%rcx
+   38c582703:	75 b8                	jne    38c5826bd <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x21d>
+   38c582705:	48 89 54 24 70       	mov    %rdx,0x70(%rsp)
+   38c58270a:	48 89 f9             	mov    %rdi,%rcx
+   38c58270d:	48 8d 54 24 70       	lea    0x70(%rsp),%rdx
+   38c582712:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+   38c582717:	4c 89 5c 24 38       	mov    %r11,0x38(%rsp)
+   38c58271c:	4c 89 54 24 30       	mov    %r10,0x30(%rsp)
+   38c582721:	44 89 4c 24 28       	mov    %r9d,0x28(%rsp)
+   38c582726:	4c 89 44 24 78       	mov    %r8,0x78(%rsp)
+   38c58272b:	e8 b0 fc ff ff       	call   38c5823e0 <_ZNSt6vectorIN12_GLOBAL__N_15RangeESaIS1_EE17_M_realloc_appendIJRKS1_EEEvDpOT_>
+   38c582730:	44 8b 4c 24 28       	mov    0x28(%rsp),%r9d
+   38c582735:	4c 8b 54 24 30       	mov    0x30(%rsp),%r10
+   38c58273a:	4c 8b 5c 24 38       	mov    0x38(%rsp),%r11
+   38c58273f:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+   38c582744:	eb 86                	jmp    38c5826cc <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x22c>
+   38c582746:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
+   38c58274d:	00 00 00 
+   38c582750:	48 8d 54 24 58       	lea    0x58(%rsp),%rdx
+   38c582755:	45 31 c0             	xor    %r8d,%r8d
+   38c582758:	48 89 44 24 20       	mov    %rax,0x20(%rsp)
+   38c58275d:	48 8d 8c 24 a0 00 00 	lea    0xa0(%rsp),%rcx
+   38c582764:	00 
+   38c582765:	e8 96 ed 03 00       	call   38c5c1500 <_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERyy>
+   38c58276a:	48 89 84 24 a0 00 00 	mov    %rax,0xa0(%rsp)
+   38c582771:	00 
+   38c582772:	48 89 c1             	mov    %rax,%rcx
+   38c582775:	48 8b 44 24 58       	mov    0x58(%rsp),%rax
+   38c58277a:	4c 8b 4c 24 20       	mov    0x20(%rsp),%r9
+   38c58277f:	48 89 84 24 b0 00 00 	mov    %rax,0xb0(%rsp)
+   38c582786:	00 
+   38c582787:	48 8d 94 24 c0 00 00 	lea    0xc0(%rsp),%rdx
+   38c58278e:	00 
+   38c58278f:	4d 89 c8             	mov    %r9,%r8
+   38c582792:	e8 d9 6a 02 00       	call   38c5a9270 <memcpy>
+   38c582797:	48 8b 44 24 58       	mov    0x58(%rsp),%rax
+   38c58279c:	48 8b 94 24 a0 00 00 	mov    0xa0(%rsp),%rdx
+   38c5827a3:	00 
+   38c5827a4:	c6 04 02 00          	movb   $0x0,(%rdx,%rax,1)
+   38c5827a8:	48 89 84 24 a8 00 00 	mov    %rax,0xa8(%rsp)
+   38c5827af:	00 
+   38c5827b0:	48 83 f8 03          	cmp    $0x3,%rax
+   38c5827b4:	0f 86 0c fe ff ff    	jbe    38c5825c6 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x126>
+   38c5827ba:	48 8b 94 24 a0 00 00 	mov    0xa0(%rsp),%rdx
+   38c5827c1:	00 
+   38c5827c2:	48 8d 4c 02 fc       	lea    -0x4(%rdx,%rax,1),%rcx
+   38c5827c7:	48 8d 15 0c 34 06 00 	lea    0x6340c(%rip),%rdx        # 38c5e5bda <.rdata+0x1a>
+   38c5827ce:	ff 15 8c 18 0e 00    	call   *0xe188c(%rip)        # 38c664060 <__imp__stricmp>
+   38c5827d4:	48 8b 8c 24 a0 00 00 	mov    0xa0(%rsp),%rcx
+   38c5827db:	00 
+   38c5827dc:	85 c0                	test   %eax,%eax
+   38c5827de:	0f 85 ea fd ff ff    	jne    38c5825ce <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x12e>
+   38c5827e4:	4c 39 f9             	cmp    %r15,%rcx
+   38c5827e7:	0f 84 45 fe ff ff    	je     38c582632 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x192>
+   38c5827ed:	48 8b 84 24 b0 00 00 	mov    0xb0(%rsp),%rax
+   38c5827f4:	00 
+   38c5827f5:	48 8d 50 01          	lea    0x1(%rax),%rdx
+   38c5827f9:	e8 a2 5f 04 00       	call   38c5c87a0 <_ZdlPvy>
+   38c5827fe:	e9 2f fe ff ff       	jmp    38c582632 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x192>
+   38c582803:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   38c582808:	48 39 dd             	cmp    %rbx,%rbp
+   38c58280b:	0f 85 ef fd ff ff    	jne    38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c582811:	41 8b 82 ec 00 00 00 	mov    0xec(%r10),%eax
+   38c582818:	85 c0                	test   %eax,%eax
+   38c58281a:	0f 84 e0 fd ff ff    	je     38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c582820:	48 8b 47 08          	mov    0x8(%rdi),%rax
+   38c582824:	48 3b 47 10          	cmp    0x10(%rdi),%rax
+   38c582828:	0f 84 6e 01 00 00    	je     38c58299c <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x4fc>
+   38c58282e:	48 8b 5c 24 20       	mov    0x20(%rsp),%rbx
+   38c582833:	4c 89 58 08          	mov    %r11,0x8(%rax)
+   38c582837:	48 83 c0 10          	add    $0x10,%rax
+   38c58283b:	48 89 58 f0          	mov    %rbx,-0x10(%rax)
+   38c58283f:	48 89 47 08          	mov    %rax,0x8(%rdi)
+   38c582843:	e9 b8 fd ff ff       	jmp    38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c582848:	0f 1f 84 00 00 00 00 	nopl   0x0(%rax,%rax,1)
+   38c58284f:	00 
+   38c582850:	48 3b 54 24 20       	cmp    0x20(%rsp),%rdx
+   38c582855:	72 79                	jb     38c5828d0 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x430>
+   38c582857:	4d 39 c3             	cmp    %r8,%r11
+   38c58285a:	0f 83 6c fe ff ff    	jae    38c5826cc <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x22c>
+   38c582860:	48 8b 57 08          	mov    0x8(%rdi),%rdx
+   38c582864:	48 3b 57 10          	cmp    0x10(%rdi),%rdx
+   38c582868:	0f 84 85 00 00 00    	je     38c5828f3 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x453>
+   38c58286e:	4c 89 1a             	mov    %r11,(%rdx)
+   38c582871:	48 83 c2 10          	add    $0x10,%rdx
+   38c582875:	4c 89 42 f8          	mov    %r8,-0x8(%rdx)
+   38c582879:	48 89 57 08          	mov    %rdx,0x8(%rdi)
+   38c58287d:	e9 4a fe ff ff       	jmp    38c5826cc <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x22c>
+   38c582882:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
+   38c582888:	48 89 54 24 70       	mov    %rdx,0x70(%rsp)
+   38c58288d:	48 89 f9             	mov    %rdi,%rcx
+   38c582890:	48 8d 54 24 70       	lea    0x70(%rsp),%rdx
+   38c582895:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+   38c58289a:	4c 89 5c 24 38       	mov    %r11,0x38(%rsp)
+   38c58289f:	4c 89 54 24 30       	mov    %r10,0x30(%rsp)
+   38c5828a4:	44 89 4c 24 28       	mov    %r9d,0x28(%rsp)
+   38c5828a9:	4c 89 44 24 78       	mov    %r8,0x78(%rsp)
+   38c5828ae:	e8 2d fb ff ff       	call   38c5823e0 <_ZNSt6vectorIN12_GLOBAL__N_15RangeESaIS1_EE17_M_realloc_appendIJRKS1_EEEvDpOT_>
+   38c5828b3:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+   38c5828b8:	4c 8b 5c 24 38       	mov    0x38(%rsp),%r11
+   38c5828bd:	4c 8b 54 24 30       	mov    0x30(%rsp),%r10
+   38c5828c2:	44 8b 4c 24 28       	mov    0x28(%rsp),%r9d
+   38c5828c7:	e9 00 fe ff ff       	jmp    38c5826cc <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x22c>
+   38c5828cc:	0f 1f 40 00          	nopl   0x0(%rax)
+   38c5828d0:	48 8b 4f 08          	mov    0x8(%rdi),%rcx
+   38c5828d4:	48 3b 4f 10          	cmp    0x10(%rdi),%rcx
+   38c5828d8:	74 66                	je     38c582940 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x4a0>
+   38c5828da:	48 89 11             	mov    %rdx,(%rcx)
+   38c5828dd:	48 8b 54 24 20       	mov    0x20(%rsp),%rdx
+   38c5828e2:	48 83 c1 10          	add    $0x10,%rcx
+   38c5828e6:	48 89 51 f8          	mov    %rdx,-0x8(%rcx)
+   38c5828ea:	48 89 4f 08          	mov    %rcx,0x8(%rdi)
+   38c5828ee:	e9 64 ff ff ff       	jmp    38c582857 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x3b7>
+   38c5828f3:	48 8d 94 24 80 00 00 	lea    0x80(%rsp),%rdx
+   38c5828fa:	00 
+   38c5828fb:	48 89 f9             	mov    %rdi,%rcx
+   38c5828fe:	48 89 44 24 40       	mov    %rax,0x40(%rsp)
+   38c582903:	4c 89 54 24 38       	mov    %r10,0x38(%rsp)
+   38c582908:	44 89 4c 24 30       	mov    %r9d,0x30(%rsp)
+   38c58290d:	4c 89 9c 24 80 00 00 	mov    %r11,0x80(%rsp)
+   38c582914:	00 
+   38c582915:	4c 89 5c 24 28       	mov    %r11,0x28(%rsp)
+   38c58291a:	4c 89 84 24 88 00 00 	mov    %r8,0x88(%rsp)
+   38c582921:	00 
+   38c582922:	e8 b9 fa ff ff       	call   38c5823e0 <_ZNSt6vectorIN12_GLOBAL__N_15RangeESaIS1_EE17_M_realloc_appendIJRKS1_EEEvDpOT_>
+   38c582927:	4c 8b 5c 24 28       	mov    0x28(%rsp),%r11
+   38c58292c:	44 8b 4c 24 30       	mov    0x30(%rsp),%r9d
+   38c582931:	4c 8b 54 24 38       	mov    0x38(%rsp),%r10
+   38c582936:	48 8b 44 24 40       	mov    0x40(%rsp),%rax
+   38c58293b:	e9 8c fd ff ff       	jmp    38c5826cc <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x22c>
+   38c582940:	48 89 44 24 48       	mov    %rax,0x48(%rsp)
+   38c582945:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+   38c58294a:	48 89 f9             	mov    %rdi,%rcx
+   38c58294d:	48 89 94 24 90 00 00 	mov    %rdx,0x90(%rsp)
+   38c582954:	00 
+   38c582955:	48 8d 94 24 90 00 00 	lea    0x90(%rsp),%rdx
+   38c58295c:	00 
+   38c58295d:	4c 89 44 24 40       	mov    %r8,0x40(%rsp)
+   38c582962:	4c 89 5c 24 38       	mov    %r11,0x38(%rsp)
+   38c582967:	4c 89 54 24 30       	mov    %r10,0x30(%rsp)
+   38c58296c:	44 89 4c 24 28       	mov    %r9d,0x28(%rsp)
+   38c582971:	48 89 84 24 98 00 00 	mov    %rax,0x98(%rsp)
+   38c582978:	00 
+   38c582979:	e8 62 fa ff ff       	call   38c5823e0 <_ZNSt6vectorIN12_GLOBAL__N_15RangeESaIS1_EE17_M_realloc_appendIJRKS1_EEEvDpOT_>
+   38c58297e:	48 8b 44 24 48       	mov    0x48(%rsp),%rax
+   38c582983:	4c 8b 44 24 40       	mov    0x40(%rsp),%r8
+   38c582988:	4c 8b 5c 24 38       	mov    0x38(%rsp),%r11
+   38c58298d:	4c 8b 54 24 30       	mov    0x30(%rsp),%r10
+   38c582992:	44 8b 4c 24 28       	mov    0x28(%rsp),%r9d
+   38c582997:	e9 bb fe ff ff       	jmp    38c582857 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x3b7>
+   38c58299c:	48 8b 44 24 20       	mov    0x20(%rsp),%rax
+   38c5829a1:	48 8d 54 24 60       	lea    0x60(%rsp),%rdx
+   38c5829a6:	48 89 f9             	mov    %rdi,%rcx
+   38c5829a9:	4c 89 5c 24 68       	mov    %r11,0x68(%rsp)
+   38c5829ae:	48 89 44 24 60       	mov    %rax,0x60(%rsp)
+   38c5829b3:	e8 28 fa ff ff       	call   38c5823e0 <_ZNSt6vectorIN12_GLOBAL__N_15RangeESaIS1_EE17_M_realloc_appendIJRKS1_EEEvDpOT_>
+   38c5829b8:	e9 43 fc ff ff       	jmp    38c582600 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x160>
+   38c5829bd:	4c 89 f9             	mov    %r15,%rcx
+   38c5829c0:	e9 c2 fd ff ff       	jmp    38c582787 <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0+0x2e7>
+   38c5829c5:	48 89 c3             	mov    %rax,%rbx
+   38c5829c8:	e9 bd ad 04 00       	jmp    38c5cd78a <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0.cold+0xd>
+   38c5829cd:	48 89 c3             	mov    %rax,%rbx
+   38c5829d0:	e9 a8 ad 04 00       	jmp    38c5cd77d <_ZN12_GLOBAL__N_1L11scan_rangesEb.constprop.0.cold>
+(exit 0)

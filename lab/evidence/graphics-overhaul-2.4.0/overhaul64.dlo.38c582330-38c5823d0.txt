@@ -1,0 +1,53 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c582330 -v b=38c5823d0 '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c582330:	41 57                	push   %r15
+   38c582332:	41 56                	push   %r14
+   38c582334:	41 55                	push   %r13
+   38c582336:	41 54                	push   %r12
+   38c582338:	55                   	push   %rbp
+   38c582339:	57                   	push   %rdi
+   38c58233a:	56                   	push   %rsi
+   38c58233b:	53                   	push   %rbx
+   38c58233c:	48 83 ec 38          	sub    $0x38,%rsp
+   38c582340:	31 ed                	xor    %ebp,%ebp
+   38c582342:	48 8b 31             	mov    (%rcx),%rsi
+   38c582345:	4c 8b 69 08          	mov    0x8(%rcx),%r13
+   38c582349:	49 89 d7             	mov    %rdx,%r15
+   38c58234c:	4d 89 c4             	mov    %r8,%r12
+   38c58234f:	49 39 f5             	cmp    %rsi,%r13
+   38c582352:	74 75                	je     38c5823c9 <_ZN12_GLOBAL__N_1L13swap_pointersERKSt6vectorINS_5RangeESaIS1_EEPvS6_+0x99>
+   38c582354:	48 8b 3d 2d 1a 0e 00 	mov    0xe1a2d(%rip),%rdi        # 38c663d88 <__imp_VirtualProtect>
+   38c58235b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   38c582360:	48 8b 06             	mov    (%rsi),%rax
+   38c582363:	48 8d 58 07          	lea    0x7(%rax),%rbx
+   38c582367:	48 83 e3 f8          	and    $0xfffffffffffffff8,%rbx
+   38c58236b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
+   38c582370:	48 83 c3 08          	add    $0x8,%rbx
+   38c582374:	48 39 5e 08          	cmp    %rbx,0x8(%rsi)
+   38c582378:	72 46                	jb     38c5823c0 <_ZN12_GLOBAL__N_1L13swap_pointersERKSt6vectorINS_5RangeESaIS1_EEPvS6_+0x90>
+   38c58237a:	4c 39 7b f8          	cmp    %r15,-0x8(%rbx)
+   38c58237e:	75 f0                	jne    38c582370 <_ZN12_GLOBAL__N_1L13swap_pointersERKSt6vectorINS_5RangeESaIS1_EEPvS6_+0x40>
+   38c582380:	4c 8d 4c 24 2c       	lea    0x2c(%rsp),%r9
+   38c582385:	41 b8 04 00 00 00    	mov    $0x4,%r8d
+   38c58238b:	ba 08 00 00 00       	mov    $0x8,%edx
+   38c582390:	48 8d 4b f8          	lea    -0x8(%rbx),%rcx
+   38c582394:	ff d7                	call   *%rdi
+   38c582396:	85 c0                	test   %eax,%eax
+   38c582398:	74 d6                	je     38c582370 <_ZN12_GLOBAL__N_1L13swap_pointersERKSt6vectorINS_5RangeESaIS1_EEPvS6_+0x40>
+   38c58239a:	4c 89 63 f8          	mov    %r12,-0x8(%rbx)
+   38c58239e:	48 8d 4b f8          	lea    -0x8(%rbx),%rcx
+   38c5823a2:	44 8b 44 24 2c       	mov    0x2c(%rsp),%r8d
+   38c5823a7:	83 c5 01             	add    $0x1,%ebp
+   38c5823aa:	4c 8d 4c 24 2c       	lea    0x2c(%rsp),%r9
+   38c5823af:	ba 08 00 00 00       	mov    $0x8,%edx
+   38c5823b4:	48 83 c3 08          	add    $0x8,%rbx
+   38c5823b8:	ff d7                	call   *%rdi
+   38c5823ba:	48 39 5e 08          	cmp    %rbx,0x8(%rsi)
+   38c5823be:	73 ba                	jae    38c58237a <_ZN12_GLOBAL__N_1L13swap_pointersERKSt6vectorINS_5RangeESaIS1_EEPvS6_+0x4a>
+   38c5823c0:	48 83 c6 10          	add    $0x10,%rsi
+   38c5823c4:	49 39 f5             	cmp    %rsi,%r13
+   38c5823c7:	75 97                	jne    38c582360 <_ZN12_GLOBAL__N_1L13swap_pointersERKSt6vectorINS_5RangeESaIS1_EEPvS6_+0x30>
+   38c5823c9:	89 e8                	mov    %ebp,%eax
+   38c5823cb:	48 83 c4 38          	add    $0x38,%rsp
+   38c5823cf:	5b                   	pop    %rbx
+   38c5823d0:	5e                   	pop    %rsi
+(exit 0)

@@ -1,0 +1,289 @@
+[22:35:02.343] Graphics Overhaul 2.4.0 loaded (MX Bikes Overhaul)
+[22:35:02.391] ragdoll: rig loaded, 71 bones, 5 meshes, 40 collision spheres
+[22:35:02.391]   mesh lod0: 4379 verts
+[22:35:02.391]   mesh lod1: 2124 verts
+[22:35:02.391]   mesh lod2: 1306 verts
+[22:35:02.391]   mesh cockpit: 3280 verts
+[22:35:02.391]   mesh shadow: 762 verts
+[22:35:02.391]   joint pelvis-abdomen at (0.000 0.973 -0.012)
+[22:35:02.391]   joint abdomen-chest at (-0.000 1.095 -0.009)
+[22:35:02.391]   joint chest-head at (-0.005 1.446 0.013)
+[22:35:02.391]   joint chest-l_upperarm at (-0.176 1.297 -0.045)
+[22:35:02.391]   joint l_upperarm-l_forearm at (-0.254 1.117 -0.047)
+[22:35:02.391]   joint l_forearm-l_hand at (-0.294 0.872 -0.032)
+[22:35:02.391]   joint chest-r_upperarm at (0.176 1.298 -0.045)
+[22:35:02.391]   joint r_upperarm-r_forearm at (0.254 1.117 -0.047)
+[22:35:02.391]   joint r_forearm-r_hand at (0.294 0.872 -0.032)
+[22:35:02.391]   joint pelvis-l_thigh at (-0.057 0.809 -0.031)
+[22:35:02.391]   joint l_thigh-l_shin at (-0.142 0.488 0.025)
+[22:35:02.391]   joint pelvis-r_thigh at (0.058 0.808 -0.030)
+[22:35:02.391]   joint r_thigh-r_shin at (0.142 0.488 0.025)
+[22:35:02.397] hook glMatrixMode: 1 pointer(s) swapped
+[22:35:02.399] hook glLoadIdentity: 1 pointer(s) swapped
+[22:35:02.401] hook glLoadMatrixf: 1 pointer(s) swapped
+[22:35:02.402] hook glFrustum: 1 pointer(s) swapped
+[22:35:02.404] hook glOrtho: 1 pointer(s) swapped
+[22:35:02.405] hook glDrawElements: 1 pointer(s) swapped
+[22:35:02.406] hook wglGetProcAddress: 1 pointer(s) swapped
+[22:35:02.407] hook SwapBuffers: 1 pointer(s) swapped
+[22:35:02.408] hook glBlendFunc: 1 pointer(s) swapped
+[22:35:02.409] hook glColorMask: 0 pointer(s) swapped
+[22:35:02.410] hook glClear: 1 pointer(s) swapped
+[22:35:02.411] hook glReadPixels: 1 pointer(s) swapped
+[22:35:02.412] hook glPopAttrib: 0 pointer(s) swapped
+[22:35:02.413] hook glLightfv: 1 pointer(s) swapped
+[22:35:02.414] hook glDrawArrays: 0 pointer(s) swapped
+[22:35:02.415] hook glBegin: 1 pointer(s) swapped
+[22:35:02.416] hook glViewport: 1 pointer(s) swapped
+[22:35:02.417] hook glScissor: 1 pointer(s) swapped
+[22:35:02.418] hook glGetIntegerv: 1 pointer(s) swapped
+[22:35:02.419] hook glEnable: 1 pointer(s) swapped
+[22:35:02.420] hook glDisable: 1 pointer(s) swapped
+[22:35:02.421] graphics on (hdr 1, materials 1, shadows 0, taa 0)
+[22:35:02.992] hook glDrawRangeElements: 1 pointer(s) swapped
+[22:35:02.994] hook glDrawRangeElementsEXT: 0 pointer(s) swapped
+[22:35:02.996] hook glDrawElementsBaseVertex: 0 pointer(s) swapped
+[22:35:02.997] hook glDrawRangeElementsBaseVertex: 1 pointer(s) swapped
+[22:35:02.998] hook glUseProgramObjectARB: 1 pointer(s) swapped
+[22:35:02.999] hook glUseProgram: 0 pointer(s) swapped
+[22:35:03.000] hook glBindFramebuffer: 0 pointer(s) swapped
+[22:35:03.001] hook glBindFramebufferEXT: 1 pointer(s) swapped
+[22:35:03.002] hook glUniform1fARB: 1 pointer(s) swapped
+[22:35:03.003] hook glUniform2fARB: 0 pointer(s) swapped
+[22:35:03.004] hook glUniform3fARB: 1 pointer(s) swapped
+[22:35:03.005] hook glUniform4fARB: 0 pointer(s) swapped
+[22:35:03.006] hook glUniform1iARB: 1 pointer(s) swapped
+[22:35:03.007] hook glUniform1fvARB: 0 pointer(s) swapped
+[22:35:03.008] hook glUniform2fvARB: 1 pointer(s) swapped
+[22:35:03.009] hook glUniform3fvARB: 0 pointer(s) swapped
+[22:35:03.010] hook glUniform4fvARB: 0 pointer(s) swapped
+[22:35:03.011] hook glUniform1ivARB: 0 pointer(s) swapped
+[22:35:03.012] hook glUniformMatrix3fvARB: 1 pointer(s) swapped
+[22:35:03.013] hook glUniformMatrix4fvARB: 1 pointer(s) swapped
+[22:35:03.014] hook glUniform1f: 0 pointer(s) swapped
+[22:35:03.015] hook glUniform2f: 0 pointer(s) swapped
+[22:35:03.016] hook glUniform3f: 0 pointer(s) swapped
+[22:35:03.017] hook glUniform4f: 0 pointer(s) swapped
+[22:35:03.018] hook glUniform1i: 0 pointer(s) swapped
+[22:35:03.019] hook glUniform1fv: 0 pointer(s) swapped
+[22:35:03.020] hook glUniform2fv: 0 pointer(s) swapped
+[22:35:03.021] hook glUniform3fv: 0 pointer(s) swapped
+[22:35:03.022] hook glUniform4fv: 0 pointer(s) swapped
+[22:35:03.023] hook glUniform1iv: 0 pointer(s) swapped
+[22:35:03.024] hook glUniformMatrix3fv: 0 pointer(s) swapped
+[22:35:03.025] hook glUniformMatrix4fv: 0 pointer(s) swapped
+[22:35:03.026] hook glBufferSubData: 1 pointer(s) swapped
+[22:35:03.027] hook glBufferSubDataARB: 0 pointer(s) swapped
+[22:35:03.028] hook glBufferData: 1 pointer(s) swapped
+[22:35:03.029] hook glBufferDataARB: 0 pointer(s) swapped
+[22:35:03.030] hook glCreateProgramObjectARB: 1 pointer(s) swapped
+[22:35:03.031] hook glCreateProgram: 0 pointer(s) swapped
+[22:35:03.032] hook glDeleteObjectARB: 1 pointer(s) swapped
+[22:35:03.033] hook glDeleteProgram: 0 pointer(s) swapped
+[22:35:20.579] FREEZE: no new frame for 2.2 s - render thread 6328 is in the game's own code (between frames), at mxbikes.exe+0x156a62
+[22:35:20.580]   [rsp+0x8] mxbikes.exe+0x156ceb
+[22:35:20.580]   [rsp+0x18] mxbikes.exe+0x156d4d
+[22:35:20.580]   [rsp+0xd0] mxbikes.exe+0x325300
+[22:35:20.580]   [rsp+0xd8] MSVCR90.dll+0x336b
+[22:35:20.580]   [rsp+0xe8] mxbikes.exe+0x156d4d
+[22:35:20.580]   [rsp+0x128] MSVCR90.dll+0x3ed7b
+[22:35:20.580]   [rsp+0x138] mxbikes.exe+0x15887d
+[22:35:20.580]   [rsp+0x168] mxbikes.exe+0x156d4d
+[22:35:20.580]   [rsp+0x1d8] ntdll.dll+0x640db
+[22:35:20.581]   [rsp+0x218] mxbikes.exe+0x1588c2
+[22:35:20.581]   [rsp+0x238] ntdll.dll+0x1e744
+[22:35:20.581]   [rsp+0x368] ntdll.dll+0x1e744
+[22:35:20.581]   [rsp+0x3c0] mxbikes.exe+0x566e70
+[22:35:20.581]   [rsp+0x3f8] ntdll.dll+0x1e604
+[22:35:20.581]   [rsp+0x4e8] ntdll.dll+0x63500
+[22:35:20.581]   [rsp+0x4f8] KERNEL32.DLL+0x12a26
+[22:35:20.581]   [rsp+0x528] MSVCR90.dll+0x334a
+[22:35:20.581]   [rsp+0x530] mxbikes.exe+0x335ae0
+[22:35:20.581]   [rsp+0x558] MSVCR90.dll+0x336b
+[22:35:20.581]   [rsp+0x560] mxbikes.exe+0x335ae0
+[22:35:20.581]   [rsp+0x568] mxbikes.exe+0x15b3e2
+[22:35:20.581]   [rsp+0x580] mxbikes.exe+0x335ae0
+[22:35:20.581]   [rsp+0x588] MSVCR90.dll+0x57340
+[22:35:20.581]   [rsp+0x598] KERNEL32.DLL+0x12a26
+[22:35:20.581]   [rsp+0x5b8] MSVCR90.dll+0x334a
+[22:35:20.581]   [rsp+0x5c8] MSVCR90.dll+0x334a
+[22:35:20.581]   [rsp+0x5f8] MSVCR90.dll+0x336b
+[22:35:20.581]   [rsp+0x608] MSVCR90.dll+0x1fa8e
+[22:35:20.581]   [rsp+0x628] MSVCR90.dll+0x36a4e
+[22:35:20.581]   [rsp+0x630] MSVCR90.dll+0x8d790
+[22:35:20.581]   [rsp+0x658] MSVCR90.dll+0x37323
+[22:35:20.581]   [rsp+0x688] MSVCR90.dll+0x334a
+[22:35:20.581]   [rsp+0x6d8] MSVCR90.dll+0x8d790
+[22:35:20.581]   [rsp+0x710] mxbikes.exe+0x328a0e
+[22:35:20.581]   [rsp+0x718] MSVCR90.dll+0x37323
+[22:35:20.581]   [rsp+0x740] MSVCR90.dll+0x8dd84
+[22:35:20.581]   [rsp+0x768] MSVCR90.dll+0x61918
+[22:35:20.581]   [rsp+0x7b8] mxbikes.exe+0x566a20
+[22:35:20.581]   [rsp+0x7e8] MSVCR90.dll+0x62e95
+[22:35:20.581]   [rsp+0x878] MSVCR90.dll+0x20199
+[22:35:22.072] scene: the game's flipped eye space (z forward) converted for the effects
+[22:35:22.992] post: effect targets ready at 1280x720 (shown at 1280x720)
+[22:35:23.016] post: depth capture via blit (format 0x88f0)
+[22:35:23.155] graphics card: llvmpipe (LLVM 23.1.5, 256 bits) - the full effects
+[22:35:23.501] post: shader versions build in the background (the driver's own threads)
+[22:35:25.596] FREEZE: no new frame for 7.2 s - render thread 6328 is in the game's own code (between frames), at ntdll.dll+0x8770d
+[22:35:25.597]   [rsp+0x38] libgallium_wgl.dll+0x1f03feb
+[22:35:25.597]   [rsp+0xe8] libgallium_wgl.dll+0xcc200c
+[22:35:25.597]   [rsp+0x118] libgallium_wgl.dll+0x1cbb0db
+[22:35:25.597]   [rsp+0x138] libgallium_wgl.dll+0x1f05d0e
+[22:35:25.597]   [rsp+0x1d8] libgallium_wgl.dll+0x1cb72dc
+[22:35:25.597]   [rsp+0x200] libgallium_wgl.dll+0x336876c
+[22:35:25.597]   [rsp+0x218] libgallium_wgl.dll+0x1d3cbd8
+[22:35:25.597]   [rsp+0x228] libgallium_wgl.dll+0x1cb7fda
+[22:35:25.597]   [rsp+0x248] libgallium_wgl.dll+0x33686e4
+[22:35:25.597]   [rsp+0x260] libgallium_wgl.dll+0x33686e4
+[22:35:25.597]   [rsp+0x288] libgallium_wgl.dll+0x1cb6e12
+[22:35:25.597]   [rsp+0x2c8] libgallium_wgl.dll+0x1f37743
+[22:35:25.597]   [rsp+0x2f8] libgallium_wgl.dll+0xcc1fcb
+[22:35:25.597]   [rsp+0x358] libgallium_wgl.dll+0x1cba6ba
+[22:35:25.597]   [rsp+0x3e8] libgallium_wgl.dll+0x1cbaf60
+[22:35:25.597]   [rsp+0x410] libgallium_wgl.dll+0x31d9f70
+[22:35:25.597]   [rsp+0x418] libgallium_wgl.dll+0xf99060
+[22:35:25.597]   [rsp+0x4c0] libgallium_wgl.dll+0x355c9c8
+[22:35:25.597]   [rsp+0x598] libgallium_wgl.dll+0x1145966
+[22:35:25.597]   [rsp+0x5c0] libgallium_wgl.dll+0x3970007
+[22:35:25.597]   [rsp+0x5e0] libgallium_wgl.dll+0x113fcdf
+[22:35:25.597]   [rsp+0x608] libgallium_wgl.dll+0x113fcc0
+[22:35:25.597]   [rsp+0x620] libgallium_wgl.dll+0x31dc270
+[22:35:25.597]   [rsp+0x630] libgallium_wgl.dll+0x31d9f70
+[22:35:25.597]   [rsp+0x638] libgallium_wgl.dll+0xf99060
+[22:35:25.597]   [rsp+0x680] libgallium_wgl.dll+0x3970001
+[22:35:25.598]   [rsp+0x6f0] libgallium_wgl.dll+0x397004d
+[22:35:25.598]   [rsp+0x7b0] libgallium_wgl.dll+0x355ca10
+[22:35:25.598]   [rsp+0xa98] libgallium_wgl.dll+0x11ce100
+[22:35:25.598]   [rsp+0xc60] libgallium_wgl.dll+0x397004d
+[22:35:25.598]   [rsp+0xcc8] libgallium_wgl.dll+0x159161d
+[22:35:25.598]   [rsp+0xec8] libgallium_wgl.dll+0x113c002
+[22:35:25.598]   [rsp+0xf48] libgallium_wgl.dll+0x158ca3b
+[22:35:25.598]   [rsp+0xf98] libgallium_wgl.dll+0x113c002
+[22:35:25.598]   [rsp+0xff8] libgallium_wgl.dll+0xbd31ea
+[22:35:25.598]   [rsp+0x1020] libgallium_wgl.dll+0x397004d
+[22:35:25.598]   [rsp+0x10c8] libgallium_wgl.dll+0x11da582
+[22:35:25.598]   [rsp+0x1248] libgallium_wgl.dll+0x1145966
+[22:35:25.598]   [rsp+0x12d8] libgallium_wgl.dll+0x158c237
+[22:35:25.598]   [rsp+0x1368] libgallium_wgl.dll+0xbd31ea
+[22:35:30.614] FREEZE: no new frame for 12.2 s - render thread 6328 is in the game's own code (between frames), at libgallium_wgl.dll+0x1cb8162
+[22:35:30.615]   [rsp+0xf8] libgallium_wgl.dll+0x1cb5be6
+[22:35:30.615]   [rsp+0x168] libgallium_wgl.dll+0x1f256e6
+[22:35:30.615]   [rsp+0x1c8] libgallium_wgl.dll+0x1cbf0d5
+[22:35:30.615]   [rsp+0x240] libgallium_wgl.dll+0x35763d0
+[22:35:30.615]   [rsp+0x258] libgallium_wgl.dll+0x1cbf3d8
+[22:35:30.615]   [rsp+0x288] libgallium_wgl.dll+0x1cbc000
+[22:35:30.615]   [rsp+0x2a0] libgallium_wgl.dll+0x355cbc0
+[22:35:30.615]   [rsp+0x2b0] libgallium_wgl.dll+0x355cba8
+[22:35:30.615]   [rsp+0x2c0] libgallium_wgl.dll+0x35763c0
+[22:35:30.615]   [rsp+0x2d0] libgallium_wgl.dll+0x35763d0
+[22:35:30.615]   [rsp+0x318] libgallium_wgl.dll+0x1cbb3cc
+[22:35:30.615]   [rsp+0x358] ntdll.dll+0x1e604
+[22:35:30.615]   [rsp+0x4f8] libgallium_wgl.dll+0x1cbb06a
+[22:35:30.615]   [rsp+0x508] libgallium_wgl.dll+0x3368788
+[22:35:30.615]   [rsp+0x518] libgallium_wgl.dll+0x1f05d0e
+[22:35:30.615]   [rsp+0x5b8] libgallium_wgl.dll+0x1e0d552
+[22:35:30.615]   [rsp+0x5e0] libgallium_wgl.dll+0x336876c
+[22:35:30.615]   [rsp+0x5f8] libgallium_wgl.dll+0x1d3cbd8
+[22:35:30.615]   [rsp+0x608] libgallium_wgl.dll+0x1cb7fda
+[22:35:30.615]   [rsp+0x628] libgallium_wgl.dll+0x3368784
+[22:35:30.615]   [rsp+0x640] libgallium_wgl.dll+0x3368784
+[22:35:30.615]   [rsp+0x668] libgallium_wgl.dll+0x1cb6e12
+[22:35:30.615]   [rsp+0x6a8] libgallium_wgl.dll+0x1f37743
+[22:35:30.615]   [rsp+0x6d8] libgallium_wgl.dll+0xcc1fcb
+[22:35:30.615]   [rsp+0x738] libgallium_wgl.dll+0x1cba6ba
+[22:35:30.615]   [rsp+0x7c8] libgallium_wgl.dll+0x1cbaf60
+[22:35:30.615]   [rsp+0x7f0] libgallium_wgl.dll+0x31d9f70
+[22:35:30.615]   [rsp+0x7f8] libgallium_wgl.dll+0xf99060
+[22:35:30.615]   [rsp+0x8a0] libgallium_wgl.dll+0x355c9c8
+[22:35:30.615]   [rsp+0x960] libgallium_wgl.dll+0x3970005
+[22:35:30.615]   [rsp+0x978] libgallium_wgl.dll+0x1591390
+[22:35:30.615]   [rsp+0x9c0] libgallium_wgl.dll+0x113fcdf
+[22:35:30.615]   [rsp+0xa00] libgallium_wgl.dll+0x31dc270
+[22:35:30.615]   [rsp+0xa10] libgallium_wgl.dll+0x31d9f70
+[22:35:30.615]   [rsp+0xa18] libgallium_wgl.dll+0xf99060
+[22:35:30.615]   [rsp+0xb90] libgallium_wgl.dll+0x355ca10
+[22:35:30.615]   [rsp+0xe60] libgallium_wgl.dll+0x397008c
+[22:35:30.615]   [rsp+0xe98] libgallium_wgl.dll+0x1145966
+[22:35:30.615]   [rsp+0xf70] libgallium_wgl.dll+0x397008c
+[22:35:30.615]   [rsp+0x1358] libgallium_wgl.dll+0x113dd93
+[22:35:33.409] post: HDR scene target 1280x720, 0 sample(s): ok
+[22:35:33.432] materials: shaders compile in the background
+[22:35:33.433] materials: game program 3 -> patched program 219 (4 uniforms mapped)
+[22:35:36.259] post: composite version 0 ready
+[22:35:40.896] freeze watch: frames again after 22.3 s
+[22:35:40.963] materials: game program 65 -> patched program 222 (9 uniforms mapped)
+[22:35:42.902] FREEZE: no new frame for 2.0 s - render thread 6328 is in the game's own code (between frames), at libgallium_wgl.dll+0xff2e71
+[22:35:42.903]   [rsp+0x20] libgallium_wgl.dll+0x3423600
+[22:35:42.903]   [rsp+0xb8] libgallium_wgl.dll+0xff30a3
+[22:35:42.903]   [rsp+0xc8] libgallium_wgl.dll+0x396f700
+[22:35:42.903]   [rsp+0x100] libgallium_wgl.dll+0x33612f0
+[22:35:42.903]   [rsp+0x108] libgallium_wgl.dll+0x3311460
+[22:35:42.903]   [rsp+0x150] libgallium_wgl.dll+0x33612f0
+[22:35:42.903]   [rsp+0x158] libgallium_wgl.dll+0x3311460
+[22:35:42.903]   [rsp+0x1f8] ntdll.dll+0x1e744
+[22:35:42.903]   [rsp+0x248] libgallium_wgl.dll+0x1ca73a8
+[22:35:42.903]   [rsp+0x280] libgallium_wgl.dll+0x27d5018
+[22:35:42.903]   [rsp+0x2b8] libgallium_wgl.dll+0xa10f60
+[22:35:42.903]   [rsp+0x2c8] libgallium_wgl.dll+0xcc200c
+[22:35:42.903]   [rsp+0x2f8] libgallium_wgl.dll+0xcacd16
+[22:35:42.903]   [rsp+0x308] libgallium_wgl.dll+0xa0fa20
+[22:35:42.903]   [rsp+0x318] libgallium_wgl.dll+0xcc200c
+[22:35:42.903]   [rsp+0x328] libgallium_wgl.dll+0x6ba5e9
+[22:35:42.903]   [rsp+0x338] libgallium_wgl.dll+0x1cfb3fc
+[22:35:42.903]   [rsp+0x348] libgallium_wgl.dll+0x1304c5a
+[22:35:42.903]   [rsp+0x368] libgallium_wgl.dll+0xb0798e
+[22:35:42.903]   [rsp+0x398] libgallium_wgl.dll+0xa128fd
+[22:35:42.903]   [rsp+0x3f8] libgallium_wgl.dll+0xcc200c
+[22:35:42.903]   [rsp+0x428] libgallium_wgl.dll+0x6689a2
+[22:35:42.903]   [rsp+0x438] libgallium_wgl.dll+0xa0fa20
+[22:35:42.903]   [rsp+0x478] libgallium_wgl.dll+0xa11921
+[22:35:42.903]   [rsp+0x498] libgallium_wgl.dll+0xb0798e
+[22:35:42.903]   [rsp+0x4c8] libgallium_wgl.dll+0xa1317e
+[22:35:42.903]   [rsp+0x508] libgallium_wgl.dll+0x974dc0
+[22:35:42.903]   [rsp+0x578] libgallium_wgl.dll+0xabd116
+[22:35:42.903]   [rsp+0x5b8] libgallium_wgl.dll+0x381f3c0
+[22:35:42.903]   [rsp+0x5d0] libgallium_wgl.dll+0x27d5810
+[22:35:42.903]   [rsp+0x5e0] libgallium_wgl.dll+0x27d5078
+[22:35:42.903]   [rsp+0x638] libgallium_wgl.dll+0xa1003f
+[22:35:42.903]   [rsp+0x650] libgallium_wgl.dll+0x28c2fe8
+[22:35:42.903]   [rsp+0x670] libgallium_wgl.dll+0xa0c020
+[22:35:42.903]   [rsp+0x698] libgallium_wgl.dll+0xa0fa20
+[22:35:42.903]   [rsp+0x6f8] libgallium_wgl.dll+0xa134c5
+[22:35:42.903]   [rsp+0x728] libgallium_wgl.dll+0xa1382f
+[22:35:42.903]   [rsp+0x760] libgallium_wgl.dll+0x34f8ad0
+[22:35:42.903]   [rsp+0x798] libgallium_wgl.dll+0x27d5078
+[22:35:42.903]   [rsp+0x7c0] libgallium_wgl.dll+0x35634f0
+[22:35:43.621] materials: game program 122 -> patched program 228 (10 uniforms mapped)
+[22:35:43.656] freeze watch: frames again after 2.8 s
+[22:35:44.506] materials: game program 125 -> patched program 231 (10 uniforms mapped)
+[22:35:45.361] materials: game program 71 -> patched program 234 (3 uniforms mapped)
+[22:35:45.920] materials: game program 74 -> patched program 237 (3 uniforms mapped)
+[22:35:50.559] post: composite version 1 ready
+[22:35:52.239] post: composite version 16 ready
+[22:35:53.922] post: composite version 64 ready
+[22:35:56.497] status 1/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:35:56.497]   shadow capture: 
+[22:35:56.497]   leaves: 0 alpha-to-coverage draws, 7 see-through draws last frame
+[22:35:56.497]   after the effects: 0 3D draws (0 blended) last frame
+[22:36:07.768] status 2/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:36:07.768]   shadow capture: 
+[22:36:07.768]   leaves: 0 alpha-to-coverage draws, 7 see-through draws last frame
+[22:36:07.768]   after the effects: 0 3D draws (0 blended) last frame
+[22:36:18.928] status 3/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:36:18.928]   shadow capture: 
+[22:36:18.928]   leaves: 0 alpha-to-coverage draws, 7 see-through draws last frame
+[22:36:18.928]   after the effects: 0 3D draws (0 blended) last frame
+[22:36:31.190] status 4/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:36:31.190]   shadow capture: 
+[22:36:31.190]   leaves: 0 alpha-to-coverage draws, 7 see-through draws last frame
+[22:36:31.190]   after the effects: 0 3D draws (0 blended) last frame
+[22:36:44.469] status 5/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:36:44.469]   shadow capture: 
+[22:36:44.469]   leaves: 0 alpha-to-coverage draws, 7 see-through draws last frame
+[22:36:44.469]   after the effects: 0 3D draws (0 blended) last frame
+[22:36:55.662] status 6/6: 3 3D passes (3 full-size) | world shadows: off | live bike/rider shadows off (the game's own are on) | HDR 1280x720, TAA off, shadows: off
+[22:36:55.662]   shadow capture: 
+[22:36:55.662]   leaves: 0 alpha-to-coverage draws, 7 see-through draws last frame
+[22:36:55.662]   after the effects: 0 3D draws (0 blended) last frame

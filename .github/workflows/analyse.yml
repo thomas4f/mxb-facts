@@ -371,6 +371,10 @@ jobs:
       - run: pip install -r requirements.txt
       - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: plan, path: "${{ runner.temp }}/plan" }
+      # The files the fetch job downloaded, so the analysis doesn't download them again: a site that challenges this
+      # runner (mxb-mods.com's Cloudflare, seen 27 Nov 2026) would otherwise stop the run after the Windows run is done.
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with: { name: release, path: "${{ runner.temp }}/release" }
       - if: needs.windows.result == 'success'
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with: { name: windows-evidence, path: "${{ runner.temp }}/windows-evidence" }
@@ -407,6 +411,9 @@ jobs:
             and say where it was found. For a re-check, if no release there has a file that isn't on the card, re-run the
             release the card names (its "Version analysed" row and files). Use the places the registry entry names (github,
             mxb-mods post, downloads) to fetch the files.
+            The files the plan names are already downloaded, each checked against its SHA-256: they are in
+            $RUNNER_TEMP/release/, and $RUNNER_TEMP/release/release.json lists each one's name, url and SHA-256. Use
+            those (step 3) rather than downloading them again; download only a file the card needs that isn't there.
 
             Follow prompts/analyse-tool.md, section "The prompt", steps 1 to 9, exactly as written, for that tool and release.
             For a re-check, with this addition from it: "This is a re-check. The earlier card is <the card>. Write a new card
@@ -434,7 +441,7 @@ jobs:
             lookups wasn't looked up: say so on P1. If the lookups file is missing, the lookup failed: P1 is "Not checked"
             with that reason. Say which in the Method row.
 
-            If you can't get the release files (no download reachable from here), change nothing: write one line with the
+            If you can't get the release files (not in $RUNNER_TEMP/release/ and no download reachable from here), change nothing: write one line with the
             reason to STOP.txt at the repository root, and stop.
 
             Rule 9 (CLAUDE.md), step 10: if you find a security problem that isn't public and fixed, write nothing about

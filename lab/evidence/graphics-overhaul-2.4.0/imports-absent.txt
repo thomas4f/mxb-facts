@@ -1,0 +1,2 @@
+$ { iat.py overhaul64.dlo; objdump -p overhaul64.dlo | grep 'DLL Name'; } | grep -iE 'ws2_32|wsock|wininet|winhttp|urlmon|dnsapi|SendInput|SetWindowsHookEx|WriteProcessMemory|CreateRemoteThread|CreateProcess|WinExec|RegSetValue|RegCreateKey|RegDeleteKey|RegOpenKey|advapi32'
+(exit 1)

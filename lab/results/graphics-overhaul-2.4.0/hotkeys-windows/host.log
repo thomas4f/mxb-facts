@@ -1,0 +1,93 @@
+host: D:\a\_temp\mxbfacts\run-hotkeys\mxbikes.exe
+GL: Mesa | llvmpipe (LLVM 23.1.5, 256 bits) | 4.6 (Compatibility Profile) Mesa 26.3.0 (git-34ad0a45aa)
+== host import table check (before plugins)
+  glOrtho            untouched
+  glFrustum          untouched
+  glDrawElements     untouched
+  glLoadMatrixf      untouched
+  glLoadIdentity     untouched
+  glMatrixMode       untouched
+  glViewport         untouched
+  glClear            untouched
+  glBegin            untouched
+  glReadPixels       untouched
+  glScissor          untouched
+  glBlendFunc        untouched
+  glGetFloatv        untouched
+  wglGetProcAddress  untouched
+  SwapBuffers        untouched
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+loaded plugins\overhaul64.dlo (mod id 'mxbikes')
+loaded victim.dlo (mod id 'victim')
+Startup(plugins\overhaul64.dlo) -> 0
+Startup(victim.dlo) -> -1
+== host import table check (after Startup)
+  glOrtho            REDIRECTED to overhaul64.dlo
+  glFrustum          REDIRECTED to overhaul64.dlo
+  glDrawElements     REDIRECTED to overhaul64.dlo
+  glLoadMatrixf      REDIRECTED to overhaul64.dlo
+  glLoadIdentity     REDIRECTED to overhaul64.dlo
+  glMatrixMode       REDIRECTED to overhaul64.dlo
+  glViewport         REDIRECTED to overhaul64.dlo
+  glClear            REDIRECTED to overhaul64.dlo
+  glBegin            REDIRECTED to overhaul64.dlo
+  glReadPixels       REDIRECTED to overhaul64.dlo
+  glScissor          REDIRECTED to overhaul64.dlo
+  glBlendFunc        REDIRECTED to overhaul64.dlo
+  glGetFloatv        untouched
+  wglGetProcAddress  REDIRECTED to overhaul64.dlo
+  SwapBuffers        REDIRECTED to overhaul64.dlo
+  glDrawRangeElements untouched  (global from wglGetProcAddress)
+direct HUD draw saw viewport 0,0 1280x720, draw FBO 0
+frames 600, avg 131.99 ms, worst 10901.86 ms
+== host import table check (after frames)
+  glOrtho            REDIRECTED to overhaul64.dlo
+  glFrustum          REDIRECTED to overhaul64.dlo
+  glDrawElements     REDIRECTED to overhaul64.dlo
+  glLoadMatrixf      REDIRECTED to overhaul64.dlo
+  glLoadIdentity     REDIRECTED to overhaul64.dlo
+  glMatrixMode       REDIRECTED to overhaul64.dlo
+  glViewport         REDIRECTED to overhaul64.dlo
+  glClear            REDIRECTED to overhaul64.dlo
+  glBegin            REDIRECTED to overhaul64.dlo
+  glReadPixels       REDIRECTED to overhaul64.dlo
+  glScissor          REDIRECTED to overhaul64.dlo
+  glBlendFunc        REDIRECTED to overhaul64.dlo
+  glGetFloatv        untouched
+  wglGetProcAddress  REDIRECTED to overhaul64.dlo
+  SwapBuffers        REDIRECTED to overhaul64.dlo
+  glDrawRangeElements REDIRECTED to overhaul64.dlo  (global from wglGetProcAddress)
+== bystander plugin (victim.dlo) import table
+  import glOrtho    untouched
+  import glBegin    untouched
+  import glViewport untouched
+== bystander plugin (victim.dlo) pointer table
+  glOrtho          REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+  glFrustum        REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+  glLoadIdentity   REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+  glDrawElements   REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+  glViewport       REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+  glScissor        REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+  glReadPixels     REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+  glBegin          REDIRECTED to D:\a\_temp\mxbfacts\run-hotkeys\plugins\overhaul64.dlo
+FreeLibrary victim.dlo
+FreeLibrary plugins\overhaul64.dlo
+== host import table check (after unload)
+  glOrtho            REDIRECTED to overhaul64.dlo
+  glFrustum          REDIRECTED to overhaul64.dlo
+  glDrawElements     REDIRECTED to overhaul64.dlo
+  glLoadMatrixf      REDIRECTED to overhaul64.dlo
+  glLoadIdentity     REDIRECTED to overhaul64.dlo
+  glMatrixMode       REDIRECTED to overhaul64.dlo
+  glViewport         REDIRECTED to overhaul64.dlo
+  glClear            REDIRECTED to overhaul64.dlo
+  glBegin            REDIRECTED to overhaul64.dlo
+  glReadPixels       REDIRECTED to overhaul64.dlo
+  glScissor          REDIRECTED to overhaul64.dlo
+  glBlendFunc        REDIRECTED to overhaul64.dlo
+  glGetFloatv        untouched
+  wglGetProcAddress  REDIRECTED to overhaul64.dlo
+  SwapBuffers        REDIRECTED to overhaul64.dlo
+  glDrawRangeElements REDIRECTED to overhaul64.dlo  (global from wglGetProcAddress)
+host: clean exit
+exit=0

@@ -1,0 +1,48 @@
+$ { strings -n 6 overhaul64.dlo; strings -el -n 6 overhaul64.dlo; } | grep -nE 'https?://|[Ss]tore|Advanced|ADVANCED|[Ss]hop|[Bb]uy |[Pp]rice|[Pp]remium|[Pp]atreon|[Pp]ay[Pp]al|[Kk]o-?fi|[Dd]onat|Coming soon|Spotify|lyrics|Discord|#presets' | grep -v 'gcc.gnu.org'
+1575:https://discord.com/channels/1567518817272467537/1567959154906239006
+1576:" copied: paste it in #presets
+1617:Coming soon
+1635:https://discord.gg/WVRms6MzBA
+1636:Opening the preset Discord in your browser...
+1637:MORE WITH ADVANCED
+1638:Get Advanced
+1639:https://graphicsoverhaul.com/
+1640:Opening the store in your browser...
+1760:Ride along: the lyrics float ahead of you and follow you smoothly, the new line sliding in. Stay put: each line hangs where it appeared and you ride up to it.
+1762:How far ahead of you the 3D lyrics are, in metres.
+1764:How high above the track the 3D lyrics float, in metres.
+1768:If the lyrics are behind the song, turn this up to show them earlier (plus); if they are ahead, turn it down (minus). In seconds, up to 30 either way. Or click the bar in the player above where the song really is.
+1769:Where the 3D lyrics appear: the middle, left then right, two on the left and one on the right, two on the right and one on the left, or at random.
+1771:How far to the side the left and right lyrics sit.
+1972:spotify_lyrics
+1973:The song's lyrics float in the air ahead of you while you ride, a line at a time as it is sung. Needs the internet to find them, and Spotify playing on this computer.
+1975:Shows the song Spotify is playing in the sky ahead for a few seconds when it changes.
+1980:lyrics_hud
+1981:Shows the lyrics on the screen, a line at a time as it is sung. Works on its own or together with the 3D lyrics.
+1982:lyrics_hud_y
+1983:How far down the screen the lyrics sit, in percent.
+1984:The lyrics' font.
+1985:The lyrics' colour. Rainbow cycles; Custom uses the three sliders below.
+1987:Custom lyrics colour: red (when the colour is Custom).
+1989:Custom lyrics colour: green (when the colour is Custom).
+1991:Custom lyrics colour: blue (when the colour is Custom).
+1992:How the lyrics are outlined: shadow, outline, glow, plain, neon or a thick outline.
+2003:How big the lyrics are.
+2005:A small Spotify player in a corner of the screen: the logo, the song, the time played and back / next arrows. Click the arrows with the mouse, or press Ctrl+Alt+Left / Ctrl+Alt+Right.
+2186:Opened #presets (couldn't copy tcopy the preset)
+2541:; Delete this file to restore defaults. Ctrl+F10 reloads it (and the shaders) in game.
+2960:lyrics_hud
+2961:lyrics_hud_y
+2962:spotify_lyrics
+3572:glPixelStorei
+5949:_ZN12_GLOBAL__N_1L21restore_game_viewportEv.part.0
+5951:_ZN12_GLOBAL__N_1L11box_restoreEv
+6820:_ZGVZN5panel12_GLOBAL__N_1L10open_storeEvE1f
+6821:_ZZN5panel12_GLOBAL__N_1L10open_storeEvE1f
+7138:__tcf_ZN4snow12_GLOBAL__N_1L11s_tileStoreE
+7139:_ZN4snow12_GLOBAL__N_1L11s_tileStoreE
+7233:_ZN10SavedState7restoreEv
+11268:restore_modified_sections
+11644:glPixelStorei
+12118:__imp_glPixelStorei
+(exit 0)

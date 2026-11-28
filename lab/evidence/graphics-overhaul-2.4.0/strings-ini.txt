@@ -1,0 +1,33 @@
+$ strings -n 4 overhaul64.dlo | awk '/^; MX Bikes Overhaul - ragdoll/{p=1} p{print} /^max_fit_error=/{exit}' | grep -nE '^(; MX Bikes|; Hotkeys|graphics=|ragdoll=|hotkeys=|materials=|ruts=|physical=|physical_probe=|terrain_log=|camera=|exhaust=|sound=|injuries=|rain=|snow=|\[)|camera64|exhaust64|soundplus64|injuries64|EXPERIMENTAL|digs the ruts'
+1:; MX Bikes Overhaul - ragdoll + shader pack settings.
+3:; Hotkeys: F10 = graphics on/off (A/B compare), Ctrl+F11 = ragdoll on/off
+4:[general]
+5:graphics=1
+6:ragdoll=1
+7:hotkeys=1
+9:[rendering]
+13:materials=1
+15:ruts=0
+17:; EXPERIMENTAL, offline testing sessions only: physical=1 digs the ruts into the game's own
+20:physical=0
+21:physical_probe=0
+23:terrain_log=1
+43:[graphics]
+100:[atmosphere]
+153:[rain]
+155:rain=0
+173:snow=0
+182:[camera]
+183:; camera64.dlo: the first-person view moves like a head on a neck, with shake from the bike
+184:camera=1
+214:[exhaust]
+215:; exhaust64.dlo: heat haze, smoke and backfire pops from your pipe
+216:exhaust=1
+229:[sound]
+230:; soundplus64.dlo (Surround Sound+, F7 in game)
+231:sound=1
+250:[injuries]
+251:; injuries64.dlo (needs ragdoll64.dlo): blood and broken bones when the ragdoll hits hard
+252:injuries=1
+262:[ragdoll]
+(exit 0)

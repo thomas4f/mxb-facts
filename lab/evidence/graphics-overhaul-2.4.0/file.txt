@@ -1,0 +1,23 @@
+$ unzip -l 1794860747-graphics-overhaul.zip; find README.txt plugins -type f | LC_ALL=C sort | xargs -d '\n' file
+Archive:  1794860747-graphics-overhaul.zip
+  Length      Date    Time    Name
+---------  ---------- -----   ----
+     2179  2026-11-16 01:24   README.txt
+  1625891  2026-11-16 13:17   plugins/overhaul64.dlo
+   526492  2026-11-02 20:33   plugins/overhaul/rig_default_mx.bin
+   227197  2026-11-16 13:20   plugins/overhaul/shaders.pak
+      668  2026-11-04 21:18   plugins/overhaul/sounds/CREDITS.txt
+  3840044  2026-11-04 21:16   plugins/overhaul/sounds/rain_heavy.wav
+  3840044  2026-11-04 21:16   plugins/overhaul/sounds/rain_light.wav
+      208  2026-11-06 18:31   plugins/presets/Low-end.ini
+---------                     -------
+ 10062723                     8 files
+README.txt:                             ASCII text
+plugins/overhaul/rig_default_mx.bin:    data
+plugins/overhaul/shaders.pak:           data
+plugins/overhaul/sounds/CREDITS.txt:    ASCII text
+plugins/overhaul/sounds/rain_heavy.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 32000 Hz
+plugins/overhaul/sounds/rain_light.wav: RIFF (little-endian) data, WAVE audio, Microsoft PCM, 16 bit, stereo 32000 Hz
+plugins/overhaul64.dlo:                 PE32+ executable for MS Windows 5.02 (DLL), x86-64, 20 sections
+plugins/presets/Low-end.ini:            Generic INItialization configuration [rendering]
+(exit 0)

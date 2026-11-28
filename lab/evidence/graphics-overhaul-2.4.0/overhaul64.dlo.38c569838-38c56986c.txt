@@ -1,0 +1,15 @@
+$ objdump -d 'overhaul64.dlo' | awk -v a=38c569838 -v b=38c56986c '$1 ~ /^[0-9a-f]+:$/ { x = substr($1, 1, length($1) - 1); p = length(x) == length(a) && x >= a && x <= b } p'
+   38c569838:	e8 53 7e fe ff       	call   38c551690 <_ZN5panel12_GLOBAL__N_1L8grp_saveEv>
+   38c56983d:	e9 5e b3 ff ff       	jmp    38c564ba0 <_ZN5panel12_GLOBAL__N_1L4drawEiib+0x1c90>
+   38c569842:	45 31 c9             	xor    %r9d,%r9d
+   38c569845:	41 b8 01 00 00 00    	mov    $0x1,%r8d
+   38c56984b:	31 d2                	xor    %edx,%edx
+   38c56984d:	b9 b0 00 00 00       	mov    $0xb0,%ecx
+   38c569852:	4c 8b 25 37 ab 0f 00 	mov    0xfab37(%rip),%r12        # 38c664390 <__imp_keybd_event>
+   38c569859:	41 ff d4             	call   *%r12
+   38c56985c:	45 31 c9             	xor    %r9d,%r9d
+   38c56985f:	41 b8 03 00 00 00    	mov    $0x3,%r8d
+   38c569865:	31 d2                	xor    %edx,%edx
+   38c569867:	b9 b0 00 00 00       	mov    $0xb0,%ecx
+   38c56986c:	41 ff d4             	call   *%r12
+(exit 0)
