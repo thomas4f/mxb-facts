@@ -51,7 +51,7 @@ how_a_card_is_made:
   - >-
     **The licence is read first.** If it forbids analysis, only public facts are covered, the rest says "Not allowed", nothing is run or uploaded, and the tool isn't scored.
   - >-
-    **The AI analyses it** from the published prompt: source or binaries, an offline run on a throwaway Windows machine (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup of every file's hash. A file VirusTotal has never seen is uploaded for a scan only when its author agrees, since a first scan of an unsigned file can itself start antivirus detections.
+    **The AI analyses it** from the published prompt: source or binaries, an offline run on a throwaway Windows machine (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup of every file's hash. A publicly released file VirusTotal has never seen may be uploaded for a scan.
   - >-
     **Every question is answered** with its evidence: a pinned code link, a file hash or a test anyone can repeat. What can't be proven or run goes under "Limits of this analysis", linked to the answers it affects.
   - >-
