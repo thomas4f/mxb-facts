@@ -28,8 +28,9 @@ maintainer_notice: >-
   maintainer can run the For authors check on a release before it is out ([conflict of interest](https://github.com/thomas4f/mxb-facts#conflict-of-interest)).
 # What a mark is, and what a tag is, in the Reading a card legend: one line each, above its list.
 marks: >-
-  Every answer has one mark, the same word, colour and icon on every card: what it means for you and, where the tool has a
-  score, what it costs
+  Every answer has one mark, the same colour and icon on every card: what it means for you and, where the tool has a score,
+  what it costs. An answer shows its own words ("No −25") in its mark's colour; a mark that isn't an answer, such as Off by
+  default or Not checked, shows its name
 tags: >-
   A tag on the tools list and a card sums up one answer, in its mark's colour: orange for a Concern, red for a Major, grey
   and dashed when it happens only after a choice you make, green when it is in the tool's favour. Hover a tag for what it
@@ -45,20 +46,12 @@ newer_release: >-
   score stay those of the release analysed, until the new release's card is published
 how_a_card_is_made:
   - >-
-    **A tool is requested** through the request form, or the maintainer picks it from mxb-mods.com. Requested tools come first, in the order asked; the pick is a choice, and the queue shows it. A new release of a tool already on the site is queued for a re-check.
+    **A tool is picked:** requested ones first, in the order asked, then the maintainer's pick from the mods sites. Its files are pinned by hash.
   - >-
-    **Its files are pinned:** the newest release, unless another is named. Every file players download is hashed (SHA-256), and the release's commit is fixed when the source is public.
+    **The licence is read first.** If it forbids analysis, only public facts are covered and the tool isn't scored.
   - >-
-    **The licence is read first.** If it forbids analysis, only public facts are covered, the rest says "Not allowed", nothing is run or uploaded, and the tool isn't scored.
+    **The AI analyses it** from the published prompt: source or binaries, an offline run on a throwaway Windows machine, and a VirusTotal lookup (a publicly released file VirusTotal has never seen may be uploaded for a scan). Every answer links its evidence; what couldn't be proven goes under "Limits of this analysis".
   - >-
-    **The AI analyses it** from the published prompt: source or binaries, an offline run on a throwaway Windows machine (a game plugin in the game's public demo, the rest in a test host; the card's Method row says what ran), and a VirusTotal lookup of every file's hash. A publicly released file VirusTotal has never seen may be uploaded for a scan.
+    **The build sets the marks, tags and scores** from the answers, by fixed rules; nobody picks one by hand.
   - >-
-    **Every question is answered** with its evidence: a pinned code link, a file hash or a test anyone can repeat. What can't be proven or run goes under "Limits of this analysis", linked to the answers it affects.
-  - >-
-    **The build checks the card** against the rules: it checks each answer's mark against the mark table, and sets every key-question mark, tag and score itself; nobody picks one of those by hand.
-  - >-
-    **A security problem that isn't public is held back.** The author is told privately, and the finished card stays private until a fix ships or 30 days have passed since the author was told; then it is published with the details (rule 9).
-  - >-
-    **Comments come in as issues:** a correction, something missing, or the author's context. While a correction is open, the answers it names show its count, and nothing else changes; the author's context marks no answer. When a card is published, its author, if they have a public contact, gets a short note with its link and how to comment. When one holds, the line is fixed and the card's history says what changed and why.
-  - >-
-    **A new release gets a new card.** The tool's page shows the newest; earlier cards stay under History, and Compare can put two releases side by side.
+    **Anyone can suggest a correction** on GitHub, the author included. A fix gets a dated line in the card's history; a new release gets a new card. A security problem is first told to the author privately (rule 9).

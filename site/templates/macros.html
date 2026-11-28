@@ -7,12 +7,11 @@
   {% if anchor %}<a class="id" href="#{{ anchor }}" title="Copy a link to {{ id }}">{{ id }}</a>{% else %}<span class="id">{{ id }}</span>{% endif %}
   <div class="rb">
     <div class="q">{{ head }}</div>
-    <div class="v">{{ marks }}</div>
+    <div class="v">{{ marks }}{% if comment %}{{ comment }}{% endif %}</div>
     {% if text %}<div class="t">{{ text }}</div>{% endif %}
-    {# The evidence folds under the answer, with the way to comment on it: what a reader checks first is where they say it's wrong. #}
+    {# The way to comment sits on the mark's line, where every reader sees it; the evidence folds under the answer. #}
     {% if evidence %}
-    <details class="ev"><summary>Evidence <span class="vh">for {{ id }}</span></summary><div>{{ evidence }}{% if second %}<p><b>Second check:</b> {{ second }}</p>{% endif %}{% if comment %}<p class="cmtp">{{ comment }}</p>{% endif %}</div></details>
-    {% elif comment %}<p class="cmtp">{{ comment }}</p>
+    <details class="ev"><summary>Evidence <span class="vh">for {{ id }}</span></summary><div>{{ evidence }}{% if second %}<p><b>Second check:</b> {{ second }}</p>{% endif %}</div></details>
     {% endif %}
   </div>
 </div>

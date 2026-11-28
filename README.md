@@ -14,12 +14,12 @@ This project is run by Thomas (GitHub [thomas4f](https://github.com/thomas4f)), 
 - The analysis is done by an AI assistant (Claude) working under [`CLAUDE.md`](CLAUDE.md), which tells it to treat MXBMRP3 like any other tool and to refuse requests that would break that. Every analysis starts from one published prompt, [`prompts/analyse-tool.md`](prompts/analyse-tool.md), so anyone can rerun it.
 - This repository is separate from MXBMRP3's, and shares no code with it.
 
-If you think a card is unfair, comment on the answer (the form below): it will be answered in public.
+If you think a card is unfair, suggest a correction (the form below): it will be answered in public.
 
 ## Ask for a tool, or correct a card
 
 - [Request an analysis](../../issues/new?template=analyse-tool.yml) of a tool or a newer release.
-- [Comment on an answer](../../issues/new?template=correction.yml): a correction, something missing, or the author's context. Name the card, the answer and your evidence.
+- [Suggest a correction](../../issues/new?template=correction.yml): a correction, something missing, or the author's context. Name the card, the answer and your evidence.
 - [Suggest a question](../../issues/new?template=question.yml) the cards don't ask yet; it is asked of every tool.
 
 Authors are welcome to use all three, and can check a release before anyone else does: the site's "For authors" page shows what earns a Good answer on each question, with a check their agent runs ([`authors/`](authors/mxb-facts-check/SKILL.md)). Publishing your source, or allowing analysis in your licence, lets a card cover more.

@@ -131,7 +131,7 @@ It comes from the "Suggest a question" form, or from an analysis that found some
 
 ## Handling a correction
 
-Add it to the card's `corrections` list (status `open`, its `kind` from the form: `correction`, `missing` or `context`, the questions it names); the comment icon on those answers then shows the count. When decided, fix the line if it holds and set the status (`fixed`, `declined`, or `noted` when it is answered without a change) with the date and a reason. Details in `CLAUDE.md`, "Requests and corrections".
+Add it to the card's `corrections` list (status `open`, its `kind` from the form: `correction`, `missing` or `context`, the questions it names); those answers then show "Under review" with its issue number. When decided, fix the line if it holds and set the status (`fixed`, `declined`, or `noted` when it is answered without a change) with the date and a reason. Details in `CLAUDE.md`, "Requests and corrections".
 
 ## Where to change what
 

@@ -9,9 +9,10 @@ from rules import (AREAK, AREAN, CATS, CONCERN, GCOST, GCOVER, GSC, GT, HEADER, 
     SC, SCHEMA as CARD_SCHEMA, STATES, ans_md, concern_span, goodwhen, load_yaml, maxcost, money, qcost, scored, sround, state_of, tagsof, verdict, ROOT, D)
 from cards import COMMIT, CORR, DEMO_GAME, CORRFORM, REQFORM, SITEURL, FOLDNAME, LIMS, MM, REG, REPO, SITES, SLUG, check_card, correction_link, files_table, games, newer_releases, pending_versions
 from badges import BADGES
+from discussions import tool_threads
 
 
-FEED_VERSION='1.8'
+FEED_VERSION='1.9'
 SCHEMA=json.load(open(ROOT+'rules/feed.schema.json'))
 # "What it says vs what it does": each verdict drawn in the style of the mark it reads like (STATES in rules.py), with its own
 # words and meaning, since a verdict isn't a mark and costs nothing; T2 is the answer the score counts. A verdict may add words
@@ -179,6 +180,7 @@ def legend():
 def add(d,k,v):
     if v not in d.setdefault(k,[]): d[k].append(v)
 
+NEWTHREAD=None  # set by write_feed, read by write_site
 def write_feed(SITE,CARDS):
     # The commit's date, not the clock, so the same commit always writes the same files.
     when=subprocess.run(['git','-C',ROOT,'log','-1','--format=%cI'],capture_output=True,text=True).stdout.strip() or '1970-01-01T00:00:00+00:00'
@@ -186,6 +188,12 @@ def write_feed(SITE,CARDS):
     note=ai_note()
     out=SITE+'api/v1/'; os.makedirs(out+'cards',exist_ok=True)
     tools={}; hashes={}; found={'github':{},'mods_post':{},'sha256':{}}
+    THREADS=tool_threads(REPO,[e['name'] for e in REG.values()])  # read from GitHub at build time, so not fixed by the commit
+    # Not read (no token, or GitHub didn't answer): a tool with no thread links the Tools list rather than a new thread, so a
+    # hiccup on one deploy doesn't open duplicates of threads that exist.
+    global NEWTHREAD
+    NEWTHREAD=REPO+('discussions/new?category=tools' if THREADS is not None else 'discussions/categories/tools?')
+    THREADS=THREADS or {}
     for f,slug in CARDS:
         raw=load_yaml(D+f); C=check_card(f,raw); d=C['d']; h=C['h']; A=C['A']; held=C['held']; SETS=C['SETS']
         G=scored(A,held); crit,opt,pos=tagsof(raw)
@@ -238,7 +246,8 @@ def write_feed(SITE,CARDS):
         # card_image: the tool's newest card as one image, at an address that never changes, for a page that shows the tool, not
         # one release (docs/FEED.md, "Showing a card").
         t=tools.setdefault(slug,{'id':slug,'name':C['name'],'author':reg['author'],'games':games(h),'github':reg['github'],'homepage':reg['homepage'],
-                                 'mods_sites':mods,'card_image':f'{SITEURL}badge/{slug}/card.png','releases':[None]*len(order)})
+                                 'mods_sites':mods,'card_image':f'{SITEURL}badge/{slug}/card.png','releases':[None]*len(order),
+                                 'discussion':THREADS.get(C['name'])})
         # Newest release first, in the registry's order (rule 2: every card stays).
         t['releases'][len(order)-1-order.index(f)]=rel
         # How many answers are still open, by why, and how many comments are under review: the counts the tools list shows beside the tags.
@@ -331,6 +340,6 @@ def write_site(SITE,skill,agents_line):
           'questions':[{'id':i,'area':QAREA[i],'question':qt,'good_when':goodwhen(i),'marks':QCELL[i],'max_cost':maxcost(i) if i in GCOST else 0} for i,_a,qt in QS],
           'key_questions':[{'id':k,'question':q,'short':s,'from':src} for k,q,s,src in KEYS],
           'authors_check':{'path':'.claude/skills/mxb-facts-check/SKILL.md','download':SITEURL+'authors/mxb-facts-check/SKILL.md','text':skill,'agents_line':agents_line},
-          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f','visits':'https://mxb-facts.goatcounter.com/'}}
+          'links':{'request':REQFORM,'question':REPO+'issues/new?template=question.yml','comment':REPO+'issues/new?template=correction.yml','discuss':NEWTHREAD,'discussions':REPO+'discussions/categories/tools','discuss_site':REPO+'discussions/categories/general','source':REPO[:-1],'conflict':REPO[:-1]+'#conflict-of-interest','maintainer':'https://github.com/thomas4f','support':'https://ko-fi.com/thomas4f','visits':'https://mxb-facts.goatcounter.com/'}}
     check(data,'site')
     json.dump(data,open(SITE+'api/v1/site.json','w'),indent=1,ensure_ascii=False)

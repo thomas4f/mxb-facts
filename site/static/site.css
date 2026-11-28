@@ -111,7 +111,10 @@ small.of { font-size: max(12px, .42em); font-weight: 700; color: var(--muted); l
 .st.concern { color: var(--concern); background: var(--concern-bg) } .st.major { color: var(--major); background: var(--major-bg) }
 .st.malware { color: var(--danger); background: var(--danger-bg) }
 .st.off, .st.req, .st.nc, .st.held, .st.na, .st.dna, .st.notscored { color: var(--grey); background: var(--grey-bg); border-color: var(--line) }
+/* Off by default and On request cost nothing (rule 5): dashed, like their tags, so they don't read as Not checked, which counts in full. */
+.st.off, .st.req { border-style: dashed }
 .st .c { font: 600 12px var(--f-mono) }
+.st.io { padding: var(--s1) }
 .tag { display: inline-flex; align-items: center; gap: var(--s1); padding: var(--s0) var(--s2); border-radius: 6px; font-size: 13px; border: 1px solid var(--line); color: var(--muted); background: var(--sunk); white-space: nowrap; text-decoration: none }
 .tag.concern { color: var(--concern); border-color: color-mix(in srgb, var(--concern) 40%, transparent); background: var(--concern-bg) }
 .tag.positive { color: var(--good); border-color: color-mix(in srgb, var(--good) 40%, transparent); background: var(--good-bg) }
@@ -136,7 +139,7 @@ button.tag.more::after { content: ''; position: absolute; left: 0; right: 0; top
 .count { color: var(--muted); font-size: 14px }
 .cntr { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--s1) var(--s4) } .cntr .count { margin: 0 }
 .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: var(--s4) }
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); min-width: 0 }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s4); display: flex; flex-direction: column; gap: var(--s3); min-width: 0; container-type: inline-size }
 .card:hover { border-color: color-mix(in srgb, var(--accent) 60%, var(--line)) }
 .card .row1 { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--s3); min-height: 34px }
 /* Small capitals over a group: a card's game and category, a footer column, a Compare picker group, "Also found". */
@@ -201,7 +204,7 @@ details.fold > .body { border-top: 1px solid var(--line) }
    on a touch screen. Clicking it copies the address (site.js), and a tick shows it did. */
 .anc { display: inline-grid; place-items: center; width: 28px; height: 28px; margin-left: var(--s1); vertical-align: middle; color: var(--muted); border-radius: var(--r-ctl); opacity: 0; transition: opacity .15s }
 .anc::before { content: ''; width: 16px; height: 16px; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat }
-:is(h2, .fw):hover .anc, .anc:focus-visible, .anc.done { opacity: 1 } .anc:hover { color: var(--accent) } .anc.done { color: var(--good) }
+:is(h2, .fw, .ghead):hover .anc, .anc:focus-visible, .anc.done { opacity: 1 } .anc:hover { color: var(--accent) } .anc.done { color: var(--good) }
 @media (hover: none) { .anc { opacity: .85 } }
 .fw { position: relative; min-width: 0 } .fw > details.fold > summary { padding-right: var(--s7) } .anc.fa { position: absolute; top: var(--s3); right: var(--s1); margin: 0 }
 .row .q { font-weight: 600 } .row .v { display: flex; gap: var(--s2); align-items: center; flex-wrap: wrap; margin: var(--s1) 0 }
@@ -215,14 +218,15 @@ details.fold > .body { border-top: 1px solid var(--line) }
 table.t { border-collapse: collapse; width: 100%; font-size: 14px }
 table.t th, table.t td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 table.t th { color: var(--muted); font-weight: 600; font-size: 13px }
-/* A table whose middle column holds long addresses stacks on a phone: each row reads top to bottom (what, address, what it
-   shows), so an address gets the full width instead of breaking every few letters in a narrow column. */
+/* A table of three columns or more stacks on a phone, as Compare does: each row reads top to bottom, its first cell as the
+   title and every other cell under its column's heading (data-l, set by the build), so a long address or hash gets the full
+   width instead of breaking every few letters in a narrow column. */
 @media (max-width: 640px) {
   table.t.t-stack, table.t.t-stack tbody { display: block } table.t.t-stack thead { display: none }
-  table.t.t-stack tr { display: grid; gap: var(--s1); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.t-stack tbody tr:last-child { border-bottom: 0 }
+  table.t.t-stack tr { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s2); padding: var(--s3) 0; border-bottom: 1px solid var(--line) } table.t.t-stack tbody tr:last-child { border-bottom: 0 }
   table.t.t-stack td { padding: 0; border: 0 } table.t.t-stack td:first-child { font-weight: 600 }
-  /* With the headings hidden, a tag's last cell says what it is. */
-  .tags-t td:last-child::before { content: "From the answer " }
+  table.t.t-stack td:not(:first-child)::before { content: attr(data-l); display: block; color: var(--muted); font-size: 13px; font-weight: 600 }
+  table.t.t-stack td:empty { display: none }
 }
 /* The table's box draws the last line; a row's own line there would double it. */
 table.t tbody tr:last-child > *, table.cmp tbody tr:last-child > * { border-bottom: 0 }
@@ -284,6 +288,8 @@ table.cmp .mini { display: grid; gap: var(--s1); min-width: 110px } table.cmp .m
 .prose th, .prose td { padding: var(--s2) var(--s3); border-bottom: 1px solid var(--line); text-align: left; vertical-align: top }
 .prose th { color: var(--muted); font-weight: 600 }
 .prose h2, .prose h3 { font: var(--t-sub); margin-top: var(--s2) }
+/* The ten rules as one line each on How it works; the full text folds below them. */
+.rules { margin: 0; padding-left: var(--s5); display: grid; gap: var(--s1) }
 .steps { counter-reset: s; list-style: none; padding: 0; margin: 0; display: grid; gap: var(--s3) }
 .steps li { counter-increment: s; display: grid; grid-template-columns: 34px minmax(0, var(--w-text)); gap: var(--s3); background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: var(--s3) var(--s4) }
 .steps li::before { content: counter(s); font: var(--t-sub); color: var(--accent) }
@@ -306,8 +312,9 @@ footer p { margin: 0 }
 @media (min-width: 760px) { .fgrid { grid-template-columns: 2fr 1fr 1fr } .fabout { grid-column: auto } }
 .flinks { display: grid; align-content: start; gap: 0 } .fh { margin: 0 0 var(--s1) }
 .flinks a { color: var(--ink); text-decoration: none; display: inline-flex; align-items: center; min-height: 36px; justify-self: start } .flinks a:hover { color: var(--accent); text-decoration: underline }
-/* Footer lines that break between their parts, not inside one: each part is its own line on a phone, side by side when there is room. */
+/* Footer lines that break between their parts, not inside one: side by side when all fit, else one part per line (never two and one). */
 .fl { display: inline-block } .fmeta .fl { margin-right: var(--s3) }
+@media (max-width: 700px) { .fmeta .fl { display: block; margin-right: 0 } }
 .fmeta { font-size: 13px; border-top: 1px solid var(--line); padding-top: var(--s3); margin-top: var(--s2) }
 @media (prefers-reduced-motion: no-preference) { .card, .area { transition: border-color .15s, background .15s } }
 
@@ -326,7 +333,13 @@ footer p { margin: 0 }
 /* Rows: answers and claims, one shape (templates/macros.html, row). */
 .row .rb { min-width: 0 }
 .row .t p { margin: 0 0 var(--s2) } .row .t p:last-child { margin: 0 }
-.row .cmtp { margin: var(--s2) 0 0 } .row .cmt { font-size: 13px; display: inline-flex; align-items: center; min-height: 44px }
+/* Comment sits last on the mark line, after Limit and Under review, in the same small type. */
+.row .cmt { font-size: 13px; display: inline-flex; align-items: center; gap: var(--s1); min-height: 44px }
+/* Comment and Discuss carry a speech-bubble icon; a tool's discussion count sits in the button as a small pill. */
+.ic::before { content: ''; width: 16px; height: 16px; flex: none; background: currentColor; -webkit-mask: var(--i) center / contain no-repeat; mask: var(--i) center / contain no-repeat }
+.row .ic::before, .meta .ic::before { width: 14px; height: 14px }
+.meta .ic { display: inline-flex; align-items: center; gap: var(--s1); vertical-align: bottom }
+.cnt { min-width: 20px; padding: 0 var(--s1); border-radius: 999px; background: var(--accent); color: var(--accent-ink); font-size: 12px; line-height: 18px; text-align: center }
 .row .vd { font-weight: 700; font-size: 14px }
 .row .sm.rv { display: inline-flex; align-items: center; gap: var(--s1); border: 1px solid color-mix(in srgb, var(--info) 40%, transparent); border-radius: 6px; padding: 0 var(--s2); color: var(--info) }
 @media (max-width: 520px) { .row { grid-template-columns: 34px minmax(0, 1fr) } }
@@ -357,9 +370,14 @@ code.hash { font-size: 12px }
 .ft { display: inline-flex; gap: var(--s2); align-items: baseline }
 .cmptools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s2) var(--s3) }
 .cmpl { display: inline-flex; align-items: center; gap: var(--s2); min-height: 44px; color: var(--muted); font-size: 14px }
+/* A tool card's three actions, Compare, Discuss and Findings, as three buttons of one size sharing the row. */
+.card .foot .btn { flex: 1 1 auto; justify-content: center; gap: var(--s2); padding-inline: var(--s2); white-space: nowrap }
+.card .foot .cmpl { color: var(--ink); font-size: 14.5px } .card .foot .cmpl:has(input:checked) { border-color: var(--accent) }
+/* Where a card is too narrow for the three in a row (a 360px phone), Findings takes a row of its own under the other two. */
+@container (max-width: 310px) { .card .foot { flex-wrap: wrap } .card .foot .btn:last-child { flex-basis: 100% } }
 /* The Compare picker: a category's label over its tools; a tool's chips flow with the others (its wrapper draws no box). */
 /* The tools list: a category's label spans the grid above its cards, as in the Compare picker. */
-.ghead { grid-column: 1 / -1; margin: var(--s4) 0 0 } .ghead:first-child { margin-top: 0 }
+.ghead { grid-column: 1 / -1; margin: var(--s4) 0 0; scroll-margin-top: 80px } .ghead .anc { width: 22px; height: 22px } .ghead:first-child { margin-top: 0 }
 .pgrp { display: grid; gap: var(--s2) } .pgrp > .cat { margin: 0 }
 @media (min-width: 641px) { .pgrp { grid-template-columns: 12rem minmax(0, 1fr); align-items: center; gap: var(--s4) } } .tchips { display: contents } .chip.more { font: inherit; font-size: 13px; color: var(--muted); border-style: dashed }
 .theme { border: 1px solid var(--line); background: var(--surface); border-radius: var(--r-ctl); width: 44px; height: 44px; padding: 0; display: grid; place-items: center; cursor: pointer; color: var(--ink) }
@@ -382,7 +400,7 @@ details.fold > summary h3.ft { font: inherit }
 
 /* Width (the tokens are in :root): running text stops at --w-text wherever it stands; what it sits in still spans the page. A
    table, a grid of cards and a picture are not running text and keep the full width; a legend is (a term, then its sentence). */
-:is(.hero p, .thead .sum, .wrap > p:not(.ainote, .notice), .fabout, .measure, .prose > :not(table), .box > p:not(.lead), .pad > p:not(.lead), .legend, .row .rb, .also p, .lims li, .chg li, .facts dd, .emb > p, .copy) { max-width: var(--w-text) }
+:is(.hero p, .thead .sum, .wrap > p:not(.ainote, .notice), .fabout, .measure, .prose > :not(table), .box > p:not(.lead), .pad > p:not(.lead), .legend, .row .rb, .also p, .lims li, .rules li, .chg li, .facts dd, .emb > p, .copy) { max-width: var(--w-text) }
 /* A lead line and a note are framed across the page (a rule under it, a box round it), so their text stops at the measure
    through their padding instead. tests/site/tests/layout.spec.mjs fails on running text wider than --w-text on any page. */
 .lead, .notice, .wrap > .ainote { padding-right: max(var(--s4), calc(100% - var(--w-text))) }

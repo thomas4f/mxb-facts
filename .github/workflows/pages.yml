@@ -10,14 +10,24 @@ on:
     workflows: ["Update inventory", "VirusTotal lookup"]
     types: [completed]
     branches: [main]
+  # A tool's thread in Discussions and its comment count are read when the site is built (site/discussions.py), so a new
+  # thread or comment publishes the site again.
+  discussion:
+    types: [created, edited, deleted, transferred, category_changed]
+  discussion_comment:
+    types: [created, deleted]
   workflow_dispatch:
 permissions:
   contents: read
+  discussions: read
   pages: write
   id-token: write
-concurrency: { group: pages, cancel-in-progress: true }
+# Never cancelled: a run of comments would otherwise keep stopping a push's deploy part way; a newer run waits its turn.
+concurrency: { group: pages, cancel-in-progress: false }
 jobs:
   build:
+    # Only a Tools thread changes what the site shows; talk under General publishes nothing.
+    if: (github.event_name != 'discussion' && github.event_name != 'discussion_comment') || github.event.discussion.category.slug == 'tools'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -25,7 +35,7 @@ jobs:
         with: { python-version: "3.12" }
       - run: pip install -r requirements.txt
       - run: python3 -I site/build.py
-        env: { PUBLISH: "1", COUNT_VISITS: "1" }  # rule 9: refuses a card with a "Held back" row; the published site counts visits (GoatCounter)
+        env: { PUBLISH: "1", COUNT_VISITS: "1", GITHUB_TOKEN: "${{ github.token }}" }  # rule 9: refuses a card with a "Held back" row; the published site counts visits (GoatCounter)
       - uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
         with: { path: _site }
   deploy:

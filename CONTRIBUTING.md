@@ -1,6 +1,6 @@
 # Contributing
 
-Most help comes as issues: [request an analysis](../../issues/new?template=analyse-tool.yml), [comment on an answer](../../issues/new?template=correction.yml) (a correction, something missing, or the author's context) or [suggest a question](../../issues/new?template=question.yml). Pull requests that change a card are welcome too, under the same rules.
+Most help comes as issues: [request an analysis](../../issues/new?template=analyse-tool.yml), [suggest a correction](../../issues/new?template=correction.yml) (a correction, something missing, or the author's context) or [suggest a question](../../issues/new?template=question.yml). Pull requests that change a card are welcome too, under the same rules.
 
 ## Rules for a change to a card
 

@@ -27,7 +27,7 @@
 <div class="grid" id="tools-grid">
 {% for g in ns.cats | sort(attribute='newest', reverse=true) %}
 {% set cat = g.cat %}
-<p class="cat ghead" data-cat="{{ cat }}" data-i="{{ g.i }}">{{ cat }}</p>
+{% set gid = cat | lower | replace(' ', '-') | replace('\'', '') %}<p class="cat ghead" id="{{ gid }}" data-cat="{{ cat }}" data-i="{{ g.i }}">{{ cat }}<a class="anc" href="#{{ gid }}" title="Copy a link to this section"><span class="vh">Link to {{ cat }}</span></a></p>
 {% for t in IX.tools | sort(attribute='latest.analysed_iso', reverse=true) if t.category == cat %}
 {% set r = t.latest.result %}
 {% set tg = t.latest.tags %}
@@ -51,7 +51,7 @@
     {% for x in ordered %}{{ tag(x, loop.index > shown, root ~ t.id ~ '/') }}{% endfor %}
     {% if ordered | length > shown %}<button type="button" class="tag more" data-more aria-expanded="false" data-label="+{{ ordered | length - shown }} more">+{{ ordered | length - shown }} more<span class="vh"> tags for {{ t.name }}</span></button>{% endif %}
   </div>
-  <div class="foot"><label class="cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare</label><a class="btn" href="{{ root }}{{ t.id }}/">View findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
+  <div class="foot"><label class="btn cmpl"><input type="checkbox" data-cmp="{{ t.latest.card }}"> Compare<span class="vh"> {{ t.name }}</span></label><a class="btn ic dsc" href="{{ t.discussion.url if t.discussion else SITE.links.discuss ~ '&' ~ ({'title': t.name} | urlencode) }}" target="_blank" rel="noopener">Discuss{% if t.discussion and t.discussion.comments %}<span class="cnt num" aria-hidden="true">{{ t.discussion.comments }}</span>{% endif %}<span class="vh"> {{ t.name }}{{ ', ' ~ t.discussion.comments ~ (' comment' if t.discussion.comments == 1 else ' comments') if t.discussion and t.discussion.comments }}</span></a><a class="btn" href="{{ root }}{{ t.id }}/">Findings<span class="vh"> for {{ t.name }}</span> ›</a></div>
 </article>
 {% endfor %}
 {% endfor %}

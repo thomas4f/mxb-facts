@@ -21,7 +21,9 @@ test('search and category narrow the tools list and say how many are shown', asy
   await page.fill('#q', '');
   await page.locator('#cat').selectOption('HUD');
   for (const c of await page.locator('.card:visible').all()) await expect(c).toHaveAttribute('data-cat', 'HUD');
-  await expect(page.locator('.ghead:visible')).toHaveText(['HUD']);
+  await expect(page.locator('.ghead:visible')).toHaveCount(1);
+  await expect(page.locator('.ghead:visible')).toHaveAttribute('data-cat', 'HUD');
+  await expect(page.locator('.ghead:visible a.anc')).toHaveAttribute('href', '#hud');
 });
 
 test('Clear is off until the list changes, then puts the search, filters, sort and address back', async ({ page }) => {
@@ -268,7 +270,7 @@ test('the home page says how scores read beside the count, and points to the mar
 test('the footer has its two groups of links and the licence line', async ({ page }) => {
   await page.goto('');
   const f = page.locator('footer');
-  for (const n of ['Comment on a card', 'Request a tool', 'Suggest a question', 'Source on GitHub', 'Data feed']) await expect(f.getByRole('link', { name: n })).toBeVisible();
+  for (const n of ['Suggest a correction', 'Discuss a tool', 'Discuss the site', 'Request a tool', 'Suggest a question', 'Source on GitHub', 'Data feed']) await expect(f.getByRole('link', { name: n })).toBeVisible();
   await expect(f).toContainText('Cards and data CC BY 4.0');
 });
 

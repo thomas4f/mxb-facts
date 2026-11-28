@@ -377,7 +377,7 @@
   },
   "corrections": {
    "type": "array",
-   "description": "Comments on answers sent through the \"Comment on an answer\" form (GitHub issues), oldest first: a correction, something missing, or context from the tool's author. While a correction or something missing is open, each answer it names shows its count on the comment icon, and the tool a neutral \"under review\" tag; nothing else on the card changes until it is decided. The author's context marks no answer",
+   "description": "Comments on answers sent through the \"Suggest a correction\" form (GitHub issues), oldest first: a correction, something missing, or context from the tool's author. While a correction or something missing is open, each answer it names shows \"Under review\" with its issue number, and the tool a neutral \"under review\" tag; nothing else on the card changes until it is decided. The author's context marks no answer",
    "items": {
     "type": "object",
     "additionalProperties": false,

@@ -52,6 +52,11 @@ def _post(h):
     return h.replace('<table>', '<div class="tw"><table class="t">').replace('</table>', '</table></div>')
 
 
+def rule_titles(text):
+    # The numbered rules' bold titles alone ("1. **Only provable facts.** …" gives "Only provable facts"), for the one-line list.
+    return [t.rstrip('.') for t in re.findall(r'^\d+\. \*\*(.+?)\*\*', text or '', re.M)]
+
+
 def md(text):
     _MD.reset()
     return Markup(_post(_MD.convert(text or '')))
@@ -91,13 +96,19 @@ def write_pages(SITE):
 
     env = Environment(loader=FileSystemLoader(HERE + 'templates'), autoescape=select_autoescape(['html']), undefined=StrictUndefined,
                       trim_blocks=True, lstrip_blocks=True)
-    env.filters.update(md=md, mdi=mdi)
+    env.filters.update(md=md, mdi=mdi, rule_titles=rule_titles)
 
-    def mark(state, words=None, cost=None, tip=None):
+    def mark(state, words=None, cost=None, tip=None, said=False, icon_only=False):
         # One mark: the state's colour and icon, and its words. The state always comes from the feed; nothing is mapped here.
+        # said: the words are an answer's verdict, so the mark's own word ("Concern") goes to screen readers and the hover only.
         s = STATES[state]
         c = Markup(f' <span class="c">{escape(cost)}</span>') if cost else ''
-        return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{escape(words or s["label"])}{c}</span>')
+        # icon_only: a key answer, whose text already opens with its verdict or its state ("Not allowed."); every mark there is its
+        # colour and icon alone, its word for screen readers and the hover.
+        if icon_only:
+            return Markup(f'<span class="st {state} io" title="{escape(tip or s["label"] + ": " + s["meaning"])}"><span class="vh">{escape(s["label"])}</span></span>')
+        lab = Markup(f'<span class="vh">{escape(s["label"])}: </span>') if said else ''
+        return Markup(f'<span class="st {state}" title="{escape(tip or s["label"] + ": " + s["meaning"])}">{lab}{escape(words or s["label"])}{c}</span>')
 
     def mark_cost(x, scored):
         # What a mark shows of its cost, where the tool has a score: "−25", "in T1", "±0", or nothing.
@@ -124,11 +135,17 @@ def write_pages(SITE):
         cost = mark_cost(x, scored)
         # Its hover: why it costs what it does where that needs saying, else what the mark means. Where the answer's own words
         # aren't beside it (says=True: Compare, a release's changes), the hover is those words, so a reader sees what this tool
-        # does, not the legend. Compare shows the mark alone (word=False): the marks are what a reader compares, the answer
-        # ("Partly", "Yes, not by default") opens the hover, and a screen reader still hears it; a tap opens the full answer.
+        # does, not the legend. Compare shows the answer's own words too ("No", "Partly"), as every other view does; the hover holds
+        # the full answer, and a tap opens it.
         tip = x['cost_note'] or None
         if says: tip = x['text_plain'] + (f' ({x["cost_note"]}.)' if x['cost_note'] else '')
-        if not word: tip = f'{x["verdict"]}: {tip}' if tip else x['verdict']
+        # The chip says the verdict ("No −25") in the mark's colour and icon; the mark's word ("Concern") is for screen readers
+        # and the hover, and stays in the legend. Grey states and Signs of malware keep their own words, which say more.
+        said = x['state'] in VERDICT_STATES and x['state'] != 'malware'
+        lab = STATES[x['state']]['label']; plain_tip = tip
+        tip = f'{lab}: {tip}' if tip else f'{lab}: {STATES[x["state"]]["meaning"]}'
+        if said: return mark(x['state'], x['verdict'], cost, tip, said=True)
+        if not word: tip = f'{x["verdict"]}: {plain_tip}' if plain_tip else x['verdict']
         pill = mark(x['state'], None, cost, tip)
         if not word: return pill + Markup(f'<span class="vh"> {escape(x["verdict"])}</span>')
         return pill + Markup(f' <b class="vd">{escape(x["verdict"])}</b>') if x['state'] in VERDICT_STATES else pill
@@ -156,6 +173,7 @@ def write_pages(SITE):
     css.append(f'.nw::before {{ -webkit-mask-image: {mask_url("refresh-cw")}; mask-image: {mask_url("refresh-cw")} }}')
     css.append(f'.cx::before {{ -webkit-mask-image: {mask_url("message-square-more")}; mask-image: {mask_url("message-square-more")} }}')
     css += [f'.cpb {{ --i: {mask_url("copy")} }}', f'.cpb.done, .anc.done {{ --i: {mask_url("check")} }}', f'.anc {{ --i: {mask_url("link")} }}',
+            f'.ic.cmt {{ --i: {mask_url("pencil")} }}', f'.ic.dsc {{ --i: {mask_url("messages-square")} }}',
             f'.theme {{ --i: {mask_url("sun-moon")} }}', f'.theme[data-t="light"] {{ --i: {mask_url("sun")} }}', f'.theme[data-t="dark"] {{ --i: {mask_url("moon")} }}']
     css.append('/*\n' + ICON_LICENCE + '*/')
     icons_css = '\n'.join(css) + '\n'
@@ -172,7 +190,7 @@ def write_pages(SITE):
     def page(path, tpl, depth, **kw):
         os.makedirs(os.path.dirname(out + path), exist_ok=True)
         root = kw.pop('root', '../' * depth)
-        html = anchors(env.get_template(tpl).render(root=root, path=path, **kw))
+        html = stack_tables(anchors(env.get_template(tpl).render(root=root, path=path, **kw)))
         # Every in-page link lands on an id that exists, once (the contents, tags, limits, "From" links).
         ids = re.findall(r'\bid="([^"]+)"', html)
         assert len(ids) == len(set(ids)), path + ': two elements share an id: ' + ', '.join(sorted({i for i in ids if ids.count(i) > 1}))
@@ -184,6 +202,23 @@ def write_pages(SITE):
         assert not dead, path + ': links to anchors that don\'t exist: ' + ', '.join(dead)
         open(out + path, 'w').write(html.rstrip() + '\n')
         return html
+
+    def stack_tables(html):
+        # A table of three columns or more stacks on a phone, as Compare does (site.css, t-stack): each row becomes a panel that
+        # reads top to bottom, its first cell as the title and every other cell under its column's heading, which each cell
+        # carries as data-l. Two columns (a date and its change) still fit side by side and stay a table.
+        def one(m):
+            t = m.group(0)
+            heads = [re.sub(r'<[^>]+>', '', h).strip() for h in re.findall(r'<th\b[^>]*>(.*?)</th>', (re.search(r'<thead>(.*?)</thead>', t, re.S) or [None, ''])[1], re.S)]
+            if len(heads) < 3:
+                return t
+            t = re.sub(r'<table class="t\b', '<table class="t t-stack', t, count=1) if 't-stack' not in t[:80] else t
+            def row(r):
+                i = iter(heads)
+                return re.sub(r'<td\b', lambda c: f'<td data-l="{escape(next(i, ""))}"', r.group(0))
+            head, body = t.split('</thead>', 1)
+            return head + '</thead>' + re.sub(r'<tr\b.*?</tr>', row, body, flags=re.S)
+        return re.sub(r'<table class="t\b.*?</table>', one, html, flags=re.S)
 
     def anchors(html):
         # Every section heading with an id gets a link to itself beside it, as on GitHub (site.js copies its address when

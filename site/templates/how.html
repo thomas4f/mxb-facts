@@ -11,7 +11,8 @@
 <h2 class="h2" id="steps">How a card is made</h2>
 <ol class="steps">{% for s in SITE.how_a_card_is_made %}<li><div>{{ s | mdi }}</div></li>{% endfor %}</ol>
 <h2 class="h2" id="rules">The rules</h2>
-<div class="box pad"><div class="prose">{{ tpl['Rules'] | md }}</div></div>
+<div class="box pad"><ol class="rules">{% for t in tpl['Rules'] | rule_titles %}<li>{{ t | mdi }}</li>{% endfor %}</ol></div>
+<div class="stack tight">{% call fold('rules-full', 'The rules in full') %}<div class="prose pad">{{ tpl['Rules'] | md }}</div>{% endcall %}</div>
 <h2 class="h2" id="marks">Reading a card</h2>
 <div class="box pad"><div class="prose"><h3>Marks</h3><p>{{ SITE.marks_legend }}.</p></div>
 <dl class="legend">
@@ -21,20 +22,28 @@
   <dt><span class="st rv">Under review</span></dt><dd>{{ SITE.under_review }}.</dd>
   <dt><span class="tag nw">1.2.0 out, not analysed</span></dt><dd>{{ SITE.newer_release }}.</dd>
 </dl>
-<div class="prose"><h3 id="tags">Tags</h3><p>{{ SITE.tags_legend }}.</p></div>
+</div>
+<div class="stack tight">{% call fold('tags', 'Tags', note=(IX.tags | length) ~ ' tags') %}<div class="prose pad"><p>{{ SITE.tags_legend }}.</p></div>
 {# Three columns, as the site's other tables: the tag, what it means for a player, and the answer it comes from. On a phone each row stacks. #}
-<div class="tw"><table class="t t-stack tags-t"><thead><tr><th scope="col">Tag</th><th scope="col">What it means for you</th><th scope="col" class="nowrap">From the answer</th></tr></thead><tbody>
+<div class="pad"><div class="tw"><table class="t"><thead><tr><th scope="col">Tag</th><th scope="col">What it means for you</th><th scope="col" class="nowrap">From the answer</th></tr></thead><tbody>
   {% for x in (IX.tags | selectattr('kind', 'equalto', 'critical') | list) + (IX.tags | selectattr('kind', 'equalto', 'positive') | list) %}
   <tr><td><span class="tag {{ ('concern malware' if x.get('malware') else 'concern major' if x.major else 'concern') if x.kind == 'critical' else 'positive' }}">{{ x.label }}</span></td><td>{{ x.means }}</td><td class="muted nowrap">{{ x.question }} {{ x.answer }}</td></tr>
   {% endfor %}
-</tbody></table></div></div>
+</tbody></table></div></div>{% endcall %}</div>
+<h2 class="h2" id="talk">Where to say what</h2>
+{# Two verbs for players: Correct when something needs a decision (an issue, answered in public), Discuss when it is talk. #}
+<div class="box pad"><dl class="legend">
+  <dt><b>Suggest a correction</b></dt><dd>An answer is wrong, something is missing, or you are the author and want to add context: use "Correct" beside the answer, or the <a href="{{ SITE.links.comment }}">correction form</a>. It opens a GitHub issue, the answer shows "Under review" while it is open, and it is closed in public as fixed, declined or noted, with the reason; a fix adds a dated line to the card's history.</dd>
+  <dt><b>Discuss a tool</b></dt><dd>Talk with other players and the author: each tool has one discussion for all its releases, linked from its page and its card in the tools list (<a href="{{ SITE.links.discussions }}">all of them</a>). What is said there changes no card until it comes in as a correction.</dd>
+  <dt><b>Discuss the site</b></dt><dd>The questions, the rules, how cards are made, an idea, or something broken on the site: <a href="{{ SITE.links.discuss_site }}">the site's discussion</a>. An idea that is taken becomes an issue, and a change to the rules is listed in "Changes to these rules".</dd>
+  <dt><b>Ask for something</b></dt><dd>A tool analysed, or a new question for every tool: <a href="{{ SITE.links.request }}">request a tool</a> or <a href="{{ SITE.links.question }}">suggest a question</a>. Each is an issue, closed with a decision and its reason.</dd>
+</dl></div>
 <h2 class="h2">In detail</h2>
 <div class="stack tight">
 {% call fold('marks-and-scores', 'Marks and scores') %}<div class="prose pad">{{ tpl['Marks and scores'] | md }}</div>{% endcall %}
-{% call fold('scores', 'How scores are worked out', note='rubric ' ~ SITE.rubric ~ '') %}<div class="prose pad">{% for s in SITE.scores %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}</div>{% endcall %}
+{% call fold('scores', 'How scores are worked out') %}<div class="prose pad">{% for s in SITE.scores if s.title not in ('Versions', 'Badge', 'Changes to this rubric') %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}<p>Rubric versions, the badges and every change to the rubric, with each card's old and new score: <a href="{{ SITE.repo }}blob/main/rules/scores.md#changes-to-this-rubric">rules/scores.md</a>.</p></div>{% endcall %}
 {% call fold('ai', 'How AI is used') %}<div class="prose pad">{{ tpl['How AI is used'] | md }}</div>{% endcall %}
-{% call fold('prompt', 'The analysis prompt', note='every card starts from it') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}{{ SITE.prompt.text | md }}</div>{% endcall %}
-{% call fold('writers', 'For card writers', note='what a card holds and how it is written') %}<div class="prose pad"><h3>Sections</h3>{{ tpl['Sections'] | md }}<h3>Wording</h3>{{ tpl['Wording'] | md }}</div>{% endcall %}
-{% call fold('changes', 'Changes to these rules') %}<div class="prose pad">{{ tpl['Changes to these rules'] | md }}</div>{% endcall %}
+{% call fold('prompt', 'The analysis prompt') %}<div class="prose pad">{% for s in SITE.prompt.intro %}{% if s.title %}<h3>{{ s.title }}</h3>{% endif %}{{ s.text | md }}{% endfor %}<p><a href="{{ SITE.repo }}blob/main/prompts/analyse-tool.md#the-prompt">Read the prompt</a> (prompts/analyse-tool.md).</p></div>{% endcall %}
 </div>
+<p class="measure">In the repository: <a href="{{ SITE.repo }}blob/main/rules/template.md#sections">what a card holds and how it is written</a>, and <a href="{{ SITE.repo }}blob/main/rules/template.md#changes-to-these-rules">changes to these rules</a>.</p>
 {% endblock %}

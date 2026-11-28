@@ -258,7 +258,8 @@
               "latest",
               "card_image",
               "not_analysed",
-              "newer"
+              "newer",
+              "discussion"
             ],
             "properties": {
               "id": {
@@ -303,6 +304,27 @@
               },
               "games": {
                 "$ref": "#/$defs/games"
+              },
+              "discussion": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "description": "The tool's thread in the repository's Discussions (Tools category), read from GitHub when the site is built, or null until one is started",
+                "required": [
+                  "url",
+                  "comments"
+                ],
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "comments": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Comments and replies in it, when the site was built"
+                  }
+                }
               },
               "mods_sites": {
                 "type": "array",
