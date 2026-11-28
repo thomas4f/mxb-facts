@@ -1,0 +1,50 @@
+$ objdump -p zip/mxbmrp3.dlo | grep 'DLL Name'; iat.py zip/mxbmrp3.dlo | grep -E 'SetUnhandledExceptionFilter|MiniDumpWriteDump|SetWindowLongPtr|GetAsyncKeyState|GetForegroundWindow|GetClipboardData|WinHttpOpen\b|WinHttpConnect|RegOpenKeyExA|RegGetValueA|RegQueryValueExA|OpenProcess|QueryFullProcessImageNameW|K32EnumProcessModules|ShellExecuteA|LoadLibraryW|GetProcAddress|VirtualProtect|XInputGetState|WSAStartup'; echo '--- absent:'; iat.py zip/mxbmrp3.dlo | grep -E 'RegSetValue|RegCreateKey|RegDeleteValue|WriteProcessMemory|ReadProcessMemory|VirtualAllocEx|CreateRemoteThread|SetWindowsHookEx|SendInput|keybd_event|mouse_event|CreateProcess|WinExec|AddVectoredExceptionHandler|SetClipboardData' || echo 'none of: registry writes, Read/WriteProcessMemory, VirtualAllocEx, CreateRemoteThread, SetWindowsHookEx, SendInput, keybd_event, mouse_event, CreateProcess, WinExec, AddVectoredExceptionHandler, SetClipboardData'
+	DLL Name: XINPUT1_4.dll
+	DLL Name: WINMM.dll
+	DLL Name: KERNEL32.dll
+	DLL Name: USER32.dll
+	DLL Name: GDI32.dll
+	DLL Name: SHELL32.dll
+	DLL Name: ole32.dll
+	DLL Name: ADVAPI32.dll
+	DLL Name: WINHTTP.dll
+	DLL Name: bcrypt.dll
+	DLL Name: dwmapi.dll
+	DLL Name: dbghelp.dll
+	DLL Name: WS2_32.dll
+	DLL Name: api-ms-win-core-synch-l1-2-0.dll
+	DLL Name: api-ms-win-core-localization-l1-2-0.dll
+	DLL Name: api-ms-win-core-synch-l1-1-0.dll
+	DLL Name: api-ms-win-core-processthreads-l1-1-0.dll
+	DLL Name: api-ms-win-core-rtlsupport-l1-1-0.dll
+	DLL Name: api-ms-win-core-errorhandling-l1-1-0.dll
+	DLL Name: api-ms-win-core-util-l1-1-0.dll
+	DLL Name: api-ms-win-core-processthreads-l1-1-1.dll
+	DLL Name: api-ms-win-core-string-l1-1-0.dll
+	DLL Name: api-ms-win-core-debug-l1-1-0.dll
+	DLL Name: api-ms-win-core-interlocked-l1-1-0.dll
+	DLL Name: OLEAUT32.dll
+	DLL Name: api-ms-win-core-winrt-error-l1-1-1.dll
+	DLL Name: api-ms-win-core-winrt-l1-1-0.dll
+0x18033e138  KERNEL32.dll!SetUnhandledExceptionFilter
+0x18033e1b0  KERNEL32.dll!GetProcAddress
+0x18033e1b8  KERNEL32.dll!LoadLibraryW
+0x18033e1d8  KERNEL32.dll!OpenProcess
+0x18033e1e0  KERNEL32.dll!QueryFullProcessImageNameW
+0x18033e228  KERNEL32.dll!K32EnumProcessModules
+0x18033e348  KERNEL32.dll!VirtualProtect
+0x18033e518  USER32.dll!SetWindowLongPtrA
+0x18033e528  USER32.dll!GetAsyncKeyState
+0x18033e570  USER32.dll!GetForegroundWindow
+0x18033e5d0  USER32.dll!GetClipboardData
+0x18033e638  USER32.dll!SetWindowLongPtrW
+0x18033e4f0  SHELL32.dll!ShellExecuteA
+0x18033e008  ADVAPI32.dll!RegGetValueA
+0x18033e010  ADVAPI32.dll!RegQueryValueExA
+0x18033e018  ADVAPI32.dll!RegOpenKeyExA
+0x18033e660  WINHTTP.dll!WinHttpConnect
+0x18033e698  WINHTTP.dll!WinHttpOpen
+0x18033e958  dbghelp.dll!MiniDumpWriteDump
+--- absent:
+none of: registry writes, Read/WriteProcessMemory, VirtualAllocEx, CreateRemoteThread, SetWindowsHookEx, SendInput, keybd_event, mouse_event, CreateProcess, WinExec, AddVectoredExceptionHandler, SetClipboardData
+(exit 0)

@@ -1,0 +1,48 @@
+$ cd "$SRC" && grep -nE 'enum class UpdateMode|OFF|NOTIFY' mxbmrp3/core/update_checker.h | head -6; grep -nE 'm_mode\(UpdateMode::NOTIFY\)|GITHUB_API_HOST|/releases\?per_page|browser_download_url|"digest"|sha256:' mxbmrp3/core/update_checker.cpp mxbmrp3/core/update_checker.h; grep -nE 'Trigger update check on startup|isEnabled\(\)\) \{|checkForUpdates\(\);|return;$|No settings file found' mxbmrp3/core/settings_manager.cpp | sed -n '1,12p'; grep -nE 'checksumError|m_expectedSize|https://github.com' mxbmrp3/core/update_downloader.cpp | head -8; grep -nE 'backupDir \+ GAME_DLO_NAME|MXB_DATA_DIR_NAME;|find\("\.\."\)|shouldSkipFile\(const' mxbmrp3/core/update_downloader_install.cpp; grep -rn 'mxbmrp3_update_backup' mxbmrp3/core/plugin_constants.h mxbmrp3/core/update_downloader*.h | head -3
+28:    enum class UpdateMode {
+29:        OFF,      // Don't check for updates
+30:        NOTIFY    // Check and notify user (manual install via Install button)
+48:    // Legacy compatibility - maps to mode != OFF
+49:    bool isEnabled() const { return m_mode != UpdateMode::OFF; }
+50:    void setEnabled(bool enabled) { m_mode = enabled ? UpdateMode::NOTIFY : UpdateMode::OFF; }
+mxbmrp3/core/update_checker.cpp:27:    , m_mode(UpdateMode::NOTIFY)  // Notify by default (stable channel); notify-only, never auto-installs
+mxbmrp3/core/update_checker.cpp:285:    apiPath += "/releases?per_page=15";
+mxbmrp3/core/update_checker.cpp:288:    std::wstring wHost(GITHUB_API_HOST, GITHUB_API_HOST + strlen(GITHUB_API_HOST));
+mxbmrp3/core/update_checker.cpp:482:                if (asset.contains("browser_download_url") && asset["browser_download_url"].is_string()) {
+mxbmrp3/core/update_checker.cpp:483:                    downloadUrl = asset["browser_download_url"].get<std::string>();
+mxbmrp3/core/update_checker.cpp:488:                // Extract SHA256 from digest field (format: "sha256:abc123...")
+mxbmrp3/core/update_checker.cpp:489:                if (asset.contains("digest") && asset["digest"].is_string()) {
+mxbmrp3/core/update_checker.cpp:490:                    std::string digest = asset["digest"].get<std::string>();
+mxbmrp3/core/update_checker.cpp:491:                    if (digest.substr(0, 7) == "sha256:") {
+mxbmrp3/core/update_checker.h:254:    std::string m_downloadUrl MXB_GUARDED_BY(m_mutex);    // Asset browser_download_url
+mxbmrp3/core/update_checker.h:280:    static constexpr const char* GITHUB_API_HOST = "api.github.com";
+148:            DEBUG_INFO_F("No settings file found at: %s (using defaults)", filePath.c_str());
+154:        return;
+755:    // Trigger update check on startup if enabled
+756:    if (UpdateChecker::getInstance().isEnabled()) {
+767:        UpdateChecker::getInstance().checkForUpdates();
+835:    if (!m_prestigeDefaultPending) return;
+839:    if (stats.getPrestige() > 0) return;
+845:        return;
+850:        if (it == section.end() || it->second != "1") return;
+884:    if (factory == m_hudFactoryDefaults.end()) return;
+944:            return;
+951:        return;
+41:    , m_expectedSize(0)
+132:        m_expectedSize = expectedSize;
+417:        if (m_expectedSize > 0 && zipData.size() != m_expectedSize) {
+418:            std::string errorMsg = "Size mismatch: expected " + std::to_string(m_expectedSize) +
+443:        // Nothing reaches extractAndInstall() without passing checksumError():
+445:        if (const char* verifyError = checksumError(zipData, expectedHash)) {
+577:    // URL format: https://github.com/...
+218:    std::string dloDst = backupDir + GAME_DLO_NAME;
+229:    std::string dataSrc = pluginDir + MXB_DATA_DIR_NAME;  // No trailing backslash for MoveFile
+230:    std::string dataDst = backupDir + MXB_DATA_DIR_NAME;
+261:    std::string dataDir = pluginDir + MXB_DATA_DIR_NAME;
+268:    std::string dloSrc = backupDir + GAME_DLO_NAME;
+284:    std::string dataSrc = backupDir + MXB_DATA_DIR_NAME;
+285:    std::string dataDst = pluginDir + MXB_DATA_DIR_NAME;
+348:static bool shouldSkipFile(const std::string& filename) {
+427:        if (filename.find("..") != std::string::npos ||
+547:        if (filename.find("..") != std::string::npos ||
+(exit 0)

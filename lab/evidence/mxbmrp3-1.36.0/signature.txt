@@ -1,0 +1,14 @@
+$ objdump -p zip/mxbmrp3.dlo zip/mxbmrp3_gpb.dlo zip/mxbmrp3_krp.dlo mxbmrp3-Setup.exe msi-streams/Binary.MxbCa | grep -E 'file format|Security Directory'; echo '--- MSI signature stream:'; 7z l -tCompound mxbmrp3-Setup.msi | grep -c DigitalSignature
+zip/mxbmrp3.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+zip/mxbmrp3_gpb.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+zip/mxbmrp3_krp.dlo:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+mxbmrp3-Setup.exe:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+msi-streams/Binary.MxbCa:     file format pei-x86-64
+Entry 4 0000000000000000 00000000 Security Directory
+--- MSI signature stream:
+0
+(exit 1)

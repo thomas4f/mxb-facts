@@ -1,0 +1,29 @@
+$ cd "$SRC" && grep -nE 'm_enabled(\(|\{) ?false' mxbmrp3/core/steam_friends_manager.cpp mxbmrp3/core/discord_manager.cpp mxbmrp3/core/http_server.cpp mxbmrp3/core/media_manager.h mxbmrp3/core/companion_window.h mxbmrp3/core/spotter_manager.h; grep -nE 'SetRichPresence, m_friends' mxbmrp3/core/steam_friends_manager.cpp; grep -nE 'GetModuleHandle|SteamAPI_Init' mxbmrp3/core/steam_friends_manager.cpp | head -3; grep -nE 'm_bAutoFetch = false' mxbmrp3/hud/records_hud.h; grep -nE 'url \+= "&(track|category)=|trackname' mxbmrp3/core/records_fetcher.cpp; grep -nE 'DEFAULT_BIND_ADDRESS =|DEFAULT_PORT =' mxbmrp3/core/http_server.h; grep -nE 'isAllowedHost\(host\)|isSameOrigin\(req|res.status = 403' mxbmrp3/core/http_server.cpp; grep -nE 'return origin == ' mxbmrp3/core/http_server_internal.h; grep -rn 'Access-Control-Allow' mxbmrp3/core || echo 'no Access-Control-Allow header'; grep -n 'out += ",\\"name\\":";' mxbmrp3/core/http_server_snapshot.cpp
+mxbmrp3/core/steam_friends_manager.cpp:203:    , m_enabled(false)
+mxbmrp3/core/discord_manager.cpp:34:    : m_enabled(false)
+mxbmrp3/core/http_server.cpp:53:    : m_enabled(false)
+mxbmrp3/core/media_manager.h:140:    std::atomic<bool> m_enabled{false};
+mxbmrp3/core/companion_window.h:151:    std::atomic<bool> m_enabled{ false };
+633:    sehSetRichPresence(m_fnSetRichPresence, m_friends, "status",  status.c_str());
+634:    sehSetRichPresence(m_fnSetRichPresence, m_friends, "track",   track.c_str());
+635:    sehSetRichPresence(m_fnSetRichPresence, m_friends, "server",  server.c_str());
+636:    sehSetRichPresence(m_fnSetRichPresence, m_friends, "session", sessionStr.c_str());
+637:    sehSetRichPresence(m_fnSetRichPresence, m_friends, "state",   stateStr.c_str());
+638:    sehSetRichPresence(m_fnSetRichPresence, m_friends, "format",  fmt.c_str());
+639:    sehSetRichPresence(m_fnSetRichPresence, m_friends, "progress", progress.c_str());
+383:    return GetModuleHandleA("steam_api64.dll") != nullptr
+384:        || GetModuleHandleA("steam_api.dll") != nullptr;
+388:    HMODULE hSteam = GetModuleHandleA("steam_api64.dll");
+261:    bool m_bAutoFetch = false;  // Auto-fetch records when entering event (default off)
+112:        // MXB-Ranked uses path-based URL: /trackname or /trackname/category
+138:            url += "&track=";
+144:            url += "&category=";
+187:    static constexpr const char* DEFAULT_BIND_ADDRESS = "127.0.0.1";
+188:    static constexpr int DEFAULT_PORT = 8080;
+362:            if (!http_server_detail::isAllowedHost(host)
+363:                || !http_server_detail::isSameOrigin(req.get_header_value("Origin"), host)) {
+364:                res.status = 403;
+143:    return origin == "http://" + host;
+no Access-Control-Allow header
+450:            out += ",\"name\":";
+(exit 0)

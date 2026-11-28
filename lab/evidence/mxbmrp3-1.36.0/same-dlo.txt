@@ -1,0 +1,11 @@
+$ sha256sum zip/*.dlo exe/*/*.dlo msi/MXBDlo msi/GPBDlo msi/KRPDlo | sort
+156cd0537ded408fc4ed64dc59020ad804e7cf652763beada4a7c6c8e5f8295b  exe/$_31_/mxbmrp3_krp.dlo
+156cd0537ded408fc4ed64dc59020ad804e7cf652763beada4a7c6c8e5f8295b  msi/KRPDlo
+156cd0537ded408fc4ed64dc59020ad804e7cf652763beada4a7c6c8e5f8295b  zip/mxbmrp3_krp.dlo
+4ac71f3bfea796070baa23a4a6a186c5a77c66867be7301ef14d8cfe820a81f2  exe/$_28_/mxbmrp3_gpb.dlo
+4ac71f3bfea796070baa23a4a6a186c5a77c66867be7301ef14d8cfe820a81f2  msi/GPBDlo
+4ac71f3bfea796070baa23a4a6a186c5a77c66867be7301ef14d8cfe820a81f2  zip/mxbmrp3_gpb.dlo
+f06929a2616d7183a5b19a6aa8f9a752cb488cbf7b66ec0af0fb5336a7bc1768  exe/$_25_/mxbmrp3.dlo
+f06929a2616d7183a5b19a6aa8f9a752cb488cbf7b66ec0af0fb5336a7bc1768  msi/MXBDlo
+f06929a2616d7183a5b19a6aa8f9a752cb488cbf7b66ec0af0fb5336a7bc1768  zip/mxbmrp3.dlo
+(exit 0)

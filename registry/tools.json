@@ -449,7 +449,8 @@
     "github": "thomas4f/mxbmrp3",
     "homepage": "https://thomas4f.github.io/mxbmrp3/",
     "cards": [
-      "mxbmrp3-1.35.0.yaml"
+      "mxbmrp3-1.35.0.yaml",
+      "mxbmrp3-1.36.0.yaml"
     ],
     "mxb-mods": {
       "post": 170597,

@@ -1,0 +1,28 @@
+$ unzip -l mxbmrp3.zip | tail -1; file mxbmrp3-Setup.exe mxbmrp3-Setup.msi; find zip exe msi msi-streams -type f -exec file {} + | grep -E 'PE32|MS-DOS|ELF|script' | sed 's/,.*//'
+ 52323659                     898 files
+mxbmrp3-Setup.exe: PE32+ executable for MS Windows 5.02 (GUI), x86-64 (stripped to external PDB), 9 sections
+mxbmrp3-Setup.msi: Composite Document File V2 Document, Little Endian, Os: Windows, Version 6.2, MSI Installer, Code page: 1252, Title: Installation Database, Subject: MXBMRP3 Setup - Plugin for PiBoSo Racing Simulators, Author: thomas4f, Keywords: Installer, Comments: This installer database contains the logic and data required to install MXBMRP3., Create Time/Date: Fri Nov 27 22:49:20 2026, Name of Creating Application: WiX Toolset (5.0.2.0), Security: 4, Template: x64;1033, Last Saved By: x64;1031, Revision Number: {D3B5E000-6761-4F8F-B468-D7E06C33E8D3}1.36.0.74;{D3B5E000-6761-4F8F-B468-D7E06C33E8D3}1.36.0.74;{F4C7CBAA-592D-4222-880C-05F05165661B}, Number of Pages: 500, Number of Characters: 131135
+zip/mxbmrp3_krp.dlo:                                                     PE32+ executable for MS Windows 6.00 (DLL)
+zip/mxbmrp3.dlo:                                                         PE32+ executable for MS Windows 6.00 (DLL)
+zip/mxbmrp3_gpb.dlo:                                                     PE32+ executable for MS Windows 6.00 (DLL)
+exe/$PLUGINSDIR/System.dll:                                              PE32+ executable for MS Windows 5.02 (DLL)
+exe/$PLUGINSDIR/nsDialogs.dll:                                           PE32+ executable for MS Windows 5.02 (DLL)
+exe/$PLUGINSDIR/LangDLL.dll:                                             PE32+ executable for MS Windows 5.02 (DLL)
+exe/$_28_/mxbmrp3_gpb.dlo:                                               PE32+ executable for MS Windows 6.00 (DLL)
+exe/$_25_/mxbmrp3.dlo:                                                   PE32+ executable for MS Windows 6.00 (DLL)
+exe/$_31_/mxbmrp3_krp.dlo:                                               PE32+ executable for MS Windows 6.00 (DLL)
+msi/GPBDlo:                                                              PE32+ executable for MS Windows 6.00 (DLL)
+msi/KRPDlo:                                                              PE32+ executable for MS Windows 6.00 (DLL)
+msi/MXBDlo:                                                              PE32+ executable for MS Windows 6.00 (DLL)
+msi-streams/1044/!Property:                                              GTA script (SCM)
+msi-streams/1036/!Property:                                              GTA script (SCM)
+msi-streams/Binary.MxbCa:                                                PE32+ executable for MS Windows 6.00 (DLL)
+msi-streams/1031/!Property:                                              GTA script (SCM)
+msi-streams/Binary.Wix4UtilCA_X64:                                       PE32+ executable for MS Windows 6.00 (DLL)
+msi-streams/1053/!Property:                                              GTA script (SCM)
+msi-streams/3082/!Property:                                              GTA script (SCM)
+msi-streams/1043/!Property:                                              GTA script (SCM)
+msi-streams/1046/!Property:                                              GTA script (SCM)
+msi-streams/1040/!Property:                                              GTA script (SCM)
+msi-streams/1055/!Property:                                              GTA script (SCM)
+(exit 0)

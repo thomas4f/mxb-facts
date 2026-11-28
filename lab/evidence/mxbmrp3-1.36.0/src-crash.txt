@@ -1,0 +1,16 @@
+$ cd "$SRC" && grep -nE 'SetUnhandledExceptionFilter|MiniDumpWriteDump\(|return s_previousFilter|EXCEPTION_CONTINUE_SEARCH' mxbmrp3/core/crash_handler.cpp; grep -n 'CrashHandler::install' mxbmrp3/core/plugin_manager.cpp
+118:        if (s_previousFilter) return s_previousFilter(info);
+119:        return EXCEPTION_CONTINUE_SEARCH;
+137:        if (s_previousFilter) return s_previousFilter(info);
+138:        return EXCEPTION_CONTINUE_SEARCH;
+144:        if (s_previousFilter) return s_previousFilter(info);
+145:        return EXCEPTION_CONTINUE_SEARCH;
+156:        if (s_previousFilter) return s_previousFilter(info);
+157:        return EXCEPTION_CONTINUE_SEARCH;
+184:        BOOL dumpOk = MiniDumpWriteDump(GetCurrentProcess(), GetCurrentProcessId(),
+387:        return s_previousFilter(info);
+389:    return EXCEPTION_CONTINUE_SEARCH;
+459:    s_previousFilter = SetUnhandledExceptionFilter(&crashFilter);
+466:    SetUnhandledExceptionFilter(s_previousFilter);
+157:    CrashHandler::install(savePath);
+(exit 0)

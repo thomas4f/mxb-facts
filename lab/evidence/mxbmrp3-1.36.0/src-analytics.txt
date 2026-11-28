@@ -1,0 +1,98 @@
+$ cd "$SRC" && grep -nE 'm_enabled\(true\)' mxbmrp3/core/analytics_manager.cpp; grep -nE 'optOutWithoutSetup|setEnabled\(false\)' mxbmrp3/core/settings_manager.cpp; grep -nE 'analyticsOptOut "0"|NSD_Check|analyticsOptOut=1' packaging/mxbmrp3.nsi | head -5; grep -nE 'define GAME_HAS_ANALYTICS' -B2 mxbmrp3/game/game_config.h; grep -nE 'sys\["|props\["|hit\["' mxbmrp3/core/analytics_manager.cpp | head -70; grep -nE 'generateUuidV4|BCryptGenRandom' mxbmrp3/core/analytics_manager_identity.cpp mxbmrp3/core/analytics_identity.h | head -4; grep -nE 'aptabase.com|goatcounter.com|ANALYTICS_CONFIG_HOST|GOATCOUNTER_CODE =' mxbmrp3/core/analytics_endpoint.h mxbmrp3/core/analytics_manager.cpp mxbmrp3/core/plugin_constants.h; grep -n 'return' mxbmrp3/core/analytics_remote_config.h; cat analytics_config.json; grep -n 'analytics_disabled' mxbmrp3/hud/settings/settings_tab_general.cpp
+229:    : m_enabled(true)   // opt-out: on by default
+938:            if (InstallPrefs::optOutWithoutSetup(f.is_open(), freshInstall)) {
+939:                AnalyticsManager::getInstance().setEnabled(false);
+969:    AnalyticsManager::getInstance().setEnabled(false);
+166:      FileWrite $9 "analyticsOptOut=1$\r$\n"
+169:      FileWrite $9 "analyticsOptOut=1$\r$\n"
+521:  StrCpy $analyticsOptOut "0"      ; analytics ships ON; the Privacy page can only turn it off
+686:    StrCpy $analyticsOptOut "0"
+957:    ${NSD_Check} $analyticsCheckbox
+257-// Aptabase). Game-agnostic; enabled for the shipping targets. WRS is stubbed.
+258-#if (defined(GAME_MXBIKES) || defined(GAME_GPBIKES) || defined(GAME_KRP)) && !defined(MXBMRP3_TEST_BUILD)
+259:    #define GAME_HAS_ANALYTICS 1
+260-#else
+261:    #define GAME_HAS_ANALYTICS 0
+270:    hit["path"] = std::string("/launch/") + GAME_SHORT_NAME + "/" + PluginConstants::PLUGIN_VERSION;
+271:    hit["title"] = std::string("Launch (") + GAME_NAME + " " + PluginConstants::PLUGIN_VERSION + ")";
+279:        hit["session"] = m_installId;
+293:    sys["locale"] = userLocale();
+294:    sys["osName"] = osName();
+295:    if (!m_osVersion.empty()) sys["osVersion"] = m_osVersion;  // shim-proof, incl. Wine
+297:    sys["isDebug"] = true;
+299:    sys["isDebug"] = s_testCaptureMode;   // capture mode → debug bucket (belt-and-suspenders)
+301:    sys["isDebug"] = false;
+303:    sys["appVersion"] = PluginConstants::PLUGIN_VERSION;  // version distribution
+304:    sys["sdkVersion"] = ANALYTICS_SDK_VERSION;
+307:    props["install_id"] = m_installId;
+308:    props["game"] = GAME_NAME;  // dimension for per-game charts (MXB/GPB/KRP)
+312:    props["version_status"] = m_versionStatus;
+313:    props["prev_version"] = m_prevVersion;
+315:    props["update_channel"] = UpdateChecker::getInstance().isPrereleaseChannel() ? "prerelease" : "stable";
+319:    props["launch_count"] = static_cast<long long>(m_launchCount);
+325:        props["identity_repair"] = m_identityRepair == IdentityRepair::RECOVERED ? 1 : 2;
+330:        props["install_age_days"] = static_cast<long long>(ageSec / 86400ULL);
+335:    props["steam_runtime"] = SteamFriendsManager::isSteamRuntimeAvailable() ? 1 : 0;
+362:        props["hud_stream_chat"] = shown ? 1 : 0;
+365:    props["hud_count"] = hudCount;
+366:    props["widget_count"] = widgetCount;
+367:    props["deck_count"] = deckCount;
+371:    props["feat_discord"] = DiscordManager::getInstance().isEnabled() ? 1 : 0;
+374:    props["feat_steam"] = SteamFriendsManager::getInstance().isEnabled() ? 1 : 0;
+380:    props["feat_overlay"] = HttpServer::getInstance().isEnabled() ? 1 : 0;
+382:    props["feat_rumble"] = XInputReader::getInstance().getRumbleConfig().enabled ? 1 : 0;
+383:    props["feat_helmet"] = HudManager::getInstance().getHelmetOverlayHud().isVisible() ? 1 : 0;
+385:    props["feat_director"] = DirectorManager::getInstance().isEnabled() ? 1 : 0;
+388:    props["feat_twitch"] = (TwitchChatManager::getInstance().isEnabled() &&
+391:    props["feat_youtube"] = (YouTubeChatManager::getInstance().isEnabled() &&
+394:    props["feat_autoswitch"] = ProfileManager::getInstance().isAutoSwitchEnabled() ? 1 : 0;
+395:    props["feat_updates"] = UpdateChecker::getInstance().isEnabled() ? 1 : 0;
+404:    props["feat_achievements"] = AchievementManager::getInstance().isToastsEnabled() ? 1 : 0;
+417:        props["ach_pct"] = static_cast<long long>(tiers > 0 ? (ach.earnedUnits() * 100) / tiers : 0);
+418:        props["ach_unlocked"] = static_cast<long long>(ach.earnedAchievements());
+419:        props["ach_bonus"] = static_cast<long long>(ach.bonusAchievements());
+429:    props["feat_companion"] = (UiConfig::getInstance().getDisplayTarget() != DisplayTarget::IN_GAME) ? 1 : 0;
+431:    props["feat_thread"] = UiConfig::getInstance().getPluginThread() ? 1 : 0;
+436:    props["feat_hwaccel"] = CompanionWindow::getInstance().getHwAccel() ? 1 : 0;
+440:    props["feat_glingame"] = UiConfig::getInstance().getGlInGame() ? 1 : 0;
+443:    props["feat_devmode"] = SettingsManager::getInstance().isDeveloperMode() ? 1 : 0;
+457:        props["panel_theme"] = AnalyticsTheme::label(themeName, installed);
+473:        props["spotter"] =
+481:    props["language"] = AnalyticsLanguage::label(I18n::activeFolder());
+482:    props["language_system"] = (I18n::languageFolder() == I18n::kSystemLanguage) ? 1 : 0;
+501:    sys["osName"] = osName();
+502:    if (!m_osVersion.empty()) sys["osVersion"] = m_osVersion;
+504:    sys["isDebug"] = true;
+506:    sys["isDebug"] = false;
+508:    sys["appVersion"] = PluginConstants::PLUGIN_VERSION;
+509:    sys["sdkVersion"] = ANALYTICS_SDK_VERSION;
+533:    sys["osName"] = osName();
+534:    if (!m_osVersion.empty()) sys["osVersion"] = m_osVersion;
+536:    sys["isDebug"] = true;
+538:    sys["isDebug"] = false;
+540:    sys["appVersion"] = PluginConstants::PLUGIN_VERSION;   // reporting-launch version
+541:    sys["sdkVersion"] = ANALYTICS_SDK_VERSION;
+mxbmrp3/core/analytics_manager_identity.cpp:100:        m_installId = generateUuidV4();   // may be "" on RNG failure; caller handles it
+mxbmrp3/core/analytics_manager_identity.cpp:123:        id = generateUuidV4();  // first run, or well-formed file missing the key
+mxbmrp3/core/analytics_endpoint.h:18:    if (key.find("-EU-") != std::string::npos) return L"eu.aptabase.com";
+mxbmrp3/core/analytics_endpoint.h:19:    if (key.find("-US-") != std::string::npos) return L"us.aptabase.com";
+mxbmrp3/core/analytics_manager.cpp:841:        m_gcHost += L".goatcounter.com";
+mxbmrp3/core/plugin_constants.h:57:    // cap is reached. The code is the goatcounter.com site subdomain
+mxbmrp3/core/plugin_constants.h:58:    // (mxbmrp3 -> mxbmrp3.goatcounter.com). Unlike the token this is PUBLIC — it
+mxbmrp3/core/plugin_constants.h:65:    constexpr const char* GOATCOUNTER_CODE = MXBMRP3_STRINGIFY(MXBMRP3_GOATCOUNTER_CODE);
+mxbmrp3/core/plugin_constants.h:67:    constexpr const char* GOATCOUNTER_CODE = "mxbmrp3";  // name-literal: GoatCounter site code, external id
+mxbmrp3/core/plugin_constants.h:93:    constexpr const char* ANALYTICS_CONFIG_HOST = "raw.githubusercontent.com";
+33:// Parse the remote config body and return the full-event sample fraction in [0,1].
+38:        if (!j.is_object()) return 1.0;
+40:        if (it == j.end() || !it->is_number()) return 1.0;
+42:        if (!(v == v)) return 1.0;   // NaN -> full
+43:        if (v < 0.0) return 0.0;     // clamp
+44:        if (v > 1.0) return 1.0;     // clamp (also catches +Inf)
+45:        return v;
+47:        return 1.0;   // malformed JSON -> full
+56:    if (sample >= 1.0) return true;
+57:    if (sample <= 0.0) return false;
+58:    return roll01 < sample;
+{ "aptabase_full_sample": 1.0 }
+128:                    AnalyticsManager::getInstance().trackEvent("analytics_disabled");
+(exit 0)
